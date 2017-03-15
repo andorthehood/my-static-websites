@@ -7,5 +7,5 @@ tags: concert synth eurorack
 location: "Los Angeles, California"
 ---
 
-<img src="{{ "/2016/28699636710_081a9d89cd_k.jpg" | prepend: site.imagehost_url }}" />
-<img src="{{ "/2016/28699661510_b15ca9c703_k.jpg" | prepend: site.imagehost_url }}" />
+{% include img.liquid img="28699636710_081a9d89cd_k" date=page.date %}
+{% include img.liquid img="28699661510_b15ca9c703_k" date=page.date %}

@@ -9,4 +9,4 @@ location: "Tokyo, Japan"
 
 The famous modular wall of Tokyo.
 
-<img src="{{ "/2016/25491302140_d8084aa737_k.jpg" | prepend: site.imagehost_url }}" />
+{% include img.liquid img="25491302140_d8084aa737_k" date=page.date %}
