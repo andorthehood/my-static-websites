@@ -7,6 +7,6 @@ tags: travel
 location: "Rotterdam, Netherlands"
 ---
 
-<img src="{{ "/2015/18433005335_48fc1545b9_k.jpg" | prepend: site.imagehost_url }}" />
+{% include img.liquid img="18433005335_48fc1545b9_k" date=page.date %}
 
 Camera: Canon EOS 700D, Lens: Canon 24mm F2.8 STM EF-S

@@ -7,5 +7,5 @@ tags: travel
 location: "California, United States of America"
 ---
 
-<img src="{{ "/2015/23037903975_d4ae15c5b2_k.jpg" | prepend: site.imagehost_url }}" />
-<img src="{{ "/2015/23037964595_7f8cf2a689_k.jpg" | prepend: site.imagehost_url }}" />
+{% include img.liquid img="23037903975_d4ae15c5b2_k" date=page.date %}
+{% include img.liquid img="23037964595_7f8cf2a689_k" date=page.date %}

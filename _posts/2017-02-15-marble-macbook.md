@@ -7,5 +7,5 @@ tags: art
 location: "Los Angeles, California"
 ---
 
-<img src="{{ "/2017/32546913630_eecbfc775e_k.jpg" | prepend: site.imagehost_url }}" />
-<img src="{{ "/2017/32927632125_a7c1a648b7_k.jpg" | prepend: site.imagehost_url }}" />
+{% include img.liquid img="32546913630_eecbfc775e_k" date=page.date %}
+{% include img.liquid img="32927632125_a7c1a648b7_k" date=page.date %}

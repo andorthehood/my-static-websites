@@ -9,4 +9,4 @@ location: "Trier, Germany"
 
 My favorite modules in my new Elite Modular 208 case.
 
-<img src="{{ "/2016/27557777831_30e410aee8_k.jpg" | prepend: site.imagehost_url }}" />
+{% include img.liquid img="27557777831_30e410aee8_k" date=page.date %}

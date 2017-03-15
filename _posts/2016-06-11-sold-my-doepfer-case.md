@@ -9,4 +9,4 @@ location: "Trier, Germany"
 
 I hope your new owner will take good care of you! :(
 
-<img src="{{ "/2016/27526259791_2a005a3629_k.jpg" | prepend: site.imagehost_url }}" />
+{% include img.liquid img="27526259791_2a005a3629_k" date=page.date %}

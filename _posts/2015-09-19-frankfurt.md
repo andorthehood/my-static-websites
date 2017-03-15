@@ -7,7 +7,7 @@ tags: travel
 location: "Frankfurt, Germany"
 ---
 
-<img src="{{ "/2015/21571488501_6cda9cf4f0_k.jpg" | prepend: site.imagehost_url }}" />
-<img src="{{ "/2015/21571481821_d20fa2bb36_k.jpg" | prepend: site.imagehost_url }}" />
+{% include img.liquid img="21571488501_6cda9cf4f0_k" date=page.date %}
+{% include img.liquid img="21571481821_d20fa2bb36_k" date=page.date %}
 
 Camera: Canon EOS 700D, Lens: Canon EF 50mm f/1.4 USM

@@ -9,5 +9,5 @@ location: "Long Beach, California"
 
 My wife took some pictures of the process, so you don't have to imagine what you can't possibly imagine anyway.
 
-<img src="{{ "/2017/32361739145_4661f2e296_k.jpg" | prepend: site.imagehost_url }}" />
-<img src="{{ "/2017/32241398961_81b234d143_k.jpg" | prepend: site.imagehost_url }}" />
+{% include img.liquid img="32361739145_4661f2e296_k" date=page.date %}
+{% include img.liquid img="32241398961_81b234d143_k" date=page.date %}
