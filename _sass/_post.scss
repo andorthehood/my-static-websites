@@ -1,0 +1,47 @@
+.post {
+	padding: 2rem 0;
+	color: #333333;
+	font-size: 2rem;
+	font-family: $serif-font;
+	line-height: 3.2rem;
+	word-spacing: 0.1rem;
+
+	&__title {
+		color: #333333;
+		font-size: 4rem;
+		line-height: 4rem;
+		font-family: $sans-serif-font;
+		margin: 0;
+		padding: 0;
+		text-decoration: none;
+	}
+
+	&__date {
+		font-size: 2rem;
+		line-height: 4rem;
+	}
+
+	p {
+		margin: 0;
+		padding: 1rem 0;
+	}
+
+	&__content {
+		img {
+			width: 100%;
+		}
+
+		a {
+			color: #336699;
+			text-decoration: underline;
+		}
+	}
+
+	&__tags {
+	}
+
+	&__tag {
+		color: #336699;
+		text-decoration: none;
+	}
+}

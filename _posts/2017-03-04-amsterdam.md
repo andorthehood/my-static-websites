@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Synthesizing in Amsterdam"
+date: 2017-03-04 14:31:00 +0100
+categories: posts
+tags: art eurorack
+location: "Amsterdam, Netherlands"
+---
+
+{% include img.liquid img="33201594736_fe281257d1_k" %}
+{% include img.liquid img="33010473550_aaa292dd6d_k" %}

@@ -1,0 +1,18 @@
+title: Andor Polgar
+email: hngrhorace@gmail.com
+description: >
+  I'm a man of few words, so here's my photoblog.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://andor.cool" # the base hostname & protocol for your site
+twitter_username: hngrhorace
+github_username:  andormade
+imagehost_url: "http://images.andor.cool"
+paginate: 10
+paginate_path: "/pages/:num/"
+
+sass:
+    sass_dir: _sass
+    style: compressed
+
+# Build settings
+markdown: kramdown

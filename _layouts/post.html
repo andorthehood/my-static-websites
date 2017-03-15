@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<div class="post-list">
+	<div class="post">
+		<h2 class="post__title"><a class="post__title" href="{{ page.url | prepend: site.baseurl }}">{{ page.title | escape }}</a></h2>
+		<span class="post__date">{{ page.date | date: "%B %-d, %Y" }}</span>
+		{% if post.location %}
+			&middot; <span class="post__location">{{ page.location }}</span>
+		{% endif %}
+		<div class="post__content">{{ page.content }}</div>
+	</div><!-- .post -->
+</div><!-- .post-list -->

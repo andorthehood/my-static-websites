@@ -1,0 +1,10 @@
+---
+layout: post
+title: "Eurorack Ambient"
+date: 2017-01-22 22:52:39 -0800
+categories: posts
+tags: eurorack synth video art
+location: "Los Angeles, California"
+---
+
+{% include youtube.liquid src="https://www.youtube.com/embed/buDBX2X2Kw0" %}

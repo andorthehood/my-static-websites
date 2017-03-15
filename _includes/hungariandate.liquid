@@ -1,0 +1,26 @@
+{% comment %}
+
+Usage: {% include hungariandate.liquid date=post.date %}
+or:  {% include hungariandate.liquid date=page.date %}
+
+2016 Andor Polgar (andor.cool)
+
+{% endcomment %}
+
+{{ include.date | date: "%Y." }}
+{% assign m = include.date | date: "%-m" %}
+{% case m %}
+	{% when '1' %} január
+	{% when '2' %} február
+	{% when '3' %} március
+	{% when '4' %} április
+	{% when '5' %} május
+	{% when '6' %} június
+	{% when '7' %} július
+	{% when '8' %} augusztus
+	{% when '9' %} szeptember
+	{% when '10' %} október
+	{% when '11' %} november
+	{% when '12' %} december
+{% endcase %}
+{{ include.date | date: "%-d." }}

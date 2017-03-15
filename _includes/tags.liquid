@@ -1,0 +1,7 @@
+{% assign tag_count = include.tags | size %}
+
+{% if tag_count != 0 %}<p>Tags:
+	{% for tag in include.tags %}
+		<a href="/tag/{{ tag }}" class="post__tag">{{ tag }}</a>{% if tag != include.tags.last %},{% endif %}
+	{% endfor %}
+{% endif %}
