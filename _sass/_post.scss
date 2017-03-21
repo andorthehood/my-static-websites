@@ -1,13 +1,13 @@
 .post {
 	padding: 2rem 0;
-	color: #333333;
+	color: $post-text-color;
 	font-size: 2rem;
 	font-family: $serif-font;
 	line-height: 3.2rem;
 	word-spacing: 0.1rem;
 
 	&__title {
-		color: #333333;
+		color: $post-title-color;
 		font-size: 4rem;
 		line-height: 4rem;
 		font-family: $sans-serif-font;
@@ -32,7 +32,7 @@
 		}
 
 		a {
-			color: #336699;
+			color: $post-link-color;
 			text-decoration: underline;
 		}
 	}
@@ -41,7 +41,7 @@
 	}
 
 	&__tag {
-		color: #336699;
+		color: $post-link-color;
 		text-decoration: none;
 	}
 }
