@@ -6,14 +6,14 @@
 		<meta name="description" content="{{ site.description }}">
 
 		<title>{{ site.title }}</title>
-		<link href="{{ "/css/main.css" | prepend: root_url }}" media="screen, projection" rel="stylesheet" type="text/css">
+		<link href="{{ "/css/main.css" | prepend: baseurl }}" media="screen, projection" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300|Roboto:900&subset=latin-ext" rel="stylesheet">
 	</head>
 	<body>
 		<div class="wrapper">
 			<div class="header">
 				<h1 class="header__title">
-					<a href="{{ root_url }}" class="header__link">{{ site.title }}</a>
+					<a href="{{ baseurl }}/" class="header__link">{{ site.title }}</a>
 				</h1>
 			</div>
 			{{ content }}
