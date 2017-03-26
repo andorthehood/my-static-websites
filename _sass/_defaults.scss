@@ -2,6 +2,10 @@ html {
 	font-size: 62.5%;
 }
 
+img {
+	display: block;
+}
+
 .wrapper {
 	margin: 0 auto;
 	max-width: $max-width;
