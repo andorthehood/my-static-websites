@@ -1,20 +1,15 @@
 .header {
+	padding: 1rem 0;
+
 	&__title {
-		font-family: $sans-serif-font;
-		font-size: 6rem;
-		letter-spacing: .5rem;
-		line-height: 6rem;
+		color: $site-title-color;
+		font-family: $serif-font;
+		font-size: 2rem;
+		font-weight: normal;
+		line-height: 3.2rem;
 		margin: 0;
 		max-width: 50rem;
-		padding: 1rem 0;
-	}
-
-	&__link {
-		color: $site-title-color;
+		padding: 0;
 		text-decoration: none;
-	}
-
-	&__tagline {
-		font-size: 2rem;
 	}
 }
