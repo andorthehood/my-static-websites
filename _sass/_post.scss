@@ -1,24 +1,28 @@
 .post {
-	padding: 2rem 0;
 	color: $post-text-color;
 	font-size: 2rem;
 	font-family: $serif-font;
 	line-height: 3.2rem;
 	word-spacing: 0.1rem;
 
+	&__details {
+		padding: 0 0 1rem 0;
+	}
+
 	&__title {
 		color: $post-title-color;
-		font-size: 4rem;
-		line-height: 4rem;
-		font-family: $sans-serif-font;
+		font-size: 2rem;
+		line-height: 3.2rem;
+		font-family: $serif-font;
+		font-weight: normal;
 		margin: 0;
-		padding: 0;
+		padding: 1rem 0 0 0;
 		text-decoration: none;
 	}
 
 	&__date {
 		font-size: 2rem;
-		line-height: 4rem;
+		line-height: 3.2rem;
 	}
 
 	p {
@@ -28,6 +32,7 @@
 
 	&__content {
 		img {
+			display: block;
 			width: 100%;
 		}
 
@@ -35,9 +40,6 @@
 			color: $post-link-color;
 			text-decoration: underline;
 		}
-	}
-
-	&__tags {
 	}
 
 	&__tag {
