@@ -1,0 +1,17 @@
+html {
+	font-size: 62.5%;
+}
+
+.wrapper {
+	margin: 0 auto;
+	max-width: $max-width;
+	min-width: $layout-breakpoint;
+	width: 70%;
+	padding: 1rem 0;
+
+	@media (max-width: $layout-breakpoint) {
+		max-width: auto;
+		min-width: auto;
+		width: 100%;
+	}
+}

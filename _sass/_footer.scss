@@ -1,0 +1,14 @@
+.pagination {
+	font-family: $serif-font;
+	font-size: 2rem;
+	line-height: 3.2rem;
+	padding: 1rem 0;
+
+	&__link {
+		color: $post-link-color;
+
+		&:visited {
+			color: $post-link-visited-color;
+		}
+	}
+}
