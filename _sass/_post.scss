@@ -39,6 +39,10 @@
 		a {
 			color: $post-link-color;
 			text-decoration: underline;
+
+			&:visited {
+				color: $post-link-visited-color;
+			}
 		}
 	}
 
