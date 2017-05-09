@@ -1,5 +1,5 @@
 .header {
-	padding: 1rem 0;
+	padding: $spacing 0;
 
 	&__title {
 		color: $site-title-color;
@@ -11,5 +11,10 @@
 		max-width: 50rem;
 		padding: 0;
 		text-decoration: none;
+	}
+
+	@media (max-width: $layout-breakpoint) {
+		padding-bottom: $spacing-mobile;
+		padding-top: $spacing-mobile;
 	}
 }
