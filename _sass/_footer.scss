@@ -2,7 +2,7 @@
 	font-family: $serif-font;
 	font-size: 2rem;
 	line-height: 3.2rem;
-	padding: 1rem 0;
+	padding: $spacing 0;
 
 	&__link {
 		color: $post-link-color;
@@ -10,5 +10,10 @@
 		&:visited {
 			color: $post-link-visited-color;
 		}
+	}
+
+	@media (max-width: $layout-breakpoint) {
+		padding-bottom: $spacing-mobile;
+		padding-top: $spacing-mobile;
 	}
 }
