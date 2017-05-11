@@ -1,7 +1,5 @@
 .pagination {
-	font-family: $serif-font;
-	font-size: 2rem;
-	line-height: 3.2rem;
+	@extend .default-font;
 	padding: $spacing 0;
 
 	&__link {

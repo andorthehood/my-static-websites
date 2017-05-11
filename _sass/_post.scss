@@ -1,28 +1,15 @@
 .post {
-	color: $post-text-color;
-	font-size: 2rem;
-	font-family: $serif-font;
-	line-height: 3.2rem;
-	word-spacing: 0.1rem;
+	@extend .default-font;
 
 	&__details {
 		padding: 0 0 $spacing 0;
 	}
 
 	&__title {
+		@extend .default-font;
 		color: $post-title-color;
-		font-size: 2rem;
-		line-height: 3.2rem;
-		font-family: $serif-font;
-		font-weight: normal;
 		margin: 0;
 		padding: $spacing 0 0 0;
-		text-decoration: none;
-	}
-
-	&__date {
-		font-size: 2rem;
-		line-height: 3.2rem;
 	}
 
 	p {

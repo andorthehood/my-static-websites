@@ -2,15 +2,11 @@
 	padding: $spacing 0;
 
 	&__title {
+		@extend .default-font;
 		color: $site-title-color;
-		font-family: $serif-font;
-		font-size: 2rem;
-		font-weight: normal;
-		line-height: 3.2rem;
 		margin: 0;
 		max-width: 50rem;
 		padding: 0;
-		text-decoration: none;
 	}
 
 	@media (max-width: $layout-breakpoint) {
