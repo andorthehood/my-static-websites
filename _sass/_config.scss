@@ -1,11 +1,14 @@
 $serif-font: "Roboto Slab", Georgia, serif;
 $sans-serif-font: "Roboto", Arial, sans-serif;
 
-$layout-breakpoint: 500px;
-$max-width: 800px;
+$layout-breakpoint: 50rem;
+$max-width: 80rem;
+$spacing: 2rem;
+$spacing-mobile: $spacing / 2;
 
-$site-title-color: #dddddd;
+$site-title-color: #333333;
 
 $post-title-color: #333333;
 $post-text-color: #333333;
 $post-link-color: #336699;
+$post-link-visited-color: #663399;
