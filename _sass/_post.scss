@@ -1,55 +1,18 @@
 .post {
-	@extend .default-font;
-
 	&__details {
-		padding: 0 0 $spacing 0;
+		@extend .spacing;
+		@extend .default-font;
 	}
 
 	&__title {
 		@extend .default-font;
-		color: $post-title-color;
+
+		color: $text-color;
 		margin: 0;
-		padding: $spacing 0 0 0;
-	}
+		padding: 0;
 
-	p {
-		margin: 0;
-		padding: $spacing 0;
-	}
-
-	&__content {
-		img {
-			display: block;
-			width: 100%;
-		}
-
-		a {
-			color: $post-link-color;
-			text-decoration: underline;
-
-			&:visited {
-				color: $post-link-visited-color;
-			}
-		}
-	}
-
-	&__tag {
-		color: $post-link-color;
-		text-decoration: none;
-	}
-
-	@media (max-width: $layout-breakpoint) {
-		&__title {
-			padding-top: $spacing-mobile;
-		}
-
-		&__details {
-			padding-bottom: $spacing-mobile;
-		}
-
-		p {
-			padding-bottom: $spacing-mobile;
-			padding-top: $spacing-mobile;
+		&:visited {
+			color: $text-color;
 		}
 	}
 }

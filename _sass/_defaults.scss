@@ -1,0 +1,59 @@
+.default-font {
+	color : $text-color;
+	font-size: 2rem;
+	font-family: $serif-font;
+	font-weight: normal;
+	line-height: 3.2rem;
+	text-decoration: none;
+	word-spacing: 0.1rem;
+}
+
+.spacing {
+	padding-bottom: $spacing;
+	padding-top: $spacing;
+
+	@media (max-width: $layout-breakpoint) {
+		padding-bottom: $spacing-mobile;
+		padding-top: $spacing-mobile;
+	}
+}
+
+html {
+	font-size: 62.5%;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+}
+
+a {
+	@extend .default-font;
+
+	background-color: transparent;
+	color: $link-color;
+	outline-width: 0;
+	-webkit-text-decoration-skip: objects;
+
+	&:visited {
+		color: $link-visited-color;
+	}
+}
+
+img {
+	border-style: none;
+	display: block;
+	width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	@extend .default-font;
+	@extend .spacing;
+
+	margin: 0;
+}
+
+span {
+	@extend .default-font;
+}

@@ -1,16 +1,15 @@
 .header {
-	padding: $spacing 0;
+	@extend .spacing;
 
 	&__title {
 		@extend .default-font;
-		color: $site-title-color;
-		margin: 0;
-		max-width: 50rem;
-		padding: 0;
-	}
 
-	@media (max-width: $layout-breakpoint) {
-		padding-bottom: $spacing-mobile;
-		padding-top: $spacing-mobile;
+		color: $text-color;
+		margin: 0;
+		padding: 0;
+
+		&:visited {
+			color: $text-color;
+		}
 	}
 }

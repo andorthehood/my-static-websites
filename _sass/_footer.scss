@@ -1,17 +1,4 @@
 .pagination {
 	@extend .default-font;
-	padding: $spacing 0;
-
-	&__link {
-		color: $post-link-color;
-
-		&:visited {
-			color: $post-link-visited-color;
-		}
-	}
-
-	@media (max-width: $layout-breakpoint) {
-		padding-bottom: $spacing-mobile;
-		padding-top: $spacing-mobile;
-	}
+	@extend .spacing;
 }

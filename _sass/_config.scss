@@ -6,18 +6,6 @@ $max-width: 80rem;
 $spacing: 2rem;
 $spacing-mobile: $spacing / 2;
 
-$site-title-color: #333333;
-
-$post-title-color: #333333;
-$post-text-color: #333333;
-$post-link-color: #336699;
-$post-link-visited-color: #663399;
-
-.default-font {
-	font-size: 2rem;
-	font-family: $serif-font;
-	font-weight: normal;
-	line-height: 3.2rem;
-	text-decoration: none;
-	word-spacing: 0.1rem;
-}
+$text-color: #333333;
+$link-color: #336699;
+$link-visited-color: #993366;
