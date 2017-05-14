@@ -1,68 +1,18 @@
 .post {
-	color: $post-text-color;
-	font-size: 2rem;
-	font-family: $serif-font;
-	line-height: 3.2rem;
-	word-spacing: 0.1rem;
-
 	&__details {
-		padding: 0 0 $spacing 0;
+		@extend .spacing;
+		@extend .default-font;
 	}
 
 	&__title {
-		color: $post-title-color;
-		font-size: 2rem;
-		line-height: 3.2rem;
-		font-family: $serif-font;
-		font-weight: normal;
+		@extend .default-font;
+
+		color: $text-color;
 		margin: 0;
-		padding: $spacing 0 0 0;
-		text-decoration: none;
-	}
+		padding: 0;
 
-	&__date {
-		font-size: 2rem;
-		line-height: 3.2rem;
-	}
-
-	p {
-		margin: 0;
-		padding: $spacing 0;
-	}
-
-	&__content {
-		img {
-			display: block;
-			width: 100%;
-		}
-
-		a {
-			color: $post-link-color;
-			text-decoration: underline;
-
-			&:visited {
-				color: $post-link-visited-color;
-			}
-		}
-	}
-
-	&__tag {
-		color: $post-link-color;
-		text-decoration: none;
-	}
-
-	@media (max-width: $layout-breakpoint) {
-		&__title {
-			padding-top: $spacing-mobile;
-		}
-
-		&__details {
-			padding-bottom: $spacing-mobile;
-		}
-
-		p {
-			padding-bottom: $spacing-mobile;
-			padding-top: $spacing-mobile;
+		&:visited {
+			color: $text-color;
 		}
 	}
 }
