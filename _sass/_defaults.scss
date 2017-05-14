@@ -34,6 +34,7 @@ a {
 	background-color: transparent;
 	color: $link-color;
 	outline-width: 0;
+	text-decoration: underline;
 	-webkit-text-decoration-skip: objects;
 
 	&:visited {
