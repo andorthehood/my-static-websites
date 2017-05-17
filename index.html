@@ -18,12 +18,12 @@ layout: default
 
 <div class="pagination">
 	{% if paginator.previous_page %}
-		<a href="{{ paginator.previous_page_path }}" class="pagination__link">Previous</a>
+		<a href="{{ paginator.previous_page_path }}" class="pagination__link">Previous</a> &middot;
 	{% endif %}
 
 	<span class="pagination__page-number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
 
 	{% if paginator.next_page %}
-		<a href="{{ paginator.next_page_path }}" class="pagination__link">Next</a>
+		&middot; <a href="{{ paginator.next_page_path }}" class="pagination__link">Next</a>
 	{% endif %}
 </div>
