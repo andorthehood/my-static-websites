@@ -5,9 +5,10 @@
 
 @charset "utf-8";
 @import "config";
-@import "normalize";
+@import "defaults";
 @import "layout";
 @import "header";
 @import "post";
+@import "page";
 @import "video";
 @import "footer";

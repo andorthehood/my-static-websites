@@ -4,8 +4,8 @@ layout: default
 <div class="post-list">
 	{% for post in paginator.posts %}
 		<div class="post">
-			<h2 class="post__title"><a class="post__title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h2>
 			<div class="post__details">
+				<h2 class="post__title"><a class="post__title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h2>
 				<span class="post__date">{{ post.date | date: "%B %-d, %Y" }}</span>
 				{% if post.location %}
 					&middot; <span class="post__location">{{ post.location }}</span>
