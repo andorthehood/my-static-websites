@@ -1,13 +1,13 @@
-title: Andor Polgar's photoblog
+title: Andor Polgar's photolog
 email: hngrhorace@gmail.com
 description: >
-  I'm a man of few words, so here's my photoblog.
+  I'm a man of few words, so here's my photolog.
 baseurl: ""
 url: "http://andor.cool"
 twitter_username: hngrhorace
 github_username:  andormade
 imagehost_url: "http://images.andor.cool"
-paginate: 10
+paginate: 6
 paginate_path: "/pages/:num/"
 
 sass:
