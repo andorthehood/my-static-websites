@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/andormade/andor.cool.svg?branch=master)](https://travis-ci.org/andormade/andor.cool)
+
 # andor.cool
 Source code of my photoblog
 <http://andor.cool>
