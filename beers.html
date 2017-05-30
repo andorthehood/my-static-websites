@@ -1,0 +1,15 @@
+---
+layout: page
+---
+<h2>Beerlog</h2>
+
+<p>These below are all the beers I have tasted since April 11, 2017.</p>
+
+{% assign beer_files = site.data.lifelogging.beer %}
+
+{% for beer_file in beer_files reversed %}
+	{% for beer in beer_file[1] reversed %}
+		<h3>{{ beer.name }}</h3>
+		<p>{{ beer }}</p>
+	{% endfor %}
+{% endfor %}
