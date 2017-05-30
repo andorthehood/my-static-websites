@@ -3,13 +3,34 @@ layout: page
 ---
 <h2>Beerlog</h2>
 
-<p>These below are all the beers I have tasted since April 11, 2017.</p>
-
 {% assign beer_files = site.data.lifelogging.beer %}
 
-{% for beer_file in beer_files reversed %}
-	{% for beer in beer_file[1] reversed %}
-		<h3>{{ beer.name }}</h3>
-		<p>{{ beer }}</p>
+{% for beer_file in beer_files %}
+	{% for beer in beer_file[1] %}
+		{% capture beer_count %}{% increment beer_count %}{% endcapture %}
+		{% if beer.style == 'belgian tripel' %}
+			{% capture tripel_count %}{% increment tripel_count %}{% endcapture %}
+		{% endif %}
 	{% endfor %}
+{% endfor %}
+
+<p>These below are all the beers I have had since April 11, 2017.</p>
+
+
+{% for beer_file in beer_files reversed %}
+	<h3>{{ beer_file[1][0].date | date: "%B, %Y" }} ({{ beer_file[1] | size }} beers)</h3>
+	<ul>
+		{% for beer in beer_file[1] reversed %}
+			<li>
+				<strong>{{ beer.name }}</strong>
+				&middot; Style: {{ beer.style }}
+				&middot; ABV: {{ beer.abv }}%
+				&middot; IBU: {{ beer.ibu }}
+				&middot; Brewery: <a href="https://www.google.nl/search?q={{ beer.brewery.name | url_encode }}"  target="_blank" rel="nofollow">{{ beer.brewery.name }}</a>
+				&middot; Located in {{ beer.brewery.location }},
+				it's a {{ beer.brewery.size }}.
+				&middot; My totally subjective rating of this beer is: {{ beer.rating }}/5.
+			</li>
+		{% endfor %}
+	</ul>
 {% endfor %}
