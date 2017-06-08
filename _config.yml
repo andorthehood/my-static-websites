@@ -1,13 +1,14 @@
 title: Andor Polgar's photolog
 email: hngrhorace@gmail.com
 description: >
-  I'm a man of few words, so here's my photolog.
+  Hi! My name is Andor, I'm a hungarian software developer living in Haarlem, North Holland.
+  I enjoy making music with my modular synthesizers and documenting my life through photography.
 baseurl: ""
 url: "http://andor.cool"
 twitter_username: hngrhorace
 github_username:  andormade
 imagehost_url: "http://images.andor.cool"
-paginate: 6
+paginate: 8
 paginate_path: "/pages/:num/"
 
 sass:
