@@ -24,8 +24,15 @@ layout: page
 			<li>
 				<strong>{{ beer.name }}</strong>
 				&middot; Style: {{ beer.style }}
+				{% if beer.serving %}&middot; Serving: {{ beer.serving }}{% endif %}
 				&middot; ABV: {{ beer.abv }}%
 				&middot; IBU: {{ beer.ibu }}
+				{% if beer.flavor %}
+					&middot; Flavor profile:
+					{% for flavor in beer.flavor %}
+						{{ flavor }}{% if flavor != beer.flavor.last %}, {% endif %}
+					{% endfor %}
+				{% endif %}
 				&middot; Brewery: <a href="https://www.google.nl/search?q={{ beer.brewery.name | url_encode }}"  target="_blank" rel="nofollow">{{ beer.brewery.name }}</a>
 				&middot; Located in {{ beer.brewery.location }},
 				it's a {{ beer.brewery.size }}.
