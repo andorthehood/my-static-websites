@@ -7,7 +7,7 @@ tags: eurorack synth
 location: "Los Angeles, California"
 ---
 
-<a href="/posts/2016/03/09/five-g-tokyo.html">Five G Tokyo</a> &#x2713;<br />
+<a href="{{ site.url }}/posts/2016/03/09/five-g-tokyo.html">Five G Tokyo</a> &#x2713;<br />
 Perfect Circuit Audio &#x2713;<br />
 SchneidersLaden
 
