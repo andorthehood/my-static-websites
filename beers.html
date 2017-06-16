@@ -35,7 +35,8 @@ title: Beers
 					{% endfor %}
 				{% endif %}
 				&middot; Brewery: <a href="https://www.google.nl/search?q={{ beer.brewery.name | url_encode }}"  target="_blank" rel="nofollow">{{ beer.brewery.name }}</a>
-				&middot; Located in {{ beer.brewery.location }},
+				&middot; Located in {{ beer.brewery.location }}
+				{% include emojiflag.liquid location=beer.brewery.location %},
 				it's a {{ beer.brewery.size }}.
 				&middot; My totally subjective rating of this beer is: {{ beer.rating }}/5.
 			</li>
