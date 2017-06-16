@@ -54,3 +54,19 @@ h1, h2, h3, h4, h5, h6, p {
 span {
 	@extend .default-font;
 }
+
+strong {
+	@extend .default-font;
+	font-weight: bold;
+}
+
+ul {
+	margin-bottom: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-top: 0;
+}
+
+li {
+	@extend .default-font;
+}

@@ -18,6 +18,6 @@ If you don't have Bundler, you can install it by typing:
 
     git clone https://github.com/hngrhorace/andor.cool.git
     cd andor.cool
-    git submodule update --init --recursive
+    git submodule update --recursive --remote
     bundle install
     bundle exec jekyll serve
