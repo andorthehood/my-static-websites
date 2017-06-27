@@ -34,11 +34,11 @@ title: Beers
 						{{ flavor }}{% if flavor != beer.flavor.last %}, {% endif %}
 					{% endfor %}
 				{% endif %}
-				&middot; Brewery: <a href="https://www.google.nl/search?q={{ beer.brewery.name | url_encode }}"  target="_blank" rel="nofollow">{{ beer.brewery.name }}</a>
+				&middot; Brewery: <a href="{% if beer.brewery.website %}{{ beer.brewery.website }}{% else %}https://www.google.nl/search?q={{ beer.brewery.name | url_encode }}{% endif %}"  target="_blank" rel="nofollow">{{ beer.brewery.name }}</a>
 				&middot; Located in {{ beer.brewery.location }}
 				{% include emojiflag.liquid location=beer.brewery.location %},
 				it's a {{ beer.brewery.size }}.
-				&middot; My totally subjective rating of this beer is: {{ beer.rating }}/5.
+				&middot; My rating: {{ beer.rating }}/5.
 			</li>
 		{% endfor %}
 	</ul>
