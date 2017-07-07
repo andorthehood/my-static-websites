@@ -6,7 +6,7 @@ layout: default
 		<div class="post__details">
 			<h2 class="post__title"><a class="post__title" href="{{ page.url | prepend: site.baseurl }}">{{ page.title | escape }}</a></h2>
 			<span class="post__date">{{ page.date | date: "%B %-d, %Y" }}</span>
-			{% if post.location %}
+			{% if page.location %}
 				&middot; <span class="post__location">{{ page.location }}</span>
 			{% endif %}
 		</div>
