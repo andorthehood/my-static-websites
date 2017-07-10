@@ -10,6 +10,9 @@ github_username:  andormade
 imagehost_url: "http://images.andor.cool"
 paginate: 8
 paginate_path: "/pages/:num/"
+exclude: ["README.md", "Gemfile.lock", "Gemfile"]
+include: [".htaccess"]
+permalink: /:categories/:year/:month/:day/:title
 
 sass:
     sass_dir: _sass
