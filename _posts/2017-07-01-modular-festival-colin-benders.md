@@ -3,7 +3,7 @@ layout: post
 title: "Colin Benders @ Modular Festival"
 date: 2017-07-01 21:16 +0100
 categories: posts
-tags: eurorack, concert
+tags: eurorack concert
 location: "Schiedam, Netherlands"
 ---
 
@@ -12,3 +12,5 @@ location: "Schiedam, Netherlands"
 {% include img.liquid img="35615913196_7492b7c488_k" date=page.date title="Colin Benders performing" %}
 {% include img.liquid img="34846480773_bc8080a0e9_k" date=page.date title="Colin Benders performing" %}
 {% include img.liquid img="34846480413_17d349f9e2_k" date=page.date title="Colin Benders performing" %}
+
+Photographed with my wife's Canon 1300D and a Canon EF 85mm F/1.8 USM lens.
