@@ -7,4 +7,4 @@ tags: eurorack synth video art
 location: "Los Angeles, California"
 ---
 
-{% include youtube.liquid src="https://www.youtube.com/embed/buDBX2X2Kw0" %}
+{% include youtube.liquid id="buDBX2X2Kw0" %}

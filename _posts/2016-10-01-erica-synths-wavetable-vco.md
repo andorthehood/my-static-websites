@@ -8,4 +8,4 @@ location: "Los Angeles, California"
 ---
 
 
-{% include youtube.liquid src="https://www.youtube.com/embed/W_aqpwpMkn8" %}
+{% include youtube.liquid id="W_aqpwpMkn8" %}
