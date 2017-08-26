@@ -13,8 +13,7 @@
 	padding-top: $spacing;
 
 	@media (max-width: $layout-breakpoint) {
-		padding-bottom: $spacing-mobile;
-		padding-top: $spacing-mobile;
+		padding: $spacing-mobile;
 	}
 }
 
@@ -39,6 +38,9 @@ a {
 }
 
 img {
+	cursor: -moz-zoom-in;
+	cursor: -webkit-zoom-in;
+	cursor: zoom-in;
 	border-style: none;
 	display: block;
 	width: 100%;
