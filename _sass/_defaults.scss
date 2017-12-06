@@ -5,7 +5,6 @@
 	font-weight: normal;
 	line-height: 3.2rem;
 	text-decoration: none;
-	word-spacing: 0.1rem;
 }
 
 .spacing {
@@ -18,12 +17,15 @@
 }
 
 html {
+	background: #000000;
 	font-size: 62.5%;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 }
 
 body {
+	background: #ffffff;
+	border: 1rem solid #000000;
 	margin: 0;
 }
 
@@ -39,6 +41,7 @@ a {
 
 img {
 	border-style: none;
+	//box-shadow: 0 0 1000px #333333;
 	display: block;
 	width: 100%;
 }
