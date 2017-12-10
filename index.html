@@ -2,8 +2,6 @@
 layout: default
 ---
 
-<div class="description">{{ site.description }}</div>
-
 <div class="post-list">
 	{% for post in paginator.posts %}
 		<div class="post">
@@ -12,6 +10,9 @@ layout: default
 				<span class="post__date">{{ post.date | date: "%B %-d, %Y" }}</span>
 				{% if post.location %}
 					&middot; <span class="post__location">{{ post.location }}</span>
+				{% endif %}
+				{% if post.tags %}
+					&middot; Tags: {% include tags.liquid tags=post.tags %}
 				{% endif %}
 			</div>
 			<div class="post__content">{{ post.content }}</div>
