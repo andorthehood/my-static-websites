@@ -1,7 +1,7 @@
 title: Andor Polgar's photolog
 email: hngrhorace@gmail.com
 description: >
-  My name is Andor, I'm a Hungarian software developer living in Haarlem, North Holland.
+  My name is Andor, I'm a hungarian software developer living in Haarlem, North Holland.
   I enjoy making music with my modular synthesizers and documenting my life through photography.
 baseurl: ""
 url: "http://andor.cool"
@@ -10,7 +10,7 @@ github_username:  andormade
 imagehost_url: "http://images.andor.cool/compressed"
 paginate: 8
 paginate_path: "/pages/:num/"
-exclude: ["README.md", "Gemfile.lock", "Gemfile"]
+exclude: ["README.md", "Gemfile.lock", "Gemfile", "LICENSE"]
 include: [".htaccess"]
 permalink: /:categories/:year/:month/:day/:title
 
