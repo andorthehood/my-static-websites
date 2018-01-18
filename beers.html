@@ -5,6 +5,7 @@ title: Beers
 <h2>Beerlog</h2>
 
 {% assign beer_files = site.data.lifelogging.beer %}
+{% assign beer_files = beer_files | sort %}
 
 {% for beer_file in beer_files %}
 	{% for beer in beer_file[1] %}
