@@ -1,4 +1,6 @@
 .post {
+	@extend .spacing;
+	
 	&__details {
 		@extend .spacing;
 		@extend .default-font;
