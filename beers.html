@@ -16,7 +16,7 @@ title: Beers
 	{% endfor %}
 {% endfor %}
 
-<p>I used to be a wineaholic, but when I moved to the Netherlands, I started drinking only beer. I'm far from being a wine snob, but I used to live near famous wine regions like Southern California, Mosel, The Saar or Hungary, where drinking wine is deeply woven into people's lifestyles. Here, in the Benelux countries is the same with beer.</p>
+<!--<p>I used to be a wineaholic, but when I moved to the Netherlands, I started drinking only beer. I'm far from being a wine snob, but I used to live near famous wine regions like Southern California, Mosel, The Saar or Hungary, where drinking wine is deeply woven into people's lifestyles. Here, in the Benelux countries is the same with beer.</p>-->
 
 {% for beer_file in beer_files reversed %}
 	<h3>{{ beer_file[1][0].date | date: "%B, %Y" }} ({{ beer_file[1] | size }} beers)</h3>

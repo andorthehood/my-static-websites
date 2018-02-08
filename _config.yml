@@ -8,7 +8,7 @@ url: "http://andor.cool"
 twitter_username: hngrhorace
 github_username:  andormade
 imagehost_url: "http://images.andor.cool/compressed"
-paginate: 6
+paginate: 7
 paginate_path: "/pages/:num/"
 exclude: ["README.md", "Gemfile.lock", "Gemfile", "LICENSE"]
 include: [".htaccess"]
