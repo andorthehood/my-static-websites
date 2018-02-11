@@ -10,7 +10,7 @@ github_username:  andormade
 imagehost_url: "http://images.andor.cool/compressed"
 paginate: 7
 paginate_path: "/pages/:num/"
-exclude: ["README.md", "Gemfile.lock", "Gemfile", "LICENSE"]
+exclude: ["README.md", "Gemfile.lock", "Gemfile", "LICENSE", "vendor"]
 include: [".htaccess"]
 permalink: /:categories/:year/:month/:day/:title
 
