@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Susanne Sundfør"
+title: "Susanne Sundfør @ Vondelkerk"
 date: 2017-09-19 0:20 +0100
 categories: posts
 tags: concert
