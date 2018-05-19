@@ -13,15 +13,14 @@
 }
 
 html {
-	background: #ffffff;
+	background: #222222;
 	font-size: 62.5%;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 }
 
 body {
-	background: #ffffff;
-	//border: 1rem solid #ffffff;
+	background: #181818;
 	margin: 0;
 	padding: 1rem;
 }
@@ -38,10 +37,9 @@ a {
 
 img {
 	border-style: none;
-	box-shadow: 0 0 5rem #eeeeee;
 	display: block;
-	padding: 10%;
-	width: 80%;
+	padding: 1rem 0;
+	width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6, p {
