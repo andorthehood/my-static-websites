@@ -2,7 +2,7 @@
 layout: post
 title: "Recording seagulls at Long Beach"
 date: 2017-01-16 22:52:39 -0800
-categories: posts
+categories: [music]
 tags: art recording
 location: "Long Beach, California"
 ---

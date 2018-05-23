@@ -2,7 +2,7 @@
 layout: post
 title: "Eniko in Haarlem"
 date: 2018-04-04 23:55 +0100
-categories: posts
+categories: [cinemascope]
 tags: art cinemascope
 location: "Haarlem, Netherlands"
 ---

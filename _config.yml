@@ -1,4 +1,4 @@
-title: Andor Polgar's photolog
+title: Andor Polgar's website
 email: hngrhorace@gmail.com
 description: >
   My name is Andor, I'm a hungarian software developer living in Haarlem, North Holland.
@@ -13,6 +13,9 @@ paginate_path: "/pages/:num/"
 exclude: ["README.md", "Gemfile.lock", "Gemfile", "LICENSE", "vendor"]
 include: [".htaccess"]
 permalink: /:categories/:year/:month/:day/:title
+plugins:
+  - jekyll-paginate
+  - jekyll-category-pages
 
 sass:
     sass_dir: _sass

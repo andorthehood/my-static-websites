@@ -2,7 +2,7 @@
 layout: post
 title: "Kaitlyn Aurelia Smith"
 date: 2017-11-23 20:26 +0100
-categories: posts
+categories: [music]
 tags: eurorack concert
 location: "Amsterdam, Netherlands"
 ---

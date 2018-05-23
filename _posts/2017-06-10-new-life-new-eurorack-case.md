@@ -2,7 +2,7 @@
 layout: post
 title: "New life, new eurorack case"
 date: 2017-06-10 13:08 +0100
-categories: posts
+categories: [music]
 tags: eurorack
 location: "Haarlem, Netherlands"
 ---

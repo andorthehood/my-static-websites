@@ -2,7 +2,7 @@
 layout: post
 title: "Modular on the spot"
 date: 2016-10-20 22:52:39 -0700
-categories: posts
+categories: [music]
 tags: eurorack synth concert
 location: "Los Angeles, California"
 ---
