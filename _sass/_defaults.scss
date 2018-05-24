@@ -13,14 +13,14 @@
 }
 
 html {
-	background: #111111;
+	background: #eeeeee;
 	font-size: 62.5%;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 }
 
 body {
-	background: #111111;
+	background: #eeeeee;
 	margin: 0;
 	padding: 1rem;
 }
@@ -40,6 +40,12 @@ img {
 	display: block;
 	padding: 1rem 0;
 	width: 100%;
+
+	&.cinemascope {
+		border-top: 15rem solid #000000;
+		border-bottom: 15rem solid #000000;
+		padding: 0;
+	}
 }
 
 h1, h2, h3, h4, h5, h6, p {
