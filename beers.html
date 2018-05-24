@@ -36,8 +36,8 @@ title: Beers
 				{% endif %}
 				&middot; Brewery: <a href="{% if beer.brewery.website %}{{ beer.brewery.website }}{% else %}https://www.google.nl/search?q={{ beer.brewery.name | url_encode }}{% endif %}"  target="_blank" rel="nofollow">{{ beer.brewery.name }}</a>
 				&middot; Located in {{ beer.brewery.location }}
-				{% include emojiflag.liquid location=beer.brewery.location %},
-				it's a {{ beer.brewery.size }}.
+				{% include emojiflag.liquid location=beer.brewery.location %}
+				{% if beer.brewery.size %}, it's a {{ beer.brewery.size }}.{% endif %}
 				&middot; My rating: {{ beer.rating }}/5.
 			</li>
 		{% endfor %}
