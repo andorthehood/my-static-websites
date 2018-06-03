@@ -4,7 +4,7 @@ title: "Colin Benders: Museum van Geluid"
 date: 2018-06-03 23:20 +0100
 categories: [music, cinemascope]
 tags: concert cinemascope
-location: "Haarlem, Netherlands"
+location: "Utrect, Netherlands"
 ---
 
 {% include scope.liquid img="41634131735_ab3ceeaa11_k" date=page.date %}
