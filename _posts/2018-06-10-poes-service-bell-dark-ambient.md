@@ -7,6 +7,6 @@ tags: music video eurorack art
 location: "Haarlem, Netherlands"
 ---
 
-{% include youtube.liquid id="HIBYtdhf0c4" %}
+{% include youtube.liquid id="nLD65stinlA" %}
 
 Camera: Sony α7 II, lens: Nikkor 50mm f/1.4 AI-S
