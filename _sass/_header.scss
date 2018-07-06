@@ -1,5 +1,6 @@
 .header {
 	@extend .spacing;
+	@include randomPosition(30);
 
 	&__title {
 		@extend .default-font;

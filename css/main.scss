@@ -4,12 +4,11 @@
 ---
 
 @charset "utf-8";
+@import "mixins";
 @import "config";
 @import "defaults";
-@import "layout";
 @import "header";
 @import "post";
-@import "page";
 @import "beers";
 @import "video";
 @import "footer";

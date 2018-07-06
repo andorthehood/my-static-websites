@@ -4,7 +4,7 @@ layout: default
 
 <div class="post-list">
 	{% for post in paginator.posts %}
-		<div class="post">
+		<div class="post {% if post.dark %}post--dark{% endif %}">
 			<div class="post__details">
 				<h2 class="post__title"><a class="post__title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h2>
 				<span class="post__date">{{ post.date | date: "%B %-d, %Y" }}</span>
