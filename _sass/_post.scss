@@ -1,6 +1,4 @@
 .post {
-	@extend .spacing;
-
 	@for $i from 1 through 20 {
 		&:nth-of-type(#{$i}) {
 			@include randomPosition(30);
@@ -10,8 +8,6 @@
 	@for $i from 1 through 20 {
 		p:nth-of-type(#{$i}) {
 			@include randomPosition(15);
-			padding-top: 5%;
-			padding-bottom: 5%;
 		}
 	}
 
@@ -25,16 +21,14 @@
 		@for $i from 1 through 20 {
 			p:nth-of-type(#{$i}) {
 				@include randomPosition(10);
-				padding-top: 5%;
-				padding-bottom: 5%;
 			}
 		}
-    }
+	}
 
 	&__details {
 		@extend .spacing;
 		@extend .default-font;
-		@include randomPosition(20);
+		@include randomPosition(20);	
 	}
 
 	&__title {

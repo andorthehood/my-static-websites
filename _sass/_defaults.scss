@@ -1,20 +1,19 @@
 .default-font {
 	color : $text-color;
-	font-size: 1.5rem;
+	font-size: 14px;
 	font-family: $font-family;
 	font-weight: normal;
-	line-height: 2rem;
+	line-height: 2;
 	text-decoration: none;
 }
 
 .spacing {
-	padding-bottom: $spacing;
-	padding-top: $spacing;
+	padding-bottom: 5%;
+	padding-top: 5%;
 }
 
 html {
 	background: #eeeeee;
-	font-size: 62.5%;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 }
@@ -38,7 +37,7 @@ a {
 img {
 	border-style: none;
 	display: block;
-	padding: 1rem 0;
+	padding: 0;
 	width: 100%;
 
 	&.cinemascope {
@@ -73,4 +72,8 @@ ul {
 
 li {
 	@extend .default-font;
+}
+
+p {
+	@extend .spacing;
 }
