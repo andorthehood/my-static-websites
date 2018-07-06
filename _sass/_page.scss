@@ -1,0 +1,9 @@
+.page {
+    @include randomPosition(30);
+ 
+    @for $i from 1 through 20 {
+		p:nth-of-type(#{$i}) {
+			@include randomPosition(15);
+		}
+	}
+}
