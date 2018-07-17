@@ -8,8 +8,10 @@ dark: true
 location: "Budapest, Hungary"
 ---
 
-{% include scope.liquid img="42319399735_1a57e89685_k" date=page.date %}
-{% include scope.liquid img="41413167490_ee1cc5a994_k" date=page.date %}
-{% include scope.liquid img="42503598404_e122f8df5d_k" date=page.date %}
+{% include scope.liquid img="43476797331_a9ed833250_k" date=page.date %}
+{% include scope.liquid img="43476796991_ba58322350_k" date=page.date %}
+{% include scope.liquid img="28590088907_cfb6386aa9_k" date=page.date %}
+{% include scope.liquid img="41669101010_e74e23a76d_k" date=page.date %}
+{% include scope.liquid img="42572158455_d34157af27_k" date=page.date %}
 
 Sony α7 II, Isco Ultra Star Cinemascope, taking lens: Jupiter 9 85mm f/2
