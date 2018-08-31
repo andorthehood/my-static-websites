@@ -10,6 +10,8 @@
 		{% capture render_time %}{% render_time %}{% endcapture %}
 		{% capture cache_buster %}?c={{ render_time | date: "%Y%m%d%H%M" }}{% endcapture %}
 
+		{% include analytics.html %}
+		
 		<link href="{{ "/css/main.css" | prepend: baseurl | append: cache_buster }}" media="screen" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300|Roboto:900&subset=latin-ext" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
@@ -36,6 +38,6 @@
 			</div>
 			{{ content }}
 		</div>
-		{% include analytics.html %}
+
 	</body>
 </html>
