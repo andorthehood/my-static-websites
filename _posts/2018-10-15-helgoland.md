@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Helgoland"
-date: 2018-10-15 21:32 +0100
+date: 2018-10-15 20:32 +0100
 categories: [cinemascope]
 tags: travel
 location: "Helgoland, Germany"
