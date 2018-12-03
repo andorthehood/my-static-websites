@@ -7,6 +7,6 @@ tags: art concert
 location: "Amsterdam, Netherlands"
 ---
 
-{% include scope.liquid img="30977900788_dde4a6dbed_k" date=page.date %}
+{% include ucare.liquid uuid="8e2eed8e-5a0b-4121-a1d3-f8758177e68f" title="Marta Smilga" date=page.date %}
 
 Sony α7 II, Nikkor 50mm AI-S f/1.4
