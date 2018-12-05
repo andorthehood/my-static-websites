@@ -7,7 +7,7 @@ tags: concert cinemascope
 location: "Utrect, Netherlands"
 ---
 
-{% include scope.liquid img="41634131735_ab3ceeaa11_k" date=page.date %}
-{% include img.liquid img="41643832765_ccc3387baa_k" date=page.date %}
+{% include ucare.liquid uuid="cd6378cd-b73b-4419-a9f1-b09c9d7e51dd" %}
+{% include ucare.liquid uuid="4d59970d-2cd1-4268-b614-426e0d557c0f" %}
 
 Sony α7 II, Isco Ultra Star Cinemascope, taking lens: Jupiter 9 85mm f/2
