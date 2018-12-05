@@ -7,8 +7,8 @@ tags: art cinemascope
 location: "Haarlem, Netherlands"
 ---
 
-{% include scope.liquid img="42194949622_ee8d5e032f_k" date=page.date %}
-{% include scope.liquid img="42241742641_6f07163caf_k" date=page.date %}
-{% include scope.liquid img="42194949892_45ae40f538_k" date=page.date %}
+{% include ucare.liquid uuid="22f6ad56-eb97-4b21-9e66-892487fd35cc" %}
+{% include ucare.liquid uuid="47ee1064-4593-4b2d-a25d-463123775dfe" %}
+{% include ucare.liquid uuid="4f1d4bc4-ce4b-4cc4-a1bb-ea55c22626ff" %}
 
 Sony α7 II, Isco Ultra Star Cinemascope, taking lens: Jupiter 9 85mm f/2
