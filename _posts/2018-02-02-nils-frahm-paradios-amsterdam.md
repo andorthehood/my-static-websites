@@ -7,7 +7,7 @@ tags: concert
 location: "Amsterdam, Netherlands"
 ---
 
-{% include img.liquid img="39998300362_f16137ee97_k" date=page.date title="Nils and his toilet brushes" %}
-{% include img.liquid img="40029625081_c67218daac_k" date=page.date title="Nils waves" %}
+{% include ucare.liquid uuid="1e716e44-66ff-4874-bec0-cc50ace5f6c4" title="Nils and his toilet brushes" %}
+{% include ucare.liquid uuid="001f716e-0863-470f-9cd2-dc6b93377b1d" title="Nils waves" %}
 
 Camera: Sony α7 II, lens: Canon 85mm f/1.8 USM

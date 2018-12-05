@@ -7,9 +7,9 @@ tags: concert cinemascope
 location: "Amsterdam, Netherlands"
 ---
 
-{% include scope.liquid img="39073441970_e50b557562_k" date=page.date %}
-{% include scope.liquid img="39989063285_f0eee0cd3c_k" date=page.date %}
-{% include scope.liquid img="40174790314_343ee0f36d_k" date=page.date %}
-{% include scope.liquid img="39072922120_033d5e2a28_k" date=page.date title="Akos Nagy" %}
+{% include ucare.liquid uuid="628db0b6-9765-489f-a1b5-d630382dfb47" %}
+{% include ucare.liquid uuid="22ebae8d-b22e-4fbf-90b9-b92364a1f6f8" %}
+{% include ucare.liquid uuid="c0dfdce3-0b4d-42f9-8b20-ee76cc4c72ee" %}
+{% include ucare.liquid uuid="22f6125c-8f1b-42b6-9969-e8c47998fce6" title="Akos Nagy" %}
 
 Sony α7 II, Isco Ultra Star Cinemascope, taking lens: Nikkor 50mm f/1.4 AI-S
