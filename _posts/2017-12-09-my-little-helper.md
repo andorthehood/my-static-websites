@@ -7,10 +7,9 @@ tags: eurorack cat video
 location: "Haarlem, Netherlands"
 ---
 
-{% include img.liquid img="27159961759_27a7cda7ce_k" date=page.date title="Cat in the window" %}
+{% include ucare.liquid uuid="94fc23ef-410d-4574-90fb-2fc2ede10a64" title="Cat in the window" %}
 
 {% include youtube.liquid id="3NqoyK8U0Mg" %}
-
 
 Things used in the video: vegan sausage for taming the cat (that’s her favorite), Make Noise Morphagene eurorack module, Rhodes Mark I electric piano, Expert Sleepers Disting mk4 for the reverb effect.
 
