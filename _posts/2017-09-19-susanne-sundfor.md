@@ -7,7 +7,7 @@ tags: concert
 location: "Amsterdam, Netherlands"
 ---
 
-{% include img.liquid img="36916433450_c072cc31e6_k" date=page.date title="Susanne Sundfør" %}
-{% include img.liquid img="37171193201_681e285897_k" date=page.date title="Susanne Sundfør" %}
+{% include ucare.liquid uuid="57329240-3f0a-489d-9bab-e52c127443d0" title="Susanne Sundfør" %}
+{% include ucare.liquid uuid="a54e7d54-5f1f-413b-b73d-8d91f8d5002d" title="Susanne Sundfør" %}
 
 Camera: Sony α7 II, lens: Canon 85mm f/1.8 USM
