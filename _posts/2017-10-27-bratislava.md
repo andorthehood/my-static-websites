@@ -7,11 +7,10 @@ tags: travel
 location: "Bratislava, Slovakia"
 ---
 
-{% include img.liquid img="37937704086_be28f12313_k" date=page.date title="Bratislava" %}
-{% include img.liquid img="37960838162_8ab035d830_k" date=page.date title="Bratislava Castle" %}
-{% include img.liquid img="37281944834_6e3f98baee_k" date=page.date title="UFO restaurant" %}
-{% include img.liquid img="37937703356_eb5a984a9c_k" date=page.date title="UFO restaurant" %}
-{% include img.liquid img="37990826141_9872331816_k" date=page.date title="UFO restaurant" %}
-{% include img.liquid img="37937701356_88f5aa1662_k" date=page.date title="UFO restaurant" %}
+{% include ucare.liquid uuid="b476e1f3-5700-4cae-b6f3-f2191a2b4ab2" title="Bratislava" %}
+{% include ucare.liquid uuid="dcc4ba53-016b-4302-b372-884504dc6c80" title="Bratislava Castle" %}
+{% include ucare.liquid uuid="03cc668a-e657-4ebe-8ead-9ee9aa6b32c7" title="UFO restaurant" %}
+{% include ucare.liquid uuid="f78cf69a-a0f9-4dbb-abb5-b1fc19d3856d" title="UFO restaurant" %}
+{% include ucare.liquid uuid="6c072fd4-77af-4c80-9e0d-d6ed2970c9a9" title="UFO restaurant" %}
 
 Camera: Sony α7 II, lens: Helios 44-2 58mm f/2
