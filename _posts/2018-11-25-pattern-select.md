@@ -7,6 +7,8 @@ tags: concert
 location: "Leipzig, Germany"
 ---
 
+{% include vimeo.liquid id="314563100" %}
+
 {% include ucare.liquid uuid="139088e9-7a04-4b24-86a7-bd16e69dfaa9" date=page.date title="Gregor Pfeffer" %}
 {% include ucare.liquid uuid="ad986275-50f5-4156-8bdf-2fccc0d21a29" date=page.date title="ahabzutun" %}
 
