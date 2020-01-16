@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/andormade/andor.cool.svg?branch=master)](https://travis-ci.org/andormade/andor.cool)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a8bd44af-89f0-4afe-8765-f9cfc38191bf/deploy-status)](https://app.netlify.com/sites/andor/deploys)
 
 # andor.cool
 Source code of my photoblog
