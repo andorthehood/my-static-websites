@@ -9,15 +9,15 @@ Source code of my photoblog
 - Ruby v2 or later
 - RubyGems
 - Bundler
+- Jekyll 4.x.x
 
-If you don't have Bundler, you can install it by typing:
+If you don't have Bundler or Jekyll, you can install it by typing:
 
-    gem install bundler
+    gem install bundler jekyll
 
 ## Installation
 
     git clone https://github.com/hngrhorace/andor.cool.git
     cd andor.cool
     git submodule update --init --recursive --remote
-    bundle install
-    bundle exec jekyll serve
+    jekyll serve
