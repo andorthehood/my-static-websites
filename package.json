@@ -1,0 +1,44 @@
+{
+  "name": "andor.cool",
+  "version": "1.0.0",
+  "description": "[![Netlify Status](https://api.netlify.com/api/v1/badges/a8bd44af-89f0-4afe-8765-f9cfc38191bf/deploy-status)](https://app.netlify.com/sites/andor/deploys)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel _react/index.html",
+    "babel": "babel _react --out-dir _babelified",
+    "babelw": "babel _react --out-dir _babelified --watch",
+    "prettier": "prettier _react/**/*.jsx --write",
+    "ssr": "npm run babel && node _ssr/index.js",
+    "watch": "parcel watch _react/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andormade/andor.cool.git"
+  },
+  "author": "Andor Polgar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andormade/andor.cool/issues"
+  },
+  "homepage": "https://github.com/andormade/andor.cool#readme",
+  "dependencies": {
+    "front-matter": "^4.0.2",
+    "liquid": "^5.1.0",
+    "liquidjs": "^9.14.1",
+    "marked": "^1.2.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "prettier": "^2.0.5"
+  }
+}
