@@ -1,8 +1,0 @@
-@mixin randomPosition($max) {
-	$random: random($max * 10) / 10;
-	$leftPadding: $random;
-	$rightPadding: $max - $random;
-	padding-left: #{$leftPadding}#{'%'};
-	padding-right: #{$rightPadding}#{'%'}; 
-    width: #{(100 - $leftPadding) - $rightPadding}#{'%'};
-}

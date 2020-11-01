@@ -5,12 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel _react/index.html",
     "babel": "babel _react --out-dir _babelified",
     "babelw": "babel _react --out-dir _babelified --watch",
     "prettier": "prettier _react/**/*.jsx --write",
-    "ssr": "npm run babel && node _ssr/index.js",
-    "watch": "parcel watch _react/index.html"
+    "build": "npm run babel && node _build/index.js",
   },
   "repository": {
     "type": "git",
