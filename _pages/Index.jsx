@@ -1,5 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 export default ({ posts }) => {
-	return <div>Hello world</div>
-}
+	return (
+		<div>
+			{posts.map(({ html }, index) => {
+				return <div key={index} dangerouslySetInnerHTML={{ __html: html }}></div>;
+			})}
+		</div>
+	);
+};
