@@ -7,7 +7,7 @@ module.exports = async () => {
 	const postFiles = await fs.readdir(POSTS_DIR);
 	return await Promise.all(
 		postFiles.map(async file => {
-			return await parseLiquidTemplateWithFrontMatter(POSTS_DIR + '/' + file);
+			return await parseLiquidTemplateWithFrontMatter(`${POSTS_DIR}/${file}`);
 		})
 	);
 }

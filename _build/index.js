@@ -20,11 +20,11 @@ const createFolders = require('./utils/createFolders');
 	const pages = await getPages();
 	const postPages = splitToEqualChunks(posts, config.postsPerPage);
 
-	createFolders(Object.entries(config.folders));
+	await createFolders(Object.values(config.folders));
 
 	const globalVariables = {
-		posts,
 		config,
+		posts
 	};
 
 	pages.forEach(page => {
@@ -33,12 +33,17 @@ const createFolders = require('./utils/createFolders');
 	});
 
 	postPages.forEach(async (posts, index) => {
-		const html = renderHtml(Index, { posts });
-		fs.writeFile(`public/${config.folders.pages}/${index + 1}.html`, html);
+		const pageNumber = index + 1;
+		const pagination = {
+			nextPage: posts[index + 1] ? `${pageNumber + 1}.html` : undefined,
+			previousPage: posts[index - 1] ? `${pageNumber - 1}.html` : undefined,
+		};
+		const html = renderHtml(Index, { ...globalVariables, posts, pagination });
+		fs.writeFile(`public/${config.folders.pages}/${pageNumber}.html`, html);
 	});
 
 	posts.forEach(post => {
-		const html = renderHtml(Post, { post, ...globalVariables });
+		const html = renderHtml(Post, { ...globalVariables, post });
 		fs.writeFile(`public/${config.folders.posts}/${post.fileName}.html`, html);
 	});
 })();
