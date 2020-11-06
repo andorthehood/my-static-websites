@@ -1,12 +1,17 @@
+require('@babel/register')({
+	presets: ['@babel/react'],
+	extensions: ['.jsx'],
+	cache: true
+});
+
 const fs = require('fs').promises;
 const renderHtml = require('./renderHtml');
-const Posts = require('../lib/Posts').default;
-const Post = require('../lib/Post').default;
+const Posts = require('../_layouts/Posts.jsx').default;
+const Post = require('../_layouts/Post.jsx').default;
 const getPosts = require('./getPosts');
 
 (async function () {
 	const posts = await getPosts();
-	//	const html = renderHtml(Posts, { posts });
 
 	await fs.mkdir('public/posts', { recursive: true });
 
