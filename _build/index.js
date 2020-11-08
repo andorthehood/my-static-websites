@@ -5,6 +5,7 @@ require('@babel/register')({
 });
 
 const fs = require('fs').promises;
+const fsOld = require('fs');
 const renderHtml = require('./renderHtml');
 const Posts = require('../_layouts/Posts.jsx').default;
 const Post = require('../_layouts/Post.jsx').default;
@@ -16,12 +17,52 @@ const splitToEqualChunks = require('./utils/splitToEqualChunks');
 const createFolders = require('./utils/createFolders');
 const CleanCSS = require('clean-css');
 
-(async function () {
+const renderPages = async (pages, globalVariables, extractedCss = '') => {
+	await Promise.all(
+		pages.map(async page => {
+			const { html, css } = renderHtml(page.Component, globalVariables);
+			await fs.writeFile(`public/${page.fileName.toLowerCase()}.html`, html);
+			extractedCss += css;
+		})
+	);
+
+	return extractedCss;
+};
+
+const renderPostPages = async (postPages, globalVariables, extractedCss = '') => {
+	await Promise.all(
+		postPages.map(async (posts, index) => {
+			const pageNumber = index + 1;
+			const pagination = {
+				nextPage: posts[index + 1] ? `${pageNumber + 1}.html` : undefined,
+				previousPage: posts[index - 1] ? `${pageNumber - 1}.html` : undefined,
+			};
+			const { html, css } = renderHtml(Index, { ...globalVariables, posts, pagination });
+			extractedCss += css;
+			await fs.writeFile(`public/${config.folders.pages}/${pageNumber}.html`, html);
+		})
+	);
+
+	return extractedCss
+};
+
+const renderPosts = async (posts, globalVariables, extractedCss = '') => {
+	await Promise.all(
+		posts.map(async ({ html: post }) => {
+			const { html, css } = renderHtml(Post, { ...globalVariables, post });
+			extractedCss += css;
+			await fs.writeFile(`public/${config.folders.posts}/${post.fileName}.html`, html);
+		})
+	);
+
+	return extractedCss
+};
+
+const build = async function () {
 	const renderTime = Date.now();
 	const posts = await getPosts();
 	const pages = await getPages();
 	const postPages = splitToEqualChunks(posts, config.postsPerPage);
-	let globalCss = '';
 
 	await createFolders(Object.values(config.folders));
 
@@ -31,29 +72,21 @@ const CleanCSS = require('clean-css');
 		renderTime,
 	};
 
-	pages.forEach(page => {
-		const { html, css } = renderHtml(page.Component, globalVariables);
-		fs.writeFile(`public/${page.fileName.toLowerCase()}.html`, html);
-		globalCss += css;
-	});
+	const extractedCss = await Promise.all([
+		renderPages(pages, globalVariables),
+		renderPostPages(postPages, globalVariables),
+		renderPosts(posts, globalVariables),
+	]);
 
-	postPages.forEach(async (posts, index) => {
-		const pageNumber = index + 1;
-		const pagination = {
-			nextPage: posts[index + 1] ? `${pageNumber + 1}.html` : undefined,
-			previousPage: posts[index - 1] ? `${pageNumber - 1}.html` : undefined,
-		};
-		const { html, css } = renderHtml(Index, { ...globalVariables, posts, pagination });
-		fs.writeFile(`public/${config.folders.pages}/${pageNumber}.html`, html);
-		globalCss += css;
-	});
-
-	posts.forEach(post => {
-		const { html, css } = renderHtml(Post, { ...globalVariables, post });
-		fs.writeFile(`public/${config.folders.posts}/${post.fileName}.html`, html);
-		globalCss += css;
-	});
-
-	const { styles } = new CleanCSS({ level: 2 }).minify(globalCss);
+	const { styles } = new CleanCSS({ level: 2 }).minify(extractedCss.join(''));
 	fs.writeFile(`public/style.css`, styles);
-})();
+};
+
+build();
+
+console.log('Watching...');
+
+fsOld.watch('./_layouts', { recursive: true }, (eventType, filename) => {
+	console.log(eventType, filename);
+	build();
+});
