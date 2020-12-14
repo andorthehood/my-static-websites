@@ -5,7 +5,6 @@ require('@babel/register')({
 });
 
 const fs = require('fs').promises;
-const fsOld = require('fs');
 const renderHtml = require('./renderHtml');
 const Posts = require('../_layouts/Posts.jsx').default;
 const Post = require('../_layouts/Post.jsx').default;
@@ -16,6 +15,7 @@ const config = require('./config');
 const splitToEqualChunks = require('./utils/splitToEqualChunks');
 const createFolders = require('./utils/createFolders');
 const CleanCSS = require('clean-css');
+const chokidar = require('chokidar');
 
 const renderPages = async (pages, globalVariables, extractedCss = '') => {
 	await Promise.all(
@@ -43,7 +43,7 @@ const renderPostPages = async (postPages, globalVariables, extractedCss = '') =>
 		})
 	);
 
-	return extractedCss
+	return extractedCss;
 };
 
 const renderPosts = async (posts, globalVariables, extractedCss = '') => {
@@ -55,7 +55,7 @@ const renderPosts = async (posts, globalVariables, extractedCss = '') => {
 		})
 	);
 
-	return extractedCss
+	return extractedCss;
 };
 
 const build = async function () {
@@ -86,7 +86,7 @@ build();
 
 console.log('Watching...');
 
-fsOld.watch('./_layouts', { recursive: true }, (eventType, filename) => {
-	console.log(eventType, filename);
+chokidar.watch('./_layouts').on('all', (event, path) => {
+	console.log(event, path);
 	build();
 });

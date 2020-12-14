@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier": "prettier _react/**/*jsx --write",
+    "prettier": "prettier _build/*.js --write",
     "build": "node _build/index.js"
   },
   "repository": {
@@ -24,6 +24,7 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
     "@babel/register": "^7.12.1",
+    "chokidar": "^3.4.3",
     "clean-css": "^4.2.3",
     "core-js": "^3.7.0",
     "front-matter": "^4.0.2",

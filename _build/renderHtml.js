@@ -25,6 +25,6 @@ module.exports = function (Component, props) {
 				</body>
 			</html>
 		`,
-		css: sheet.instance.toString()
+		css: sheet.instance.toString(),
 	};
 };
