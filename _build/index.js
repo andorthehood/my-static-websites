@@ -17,6 +17,7 @@ const renderIndexPages = require('./render/renderIndexPages');
 const devserver = require('./devserver');
 const Post = require('../_layouts/Post.jsx').default;
 const debounce = require('lodash.debounce');
+const rmrf = require('rmrf');
 
 const build = async function () {
 	const renderTime = Date.now();
@@ -24,6 +25,7 @@ const build = async function () {
 	const pages = await getPages();
 	const indexPages = splitToEqualChunks(posts, config.postsPerPage);
 
+	await rmrf('./public');
 	await createFolders(Object.values(config.folders));
 
 	const globalVariables = {
@@ -50,15 +52,16 @@ const build = async function () {
 	const { styles } = new CleanCSS({ level: 2 }).minify(extractedCss);
 	fs.writeFile(`public/style.css`, styles);
 
-	console.log((Date.now()-renderTime) + 'ms');
+	console.log(Date.now() - renderTime + 'ms');
 };
 
 build();
 
 console.log('Watching...');
 
-chokidar.watch('./_layouts').on('all', debounce((event, path) => {
-	build();
-}, 1000));
+chokidar.watch('./_layouts').on(
+	'all',
+	debounce(() => build(), 1000)
+);
 
 devserver();

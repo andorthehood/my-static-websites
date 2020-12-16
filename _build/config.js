@@ -1,5 +1,5 @@
 module.exports = {
-	postsPerPage: 3,
+	postsPerPage: 8,
 	folders: {
 		posts: 'posts',
 		pages: 'pages',
