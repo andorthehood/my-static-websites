@@ -1,5 +1,5 @@
 const renderHtml = require('./renderHtml');
-const Index = require('../_layouts/Index.jsx').default;
+const Index = require('../../_layouts/Index.jsx').default;
 
 module.exports = async (postPages, globalVariables, callback) => {
 	await Promise.all(

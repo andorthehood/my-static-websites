@@ -31,6 +31,7 @@
     "linaria": "^3.0.0-beta.1",
     "liquid": "^5.1.0",
     "liquidjs": "^9.14.1",
+    "lodash.debounce": "^4.0.8",
     "marked": "^1.2.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
