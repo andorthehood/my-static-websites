@@ -1,5 +1,5 @@
 import React from 'react';
-import Default from '../_layouts/Default.jsx';
+import Default from './Default.jsx';
 
 export default ({ posts }) => {
 	return (

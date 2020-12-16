@@ -1,5 +1,5 @@
 const fs = require('fs').promises;
-const asyncRequire = require('./utils/asyncRequire');
+const asyncRequire = require('../utils/asyncRequire');
 const path = require('path');
 
 const PAGES_DIR = '_pages';

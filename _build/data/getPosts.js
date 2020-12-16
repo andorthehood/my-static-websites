@@ -7,11 +7,11 @@ module.exports = async () => {
 	const postFiles = await fs.readdir(POSTS_DIR);
 	return await Promise.all(
 		postFiles.map(async file => {
-			const html = await parseLiquidTemplateWithFrontMatter(`${POSTS_DIR}/${file}`);
+			const data = await parseLiquidTemplateWithFrontMatter(`${POSTS_DIR}/${file}`);
 			const { mtimeMs } = await fs.stat(`${POSTS_DIR}/${file}`);
 
 			return {
-				html,
+				...data,
 				mtime: Math.floor(mtimeMs / 1000),
 			};
 		})

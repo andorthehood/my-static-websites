@@ -5,22 +5,23 @@ require('@babel/register')({
 });
 
 const fs = require('fs').promises;
-const getPosts = require('./getPosts');
-const getPages = require('./getPages');
+const getPosts = require('./data/getPosts');
+const getPages = require('./data/getPages');
 const config = require('./config');
 const splitToEqualChunks = require('./utils/splitToEqualChunks');
 const createFolders = require('./utils/createFolders');
 const CleanCSS = require('clean-css');
 const chokidar = require('chokidar');
 const renderPages = require('./renderPages');
-const renderPostPages = require('./renderPostPages');
-const renderPosts = require('./renderPosts');
+const renderIndexPages = require('./renderIndexPages');
+const devserver = require('./devserver');
+const Post = require('../_layouts/Post.jsx').default;
 
 const build = async function () {
 	const renderTime = Date.now();
-	const posts = await getPosts();
+	const posts = (await getPosts()).map(post => ({ ...post, Component: Post }));
 	const pages = await getPages();
-	const postPages = splitToEqualChunks(posts, config.postsPerPage);
+	const indexPages = splitToEqualChunks(posts, config.postsPerPage);
 
 	await createFolders(Object.values(config.folders));
 
@@ -30,13 +31,22 @@ const build = async function () {
 		renderTime,
 	};
 
-	const extractedCss = await Promise.all([
-		renderPages(pages, globalVariables),
-		renderPostPages(postPages, globalVariables),
-		renderPosts(posts, globalVariables),
-	]);
+	let extractedCss = '';
 
-	const { styles } = new CleanCSS({ level: 2 }).minify(extractedCss.join(''));
+	await renderPages(pages, globalVariables, async ({ html, css, page: { fileName } }) => {
+		await fs.writeFile(`public/${fileName.toLowerCase()}.html`, html);
+		extractedCss += css;
+	});
+	await renderIndexPages(indexPages, globalVariables, async ({ pageNumber, html, css }) => {
+		await fs.writeFile(`public/${config.folders.pages}/${pageNumber}.html`, html);
+		extractedCss += css;
+	});
+	await renderPages(posts, globalVariables, async ({ html, css, page: { fileName } }) => {
+		await fs.writeFile(`public/${config.folders.posts}/${fileName}.html`, html);
+		extractedCss += css;
+	});
+
+	const { styles } = new CleanCSS({ level: 2 }).minify(extractedCss);
 	fs.writeFile(`public/style.css`, styles);
 };
 
@@ -48,3 +58,5 @@ chokidar.watch('./_layouts').on('all', (event, path) => {
 	console.log(event, path);
 	build();
 });
+
+devserver();

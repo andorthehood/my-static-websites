@@ -1,9 +1,7 @@
 const renderHtml = require('./renderHtml');
-const fs = require('fs').promises;
-const Index = require('../_pages/Index.jsx').default;
-const config = require('./config');
+const Index = require('../_layouts/Index.jsx').default;
 
-module.exports = async (postPages, globalVariables, extractedCss = '') => {
+module.exports = async (postPages, globalVariables, callback) => {
 	await Promise.all(
 		postPages.map(async (posts, index) => {
 			const pageNumber = index + 1;
@@ -12,10 +10,7 @@ module.exports = async (postPages, globalVariables, extractedCss = '') => {
 				previousPage: posts[index - 1] ? `${pageNumber - 1}.html` : undefined,
 			};
 			const { html, css } = renderHtml(Index, { ...globalVariables, posts, pagination });
-			extractedCss += css;
-			await fs.writeFile(`public/${config.folders.pages}/${pageNumber}.html`, html);
+			await callback({ html, css, pageNumber });
 		})
 	);
-
-	return extractedCss;
 };

@@ -9,8 +9,6 @@ const engine = new Liquid({
 });
 const marked = require('marked');
 
-const INCLUDES_DIR = '_includes';
-
 module.exports = async function parseLiquidTemplateWithFrontMatter(file, globalVariables = {}) {
 	const data = await fs.readFile(file, 'utf8');
 	const { body, attributes } = fm(data);
