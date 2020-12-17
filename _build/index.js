@@ -57,11 +57,13 @@ const build = async function () {
 
 build();
 
-console.log('Watching...');
+if (process.argv.includes('--watch')) {
+	console.log('Watching...');
 
-chokidar.watch('./_layouts').on(
-	'all',
-	debounce(() => build(), 1000)
-);
+	chokidar.watch('./_layouts').on(
+		'all',
+		debounce(() => build(), 1000)
+	);
 
-devserver();
+	devserver();
+}
