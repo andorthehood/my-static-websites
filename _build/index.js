@@ -21,12 +21,12 @@ const rmrf = require('rmrf');
 
 const build = async function () {
 	const renderTime = Date.now();
-	const posts = (await getPosts()).map(post => ({ ...post, Component: Post }));
-	const pages = await getPages();
+	const posts = (await getPosts('./_posts')).map(post => ({ ...post, Component: Post }));
+	const pages = await getPages('./_pages');
 	const indexPages = splitToEqualChunks(posts, config.postsPerPage);
 
 	await rmrf('./public');
-	await createFolders(Object.values(config.folders));
+	await createFolders(Object.values(config.folders), './public');
 
 	const globalVariables = {
 		config,

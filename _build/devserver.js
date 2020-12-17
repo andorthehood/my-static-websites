@@ -9,8 +9,6 @@ const fs = require('fs').promises;
 const path = require('path');
 const url = require('url');
 
-const PORT = process.env.PORT || 1234;
-const HOST = process.env.HOST || 'localhost';
 const INDEX = 'index.html';
 
 const getContentType = file => {
@@ -51,8 +49,8 @@ const server = http.createServer(async (req, res) => {
 	}
 });
 
-module.exports = () => {
-	server.listen({ host: HOST, port: PORT });
+module.exports = ({ host = process.env.HOST || 'localhost', port = process.env.PORT || 1234 }) => {
+	server.listen({ host, port });
 	console.log(`Listening on port ${HOST}:${PORT}...`, '\x1b[33m');
 	console.log(
 		`Warning: This development server was not meant to be used in a production environment.\n`,

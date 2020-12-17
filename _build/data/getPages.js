@@ -2,15 +2,13 @@ const fs = require('fs').promises;
 const asyncRequire = require('../utils/asyncRequire');
 const path = require('path');
 
-const PAGES_DIR = '_pages';
-
-module.exports = async () => {
-	const pageFiles = await fs.readdir(PAGES_DIR);
+module.exports = async pagesDir => {
+	const pageFiles = await fs.readdir(pagesDir);
 
 	return Promise.all(
 		pageFiles.map(async file => {
-			const page = await asyncRequire(`../../${PAGES_DIR}/${file}`);
-			const { mtimeMs } = await fs.stat(`${PAGES_DIR}/${file}`);
+			const page = await asyncRequire(`../../${pagesDir}/${file}`);
+			const { mtimeMs } = await fs.stat(`${pagesDir}/${file}`);
 
 			return {
 				Component: page.default,
