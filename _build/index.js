@@ -19,16 +19,16 @@ const Post = require('../_layouts/Post.jsx').default;
 const debounce = require('lodash.debounce');
 const rmrf = require('rmrf');
 
-const build = async function () {
+const build = async function ({ clearAll } = {}) {
 	const renderTime = Date.now();
 	const posts = (await getPosts('./_posts')).map(post => ({ ...post, Component: Post }));
 	const pages = await getPages('./_pages');
 	const indexPages = splitToEqualChunks(posts, config.postsPerPage);
 
-	console.log(posts);
-
-	await rmrf('./public');
-	await createFolders(Object.values(config.folders), './public');
+	if (clearAll) {
+		await rmrf('./public');
+		await createFolders(Object.values(config.folders), './public');
+	}
 
 	const globalVariables = {
 		config,
@@ -54,9 +54,11 @@ const build = async function () {
 
 	const { styles } = new CleanCSS({ level: 2 }).minify(extractedCss);
 	fs.writeFile(`public/style.css`, styles);
+
+	console.log(Date.now() - renderTime + 'ms');
 };
 
-build();
+build({ clearAll: true });
 
 if (process.argv.includes('--watch')) {
 	console.log('Watching...');

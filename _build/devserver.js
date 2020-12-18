@@ -49,9 +49,9 @@ const server = http.createServer(async (req, res) => {
 	}
 });
 
-module.exports = ({ host = process.env.HOST || 'localhost', port = process.env.PORT || 1234 }) => {
+module.exports = ({ host = process.env.HOST || 'localhost', port = process.env.PORT || 1234 } = {}) => {
 	server.listen({ host, port });
-	console.log(`Listening on port ${HOST}:${PORT}...`, '\x1b[33m');
+	console.log(`Listening on port ${host}:${port}...`, '\x1b[33m');
 	console.log(
 		`Warning: This development server was not meant to be used in a production environment.\n`,
 		`It can have securiy vulnerabilities, so please make sure that it's not exposed to the internet.\n`,
