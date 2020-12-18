@@ -16,7 +16,6 @@ module.exports = function (Component, props) {
 					${helmet.title.toString()}
 					${helmet.meta.toString()}
 					${helmet.link.toString()}
-					${sheet.getStyleTags()}
 				</head>
 				<body ${helmet.bodyAttributes.toString()}>
 					<div id="root">

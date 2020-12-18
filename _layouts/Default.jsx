@@ -4,9 +4,13 @@ import styled from 'styled-components';
 
 const Container = styled.div`
 	width: 500px;
-`;
+	margin: 0 auto;
 
-export default ({ children }) => {
+	img {
+		width: 100%;
+	}
+`;
+export default ({ children, ...props }) => {
 	return (
 		<Container>
 			<Helmet>
@@ -22,6 +26,7 @@ export default ({ children }) => {
 				<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
 				<link rel="alternate" type="application/atom+xml" title="" href="/atom.xml" />
 				<link rel="canonical" href="" />
+				<link href={`/style.css?c=${props.renderTime}`} rel="stylesheet" />
 			</Helmet>
 			<div>{children}</div>
 		</Container>

@@ -11,12 +11,10 @@ const config = require('./config');
 const splitToEqualChunks = require('./utils/splitToEqualChunks');
 const createFolders = require('./utils/createFolders');
 const CleanCSS = require('clean-css');
-const chokidar = require('chokidar');
 const renderPages = require('./render/renderPages');
 const renderIndexPages = require('./render/renderIndexPages');
-const devserver = require('./devserver');
 const Post = require('../_layouts/Post.jsx').default;
-const debounce = require('lodash.debounce');
+
 const rmrf = require('rmrf');
 
 const build = async function ({ clearAll } = {}) {
@@ -59,14 +57,3 @@ const build = async function ({ clearAll } = {}) {
 };
 
 build({ clearAll: true });
-
-if (process.argv.includes('--watch')) {
-	console.log('Watching...');
-
-	chokidar.watch('./_layouts').on(
-		'all',
-		debounce(() => build(), 1000)
-	);
-
-	devserver();
-}

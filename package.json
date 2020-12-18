@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier": "prettier _build/**/*.js --write",
-    "watch": "node _build/index.js --watch",
+    "prettier": "prettier _build/*.js --write",
+    "watch": "node _build/watcher.js",
     "build": "node _build/index.js"
   },
   "repository": {
