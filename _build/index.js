@@ -25,6 +25,8 @@ const build = async function () {
 	const pages = await getPages('./_pages');
 	const indexPages = splitToEqualChunks(posts, config.postsPerPage);
 
+	console.log(posts);
+
 	await rmrf('./public');
 	await createFolders(Object.values(config.folders), './public');
 
@@ -41,7 +43,8 @@ const build = async function () {
 		extractedCss += css;
 	});
 	await renderIndexPages(indexPages, globalVariables, async ({ pageNumber, html, css }) => {
-		await fs.writeFile(`public/${config.folders.pages}/${pageNumber}.html`, html);
+		const fileName = pageNumber === 1 ? `public/index.html` : `public/${config.folders.pages}/${pageNumber}.html`;
+		await fs.writeFile(fileName, html);
 		extractedCss += css;
 	});
 	await renderPages(posts, globalVariables, async ({ html, css, page: { fileName } }) => {
@@ -51,8 +54,6 @@ const build = async function () {
 
 	const { styles } = new CleanCSS({ level: 2 }).minify(extractedCss);
 	fs.writeFile(`public/style.css`, styles);
-
-	console.log(Date.now() - renderTime + 'ms');
 };
 
 build();
