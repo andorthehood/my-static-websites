@@ -28,7 +28,8 @@ const server = http.createServer(async (req, res) => {
 	console.log('Request: ', req.url);
 
 	const { pathname } = url.parse(req.url);
-	const file = './public/' + (req.url.endsWith('/') ? `${pathname}${INDEX}` : `${pathname}`);
+	let file = './public/' + (req.url.endsWith('/') ? `${pathname}${INDEX}` : `${pathname}`);
+	file = file.endsWith('.css') || file.endsWith('.html') ? file : file + '.html';
 
 	try {
 		const data = await fs.readFile(file);
