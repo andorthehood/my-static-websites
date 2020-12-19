@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import Default from './Default';
 
-export default ({page}) => {
+export default ({ page }) => {
 	return (
 		<Default>
 			<Helmet>

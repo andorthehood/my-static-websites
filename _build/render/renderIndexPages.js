@@ -6,8 +6,10 @@ module.exports = async (postPages, globalVariables, callback) => {
 		postPages.map(async (posts, index) => {
 			const pageNumber = index + 1;
 			const pagination = {
-				nextPage: posts[index + 1] ? `${pageNumber + 1}.html` : undefined,
-				previousPage: posts[index - 1] ? `${pageNumber - 1}.html` : undefined,
+				nextPage: postPages[index + 1] ? pageNumber + 1 : undefined,
+				previousPage: postPages[index - 1] ? pageNumber - 1 : undefined,
+				pageCount: postPages.length,
+				currentPage: pageNumber
 			};
 			const { html, css } = renderHtml(Index, { ...globalVariables, posts, pagination });
 			await callback({ html, css, pageNumber });

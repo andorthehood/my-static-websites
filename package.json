@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier": "prettier _build/*.js --write",
+    "prettier": "prettier _layouts/*.jsx --write",
     "watch": "node _build/watcher.js",
     "build": "node _build/index.js"
   },
@@ -28,6 +28,7 @@
     "chokidar": "^3.4.3",
     "clean-css": "^4.2.3",
     "core-js": "^3.7.0",
+    "date-fns": "^2.16.1",
     "front-matter": "^4.0.2",
     "linaria": "^3.0.0-beta.1",
     "liquidjs": "^9.14.1",
