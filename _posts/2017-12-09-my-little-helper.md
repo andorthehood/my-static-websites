@@ -7,7 +7,7 @@ tags: eurorack cat video
 location: "Haarlem, Netherlands"
 ---
 
-{% include ucare.liquid uuid="94fc23ef-410d-4574-90fb-2fc2ede10a64" title="Cat in the window" %}
+{% include ucare.liquid uuid:"94fc23ef-410d-4574-90fb-2fc2ede10a64" title:"Cat in the window" %}
 
 {% include youtube.liquid id="3NqoyK8U0Mg" %}
 

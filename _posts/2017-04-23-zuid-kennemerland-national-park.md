@@ -7,4 +7,4 @@ tags: art travel
 location: "Nationaal Park Zuid-Kennemerland, Netherlands"
 ---
 
-{% include img.liquid img="33384683264_dfbcd1d566_k" date=page.date title="Fox" %}
+{% include img.liquid img:"33384683264_dfbcd1d566_k" date:page.date title:"Fox" %}

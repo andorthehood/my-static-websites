@@ -9,6 +9,6 @@ location: "Haarlem, Netherlands"
 
 {% include youtube.liquid id="nLD65stinlA" %}
 
-{% include ucare.liquid uuid="c056f488-fb07-4efa-9b31-d468c705afee" %}
+{% include ucare.liquid uuid:"c056f488-fb07-4efa-9b31-d468c705afee" %}
 
 Camera: Sony α7 II, lens: Nikkor 50mm f/1.4 AI-S

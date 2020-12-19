@@ -9,4 +9,4 @@ location: "Luxembourg, Luxembourg"
 
 Don't go to the Grand Hotel Cravat, they don't have free WiFi.
 
-{% include img.liquid img="andor_hotel" date=page.date %}
+{% include img.liquid img:"andor_hotel" date:page.date %}
