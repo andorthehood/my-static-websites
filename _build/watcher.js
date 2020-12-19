@@ -19,7 +19,7 @@ chokidar.watch('./_layouts').on(
 			}
 			console.log(stdout);
 		});
-	}, 1000)
+	}, 2000)
 );
 
 devserver();

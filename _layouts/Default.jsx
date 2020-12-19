@@ -13,6 +13,11 @@ const GlobalStyle = createGlobalStyle`
 	}
 `;
 
+const Title = styled.h1`
+	font-size: var(--font-size);
+	color: var(--text-color);
+`;
+
 const Container = styled.div`
 	width: 50%;
 	margin: 0 auto;
@@ -48,6 +53,7 @@ export default ({ children, ...props }) => {
 					<link href={`/style.css?c=${props.renderTime}`} rel="stylesheet" />
 					<title>Andor Polgar's photo journal</title>
 				</Helmet>
+				<Title>Andor Polgar's photo journal</Title>
 				<div>{children}</div>
 			</Container>
 		</ThemeProvider>

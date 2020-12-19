@@ -1,6 +1,6 @@
 import React from 'react';
 import Default from './Default.jsx';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { format } from 'date-fns';
 
 const Post = styled.div`
@@ -14,6 +14,19 @@ const Post = styled.div`
 	img {
 		width: 100%;
 	}
+
+	${({ randomOffsets }) =>
+		randomOffsets
+			.map((offset, index) => {
+				return `
+				p:nth-of-type(${index}) {
+					padding-left: ${offset}%;
+					padding-right: ${10 - offset}%;
+					width: 90%;
+				}
+			`;
+			})
+			.join('\n')}
 `;
 
 const Title = styled.h2`
@@ -25,8 +38,12 @@ export default ({ posts, pagination: { currentPage, nextPage, previousPage, page
 	return (
 		<Default {...props}>
 			{posts.map(({ html, fileName, attributes: { title, date, location } }, index) => {
+				const max = 10;
+				const min = 0;
+				const randomOffsets = new Array(10).fill(0).map(() => Math.floor(Math.random() * (max - min) + min));
+				console.log(randomOffsets);
 				return (
-					<Post key={index}>
+					<Post key={index} randomOffsets={randomOffsets}>
 						<Title>
 							<a href={`/posts/${fileName}`}>{title}</a>
 						</Title>
