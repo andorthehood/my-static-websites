@@ -15,18 +15,20 @@ const Post = styled.div`
 		width: 100%;
 	}
 
-	${({ randomOffsets }) =>
-		randomOffsets
-			.map((offset, index) => {
-				return `
-				p:nth-of-type(${index}) {
-					padding-left: ${offset}%;
-					padding-right: ${10 - offset}%;
-					width: 90%;
-				}
-			`;
-			})
-			.join('\n')}
+	@media (min-width: 700px) {
+		${({ randomOffsets }) =>
+			randomOffsets
+				.map((offset, index) => {
+					return `
+						p:nth-of-type(${index}) {
+							padding-left: ${offset}%;
+							padding-right: ${10 - offset}%;
+							width: 90%;
+						}
+					`;
+				})
+				.join('\n')}
+	}
 `;
 
 const Title = styled.h2`
@@ -41,7 +43,7 @@ export default ({ posts, pagination: { currentPage, nextPage, previousPage, page
 				const max = 10;
 				const min = 0;
 				const randomOffsets = new Array(10).fill(0).map(() => Math.floor(Math.random() * (max - min) + min));
-				console.log(randomOffsets);
+
 				return (
 					<Post key={index} randomOffsets={randomOffsets}>
 						<Title>
