@@ -9,6 +9,9 @@
     "watch": "node _build/watcher.js",
     "build": "node _build/index.js"
   },
+  "engines": {
+    "node": ">=14.15.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/andormade/andor.cool.git"
