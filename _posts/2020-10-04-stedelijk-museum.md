@@ -1,0 +1,14 @@
+---
+layout: post
+title: "Stedelijk Museum"
+date: 2020-10-04 16:47 +0100
+categories: post
+tags: travel
+location: "Amsterdam, Netherlands"
+---
+
+{% include candystore.liquid file:"20201004_7_stedelijk_portra800_m6_8200i_fujihunt.jpg" title:"" %}
+{% include candystore.liquid file:"20201004_12_stedelijk_portra800_m6_8200i_fujihunt.jpg" title:"" %}
+{% include candystore.liquid file:"20201004_15_stedelijk_portra800_m6_8200i_fujihunt.jpg" title:"" %}
+
+Camera: Leica M6 TTL, Zeiss Planar T* 50mm f/2 ZM; film: Kodak Portra 800, Developed in Fuji Hunt C41, scanned with a Plustek 8200i, edited in Lightroom 
