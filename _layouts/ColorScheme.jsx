@@ -10,8 +10,8 @@ export default createGlobalStyle`
 
         @media (prefers-color-scheme: dark) {
             --title-color: #666666;
-            --background-color: #000000;
-            --text-color: #999999;
+            --background-color: #111111;
+            --text-color: #666666;
         }
     }
 `;
