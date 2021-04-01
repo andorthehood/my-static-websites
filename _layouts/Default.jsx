@@ -5,22 +5,32 @@ import ColorScheme from './ColorScheme';
 
 const GlobalStyle = createGlobalStyle`
 	body, html {
+		color: var(--text-color);
     	background: var(--background-color);
-    	padding: 0;
-    	margin: 0;
     	font-family: "Roboto Mono",Courier,monospace;
-    	font-size: 14px;
+    	font-size: 18px;
+    	margin: 0;
+    	padding: 0;
+	}
+
+	a {
+		color: var(--text-color);
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: line-through;
 	}
 `;
 
 const Title = styled.h1`
-	font-size: var(--font-size);
 	color: var(--text-color);
+	font-size: var(--font-size);
 `;
 
 const Container = styled.div`
-	width: 50%;
 	margin: 0 auto;
+	width: 50%;
 
 	@media (max-width: 1024px) {
 		width: 80%;

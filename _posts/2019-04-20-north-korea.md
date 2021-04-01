@@ -5,6 +5,7 @@ date: 2019-04-20 22:11 +0100
 categories: posts
 tags: travel
 location: "Pyongyang, North Korea"
+emojis: "⭐"
 ---
 
 {% include ucare.liquid uuid:"8adc4024-2aab-45f1-9130-c833f6f804ff" %}

@@ -40,11 +40,11 @@ const build = async function ({ clearAll } = {}) {
 		await fs.writeFile(`public/${fileName.toLowerCase()}.html`, html);
 		extractedCss += css;
 	});
-	await renderIndexPages(indexPages, globalVariables, async ({ pageNumber, html, css }) => {
-		const fileName = pageNumber === 1 ? `public/index.html` : `public/${config.folders.pages}/${pageNumber}.html`;
-		await fs.writeFile(fileName, html);
-		extractedCss += css;
-	});
+	// await renderIndexPages(indexPages, globalVariables, async ({ pageNumber, html, css }) => {
+	// 	const fileName = pageNumber === 1 ? `public/index.html` : `public/${config.folders.pages}/${pageNumber}.html`;
+	// 	await fs.writeFile(fileName, html);
+	// 	extractedCss += css;
+	// });
 	await renderPages(posts, globalVariables, async ({ html, css, page: { fileName } }) => {
 		await fs.writeFile(`public/${config.folders.posts}/${fileName}.html`, html);
 		extractedCss += css;

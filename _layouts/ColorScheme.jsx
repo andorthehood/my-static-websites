@@ -2,16 +2,15 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
     :root {
-        --font-size: 14px;
-
-        --title-color: #cccccc;
         --background-color: #ffffff;
+        --font-size: 14px;
         --text-color: #999999;
+        --title-color: #cccccc;
 
-        @media (prefers-color-scheme: dark) {
-            --title-color: #666666;
-            --background-color: #111111;
-            --text-color: #666666;
-        }
+        // @media (prefers-color-scheme: dark) {
+        //     --background-color: #111111;
+        //     --text-color: #999999;
+        //     --title-color: #666666;
+        // }
     }
 `;

@@ -5,6 +5,7 @@ date: 2019-09-17 20:19 +0100
 categories: posts
 tags: travel
 location: "Budapest, Hungary"
+emojis: "🔞"
 ---
 
 {% include ucare.liquid uuid:"05ee3f4a-36a8-4849-81ed-95e2107c1c36" title:"Judit" %}
