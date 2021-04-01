@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
 		color: var(--text-color);
     	background: var(--background-color);
     	font-family: "Roboto Mono",Courier,monospace;
-    	font-size: 18px;
+    	font-size: var(--font-size);
     	margin: 0;
     	padding: 0;
 	}
@@ -16,6 +16,10 @@ const GlobalStyle = createGlobalStyle`
 	a {
 		color: var(--text-color);
 		text-decoration: none;
+	}
+
+	ul {
+		list-style-type: hiragana;
 	}
 
 	a:hover {
@@ -37,6 +41,10 @@ const Container = styled.div`
 	}
 
 	@media (max-width: 700px) {
+		width: 100%;
+	}
+
+	img {
 		width: 100%;
 	}
 `;
