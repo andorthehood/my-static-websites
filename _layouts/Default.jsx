@@ -6,11 +6,17 @@ import ColorScheme from './ColorScheme';
 const GlobalStyle = createGlobalStyle`
 	body, html {
 		color: var(--text-color);
-    	background: var(--background-color);
-    	font-family: "Roboto Mono",Courier,monospace;
-    	font-size: var(--font-size);
-    	margin: 0;
-    	padding: 0;
+		line-height: 1.5;
+		background: var(--background-color);
+		font-family: "Roboto Mono",Courier,monospace;
+		font-size: var(--font-size);
+		margin: 0;
+		padding: 0;
+	}
+
+	h1 {
+		margin: 0;
+		padding: 10px 0;
 	}
 
 	a {
@@ -19,7 +25,10 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	ul {
+		list-style-position: inside;
 		list-style-type: hiragana;
+		margin: 0;
+		padding: 10px 0;
 	}
 
 	a:hover {
@@ -34,6 +43,7 @@ const Title = styled.h1`
 
 const Container = styled.div`
 	margin: 0 auto;
+	padding: 10px 0;
 	width: 50%;
 
 	@media (max-width: 1024px) {
@@ -45,7 +55,13 @@ const Container = styled.div`
 	}
 
 	img {
+		display: block;
 		width: 100%;
+	}
+
+	p {
+		margin: 0;
+		padding: 20px 0;
 	}
 `;
 
@@ -71,7 +87,9 @@ export default ({ children, ...props }) => {
 					<link href={`/style.css?c=${props.renderTime}`} rel="stylesheet" />
 					<title>Andor Polgar's photo journal</title>
 				</Helmet>
-				<Title>Andor Polgar's photo journal</Title>
+				<Title>
+					<a href="/">Andor Polgar's photo journal</a>
+				</Title>
 				<div>{children}</div>
 			</Container>
 		</ThemeProvider>

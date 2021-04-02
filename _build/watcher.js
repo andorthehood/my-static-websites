@@ -5,9 +5,10 @@ const { exec } = require('child_process');
 
 console.log('Watching...');
 
-chokidar.watch('./_layouts').on(
+chokidar.watch(['./_layouts', './_pages', './_posts']).on(
 	'all',
-	debounce(() => {
+	debounce((action, file) => {
+		console.log(action, file);
 		exec('node _build/index.js', (error, stdout, stderr) => {
 			if (error) {
 				console.log(error.message);
@@ -19,7 +20,7 @@ chokidar.watch('./_layouts').on(
 			}
 			console.log(stdout);
 		});
-	}, 2000)
+	}, 1000)
 );
 
 devserver();

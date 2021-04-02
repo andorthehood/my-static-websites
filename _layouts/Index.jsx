@@ -34,6 +34,7 @@ const Post = styled.div`
 const Title = styled.h2`
 	font-size: 14px;
 	color: var(--title-color);
+	padding: 10px 0;
 `;
 
 export default ({ posts, pagination: { currentPage, nextPage, previousPage, pageCount }, ...props }) => {
