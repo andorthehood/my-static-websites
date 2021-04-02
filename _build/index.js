@@ -21,7 +21,7 @@ const build = async function ({ clearAll } = {}) {
 	const renderTime = Date.now();
 	const posts = (await getPosts('./_posts')).map(post => ({ ...post, Component: Post }));
 	const pages = await getPages('./_pages');
-	const indexPages = splitToEqualChunks(posts, config.postsPerPage);
+	//const indexPages = splitToEqualChunks(posts, config.postsPerPage);
 
 	if (clearAll) {
 		await rmrf('./public');
