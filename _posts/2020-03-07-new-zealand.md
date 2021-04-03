@@ -1,0 +1,17 @@
+---
+layout: post
+title: "New Zealand"
+date: 2020-03-07 13:10 +0100
+categories: post
+location: "Auckland, New Zealand"
+emojis: "⭐"
+---
+
+{% include candystore.liquid file:"20200307_23_newzealand_portra800_m6_8200i_lab.jpg" title:"Sky Tower Auckland" %}
+{% include candystore.liquid file:"20200307_85_newzealand_portra800_m6_8200i_lab.jpg" title:"Hobbiton" %}
+{% include candystore.liquid file:"20200307_20_newzealand_portra800_m6_8200i_lab.jpg" title:"Rotorua rainbow" %}
+{% include candystore.liquid file:"20200307_91_newzealand_portra800_m6_8200i_lab.jpg" title:"Glamping" %}
+{% include candystore.liquid file:"20200307_21_newzealand_portra800_m6_8200i_lab.jpg" title:"Rotorua dusk" %}
+{% include candystore.liquid file:"20200307_87_newzealand_portra800_m6_8200i_lab.jpg" title:"Hotel" %}
+
+Camera: Leica M6 TTL, Zeiss Planar T* 50mm f/2 ZM; film: Kodak Portra 800, scanned with a Plustek 8200i, edited in Lightroom 

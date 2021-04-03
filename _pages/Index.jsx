@@ -7,7 +7,11 @@ export default props => {
 		<Default {...props}>
 			<ul>
 				{props.posts.map((post, index) => {
-					return <li key={index}><a href={`/posts/${post.fileName}`}>{post.attributes.title}</a> {post.attributes.emojis}</li>;
+					return (
+						<li key={index}>
+							<a href={`/posts/${post.fileName}`}>{post.attributes.title}</a> {post.attributes.emojis}
+						</li>
+					);
 				})}
 			</ul>
 		</Default>
