@@ -65,6 +65,8 @@ const Container = styled.div`
 	}
 `;
 
+const Footer = styled.div``;
+
 export default ({ children, ...props }) => {
 	return (
 		<ThemeProvider theme={{}}>
@@ -91,6 +93,22 @@ export default ({ children, ...props }) => {
 					<a href="/">Andor Polgar's photo journal</a>
 				</Title>
 				<div>{children}</div>
+				<Footer>
+					<p>
+						Instagram:{' '}
+						<a href="https://instagram.com/andorcover" target="_blank">
+							@andorcover
+						</a>{' '}
+						|{' '}
+						<a href="https://www.youtube.com/channel/UCF_EgDIkYFIeu-19KleLnFA" target="_blank">
+							YouTube
+						</a>{' '}
+						| The source code of this blog:{' '}
+						<a href="https://github.com/andormade/andor.cool" target="_blank">
+							github
+						</a>
+					</p>
+				</Footer>
 			</Container>
 		</ThemeProvider>
 	);
