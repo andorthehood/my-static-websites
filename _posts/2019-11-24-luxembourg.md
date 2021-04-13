@@ -3,11 +3,12 @@ layout: post
 title: "Luxembourg"
 date: 2019-11-24 21:40 +0100
 categories: post
-tags: travel
 location: "Luxembourg, Luxembourg"
 ---
 
-{% include ucare.liquid uuid:"f79ca29b-1b3c-4cae-ba84-baf5c70fdd54" title:"Luxembourg Hotel" %}
-{% include ucare.liquid uuid:"98884a0d-80be-4b14-9f84-8d6f3c8e4d02" title:"Luxembourg Hotel" %}
+{% include candystore.liquid file:"20200118_1_luxembourg_portra160_rollei.jpg" title:"Luxembourg Hotel" %}
+{% include candystore.liquid file:"20200118_3_luxembourg_trix400_1600_rollei.jpg" title:"Luxembourg Hotel" %}
 
-Camera: Rollei 35 classic, film: Kodak Portra 160
+#1 Camera: Rollei 35 classic, film: Kodak Portra 160
+
+#2 Camera: Rollei 35 classic, film: Kodak Tri-X 400 pushed to 1600
