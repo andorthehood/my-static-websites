@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Luxembourg"
+title: "Luxembourg, Luxembourg"
 date: 2019-11-24 21:40 +0100
 categories: post
 location: "Luxembourg, Luxembourg"
