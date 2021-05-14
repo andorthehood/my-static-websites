@@ -65,7 +65,15 @@ const Container = styled.div`
 	}
 `;
 
-const Footer = styled.div``;
+const Footer = styled.div`
+	a {
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: line-through;
+		}
+	}
+`;
 
 export default ({ children, ...props }) => {
 	return (
@@ -103,10 +111,12 @@ export default ({ children, ...props }) => {
 						<a href="https://www.youtube.com/channel/UCF_EgDIkYFIeu-19KleLnFA" target="_blank">
 							YouTube
 						</a>{' '}
-						| The source code of this blog:{' '}
+						| My website doesn't collect or send your data to 3rd party analytics services. 🍪 You don't have to believe
+						me, you can see it for yourself in the source code on{' '}
 						<a href="https://github.com/andormade/andor.cool" target="_blank">
 							github
 						</a>
+						.
 					</p>
 				</Footer>
 			</Container>
