@@ -7,6 +7,7 @@ location: "Haarlem, Netherlands"
 emojis: "🔞"
 ---
 
+{% include candystore.liquid file:"20190805_2_viktoriia.jpg" title:"Viktoriia" %}
 {% include candystore.liquid file:"20190805_1_viktoriia.jpg" title:"Viktoriia" %}
 
 Camera: Nikon D610, lens: Sigma Art 50mm 1.4
