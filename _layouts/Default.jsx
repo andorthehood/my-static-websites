@@ -111,8 +111,8 @@ export default ({ children, ...props }) => {
 						<a href="https://www.youtube.com/channel/UCF_EgDIkYFIeu-19KleLnFA" target="_blank">
 							YouTube
 						</a>{' '}
-						| My website doesn't collect your personal information, nor does it send any of it to third-party analytics services. 🍪 You don't have to believe
-						me, you can see it for yourself in the source code on{' '}
+						| My website doesn't collect your personal information, nor does it send any of it to third-party analytics
+						services. 🍪 You don't have to believe me, you can see it for yourself in the source code on{' '}
 						<a href="https://github.com/andormade/andor.cool" target="_blank">
 							github
 						</a>
