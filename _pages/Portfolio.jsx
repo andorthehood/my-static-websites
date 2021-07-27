@@ -4,7 +4,40 @@ import Default from '../_layouts/Default.jsx';
 export default props => {
 	return (
 		<Default {...props}>
-			<img src="https://static.llllllllllll.com/andor/20200306_4_alina_portra800_m6_8200i_fujihunt.jpg"></img>
+			<p>
+				<img
+					src="https://static.llllllllllll.com/andor/20200306_4_alina_portra800_m6_8200i_fujihunt.jpg"
+					loading="lazy"
+				/>
+			</p>
+			<p>
+				<img src="https://static.llllllllllll.com/andor/20210220_29_julia_trix400_+1_m6_8200i_d76.jpg" loading="lazy" />
+			</p>
+			<p>
+				<img src="https://ucarecdn.com/14c6d0e8-aab0-4c80-9af4-5015192160cc/-/preview/2000x1000/" loading="lazy" />
+			</p>
+			<p>
+				<img
+					src="https://static.llllllllllll.com/andor/20201027_46_maya_rotterdam_portra800_m6_8200i_fujihunt.jpg"
+					loading="lazy"
+				/>
+			</p>
+			<p>
+				<img src="https://static.llllllllllll.com/andor/20191104_45_frida_delta400_800_rollei_d76.jpg" loading="lazy" />
+			</p>
+			<p>
+				<img src="https://static.llllllllllll.com/andor/20190920_72_judit_portra400.jpg" loading="lazy" />
+			</p>
+			<p>
+				<img
+					src="https://static.llllllllllll.com/andor/20201027_31_maya_rotterdam_portra800_m6_8200i_fujihunt.jpg"
+					loading="lazy"
+				/>
+			</p>
+			<p>
+				<img src="https://static.llllllllllll.com/andor/20190920_18_judit_tmax3200.jpg" loading="lazy" />
+			</p>
+
 			<h2>Models I worked with</h2>
 			<p>(not an exhaustive list)</p>
 			<ul>
