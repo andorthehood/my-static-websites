@@ -7,6 +7,6 @@ location: "Zandvoort, Netherlands"
 emojis: "🔞"
 ---
 
-{% include candystore.liquid file:"20210530-1-toughhxnesty.jpg" title:"@thoughhxnesty" %}
+{% include candystore.liquid file:"20210530_1_toughhxnesty.jpg" title:"@toughhxnesty" %}
 
 Camera: Nikon 610, Sigma Art 35mm f/1.4
