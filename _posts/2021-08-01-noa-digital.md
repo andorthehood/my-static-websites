@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Noa"
+title: 'Noa (digital)'
 date: 2021-08-01 22:47 +0100
 categories: post
-location: "Zandvoort, Netherlands"
-emojis: "🔞"
+location: 'Zandvoort, Netherlands'
+emojis: '🔞'
 ---
 
 {% include candystore.liquid file:"20210801_1_noa.jpg" title:"Noa" %}
