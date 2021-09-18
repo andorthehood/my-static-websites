@@ -22,10 +22,8 @@ export default ({ page }) => {
 			<div dangerouslySetInnerHTML={{ __html: page.html }}></div>
 			{page.nextPost && (
 				<p>
-					Next post:{' '}
-					<Button href={'/posts/' + page.nextPost?.fileName}>
-						{page.nextPost?.attributes.title} {page.nextPost?.attributes?.emojis}
-					</Button>
+					Next post: <Button href={'/posts/' + page.nextPost?.fileName}>{page.nextPost?.attributes.title}</Button>
+					{page.nextPost?.attributes?.emojis}
 				</p>
 			)}
 		</Default>
