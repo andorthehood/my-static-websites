@@ -2,7 +2,7 @@ const fs = require('fs').promises;
 const parseLiquidTemplateWithFrontMatter = require('./templateParser');
 const path = require('path');
 
-module.exports = async postsDir => {
+module.exports = async function getPosts(postsDir) {
 	const postFiles = await fs.readdir(postsDir);
 	const posts = await Promise.all(
 		postFiles.map(async file => {
@@ -18,5 +18,13 @@ module.exports = async postsDir => {
 		})
 	);
 
-	return posts.sort((a, b) => (a.ctime > b.ctime ? -1 : a.ctime < b.ctime ? 1 : 0));
+	return posts
+		.sort((a, b) => (a.ctime > b.ctime ? -1 : a.ctime < b.ctime ? 1 : 0))
+		.map((post, index) => {
+			return {
+				...post,
+				nextPost: posts[index + 1],
+				previousPost: posts[index - 1],
+			};
+		});
 };

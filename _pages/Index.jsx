@@ -2,7 +2,6 @@ import React from 'react';
 import Default from '../_layouts/Default.jsx';
 
 export default props => {
-	console.log(Object.keys(props));
 	return (
 		<Default {...props}>
 			<ul>
