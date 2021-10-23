@@ -1,50 +1,30 @@
 {
-  "name": "andor.cool",
-  "version": "1.0.0",
-  "description": "[![Netlify Status](https://api.netlify.com/api/v1/badges/a8bd44af-89f0-4afe-8765-f9cfc38191bf/deploy-status)](https://app.netlify.com/sites/andor/deploys)",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier": "prettier --write './**/*.jsx'",
-    "dev": "node _build/watcher.js",
-    "build": "node _build/index.js"
-  },
-  "engines": {
-    "node": ">=14.15.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/andormade/andor.cool.git"
-  },
-  "author": "Andor Polgar",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/andormade/andor.cool/issues"
-  },
-  "homepage": "https://github.com/andormade/andor.cool#readme",
-  "dependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
-    "@babel/preset-env": "^7.12.1",
-    "@babel/preset-react": "^7.12.5",
-    "@babel/register": "^7.12.1",
-    "chokidar": "^3.4.3",
-    "clean-css": "^4.2.3",
-    "core-js": "^3.7.0",
-    "date-fns": "^2.16.1",
-    "front-matter": "^4.0.2",
-    "linaria": "^3.0.0-beta.1",
-    "liquidjs": "^9.14.1",
-    "lodash.debounce": "^4.0.8",
-    "marked": "^2.0.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-helmet": "^6.1.0",
-    "react-router-dom": "^5.2.0",
-    "rmrf": "^2.0.3",
-    "styled-components": "^5.2.1"
-  },
-  "devDependencies": {
-    "prettier": "^2.0.5"
-  }
+	"name": "andor.cool",
+	"version": "2.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build && next export",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"front-matter": "4.0.2",
+		"liquidjs": "9.14.1",
+		"marked": "2.0.0",
+		"next": "11.1.2",
+		"react": "17.0.2",
+		"react-dom": "17.0.2",
+		"styled-components": "^5.3.3"
+	},
+	"devDependencies": {
+		"@types/marked": "3.0.2",
+		"@types/react": "17.0.31",
+		"@types/styled-components": "^5.1.15",
+		"babel-plugin-styled-components": "^1.13.3",
+		"eslint": "7.32.0",
+		"eslint-config-next": "11.1.2",
+		"prettier": "^2.4.1",
+		"typescript": "4.4.4"
+	}
 }
