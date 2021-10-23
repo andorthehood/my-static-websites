@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app';
 import styled, { createGlobalStyle } from 'styled-components';
+import Link from 'next/link';
 import Head from 'next/head';
 
 const GlobalStyle = createGlobalStyle`
@@ -12,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
 		margin: 0;
 		padding: 0;
 	}
-	
+
 	h1 {
 		margin: 0;
 		padding: 10px 0;
@@ -79,44 +80,23 @@ const Footer = styled.div`
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<Container>
-			<GlobalStyle />
 			<Head>
-				<meta charSet="utf-8" />
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
-				/>
-				<link
-					href="https://fonts.googleapis.com/css?family=Roboto+Slab:300|Roboto:900&subset=latin-ext"
-					rel="stylesheet"
-				/>
-				<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
-				<link rel="alternate" type="application/atom+xml" title="" href="/atom.xml" />
-				<link rel="canonical" href="" />
-				<title>Andor Polgar's photo journal</title>
+				<title>Andor Polgar&apos;s photo journal</title>
 			</Head>
+			<GlobalStyle />
 			<Title>
-				<a href="/">Andor Polgar's photo journal</a>
+				<Link href="/">Andor Polgar&apos;s photo journal</Link>
 			</Title>
 			<div>
 				<Component {...pageProps} />
 			</div>
 			<Footer>
 				<p>
-					Instagram:{' '}
-					<a href="https://instagram.com/andorcover" target="_blank">
-						@andorcover
-					</a>{' '}
-					|{' '}
-					<a href="https://www.youtube.com/channel/UCF_EgDIkYFIeu-19KleLnFA" target="_blank">
-						YouTube
-					</a>{' '}
-					| My website doesn't collect your personal information, nor does it send any of it to third-party analytics
-					services. 🍪 You don't have to believe me, you can see it for yourself in the source code on{' '}
-					<a href="https://github.com/andormade/andor.cool" target="_blank">
-						github
-					</a>
-					.
+					Instagram: <Link href="https://instagram.com/andorcover">@andorcover</Link> |{' '}
+					<Link href="https://www.youtube.com/channel/UCF_EgDIkYFIeu-19KleLnFA">YouTube</Link> | My website doesn&apos;t
+					collect your personal information, nor does it send any of it to third-party analytics services. 🍪 You
+					don&apos;t have to believe me, you can see it for yourself in the source code on{' '}
+					<Link href="https://github.com/andormade/andor.cool">github</Link>.
 				</p>
 			</Footer>
 		</Container>
