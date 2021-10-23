@@ -1,10 +1,9 @@
-import { FC } from 'react';
 import { promises as fs } from 'fs';
-import { GetStaticPaths, GetStaticProps, GetStaticPropsResult } from 'next';
+import { GetStaticPaths, GetStaticProps, GetStaticPropsResult, NextPage } from 'next';
 import path from 'path';
 import parsePostFile, { PostProps } from '../../lib/parsePostFile';
 
-const Post: FC<PostProps> = function Post(props) {
+const Post: NextPage<PostProps> = function Post(props) {
 	return <div dangerouslySetInnerHTML={{ __html: props.content}}></div>;
 };
 
