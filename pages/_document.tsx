@@ -13,7 +13,7 @@ export default class MyDocument extends Document {
 					/>
 					<link rel="alternate" type="application/atom+xml" title="" href="/atom.xml" />
 					<link rel="canonical" href="" />
-					<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=optional" rel="stylesheet" />
+					<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
 				</Head>
 				<body>
 					<Main />
