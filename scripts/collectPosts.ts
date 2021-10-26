@@ -25,9 +25,11 @@ export interface PostProps {
 	attributes: MarkdownAttributes;
 	fileName: string;
 	timestamp: number;
+	nextPost?: PostProps;
+	previousPost?: PostProps;
 }
 
-export default async function parsePostFile(file: string, globalVariables = {}): Promise<PostProps> {
+async function parsePostFile(file: string, globalVariables = {}): Promise<PostProps> {
 	const data = await fs.readFile(file, 'utf8');
 	const { body, attributes } = fm(data) as { body: string; attributes: MarkdownAttributes };
 	const liquidified = await engine.parseAndRender(body, { ...globalVariables, page: attributes });
@@ -39,3 +41,20 @@ export default async function parsePostFile(file: string, globalVariables = {}):
 		fileName: path.basename(file, path.extname(file)),
 	};
 }
+
+async function collectPosts(): Promise<PostProps[]> {
+	const postFiles = await fs.readdir('./_posts');
+	const posts = await Promise.all(postFiles.map(postFile => parsePostFile('./_posts/' + postFile)));
+	posts.sort((a, b) => (a.timestamp > b.timestamp ? -1 : a.timestamp < b.timestamp ? 1 : 0));
+	return posts.map((post, index) => {
+		return {
+			...post,
+			nextPost: posts[index + 1],
+			previousPost: posts[index - 1],
+		};
+	});
+}
+
+(async function () {
+	await fs.writeFile('posts.json', JSON.stringify(await collectPosts()));
+})();

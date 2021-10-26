@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
-import { promises as fs } from 'fs';
 import { GetStaticProps, GetStaticPropsResult } from 'next';
 import Head from 'next/head';
-import parsePostFile, { PostProps } from '../lib/parsePostFile';
+import posts from '../posts.json';
+import { PostProps } from '../scripts/collectPosts';
 
 interface HomeProps {
 	posts: PostProps[];
@@ -30,9 +30,6 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
 };
 
 export const getStaticProps: GetStaticProps = async function (context): Promise<GetStaticPropsResult<HomeProps>> {
-	const postFiles = await fs.readdir('./_posts');
-	const posts = await Promise.all(postFiles.map(postFile => parsePostFile('./_posts/' + postFile)));
-	posts.sort((a, b) => (a.timestamp > b.timestamp ? -1 : a.timestamp < b.timestamp ? 1 : 0));
 	return {
 		props: { posts },
 		revalidate: 1,

@@ -7,10 +7,6 @@ export default class MyDocument extends Document {
 			<Html>
 				<Head>
 					<meta charSet="utf-8" />
-					<meta
-						name="viewport"
-						content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
-					/>
 					<link rel="alternate" type="application/atom+xml" title="" href="/atom.xml" />
 					<link rel="canonical" href="" />
 					<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
