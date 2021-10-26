@@ -20,7 +20,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
 				{posts.map((post, index) => {
 					return (
 						<li key={index}>
-							<a href={`/posts/${post.fileName}`}>{post.attributes.title}</a> {post.attributes.emojis}
+							<a href={`/posts/${post.slug}`}>{post.attributes.title}</a> {post.attributes.emojis}
 						</li>
 					);
 				})}

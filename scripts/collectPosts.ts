@@ -23,7 +23,7 @@ interface MarkdownAttributes {
 export interface PostProps {
 	content: string;
 	attributes: MarkdownAttributes;
-	fileName: string;
+	slug: string;
 	timestamp: number;
 	nextPost?: PostProps;
 	previousPost?: PostProps;
@@ -38,7 +38,7 @@ async function parsePostFile(file: string, globalVariables = {}): Promise<PostPr
 		content,
 		attributes: attributes,
 		timestamp: new Date(attributes.date).getTime(),
-		fileName: path.basename(file, path.extname(file)),
+		slug: path.basename(file, path.extname(file)),
 	};
 }
 
