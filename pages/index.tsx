@@ -38,7 +38,7 @@ export const getStaticProps: GetStaticProps = async function (): Promise<GetStat
 			posts: posts.map(post => ({
 				title: post.attributes.title,
 				slug: post.slug,
-				emojis: post.attributes.emojis,
+				emojis: post.attributes.emojis || '',
 			})),
 		},
 		revalidate: 1,
