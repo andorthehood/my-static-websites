@@ -10,7 +10,7 @@ const engine = new Liquid({
 	dynamicPartials: false,
 });
 
-interface MarkdownAttributes {
+export interface MarkdownAttributes {
 	emojis?: string;
 	title: string;
 	date: string;

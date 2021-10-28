@@ -2,10 +2,13 @@ import type { NextPage } from 'next';
 import { GetStaticProps, GetStaticPropsResult } from 'next';
 import Head from 'next/head';
 import posts from '../posts.json';
-import { PostProps } from '../scripts/collectPosts';
 
 interface HomeProps {
-	posts: PostProps[];
+	posts: {
+		slug: string;
+		title: string;
+		emojis?: string;
+	}[];
 }
 
 const Home: NextPage<HomeProps> = ({ posts }) => {
@@ -20,7 +23,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
 				{posts.map((post, index) => {
 					return (
 						<li key={index}>
-							<a href={`/posts/${post.slug}`}>{post.attributes.title}</a> {post.attributes.emojis}
+							<a href={`/posts/${post.slug}`}>{post.title}</a> {post.emojis}
 						</li>
 					);
 				})}
@@ -29,9 +32,15 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
 	);
 };
 
-export const getStaticProps: GetStaticProps = async function (context): Promise<GetStaticPropsResult<HomeProps>> {
+export const getStaticProps: GetStaticProps = async function (): Promise<GetStaticPropsResult<HomeProps>> {
 	return {
-		props: { posts },
+		props: {
+			posts: posts.map(post => ({
+				title: post.attributes.title,
+				slug: post.slug,
+				emojis: post.attributes.emojis,
+			})),
+		},
 		revalidate: 1,
 	};
 };
