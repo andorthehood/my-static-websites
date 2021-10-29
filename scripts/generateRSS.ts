@@ -23,8 +23,8 @@ import { promises as fs} from 'fs';
     posts.forEach(post => {
         feed.addItem({
           title: post.attributes.title,
-          id: post.slug,
-          link: 'https://andor.cool/posts' + post.slug,
+          id: 'https://andor.cool/posts/' + post.slug,
+          link: 'https://andor.cool/posts/' + post.slug,
           description: post.attributes.title,
           content: post.content,
           author: [
