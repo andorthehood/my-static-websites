@@ -27,6 +27,7 @@ export interface PostProps {
 	timestamp: number;
 	nextPost?: PostProps;
 	previousPost?: PostProps;
+	images: string[];
 }
 
 async function parsePostFile(file: string, globalVariables = {}): Promise<PostProps> {
@@ -34,11 +35,14 @@ async function parsePostFile(file: string, globalVariables = {}): Promise<PostPr
 	const { body, attributes } = fm(data) as { body: string; attributes: MarkdownAttributes };
 	const liquidified = await engine.parseAndRender(body, { ...globalVariables, page: attributes });
 	const content = marked(liquidified);
+	const images = Array.from(new Set(content.match(/(https:\/\/\S*.(?:jpg|jpeg|png))/g)));
+	
 	return {
 		content,
 		attributes: attributes,
 		timestamp: new Date(attributes.date).getTime(),
 		slug: path.basename(file, path.extname(file)),
+		images,
 	};
 }
 

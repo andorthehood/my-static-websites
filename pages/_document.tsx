@@ -8,6 +8,7 @@ export default class MyDocument extends Document {
 				<Head>
 					<meta charSet="utf-8" />
 					<link rel="alternate" type="application/atom+xml" title="" href="/atom.xml" />
+					<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS 2.0" />
 					<link rel="canonical" href="" />
 					<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
 				</Head>
