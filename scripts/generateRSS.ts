@@ -7,7 +7,7 @@ import { promises as fs} from 'fs';
 		title: "Andor Polgar's photo journal",
 		description: "Andor Polgar's photo journal",
 		id: 'https://andor.cool/',
-		link: 'https://andor.com/',
+		link: 'https://andor.cool/',
 		language: 'en',
 		copyright: 'All rights reserved 2021, Andor Polgar',
 		updated: new Date(),
