@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import { GetStaticProps, GetStaticPropsResult } from 'next';
 import Head from 'next/head';
-import posts from '../posts.json';
+import { collectPosts } from '../scripts/collectPosts';
 
 interface HomeProps {
 	posts: {
@@ -33,6 +33,8 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
 };
 
 export const getStaticProps: GetStaticProps = async function (): Promise<GetStaticPropsResult<HomeProps>> {
+	const posts = await collectPosts();
+
 	return {
 		props: {
 			posts: posts.map(post => ({

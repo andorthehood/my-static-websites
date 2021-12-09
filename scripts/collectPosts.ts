@@ -36,7 +36,7 @@ async function parsePostFile(file: string, globalVariables = {}): Promise<PostPr
 	const liquidified = await engine.parseAndRender(body, { ...globalVariables, page: attributes });
 	const content = marked(liquidified);
 	const images = Array.from(new Set(content.match(/(https:\/\/\S*.(?:jpg|jpeg|png))/g)));
-	
+
 	return {
 		content,
 		attributes: attributes,
@@ -46,19 +46,15 @@ async function parsePostFile(file: string, globalVariables = {}): Promise<PostPr
 	};
 }
 
-async function collectPosts(): Promise<PostProps[]> {
-	const postFiles = await fs.readdir('./_posts');
+export async function collectPosts(): Promise<PostProps[]> {
+	const postFiles = await fs.readdir(path.join(process.cwd(), './_posts'));
 	const posts = await Promise.all(postFiles.map(postFile => parsePostFile('./_posts/' + postFile)));
 	posts.sort((a, b) => (a.timestamp > b.timestamp ? -1 : a.timestamp < b.timestamp ? 1 : 0));
 	return posts.map((post, index) => {
 		return {
 			...post,
-			nextPost: posts[index + 1],
-			previousPost: posts[index - 1],
+			nextPost: posts[index + 1] || null,
+			previousPost: posts[index - 1] || null,
 		};
 	});
 }
-
-(async function () {
-	await fs.writeFile('posts.json', JSON.stringify(await collectPosts()));
-})();
