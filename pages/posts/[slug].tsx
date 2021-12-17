@@ -45,7 +45,6 @@ export const getStaticProps: GetStaticProps = async function (context): Promise<
 	const post = posts.find(({ slug }) => slug === context.params?.slug) || posts[0];
 	return {
 		props: post,
-		revalidate: 1,
 	};
 };
 

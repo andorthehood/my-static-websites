@@ -43,7 +43,6 @@ export const getStaticProps: GetStaticProps = async function (): Promise<GetStat
 				emojis: post.attributes.emojis || '',
 			})),
 		},
-		revalidate: 1,
 	};
 };
 
