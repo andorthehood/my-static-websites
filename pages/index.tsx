@@ -15,8 +15,6 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
 	return (
 		<div>
 			<Head>
-				<title></title>
-				<meta name="description" content="" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<ul>
