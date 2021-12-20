@@ -6,7 +6,8 @@
 		"dev": "next dev",
 		"build": "ts-node scripts/generateRSS && next build && next export",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"update-photos": "lightbucket && bucket-brigade"
 	},
 	"dependencies": {
 		"next": "^11.1.3",
