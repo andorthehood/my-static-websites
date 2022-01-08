@@ -1,0 +1,16 @@
+---
+layout: post
+title: '2019 Summer (collector)'
+date: 2019-08-30 17:08 +0100
+categories: posts
+location: 'Netherlands'
+emojis: ''
+---
+
+{% include candystore.liquid file:"2019_5_summer_contaxg2_zp45mmf2.jpg" title:"2019 summer" %}
+{% include candystore.liquid file:"2019_1_summer_contaxg2_zp45f2.jpg" title:"2019 summer" %}
+{% include candystore.liquid file:"2019_2_summer_portra_160_contaxg2_zp45f2.jpg" title:"2019 summer" %}
+{% include candystore.liquid file:"2019_3_summer_cinestill_50d_contaxg2_zp45f2.jpg" title:"2019 summer" %}
+{% include candystore.liquid file:"2019_4_summer__ektar_contaxg2_zp45f2.jpg" title:"2019 summer" %}
+
+Camera: Contax G2 with Zeiss Planar 45mm f/2; films used: Kodak Portra 160, Cinestill 50D, Kodak Ektar 100
