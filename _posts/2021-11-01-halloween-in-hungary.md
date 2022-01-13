@@ -14,6 +14,7 @@ emojis: ''
 {% include candystore.liquid file:"20211101_29_mad_rollei32_umax400_8200i.jpg" title:"" %}
 {% include candystore.liquid file:"20211101_31_mad_rollei32_umax400_8200i.jpg" title:"" %}
 {% include candystore.liquid file:"20211101_36_mad_rollei32_umax400_8200i.jpg" title:"Eniko" %}
+{% include candystore.liquid file:"20211101_43_mad_rollei32_umax400_8200i.jpg" title:"Eniko" %}
 {% include candystore.liquid file:"20211101_51_mad_rollei32_umax400_8200i.jpg" title:"Eniko" %}
 {% include candystore.liquid file:"20211101_53_mad_rollei32_umax400_8200i.jpg" title:"" %}
 
