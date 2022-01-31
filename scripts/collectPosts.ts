@@ -2,7 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import fm from 'front-matter';
 import { Liquid } from 'liquidjs';
-import marked from 'marked';
+import { marked } from 'marked';
 
 const engine = new Liquid({
 	cache: true,
