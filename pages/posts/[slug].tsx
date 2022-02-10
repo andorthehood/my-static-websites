@@ -20,20 +20,22 @@ const Post: NextPage<PostProps> = function Post(props) {
 				<title>{props.attributes.title}</title>
 			</Head>
 			<div dangerouslySetInnerHTML={{ __html: props.content }}></div>
-			{props.nextPost && (
-				<>
-					Next post: <Button href={'/posts/' + props.nextPost?.slug}>{props.nextPost?.attributes.title}</Button>{' '}
-					{props.nextPost?.attributes?.emojis}
-				</>
-			)}
-			{props.nextSafePost && props.nextSafePost.slug !== props.nextPost?.slug && (
-				<>
-					<br />
-					Next safe post:{' '}
-					<Button href={'/posts/' + props.nextSafePost?.slug}>{props.nextSafePost?.attributes.title}</Button>{' '}
-					{props.nextSafePost?.attributes?.emojis}
-				</>
-			)}
+			<p>
+				{props.nextPost && (
+					<>
+						Next post: <Button href={'/posts/' + props.nextPost?.slug}>{props.nextPost?.attributes.title}</Button>{' '}
+						{props.nextPost?.attributes?.emojis}
+					</>
+				)}
+				{props.nextSafePost && props.nextSafePost.slug !== props.nextPost?.slug && (
+					<>
+						<br />
+						Next safe post:{' '}
+						<Button href={'/posts/' + props.nextSafePost?.slug}>{props.nextSafePost?.attributes.title}</Button>{' '}
+						{props.nextSafePost?.attributes?.emojis}
+					</>
+				)}
+			</p>
 		</>
 	);
 };
