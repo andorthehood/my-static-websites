@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
 
 	a {
 		color: var(--text-color);
-		text-decoration: none;
+		text-decoration: underline;
 	}
 
 	ul {
@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
 		padding: 10px 0;
 	}
 
-	a:hover {
+	a:hover, a:visited {
 		text-decoration: line-through;
 	}
 
@@ -46,6 +46,9 @@ const GlobalStyle = createGlobalStyle`
 const Title = styled.h1`
 	color: var(--text-color);
 	font-size: var(--font-size);
+	a {
+		text-decoration: none;
+	}
 `;
 
 const Container = styled.div`
