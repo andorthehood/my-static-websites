@@ -25,8 +25,9 @@ export interface PostProps {
 	attributes: MarkdownAttributes;
 	slug: string;
 	timestamp: number;
-	nextPost?: PostProps;
-	previousPost?: PostProps;
+	nextPost?: PostProps | null;
+	nextSafePost?: PostProps | null;
+	previousPost?: PostProps | null;
 	images: string[];
 }
 
@@ -46,6 +47,12 @@ async function parsePostFile(file: string, globalVariables = {}): Promise<PostPr
 	};
 }
 
+function findNextSafePost(posts: PostProps[], index: number): PostProps | undefined {
+	return posts.slice(index + 1).find(({ attributes: { emojis } }) => {
+		return !emojis?.includes('🔞');
+	});
+}
+
 export async function collectPosts(): Promise<PostProps[]> {
 	const postFiles = await fs.readdir(path.join(process.cwd(), './_posts'));
 	const posts = await Promise.all(postFiles.map(postFile => parsePostFile('./_posts/' + postFile)));
@@ -54,6 +61,7 @@ export async function collectPosts(): Promise<PostProps[]> {
 		return {
 			...post,
 			nextPost: posts[index + 1] || null,
+			nextSafePost: findNextSafePost(posts, index) || null,
 			previousPost: posts[index - 1] || null,
 		};
 	});

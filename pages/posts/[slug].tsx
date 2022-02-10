@@ -26,6 +26,13 @@ const Post: NextPage<PostProps> = function Post(props) {
 					{props.nextPost?.attributes?.emojis}
 				</p>
 			)}
+			{props.nextSafePost && props.nextSafePost.slug !== props.nextPost?.slug && (
+				<p>
+					Next safe post:{' '}
+					<Button href={'/posts/' + props.nextSafePost?.slug}>{props.nextSafePost?.attributes.title}</Button>{' '}
+					{props.nextSafePost?.attributes?.emojis}
+				</p>
+			)}
 		</>
 	);
 };
