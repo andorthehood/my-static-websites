@@ -1,0 +1,36 @@
+# generated files
+posts.json
+atom.xml
+feed.xml
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+.lightbucketrc
+.lightbucket-cache
+.bucket-brigaderc
+.bucket-brigade-cache
+.last-run
+magick
+
+# debug
+npm-debug.log*
+
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
