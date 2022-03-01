@@ -1,17 +1,7 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsResult, NextPage } from 'next';
 import { collectPosts, PostProps } from '../../scripts/collectPosts';
 import Head from 'next/head';
-import styled from 'styled-components';
 import Link from 'next/link';
-
-const Button = styled(Link)`
-	font-size: var(--font-size);
-	color: var(--text-color);
-	text-decoration: underline;
-	&:hover {
-		text-decoration: line-through;
-	}
-`;
 
 const Post: NextPage<PostProps> = function Post(props) {
 	return (
@@ -23,7 +13,7 @@ const Post: NextPage<PostProps> = function Post(props) {
 			<p>
 				{props.nextPost && (
 					<>
-						Next post: <Button href={'/posts/' + props.nextPost?.slug}>{props.nextPost?.attributes.title}</Button>{' '}
+						Next post: <Link href={'/posts/' + props.nextPost?.slug}>{props.nextPost?.attributes.title}</Link>{' '}
 						{props.nextPost?.attributes?.emojis}
 					</>
 				)}
@@ -31,7 +21,7 @@ const Post: NextPage<PostProps> = function Post(props) {
 					<>
 						<br />
 						Next safe post:{' '}
-						<Button href={'/posts/' + props.nextSafePost?.slug}>{props.nextSafePost?.attributes.title}</Button>{' '}
+						<Link href={'/posts/' + props.nextSafePost?.slug}>{props.nextSafePost?.attributes.title}</Link>{' '}
 						{props.nextSafePost?.attributes?.emojis}
 					</>
 				)}

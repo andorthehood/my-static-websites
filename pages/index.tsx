@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import { GetStaticProps, GetStaticPropsResult } from 'next';
 import Head from 'next/head';
-import styled from 'styled-components';
 import { collectPosts } from '../scripts/collectPosts';
 
 interface HomeProps {
@@ -12,19 +11,13 @@ interface HomeProps {
 	}[];
 }
 
-const PostList = styled.ul`
-	a {
-		text-decoration: none;
-	}
-`;
-
 const Home: NextPage<HomeProps> = ({ posts }) => {
 	return (
 		<div>
 			<Head>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<PostList>
+			<ul className="postlist">
 				{posts.map((post, index) => {
 					return (
 						<li key={index}>
@@ -32,7 +25,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
 						</li>
 					);
 				})}
-			</PostList>
+			</ul>
 		</div>
 	);
 };
