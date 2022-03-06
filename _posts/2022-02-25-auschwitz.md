@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Oświęcim'
-date: 2022-02-24 23:44 +0100
+date: 2022-02-25 23:44 +0100
 location: 'Oświęcim, Poland'
 emojis: ''
 ---
