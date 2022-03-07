@@ -13,7 +13,6 @@ const Post: NextPage<PostProps> = function Post(props) {
 			<p>
 				{props.nextSafePost && props.nextSafePost.slug !== props.nextPost?.slug && (
 					<>
-						<br />
 						Next safe post:{' '}
 						<Link href={'/posts/' + props.nextSafePost?.slug}>{props.nextSafePost?.attributes.title}</Link>{' '}
 						{props.nextSafePost?.attributes?.emojis}
@@ -21,6 +20,7 @@ const Post: NextPage<PostProps> = function Post(props) {
 				)}
 				{props.nextPost && (
 					<>
+						<br />
 						Next post: <Link href={'/posts/' + props.nextPost?.slug}>{props.nextPost?.attributes.title}</Link>{' '}
 						{props.nextPost?.attributes?.emojis}
 					</>
