@@ -20,11 +20,14 @@ feed.xml
 .DS_Store
 *.pem
 .lightbucketrc
-.lightbucket-cache
 .bucket-brigaderc
-.bucket-brigade-cache
 .last-run
 magick
+
+#cache 
+.lightbucket-cache
+.bucket-brigade-cache
+.cache
 
 # debug
 npm-debug.log*
