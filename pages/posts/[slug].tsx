@@ -11,18 +11,18 @@ const Post: NextPage<PostProps> = function Post(props) {
 			</Head>
 			<div dangerouslySetInnerHTML={{ __html: props.content }}></div>
 			<p>
-				{props.nextPost && (
-					<>
-						Next post: <Link href={'/posts/' + props.nextPost?.slug}>{props.nextPost?.attributes.title}</Link>{' '}
-						{props.nextPost?.attributes?.emojis}
-					</>
-				)}
 				{props.nextSafePost && props.nextSafePost.slug !== props.nextPost?.slug && (
 					<>
 						<br />
 						Next safe post:{' '}
 						<Link href={'/posts/' + props.nextSafePost?.slug}>{props.nextSafePost?.attributes.title}</Link>{' '}
 						{props.nextSafePost?.attributes?.emojis}
+					</>
+				)}
+				{props.nextPost && (
+					<>
+						Next post: <Link href={'/posts/' + props.nextPost?.slug}>{props.nextPost?.attributes.title}</Link>{' '}
+						{props.nextPost?.attributes?.emojis}
 					</>
 				)}
 			</p>
