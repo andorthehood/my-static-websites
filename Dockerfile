@@ -22,6 +22,9 @@ RUN apt-get update \
   --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
+# Install imagemagick
+RUN wget https://download.imagemagick.org/ImageMagick/download/binaries/magick
+
 RUN wget https://github.com/digitalocean/doctl/releases/download/v1.70.0/doctl-1.70.0-linux-amd64.tar.gz
 RUN tar xf ./doctl-1.70.0-linux-amd64.tar.gz
 RUN mv ./doctl /usr/local/bin
