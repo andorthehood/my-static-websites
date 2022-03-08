@@ -4,11 +4,11 @@
 FROM node:16-bullseye
 
 # create & set working directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir -p /home/pptruser/app
+WORKDIR /home/pptruser/app
 
 # copy source files
-COPY . /usr/src/app
+COPY . /home/pptruser/app
 
 # install dependencies
 RUN npm install
@@ -41,4 +41,4 @@ USER pptruser
 
 # start app
 EXPOSE 3000
-CMD npm run dev
+# CMD npm run dev

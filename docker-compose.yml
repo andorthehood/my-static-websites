@@ -8,6 +8,6 @@ services:
       context: ./
       dockerfile: Dockerfile
     volumes:
-      - ./:/usr/src/app
-      - /usr/src/app/node_modules
-      - /usr/src/app/.next
+      - ./:/home/pptruser/app
+      - /home/pptruser/app/node_modules
+      - /home/pptruser/app/.next

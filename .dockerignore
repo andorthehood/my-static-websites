@@ -19,9 +19,6 @@ feed.xml
 # misc
 .DS_Store
 *.pem
-.lightbucketrc
-.bucket-brigaderc
-.last-run
 magick
 
 #cache 
