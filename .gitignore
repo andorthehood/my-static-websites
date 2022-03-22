@@ -23,6 +23,7 @@ feed.xml
 *.pem
 .lightbucketrc
 .bucket-brigaderc
+tsconfig.tsbuildinfo
 
 .last-run
 magick

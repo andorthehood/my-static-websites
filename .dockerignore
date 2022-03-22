@@ -20,6 +20,7 @@ feed.xml
 .DS_Store
 *.pem
 magick
+tsconfig.tsbuildinfo
 
 #cache 
 .lightbucket-cache
