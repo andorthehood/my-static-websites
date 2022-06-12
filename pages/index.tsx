@@ -38,7 +38,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
 					return groupsByYear[year].map((post, index) => {
 						return (
 							<>
-								{ index === 0 && <span className="date">{year}</span>}
+								{index === 0 && <span className="date">{year}</span>}
 								<li key={index}>
 									<a href={`/posts/${post.slug}`}>{post.title}</a> {post.emojis}
 								</li>
