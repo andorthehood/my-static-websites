@@ -1,5 +1,5 @@
 ---
-title: 'Julia and Elyisan: First Communion'
+title: 'Ju and Elyisan: First Communion'
 date: 2021-10-09 21:35 +0100
 location: 'The Hague, Netherlands'
 emojis: '⛪'

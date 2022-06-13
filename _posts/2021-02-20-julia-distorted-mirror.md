@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Julia and the distorted mirror"
+title: "Ju and the distorted mirror"
 date: 2021-02-20 23:23 +0100
 categories: post
 location: "Zandvoort, Netherlands"
