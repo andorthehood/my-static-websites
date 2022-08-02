@@ -3,6 +3,7 @@ layout: post
 title: 'With Marcelo in Berlin'
 date: 2022-05-14 23:24 +0100
 location: 'Berlin, Germany'
+emojis: '💃'
 ---
 
 {% include candystore.liquid file:"20220515_17_berlin_marcelo_portra400_ma.jpg" title:"Marcelo" %}

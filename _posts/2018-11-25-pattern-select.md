@@ -3,6 +3,7 @@ layout: post
 title: 'Pattern//Select | PS008 Cascade Effects | Release'
 date: 2018-11-25 22:02 +0100
 location: 'Leipzig, Germany'
+emojis: '🎹'
 ---
 
 {% include vimeo.liquid id:"314563100?h=edfa311ecf" %}
