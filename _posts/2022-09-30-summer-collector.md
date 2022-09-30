@@ -18,3 +18,7 @@ Camera: Rollei 35 classic, film: Kodak Portra 800, scanned from negative with a 
 {% include candystore.liquid file:"2022_summer_2_random_umax400_rollei35.jpg" title:"Eniko & Chris" %}
 
 Camera: Rollei 35 classic, film: Kodak Ultramax 400, scanned from negative with a Plustek 8200i, edited in Lightroom
+
+{% include candystore.liquid file:"20220724_14_sopron_amber400_35ti.jpg" title:"Sopron" %}
+
+Camera: Nikon 35ti, film: Amber 400, scanned from negative with a Plustek 8200i, edited in Lightroom
