@@ -33,7 +33,7 @@ const Portfolio: NextPage = function Portfolio() {
 			</Head>
 			<div>
 				{images.map((imageFile) => 
-					<p><img key={imageFile} src={`${baseUrl}${imageFile}`} alt="" width={"100%"} height="100%" /></p>
+					<p key={imageFile}><img src={`${baseUrl}${imageFile}`} alt="" width={"100%"} height="100%" /></p>
 				)}
             </div>
 		</>
