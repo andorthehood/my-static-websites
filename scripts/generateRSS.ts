@@ -20,7 +20,7 @@ import { collectPosts } from './collectPosts';
 		},
 	});
 
-	const posts = await collectPosts();
+	const posts = await collectPosts('./_posts/');
 
 	posts.forEach(post => {
 		feed.addItem({
