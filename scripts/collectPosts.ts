@@ -53,9 +53,9 @@ function findNextSafePost(posts: PostProps[], index: number): PostProps | undefi
 	});
 }
 
-export async function collectPosts(): Promise<PostProps[]> {
-	const postFiles = await fs.readdir(path.join(process.cwd(), './_posts'));
-	const posts = await Promise.all(postFiles.map(postFile => parsePostFile('./_posts/' + postFile)));
+export async function collectPosts(postsPath: string): Promise<PostProps[]> {
+	const postFiles = await fs.readdir(path.join(process.cwd(), postsPath));
+	const posts = await Promise.all(postFiles.map(postFile => parsePostFile(postsPath + postFile)));
 	posts.sort((a, b) => (a.timestamp > b.timestamp ? -1 : a.timestamp < b.timestamp ? 1 : 0));
 	return posts.map((post, index) => {
 		return {
