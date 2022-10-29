@@ -91,7 +91,14 @@ footer a {
 
 .video-container {
 	position: relative;
-	padding-bottom: 56.25%;
+
+	&-16-9 {
+		padding-bottom: 56.25%;
+	}
+
+	&-3-2 {
+		padding-bottom: 66.6%;
+	}
 
 	iframe {
 		position: absolute;
