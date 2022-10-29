@@ -10,9 +10,9 @@
 		"update-photos": "lightbucket && bucket-brigade"
 	},
 	"dependencies": {
-		"next": "12.1.0",
-		"react": "17.0.2",
-		"react-dom": "17.0.2",
+		"next": "13.0.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
 		"sass": "1.49.9"
 	},
 	"devDependencies": {
@@ -21,7 +21,7 @@
 		"@types/react": "17.0.31",
 		"bucket-brigade": "1.1.1",
 		"eslint": "7.32.0",
-		"eslint-config-next": "11.1.2",
+		"eslint-config-next": "13.0.0",
 		"feed": "4.2.2",
 		"front-matter": "4.0.2",
 		"lightbucket": "1.1.0",
