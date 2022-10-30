@@ -2,8 +2,11 @@ import { GetStaticPaths, GetStaticProps, GetStaticPropsResult, NextPage } from '
 import { collectPosts, PostProps } from '../../scripts/collectPosts';
 import Head from 'next/head';
 import Link from 'next/link';
+import { ReactElement } from 'react';
+import DefaultLayout from '../../components/layout/DefaultLayout';
+import { NextPageWithLayout } from '../_app';
 
-const Post: NextPage<PostProps> = function Post(props) {
+const Post: NextPageWithLayout<PostProps> = function Post(props) {
 	return (
 		<>
 			<Head>
@@ -47,5 +50,11 @@ export const getStaticProps: GetStaticProps = async function (context): Promise<
 		props: post,
 	};
 };
+
+Post.getLayout = function getLayout(page: ReactElement) {
+	return (
+	  <DefaultLayout>{page}</DefaultLayout>
+	)
+  }
 
 export default Post;

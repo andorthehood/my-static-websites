@@ -1,7 +1,9 @@
-import type { NextPage } from 'next';
 import { GetStaticProps, GetStaticPropsResult } from 'next';
 import Head from 'next/head';
+import { ReactElement } from 'react';
+import DefaultLayout from '../components/layout/DefaultLayout';
 import { collectPosts } from '../scripts/collectPosts';
+import { NextPageWithLayout } from './_app';
 
 type PostProps = {
 	slug: string;
@@ -25,7 +27,7 @@ function groupPostsByYear(posts: PostProps[]) {
 	}, {} as Record<string, PostProps[]>);
 }
 
-const Home: NextPage<HomeProps> = ({ posts }) => {
+const Home: NextPageWithLayout<HomeProps> = ({ posts }) => {
 	const groupsByYear = groupPostsByYear(posts);
 
 	return (
@@ -65,5 +67,11 @@ export const getStaticProps: GetStaticProps = async function (): Promise<GetStat
 		},
 	};
 };
+
+Home.getLayout = function getLayout(page: ReactElement) {
+	return (
+		<DefaultLayout>{page}</DefaultLayout>
+	)
+}
 
 export default Home;
