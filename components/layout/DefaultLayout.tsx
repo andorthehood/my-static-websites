@@ -4,13 +4,9 @@ import { FC } from 'react';
 
 const Layout: FC = function ({ children }) {
     return (
-<div className="container">
+        <div className="container">
 			<Head>
 				<title>Andor Polgar&apos;s visual journal</title>
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
-				/>
 			</Head>
 			<h1>
 				<Link href="/">Andor Polgar&apos;s visual journal</Link>
