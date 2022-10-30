@@ -27,4 +27,4 @@ Lenses used: Zeiss ZM 50mm F/2.0 Planar T* and Zeiss ZM 35mm F/2.0 Biogon T*, Ca
 
 The frames were digitized by re-photographing them from the negatives using a Nikon D780 DSLR camera with a Sigma 105mm f/2.8 EX DG OS HSM macro lens.
 
-The individual frames where edited in Lightroom, and then stitched together with FFmpeg. The excessive amount of dust and dirt was transferred onto the film during the digitization process.
+The individual frames were edited in Lightroom, and then stitched together with FFmpeg. The excessive amount of dust and dirt was transferred onto the film during the digitization process.
