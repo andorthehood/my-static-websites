@@ -23,7 +23,7 @@ Directed and produced by Andor Polgar; Cast: Sick Ducks, Ju GomA; Music and mixi
 			
 Some technical details: the entire motion picture was shot on 30 rolls of Ilford HP5 Plus film, they were developed by hand in Ilford ID-11. Most of the rolls were push processed by 1 or 2 exposure values.
 
-Lenses used: Zeiss ZM 50mm F/2.0 Planar T* and Zeiss ZM Zeiss 35mm F/2.0 Biogon T*, Camera: Leica M6 TTL (1984).
+Lenses used: Zeiss ZM 50mm F/2.0 Planar T* and Zeiss ZM 35mm F/2.0 Biogon T*, Camera: Leica M6 TTL (1984).
 
 The frames were digitized by re-photographing them from the negatives using a Nikon D780 DSLR camera with a Sigma 105mm f/2.8 EX DG OS HSM macro lens.
 

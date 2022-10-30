@@ -1,7 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a8bd44af-89f0-4afe-8765-f9cfc38191bf/deploy-status)](https://app.netlify.com/sites/andor/deploys)
 
 # andor.cool
-Source code of my photo journal
+Source code of my visual journal
 <http://andor.cool>
 
 ## Requirements
