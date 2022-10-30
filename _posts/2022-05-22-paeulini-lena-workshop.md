@@ -25,6 +25,7 @@ location: 'Montville, France'
 {% include candystore.liquid file:"20220522_84_montville_portra800_ma.jpg" title:"Montville" %}
 {% include candystore.liquid file:"20220522_89_montville_portra800_ma.jpg" title:"Montville" %}
 {% include candystore.liquid file:"20220522_91_montville_portra800_ma.jpg" title:"Montville" %}
+{% include candystore.liquid file:"20220522_93_montville_portra800_ma.jpg" title:"Montville" %}
 {% include candystore.liquid file:"20220522_95_montville_portra800_ma.jpg" title:"Montville" %}
 {% include candystore.liquid file:"20220522_96_montville_portra800_ma.jpg" title:"Montville" %}
 
