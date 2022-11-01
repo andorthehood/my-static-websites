@@ -9,12 +9,12 @@ A Flor de Piel is an experimental post-porn short film shot entirely on an analo
 
 The title is a Spanish idiomatic expression that literally translates to “like the flower of skin“. The phrase conveys an overt display of emotion. It is similar to the English expression of “wearing one&apos;s heart on one&apos;s sleeve“.
 
-{% include vimeo.liquid id:"765250781?h=c2372131b3" %}
-            
+{% include video.liquid id:"aflordepiel_4k.mp4" %}
+
 It is strongly recommended to watch it on a 4K high-definition TV.
 
 Directed and produced by Andor Polgar; Cast: Sick Ducks, Ju GomA; Music and mixing: Andrew Visser (Oneven)
-			
+
 {% include candystore.liquid file:"20220412_17_ju_femke_hp5_dirty-5.jpg" title:"" %}
 {% include candystore.liquid file:"20220412_1_ju_femke_hp5_dirty-2.jpg" title:"" %}
 {% include candystore.liquid file:"20220412_21_ju_femke_hp5_dirty-6.jpg" title:"" %}
