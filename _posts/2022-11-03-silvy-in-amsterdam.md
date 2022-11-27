@@ -3,6 +3,7 @@ layout: post
 title: 'With Silvy in Amsterdam'
 date: 2022-11-03 22:58 +0100
 location: 'Amsterdam, Netherlands'
+emojis: '🚲'
 ---
 
 {% include candystore.liquid file:"20221103_17_silvy_ams_portra800_ma.jpg" title:"Silvy" %}
