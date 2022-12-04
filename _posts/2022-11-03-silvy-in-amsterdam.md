@@ -10,6 +10,7 @@ emojis: '🚲'
 {% include candystore.liquid file:"20221103_1_silvy_ams_portra800_ma.jpg" title:"Silvy" %}
 {% include candystore.liquid file:"20221103_26_silvy_ams_portra800_ma.jpg" title:"Silvy" %}
 {% include candystore.liquid file:"20221103_3_silvy_ams_portra800_ma.jpg" title:"Silvy" %}
+{% include candystore.liquid file:"20221103_23_silvy_ams_portra800_ma.jpg" title:"Silvy" %}
 {% include candystore.liquid file:"20221103_43_silvy_ams_portra800_ma.jpg" title:"Silvy" %}
 {% include candystore.liquid file:"20221103_45_silvy_ams_portra800_ma.jpg" title:"Silvy" %}
 {% include candystore.liquid file:"20221103_52_silvy_ams_portra800_ma.jpg" title:"Silvy" %}
