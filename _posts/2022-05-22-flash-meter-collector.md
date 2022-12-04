@@ -21,5 +21,8 @@ location: 'Earth'
 {% include candystore.liquid file:"20220522_76_montville_portra800_ma.jpg" title:"Flash meter" %}
 {% include candystore.liquid file:"20220626_7_luxembourg_portra800_ma.jpg" title:"Flash meter" %}
 {% include candystore.liquid file:"20220707_7_oneven_xp2_400_ma.jpg" title:"Oneven" %}
+{% include candystore.liquid file:"20221023_38_emma_manya_gold200_ma.jpg" title:"Emma & Manya" %}
+{% include candystore.liquid file:"20221104_1_silvy_zand_gold200_ma.jpg" title:"Silvy" %}
+{% include candystore.liquid file:"20221104_15_silvy_zand_gold200_ma.jpg" title:"Silvy" %}
 
 Taken with different cameras and on different films, but the flash was always the Contax TLA 140
