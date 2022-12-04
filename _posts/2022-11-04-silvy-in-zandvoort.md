@@ -10,7 +10,6 @@ location: 'Zandvoort, Netherlands'
 {% include candystore.liquid file:"20221104_11_silvy_zand_gold200_ma.jpg" title:"Silvy" %}
 {% include candystore.liquid file:"20221104_12_silvy_zand_gold200_ma.jpg" title:"Silvy" %}
 {% include candystore.liquid file:"20221104_14_silvy_zand_gold200_ma.jpg" title:"Silvy" %}
-{% include candystore.liquid file:"20221104_15_silvy_zand_gold200_ma.jpg" title:"Silvy" %}
 
 Camera: Leica M-A, film: Kodak Gold 200, flash: Contax TLA 140, scanned from negative with a Plustek 8200i, edited in Lightroom
 
