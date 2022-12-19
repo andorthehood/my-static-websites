@@ -16,8 +16,8 @@ const Layout: FC = function ({ children }) {
 			</div>
 			<footer>
 				<p>
-					Instagram: <Link href="https://instagram.com/andorcover">@andorcover</Link> |{' '}
-					<Link href="https://www.youtube.com/channel/UCF_EgDIkYFIeu-19KleLnFA">YouTube</Link> | {' '}
+					<Link href="https://andor.cool/aflordepiel">A Flor de Piel (2022) 🔞</Link> | Social media: <Link href="https://instagram.com/andorcover">@andorcover</Link>,{' '}
+					<Link href="https://www.youtube.com/channel/UCF_EgDIkYFIeu-19KleLnFA">YouTube</Link>,{' '}
 					<Link href="/links">Other links</Link> |{' '}
 					My website doesn&apos;t collect your personal information, nor does it send any of it to
 					third-party analytics services. 🍪 You don&apos;t have to believe me, you can see it for yourself in
