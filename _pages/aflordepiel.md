@@ -11,9 +11,7 @@ The title is a Spanish idiomatic expression that literally translates to “like
 
 {% include video.liquid id:"aflordepiel_4k.mp4" %}
 
-It is strongly recommended to watch it on a 4K high-definition TV.
-
-Directed and produced by Andor Polgar; Cast: Sick Ducks, Ju GomA; Music and mixing: Andrew Visser (Oneven)
+Directed and produced by Andor Polgar ([@andorcover](https://instagram.com/andorcover)); Cast: Sick Ducks ([@sick.ducks](https://www.instagram.com/sick.ducks/)), Ju GomA ([@goma_model](https://www.instagram.com/goma_model/)); Music and mixing: Andrew Visser ([@onevennn](https://www.instagram.com/onevennn/))
 
 {% include candystore.liquid file:"20220412_17_ju_femke_hp5_dirty-5.jpg" title:"" %}
 {% include candystore.liquid file:"20220412_1_ju_femke_hp5_dirty-2.jpg" title:"" %}
