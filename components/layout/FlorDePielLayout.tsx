@@ -16,6 +16,12 @@ const Layout: FC = function ({ children }) {
             h1 {
               font-size: 54px;
             }
+
+            .laurel {
+              background: url(https://static.llllllllllll.com/andor/assets/laurel.svg);
+              width: 100px;
+              height: 100px;
+            }
           `}</style>
         <div>
           <h1>A Flor de Piel</h1>
