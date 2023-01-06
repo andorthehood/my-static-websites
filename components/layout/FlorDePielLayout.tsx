@@ -12,8 +12,13 @@ const Layout: FC = function ({ children }) {
               background: linear-gradient(0deg, rgba(255,204,204,1) 0%, rgba(255,255,255,1) 100%);
               background-attachment: fixed;
             }
+
+            h1 {
+              font-size: 54px;
+            }
           `}</style>
         <div>
+          <h1>A Flor de Piel</h1>
           {children}
         </div>
       </div>
