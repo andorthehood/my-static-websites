@@ -3,7 +3,7 @@ import { collectPosts, PostProps } from '../scripts/collectPosts';
 import Head from 'next/head';
 import { ReactElement } from 'react';
 import DefaultLayout from '../components/layout/DefaultLayout';
-import EmptyLayout from '../components/layout/EmptyLayout';
+import FlorDePielLayout from '../components/layout/FlorDePielLayout';
 import { NextPageWithLayout } from './_app';
 
 const Post: NextPageWithLayout<PostProps> = function Post(props) {
@@ -36,8 +36,8 @@ export const getStaticProps: GetStaticProps = async function (context): Promise<
 };
 
 Post.getLayout = function getLayout(page: ReactElement, props: PostProps) {
-	if (props.attributes.layout === 'empty') {
-		return <EmptyLayout>{page}</EmptyLayout>
+	if (props.attributes.layout === 'flordepiel') {
+		return <FlorDePielLayout>{page}</FlorDePielLayout>
 	}
 
 	return (

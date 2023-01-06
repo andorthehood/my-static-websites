@@ -1,8 +1,11 @@
+html {
+	background: var(--background-color);
+}
+
 body,
 html {
 	color: var(--text-color);
 	line-height: 1.5;
-	background: var(--background-color);
 	font-family: 'Roboto Mono', Courier, monospace;
 	font-size: var(--font-size);
 	margin: 0;
