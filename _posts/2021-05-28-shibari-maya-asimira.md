@@ -6,9 +6,9 @@ location: 'Zandvoort, Netherlands'
 emojis: '🔞'
 ---
 
-{% include candystore.liquid file:"20210528_DSC_1706_shibari_maya_asimira.jpg" title:"Maya" %}
-{% include candystore.liquid file:"20210528_DSC_1716_shibari_maya_asimira.jpg" title:"Asimira and Maya" %}
-{% include candystore.liquid file:"20210528_DSC_1817_shibari_maya_asimira.jpg" title:"Maya" %}
-{% include candystore.liquid file:"20210528_DSC_1941_shibari_maya_asimira.jpg" title:"Maya and Asimira" %}
+{% include candystore.liquid file:"20210528_DSC_1706_shibari_maya_asimira" title:"Maya" %}
+{% include candystore.liquid file:"20210528_DSC_1716_shibari_maya_asimira" title:"Asimira and Maya" %}
+{% include candystore.liquid file:"20210528_DSC_1817_shibari_maya_asimira" title:"Maya" %}
+{% include candystore.liquid file:"20210528_DSC_1941_shibari_maya_asimira" title:"Maya and Asimira" %}
 
 Camera: Nikon 610, Sigma Art 35mm f/1.4

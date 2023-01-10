@@ -19,11 +19,11 @@ Directed and produced by Andor Polgar ([@andorcover](https://instagram.com/andor
 🏆 Best Erotic Short Film - Erotic & Bizarre Art Film Festival 2022
 🏆 Best Erotic Short Film - Hallucinea Film Festival 2022
 
-{% include candystore.liquid file:"20220412_17_ju_femke_hp5_dirty-5.jpg" title:"" %}
-{% include candystore.liquid file:"20220412_1_ju_femke_hp5_dirty-2.jpg" title:"" %}
-{% include candystore.liquid file:"20220412_21_ju_femke_hp5_dirty-6.jpg" title:"" %}
-{% include candystore.liquid file:"20220412_22_ju_femke_hp5_dirty-1.jpg" title:"" %}
-{% include candystore.liquid file:"20220412_7_ju_femke_hp5_dirty-7.jpg" title:"" %}
+{% include candystore.liquid file:"20220412_17_ju_femke_hp5_dirty-5" title:"" %}
+{% include candystore.liquid file:"20220412_1_ju_femke_hp5_dirty-2" title:"" %}
+{% include candystore.liquid file:"20220412_21_ju_femke_hp5_dirty-6" title:"" %}
+{% include candystore.liquid file:"20220412_22_ju_femke_hp5_dirty-1" title:"" %}
+{% include candystore.liquid file:"20220412_7_ju_femke_hp5_dirty-7" title:"" %}
 
 Some technical details: the entire motion picture was shot on 30 rolls of Ilford HP5 Plus film, they were developed by hand in Ilford ID-11. Most of the rolls were push processed by 1 or 2 exposure values.
 

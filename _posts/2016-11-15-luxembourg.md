@@ -6,4 +6,4 @@ categories: posts
 location: 'Luxembourg, Luxembourg'
 ---
 
-{% include candystore.liquid file:"20161115_DSC_9953_luxembourg.jpg" title:"" %}
+{% include candystore.liquid file:"20161115_DSC_9953_luxembourg" title:"" %}

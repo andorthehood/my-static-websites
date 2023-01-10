@@ -7,9 +7,9 @@ location: 'Rotterdam, Netherlands'
 emojis: '🔞'
 ---
 
-{% include candystore.liquid file:"20201202_shibari_15_m6_portra800.jpg" title:"Maya" %}
-{% include candystore.liquid file:"20201202_shibari_1_m6_portra800.jpg" title:"Maya" %}
-{% include candystore.liquid file:"20201202_shibari_14_m6_portra800.jpg" title:"Maya" %}
-{% include candystore.liquid file:"20201202_shibari_6_m6_portra800.jpg" title:"Maya" %}
+{% include candystore.liquid file:"20201202_shibari_15_m6_portra800" title:"Maya" %}
+{% include candystore.liquid file:"20201202_shibari_1_m6_portra800" title:"Maya" %}
+{% include candystore.liquid file:"20201202_shibari_14_m6_portra800" title:"Maya" %}
+{% include candystore.liquid file:"20201202_shibari_6_m6_portra800" title:"Maya" %}
 
 Camera: Leica M6 TTL, Zeiss Planar T\* 50mm f/2 ZM; film: Kodak Portra 800, Developed in Fuji Hunt C41, scanned with a Plustek 8200i, edited in Lightroom
