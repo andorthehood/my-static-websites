@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'With Marcelo in Berlin'
-date: 2022-05-14 23:24 +0100
+date: 2022-05-14T23:24+0100
 location: 'Berlin, Germany'
 emojis: '💃'
 ---

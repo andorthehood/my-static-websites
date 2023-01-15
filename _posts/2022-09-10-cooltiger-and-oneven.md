@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Cooltiger & Oneven'
-date: 2022-09-10 23:24 +0100
+date: 2022-09-10T23:24+0100
 location: 'Amsterdam, Netherlands'
 emojis: '🎹'
 ---

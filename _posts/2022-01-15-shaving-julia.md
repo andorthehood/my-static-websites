@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Shaving Ju'
-date: 2022-01-15 22:23 +0100
+date: 2022-01-15T22:23+0100
 categories: post
 location: 'Rotterdam, Netherlands'
 emojis: '🔞'

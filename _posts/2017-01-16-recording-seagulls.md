@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Recording seagulls on the beach of Long Beach'
-date: 2017-01-16 22:52:39 -0800
+date: 2017-01-16T22:52:39-0800
 location: 'Long Beach, California'
 ---
 

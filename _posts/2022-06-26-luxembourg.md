@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Luxembourg'
-date: 2022-06-26 23:24 +0100
+date: 2022-06-26T23:24+0100
 location: 'Luxembourg, Luxembourg'
 emojis: ''
 ---

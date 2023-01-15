@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'A day with Emma in her office'
-date: 2022-04-30 23:05 +0100
+date: 2022-04-30T23:05+0100
 location: 'Lopik, Netherlands'
 emojis: '🔞🏢'
 ---

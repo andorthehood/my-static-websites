@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Radioteleskop Effelsberg'
-date: 2015-05-20 23:10:39 -0100
+date: 2015-05-20T23:10:39-0100
 location: 'Effelsberg, Germany'
 ---
 

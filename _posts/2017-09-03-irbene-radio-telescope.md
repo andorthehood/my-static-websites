@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Ventspils International Radio Astronomy Center'
-date: 2017-09-03 22:10 +0100
+date: 2017-09-03T22:10+0100
 location: 'Irbene, Latvia'
 ---
 

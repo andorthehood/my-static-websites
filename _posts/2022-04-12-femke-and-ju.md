@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Femke and Ju'
-date: 2022-04-12 22:44 +0100
+date: 2022-04-12T22:44+0100
 location: 'Zandvoort, Netherlands'
 emojis: '🔞🔞'
 ---

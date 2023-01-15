@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Judit, Budapest"
-date: 2019-09-17 20:19 +0100
+date: 2019-09-17T20:19+0100
 categories: posts
 location: "Budapest, Hungary"
 emojis: "🔞⭐"

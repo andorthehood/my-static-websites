@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Partyville'
-date: 2022-05-21 23:24 +0100
+date: 2022-05-21T23:24+0100
 location: 'Montville, France'
 ---
 

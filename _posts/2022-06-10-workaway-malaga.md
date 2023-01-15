@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Workaway in Spain'
-date: 2022-06-10 23:24 +0100
+date: 2022-06-10T23:24+0100
 location: 'Malaga, Spain'
 ---
 

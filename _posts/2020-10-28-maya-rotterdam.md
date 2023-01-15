@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Maya, Rotterdam"
-date: 2020-10-28 22:36 +0100
+date: 2020-10-28T22:36+0100
 categories: post
 tags: travel
 location: "Rotterdam, Netherlands"

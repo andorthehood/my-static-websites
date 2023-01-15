@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Ju and Diego'
-date: 2021-08-07 17:07 +0100
+date: 2021-08-07T17:07+0100
 categories: post
 location: 'Zandvoort, Netherlands'
 emojis: '🔞'

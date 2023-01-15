@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Modular on the spot'
-date: 2016-10-20 22:52:39 -0700
+date: 2016-10-20T22:52:39-0700
 location: 'Los Angeles, California'
 emojis: '🎹'
 ---

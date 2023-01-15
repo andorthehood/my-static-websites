@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "New Zealand"
-date: 2020-03-07 13:10 +0100
+date: 2020-03-07T13:10+0100
 categories: post
 location: "Auckland, New Zealand"
 emojis: "⭐"

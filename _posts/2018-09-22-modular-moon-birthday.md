@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Modular Moon Birthday Party: Marta SmiLga'
-date: 2018-09-22 23:03 +0100
+date: 2018-09-22T23:03+0100
 location: 'Amsterdam, Netherlands'
 emojis: '🎹'
 ---

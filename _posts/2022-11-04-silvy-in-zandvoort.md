@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Silvy in Zandvoort'
-date: 2022-11-04 23:05 +0100
+date: 2022-11-04T23:05+0100
 location: 'Zandvoort, Netherlands'
 ---
 

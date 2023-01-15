@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Kermis in Beverwijk'
-date: 2021-09-19 20:34 +0100
+date: 2021-09-19T20:34+0100
 categories: post
 location: 'Beverwijk, Netherlands'
 emojis: ''

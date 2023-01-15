@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Emma and Manya'
-date: 2022-10-23 23:47 +0100
+date: 2022-10-23T23:47+0100
 location: 'Lopik, Netherlands'
 emojis: '🔞👯'
 ---

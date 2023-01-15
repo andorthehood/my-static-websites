@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Jan & Nick'
-date: 2019-08-30 20:02 +0100
+date: 2019-08-30T20:02+0100
 categories: posts
 location: 'Netherlands'
 emojis: ''

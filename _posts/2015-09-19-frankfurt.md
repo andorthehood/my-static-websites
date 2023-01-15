@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Frankfurt'
-date: 2015-09-19 22:52:39 -0100
+date: 2015-09-19T22:52:39-0100
 location: 'Frankfurt, Germany'
 ---
 

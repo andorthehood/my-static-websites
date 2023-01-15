@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'With Silvy in Amsterdam'
-date: 2022-11-03 22:58 +0100
+date: 2022-11-03T22:58+0100
 location: 'Amsterdam, Netherlands'
 emojis: '🚲'
 ---

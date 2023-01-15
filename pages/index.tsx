@@ -4,6 +4,7 @@ import { ReactElement } from 'react';
 import DefaultLayout from '../components/layout/DefaultLayout';
 import { collectPosts } from '../scripts/collectPosts';
 import { NextPageWithLayout } from './_app';
+import { Fragment } from 'react';
 
 type PostProps = {
 	slug: string;
@@ -39,12 +40,12 @@ const Home: NextPageWithLayout<HomeProps> = ({ posts }) => {
 				{Object.keys(groupsByYear).reverse().map((year) => {
 					return groupsByYear[year].map((post, index) => {
 						return (
-							<>
+							<Fragment key={index}>
 								{index === 0 && <span className="date">{year}</span>}
-								<li key={index}>
+								<li>
 									<a href={`/posts/${post.slug}`}>{post.title}</a> {post.emojis}
 								</li>
-							</>
+							</Fragment>
 						);
 					})
 				})}

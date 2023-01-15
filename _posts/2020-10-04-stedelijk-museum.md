@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Stedelijk Museum"
-date: 2020-10-04 16:47 +0100
+date: 2020-10-04T16:47+0100
 categories: post
 tags: travel
 location: "Amsterdam, Netherlands"

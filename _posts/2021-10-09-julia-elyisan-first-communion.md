@@ -1,6 +1,6 @@
 ---
 title: 'Ju and Elyisan: First Communion'
-date: 2021-10-09 21:35 +0100
+date: 2021-10-09T21:35+0100
 location: 'The Hague, Netherlands'
 emojis: '⛪'
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Industrial Gdańsk, Hel, Toruń'
-date: 2022-02-24 23:44 +0100
+date: 2022-02-24T23:44+0100
 location: 'Gdanks, Poland'
 emojis: ''
 ---

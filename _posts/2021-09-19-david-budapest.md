@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'David'
-date: 2021-09-19 22:56 +0100
+date: 2021-09-19T22:56+0100
 categories: post
 location: 'Budapest, Hungary'
 emojis: '🔞'

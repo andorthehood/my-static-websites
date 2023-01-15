@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Viktoriia Aliko (Hilary C)'
-date: 2019-08-05 23:23 +0100
+date: 2019-08-05T23:23+0100
 categories: post
 location: 'Haarlem, Netherlands'
 emojis: '🔞'

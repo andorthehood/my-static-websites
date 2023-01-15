@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Dora & Peter'
-date: 2019-10-04 23:51 +0100
+date: 2019-10-04T23:51+0100
 categories: post
 location: 'Szomod, Hungary'
 emojis: '👰‍♀️🤵‍♂️'

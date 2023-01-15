@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Eszter & Endre'
-date: 2016-10-02 23:40:00 -0700
+date: 2016-10-02T23:40:00-0700
 categories: posts
 location: 'Los Angeles, California'
 emojis: '👰‍♀️🤵‍♂️'

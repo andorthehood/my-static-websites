@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'The life of my flash meter (collector)'
-date: 2022-05-22 23:24 +0100
+date: 2022-05-22T23:24+0100
 location: 'Earth'
 ---
 

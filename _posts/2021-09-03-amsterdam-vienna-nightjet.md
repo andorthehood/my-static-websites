@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Overnight train to Vienna'
-date: 2021-09-03 23:23 +0100
+date: 2021-09-03T23:23+0100
 categories: post
 location: 'Amsterdam, Netherlands'
 emojis: ''

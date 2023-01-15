@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Boating in Berlin'
-date: 2022-05-15 23:24 +0100
+date: 2022-05-15T23:24+0100
 location: 'Berlin, Germany'
 ---
 

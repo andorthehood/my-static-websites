@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Petra Eros & Andor Polgar: Kinect + Modular'
-date: 2018-12-29 15:32 +0100
+date: 2018-12-29T15:32+0100
 categories: [music]
 tags: music
 location: 'The Hague, Netherlands'

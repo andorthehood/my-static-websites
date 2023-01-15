@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Boating in Marina del Rey'
-date: 2016-09-17 22:52:39 -0700
+date: 2016-09-17T22:52:39-0700
 location: 'Marina del Rey, California'
 ---
 

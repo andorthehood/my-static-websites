@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Film photography summer camp in Normandy'
-date: 2022-05-22 23:24 +0100
+date: 2022-05-22T23:24+0100
 location: 'Montville, France'
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Ju and the distorted mirror"
-date: 2021-02-20 23:23 +0100
+date: 2021-02-20T23:23+0100
 categories: post
 location: "Zandvoort, Netherlands"
 emojis: "🔞⭐"

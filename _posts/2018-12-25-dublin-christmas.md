@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Christmas in Dublin'
-date: 2018-12-25 13:29 +0100
+date: 2018-12-25T13:29+0100
 location: 'Dublin, Ireland'
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'The highland cows of Kennemerland Nationalpark'
-date: 2022-04-15 22:58 +0100
+date: 2022-04-15T22:58+0100
 location: 'Zandvoort, Netherlands'
 ---
 

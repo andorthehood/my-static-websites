@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Celebrate everything'
-date: 2016-08-14 22:52:39 -0700
+date: 2016-08-14T22:52:39-0700
 location: 'Los Angeles, California'
 ---
 

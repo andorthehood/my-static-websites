@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Amsterdam'
-date: 2017-03-12 20:30:39 -0800
+date: 2017-03-12T20:30:39-0800
 location: 'Amsterdam, Netherlands'
 ---
 

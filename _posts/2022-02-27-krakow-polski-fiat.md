@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Kraków with a Polski Fiat'
-date: 2022-02-27 23:05 +0100
+date: 2022-02-27T23:05+0100
 location: 'Krakow, Poland'
 emojis: '🚗'
 ---
