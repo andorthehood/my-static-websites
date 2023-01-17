@@ -5,12 +5,14 @@ date: 2022-10-28 19:00:00 -0100
 location: 'Zandvoort, Netherlands'
 ---
 
-In case I get hit by a bus...
+Hey friends, in the unfortunate event that I get hit by a bus, I want to make you aware that my digital artifacts and online presence will only be accessible for a limited time.
 
-In the software industry the &quot;<a href="https://en.wikipedia.org/wiki/Bus_factor">Bus factor</a>&quot; is an often talked about problem. I don't care who and how is going to take over my open source projects, my only concern is that the web services that keep this website (with all of its content) online will stop running at some point.
+All of my photos, videos, and documents are stored on a server at DigitalOcean. My account and associated domain names will only last for a year from the time of my passing, and after that all my files will be deleted.
 
-I made these archives in an effort to make sure that all the content and data that I've accumulated during my lifetime will outlive me.
+To ensure that my digital legacy is preserved, I would be honored if you could save any digital memories or documents that hold significance to you, before they are deleted.
 
-<a href="">Archive 1.zip</a>
+Thank you for being a part of my life.
 
-In the unfortunate event of my sudden death, the entire contents of these archives will be hereby assigned as <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a>
+Forever yours, Andor
+
+In the unfortunate event of my sudden death, the entire contents of this website will be hereby assigned as <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a>
