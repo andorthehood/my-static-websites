@@ -9,6 +9,10 @@ lens: 'Zeiss Sonnar T* 40mm f/2.8'
 camera: 'Rollei 35 Classic'
 flash: 'Contax TLA 140'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
+people:
+    - '@cooltigermusic'
+    - '@onevennn'
+    - '@butkutte'
 ---
 
 {% include candystore.liquid file:"20220910_1_gammawerk_hp5_400_rollei35" title:"Oneven" %}
