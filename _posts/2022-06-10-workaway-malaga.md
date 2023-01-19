@@ -10,7 +10,7 @@ location: 'Malaga, Spain'
 {% include candystore.liquid file:"20220604_16_antequera_portra160_ma" title:"Antequera" %}
 {% include candystore.liquid file:"20220529_7_torremolinos_portra160_ma" title:"Torremolinos" %}
 
-Camera: Leica M-A, Zeiss Planar T\* 35mm f/2 ZM; film: Kodak Portra 160
+Camera: Leica M-A (Typ 127), Zeiss Planar T\* 35mm f/2 ZM; film: Kodak Portra 160
 
 {% include candystore.liquid file:"20220605_torremolinos_12_swisspro" title:"Torremolinos" %}
 {% include candystore.liquid file:"20220605_torremolinos_16_swisspro" title:"Torremolinos" %}
@@ -30,6 +30,6 @@ Camera: SwissPro disposable camera; film: ISO 400, unknown brand
 {% include candystore.liquid file:"20220609_2_mijas_gold_ma" title:"Torremolinos" %}
 
 
-Camera: Leica M-A, Zeiss Planar T\* 35mm f/2 ZM; film: Kodak Gold 200
+Camera: Leica M-A (Typ 127), Zeiss Planar T\* 35mm f/2 ZM; film: Kodak Gold 200
 
 All films were scanned with a Plustek 8200i, edited in Lightroom

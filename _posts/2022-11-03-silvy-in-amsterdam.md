@@ -21,4 +21,4 @@ emojis: '🚲'
 {% include candystore.liquid file:"20221103_60_silvy_ams_portra800_ma" title:"Silvy" %}
 {% include candystore.liquid file:"20221103_67_silvy_ams_gold200_ma" title:"Silvy" %}
 
-Camera: Leica M-A, film: Kodak Portra 800, flash: Contax TLA 140, scanned from negative with a Plustek 8200i, edited in Lightroom
+Camera: Leica M-A (Typ 127), film: Kodak Portra 800, flash: Contax TLA 140, scanned from negative with a Plustek 8200i, edited in Lightroom
