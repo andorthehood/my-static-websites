@@ -4,6 +4,11 @@ title: 'With Silvy in Amsterdam'
 date: 2022-11-03T22:58+0100
 location: 'Amsterdam, Netherlands'
 emojis: '🚲'
+film: 'Kodak Portra 800'
+lens: 'ZEISS Biogon T* 35mm f/2 ZM'
+flash: 'Contax TLA 140'
+camera: 'Leica M-A (Typ 127)'
+scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
 
 {% include candystore.liquid file:"20221103_17_silvy_ams_portra800_ma" title:"Silvy" %}
@@ -20,5 +25,3 @@ emojis: '🚲'
 {% include candystore.liquid file:"20221103_56_silvy_ams_portra800_ma" title:"Silvy" %}
 {% include candystore.liquid file:"20221103_60_silvy_ams_portra800_ma" title:"Silvy" %}
 {% include candystore.liquid file:"20221103_67_silvy_ams_gold200_ma" title:"Silvy" %}
-
-Camera: Leica M-A (Typ 127), film: Kodak Portra 800, flash: Contax TLA 140, scanned from negative with a Plustek 8200i, edited in Lightroom

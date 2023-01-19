@@ -18,6 +18,11 @@ export interface MarkdownAttributes {
 	location: string;
 	layout?: string;
 	tags?: string;
+	film?: string;
+	camera?: string;
+	flash?: string;
+	scan?: string;
+	lens?: string;
 }
 
 export interface PostProps {

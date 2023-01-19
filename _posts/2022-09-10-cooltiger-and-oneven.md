@@ -4,6 +4,11 @@ title: 'Cooltiger & Oneven'
 date: 2022-09-10T23:24+0100
 location: 'Amsterdam, Netherlands'
 emojis: '🎹'
+film: 'Ilford HP5+'
+lens: 'Zeiss Sonnar T* 40mm f/2.8'
+camera: 'Rollei 35 Classic'
+flash: 'Contax TLA 140'
+scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
 
 {% include candystore.liquid file:"20220910_1_gammawerk_hp5_400_rollei35" title:"Oneven" %}
@@ -15,5 +20,3 @@ emojis: '🎹'
 {% include candystore.liquid file:"20220910_13_gammawerk_hp5_400_rollei35" title:"Oneven" %}
 {% include candystore.liquid file:"20220910_14_gammawerk_hp5_400_rollei35" title:"Oneven" %}
 {% include candystore.liquid file:"20220910_15_gammawerk_hp5_400_rollei35" title:"Oneven" %}
-
-Camera: Rollei 35 Classic, film: Ilford HP5+, flash: Contax TLA 140, scanned with a Plustek 8200i, edited in Lightroom

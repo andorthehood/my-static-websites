@@ -7,12 +7,21 @@ import DefaultLayout from '../../components/layout/DefaultLayout';
 import { NextPageWithLayout } from '../_app';
 
 const Post: NextPageWithLayout<PostProps> = function Post(props) {
+	const exif = [
+		'🎞️ ' + props.attributes.film,
+		'🔎 ' + props.attributes.lens,
+		'⚡ ' + props.attributes.flash,
+		'📷 ' + props.attributes.camera,
+		'🖨️ ' + props.attributes.scan
+	].filter((element) => !element.includes('undefined'));
+
 	return (
 		<>
 			<Head>
 				<title>{props.attributes.title}</title>
 			</Head>
 			<div dangerouslySetInnerHTML={{ __html: props.content }}></div>
+			{exif.length > 0 && <p>{exif.join(', ')}</p>}
 			<p>
 				{props.nextSafePost && props.nextSafePost.slug !== props.nextPost?.slug && (
 					<>
