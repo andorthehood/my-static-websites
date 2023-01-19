@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ReactElement } from 'react';
 import DefaultLayout from '../../components/layout/DefaultLayout';
 import { NextPageWithLayout } from '../_app';
+import { Fragment } from 'react';
 
 const Post: NextPageWithLayout<PostProps> = function Post(props) {
 	const exif = [
@@ -22,6 +23,9 @@ const Post: NextPageWithLayout<PostProps> = function Post(props) {
 			</Head>
 			<div dangerouslySetInnerHTML={{ __html: props.content }}></div>
 			{exif.length > 0 && <p>{exif.join(', ')}</p>}
+			{props.attributes.people && <p>People on the photos: {props.attributes.people?.map((name) => {
+				return <Fragment key={name}><a href={"https://instagram.com/" + name.substring(1)} target="_blank" rel="noreferrer">{name}</a>{', '}</Fragment>;
+			})}</p>}
 			<p>
 				{props.nextSafePost && props.nextSafePost.slug !== props.nextPost?.slug && (
 					<>
@@ -62,8 +66,8 @@ export const getStaticProps: GetStaticProps = async function (context): Promise<
 
 Post.getLayout = function getLayout(page: ReactElement) {
 	return (
-	  <DefaultLayout>{page}</DefaultLayout>
+		<DefaultLayout>{page}</DefaultLayout>
 	)
-  }
+}
 
 export default Post;

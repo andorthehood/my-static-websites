@@ -8,6 +8,9 @@ lens: 'ZEISS Biogon T* 35mm f/2 ZM'
 flash: 'Contax TLA 140'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
+people: 
+    - '@szil0_0'
+    - '@valevicious'
 ---
 
 {% include candystore.liquid file:"20221217_2_szilvi_gold_200_ma" title:"Szilvi" %}

@@ -23,6 +23,7 @@ export interface MarkdownAttributes {
 	flash?: string;
 	scan?: string;
 	lens?: string;
+	people?: string[];
 }
 
 export interface PostProps {
