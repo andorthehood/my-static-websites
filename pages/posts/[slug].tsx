@@ -9,10 +9,10 @@ import { Fragment } from 'react';
 
 const Post: NextPageWithLayout<PostProps> = function Post(props) {
 	const exif = [
-		'🎞️ ' + props.attributes.film,
-		'🔎 ' + props.attributes.lens,
-		'⚡ ' + props.attributes.flash,
-		'📷 ' + props.attributes.camera,
+		'🎞️ film: ' + props.attributes.film,
+		'🔎 lens: ' + props.attributes.lens,
+		'⚡ flash: ' + props.attributes.flash,
+		'📷 camera: ' + props.attributes.camera,
 		'🖨️ ' + props.attributes.scan
 	].filter((element) => !element.includes('undefined'));
 
@@ -24,7 +24,7 @@ const Post: NextPageWithLayout<PostProps> = function Post(props) {
 			<div dangerouslySetInnerHTML={{ __html: props.content }}></div>
 			{exif.length > 0 && <p>{exif.join(', ')}</p>}
 			{props.attributes.people && <p>People on the photos: {props.attributes.people?.map((name) => {
-				return <Fragment key={name}><a href={"https://instagram.com/" + name.substring(1)} target="_blank" rel="noreferrer">{name}</a>{', '}</Fragment>;
+				return <Fragment key={name}><a href={"https://instagram.com/" + name.substring(1)} target="_blank" rel="noreferrer noopener nofollow">{name}</a>{', '}</Fragment>;
 			})}</p>}
 			<p>
 				{props.nextSafePost && props.nextSafePost.slug !== props.nextPost?.slug && (

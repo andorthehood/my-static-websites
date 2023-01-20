@@ -5,6 +5,10 @@ date: 2022-01-15T22:23+0100
 categories: post
 location: 'Rotterdam, Netherlands'
 emojis: '🔞'
+film: 'Kodak Tri-X, pushed 2 stops, developed in Kodak D76'
+lens: 'ZEISS Biogon T* 35mm f/2 ZM'
+camera: 'Leica M6 TTL'
+scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
 
 {% include candystore.liquid file:"20220216_ANE_3550_julia_leo_400trix_1600_m6" title:"Julia and Leo" %}
@@ -13,5 +17,3 @@ emojis: '🔞'
 {% include candystore.liquid file:"20220216_ANE_3563_julia_leo_400trix_1600_m6" title:"Julia and Leo" %}
 {% include candystore.liquid file:"20220216_ANE_3572_julia_leo_400trix_1600_m6" title:"Julia and Leo" %}
 {% include candystore.liquid file:"20220216_ANE_3573_julia_leo_400trix_1600_m6" title:"Julia and Leo" %}
-
-Camera: Leica M6 TTL, lens: Zeiss Planar T\* 35mm f/2 ZM, film: Kodak Tri-X 400 pushed 2 stops, photographed from negative with a Nikon D780 and an AF-S Micro NIKKOR 60mm f/2.8G ED, edited in Lightroom

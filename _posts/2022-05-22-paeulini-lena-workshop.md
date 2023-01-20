@@ -3,6 +3,10 @@ layout: post
 title: 'Film photography summer camp in Normandy'
 date: 2022-05-22T23:24+0100
 location: 'Montville, France'
+film: 'Kodak Portra 800 and Kodak Portra 400'
+lens: 'ZEISS Biogon T* 35mm f/2 ZM'
+camera: 'Leica M-A (Typ 127)'
+scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
 
 {% include candystore.liquid file:"20220522_47_montville_portra800_ma" title:"Montville" %}
@@ -28,5 +32,3 @@ location: 'Montville, France'
 {% include candystore.liquid file:"20220522_93_montville_portra800_ma" title:"Montville" %}
 {% include candystore.liquid file:"20220522_95_montville_portra800_ma" title:"Montville" %}
 {% include candystore.liquid file:"20220522_96_montville_portra800_ma" title:"Montville" %}
-
-Camera: Leica M-A (Typ 127), Zeiss Planar T\* 35mm f/2 ZM; film: Kodak Portra 800, scanned with a Plustek 8200i, edited in Lightroom

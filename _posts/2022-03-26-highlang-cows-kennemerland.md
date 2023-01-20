@@ -3,6 +3,10 @@ layout: post
 title: 'The highland cows of Kennemerland Nationalpark'
 date: 2022-04-15T22:58+0100
 location: 'Zandvoort, Netherlands'
+film: 'Kodak Portra 800'
+lens: 'ZEISS Biogon T* 35mm f/2 ZM'
+camera: 'Leica M-A (Typ 127)'
+scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
 
 {% include candystore.liquid file:"20220326_12_zandvoort_portra800_m2" title:"" %}

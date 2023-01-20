@@ -4,6 +4,11 @@ title: 'A day with Emma in her office'
 date: 2022-04-30T23:05+0100
 location: 'Lopik, Netherlands'
 emojis: '🔞🏢'
+film: 'Kodak Portra 800'
+lens: 'ZEISS Biogon T* 35mm f/2 ZM'
+flash: 'Contax TLA 140'
+camera: 'Leica M-A (Typ 127)'
+scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
 
 {% include candystore.liquid file:"20220430_4_emma_portra800_ma" title:"" %}
@@ -22,5 +27,3 @@ emojis: '🔞🏢'
 {% include candystore.liquid file:"20220430_35_emma_portra800_ma" title:"" %}
 {% include candystore.liquid file:"20220430_48_emma_portra800_ma" title:"" %}
 {% include candystore.liquid file:"20220430_50_emma_portra800_ma" title:"" %}
-
-Camera: Leica M-A (Typ 127), Zeiss Planar T\* 35mm f/2 ZM; film: Kodak Portra 800, scanned with a Plustek 8200i, edited in Lightroom

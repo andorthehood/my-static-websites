@@ -4,6 +4,11 @@ title: 'With Marcelo in Berlin'
 date: 2022-05-14T23:24+0100
 location: 'Berlin, Germany'
 emojis: '💃'
+film: 'Kodak Portra 800 and Kodak Portra 400'
+lens: 'ZEISS Biogon T* 35mm f/2 ZM'
+flash: 'Contax TLA 140'
+camera: 'Leica M-A (Typ 127)'
+scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
 
 {% include candystore.liquid file:"20220515_17_berlin_marcelo_portra400_ma" title:"Marcelo" %}
