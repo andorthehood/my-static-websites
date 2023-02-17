@@ -37,6 +37,7 @@ const Grid: NextPageWithLayout<GridProps> = function Grid(props) {
 				}
 			`}</style>
 			<div id="container" onClick={onClick}>
+				<div className="cell"><Image src="https://static.llllllllllll.com/andor/images/20210911_P1019333_frida_original.jpg" alt="" fill style={{ objectFit: 'cover'}} /></div>
 				{props.images.map((src) => <div className="cell" key={src}><Image src={src} alt="" fill /></div>)}
 			</div>
 		</>
@@ -44,6 +45,12 @@ const Grid: NextPageWithLayout<GridProps> = function Grid(props) {
 };
 
 export const getStaticProps: GetStaticProps = async function (): Promise<GetStaticPropsResult<GridProps>> {
+	if (!fs.existsSync('./public/grid')) {
+		return {
+			props: { images: [] }
+		}
+	}
+	
 	const images = fs.readdirSync('./public/grid').map((file) => '/grid/' + file).reverse();
 
 	return {
