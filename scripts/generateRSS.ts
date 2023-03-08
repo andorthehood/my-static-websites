@@ -40,6 +40,6 @@ import { collectPosts } from './collectPosts';
 	});
 
 	await fs.mkdir('./public', { recursive: true });
-	await fs.writeFile('./public/feed.xml', feed.rss2());
+	await fs.writeFile('./public/rss.xml', feed.rss2());
 	await fs.writeFile('./public/atom.xml', feed.atom1());
 })();
