@@ -10,7 +10,7 @@ flash: 'Contax TLA 140'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
 
-Unlike traditional DJ sets, Unknown Electronics features a lineup of musicians who create electronic dance music on the spot manipulating their drum machines, synthesizers, and other electronic instruments in real-time.
+Unlike traditional DJ sets, Unknown Electronics features a lineup of musicians who create electronic dance music on the spot using their drum machines, synthesizers, and other electronic instruments.
 
 {% include candystore.liquid file:"20230303_23_ue15_ma_hp5_400_zm35_zm21_tla140" title:"Unknown Electronics" %}
 {% include candystore.liquid file:"20230303_33_ue15_ma_hp5_400_zm35_zm21_tla140" title:"Unknown Electronics" %}
