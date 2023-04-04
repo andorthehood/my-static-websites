@@ -3,7 +3,7 @@ layout: post
 title: 'Szilvi in Budapest'
 date: 2022-12-17T23:05+0100
 location: 'Budapest, Hungary'
-film: 'Kodak Gold 200'
+film: 'Kodak Gold 200 and Kodak Pro Image 100'
 lens: 'ZEISS Biogon T* 35mm f/2 ZM'
 flash: 'Contax TLA 140'
 camera: 'Leica M-A (Typ 127)'
@@ -17,3 +17,5 @@ people:
 {% include candystore.liquid file:"20221217_4_szilvi_gold_200_ma" title:"Szilvi" %}
 {% include candystore.liquid file:"20221217_8_szilvi_gold_200_ma" title:"Szilvi" %}
 {% include candystore.liquid file:"20221217_11_szilvi_gold_200_ma" title:"Szilvi" %}
+{% include candystore.liquid file:"20221217_35_szilvi_proimage_100_ma" title:"Szilvi" %}
+{% include candystore.liquid file:"20221217_36_szilvi_proimage_100_ma" title:"Szilvi" %}
