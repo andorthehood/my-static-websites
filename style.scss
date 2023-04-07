@@ -10,6 +10,7 @@ html {
 	font-size: var(--font-size);
 	margin: 0;
 	padding: 0;
+	letter-spacing: -0.8px;
 }
 
 h1 {
@@ -39,6 +40,12 @@ a:visited {
 	--font-size: 20px;
 	--text-color: #333399;
 	--title-color: #333399;
+
+	@media (prefers-color-scheme: dark) {
+		--background-color: #111111;
+		--text-color: #9999cc;
+		--title-color: #9999cc;
+	}
 }
 
 img {
