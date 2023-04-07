@@ -23,6 +23,14 @@ Directed and produced by Andor Polgar (he/him) [@andorcover](https://instagram.c
 🏆 Best Erotic Short Film - Erotic & Bizarre Art Film Festival 2022
 🏆 Best Erotic Short Film - Hallucinea Film Festival 2022
 
+Screenings:<br />
+- 16th of December 2022 20:00 🎦 OCHO Y MEDIO 📍 Plaza Sta. Teresa, 15, Alicante, Spain
+- 7th of April 2023 23:00 🎦 Trenta Formiche 📍 Via del Mandrione, 3, Roma, Italy
+- 15th of April 2023 16:00 🎦 Schikaneder 📍 Margaretenstraße 22-24, Wien, Austria
+- 28th of April 2023 21:00 🎦 Trenta Formiche 📍 Via del Mandrione, 3, Roma, Italy
+- 5th of May 2023 19:00 🎦 Cinéma Aventure (Salle 2) 📍 Rue des Fripiers 15, Bruxelles, Belgium
+- 3rd of June 2023 18:00 🎦 Romantso 📍 Anaxagora 3, Athens 105 52, Greece
+
 {% include candystore.liquid file:"20220412_17_ju_femke_hp5_dirty-5" title:"" %}
 {% include candystore.liquid file:"20220412_1_ju_femke_hp5_dirty-2" title:"" %}
 {% include candystore.liquid file:"20220412_21_ju_femke_hp5_dirty-6" title:"" %}
