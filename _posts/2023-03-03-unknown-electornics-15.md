@@ -3,6 +3,7 @@ layout: post
 title: 'Unknown Electronics 15'
 date: 2023-03-03T23:05+0100
 location: 'OT301, Amsterdam, Netherlands'
+emojis: '🎹'
 film: 'Ilford HP5+ 400, developed in Ilford ID11'
 lens: 'ZEISS Biogon T* 21mm f/2.8 ZM'
 camera: 'Leica M-A (Typ 127)'
