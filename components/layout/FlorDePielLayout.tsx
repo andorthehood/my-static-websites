@@ -14,13 +14,7 @@ const Layout: FC = function ({ children }) {
             }
 
             h1 {
-              font-size: 54px;
-            }
-
-            .laurel {
-              background: url(https://static.llllllllllll.com/andor/assets/laurel.svg);
-              width: 100px;
-              height: 100px;
+              font-size: 40px;
             }
           `}</style>
         <div>
