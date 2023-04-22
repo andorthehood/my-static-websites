@@ -29,6 +29,8 @@ Screenings:<br />
 - 15th of April 2023 16:00 🎦 Schikaneder 📍 Margaretenstraße 22-24, Wien, Austria
 - 28th of April 2023 21:00 🎦 Trenta Formiche 📍 Via del Mandrione, 3, Roma, Italy
 - 5th of May 2023 19:00 🎦 Cinéma Aventure (Salle 2) 📍 Rue des Fripiers 15, Bruxelles, Belgium
+- 26th of May 2023 16:00 🎦 Delphi Arthaus Kino Tübinger Straße 6, Stuttgart, Germany
+- 27th of May 2023 TBD 🎦 Fiesta Murcia sin tabús 📍 Plaza de los Patos, Vistabella, Murcia, Spain
 - 3rd of June 2023 18:00 🎦 Romantso 📍 Anaxagora 3, Athens 105 52, Greece
 
 {% include candystore.liquid file:"20220412_17_ju_femke_hp5_dirty-5" title:"" %}
