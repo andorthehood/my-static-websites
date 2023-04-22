@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Femke and Ju'
+title: 'Sick Ducks and Ju'
 date: 2022-04-12T22:44+0100
 location: 'Zandvoort, Netherlands'
 emojis: '🔞🔞'
