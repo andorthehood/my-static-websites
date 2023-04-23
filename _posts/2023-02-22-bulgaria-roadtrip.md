@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Bulgaria road trip'
+title: 'България road trip'
 date: 2023-02-22T23:05+0100
 location: 'Bulgaria'
 film: 'Fujifilm Superia X-Tra 400 and Kodak Gold 200'

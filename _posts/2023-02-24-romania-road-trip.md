@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Romania road trip'
+title: 'România road trip'
 date: 2023-02-24T23:05+0100
 location: 'Romania'
 film: 'Fujifilm Superia X-Tra 400 and Kodak Gold 200'

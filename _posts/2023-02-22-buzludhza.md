@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Buzludzha, Bulgaria'
+title: 'Дом паметник на БКП, България'
 date: 2023-02-22T23:05+0100
 location: 'Buzludzha, Bulgaria'
 film: 'Fujifilm Superia X-Tra 400'
