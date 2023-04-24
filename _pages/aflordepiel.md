@@ -12,7 +12,7 @@ The film's title is a Spanish idiom that literally means “like the flower of s
 
 {% include video.liquid id:"aflordepiel_4k.mp4" %}
 
-Directed and produced by Andor Polgar (he/him) [@andorcover](https://instagram.com/andorcover); Cast: Sick Ducks (she/her) [@sick.ducks](https://www.instagram.com/sick.ducks/), Ju GomA (they/them) [@goma_model](https://www.instagram.com/goma_model/); Music and mixing: Andrew Visser (he/him) [@onevennn](https://www.instagram.com/onevennn/)
+Directed and produced by Andor Polgar (he/him) [@andorcover](https://instagram.com/andorcover); Cast: Sick Ducks (she/her) [@sick.ducks](https://www.instagram.com/sick.ducks/), Ju GomA (they/them) [@goma_moves](https://www.instagram.com/goma_moves/); Music and mixing: Andrew Visser (he/him) [@onevennn](https://www.instagram.com/onevennn/)
 
 
 🌿 Official Selection - Porn Film Festival Vienna 2023
