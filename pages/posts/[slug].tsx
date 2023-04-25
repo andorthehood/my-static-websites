@@ -7,42 +7,81 @@ import DefaultLayout from '../../components/layout/DefaultLayout';
 import { NextPageWithLayout } from '../_app';
 import { Fragment } from 'react';
 
-const Post: NextPageWithLayout<PostProps> = function Post(props) {
+type PublicPostProps = {
+	slug: string;
+	title: string;
+	emojis?: string;
+	date: string;
+};
+
+interface PostPageProps {
+	post: PostProps;
+	posts: PublicPostProps[];
+}
+
+function groupPostsByYear(posts: PublicPostProps[]) {
+	return posts.reduce((previous, current) => {
+		const year = new Date(current.date).getFullYear().toString();
+		if (!previous[year]) {
+			previous[year] = [];
+		}
+		previous[year].push(current)
+		return previous
+	}, {} as Record<string, PublicPostProps[]>);
+}
+
+const Post: NextPageWithLayout<PostPageProps> = function Post({ post, posts }) {
 	const exif = [
-		'🎞️ film: ' + props.attributes.film,
-		'🔎 lens: ' + props.attributes.lens,
-		'⚡ flash: ' + props.attributes.flash,
-		'📷 camera: ' + props.attributes.camera,
-		'🖨️ ' + props.attributes.scan
+		'🎞️ film: ' + post.attributes.film,
+		'🔎 lens: ' + post.attributes.lens,
+		'⚡ flash: ' + post.attributes.flash,
+		'📷 camera: ' + post.attributes.camera,
+		'🖨️ ' + post.attributes.scan
 	].filter((element) => !element.includes('undefined'));
 
+	const groupsByYear = groupPostsByYear(posts);
+
 	return (
-		<>
+		<div className="post-page">
 			<Head>
-				<title>{props.attributes.title}</title>
+				<title>{post.attributes.title}</title>
 			</Head>
-			<div dangerouslySetInnerHTML={{ __html: props.content }}></div>
+			<ul className="postlist">
+				{Object.keys(groupsByYear).reverse().map((year) => {
+					return groupsByYear[year].map((post, index) => {
+						return (
+							<Fragment key={index}>
+								{index === 0 && <span className="date">{year}</span>}
+								<li>
+									<a href={`/posts/${post.slug}`}>{post.title}</a>
+								</li>
+							</Fragment>
+						);
+					})
+				})}
+			</ul>
+			<div dangerouslySetInnerHTML={{ __html: post.content }}></div>
 			{exif.length > 0 && <p>{exif.join(', ')}</p>}
-			{props.attributes.people && <p>People on the photos: {props.attributes.people?.map((name) => {
+			{post.attributes.people && <p>People on the photos: {post.attributes.people?.map((name) => {
 				return <Fragment key={name}><a href={"https://instagram.com/" + name.substring(1)} target="_blank" rel="noreferrer noopener nofollow">{name}</a>{', '}</Fragment>;
 			})}</p>}
 			<p>
-				{props.nextSafePost && props.nextSafePost.slug !== props.nextPost?.slug && (
+				{post.nextSafePost && post.nextSafePost.slug !== post.nextPost?.slug && (
 					<>
 						Next safe post:{' '}
-						<Link href={'/posts/' + props.nextSafePost?.slug}>{props.nextSafePost?.attributes.title}</Link>{' '}
-						{props.nextSafePost?.attributes?.emojis}
+						<Link href={'/posts/' + post.nextSafePost?.slug}>{post.nextSafePost?.attributes.title}</Link>{' '}
+						{post.nextSafePost?.attributes?.emojis}
 					</>
 				)}
-				{props.nextPost && (
+				{post.nextPost && (
 					<>
 						<br />
-						Next post: <Link href={'/posts/' + props.nextPost?.slug}>{props.nextPost?.attributes.title}</Link>{' '}
-						{props.nextPost?.attributes?.emojis}
+						Next post: <Link href={'/posts/' + post.nextPost?.slug}>{post.nextPost?.attributes.title}</Link>{' '}
+						{post.nextPost?.attributes?.emojis}
 					</>
 				)}
 			</p>
-		</>
+		</div>
 	);
 };
 
@@ -56,11 +95,18 @@ export const getStaticPaths: GetStaticPaths = async function getStaticPaths() {
 	};
 };
 
-export const getStaticProps: GetStaticProps = async function (context): Promise<GetStaticPropsResult<PostProps>> {
+export const getStaticProps: GetStaticProps = async function (context): Promise<GetStaticPropsResult<PostPageProps>> {
 	const posts = await collectPosts('./_posts/');
 	const post = posts.find(({ slug }) => slug === context.params?.slug) || posts[0];
 	return {
-		props: post,
+		props: {
+			post, posts: posts.map(post => ({
+				title: post.attributes.title,
+				slug: post.slug,
+				emojis: post.attributes.emojis || '',
+				date: post.attributes.date
+			}))
+		},
 	};
 };
 

@@ -122,3 +122,16 @@ footer a {
 		height: 100%;
 	}
 }
+
+.post-page {
+	.postlist {
+		position: absolute;
+		left: 10px;
+		top: 54px;
+		z-index: -1;
+
+		a {
+			color: #cccccc;
+		}
+	}
+}

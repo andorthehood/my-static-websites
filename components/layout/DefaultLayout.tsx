@@ -3,8 +3,8 @@ import Head from 'next/head';
 import { FC } from 'react';
 
 const Layout: FC = function ({ children }) {
-    return (
-        <div className="container">
+	return (
+		<div className="container">
 			<Head>
 				<title>Andor Polgar&apos;s visual journal</title>
 			</Head>
@@ -12,7 +12,7 @@ const Layout: FC = function ({ children }) {
 				<Link href="/">Andor Polgar&apos;s visual journal</Link>
 			</h1>
 			<div>
-                {children}
+				{children}
 			</div>
 			<footer>
 				<p>
@@ -26,7 +26,8 @@ const Layout: FC = function ({ children }) {
 				</p>
 			</footer>
 		</div>
-    )
-  }
 
-  export default Layout;
+	)
+}
+
+export default Layout;
