@@ -71,6 +71,7 @@ h1 {
 	margin: 0 auto;
 	padding: 10px 0;
 	width: 60%;
+	background: var(--background-color);
 
 	@media (max-width: 1024px) {
 		width: 80%;
@@ -132,6 +133,10 @@ footer a {
 
 		a {
 			color: #cccccc;
+		}
+
+		@media (max-width: 1024px) {
+			display: none;
 		}
 	}
 }
