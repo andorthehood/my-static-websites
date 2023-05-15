@@ -3,7 +3,7 @@ layout: post
 title: 'Silvy & Pablo'
 date: 2023-05-01T23:53+0100
 location: 'Zandvoort, Netherlands'
-emojis: '🔞'
+emojis: ''
 film: 'Fujifilm Superia 400'
 lens: 'ZEISS Biogon T* 21mm f/2.8 ZM'
 camera: 'Leica M-A (Typ 127)'
