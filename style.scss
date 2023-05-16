@@ -40,11 +40,13 @@ a:visited {
 	--font-size: 20px;
 	--text-color: #333399;
 	--title-color: #333399;
+	--faded-text-color: #dddddd;
 
 	@media (prefers-color-scheme: dark) {
 		--background-color: #111111;
 		--text-color: #9999cc;
 		--title-color: #9999cc;
+		--faded-text-color: #222222;
 	}
 }
 
@@ -97,7 +99,7 @@ footer a {
 }
 
 .date {
-	color: #999999;
+	color: var(--text-color);
 }
 
 .video-container-container {
@@ -131,8 +133,12 @@ footer a {
 		top: 54px;
 		z-index: -1;
 
-		a {
-			color: #cccccc;
+		a, li {
+			color: var(--faded-text-color);
+		}
+
+		.date {
+			color: var(--faded-text-color);
 		}
 
 		@media (max-width: 1024px) {
