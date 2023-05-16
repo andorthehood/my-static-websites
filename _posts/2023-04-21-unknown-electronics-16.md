@@ -11,8 +11,11 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 flash: 'Contax TLA 140'
 people: 
     - '@jack_fresia'
+    - '@notforhumanconsumption_live'
     - '@cooltigermusic'
 ---
+
+Unlike traditional DJ sets, Unknown Electronics features a lineup of musicians who create electronic dance music on the spot using their drum machines, synthesizers, and other electronic instruments.
 
 {% include candystore.liquid file:"20230421_14_ue16_ma_xp2_zm21_tla140" title:"" %}
 {% include candystore.liquid file:"20230421_20_ue16_ma_xp2_zm21_tla140" title:"" %}
