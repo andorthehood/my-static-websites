@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Polinga in Berlin'
+title: 'Polina in Berlin'
 date: 2023-05-13T23:53+0100
 location: 'Berlin, Germany'
 emojis: '🔞'
