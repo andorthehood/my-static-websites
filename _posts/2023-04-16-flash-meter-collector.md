@@ -28,5 +28,7 @@ location: 'Earth'
 {% include candystore.liquid file:"20230416_48_pffvienna_ma_portra800_zm35_tla140" title:"Ju" %}
 {% include candystore.liquid file:"20230416_76_pffvienna_ma_superia400_zm35_tla140" title:"Ju" %}
 {% include candystore.liquid file:"20230414_146_pffvienna_ma_xp2_zm35_tla140" title:"Ju" %}
+{% include candystore.liquid file:"20230513_42_polina_ma_lomography800_zm35" title:"Polina" %}
+{% include candystore.liquid file:"20230513_76_polina_ma_ultramax400_zm35" title:"" %}
 
 Taken with different cameras and on different films, but the flash was always the Contax TLA 140
