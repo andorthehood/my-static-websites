@@ -35,8 +35,8 @@ Screenings:<br />
 - 27th of May 2023 TBD 🎦 Fiesta Murcia sin tabús 📍 Plaza de los Patos, Vistabella, Murcia, Spain
 - June 1 - 14 🎦 Pinklabel TV 📍 Online streaming
 - 3rd of June 2023 18:00 🎦 Romantso 📍 Anaxagora 3, Athens 105 52, Greece
-- 14th of June 2023 19:30 🎦 Kino Muranów (sala Pola) 📍 Gen. W. Andersa 5, 00-147 Warszawa, Poland
-- 17th of June 2023 12:00 🎦 Kino Muranów (sala Gerard) 📍 Gen. W. Andersa 5, 00-147 Warszawa, Poland
+- 14th of June 2023 19:30 🎦 Kino Muranów (sala Pola) 📍 Gen. W. Andersa 5, Warsaw, Poland
+- 17th of June 2023 12:00 🎦 Kino Muranów (sala Gerard) 📍 Gen. W. Andersa 5, Warsaw, Poland
 - August 18 - 19 TBD 🎦 TBD 📍 San Francisco TBD
 
 {% include candystore.liquid file:"20220412_17_ju_femke_hp5_dirty-5" title:"" %}
