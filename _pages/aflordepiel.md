@@ -30,9 +30,14 @@ Screenings:<br />
 - 15th of April 2023 16:00 🎦 Schikaneder 📍 Margaretenstraße 22-24, Wien, Austria
 - 28th of April 2023 21:00 🎦 Trenta Formiche 📍 Via del Mandrione, 3, Roma, Italy
 - 5th of May 2023 19:00 🎦 Cinéma Aventure (Salle 2) 📍 Rue des Fripiers 15, Bruxelles, Belgium
+- May 8 - 22 🎦 Pinklabel TV 📍 Online streaming
 - 26th of May 2023 16:00 🎦 Delphi Arthaus Kino Tübinger Straße 6, Stuttgart, Germany
 - 27th of May 2023 TBD 🎦 Fiesta Murcia sin tabús 📍 Plaza de los Patos, Vistabella, Murcia, Spain
+- June 1 - 14 🎦 Pinklabel TV 📍 Online streaming
 - 3rd of June 2023 18:00 🎦 Romantso 📍 Anaxagora 3, Athens 105 52, Greece
+- 14th of June 2023 19:30 🎦 Kino Muranów (sala Pola) 📍 Gen. W. Andersa 5, 00-147 Warszawa, Poland
+- 17th of June 2023 12:00 🎦 Kino Muranów (sala Gerard) 📍 Gen. W. Andersa 5, 00-147 Warszawa, Poland
+- August 18 - 19 TBD 🎦 TBD 📍 San Francisco TBD
 
 {% include candystore.liquid file:"20220412_17_ju_femke_hp5_dirty-5" title:"" %}
 {% include candystore.liquid file:"20220412_1_ju_femke_hp5_dirty-2" title:"" %}
