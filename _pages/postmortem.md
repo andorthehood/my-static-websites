@@ -9,7 +9,7 @@ Hey friends, in the unfortunate event that I get hit by a bus, I want to make yo
 
 All of my photos, videos, and documents are stored on a server at DigitalOcean. My account and associated domain names will only last for a year from the time of my passing, and after that all my files will be deleted.
 
-To ensure that my digital legacy is preserved, I would be honored if you could save any digital memories or documents that hold significance to you, before they are deleted.
+Now, personally, I'm not too bothered about my digital legacy disappearing, but if there's anything in my digital stash that holds sentimental value to you, please make a note of the time limit and make sure you save it before it's too late.
 
 Thank you for being a part of my life.
 
