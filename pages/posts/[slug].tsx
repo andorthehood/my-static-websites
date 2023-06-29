@@ -62,7 +62,7 @@ const Post: NextPageWithLayout<PostPageProps> = function Post({ post, posts }) {
 			</ul>
 			<div dangerouslySetInnerHTML={{ __html: post.content }}></div>
 			{exif.length > 0 && <p>{exif.join(', ')}</p>}
-			{post.attributes.people && <p>People on the photos: {post.attributes.people?.map((name) => {
+			{post.attributes.people && <p>The people captured in the photos are: {post.attributes.people?.map((name) => {
 				return <Fragment key={name}><a href={"https://instagram.com/" + name.substring(1)} target="_blank" rel="noreferrer noopener nofollow">{name}</a>{', '}</Fragment>;
 			})}</p>}
 			<p>
