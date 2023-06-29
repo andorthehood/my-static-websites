@@ -1,0 +1,18 @@
+---
+layout: post
+title: 'Cortijo el Tembleque'
+date: 2023-06-06T23:53+0100
+location: 'Gador, Spain'
+emojis: '🔞'
+film: 'Kodak Ultramax 400'
+lens: 'ZEISS Biogon T* 35mm f/2'
+camera: 'Leica M-A (Typ 127)'
+scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
+---
+
+{% include candystore.liquid file:"20220613_55_andalusia_ultramax400_ma_zm35" title:"" %}
+{% include candystore.liquid file:"20220613_56_andalusia_ultramax400_ma_zm35" title:"" %}
+{% include candystore.liquid file:"20220613_64_andalusia_ultramax400_ma_zm35" title:"" %}
+{% include candystore.liquid file:"20220613_65_andalusia_ultramax400_ma_zm35" title:"" %}
+{% include candystore.liquid file:"20220613_71_andalusia_ultramax400_ma_zm35" title:"" %}
+{% include candystore.liquid file:"20220616_35_andalusia_ultramax400_ma_zm35" title:"" %}
