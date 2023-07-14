@@ -37,7 +37,8 @@ Screenings:<br />
 - 3rd of June 2023 18:00 🎦 Romantso 📍 Anaxagora 3, Athens 105 52, Greece
 - 14th of June 2023 19:30 🎦 Kino Muranów (sala Pola) 📍 Gen. W. Andersa 5, Warsaw, Poland
 - 17th of June 2023 12:00 🎦 Kino Muranów (sala Gerard) 📍 Gen. W. Andersa 5, Warsaw, Poland
-- August 18 - 19 TBD 🎦 TBD 📍 San Francisco TBD
+- 19th of August 2023 19:00 (PST) 🎦 Brava Theater 📍 2781 24th Street, San Francisco, CA 94110
+- October 24-29 TBD 🎦 TBD 📍 Berlin, Germany
 
 {% include candystore.liquid file:"20220412_17_ju_femke_hp5_dirty-5" title:"" %}
 {% include candystore.liquid file:"20220412_1_ju_femke_hp5_dirty-2" title:"" %}
