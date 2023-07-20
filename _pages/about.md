@@ -5,6 +5,8 @@ date: 2023-07-19 19:00:00 -0100
 location: 'Zandvoort, Netherlands'
 ---
 
+{% include candystore.liquid file:"20230421_55_ue16_ma_xp2_zm21_tla140" title:"Andor Polgar" %}
+
 Hey, I'm Andor Polgar, I was born shortly before the fall of the Soviet Union and raised in the suburbs of a small city in post-communist Hungary. I didn't stay much longer, I already spent over 80% of my adult life living and working in different countries abroad.
 
 As a child, I was hyperfixated towards computer programming and technology. Despite not having a mentor during those early years, my fixation led me to figure things out on my own (though it took a bit longer).
