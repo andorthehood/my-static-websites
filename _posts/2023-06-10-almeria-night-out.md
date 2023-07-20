@@ -24,3 +24,5 @@ people:
 {% include candystore.liquid file:"20220610_194_andalusia_ultramax400_ma_zm21_tla140" title:"" %}
 {% include candystore.liquid file:"20220610_197_andalusia_ultramax400_ma_zm21_tla140" title:"" %}
 {% include candystore.liquid file:"20220610_1922_andalusia_ultramax400_ma_zm21_tla140" title:"" %}
+{% include candystore.liquid file:"20230606_214_andalusia_gold200_ma_zm35" title:"" %}
+
