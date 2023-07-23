@@ -16,4 +16,5 @@ Links to different public online profiles that belong to me:
 - <a href="https://twitter.com/andormade">Twitter</a>
 - <a href="https://www.flickr.com/photos/hngrhorace/">Flickr</a>
 - <a href="https://filmfreeway.com/AndorPolgar">FilmFreeway</a>
+- <a href="https://www.goodreads.com/user/show/98906610-andor-polg-r">Goodreads</a>
 - <a href="https://www.last.fm/user/hngrhorace">Last.fm</a>
