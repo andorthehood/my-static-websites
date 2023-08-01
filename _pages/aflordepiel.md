@@ -14,10 +14,13 @@ The film's title is a Spanish idiom that literally means “like the flower of s
 
 Directed and produced by Andor Polgar (he/him) [@andorcover](https://instagram.com/andorcover); Cast: Sick Ducks (she/her) [@sick.ducks](https://www.instagram.com/sick.ducks/), Ju GomA (they/them) [@goma_moves](https://www.instagram.com/goma_moves/); Music and mixing: Andrew Visser (he/him) [@onevennn](https://www.instagram.com/onevennn/)
 
-
+🌿 Official Selection - Pornfilmfestival Berlin 2023
+🌿 Official Selection - San Francisco Porn Film Festival 2023
 🌿 Official Selection - Porn Film Festival Vienna 2023
 🌿 Official Selection - Brussels Porn Film Festival 2023
 🌿 Official Selection - Post Porn Film Festival Warsaw 2023
+🌿 Official Selection - Lustreifen Film Festival Basel 2023
+🌿 Official Selection - Porn Film Festival Barcelons 2023
 🌿 Official Selection - Athens Porn Film Festival 2023
 🌿 Official Selection - Hacker Porn Film Festival Rome 2023
 🌿 Official Selection - Natural Instincts Festival 2023
@@ -27,7 +30,7 @@ Directed and produced by Andor Polgar (he/him) [@andorcover](https://instagram.c
 Screenings:<br />
 - 16th of December 2022 20:00 🎦 OCHO Y MEDIO 📍 Plaza Sta. Teresa, 15, Alicante, Spain
 - 7th of April 2023 23:00 🎦 Trenta Formiche 📍 Via del Mandrione, 3, Roma, Italy
-- 15th of April 2023 16:00 🎦 Schikaneder 📍 Margaretenstraße 22-24, Wien, Austria
+- 15th of April 2023 16:00 🎦 Schikaneder Kino 📍 Margaretenstraße 22-24, Wien, Austria
 - 28th of April 2023 21:00 🎦 Trenta Formiche 📍 Via del Mandrione, 3, Roma, Italy
 - 5th of May 2023 19:00 🎦 Cinéma Aventure (Salle 2) 📍 Rue des Fripiers 15, Bruxelles, Belgium
 - May 8 - 22 🎦 Pinklabel TV 📍 Online streaming
@@ -38,6 +41,8 @@ Screenings:<br />
 - 14th of June 2023 19:30 🎦 Kino Muranów (sala Pola) 📍 Gen. W. Andersa 5, Warsaw, Poland
 - 17th of June 2023 12:00 🎦 Kino Muranów (sala Gerard) 📍 Gen. W. Andersa 5, Warsaw, Poland
 - 19th of August 2023 19:00 (PST) 🎦 Brava Theater 📍 2781 24th Street, San Francisco, CA 94110
+- 11th of September 2023 20:15 🎦 Schikaneder Kino 📍 Margaretenstraße 22-24, Wien, Austria
+- October 5-8 TBD 🎦 Cine k 📍 Bahnhofstraße 11, Oldeburg, Germany (Das 14. Queer Film Festival Oldenburg)
 - October 24-29 TBD 🎦 TBD 📍 Berlin, Germany
 
 {% include candystore.liquid file:"20220412_17_ju_femke_hp5_dirty-5" title:"" %}
