@@ -22,6 +22,7 @@ Directed and produced by Andor Polgar (he/him) [@andorcover](https://instagram.c
 🌿 Official Selection - Lustreifen Film Festival Basel 2023
 🌿 Official Selection - Porn Film Festival Barcelons 2023
 🌿 Official Selection - Athens Porn Film Festival 2023
+🌿 Official Selection - SECS Fest 2023
 🌿 Official Selection - Hacker Porn Film Festival Rome 2023
 🌿 Official Selection - Natural Instincts Festival 2023
 🏆 Best Erotic Short Film - Erotic & Bizarre Art Film Festival 2022
@@ -40,10 +41,11 @@ Screenings:<br />
 - 3rd of June 2023 18:00 🎦 Romantso 📍 Anaxagora 3, Athens 105 52, Greece
 - 14th of June 2023 19:30 🎦 Kino Muranów (sala Pola) 📍 Gen. W. Andersa 5, Warsaw, Poland
 - 17th of June 2023 12:00 🎦 Kino Muranów (sala Gerard) 📍 Gen. W. Andersa 5, Warsaw, Poland
-- 19th of August 2023 19:00 (PST) 🎦 Brava Theater 📍 2781 24th Street, San Francisco, CA 94110
+- 19th of August 2023 19:00 (PST) 🎦 Brava Theater 📍 2781 24th Street, San Francisco, California
 - 11th of September 2023 20:15 🎦 Schikaneder Kino 📍 Margaretenstraße 22-24, Wien, Austria
 - October 5-8 TBD 🎦 Cine k 📍 Bahnhofstraße 11, Oldeburg, Germany (Das 14. Queer Film Festival Oldenburg)
 - October 24-29 TBD 🎦 TBD 📍 Berlin, Germany
+- November 10-12 TBD 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington
 
 {% include candystore.liquid file:"20220412_17_ju_femke_hp5_dirty-5" title:"" %}
 {% include candystore.liquid file:"20220412_1_ju_femke_hp5_dirty-2" title:"" %}
