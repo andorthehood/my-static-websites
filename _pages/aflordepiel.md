@@ -45,7 +45,11 @@ Screenings:<br />
 - 19th of August 2023 19:00 (PST) 🎦 Brava Theater 📍 2781 24th Street, San Francisco, California
 - 11th of September 2023 20:15 🎦 Schikaneder Kino 📍 Margaretenstraße 22-24, Wien, Austria
 - October 5-8 TBD 🎦 Cine k 📍 Bahnhofstraße 11, Oldeburg, Germany (Das 14. Queer Film Festival Oldenburg)
+- October 5-8 TBD 🎦 TBD 📍 TBD, Barcelona
+- 6th of October 2023 22:00 🎦 Neues Kino 📍 Klybeckstr. 247, Basel, Switzerland (Luststreifen Film Festival)
+- 8th of October 2023 18:00 🎦 Neues Kino 📍 Klybeckstr. 247, Basel, Switzerland (Luststreifen Film Festival)
 - October 24-29 TBD 🎦 TBD 📍 Berlin, Germany
+
 - November 10-12 TBD 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington
 - November 10-19 TBD 🎦 Cinéma Nova 📍 Rue d'Arenberg 3, Bruxelles, Belgium (Pink Screens Queer Film Festival)
 
