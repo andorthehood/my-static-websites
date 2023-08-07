@@ -25,6 +25,7 @@ Directed and produced by Andor Polgar (he/him) [@andorcover](https://instagram.c
 🌿 Official Selection - Athens Porn Film Festival 2023
 🌿 Official Selection - SECS Fest 2023
 🌿 Official Selection - Hacker Porn Film Festival Rome 2023
+🌿 Official Selection - PaderPorn Filmfestival 2023
 🌿 Official Selection - Natural Instincts Festival 2023
 🏆 Best Erotic Short Film - Erotic & Bizarre Art Film Festival 2022
 🏆 Best Erotic Short Film - Hallucinea Film Festival 2022
@@ -44,6 +45,7 @@ Screenings:<br />
 - 17th of June 2023 12:00 🎦 Kino Muranów (sala Gerard) 📍 Gen. W. Andersa 5, Warsaw, Poland
 - 19th of August 2023 19:00 (PST) 🎦 Brava Theater 📍 2781 24th Street, San Francisco, California
 - 11th of September 2023 20:15 🎦 Schikaneder Kino 📍 Margaretenstraße 22-24, Wien, Austria
+- September 22-25 2023 TBD 🎦 TBD 📍 Paderborn, Germany (PaderPorn Filmfestival)
 - October 5-8 TBD 🎦 Cine k 📍 Bahnhofstraße 11, Oldeburg, Germany (Das 14. Queer Film Festival Oldenburg)
 - October 5-8 TBD 🎦 TBD 📍 TBD, Barcelona
 - 6th of October 2023 22:00 🎦 Neues Kino 📍 Klybeckstr. 247, Basel, Switzerland (Luststreifen Film Festival)
