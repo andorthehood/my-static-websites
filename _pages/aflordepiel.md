@@ -4,7 +4,6 @@ title: 'A Flor de Piel'
 date: 2022-10-28 19:00:00 -0100
 location: 'Zandvoort, Netherlands'
 ---
-	
 
 A Flor de Piel is an experimental short film in the post-porn genre, which was entirely shot using an analog 35mm rangefinder camera. 
 
