@@ -7,11 +7,11 @@ location: 'Zandvoort, Netherlands'
 
 Hey friends, 
 
-a kinda morbid heads-up: in the unfortunate event that I get hit by a bus, just so you know, my online junk won't be available for long.
+a kinda morbid heads-up: in the unfortunate event that I get hit by a <a href="https://en.wikipedia.org/wiki/Bus_factor">bus</a>, just so you know, my online stuff won't be available for long.
 
-All of my photos, videos, and documents are stored on a DigitalOcean server. So if I hit the big "log off", my account and domain names will only last for a year from the time of my passing, and after that all my files will be deleted.
+All of my photos, videos, and documents are stored on a DigitalOcean server, so if I hit the big "log off", my account and domain names will only last for a year from the time of my passing, and after that all my files will be deleted.
 
-Honestly, I’m not too bothered about my  digital legacy getting blasted into the void, but if there's anything in it that holds sentimental value to you, please make sure you save it before it's too late.
+Honestly, I’m not too bothered about my digital legacy vanishing, but if there's anything in it that holds sentimental value to you, please make sure you save it before it's too late.
 
 I'm really grateful for all the memories we've created.
 
