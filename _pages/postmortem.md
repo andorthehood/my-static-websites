@@ -5,14 +5,16 @@ date: 2022-10-28 19:00:00 -0100
 location: 'Zandvoort, Netherlands'
 ---
 
-Hey friends, in the unfortunate event that I get hit by a bus, I want to make you aware that my digital artifacts and online presence will only be accessible for a limited time.
+Hey friends, 
 
-All of my photos, videos, and documents are stored on a server at DigitalOcean. My account and associated domain names will only last for a year from the time of my passing, and after that all my files will be deleted.
+a kinda morbid heads-up: in the unfortunate event that I get hit by a bus, just so you know, my online junk won't stick around for long.
 
-Now, personally, I'm not too bothered about my digital legacy disappearing, but if there's anything in my digital stash that holds sentimental value to you, please make a note of the time limit and make sure you save it before it's too late.
+All of my photos, videos, and documents are stored on a DigitalOcean server. If I hit the big "log off", my account and domain names will only last for a year from the time of my passing, and after that all my files will be deleted.
 
-Thank you for being a part of my life.
+Honestly, I’m not too bothered about my bits getting blasted into the void, but if there's anything in my digital legacy that holds sentimental value to you, please make sure you save it before it's too late.
+
+Appreciate all of you.
 
 Forever yours, Andor
 
-In the unfortunate event of my sudden death, the entire contents of this website will be hereby assigned as <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a>
+In the unfortunate event of my sudden death, the entire contents of this website will be hereby assigned as <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">Creative Commons CC0 1.0 Public Domain</a>
