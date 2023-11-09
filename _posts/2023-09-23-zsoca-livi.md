@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Zsoca and Livia'
+title: 'With Livi and Zsoca in Budapest'
 date: 2023-09-23T23:53+0100
 location: 'Budapest, Hungary'
 film: 'Kodak Ultramax 400 and Kodak ProImage 100'
