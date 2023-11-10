@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Kuku tied by Ju at Eurix Berlin'
+title: 'Kuku tied by Ju'
 date: 2023-10-25T23:53+0100
 location: 'Berlin, Germany'
 emojis: '🪢'
