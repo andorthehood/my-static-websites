@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Kuku tied by Ju'
-date: 2023-10-25T23:53+0100
+date: 2023-10-21T23:53+0100
 location: 'Berlin, Germany'
 emojis: '🪢'
 film: 'Kodak Portra 800, Ilford XP2 400'
