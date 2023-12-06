@@ -34,7 +34,7 @@ location: 'Earth'
 {% include candystore.liquid file:"20230501_7_silvy_ma_superia400_zm35_tla140" title:"Silvy" %}
 {% include candystore.liquid file:"20230513_42_polina_ma_lomography800_zm35" title:"Polina" %}
 {% include candystore.liquid file:"20230513_76_polina_ma_ultramax400_zm35" title:"" %}
-{% include candystore.liquid file:"20220602_1_athenspff_gold200_ma_zm35" title:"" %}
 {% include candystore.liquid file:"20220601_57_athenspff_gold200_ma_zm35" title:"" %}
+{% include candystore.liquid file:"20231025_1_grismalva_ma_35zm_gold200_tla140" title:"" %}
 
 Taken with different cameras and on different films, but the flash was always the Contax TLA 140
