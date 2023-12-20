@@ -21,10 +21,11 @@ Directed and produced by Andor Polgar (he/him) [@andorcover](https://instagram.c
 🌿 Official Selection - Pink Screens Queer Film Festival Brussels 2023
 🌿 Official Selection - Porn Film Festival Barcelons 2023
 🌿 Official Selection - Athens Porn Film Festival 2023
-🌿 Official Selection - SECS Fest 2023
 🌿 Official Selection - Hacker Porn Film Festival Rome 2023
 🌿 Official Selection - PaderPorn Filmfestival 2023
 🌿 Official Selection - Natural Instincts Festival 2023
+🌿 Official Selection - Porny Days Film Kunst Festival 2023
+🏅 Best of SECS fest - SECS Fest 2023
 🏅 Nominee - Lustreifen Film Festival Basel 2023
 🏆 Best Erotic Short Film - Erotic & Bizarre Art Film Festival 2022
 🏆 Best Erotic Short Film - Hallucinea Film Festival 2022
@@ -54,6 +55,7 @@ Screenings:<br />
 - 28th of October 2023 12:15 🎦 Movimento 📍 Kottbusser Damm 22, Berlin, Germany
 - November 10-12 TBD 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington
 - November 10-19 TBD 🎦 Cinéma Nova 📍 Rue d'Arenberg 3, Bruxelles, Belgium (Pink Screens Queer Film Festival)
+- 3rd of December 16:40 🎦 Rifraff Kino 📍 Neugasse 57-63, Zürich, Switzerland (Porny Days Kust Film Festival)
 
 {% include candystore.liquid file:"20220412_17_ju_femke_hp5_dirty-5" title:"" %}
 {% include candystore.liquid file:"20220412_1_ju_femke_hp5_dirty-2" title:"" %}
