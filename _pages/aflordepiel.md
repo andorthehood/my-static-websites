@@ -60,8 +60,6 @@ Screenings:<br />
 - 10th of November 2023 23:30 🎦 Cinéma Nova 📍 Rue d'Arenberg 3, Bruxelles, Belgium (Pink Screens Queer Film Festival)
 - 3rd of December 16:40 🎦 Rifraff Kino (4) 📍 Neugasse 57-63, Zürich, Switzerland (Porny Days Kust Film Festival)
 
-CINEFORO (Av Juárez 976 piso menos uno, Col Americana, Guadalajara, Jal.
-
 {% include candystore.liquid file:"20220412_17_ju_femke_hp5_dirty-5" title:"" %}
 {% include candystore.liquid file:"20220412_1_ju_femke_hp5_dirty-2" title:"" %}
 {% include candystore.liquid file:"20220412_21_ju_femke_hp5_dirty-6" title:"" %}
