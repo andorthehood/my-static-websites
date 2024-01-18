@@ -49,7 +49,7 @@ Screenings:<br />
 - 11th of September 2023 20:15 🎦 Schikaneder Kino 📍 Margaretenstraße 22-24, Wien, Austria
 - 24th of September 2023 16:45 🎦 AStA Stadkampus 📍 Königspl. 1, Paderborn, Germany (PaderPorn Filmfestival)
 - 6th of October 20:00 🎦 Cine k 📍 Bahnhofstraße 11, Oldeburg, Germany (Das 14. Queer Film Festival Oldenburg)
-- October 5-8 TBD 🎦 TBD 📍 TBD, Barcelona
+- 7th October 19:00 🎦 Inusual Project 📍 Carrer de la Paloma, 5, Ciutat Vella, Barcelona, Spain
 - 6th of October 2023 22:00 🎦 Neues Kino 📍 Klybeckstr. 247, Basel, Switzerland (Luststreifen Film Festival)
 - 8th of October 2023 18:00 🎦 Neues Kino 📍 Klybeckstr. 247, Basel, Switzerland (Luststreifen Film Festival)
 - 26th of October 2023 22:00 🎦 Movimento 📍 Kottbusser Damm 22, Berlin, Germany
