@@ -55,6 +55,7 @@ Screenings:<br />
 - 26th of October 2023 22:00 🎦 Movimento 📍 Kottbusser Damm 22, Berlin, Germany
 - 27th of October 2023 22:00 🎦 Babylon Kreuzberg 📍 Dresdener Str. 126, Berlin, Germany
 - 28th of October 2023 12:15 🎦 Movimento 📍 Kottbusser Damm 22, Berlin, Germany
+- 28th of October 2023 23:00 🎦 Zebra Kino 📍 Joseph-Belli-Weg 5, Konstanz, Germany
 - November 3-4 TBD 🎦 Cineforo (University of Guadalajara) 📍 Av Juárez 976 piso menos uno, Guadalajara, Mexico
 - November 10-12 TBD 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington
 - 10th of November 2023 23:30 🎦 Cinéma Nova 📍 Rue d'Arenberg 3, Bruxelles, Belgium (Pink Screens Queer Film Festival)
@@ -75,3 +76,20 @@ Lenses used: Zeiss ZM 50mm F/2.0 Planar T* and Zeiss ZM 35mm F/2.0 Biogon T*, Ca
 The frames were digitized by re-photographing them from the negatives using a Nikon D780 DSLR camera with a Sigma 105mm f/2.8 EX DG OS HSM macro lens.
 
 The individual frames were edited in Lightroom, and then stitched together with FFmpeg. The excessive amount of dust and dirt was transferred onto the film during the digitization process.
+
+Links:
+- [https://gdac.org/en/queer-o-rama/experimental-porn/a-flor-de-piel](https://gdac.org/en/queer-o-rama/experimental-porn/a-flor-de-piel)
+- [https://sfpff.pinklabel.tv/sfpff23/](https://sfpff.pinklabel.tv/sfpff23/)
+- [https://www.kurzfilmspiele.de/2023/sexy-shorts](https://www.kurzfilmspiele.de/2023/sexy-shorts)
+- [https://www.schikaneder.at/kino/veranstaltung_detail?veranstaltung_id=1699004570704](https://www.schikaneder.at/kino/veranstaltung_detail?veranstaltung_id=1699004570704)
+- [https://eroticbizarreartfilmfestival.weebly.com/program-viii.html](https://eroticbizarreartfilmfestival.weebly.com/program-viii.html)
+- [https://www.kinomuza.pl/movie/troska-widzialnosci-artystyczne-strategie-postpornografii/](https://www.kinomuza.pl/movie/troska-widzialnosci-artystyczne-strategie-postpornografii/)
+- [https://www.30formiche.it/event/1746/hacker-porn-film-festival-day-3.html](https://www.30formiche.it/event/1746/hacker-porn-film-festival-day-3.html)
+- [https://www.westfalen-blatt.de/owl/kreis-paderborn/paderborn/paderporn-filmfestival-start-22-september-2822414?&npg](https://www.westfalen-blatt.de/owl/kreis-paderborn/paderborn/paderporn-filmfestival-start-22-september-2822414?&npg)
+- [https://www.cinema-aventure.be/catalogue/movie/?9038D773-CB7D-12E0-0893-E6989EBA8FBB](https://www.cinema-aventure.be/catalogue/movie/?9038D773-CB7D-12E0-0893-E6989EBA8FBB)
+- [https://www.nova-cinema.org/prog/2023/194-pink-screens/10-11/?lang=fr](https://www.nova-cinema.org/prog/2023/194-pink-screens/10-11/?lang=fr)
+- [https://luststreifen.com/programme/kurzfilmwettbewerb-gimme-porn/](https://luststreifen.com/programme/kurzfilmwettbewerb-gimme-porn/)
+- [https://www.secsfest.org/secs-fest/secs-fest-2023-films/](https://www.secsfest.org/secs-fest/secs-fest-2023-films/)
+- [https://www.secsfest.org/a-flor-de-piel/](https://www.secsfest.org/a-flor-de-piel/)
+- [https://pornfilmfestivalberlin.de/en/film-2023/lesbian-drama-shorts/](https://pornfilmfestivalberlin.de/en/film-2023/lesbian-drama-shorts/)
+- [https://sfpff.pinklabel.tv/films/](https://sfpff.pinklabel.tv/films/)
