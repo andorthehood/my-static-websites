@@ -59,6 +59,8 @@ Screenings:<br />
 - November 10-12 TBD 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington
 - 10th of November 2023 23:30 🎦 Cinéma Nova 📍 Rue d'Arenberg 3, Bruxelles, Belgium (Pink Screens Queer Film Festival)
 - 3rd of December 16:40 🎦 Rifraff Kino (4) 📍 Neugasse 57-63, Zürich, Switzerland (Porny Days Kust Film Festival)
+- February 2024 TBD 🎦 Filmhuis Cavia 📍 Van Hallstraat 52-I, Amsterdam, Netherlands (Porn Film Festival Amsterdam)
+- 2024 TBD 🎦 TBD 📍 Warsaw, Poland (Post Pxrn Festival Warsaw)
 
 {% include candystore.liquid file:"20220412_17_ju_femke_hp5_dirty-5" title:"" %}
 {% include candystore.liquid file:"20220412_1_ju_femke_hp5_dirty-2" title:"" %}
