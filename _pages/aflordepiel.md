@@ -93,3 +93,5 @@ Links:
 - [https://www.secsfest.org/a-flor-de-piel/](https://www.secsfest.org/a-flor-de-piel/)
 - [https://pornfilmfestivalberlin.de/en/film-2023/lesbian-drama-shorts/](https://pornfilmfestivalberlin.de/en/film-2023/lesbian-drama-shorts/)
 - [https://sfpff.pinklabel.tv/films/](https://sfpff.pinklabel.tv/films/)
+- [https://pornfilmfestival.amsterdam/dayfour.html](https://pornfilmfestival.amsterdam/dayfour.html)
+- [https://www.uitkijk.nl/film/porn-film-festival-amsterdam-touching-touch](https://www.uitkijk.nl/film/porn-film-festival-amsterdam-touching-touch)
