@@ -27,6 +27,7 @@ Directed and produced by Andor Polgar (he/him) [@andorcover](https://instagram.c
 🌿 Official Selection - Natural Instincts Festival 2023
 🌿 Official Selection - Peephole Filmfest Mexico 2023
 🌿 Official Selection - Queer Film Festival Oldenburg 2023
+🌿 Official Selection - DIAMETRALE Filmfestival 2024
 🏅 Best of SECS fest - SECS Fest 2023
 🏅 Nominee - Lustreifen Film Festival Basel 2023
 🏆 Best Erotic Short Film - Erotic & Bizarre Art Film Festival 2022
@@ -61,6 +62,7 @@ Screenings:<br />
 - 10th of November 2023 23:30 🎦 Cinéma Nova 📍 Rue d'Arenberg 3, Bruxelles, Belgium (Pink Screens Queer Film Festival)
 - 3rd of December 16:40 🎦 Rifraff Kino (4) 📍 Neugasse 57-63, Zürich, Switzerland (Porny Days Kust Film Festival)
 - 11th of February 2024 17:00 🎦 De Utikijk 📍 Prinsengracht 452, Amsterdam, Netherlands (Porn Film Festival Amsterdam)
+- 1st of Match 2024 TBD 🎦 Leokino 📍 Anichstraße 36, Innsbruck, Austria (DIAMETRALE Filmfestival)
 - 2024 TBD 🎦 TBD 📍 Warsaw, Poland (Post Pxrn Festival Warsaw)
 
 {% include candystore.liquid file:"20220412_17_ju_femke_hp5_dirty-5" title:"" %}
