@@ -8,6 +8,7 @@ film: 'Kodak Gold 200'
 lens: 'ZEISS Biogon T* 35mm f/2'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
+flash: 'Contax TLA 140'
 ---
 
 My colleagues from LiveJasmin were in Berlin too, they were at this crazy erotic fair called Venus Berlin. I grabbed the chance to drop by their booth for a quick hello. It was my first time at an event like that, and it was a lot to take in. All the adult websites had their own ways of luring people to their booths, with famous porn stars doing dances and some pretty bold stuff right there for everyone to see.
