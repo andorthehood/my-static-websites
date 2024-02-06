@@ -10,4 +10,5 @@ camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
 
+{% include candystore.liquid file:"20231021_27_ju_kuku_ma_35zm_portra800" title:"Ju and Kuku" %}
 {% include candystore.liquid file:"20231021_46_ju_kuku_ma_35zm_xp2" title:"Ju and Kuku" %}
