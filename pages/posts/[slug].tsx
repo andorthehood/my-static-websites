@@ -7,30 +7,11 @@ import DefaultLayout from '../../components/layout/DefaultLayout';
 import { NextPageWithLayout } from '../_app';
 import { Fragment } from 'react';
 
-type PublicPostProps = {
-	slug: string;
-	title: string;
-	emojis?: string;
-	date: string;
-};
-
 interface PostPageProps {
 	post: PostProps;
-	posts: PublicPostProps[];
 }
 
-function groupPostsByYear(posts: PublicPostProps[]) {
-	return posts.reduce((previous, current) => {
-		const year = new Date(current.date).getFullYear().toString();
-		if (!previous[year]) {
-			previous[year] = [];
-		}
-		previous[year].push(current)
-		return previous
-	}, {} as Record<string, PublicPostProps[]>);
-}
-
-const Post: NextPageWithLayout<PostPageProps> = function Post({ post, posts }) {
+const Post: NextPageWithLayout<PostPageProps> = function Post({ post }) {
 	const exif = [
 		'🎞️ film: ' + post.attributes.film,
 		'🔎 lens: ' + post.attributes.lens,
@@ -39,27 +20,11 @@ const Post: NextPageWithLayout<PostPageProps> = function Post({ post, posts }) {
 		'🖨️ ' + post.attributes.scan
 	].filter((element) => !element.includes('undefined'));
 
-	const groupsByYear = groupPostsByYear(posts);
-
 	return (
 		<div className="post-page">
 			<Head>
 				<title>{post.attributes.title}</title>
 			</Head>
-			<ul className="postlist">
-				{Object.keys(groupsByYear).reverse().map((year) => {
-					return groupsByYear[year].map((post, index) => {
-						return (
-							<Fragment key={index}>
-								{index === 0 && <span className="date">{year}</span>}
-								<li>
-									<a href={`/posts/${post.slug}`}>{post.title}</a>
-								</li>
-							</Fragment>
-						);
-					})
-				})}
-			</ul>
 			<div dangerouslySetInnerHTML={{ __html: post.content }}></div>
 			{exif.length > 0 && <p>{exif.join(', ')}</p>}
 			{post.attributes.people && <p>The people captured in the photos are: {post.attributes.people?.map((name) => {
@@ -100,12 +65,7 @@ export const getStaticProps: GetStaticProps = async function (context): Promise<
 	const post = posts.find(({ slug }) => slug === context.params?.slug) || posts[0];
 	return {
 		props: {
-			post, posts: posts.map(post => ({
-				title: post.attributes.title,
-				slug: post.slug,
-				emojis: post.attributes.emojis || '',
-				date: post.attributes.date
-			}))
+			post
 		},
 	};
 };
