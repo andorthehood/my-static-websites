@@ -97,3 +97,4 @@ Links:
 - [https://sfpff.pinklabel.tv/films/](https://sfpff.pinklabel.tv/films/)
 - [https://pornfilmfestival.amsterdam/dayfour.html](https://pornfilmfestival.amsterdam/dayfour.html)
 - [https://www.uitkijk.nl/film/porn-film-festival-amsterdam-touching-touch](https://www.uitkijk.nl/film/porn-film-festival-amsterdam-touching-touch)
+- [https://www.nrc.nl/nieuws/2024/02/09/perverse-pracht-en-seksvampiers-het-eerste-amsterdamse-pornofestival-wil-de-kijker-uitdagen-laten-schrikken-veranderen-a4189698](https://www.nrc.nl/nieuws/2024/02/09/perverse-pracht-en-seksvampiers-het-eerste-amsterdamse-pornofestival-wil-de-kijker-uitdagen-laten-schrikken-veranderen-a4189698)
