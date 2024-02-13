@@ -62,6 +62,7 @@ Screenings:<br />
 - 10th of November 2023 23:30 🎦 Cinéma Nova 📍 Rue d'Arenberg 3, Bruxelles, Belgium (Pink Screens Queer Film Festival)
 - 3rd of December 16:40 🎦 Rifraff Kino (4) 📍 Neugasse 57-63, Zürich, Switzerland (Porny Days Kust Film Festival)
 - 11th of February 2024 17:00 🎦 De Utikijk 📍 Prinsengracht 452, Amsterdam, Netherlands (Porn Film Festival Amsterdam)
+- 25th of February 2024 19:00 🎦 HGW 📍 Mavromichali 138, Athens, Greece (Aphrodisiac Nights vol.2)
 - 1st of Match 2024 TBD 🎦 Leokino 📍 Anichstraße 36, Innsbruck, Austria (DIAMETRALE Filmfestival)
 - 2024 TBD 🎦 TBD 📍 Warsaw, Poland (Post Pxrn Festival Warsaw)
 
@@ -100,3 +101,4 @@ Links:
 - [https://www.uitkijk.nl/film/porn-film-festival-amsterdam-touching-touch](https://www.uitkijk.nl/film/porn-film-festival-amsterdam-touching-touch)
 - [https://www.nrc.nl/nieuws/2024/02/09/perverse-pracht-en-seksvampiers-het-eerste-amsterdamse-pornofestival-wil-de-kijker-uitdagen-laten-schrikken-veranderen-a4189698](https://www.nrc.nl/nieuws/2024/02/09/perverse-pracht-en-seksvampiers-het-eerste-amsterdamse-pornofestival-wil-de-kijker-uitdagen-laten-schrikken-veranderen-a4189698)
 - [https://www.folia.nl/nl/actueel/161082/uva-studenten-organiseren-eerste-porn-film-festival](https://www.folia.nl/nl/actueel/161082/uva-studenten-organiseren-eerste-porn-film-festival)
+- [https://athenspff.com/2024-2/outings24/aphrodisiac-nights-vol-2/sappho-shorts/](https://athenspff.com/2024-2/outings24/aphrodisiac-nights-vol-2/sappho-shorts/)
