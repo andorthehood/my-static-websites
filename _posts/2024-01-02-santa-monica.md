@@ -11,3 +11,9 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 
 {% include candystore.liquid file:"20240102_218_us_roadtrip_santa_monica_ma_35zm_ultramax400_tla140" title:"" %}
 {% include candystore.liquid file:"20240102_219_us_roadtrip_santa_monica_ma_35zm_ultramax400_tla140" title:"" %}
+{% include candystore.liquid file:"20240104_225_us_roadtrip_santa_monica_ma_35zm_ultramax400_tla140" title:"" %}
+{% include candystore.liquid file:"20240104_228_us_roadtrip_santa_monica_ma_35zm_ultramax400_tla140" title:"" %}
+{% include candystore.liquid file:"20240104_232_us_roadtrip_santa_monica_ma_35zm_ultramax400_tla140" title:"" %}
+{% include candystore.liquid file:"20240104_235_us_roadtrip_santa_monica_ma_35zm_ultramax400_tla140" title:"" %}
+{% include candystore.liquid file:"20240104_237_us_roadtrip_santa_monica_ma_35zm_ultramax400_tla140" title:"" %}
+{% include candystore.liquid file:"20240104_239_us_roadtrip_santa_monica_ma_35zm_ultramax400_tla140" title:"" %}
