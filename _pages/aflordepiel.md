@@ -19,15 +19,6 @@ Directed and produced by Andor Polgar (he/him) [@andorcover](https://instagram.c
 🌿 Official Selection - Porn Film Festival Vienna 2023
 🌿 Official Selection - Post Porn Film Festival Warsaw 2023
 🌿 Official Selection - Pink Screens Queer Film Festival Brussels 2023
-🌿 Official Selection - Porn Film Festival Barcelons 2023
-🌿 Official Selection - Porny Days Film Kunst Festival 2023
-🌿 Official Selection - Athens Porn Film Festival 2023
-🌿 Official Selection - Hacker Porn Film Festival Rome 2023
-🌿 Official Selection - PaderPorn Filmfestival 2023
-🌿 Official Selection - Natural Instincts Festival 2023
-🌿 Official Selection - Peephole Filmfest Mexico 2023
-🌿 Official Selection - Queer Film Festival Oldenburg 2023
-🌿 Official Selection - DIAMETRALE Filmfestival 2024
 🏅 Best of SECS fest - SECS Fest 2023
 🏅 Nominee - Lustreifen Film Festival Basel 2023
 🏆 Best Erotic Short Film - Erotic & Bizarre Art Film Festival 2022
@@ -37,27 +28,27 @@ Screenings:<br />
 - 16th of December 2022 20:00 🎦 OCHO Y MEDIO 📍 Plaza Sta. Teresa, 15, Alicante, Spain
 - 7th of April 2023 23:00 🎦 Trenta Formiche 📍 Via del Mandrione, 3, Roma, Italy
 - 15th of April 2023 16:00 🎦 Schikaneder Kino 📍 Margaretenstraße 22-24, Wien, Austria
-- 28th of April 2023 21:00 🎦 Trenta Formiche 📍 Via del Mandrione, 3, Roma, Italy
+- 28th of April 2023 21:00 🎦 Trenta Formiche 📍 Via del Mandrione, 3, Roma, Italy (Hacker Porn Film Festival)
 - 5th of May 2023 19:00 🎦 Cinéma Aventure (Salle 2) 📍 Rue des Fripiers 15, Bruxelles, Belgium
 - May 8 - 22 🎦 Pinklabel TV 📍 Online streaming
-- 26th of May 2023 16:00 🎦 Delphi Arthaus Kino Tübinger Straße 6, Stuttgart, Germany
+- 26th of May 2023 16:00 🎦 Delphi Arthaus Kino Tübinger Straße 6, Stuttgart, Germany (Natural Instincts Film Festival)
 - 27th of May 2023 TBD 🎦 Fiesta Murcia sin tabús 📍 Plaza de los Patos, Vistabella, Murcia, Spain
 - June 1 - 14 🎦 Pinklabel TV 📍 Online streaming
-- 3rd of June 2023 18:00 🎦 Romantso 📍 Anaxagora 3, Athens 105 52, Greece
-- 14th of June 2023 19:30 🎦 Kino Muranów (sala Pola) 📍 Gen. W. Andersa 5, Warsaw, Poland
-- 17th of June 2023 12:00 🎦 Kino Muranów (sala Gerard) 📍 Gen. W. Andersa 5, Warsaw, Poland
+- 3rd of June 2023 18:00 🎦 Romantso 📍 Anaxagora 3, Athens 105 52, Greece (Athens Porn Film Festival)
+- 14th of June 2023 19:30 🎦 Kino Muranów (sala Pola) 📍 Gen. W. Andersa 5, Warsaw, Poland (Post Porn Film Festival Warsaw)
+- 17th of June 2023 12:00 🎦 Kino Muranów (sala Gerard) 📍 Gen. W. Andersa 5, Warsaw, Poland (Post Porn Film Festival Warsaw)
 - 19th of August 2023 19:00 (PST) 🎦 Brava Theater 📍 2781 24th Street, San Francisco, California
 - 11th of September 2023 20:15 🎦 Schikaneder Kino 📍 Margaretenstraße 22-24, Wien, Austria
 - 24th of September 2023 16:45 🎦 AStA Stadkampus 📍 Königspl. 1, Paderborn, Germany (PaderPorn Filmfestival)
 - 6th of October 20:00 🎦 Cine k 📍 Bahnhofstraße 11, Oldeburg, Germany (Das 14. Queer Film Festival Oldenburg)
-- 7th October 19:00 🎦 Inusual Project 📍 Carrer de la Paloma, 5, Ciutat Vella, Barcelona, Spain
+- 7th October 19:00 🎦 Inusual Project 📍 Carrer de la Paloma, 5, Ciutat Vella, Barcelona, Spain (Porn Film Festival Barcelona)
 - 6th of October 2023 22:00 🎦 Neues Kino 📍 Klybeckstr. 247, Basel, Switzerland (Luststreifen Film Festival)
 - 8th of October 2023 18:00 🎦 Neues Kino 📍 Klybeckstr. 247, Basel, Switzerland (Luststreifen Film Festival)
 - 26th of October 2023 22:00 🎦 Movimento 📍 Kottbusser Damm 22, Berlin, Germany
 - 27th of October 2023 22:00 🎦 Babylon Kreuzberg 📍 Dresdener Str. 126, Berlin, Germany
 - 28th of October 2023 12:15 🎦 Movimento 📍 Kottbusser Damm 22, Berlin, Germany
 - 28th of October 2023 23:00 🎦 Zebra Kino 📍 Joseph-Belli-Weg 5, Konstanz, Germany
-- November 3-4 TBD 🎦 Cineforo (University of Guadalajara) 📍 Av Juárez 976 piso menos uno, Guadalajara, Mexico
+- November 3-4 TBD 🎦 Cineforo (University of Guadalajara) 📍 Av Juárez 976 piso menos uno, Guadalajara, Mexico  (Peephole Filmfest)
 - November 10-12 TBD 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington
 - 10th of November 2023 23:30 🎦 Cinéma Nova 📍 Rue d'Arenberg 3, Bruxelles, Belgium (Pink Screens Queer Film Festival)
 - 3rd of December 16:40 🎦 Rifraff Kino (4) 📍 Neugasse 57-63, Zürich, Switzerland (Porny Days Kust Film Festival)
