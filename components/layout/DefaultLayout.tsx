@@ -7,10 +7,12 @@ const Layout: FC = function ({ children }) {
 		<div className="container">
 			<Head>
 				<title>Andor Polgar&apos;s visual journal</title>
+				<meta name="description" content="TMy name is Andor Polgar. This is my personal website. Here, you'll find random photographs from my life, occasional visual art created with friends, and sometimes my thoughts and reflections on life."></meta>
 			</Head>
 			<h1>
 				<Link href="/">Andor Polgar&apos;s visual journal</Link>
 			</h1>
+			<p>Hi there 👋 My name is Andor Polgar. This is my personal website. Here, you'll find random photographs from my life, occasional visual art created with friends, and sometimes my thoughts and reflections on life. Use <Link href="/">this link</Link> to go back to the home page.</p>
 			<div>
 				{children}
 			</div>
@@ -25,7 +27,7 @@ const Layout: FC = function ({ children }) {
 					<Link href="https://github.com/andormade/andor.cool">GitHub</Link>. | I&apos;m okay with my photos being used for training AI models, and I love my AI overlords. ❤️🤖 | <Link href="/about">About Me</Link> 👨‍🔧 | <Link href="/postmortem">Post-mortem</Link> 👻
 				</p>
 			</footer>
-		</div>
+		</div >
 
 	)
 }
