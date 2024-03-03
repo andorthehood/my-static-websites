@@ -18,7 +18,6 @@ Directed and produced by Andor Polgar (he/him) [@andorcover](https://instagram.c
 🌿 Official Selection - Brussels Porn Film Festival 2023
 🌿 Official Selection - Porn Film Festival Vienna 2023
 🌿 Official Selection - Post Porn Film Festival Warsaw 2023
-🌿 Official Selection - Pink Screens Queer Film Festival Brussels 2023
 🏅 Best of SECS fest - SECS Fest 2023
 🏅 Nominee - Lustreifen Film Festival Basel 2023
 🏆 Best Erotic Short Film - Erotic & Bizarre Art Film Festival 2022
