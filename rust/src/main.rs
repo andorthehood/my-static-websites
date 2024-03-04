@@ -1,4 +1,4 @@
-mod parse_front_matter;
+mod front_matter;
 
 fn main() {
 }
