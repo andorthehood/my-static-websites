@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+use crate::handlebars::replace_template_variables;
 
 pub fn parse_liquid_include_tag(tag: &str) -> Option<(String, HashMap<String, String>)> {
     let parts: Vec<&str> = tag.trim().split_whitespace().collect();
@@ -20,6 +21,39 @@ pub fn parse_liquid_include_tag(tag: &str) -> Option<(String, HashMap<String, St
     }
 
     Some((template_name, properties))
+}
+
+pub fn process_liquid_includes(input: &str, templates: &HashMap<String, String>) -> String {
+    let mut result = input.to_owned();
+    let mut start = 0;
+
+    while let Some(start_index) = result[start..].find("{% include") {
+        let tag_start = start + start_index;
+        let end_index = match result[tag_start..].find("%}") {
+            Some(index) => index,
+            None => break,
+        };
+
+        let tag_end = tag_start + end_index + 2;
+        let tag = &result[tag_start..tag_end];
+
+        if let Some((template_name, params)) = parse_liquid_include_tag(tag) {
+            if let Some(template_content) = templates.get(&template_name) {
+                let processed_content = replace_template_variables(template_content, &params);
+                result.replace_range(tag_start..tag_end, &processed_content);
+
+                start = tag_start + processed_content.len();
+            } else {
+                // Move start to just after the current tag if the template was not found
+                start = tag_end;
+            }
+        } else {
+            // Move start to just after the current tag if parsing failed
+            start = tag_end;
+        }
+    }
+
+    result
 }
 
 #[cfg(test)]
@@ -47,5 +81,22 @@ mod tests {
     fn test_malformed_liquid_include_tag() {
         let malformed_tag = "{ this is not a valid tag }";
         assert!(parse_liquid_include_tag(malformed_tag).is_none());
+    }
+
+    #[test]
+    fn test_process_liquid_includes() {
+        // Sample input with Liquid include tags
+        let input = "Before tag {% include template1.liquid key1:\"value1\" key2:\"value2\" %} and {% include template2.liquid keyA:\"valueA\" %} after tag.";
+
+        // Templates HashMap
+        let mut templates = HashMap::new();
+        templates.insert("template1.liquid".to_string(), "Template 1: {{key1}}, {{key2}}".to_string());
+        templates.insert("template2.liquid".to_string(), "Template 2: {{keyA}}".to_string());
+
+        let expected_output = "Before tag Template 1: value1, value2 and Template 2: valueA after tag.";
+
+        let result = process_liquid_includes(input, &templates);
+
+        assert_eq!(result, expected_output);
     }
 }
