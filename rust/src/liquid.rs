@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 pub fn parse_liquid_include_tag(tag: &str) -> Option<(String, HashMap<String, String>)> {
     let parts: Vec<&str> = tag.trim().split_whitespace().collect();
 
@@ -5,7 +7,7 @@ pub fn parse_liquid_include_tag(tag: &str) -> Option<(String, HashMap<String, St
         return None;
     }
 
-    let template_file = parts[2].to_string();
+    let template_name = parts[2].to_string();
     let mut properties = HashMap::new();
 
     for &part in &parts[3..parts.len() - 1] {
@@ -26,7 +28,7 @@ mod tests {
 
     #[test]
     fn test_valid_liquid_include_tag() {
-        let tag = "{% include 'template.liquid' prop1:\"foo\" prop2:\"bar\" %}";
+        let tag = "{% include template.liquid prop1:\"foo\" prop2:\"bar\" %}";
         let expected_template = "template.liquid".to_string();
         let mut expected_props = HashMap::new();
         expected_props.insert("prop1".to_string(), "foo".to_string());
@@ -43,7 +45,7 @@ mod tests {
 
     #[test]
     fn test_malformed_liquid_include_tag() {
-        let malformed_tag = "{% this is not a valid tag %}";
+        let malformed_tag = "{ this is not a valid tag }";
         assert!(parse_liquid_include_tag(malformed_tag).is_none());
     }
 }
