@@ -6,7 +6,12 @@ use crate::markdown_with_front_matter::parse_markdown_with_front_matter;
 
 pub fn load_and_parse_markdown_file_with_front_matter(file_path: &Path) -> Result<HashMap<String, String>> {
     let content = fs::read_to_string(file_path)?;
-    let parsed_content = parse_markdown_with_front_matter(&content);
+    let mut parsed_content = parse_markdown_with_front_matter(&content);
+
+    if let Some(file_stem) = file_path.file_stem().and_then(|s| s.to_str()) {
+        parsed_content.insert("slug".to_string(), file_stem.to_string());
+    }
+
     Ok(parsed_content)
 }
 
