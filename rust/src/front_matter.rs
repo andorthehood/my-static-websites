@@ -12,7 +12,7 @@ fn trim_quotes(s: &str) -> String {
 }
 
 /// Parses the front matter of a document into a HashMap.
-fn parse_front_matter(front_matter: &str) -> HashMap<String, String> {
+pub fn parse_front_matter(front_matter: &str) -> HashMap<String, String> {
     let mut map = HashMap::new();
 
     for line in front_matter.lines() {
@@ -35,25 +35,6 @@ pub fn extract_front_matter(markdown: &str) -> Option<&str> {
         }
     }
     None
-}
-
-/// Extracts the content of a Markdown string, excluding the front matter.
-pub fn extract_content(markdown: &str) -> Option<&str> {
-    let mut end_of_front_matter = 0;
-
-    if let Some(start) = markdown.find("---") {
-        if let Some(end) = markdown[start + 3..].find("---") {
-            end_of_front_matter = start + 3 + end + 3; // Skip past the closing '---'
-        } else {
-            return None; // No closing '---', so not valid front matter
-        }
-    }
-
-    if end_of_front_matter < markdown.len() {
-        Some(&markdown[end_of_front_matter..].trim_start())
-    } else {
-        None // No content after front matter
-    }
 }
 
 #[cfg(test)]
@@ -94,32 +75,5 @@ This is the content of the blog post.
 
         let markdown_without_front_matter = "This is a regular markdown without front matter.";
         assert_eq!(extract_front_matter(markdown_without_front_matter), None);
-    }
-
-    #[test]
-    fn test_extract_content() {
-        let markdown_with_front_matter = r#"
----
-title: 'My Blog Post'
-author: "John Doe"
-date: 2024-03-04
----
-This is the content of the blog post.
-"#;
-        let expected_content = "This is the content of the blog post.\n";
-        assert_eq!(
-            extract_content(markdown_with_front_matter),
-            Some(expected_content)
-        );
-
-        let markdown_with_incomplete_front_matter = r#"
----
-title: 'Incomplete Front Matter
-This is the content with incomplete front matter.
-"#;
-        assert_eq!(
-            extract_content(markdown_with_incomplete_front_matter),
-            None
-        );
     }
 }
