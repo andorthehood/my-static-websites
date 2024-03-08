@@ -29,5 +29,7 @@ pub fn load_and_parse_markdown_files_with_front_matter_in_directory(dir_path: &s
         }
     }
 
+    results.sort_by(|a: &HashMap<String, String>, b| a["slug"].cmp(&b["slug"]));
+
     Ok(results)
 }

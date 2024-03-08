@@ -1,5 +1,6 @@
 use std::io::Result;
 use crate::file_readers::load_and_parse_markdown_files_with_front_matter_in_directory;
+use crate::handlebars::replace_template_variables;
 
 mod front_matter;
 mod handlebars;
@@ -16,9 +17,7 @@ fn main() -> Result<()> {
     html_list.push_str("<ul>\n");
 
     for markdown in markdown_files {
-        if let Some(title) = markdown.get("title") {
-            html_list.push_str(&format!("  <li>{}</li>\n", title));
-        }
+        html_list.push_str(&replace_template_variables("<li><a href=\"{{slug}}\">{{title}}</a><li>\n", &markdown ));
     }
 
     html_list.push_str("</ul>");
