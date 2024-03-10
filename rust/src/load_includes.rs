@@ -26,8 +26,8 @@ pub fn load_liquid_includes(dir_path: &str) -> HashMap<String, String> {
 mod tests {
     use super::*;
     use insta::assert_snapshot;
-    use std::collections::BTreeMap;
     use serde_json;
+    use std::collections::BTreeMap;
 
     #[test]
     fn test_load_liquid_includes() {

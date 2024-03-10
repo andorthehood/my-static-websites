@@ -5,7 +5,7 @@ pub fn replace_template_variable(template: &str, key: &str, value: &str) -> Stri
 
     let placeholder_with_space = format!("{{{{ {} }}}}", key);
     let placeholder_without_space = format!("{{{{{}}}}}", key);
-    
+
     result = result.replace(&placeholder_with_space, value);
     result = result.replace(&placeholder_without_space, value);
 

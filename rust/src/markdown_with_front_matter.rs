@@ -66,10 +66,7 @@ This is the content of the blog post.
 title: 'Incomplete Front Matter
 This is the content with incomplete front matter.
 "#;
-        assert_eq!(
-            extract_content(markdown_with_incomplete_front_matter),
-            None
-        );
+        assert_eq!(extract_content(markdown_with_incomplete_front_matter), None);
     }
 
     #[test]
@@ -82,11 +79,14 @@ This is the content with incomplete front matter.
 
  This is the content of the post.
  Lorem ipsum dolor sit amet."#;
-        
+
         let parsed = parse_markdown_with_front_matter(markdown);
-        
+
         assert_eq!(parsed.get("title"), Some(&"Test Post".to_string()));
         assert_eq!(parsed.get("author"), Some(&"Jane Doe".to_string()));
-        assert_eq!(parsed.get("content"), Some(&"This is the content of the post.\n Lorem ipsum dolor sit amet.".to_string()));
+        assert_eq!(
+            parsed.get("content"),
+            Some(&"This is the content of the post.\n Lorem ipsum dolor sit amet.".to_string())
+        );
     }
 }

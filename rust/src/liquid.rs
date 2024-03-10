@@ -1,5 +1,5 @@
-use std::collections::HashMap;
 use crate::handlebars::replace_template_variables;
+use std::collections::HashMap;
 
 pub fn parse_liquid_include_tag(tag: &str) -> Option<(String, HashMap<String, String>)> {
     let parts: Vec<&str> = tag.trim().split_whitespace().collect();
@@ -72,7 +72,7 @@ mod tests {
             Some((template_name, properties)) => {
                 assert_eq!(template_name, expected_template);
                 assert_eq!(properties, expected_props);
-            },
+            }
             None => panic!("Parsing failed for a valid tag"),
         }
     }
@@ -90,10 +90,17 @@ mod tests {
 
         // Templates HashMap
         let mut templates = HashMap::new();
-        templates.insert("template1.liquid".to_string(), "Template 1: {{key1}}, {{key2}}".to_string());
-        templates.insert("template2.liquid".to_string(), "Template 2: {{keyA}}".to_string());
+        templates.insert(
+            "template1.liquid".to_string(),
+            "Template 1: {{key1}}, {{key2}}".to_string(),
+        );
+        templates.insert(
+            "template2.liquid".to_string(),
+            "Template 2: {{keyA}}".to_string(),
+        );
 
-        let expected_output = "Before tag Template 1: value1, value2 and Template 2: valueA after tag.";
+        let expected_output =
+            "Before tag Template 1: value1, value2 and Template 2: valueA after tag.";
 
         let result = process_liquid_includes(input, &templates);
 
