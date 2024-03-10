@@ -10,7 +10,7 @@ pub fn load_liquid_includes(dir_path: &str) -> HashMap<String, String> {
         for entry in entries.flatten() {
             let path = entry.path();
             if path.is_file() && path.extension().and_then(|ext| ext.to_str()) == Some("liquid") {
-                if let Some(filename) = path.file_stem().and_then(|name| name.to_str()) {
+                if let Some(filename) = path.file_name().and_then(|name| name.to_str()) {
                     if let Ok(contents) = fs::read_to_string(&path) {
                         templates.insert(filename.to_string(), contents);
                     }
