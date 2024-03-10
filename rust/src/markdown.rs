@@ -1,3 +1,19 @@
+pub fn line_breaks_to_html(input: &str) -> String {
+    let paragraphs: Vec<String> = input
+        .split("\n\n")
+        .map(|paragraph| {
+            paragraph
+                .replace("\n", "<br />")
+                .split('\n')
+                .collect::<Vec<_>>()
+                .join("<br />")
+        })
+        .map(|paragraph| format!("<p>{}</p>", paragraph))
+        .collect();
+
+    paragraphs.join("\n")
+}
+
 pub fn list_to_html(input: &str) -> String {
     let mut result = String::new();
     let mut in_list = false;
@@ -59,7 +75,19 @@ Some other text.
 <li>Item 2</li>
 </ul>
 "#;
-        
+
         assert_eq!(list_to_html(markdown), expected_html);
+    }
+
+    #[test]
+    fn test_line_breaks_to_html() {
+        let markdown = r#"This is a line.
+This is another line.
+
+This is a new paragraph."#;
+        let expected_html =
+            "<p>This is a line.<br />This is another line.</p>\n<p>This is a new paragraph.</p>";
+
+        assert_eq!(line_breaks_to_html(markdown), expected_html);
     }
 }
