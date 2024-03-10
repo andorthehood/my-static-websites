@@ -5,6 +5,7 @@ use crate::layout::load_layout;
 use crate::liquid::process_liquid_includes;
 use crate::load_includes::load_liquid_includes;
 use crate::write::write_html_to_file;
+use crate::markdown::markdown_to_html;
 use std::io::Result;
 
 mod file_readers;
@@ -19,7 +20,7 @@ mod write;
 
 fn main() -> Result<()> {
     let posts = load_and_parse_markdown_files_with_front_matter_in_directory("../_posts")?;
-    // let pages = load_and_parse_markdown_files_with_front_matter_in_directory("../_pages")?;
+    let pages = load_and_parse_markdown_files_with_front_matter_in_directory("../_pages")?;
     let includes = load_liquid_includes("../_includes");
     let main_layout = load_layout("../_layouts/main.html")?;
 
@@ -40,10 +41,22 @@ fn main() -> Result<()> {
     // Generate posts
     for post in &posts {
         let content = post.get("content").cloned().unwrap_or_else(String::new);
+        let mut html = markdown_to_html(&content);
         let slug = post.get("slug").cloned().unwrap_or_else(String::new);
-        let mut html = insert_body_into_layout(&main_layout, &content);
         let file_name = "out/posts/".to_string() + &slug + ".html";
         html = process_liquid_includes(&html, &includes);
+        html = insert_body_into_layout(&main_layout, &html);
+        write_html_to_file(&file_name, &html)?;
+    }
+
+    // Generate pages
+    for page in &pages {
+        let content = page.get("content").cloned().unwrap_or_else(String::new);
+        let mut html = markdown_to_html(&content);
+        let slug = page.get("slug").cloned().unwrap_or_else(String::new);
+        let file_name = "out/".to_string() + &slug + ".html";
+        html = process_liquid_includes(&html, &includes);
+        html = insert_body_into_layout(&main_layout, &html);
         write_html_to_file(&file_name, &html)?;
     }
 
