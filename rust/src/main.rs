@@ -1,13 +1,3 @@
-use crate::file_readers::load_and_parse_markdown_files_with_front_matter_in_directory;
-use crate::handlebars::replace_template_variables;
-use crate::layout::insert_body_into_layout;
-use crate::layout::load_layout;
-use crate::liquid::process_liquid_includes;
-use crate::load_includes::load_liquid_includes;
-use crate::write::write_html_to_file;
-use crate::markdown::markdown_to_html;
-use std::io::Result;
-
 mod file_readers;
 mod front_matter;
 mod handlebars;
@@ -17,6 +7,34 @@ mod load_includes;
 mod markdown;
 mod markdown_with_front_matter;
 mod write;
+
+use crate::file_readers::load_and_parse_markdown_files_with_front_matter_in_directory;
+use crate::handlebars::replace_template_variables;
+use crate::layout::insert_body_into_layout;
+use crate::layout::load_layout;
+use crate::liquid::process_liquid_includes;
+use crate::load_includes::load_liquid_includes;
+use crate::markdown::markdown_to_html;
+use crate::write::write_html_to_file;
+use std::collections::HashMap;
+use std::io::Result;
+
+fn render_page(
+    page: &HashMap<String, String>,
+    directory: &str,
+    layout: &str,
+    includes: &HashMap<String, String>,
+) -> Result<()> {
+    let content = page.get("content").cloned().unwrap_or_else(String::new);
+    let mut html = markdown_to_html(&content);
+    let slug = page.get("slug").cloned().unwrap_or_else(String::new);
+    let file_name = directory.to_string() + &slug + ".html";
+    html = process_liquid_includes(&html, &includes);
+    html = insert_body_into_layout(&layout, &html);
+    write_html_to_file(&file_name, &html)?;
+
+    Ok(())
+}
 
 fn main() -> Result<()> {
     let posts = load_and_parse_markdown_files_with_front_matter_in_directory("../_posts")?;
@@ -40,24 +58,12 @@ fn main() -> Result<()> {
 
     // Generate posts
     for post in &posts {
-        let content = post.get("content").cloned().unwrap_or_else(String::new);
-        let mut html = markdown_to_html(&content);
-        let slug = post.get("slug").cloned().unwrap_or_else(String::new);
-        let file_name = "out/posts/".to_string() + &slug + ".html";
-        html = process_liquid_includes(&html, &includes);
-        html = insert_body_into_layout(&main_layout, &html);
-        write_html_to_file(&file_name, &html)?;
+        render_page(&post, &"out/posts/", &main_layout, &includes)?;
     }
 
     // Generate pages
     for page in &pages {
-        let content = page.get("content").cloned().unwrap_or_else(String::new);
-        let mut html = markdown_to_html(&content);
-        let slug = page.get("slug").cloned().unwrap_or_else(String::new);
-        let file_name = "out/".to_string() + &slug + ".html";
-        html = process_liquid_includes(&html, &includes);
-        html = insert_body_into_layout(&main_layout, &html);
-        write_html_to_file(&file_name, &html)?;
+        render_page(&page, &"out/", &main_layout, &includes)?;
     }
 
     Ok(())
