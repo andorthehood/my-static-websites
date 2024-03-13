@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import '../style.scss';
+import '../style.css';
 import { NextPage } from 'next/types';
 import { ReactElement, ReactNode } from 'react';
 import { PostProps } from '../scripts/collectPosts';
