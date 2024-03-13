@@ -7,6 +7,7 @@ mod load_includes;
 mod markdown;
 mod markdown_with_front_matter;
 mod write;
+mod file_copier;
 
 use crate::file_readers::load_and_parse_markdown_files_with_front_matter_in_directory;
 use crate::handlebars::replace_template_variables;
@@ -16,8 +17,10 @@ use crate::liquid::process_liquid_includes;
 use crate::load_includes::load_liquid_includes;
 use crate::markdown::markdown_to_html;
 use crate::write::write_html_to_file;
+use crate::file_copier::copy_file_with_versioning;
 use std::collections::HashMap;
 use std::io::Result;
+use std::fs;
 
 fn render_page(
     page: &HashMap<String, String>,
@@ -37,6 +40,7 @@ fn render_page(
 }
 
 fn main() -> Result<()> {
+    let css_file_name = copy_file_with_versioning("../style.css", "./out/")?;
     let posts = load_and_parse_markdown_files_with_front_matter_in_directory("../_posts")?;
     let pages = load_and_parse_markdown_files_with_front_matter_in_directory("../_pages")?;
     let includes = load_liquid_includes("../_includes");
