@@ -20,7 +20,6 @@ use crate::write::write_html_to_file;
 use crate::file_copier::copy_file_with_versioning;
 use std::collections::HashMap;
 use std::io::Result;
-use std::fs;
 
 fn render_page(
     page: &HashMap<String, String>,
@@ -44,7 +43,11 @@ fn main() -> Result<()> {
     let posts = load_and_parse_markdown_files_with_front_matter_in_directory("../_posts")?;
     let pages = load_and_parse_markdown_files_with_front_matter_in_directory("../_pages")?;
     let includes = load_liquid_includes("../_includes");
-    let main_layout = load_layout("../_layouts/main.html")?;
+    
+    let mut main_layout = load_layout("../_layouts/main.html")?;
+    let mut main_layout_variables = HashMap::new();
+    main_layout_variables.insert("css_file_name".to_string(), css_file_name);
+    main_layout = replace_template_variables(&main_layout, &main_layout_variables);
 
     // Generate index.html
     let list_item_template = includes
