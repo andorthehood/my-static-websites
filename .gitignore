@@ -1,41 +1,13 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
+node_modules
+target
+out
 .DS_Store
 *.pem
 .lightbucketrc
 .bucket-brigaderc
 tsconfig.tsbuildinfo
-
 .last-run
 magick
-
-#cache 
 .lightbucket-cache
 .bucket-brigade-cache
 .cache
-
-# debug
-npm-debug.log*
-
-# local env files
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# vercel
-.vercel

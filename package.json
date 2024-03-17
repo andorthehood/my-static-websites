@@ -1,34 +1,12 @@
 {
 	"name": "andor.cool",
-	"version": "2.0.0",
+	"version": "3.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
-		"build": "ts-node scripts/generateRSS && next build && next export",
-		"start": "next start",
-		"lint": "next lint",
 		"update-photos": "lightbucket && bucket-brigade"
 	},
-	"dependencies": {
-		"next": "13.0.0",
-		"react": "18.2.0",
-		"react-dom": "18.2.0",
-		"sass": "1.49.9"
-	},
 	"devDependencies": {
-		"@types/marked": "4.0.2",
-		"@types/node": "17.0.18",
-		"@types/react": "17.0.31",
 		"bucket-brigade": "1.2.1",
-		"eslint": "7.32.0",
-		"eslint-config-next": "13.0.0",
-		"feed": "4.2.2",
-		"front-matter": "4.0.2",
-		"lightbucket": "1.1.0",
-		"liquidjs": "10.0.0",
-		"marked": "4.0.12",
-		"prettier": "2.4.1",
-		"ts-node": "10.4.0",
-		"typescript": "4.4.4"
+		"lightbucket": "1.1.0"
 	}
 }

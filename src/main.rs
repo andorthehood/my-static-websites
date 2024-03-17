@@ -42,10 +42,10 @@ fn render_page(
 }
 
 fn main() -> Result<()> {
-    let css_file_name = copy_file_with_versioning("../style.css", "./out/")?;
-    let posts = load_and_parse_markdown_files_with_front_matter_in_directory("../_posts")?;
-    let pages = load_and_parse_markdown_files_with_front_matter_in_directory("../_pages")?;
-    let includes = load_liquid_includes("../_includes");
+    let css_file_name = copy_file_with_versioning("./style.css", "./out/")?;
+    let posts = load_and_parse_markdown_files_with_front_matter_in_directory("./_posts")?;
+    let pages = load_and_parse_markdown_files_with_front_matter_in_directory("./_pages")?;
+    let includes = load_liquid_includes("./_includes");
 
     let mut global_variables = HashMap::new();
     global_variables.insert(
@@ -53,7 +53,7 @@ fn main() -> Result<()> {
         "Andor Polgar's Visual Journal".to_string(),
     );
 
-    let mut main_layout = load_layout("../_layouts/main.html")?;
+    let mut main_layout = load_layout("./_layouts/main.html")?;
     let mut main_layout_variables = HashMap::new();
     main_layout_variables.insert("css_file_name".to_string(), css_file_name);
     main_layout = replace_template_variables(&main_layout, &main_layout_variables);
