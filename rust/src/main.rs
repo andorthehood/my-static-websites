@@ -64,7 +64,7 @@ fn main() -> Result<()> {
         .cloned()
         .unwrap_or_else(String::new);
     let mut html_list = String::new();
-    html_list.push_str("<ul>\n");
+    html_list.push_str("<ul class=\"postlist\">\n");
     for post in &posts {
         html_list.push_str(&replace_template_variables(&list_item_template, &post));
     }
