@@ -22,6 +22,47 @@ pub fn replace_template_variables(template: &str, variables: &HashMap<String, St
     result
 }
 
+pub fn remove_handlebars_variables(input: &str) -> String {
+    let mut result = String::new();
+    let mut in_variable = false;
+    let mut skip_next = false;
+
+    let chars: Vec<char> = input.chars().collect();
+    let mut i = 0;
+    while i < chars.len() {
+        if skip_next {
+            skip_next = false;
+            i += 1;
+            continue;
+        }
+
+        if i < chars.len() - 1 && chars[i] == '{' && chars[i + 1] == '{' {
+            in_variable = true;
+            i += 2; // Skip the '{{'
+            while i < chars.len() && chars[i] == ' ' {
+                i += 1;
+            }
+            continue;
+        }
+
+        if in_variable && i < chars.len() - 1 && chars[i] == '}' && chars[i + 1] == '}' {
+            in_variable = false;
+            i += 2; // Skip the '}}'
+            continue;
+        }
+
+        if !in_variable {
+            result.push(chars[i]);
+        } else if chars[i] == '}' && i < chars.len() - 1 && chars[i + 1] == '}' {
+            skip_next = true;
+        }
+
+        i += 1;
+    }
+
+    result
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -48,5 +89,12 @@ mod tests {
         let result = replace_template_variables(template, &variables);
 
         assert_eq!(result, "Lorem ipsum apple dolor banana sit amet.");
+    }
+
+    #[test]
+    fn test_remove_handlebars_variables() {
+        let template = "Lorem ipsum {{foo}} dolor {{ bar }} sit amet.";
+        let result = remove_handlebars_variables(template);
+        assert_eq!(result, "Lorem ipsum  dolor  sit amet.");
     }
 }

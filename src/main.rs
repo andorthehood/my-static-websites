@@ -13,6 +13,7 @@ use crate::file_copier::copy_file_with_versioning;
 use crate::file_readers::load_and_parse_markdown_files_with_front_matter_in_directory;
 use crate::handlebars::replace_template_variable;
 use crate::handlebars::replace_template_variables;
+use crate::handlebars::remove_handlebars_variables;
 use crate::layout::insert_body_into_layout;
 use crate::layout::load_layout;
 use crate::liquid::process_liquid_includes;
@@ -36,6 +37,7 @@ fn render_page(
     html = process_liquid_includes(&html, &includes);
     html = insert_body_into_layout(&layout, &html);
     html = replace_template_variables(&html, &variables);
+    html = remove_handlebars_variables(&html);
     write_html_to_file(&file_name, &html)?;
 
     Ok(())
@@ -71,6 +73,7 @@ fn main() -> Result<()> {
     html_list.push_str("</ul>");
     let mut html = insert_body_into_layout(&main_layout, &html_list);
     html = replace_template_variable(&html, "title", "Andor Polgar's Visual Journal");
+    html = remove_handlebars_variables(&html);
     write_html_to_file(&"out/index.html", &html)?;
 
     // Generate posts
