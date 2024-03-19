@@ -2,7 +2,9 @@
 
 # andor.cool
 
-Hello there! 👋 You just found the source code of my personal website. It's powered by a static site generator I wrote in Rust, without using any third-party libraries. This whole project has been a personal playground for me to improve my, let’s say, “rusty” Rust skills. Originally, I was planning to write this in C, but Netlify still doesn't support deploying C projects.
+Hello there! 👋 You just found the source code of my personal website. It's powered by a static site generator I wrote in Rust, without using any third-party libraries. This whole project has been a personal playground for me to improve my, let’s say, “rusty” Rust skills. (I wanted to write this in C, but Netlify still doesn't support deploying C projects.) 
+
+Originally, my site was built with Jekyll, because I liked how easy it was to use Markdown files with Front Matter and Liquid templates for my posts and pages. Even after trying out Next.js and then moving to Rust, I've kept this approach to manage my content.
 
 ## Requirements
 
