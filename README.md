@@ -16,4 +16,5 @@ To get the website running on your local machine, follow these steps:
 
     git clone https://github.com/hngrhorace/andor.cool.git
     cd andor.cool
-    cargo run
+    cargo run -- generate
+    cargo run -- serve
