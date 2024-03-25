@@ -1,3 +1,3 @@
 netlify:
 	rustup toolchain install stable
-	cargo run
+	cargo run -- generate
