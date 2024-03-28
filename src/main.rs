@@ -9,10 +9,12 @@ mod load_includes;
 mod markdown;
 mod markdown_with_front_matter;
 mod write;
+mod server;
 
 use generate::generate;
 use std::env;
 use std::io::Result;
+use server::listen;
 
 fn main() -> Result<()> {
     let args: Vec<String> = env::args().collect();
@@ -23,8 +25,7 @@ fn main() -> Result<()> {
                 generate()?;
             }
             "serve" => {
-                // TODO: implement static server
-                println!("Serving static site");
+                listen();
             }
             _ => println!("Unknown command. Use 'generate' or 'serve'."),
         }
