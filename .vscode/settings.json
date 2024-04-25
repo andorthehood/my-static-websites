@@ -1,3 +1,6 @@
 {
-    "liveServer.settings.root": "/out"
+    "liveServer.settings.root": "/out",
+    "rust-analyzer.linkedProjects": [
+        "./Cargo.toml"
+    ]
 }
