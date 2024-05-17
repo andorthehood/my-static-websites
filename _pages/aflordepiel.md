@@ -55,7 +55,7 @@ Screenings:<br />
 - 25th of February 2024 19:00 🎦 HGW 📍 Mavromichali 138, Athens, Greece (Aphrodisiac Nights vol.2)
 - 1st of March 2024 TBD 🎦 Leokino 📍 Anichstraße 36, Innsbruck, Austria (DIAMETRALE Filmfestival)
 - 14th of March 2024 20:00 🎦 The Back Door 📍 207 S College Ave, Bloomington, Indiana (Cicada Cinema + SECS Fest Midwest)
-- May 2024 TBD 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington
+- 31st of May 2024 21:30 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington (Best of SECS Fest)
 - 22nd of June 2024 🎦 Pickford Film Center 📍 1318 Bay St Bellingham, Washington (Best of SECS Fest)
 - 2024 TBD 🎦 TBD 📍 Warsaw, Poland (Post Pxrn Festival Warsaw)
 
@@ -95,3 +95,4 @@ Links:
 - [https://www.nrc.nl/nieuws/2024/02/09/perverse-pracht-en-seksvampiers-het-eerste-amsterdamse-pornofestival-wil-de-kijker-uitdagen-laten-schrikken-veranderen-a4189698](https://www.nrc.nl/nieuws/2024/02/09/perverse-pracht-en-seksvampiers-het-eerste-amsterdamse-pornofestival-wil-de-kijker-uitdagen-laten-schrikken-veranderen-a4189698)
 - [https://www.folia.nl/nl/actueel/161082/uva-studenten-organiseren-eerste-porn-film-festival](https://www.folia.nl/nl/actueel/161082/uva-studenten-organiseren-eerste-porn-film-festival)
 - [https://athenspff.com/2024-2/outings24/aphrodisiac-nights-vol-2/sappho-shorts/](https://athenspff.com/2024-2/outings24/aphrodisiac-nights-vol-2/sappho-shorts/)
+- [https://grandillusioncinema.org/film/best-of-secs-fest-2023-short-films/](https://grandillusioncinema.org/film/best-of-secs-fest-2023-short-films/)
