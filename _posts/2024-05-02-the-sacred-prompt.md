@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Genesis'
+title: 'The Sacred Prompt'
 date: 2024-05-02T23:53+0100
 location: 'Zandvoort, Netherlands'
 ---
@@ -9,7 +9,7 @@ In the beginning, God programmed the universal constants, calibrating the forces
 
 And God said, "Let there be a universe tailored for the emergence and evolution of self-replicating structures." And with the constants set, the universe expanded from a singular point, spreading out particles and energy, creating galaxies, stars, and planets.
 
-God observed the formation of atoms, the fusion in stars, and the eventual creation of molecules capable of self-replication. On a uniquely positioned blue planet, these molecules began to complexify under the perfect conditions set forth by the constants.
+God looked upon the formation of atoms, the fusion in stars, and the creation of molecules capable of self-replication. On a uniquely positioned blue planet, these molecules began to complexify under the perfect conditions set forth by the constants.
 
 And God saw that it was good. Then He commanded, "Let these molecules assemble into cells, and let these cells evolve, adapting and multiplying." And so, life began in the waters of this vibrant world, driven by the immutable laws and constants established from the cosmos's conception.
 
