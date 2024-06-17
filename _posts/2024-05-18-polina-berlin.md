@@ -3,7 +3,7 @@ layout: post
 title: 'Polina in Berlin'
 date: 2024-05-18T23:53+0100
 location: 'Berlin, Germany'
-emojis: ''
+emojis: '🔞'
 film: 'Kodak Ultramax 400, Cinestill 800T'
 lens: 'ZEISS Biogon T* 35mm f/2'
 camera: 'Leica M-A (Typ 127)'
