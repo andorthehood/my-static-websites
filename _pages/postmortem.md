@@ -11,7 +11,7 @@ a kinda morbid heads-up: in case I ever have an unexpected meet-up with a <a hre
 
 All of my photos, videos, and documents are stored on a DigitalOcean server, so if I hit the big "log off", my account and domain names will only last for a year from the time of my passing, and after that all my files will be deleted.
 
-Honestly, I’m not too bothered about my digital legacy vanishing, but if there's anything in it that holds sentimental value to you, please make sure you save it before it's too late.
+To be honest, I’m not too bothered about my digital legacy vanishing, but if there's anything in it that holds sentimental value to you, please make sure you save it before it's too late. If you don't download the files in time, then I'm afraid you'll have to retrieve them from the Akashic records.
 
 I'm really grateful for all the memories we've created.
 
