@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Bandai-Asahi National Park'
-date: 2024-06-06T23:53+0100
+date: 2024-06-07T23:53+0100
 location: 'Bandai-Asahi National Park, Japan'
 emojis: ''
 film: 'Fujifilm Superia 400'
