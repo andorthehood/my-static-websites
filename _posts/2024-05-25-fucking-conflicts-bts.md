@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 'BTS of a Fucking Conflicts project'
-date: 2024-05-18T23:53+0100
+date: 2024-05-25T23:53+0100
 location: 'Berlin, Germany'
 emojis: '🔞'
-film: 'Kodak Ultramax 400, Cinestill 800T'
-lens: 'ZEISS Biogon T* 35mm f/2'
+film: 'Kodak Ultramax 400'
+lens: 'Brightin Star 28mm f/2.8'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
