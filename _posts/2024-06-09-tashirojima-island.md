@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Tashirojima Island'
-date: 2024-06-07T23:53+0100
+date: 2024-06-09T23:53+0100
 location: 'Tashirojima, Japan'
 emojis: ''
 film: 'Kodak Ultramax 400'
