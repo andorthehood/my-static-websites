@@ -2,9 +2,9 @@
 
 # andor.cool
 
-Hello there! 👋 You just found the source code of my personal website. It's powered by a static site generator I wrote in Rust, without using any third-party libraries. This whole project is a playground for me to improve my, let’s say, “rusty” Rust skills. Originally, I wanted to write it in C, but Netlify still doesn't support deploying C projects. :( 
+Hello there! 👋 You just found the source code of my personal website. It's powered by a static site generator I wrote in Rust, without using any third-party libraries. This whole project is a playground for me to improve my “rusty” Rust skills. Originally, I wanted to write it in C, but Netlify still doesn't support deploying C projects. :( 
 
-For storing the content, I'm using Markdown files with Front Matter, and with Liquid and Handlebars templates. This approach was inspired by Jekyll, which uses a similar structure for content management.
+For storing the content, I'm using Markdown files with Front Matter, and with Liquid and Handlebars templates. I was inspired by Jekyll, which uses a similar structure for content management.
 
 ## Requirements
 
