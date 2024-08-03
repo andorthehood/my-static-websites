@@ -58,6 +58,7 @@ Screenings:<br />
 - 31st of May 2024 21:30 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington (Best of SECS Fest)
 - 22nd of June 2024 🎦 Pickford Film Center 📍 1318 Bay St Bellingham, Washington (Best of SECS Fest)
 - 2024 TBD 🎦 TBD 📍 Warsaw, Poland (Post Pxrn Festival Warsaw)
+- 12th of November 2024 17:00 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington (SECS Fest)
 - 21st of December 2024 🎦 TBD 📍 (Der Kurzfilmtag: Fueled by Fantasy: Filme aus PaderPorn) 
 
 {% include candystore.liquid file:"20220412_17_ju_femke_hp5_dirty-5" title:"" %}
