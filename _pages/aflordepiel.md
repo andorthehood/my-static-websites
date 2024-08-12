@@ -48,7 +48,7 @@ Screenings:<br />
 - 28th of October 2023 12:15 🎦 Movimento 📍 Kottbusser Damm 22, Berlin, Germany
 - 28th of October 2023 23:00 🎦 Zebra Kino 📍 Joseph-Belli-Weg 5, Konstanz, Germany
 - November 3-4 TBD 🎦 Cineforo (University of Guadalajara) 📍 Av Juárez 976 piso menos uno, Guadalajara, Mexico  (Peephole Filmfest)
-- November 10-12 TBD 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington
+- November 10-12 TBD 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington (SECS Fest)
 - 10th of November 2023 23:30 🎦 Cinéma Nova 📍 Rue d'Arenberg 3, Bruxelles, Belgium (Pink Screens Queer Film Festival)
 - 3rd of December 16:40 🎦 Rifraff Kino (4) 📍 Neugasse 57-63, Zürich, Switzerland (Porny Days Kust Film Festival)
 - 11th of February 2024 17:00 🎦 De Utikijk 📍 Prinsengracht 452, Amsterdam, Netherlands (Porn Film Festival Amsterdam)
