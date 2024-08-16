@@ -7,7 +7,7 @@ location: 'Zandvoort, Netherlands'
 
 {% include candystore.liquid file:"20230421_55_ue16_ma_xp2_zm21_tla140" title:"Andor Polgar" %}
 
-Hello, I'm Andor Polgar, and I like to rant about random things. For example, I always thought it was a bit strange how some people write their bios in the third person. I've been told it's the professional way to do it, and I've even been asked to write mine like that, but I cringe every time I try. So, I hope you don't mind me keeping things first-person here.
+Hello, I'm Andor Polgar, and I like to rant about random things. For example, I always thought it was a bit strange how some people write their bios in the third person. I've been told it's the professional way to do it, and I've even been asked to write mine like that, but I cringe every time I try. So, I hope you don't mind me keeping things first-person here. My goal is to write such a detailed bio that it could be used to create an AI chatbot with my personality, so people could steal my identity.
 
 I was born into a family of first-generation intellectuals right around when the Soviet onion was falling apart, and I grew up in the suburbs of a small city in post-communist Hungary. It was a brand-new world not just for me as a baby, but also for my parents and everyone else, as we stepped into an age of possibilities. It was exciting, but not everything was for the better. A lot of people had a Stockholm syndrome-esque attachment to the old authoritarian ways and corruption, clinging to a past that should have been left behind. That's partly why, after finishing school, I decided to start a new life somewhere else.
 
