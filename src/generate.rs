@@ -44,10 +44,10 @@ pub fn generate() -> Result<()> {
         "Andor Polgar's Visual Journal".to_string(),
     );
 
-    let mut main_layout = load_layout("./_layouts/main.html")?;
+    let main_layout_template = load_layout("./_layouts/main.html")?;
     let mut main_layout_variables = HashMap::new();
     main_layout_variables.insert("css_file_name".to_string(), css_file_name);
-    main_layout = replace_template_variables(&main_layout, &main_layout_variables);
+    let mut main_layout = replace_template_variables(&main_layout_template, &main_layout_variables);
 
     // Generate index.html
     let list_item_template = includes
@@ -76,9 +76,15 @@ pub fn generate() -> Result<()> {
                 + " - "
                 + "Andor Polgar's Visual Journal",
         );
+
+        let slug = post.get("slug").cloned().unwrap_or_else(String::new);
+        let pathname: String = "post/".to_owned() + &slug;
+        main_layout_variables.insert("pathname".to_string(), pathname);
+        main_layout = replace_template_variables(&main_layout_template, &main_layout_variables);
+
         render_page(
             &post,
-            &"out/posts/",
+            &"/posts/",
             &main_layout,
             &includes,
             &global_variables,
@@ -96,6 +102,11 @@ pub fn generate() -> Result<()> {
                 + " - "
                 + "Andor Polgar's Visual Journal",
         );
+
+        let slug = page.get("slug").cloned().unwrap_or_else(String::new);
+        main_layout_variables.insert("pathname".to_string(), slug);
+        main_layout = replace_template_variables(&main_layout_template, &main_layout_variables);
+
         render_page(&page, &"out/", &main_layout, &includes, &global_variables)?;
     }
 

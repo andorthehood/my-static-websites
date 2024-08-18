@@ -28,3 +28,4 @@ Some random facts about me:
 - I can teach tricks to cats, like jumping over people, jumping through hoops, and ringing bells.
 - I like experimenting with altered states of consciousness. (For legal reasons, I need to clarify that all my explorations are conducted using methods that are completely legal worldwide, especially in countries where I may apply for a visa in the future. These are non-pharmacological methods, such as meditation and sleep deprivation.)
 - I’m currently learning shibari, the Japanese art of rope bondage.
+- I have homochromia, which means both of my eyes are the same color.
