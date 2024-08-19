@@ -78,13 +78,13 @@ pub fn generate() -> Result<()> {
         );
 
         let slug = post.get("slug").cloned().unwrap_or_else(String::new);
-        let pathname: String = "post/".to_owned() + &slug;
+        let pathname: String = "posts/".to_owned() + &slug;
         main_layout_variables.insert("pathname".to_string(), pathname);
         main_layout = replace_template_variables(&main_layout_template, &main_layout_variables);
 
         render_page(
             &post,
-            &"/posts/",
+            &"out/posts/",
             &main_layout,
             &includes,
             &global_variables,
