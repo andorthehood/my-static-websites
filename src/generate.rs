@@ -48,6 +48,43 @@ pub fn generate() -> Result<()> {
     main_layout_variables.insert("css_file_name".to_string(), css_file_name);
     let mut main_layout = replace_template_variables(&main_layout_template, &main_layout_variables);
 
+    // Generate pagination pages
+    let posts_per_page = 5;
+    let post_chunks: Vec<Vec<HashMap<String, String>>> = posts
+        .chunks(posts_per_page)
+        .map(|chunk| chunk.to_vec())
+        .collect();
+
+    for (index, chunk) in post_chunks.iter().enumerate() {
+        let mut html = String::new();
+        html.push_str("<div class=\"postlist\">\n");
+        for post in chunk {
+            html.push_str(&replace_template_variables(
+                &includes
+                    .get("post.liquid")
+                    .cloned()
+                    .unwrap_or_else(String::new),
+                &post,
+            ));
+        }
+        html.push_str("</div>");
+ 
+        let slug = if index == 0 {
+            "index".to_string()
+        } else {
+            format!("page{}", index + 1)
+        };
+
+        render_page(
+            &html,
+            "out/",
+            &slug,
+            &main_layout,
+            &includes,
+            &global_variables,
+        )?;
+    }
+
     // Generate index page
     let list_item_template = includes
         .get("list_item.liquid")
