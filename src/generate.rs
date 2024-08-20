@@ -67,6 +67,20 @@ pub fn generate() -> Result<()> {
                 &post,
             ));
         }
+
+        html.push_str("<ul>");    
+
+        for index in 0..post_chunks.len() {
+            let url = if index == 0 {
+                "index.html".to_string()
+            } else {
+                format!("page{}.html", index + 1)
+            };
+            html.push_str(&format!("<li><a href=\"{}\">{}</a></li>", url, index + 1));
+        }
+
+        html.push_str("</ul>");    
+
         html.push_str("</div>");
  
         let slug = if index == 0 {
