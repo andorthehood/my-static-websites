@@ -1,8 +1,8 @@
 use crate::file_copier::copy_file_with_versioning;
 use crate::file_readers::load_and_parse_markdown_files_with_front_matter_in_directory;
+use crate::handlebars::remove_handlebars_variables;
 use crate::handlebars::replace_template_variable;
 use crate::handlebars::replace_template_variables;
-use crate::handlebars::remove_handlebars_variables;
 use crate::layout::insert_body_into_layout;
 use crate::layout::load_layout;
 use crate::liquid::process_liquid_includes;
@@ -13,15 +13,14 @@ use std::collections::HashMap;
 use std::io::Result;
 
 fn render_page(
-    page: &HashMap<String, String>,
+    body: &str,
     directory: &str,
+    slug: &str,
     layout: &str,
     includes: &HashMap<String, String>,
     variables: &HashMap<String, String>,
 ) -> Result<()> {
-    let content = page.get("content").cloned().unwrap_or_else(String::new);
-    let mut html = markdown_to_html(&content);
-    let slug = page.get("slug").cloned().unwrap_or_else(String::new);
+    let mut html = markdown_to_html(&body);
     let file_name = directory.to_string() + &slug + ".html";
     html = process_liquid_includes(&html, &includes);
     html = insert_body_into_layout(&layout, &html);
@@ -49,7 +48,7 @@ pub fn generate() -> Result<()> {
     main_layout_variables.insert("css_file_name".to_string(), css_file_name);
     let mut main_layout = replace_template_variables(&main_layout_template, &main_layout_variables);
 
-    // Generate index.html
+    // Generate index page
     let list_item_template = includes
         .get("list_item.liquid")
         .cloned()
@@ -83,8 +82,9 @@ pub fn generate() -> Result<()> {
         main_layout = replace_template_variables(&main_layout_template, &main_layout_variables);
 
         render_page(
-            &post,
-            &"out/posts/",
+            &post.get("content").map(|s| s.as_str()).unwrap_or(""),
+            "out/posts/",
+            &post.get("slug").map(|s| s.as_str()).unwrap_or(""),
             &main_layout,
             &includes,
             &global_variables,
@@ -107,7 +107,14 @@ pub fn generate() -> Result<()> {
         main_layout_variables.insert("pathname".to_string(), slug);
         main_layout = replace_template_variables(&main_layout_template, &main_layout_variables);
 
-        render_page(&page, &"out/", &main_layout, &includes, &global_variables)?;
+        render_page(
+            &page.get("content").map(|s| s.as_str()).unwrap_or(""),
+            "out/posts/",
+            &page.get("slug").map(|s| s.as_str()).unwrap_or(""),
+            &main_layout,
+            &includes,
+            &global_variables,
+        )?;
     }
 
     Ok(())
