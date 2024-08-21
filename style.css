@@ -72,7 +72,7 @@ h1 a {
 .container {
 	padding: 0 10px;
 	margin: 0 auto;
-	width: 60%;
+	width: 50%;
 	background: var(--background-color);
 }
 
