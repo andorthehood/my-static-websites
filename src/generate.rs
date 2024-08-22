@@ -5,7 +5,7 @@ use crate::handlebars::replace_template_variable;
 use crate::handlebars::replace_template_variables;
 use crate::layout::insert_body_into_layout;
 use crate::layout::load_layout;
-use crate::liquid::process_liquid_includes;
+use crate::liquid::include::process_liquid_includes;
 use crate::load_includes::load_liquid_includes;
 use crate::markdown::markdown_to_html;
 use crate::write::write_html_to_file;
@@ -69,7 +69,7 @@ pub fn generate() -> Result<()> {
         }
 
         // Generate pagination links
-        html.push_str("<ul class=\"pagination\">");    
+        html.push_str("<ul class=\"pagination\">");
         for index in 0..post_chunks.len() {
             let url = if index == 0 {
                 "index.html".to_string()
@@ -78,10 +78,10 @@ pub fn generate() -> Result<()> {
             };
             html.push_str(&format!("<li><a href=\"{}\">{}</a></li>", url, index + 1));
         }
-        html.push_str("</ul>");    
+        html.push_str("</ul>");
 
         html.push_str("</div>");
- 
+
         let slug = if index == 0 {
             "index".to_string()
         } else {

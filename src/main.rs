@@ -4,13 +4,12 @@ mod front_matter;
 mod generate;
 mod handlebars;
 mod layout;
-mod liquid;
 mod load_includes;
 mod markdown;
 mod markdown_with_front_matter;
 mod write;
 mod server;
-
+mod liquid;
 use generate::generate;
 use std::env;
 use std::io::Result;
