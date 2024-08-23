@@ -5,6 +5,7 @@ expression: templates_json
 {
   "candystore.liquid": "<a href=\"https://static.llllllllllll.com/andor/images/{{ file }}_original.jpg\"><img src=\"https://static.llllllllllll.com/andor/images/{{ file }}.jpg\" alt=\"{{ title }}\" title=\"{{ title }}\" loading=\"lazy\" /></a>\n",
   "list_item.liquid": "<li><a href=\"/posts/{{slug}}\">{{title}} {{emojis}}</a></li>",
+  "post.liquid": "<article><a href=\"/posts/{{slug}}\"><h2>{{title}} {{emojis}}</h2></a>{{content}}</article>",
   "video.liquid": "<div class=\"video-container-container\">\n    <video width=\"100%\" controls preload=\"metadata\">\n        <source src=\"https://static.llllllllllll.com/andor/videos/{{id}}\" type=\"video/mp4\">\n    </video>\n</div>",
   "vimeo.liquid": "<div class=\"video-container-container\">\n\t<div class=\"video-container video-container-16-9\">\n\t\t<iframe src=\"https://player.vimeo.com/video/{{id}}\" frameborder=\"0\" allowfullscreen></iframe>\n\t</div>\n</div>",
   "youtube.liquid": "<div class=\"video-container video-container-16-9\">\n\t<iframe src=\"https://www.youtube-nocookie.com/embed/{{id}}\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n</div>"
