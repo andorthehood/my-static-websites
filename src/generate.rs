@@ -6,6 +6,7 @@ use crate::handlebars::replace_template_variables;
 use crate::layout::insert_body_into_layout;
 use crate::layout::load_layout;
 use crate::liquid::include::process_liquid_includes;
+use crate::liquid::_if::process_liquid_conditional_tags;
 use crate::load_includes::load_liquid_includes;
 use crate::markdown::markdown_to_html;
 use crate::write::write_html_to_file;
@@ -22,8 +23,11 @@ fn render_page(
 ) -> Result<()> {
     let mut html = markdown_to_html(&body);
     let file_name = directory.to_string() + &slug + ".html";
+    let keys: Vec<String> = variables.keys().cloned().collect();
+
     html = process_liquid_includes(&html, &includes);
     html = insert_body_into_layout(&layout, &html);
+    html = process_liquid_conditional_tags(&html, &keys);
     html = replace_template_variables(&html, &variables);
     html = remove_handlebars_variables(&html);
     write_html_to_file(&file_name, &html)?;
