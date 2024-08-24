@@ -5,13 +5,22 @@ use crate::handlebars::replace_template_variable;
 use crate::handlebars::replace_template_variables;
 use crate::layout::insert_body_into_layout;
 use crate::layout::load_layout;
-use crate::liquid::include::process_liquid_includes;
 use crate::liquid::_if::process_liquid_conditional_tags;
+use crate::liquid::include::process_liquid_includes;
 use crate::load_includes::load_liquid_includes;
 use crate::markdown::markdown_to_html;
 use crate::write::write_html_to_file;
 use std::collections::HashMap;
 use std::io::Result;
+
+fn process_template_tags(input: &str, variables: &HashMap<String, String>) -> String {
+    let mut result = input.to_string();
+    let keys: Vec<String> = variables.keys().cloned().collect();
+    result = process_liquid_conditional_tags(&result, &keys);
+    result = replace_template_variables(&result, &variables);
+    result = remove_handlebars_variables(&result);
+    result
+}
 
 fn render_page(
     body: &str,
@@ -23,15 +32,10 @@ fn render_page(
 ) -> Result<()> {
     let mut html = markdown_to_html(&body);
     let file_name = directory.to_string() + &slug + ".html";
-    let keys: Vec<String> = variables.keys().cloned().collect();
-
     html = process_liquid_includes(&html, &includes);
     html = insert_body_into_layout(&layout, &html);
-    html = process_liquid_conditional_tags(&html, &keys);
-    html = replace_template_variables(&html, &variables);
-    html = remove_handlebars_variables(&html);
+    html = process_template_tags(&html, &variables);
     write_html_to_file(&file_name, &html)?;
-
     Ok(())
 }
 
@@ -63,7 +67,7 @@ pub fn generate() -> Result<()> {
         let mut html = String::new();
         html.push_str("<div class=\"postlist\">\n");
         for post in chunk {
-            html.push_str(&replace_template_variables(
+            html.push_str(&process_template_tags(
                 &includes
                     .get("post.liquid")
                     .cloned()
@@ -110,7 +114,7 @@ pub fn generate() -> Result<()> {
     let mut html_list = String::new();
     html_list.push_str("<ul class=\"postlist\">\n");
     for post in &posts {
-        html_list.push_str(&replace_template_variables(&list_item_template, &post));
+        html_list.push_str(&process_template_tags(&list_item_template, &post));
     }
     html_list.push_str("</ul>");
     let mut html = insert_body_into_layout(&main_layout, &html_list);
