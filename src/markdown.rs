@@ -40,8 +40,8 @@ pub fn list_to_html(input: &str) -> String {
 }
 
 pub fn markdown_to_html(input: &str) -> String {
-    let mut html = double_line_breaks_to_html(input);
-    html = list_to_html(&html);
+    //let mut html = double_line_breaks_to_html(input);
+    let mut html = list_to_html(input);
     html = single_line_breaks_to_html(&html);
     html
 }
