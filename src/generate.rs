@@ -80,7 +80,7 @@ pub fn generate() -> Result<()> {
         html.push_str("<ul class=\"pagination\">");
         for index in 0..post_chunks.len() {
             let url = format!("page{}.html", index + 1);
-            html.push_str(&format!("<li><a href=\"{}\">{}</a></li>", url, index + 1));
+            html.push_str(&format!("<li><a href=\"{}\">{}</a>, </li>", url, index + 1));
         }
         html.push_str("</ul>");
 
