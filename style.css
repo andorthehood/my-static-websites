@@ -13,11 +13,6 @@ html {
 	letter-spacing: -0.8px;
 }
 
-h1 {
-	margin: 0;
-	padding: 10px 0;
-}
-
 a {
 	color: var(--text-color);
 	text-decoration: underline;
@@ -60,12 +55,14 @@ p {
 	padding: 18px 0;
 }
 
-h1 {
+h1, h2 {
 	color: var(--text-color);
 	font-size: var(--font-size);
+	margin: 0;
+	padding: 10px 0;
 }
 
-h1 a {
+h1 a, h2 a {
 	text-decoration: none;
 }
 
@@ -136,6 +133,6 @@ footer a:hover {
     list-style-type: none; 
 }
 
-.pagination {
+.pagination li {
     display: inline-block;
 }
