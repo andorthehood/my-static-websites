@@ -13,7 +13,6 @@
     <link rel="canonical" href="https://andor.cool/{{pathname}}" />
     <link rel="icon" href="/favicon.ico" />
 </head>
-
 <body>
     <div class="container">
         <h1><a href="/">Andor Polgar's visual journal</a></h1>
@@ -23,6 +22,7 @@
         </p>
         {{body}}
         <footer>
+            {% if camera %} vam title {% endif %}
             <p>---<br><a href="/aflordepiel">A Flor de Piel (2022) 🔞</a> | Social media: <a
                     href="https://instagram.com/andorcover" target="_blank">@andorcover</a>,<!-- --> <a
                     href="https://www.youtube.com/channel/UCF_EgDIkYFIeu-19KleLnFA" target="_blank">YouTube</a>,<!-- -->

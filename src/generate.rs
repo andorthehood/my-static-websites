@@ -137,10 +137,18 @@ pub fn generate() -> Result<()> {
         let slug = post.get("slug").cloned().unwrap_or_else(String::new);
         let pathname: String = "posts/".to_owned() + &slug;
         main_layout_variables.insert("pathname".to_string(), pathname);
-        main_layout = replace_template_variables(&main_layout_template, &main_layout_variables);
+        let main_layout = replace_template_variables(&main_layout_template, &main_layout_variables);
+
+        let post_html = process_template_tags(
+            &includes
+                .get("post.liquid")
+                .cloned()
+                .unwrap_or_else(String::new),
+            &post,
+        );
 
         render_page(
-            &post.get("content").map(|s| s.as_str()).unwrap_or(""),
+            &post_html,
             "out/posts/",
             &post.get("slug").map(|s| s.as_str()).unwrap_or(""),
             &main_layout,
