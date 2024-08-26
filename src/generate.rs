@@ -79,14 +79,17 @@ pub fn generate() -> Result<()> {
         // Generate pagination links
         html.push_str("<ul class=\"pagination\">");
         if index > 0 {
-            html.push_str(&format!("<li><a href=\"page{}\">Previous page</a>, </li>", index));
+            html.push_str(&format!("<li><a href=\"/page{}\">Previous page</a>,&nbsp;</li>", index));
         }
+
+        html.push_str("<li><a href=\"/\">Index page</a>,&nbsp;</li>");
+
         for index in 0..post_chunks.len() {
-            let url = format!("page{}", index + 1);
-            html.push_str(&format!("<li><a href=\"{}\">{}</a>, </li>", url, index + 1));
+            let url = format!("/page{}", index + 1);
+            html.push_str(&format!("<li><a href=\"{}\">{}</a>,&nbsp;</li>", url, index + 1));
         }
         if index < post_chunks.len() - 1 {
-            html.push_str(&format!("<li><a href=\"page{}\">Next page</a></li>", index + 2));
+            html.push_str(&format!("<li><a href=\"/page{}\">Next page</a></li>", index + 2));
         }
         html.push_str("</ul>");
 
