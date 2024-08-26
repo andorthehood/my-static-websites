@@ -176,7 +176,7 @@ pub fn generate() -> Result<()> {
 
         render_page(
             &page.get("content").map(|s| s.as_str()).unwrap_or(""),
-            "out/posts/",
+            "out/",
             &page.get("slug").map(|s| s.as_str()).unwrap_or(""),
             &main_layout,
             &includes,
