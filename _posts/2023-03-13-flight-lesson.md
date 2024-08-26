@@ -4,7 +4,7 @@ title: 'Flight lesson'
 date: 2023-03-13T23:53+0100
 location: 'Hilversum, Netherlands'
 film: 'Kodak Gold 200'
-lens: 'ZEISS Biogon T* 21mm f/2.8 ZM'
+lens: 'ZEISS ZM Biogon T* 21mm f/2.8 ZM'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 people: 

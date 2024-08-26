@@ -5,7 +5,7 @@ date: 2023-04-16T23:53+0100
 location: 'Vienna, Austria'
 emojis: '🔞'
 film: 'Fujifilm Superia 400, Ilford XP2 400, Kodak Ultramax 400, and Kodak Portra 800'
-lens: 'ZEISS Biogon T* 35mm f/2 ZM'
+lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 flash: 'Contax TLA 140'

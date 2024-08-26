@@ -16,4 +16,4 @@ emojis: '🔞'
 {% include candystore.liquid file:"20210919_6_david_m8_portra800_8200i" title:"David" %}
 {% include candystore.liquid file:"20210919_8_david_m8_portra800_8200i" title:"David" %}
 
-Camera: Leica M6 TTL, Zeiss Planar T\* 35mm f/2 ZM; film: Kodak Portra 800, scanned with a Plustek 8200i, edited in Lightroom
+Camera: Leica M6 TTL, ZEISS ZM Planar T\* 35mm f/2 ZM; film: Kodak Portra 800, scanned with a Plustek 8200i, edited in Lightroom

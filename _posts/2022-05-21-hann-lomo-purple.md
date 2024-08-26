@@ -4,7 +4,7 @@ title: 'Lomochrome Purple with Hann'
 date: 2022-05-21T23:24+0100
 location: 'Montville, France'
 film: 'Lomography Lomochrome Purple 100-400 shot on 400'
-lens: 'ZEISS Biogon T* 35mm f/2 ZM'
+lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 flash: 'Contax TLA 140'
 camera: 'Leica M-A (Typ 127)'
 scan: 'developing, scan, and coloring by Southsun Film Lab, Wales'

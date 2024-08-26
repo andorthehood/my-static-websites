@@ -6,7 +6,7 @@ categories: post
 location: 'Rotterdam, Netherlands'
 emojis: '🔞'
 film: 'Kodak Portra 800'
-lens: 'ZEISS Biogon T* 35mm f/2 ZM'
+lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 camera: 'Leica M6 TTL'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---

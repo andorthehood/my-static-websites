@@ -5,7 +5,7 @@ date: 2023-08-16T23:53+0100
 location: 'Arnhem, The Netherlands'
 emojis: '🪢'
 film: 'Ilford XP2'
-lens: 'ZEISS Biogon T* 35mm f/2 and 21mm f/2.8'
+lens: 'ZEISS ZM Biogon T* 35mm f/2 and 21mm f/2.8'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 flash: 'Contax TLA 140'

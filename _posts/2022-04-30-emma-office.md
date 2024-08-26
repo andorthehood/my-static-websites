@@ -5,7 +5,7 @@ date: 2022-04-30T23:05+0100
 location: 'Lopik, Netherlands'
 emojis: '🔞🏢'
 film: 'Kodak Portra 800'
-lens: 'ZEISS Biogon T* 35mm f/2 ZM'
+lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 flash: 'Contax TLA 140'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'

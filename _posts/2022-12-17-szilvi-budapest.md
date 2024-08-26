@@ -4,7 +4,7 @@ title: 'Szilvi in Budapest'
 date: 2022-12-17T23:05+0100
 location: 'Budapest, Hungary'
 film: 'Kodak Gold 200 and Kodak Pro Image 100'
-lens: 'ZEISS Biogon T* 35mm f/2 ZM'
+lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 flash: 'Contax TLA 140'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'

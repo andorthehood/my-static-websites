@@ -5,7 +5,7 @@ date: 2023-10-28T23:53+0100
 location: 'Berlin, Germany'
 emojis: ''
 film: 'Kodak Gold 200, Kodak Portra 800'
-lens: 'ZEISS Biogon T* 35mm f/2'
+lens: 'ZEISS ZM Biogon T* 35mm f/2'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 flash: 'Contax TLA 140'

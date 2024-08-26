@@ -4,7 +4,7 @@ title: 'Дом паметник на БКП, България'
 date: 2023-02-22T23:05+0100
 location: 'Buzludzha, Bulgaria'
 film: 'Fujifilm Superia X-Tra 400'
-lens: 'ZEISS Biogon T* 21mm f/2.8 ZM'
+lens: 'ZEISS ZM Biogon T* 21mm f/2.8 ZM'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 people: 

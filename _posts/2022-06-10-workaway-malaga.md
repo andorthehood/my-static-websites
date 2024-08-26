@@ -4,7 +4,7 @@ title: 'Workaway in Spain'
 date: 2022-06-10T23:24+0100
 location: 'Malaga, Spain'
 film: 'Kodak Portra 160 and Kodak Gold 200'
-lens: 'ZEISS Biogon T* 35mm f/2 ZM'
+lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 camera: 'Leica M-A (Typ 127) and a SwissPro disposable camera'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
@@ -14,7 +14,7 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 {% include candystore.liquid file:"20220604_16_antequera_portra160_ma" title:"Antequera" %}
 {% include candystore.liquid file:"20220529_7_torremolinos_portra160_ma" title:"Torremolinos" %}
 
-Camera: Leica M-A (Typ 127), Zeiss Planar T\* 35mm f/2 ZM; film: Kodak Portra 160
+Camera: Leica M-A (Typ 127), ZEISS ZM Planar T\* 35mm f/2 ZM; film: Kodak Portra 160
 
 {% include candystore.liquid file:"20220605_torremolinos_12_swisspro" title:"Torremolinos" %}
 {% include candystore.liquid file:"20220605_torremolinos_16_swisspro" title:"Torremolinos" %}

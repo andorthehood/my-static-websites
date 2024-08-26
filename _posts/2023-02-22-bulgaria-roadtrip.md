@@ -4,7 +4,7 @@ title: 'България road trip'
 date: 2023-02-22T23:05+0100
 location: 'Bulgaria'
 film: 'Fujifilm Superia X-Tra 400 and Kodak Gold 200'
-lens: 'ZEISS Biogon T* 21mm f/2.8 ZM and ZEISS Biogon T* 35mm f/2 ZM'
+lens: 'ZEISS ZM Biogon T* 21mm f/2.8 ZM and ZEISS ZM Biogon T* 35mm f/2 ZM'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 people: 

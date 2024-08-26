@@ -5,7 +5,7 @@ date: 2023-06-15T23:53+0100
 location: 'Andalusia, Spain'
 emojis: '🔞'
 film: 'Kodak Ultramax 400'
-lens: 'ZEISS Biogon T* 21mm f/2'
+lens: 'ZEISS ZM Biogon T* 21mm f/2'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 people: 

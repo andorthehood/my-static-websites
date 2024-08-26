@@ -17,4 +17,4 @@ emojis: "⭐"
 
 Last photo: Panasonic GX9, Lumix G 25mm f/1.7
 
-All the others: Leica M6 TTL, Zeiss Planar T* 50mm f/2 ZM; film: Kodak Portra 800, scanned with a Plustek 8200i, edited in Lightroom 
+All the others: Leica M6 TTL, ZEISS ZM Planar T* 50mm f/2 ZM; film: Kodak Portra 800, scanned with a Plustek 8200i, edited in Lightroom 

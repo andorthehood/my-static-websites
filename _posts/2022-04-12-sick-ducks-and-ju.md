@@ -5,7 +5,7 @@ date: 2022-04-12T22:44+0100
 location: 'Zandvoort, Netherlands'
 emojis: '🔞🔞'
 film: 'Ilford HP5 400 developed in Ilford ID-11 pushed 2 stops'
-lens: 'ZEISS Biogon T* 35mm f/2 ZM'
+lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 camera: 'Leica M6 TTL'
 scan: 'photographed from negative with a Nikon D780 and a SIGMA 105mm F/2.8 EX DG Macro OS HSM, edited in Lightroom'
 ---
