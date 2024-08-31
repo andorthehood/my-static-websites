@@ -5,7 +5,7 @@ html {
 body,
 html {
 	color: var(--text-color);
-	line-height: 1.5;
+	line-height: 1;
 	font-family: 'Courier New', monospace;
 	font-size: var(--font-size);
 	margin: 0;
@@ -20,9 +20,14 @@ a {
 
 ul {
 	list-style-position: inside;
-	list-style-type: circle;
+	list-style-type: "☺ ";
 	margin: 0;
 	padding: 10px 0;
+}
+
+pre {
+	padding: 0;
+	margin: 0;
 }
 
 a:hover,
@@ -33,15 +38,11 @@ a:visited {
 :root {
 	--background-color: #ffffff;
 	--font-size: 20px;
-	--text-color: #333399;
-	--title-color: #333399;
-	--faded-text-color: #dddddd;
+	--text-color: #333333;
 
 	@media (prefers-color-scheme: dark) {
 		--background-color: #000000;
-		--text-color: #9999cc;
-		--title-color: #9999cc;
-		--faded-text-color: #222222;
+		--text-color: #cccccc;
 	}
 }
 
@@ -52,14 +53,14 @@ img {
 
 p {
 	margin: 0;
-	padding: 18px 0;
+	padding: 0 0 20px 0;
 }
 
 h1, h2 {
 	color: var(--text-color);
 	font-size: var(--font-size);
 	margin: 0;
-	padding: 10px 0;
+	padding: 0 0 20px 0;
 }
 
 h1 a, h2 a {

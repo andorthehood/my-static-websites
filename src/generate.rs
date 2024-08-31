@@ -113,7 +113,7 @@ pub fn generate() -> Result<()> {
         .cloned()
         .unwrap_or_else(String::new);
     let mut html_list = String::new();
-    html_list.push_str("<ul class=\"postlist\">\n");
+    html_list.push_str("<p>Hi there! 👋 My name is Andor Polgar. This is my personal website. Here, you'll find my photography projects and random snapshots from my life.</p><ul class=\"postlist\">\n");
     for post in &posts {
         html_list.push_str(&process_template_tags(&list_item_template, &post));
     }
