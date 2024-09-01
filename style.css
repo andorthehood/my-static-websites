@@ -38,17 +38,19 @@ a:visited {
 :root {
 	--background-color: #ffffff;
 	--font-size: 20px;
-	--text-color: #333333;
+	--text-color: #000000;
 
 	@media (prefers-color-scheme: dark) {
 		--background-color: #000000;
-		--text-color: #cccccc;
+		--text-color: #ffffff;
 	}
 }
 
 img {
 	display: block;
 	width: 100%;
+	position: relative;
+	z-index: 10;
 }
 
 p {
@@ -74,6 +76,17 @@ h2 a {
 	margin: 0 auto;
 	width: 50%;
 	background: var(--background-color);
+}
+
+.scanlines {
+    position: fixed;
+    pointer-events: none;
+    width: auto;
+    min-width: 100%;
+    height: 100%;
+    z-index: 5;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
 }
 
 @media(max-width:1024px) {
