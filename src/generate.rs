@@ -79,17 +79,27 @@ pub fn generate() -> Result<()> {
         // Generate pagination links
         html.push_str("<ul class=\"pagination\">");
         if index > 0 {
-            html.push_str(&format!("<li><a href=\"/page{}\">🔙 Previous page</a>,&nbsp;</li>", index));
+            html.push_str(&format!(
+                "<li><a href=\"/page{}\">🔙 Previous page</a>,&nbsp;</li>",
+                index
+            ));
         }
 
         html.push_str("<li><a href=\"/\">Index page</a>,&nbsp;</li>");
 
         for index in 0..post_chunks.len() {
             let url = format!("/page{}", index + 1);
-            html.push_str(&format!("<li><a href=\"{}\">{}</a>,&nbsp;</li>", url, index + 1));
+            html.push_str(&format!(
+                "<li><a href=\"{}\">{}</a>,&nbsp;</li>",
+                url,
+                index + 1
+            ));
         }
         if index < post_chunks.len() - 1 {
-            html.push_str(&format!("<li><a href=\"/page{}\">Next page ⏭️</a></li>", index + 2));
+            html.push_str(&format!(
+                "<li><a href=\"/page{}\">Next page ⏭️</a></li>",
+                index + 2
+            ));
         }
         html.push_str("</ul>");
 
@@ -108,15 +118,46 @@ pub fn generate() -> Result<()> {
     }
 
     // Generate index page
+
+    // Group posts by year
+    let mut posts_by_year: HashMap<String, Vec<HashMap<String, String>>> = HashMap::new();
+    for post in &posts {
+        if let Some(date_str) = post.get("date") {
+            let year = &date_str[0..4]; // Extract the first 4 characters as the year
+            posts_by_year
+                .entry(year.to_string())
+                .or_default()
+                .push(post.clone());
+        }
+    }
+
+    // Collect and sort the years in descending order
+    let mut years: Vec<String> = posts_by_year.keys().cloned().collect();
+    years.sort_by(|a, b| b.cmp(a));
+
     let list_item_template = includes
         .get("list_item.liquid")
         .cloned()
         .unwrap_or_else(String::new);
     let mut html_list = String::new();
     html_list.push_str("<p>Hi there! 👋 My name is Andor Polgar. This is my personal website. Here, you'll find my photography projects and random snapshots from my life.</p><ul class=\"postlist\">\n");
-    for post in &posts {
-        html_list.push_str(&process_template_tags(&list_item_template, &post));
+
+    for year in years {
+        if let Some(posts) = posts_by_year.get(&year) {
+            html_list.push_str(
+                &includes
+                    .get(&format!("{}.liquid", year))
+                    .cloned()
+                    .unwrap_or_else(String::new),
+            );
+            html_list.push_str("<ul class=\"postlist\">\n");
+            for post in posts {
+                html_list.push_str(&process_template_tags(&list_item_template, &post));
+            }
+            html_list.push_str("</ul>\n");
+        }
     }
+
     html_list.push_str("</ul>");
     let mut html = insert_body_into_layout(&main_layout, &html_list);
     html = replace_template_variable(&html, "title", "Andor Polgar's Visual Journal");
