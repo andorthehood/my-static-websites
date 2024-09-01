@@ -56,14 +56,16 @@ p {
 	padding: 0 0 20px 0;
 }
 
-h1, h2 {
+h1,
+h2 {
 	color: var(--text-color);
 	font-size: var(--font-size);
 	margin: 0;
 	padding: 0 0 20px 0;
 }
 
-h1 a, h2 a {
+h1 a,
+h2 a {
 	text-decoration: none;
 }
 
@@ -84,6 +86,10 @@ h1 a, h2 a {
 	.container {
 		padding: 10px 0;
 		width: 100%;
+	}
+
+	pre {
+		overflow: hidden;
 	}
 }
 
@@ -129,11 +135,11 @@ footer a:hover {
 }
 
 .pagination {
-    padding: 0;
-    margin: 0;
-    list-style-type: none; 
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
 }
 
 .pagination li {
-    display: inline-block;
+	display: inline-block;
 }
