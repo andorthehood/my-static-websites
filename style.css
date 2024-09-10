@@ -6,7 +6,7 @@ body,
 html, 
 pre {
 	color: var(--text-color);
-	line-height: 1;
+	line-height: 1.2;
 	font-family: 'DepartureMono-Regular', 'Courier New', monospace;
 	font-size: var(--font-size);
 	margin: 0;
