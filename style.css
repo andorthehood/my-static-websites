@@ -3,31 +3,26 @@ html {
 }
 
 body,
-html {
+html, 
+pre {
 	color: var(--text-color);
 	line-height: 1;
 	font-family: 'DepartureMono-Regular', 'Courier New', monospace;
 	font-size: var(--font-size);
 	margin: 0;
 	padding: 0;
-	letter-spacing: -0.8px;
 }
 
 a {
-	color: var(--text-color);
-	text-decoration: underline;
+	color: var(--link-color);
+	text-decoration: none;
 }
 
 ul {
 	list-style-position: inside;
-	list-style-type: "☺ ";
+	list-style-type: "░ ";
 	margin: 0;
 	padding: 0 0 20px 0;
-}
-
-pre {
-	padding: 0;
-	margin: 0;
 }
 
 a:hover,
@@ -37,12 +32,17 @@ a:visited {
 
 :root {
 	--background-color: #ffffff;
-	--font-size: 20px;
+	--font-size: 22px;
 	--text-color: #000000;
+	--link-color: #000000;
+	font-synthesis: none;
+	-webkit-font-smoothing: none;
+	text-rendering: optimizeLegibility;
 
 	@media (prefers-color-scheme: dark) {
-		--background-color: #000000;
-		--text-color: #ffffff;
+		--background-color: #111111;
+		--text-color: #ff9900;
+		--link-color: #ffffff;
 	}
 }
 
@@ -51,7 +51,7 @@ img {
 	width: 100%;
 	position: relative;
 	z-index: 10;
-	background: #a8ff00;
+	background: var(--text-color);
 	aspect-ratio: 3/2;
 }
 
@@ -71,11 +71,6 @@ h2 {
 	font-size: var(--font-size);
 	margin: 0;
 	padding: 0 0 20px 0;
-}
-
-h1 a,
-h2 a {
-	text-decoration: none;
 }
 
 .container {
@@ -112,19 +107,6 @@ h2 a {
 		overflow: hidden;
 	}
 }
-
-footer a {
-	text-decoration: underline;
-}
-
-footer a:hover {
-	text-decoration: line-through;
-}
-
-.postlist a {
-	text-decoration: none;
-}
-
 
 .date {
 	color: var(--text-color);
