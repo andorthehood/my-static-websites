@@ -74,7 +74,6 @@ h2 {
 }
 
 .container {
-	padding: 0 10px;
 	margin: 0 auto;
 	width: 50%;
 	background: var(--background-color);
