@@ -3,7 +3,7 @@ html {
 }
 
 body,
-html, 
+html,
 pre {
 	color: var(--text-color);
 	line-height: 1.2;
@@ -20,7 +20,7 @@ a {
 
 ul {
 	list-style-position: inside;
-	list-style-type: "░ ";
+	list-style-type: "- ";
 	margin: 0;
 	padding: 0 0 20px 0;
 }
@@ -99,7 +99,6 @@ h2 {
 
 @media(max-width:700px) {
 	.container {
-		padding: 10px 0;
 		width: 100%;
 	}
 
