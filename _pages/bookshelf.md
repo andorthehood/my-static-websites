@@ -40,6 +40,10 @@ location: 'Zandvoort, Netherlands'
         text-transform: uppercase;
     }
 
+        .bookshelf .low {
+        text-transform: lowercase;
+    }
+
     .bookshelf .left {
         text-align: left;
     }
@@ -126,4 +130,41 @@ location: 'Zandvoort, Netherlands'
 <span class="upp" style="color: #633">Richard Dawkins</span>
 <span class="upp" style="color: #000">The Selfish Gene</span>
 </li>
+
+<li style="background: #fc6;">
+<span class="upp small" style="color: #336">Rick Hanson, PH.D. with Richard Mendius, MD</span>
+<span style="color: #336">Buddha's Brain</span>
+<span class="low small" style="color: #336">The Practical Neuroscience of Happiness, Love & Wisdom</span>
+</li>
+
+<li style="background: #996;">
+<span class="upp small" style="color: #fff">Thomas Metzinger</span>
+<span class="upp" style="color: #fff">Being No One</span>
+<span class="upp small" style="color: #fff">The Self-Model Theory of Subjectivity</span>
+</li>
+
+<li style="background: #fc9;">
+<span style="color: #630">The Most Human Human</span>
+<span class="small" style="color: #000">What Talking with Computers Teaches Us About What It Means to Be Alive</span>
+<span class="small" style="color: #630">Brian Christian</span>
+</li>
+
+<li style="background: #000;">
+<span class="upp" style="color: #fff">Robert M Saplosky</span>
+<span style="color: #fff">Determined</span>
+<span class="small upp" style="color: #fff">A Science of Life without Free Will</span>
+</li>
+
+<li style="background: #fff;">
+<span style="color: #933">Monkeyluv</span>
+<span class="small upp" style="color: #000">And Other Essays on Our Lives as Animals</span>
+<span class="upp" style="color: #000">Robert M. Saplosky</span>
+</li>
+
+<li style="background: #cc6;">
+<span class="upp" style="color: #000">Aldous Huxley</span>
+<span class="small upp" style="color: #000">The Doors of Perception</span>
+<span class="small upp" style="color: #000">Heaven and Hell</span>
+</li>
+
 </ul>
