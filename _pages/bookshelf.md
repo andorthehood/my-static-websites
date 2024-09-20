@@ -20,10 +20,14 @@ location: 'Zandvoort, Netherlands'
         align-items: center;
         aspect-ratio: 3 / 4;
         text-align: center;
-        word-break: break-word;
+       // word-break: break-word;
         padding: 10px;
         box-sizing: border-box; 
         position: relative;
+    }
+
+    .bookshelf span {
+        width: 100%;
     }
 
     .bookshelf .small {
@@ -39,13 +43,17 @@ location: 'Zandvoort, Netherlands'
     .bookshelf .left {
         text-align: left;
     }
+
+    .bookshelf .right {
+        text-align: right;
+    }
 </style>
 
-<p>Welcome to my virtual bookshelf!</p>
+<p>Welcome to my virtual bookshelf! The books arranged in no particular order.</p>
 
 <ul class="bookshelf">
     <li style="background: #fff;"><span class="small" style="color: #c60">Nick Bostrom</span> <span
-            class="big">SUPERINTELLIGENCE</span> <span class="small">Paths, Dangers, Strategies</span></li>
+            class="big">SUPER INTELLIGENCE</span> <span class="small">Paths, Dangers, Strategies</span></li>
     <li style="background: #fcc;"> <span class="big" style="color: #f30">The Alignment Problem</span> <span
             class="small">Machine Learning and Human Values</span> <span class="small" style="color: #f30">Brian
             Christian</span></li>
@@ -55,10 +63,12 @@ location: 'Zandvoort, Netherlands'
     <li style="background: #fff;"> <span class="big" style="color: #000">A THOUSAND BRAINS</span> <span class="small"
             style="color: #f30">A NEW THEORY OF INTELLIGENCE</span> <span class="small" style="color: #000">JEFF
             HAWKINS</span> </li>
-    <li style="background: #fff;"> <span class="small" style="color: #000">THE SCIENCE OF THE MIND AND THE MYTH OF THE SELF</span> <span
-            style="color: #f30">THE EGO TUNNEL</span> <span class="small" style="color: #000">THOMAS METZINGER</span> </li>
 <li style="background: #000;"> <span class="small" style="color: #6699cc">WHEN HUMANS TRANSCEND BIOLOGY</span> <span
             style="color: #fff">THE SINGULARITY IS NEAR</span> <span class="small" style="color: #fc6">RAY KURZWEIL</span> </li>
+
+
+    <li style="background: #fff;"> <span class="small" style="color: #000">THE SCIENCE OF THE MIND AND THE MYTH OF THE SELF</span> <span
+            style="color: #f30">THE EGO TUNNEL</span> <span class="small" style="color: #000">THOMAS METZINGER</span> </li>
 
 <li style="background: #ffc;">
 <span class="small upp" style="color: #000">Evolution, AI, and the Five Breakthroughs That Made Our Brains</span> 
@@ -77,4 +87,43 @@ location: 'Zandvoort, Netherlands'
 <span class="upp" style="color: #000">Robert M. Sapolsky</span>
 </li>
 
+<li style="background: #036;">
+<span class="upp small left" style="color: #cc6">Max Tegmark</span>
+<span class="upp" style="color: #fff">Our Mathematical Universe</span>
+<span class="upp small right" style="color: #cc6">My Quest for the Ultimate Nature of Reality</span>
+</li>
+
+<li style="background: #633;">
+<span class="upp" style="color: #fff">The Order of Time</span>
+<span class="upp" style="color: #fff">Carlo Rovelli</span>
+</li>
+
+<li style="background: #336;">
+<span class="upp" style="color: #fff">Life 3.0</span> 
+<span class="upp small" style="color: #fff">Being Human in the Age of Artificial Intelligence</span>
+<span class="upp small" style="color: #fff">Max Tegmark</span>
+</li>
+
+<li style="background: #033;">
+<span class="upp" style="color: #fff">Alien Information Theory</span> 
+<span class="small" style="color: #fff">Psychedelic Drug Technologies and the Cosmic Game</span> 
+<span class="upp small" style="color: #fff">Andrew R. Gallimore</span> 
+</li>
+
+<li style="background: #c33;">
+<span class="upp" style="color: #fff">Complexity</span> 
+<span class="upp small" style="color: #fff">The Emerging Science at the Edge of Order and Chaos</span> 
+<span class="upp small" style="color: #fff">M. Mitchell Waldrop</span> 
+</li>
+
+<li style="background: #ffc;">
+<span class="right" style="color: #000">The Man from the Future</span>
+<span class="small" style="color: #000">The Visionary Ideas of John von Neumann</span>
+<span class="left" style="color: #000">Ananyo Bhattacharya</span>
+</li>
+
+<li style="background: #fff;">
+<span class="upp" style="color: #633">Richard Dawkins</span>
+<span class="upp" style="color: #000">The Selfish Gene</span>
+</li>
 </ul>
