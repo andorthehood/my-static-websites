@@ -21,19 +21,27 @@ location: 'Zandvoort, Netherlands'
         aspect-ratio: 3 / 4;
         text-align: center;
        // word-break: break-word;
-        padding: 10px;
         box-sizing: border-box; 
         position: relative;
+        overflow: hidden;
     }
 
     .bookshelf span {
         width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
     }
 
     .bookshelf .small {
         font-size: 11px;
         line-height: 11px;
-        padding: 5px 0;
+        padding: 5px 10px;
+    }
+
+     .bookshelf .big {
+        font-size: 33px;
+        line-height: 33px;
+        padding: 0;
     }
 
     .bookshelf .upp {
@@ -56,23 +64,43 @@ location: 'Zandvoort, Netherlands'
 <p>Welcome to my virtual bookshelf! The books arranged in no particular order.</p>
 
 <ul class="bookshelf">
-    <li style="background: #fff;"><span class="small" style="color: #c60">Nick Bostrom</span> <span
-            class="big">SUPER INTELLIGENCE</span> <span class="small">Paths, Dangers, Strategies</span></li>
-    <li style="background: #fcc;"> <span class="big" style="color: #f30">The Alignment Problem</span> <span
-            class="small">Machine Learning and Human Values</span> <span class="small" style="color: #f30">Brian
-            Christian</span></li>
-    <li style="background: #36f;"> <span class="big" style="color: #fff">Being You</span> <span class="small"
-            style="color: #fff">ANIL SETH</span> <span class="small" style="color: #fff">A New Science of
-            Consciousness</span> </li>
-    <li style="background: #fff;"> <span class="big" style="color: #000">A THOUSAND BRAINS</span> <span class="small"
-            style="color: #f30">A NEW THEORY OF INTELLIGENCE</span> <span class="small" style="color: #000">JEFF
-            HAWKINS</span> </li>
-<li style="background: #000;"> <span class="small" style="color: #6699cc">WHEN HUMANS TRANSCEND BIOLOGY</span> <span
-            style="color: #fff">THE SINGULARITY IS NEAR</span> <span class="small" style="color: #fc6">RAY KURZWEIL</span> </li>
+
+<li style="background: #fff;">
+<span class="small" style="color: #c60">Nick Bostrom</span>
+<span style="color: #000">SUPER INTELLIGENCE</span>
+<span class="small" style="color: #000">Paths, Dangers, Strategies</span>
+</li>
+
+<li style="background: #9cc;">
+<span class="upp" style="color: #f30; background: #fff">The Alignment Problem</span>
+<span class="small" style="color: #000; background: #fff">Machine Learning and Human Values</span>
+<span class="small upp" style="color: #f30; background: #fff">Brian Christian</span>
+</li>
+
+<li style="background: #36f;">
+<span  style="color: #fff; background: #003">Being You</span>
+<span class="small" style="color: #fff; background: #003">ANIL SETH</span>
+<span class="small" style="color: #fff">A New Science of Consciousness</span>
+</li>
 
 
-    <li style="background: #fff;"> <span class="small" style="color: #000">THE SCIENCE OF THE MIND AND THE MYTH OF THE SELF</span> <span
-            style="color: #f30">THE EGO TUNNEL</span> <span class="small" style="color: #000">THOMAS METZINGER</span> </li>
+<li style="background: #fff;">
+<span  style="color: #000">A THOUSAND BRAINS</span>
+<span class="small" style="color: #f30">A NEW THEORY OF INTELLIGENCE</span>
+<span class="small" style="color: #000">JEFF HAWKINS</span>
+</li>
+
+<li style="background: #000;">
+<span class="small" style="color: #6699cc">WHEN HUMANS TRANSCEND BIOLOGY</span>
+<span style="color: #fff">THE SINGULARITY IS NEAR</span>
+<span class="small" style="color: #fc6">RAY KURZWEIL</span>
+</li>
+
+ <li style="background: #c99;">
+ <span class="small" style="color: #000">THE SCIENCE OF THE MIND AND THE MYTH OF THE SELF</span>
+ <span style="color: #fff; background: #666">THE EGO TUNNEL</span>
+ <span class="small" style="color: #000">THOMAS METZINGER</span>
+ </li>
 
 <li style="background: #ffc;">
 <span class="small upp" style="color: #000">Evolution, AI, and the Five Breakthroughs That Made Our Brains</span> 
@@ -115,9 +143,9 @@ location: 'Zandvoort, Netherlands'
 </li>
 
 <li style="background: #c33;">
-<span class="upp" style="color: #fff">Complexity</span> 
-<span class="upp small" style="color: #fff">The Emerging Science at the Edge of Order and Chaos</span> 
-<span class="upp small" style="color: #fff">M. Mitchell Waldrop</span> 
+<span class="upp left" style="color: #fff">Complexity</span> 
+<span class="upp small left" style="color: #000; background: #fff">The Emerging Science at the Edge of Order and Chaos</span> 
+<span class="upp small left" style="color: #c33; background: #fff">M. Mitchell Waldrop</span> 
 </li>
 
 <li style="background: #ffc;">
@@ -133,13 +161,13 @@ location: 'Zandvoort, Netherlands'
 
 <li style="background: #fc6;">
 <span class="upp small" style="color: #336">Rick Hanson, PH.D. with Richard Mendius, MD</span>
-<span style="color: #336">Buddha's Brain</span>
+<span style="color: #fff; background: #366">Buddha's Brain</span>
 <span class="low small" style="color: #336">The Practical Neuroscience of Happiness, Love & Wisdom</span>
 </li>
 
-<li style="background: #996;">
+<li style="background: #cc9;">
 <span class="upp small" style="color: #fff">Thomas Metzinger</span>
-<span class="upp" style="color: #fff">Being No One</span>
+<span class="upp" style="color: #fff; background: #996">Being No One</span>
 <span class="upp small" style="color: #fff">The Self-Model Theory of Subjectivity</span>
 </li>
 
@@ -162,9 +190,32 @@ location: 'Zandvoort, Netherlands'
 </li>
 
 <li style="background: #cc6;">
-<span class="upp" style="color: #000">Aldous Huxley</span>
-<span class="small upp" style="color: #000">The Doors of Perception</span>
-<span class="small upp" style="color: #000">Heaven and Hell</span>
+<span class="upp" style="color: #000; background: #ffc">Aldous Huxley</span>
+<span class="small upp" style="color: #000; background: #ffc">The Doors of Perception</span>
+<span class="small upp" style="color: #000; background: #ffc">Heaven and Hell</span>
+</li>
+
+<li style="background: #396;">
+<span style="color: #fff">Nuclear War</span>
+<span style="color: #fff">Annie Jacobsen</span>
+</li>
+
+<li style="background: #f33;">
+<span class="upp" style="color: #000">Annie Jacobsen</span>
+<span class="upp big" style="color: #000">Operation Paperclip</span>
+<span class="upp left small" style="color: #000">The Secret Intelligence Program that Brought Nazi Scientists to America</span>
+</li>
+
+<li style="background: #000;">
+<span class="upp big" style="color: #fff">Billions & Billions</span>
+<span class="small" style="color: #000; background: #fff">Thoughts on Life and Death at the Brink of the Millennium</span>
+<span class="upp" style="color: #000; background: #fff">Carl Sagan</span>
+</li>
+
+<li style="background: #000">
+<span class="upp big" style="color: #c63; background: #fff">Carl Sagan</span>
+<span class="upp" style="color: #930; background: #c63">The Demon-Haunted World</span>
+<span class="upp" style="color: #c63">Science as a Candle in the Dark</span>
 </li>
 
 </ul>
