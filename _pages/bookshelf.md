@@ -16,7 +16,7 @@ location: 'Zandvoort, Netherlands'
     .bookshelf li {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         aspect-ratio: 3 / 4;
         text-align: center;
@@ -218,4 +218,15 @@ location: 'Zandvoort, Netherlands'
 <span class="upp" style="color: #c63">Science as a Candle in the Dark</span>
 </li>
 
+<li style="background: #399">
+<span class="upp" style="color: #cc6">Lisa Randall</span>
+<span class="upp" style="color: #000">Dark Matter and the Dinosaurs</span>
+<span class="upp small" style="color: #fff">The Astounding Interconnectedness of the Universe</span>
+</li>
+
+<li style="background: #996">
+<span class="small left" style="color: #fff">STORIES of PERSONAL TRIUMPH from the FRONTIERS of BRAIN SCIENCE</span>
+<span class="left" style="color: #fff">The BRAIN that CHANGES ITSELF</span>
+<span class="small left" style="color: #fff">Norman Doidge, M.D.</span>
+</li>
 </ul>
