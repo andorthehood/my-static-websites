@@ -7,6 +7,7 @@ emojis: ''
 film: 'Kodak Gold 200'
 lens: 'Zeiss ZM 35mm f/2.0'
 camera: 'Leica M-A (Typ 127)'
+flash: 'Contax TLA 140'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
 
