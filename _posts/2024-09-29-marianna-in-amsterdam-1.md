@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Marianna in Amsterdam 1'
+title: 'Marianna in De Pijp'
 date: 2024-09-29T23:53+0100
 location: 'Amsterdam, Netherlands'
 emojis: ''
