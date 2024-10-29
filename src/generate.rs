@@ -12,6 +12,7 @@ use crate::markdown::markdown_to_html;
 use crate::write::write_html_to_file;
 use std::collections::HashMap;
 use std::io::Result;
+use std::time::{SystemTime, UNIX_EPOCH};
 
 fn process_template_tags(input: &str, variables: &HashMap<String, String>) -> String {
     let mut result = input.to_string();
@@ -40,6 +41,11 @@ fn render_page(
 }
 
 pub fn generate() -> Result<()> {
+    // Get the current system time
+    let now = SystemTime::now();
+    let duration_since_epoch = now.duration_since(UNIX_EPOCH).expect("Time went backwards");
+    let generated_date = duration_since_epoch.as_secs().to_string();
+    
     let css_file_name = copy_file_with_versioning("./style.css", "./out/")?;
     let posts = load_and_parse_markdown_files_with_front_matter_in_directory("./_posts")?;
     let pages = load_and_parse_markdown_files_with_front_matter_in_directory("./_pages")?;
@@ -54,6 +60,7 @@ pub fn generate() -> Result<()> {
     let main_layout_template = load_layout("./_layouts/main.html")?;
     let mut main_layout_variables = HashMap::new();
     main_layout_variables.insert("css_file_name".to_string(), css_file_name);
+    main_layout_variables.insert("generated_date".to_string(), generated_date);
     let mut main_layout = replace_template_variables(&main_layout_template, &main_layout_variables);
 
     // Generate pagination pages
