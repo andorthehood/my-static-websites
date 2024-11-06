@@ -17,4 +17,4 @@ location: 'Zandvoort, Netherlands'
 
 <p>Forever yours, Andor</p>
 
-<p>In the unfortunate event of my sudden death, the entire contents of this website will be hereby assigned as <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">Creative Commons CC0 1.0 Public Domain</a></p>
+<p>In the unfortunate event of my sudden death, the entire contents of this website will be hereby assigned as <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">Creative Commons CC0 1.0 Public Domain</a> (Why wait 70 years?)</p>
