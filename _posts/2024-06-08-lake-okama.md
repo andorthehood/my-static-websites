@@ -12,8 +12,8 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 
 {% include candystore.liquid file:"20240608_101_okama_ma_brightinstar28_ultramax400" title:"" %}
 {% include candystore.liquid file:"20240608_102_okama_ma_brightinstar28_ultramax400" title:"" %}
+{% include candystore.liquid file:"20240608_99_okama_ma_brightinstar28_ultramax400" title:"" %}
 {% include candystore.liquid file:"20240608_103_okama_ma_brightinstar28_ultramax400" title:"" %}
 {% include candystore.liquid file:"20240608_104_okama_ma_brightinstar28_ultramax400" title:"" %}
 {% include candystore.liquid file:"20240608_106_akiu_ma_brightinstar28_ultramax400" title:"" %}
 {% include candystore.liquid file:"20240608_98_okama_ma_brightinstar28_ultramax400" title:"" %}
-{% include candystore.liquid file:"20240608_99_okama_ma_brightinstar28_ultramax400" title:"" %}

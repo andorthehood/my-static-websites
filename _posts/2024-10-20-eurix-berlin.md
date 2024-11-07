@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Berlin'
+title: 'In Berlin during the Eurix week'
 date: 2024-10-20T23:53+0100
 location: 'Berlin, Germany'
 emojis: '🔞'
