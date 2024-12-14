@@ -8,7 +8,7 @@ lens: 'Canon Zoom Lens 5.8-17.4mm 1:2.8-4.9'
 camera: 'Canon IXUS 75'
 ---
 
-{% include youtube.liquid id="RGYaDStWGQY" %}
+{% include youtube.liquid id:"RGYaDStWGQY?si=VYpRS0aDQ1JMxqn5" %}
 
 <p>Hänschen klein, steht allein<br />
 Vor dem Club im Neonschein<br />
