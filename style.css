@@ -122,12 +122,9 @@ h2 {
 	color: var(--text-color);
 }
 
-.video-container-container {
-	padding: 18px 0;
-}
-
 .video-container {
 	position: relative;
+	z-index: 5;
 }
 
 .video-container-16-9 {
