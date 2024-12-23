@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Berlin Video'
+title: 'In die große Stadt hinein (Berlin Video)'
 date: 2024-10-20T23:53+0100
 location: 'Berlin, Germany'
 emojis: '🎥'
