@@ -23,7 +23,8 @@ a {
 }
 
 strong {
-	color: var(--strong-color);
+	color: var(--background-color);
+	background-color: var(--text-color);
 }
 
 ul {
@@ -42,7 +43,6 @@ a:visited {
 	--font-size: 22px;
 	--background-color: #111111;
 	--text-color: #ff9900;
-	--strong-color: #ffcc99;
 	--link-color: #ffffff;
 
 	font-synthesis: none;
@@ -52,7 +52,6 @@ a:visited {
 	@media (prefers-color-scheme: light) {
 		--background-color: #eeeeee;
 		--text-color: #111111;
-		--strong-color: #333333;
 		--link-color: #0066cc;
 	}
 }
