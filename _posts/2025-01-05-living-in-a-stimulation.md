@@ -9,11 +9,11 @@ emojis: '📝'
 <p><strong>Host:</strong> Welcome back to Mind Expanded, the show where we tackle the weird, the wonderful, and the "what ifs" of existence. Today, we have a philosopher in the studio, Dr. Simon Moore, who’s going to blow our minds with a thought experiment that might make us question... well, everything. Welcome, Dr. Moore.</p>
 <p><strong>Philosopher:</strong> Thank you for having me. I hope you’re ready to rethink your reality.</p>
 <p><strong>Host:</strong> Oh, I’m always ready for some reality-bending. What have you got for me?</p>
-<p><strong>Philosopher:</strong> Let me start with a simple question. Have you ever had a dream within a dream? You know, one of those moments where you wake up from a dream, only to realize you're still dreaming?</p>
+<p><strong>Philosopher:</strong> Let me start with a simple question. Have you ever had a dream within a dream?</p>
 <p><strong>Host:</strong> Oh yeah, definitely. Those are the worst. You feel relief, and then bam you’re still stuck in it.</p>
 <p><strong>Philosopher:</strong> Right. Now, what if I told you that, statistically speaking, it’s more likely that you’re in a dream right now than in waking reality.</p>
 <p><strong>Host:</strong> (laughs) Okay, now you’ve lost me. How could that possibly be true? I’m sitting here, awake, talking to you. I’ve got my coffee. This feels pretty real to me.</p>
-<p><strong>Philosopher:</strong> Think of it like a stack of Russian nesting dolls. If I handed you a random doll, the chances of it being the outermost one are very slim. Most likely, you’re holding one from the middle. In the same way, if nested dreams exist—dreams within dreams—then it’s far more probable that you’re in one of the middle layers rather than the singular starting point.</p>
+<p><strong>Philosopher:</strong> Think of the nested dream layers like a stack of Russian dolls. If I handed you a random doll, the chances of it being the outermost one are very slim. Most likely, you’re holding one from the middle. In the same way, if nested dreams exist then it’s far more probable that you’re in one of the middle layers rather than the starting point.</p>
 <p><strong>Host:</strong> Huh. That’s... unsettling. So, you’re saying that if I’m conscious right now, the odds are I’m somewhere in those layers and not at the bottom of the stack? Like... I’m in a dream within a dream?</p>
 <p><strong>Philosopher:</strong> Precisely.</p>
 <p><strong>Host:</strong> Wait, but what if there aren’t that many layers? What if I’m just... awake?</p>
