@@ -1,5 +1,6 @@
 html {
 	background: var(--background-color);
+	font-size: 2px;
 }
 
 body,
@@ -8,7 +9,6 @@ pre {
 	color: var(--text-color);
 	line-height: 1.2;
 	font-family: 'DepartureMono-Regular', 'Courier New', monospace;
-	font-size: var(--font-size);
 	margin: 0;
 	padding: 0;
 }
@@ -40,20 +40,20 @@ a:visited {
 }
 
 :root {
-	--font-size: 22px;
-	--background-color: #111111;
+
+	/* --background-color: #111111;
 	--text-color: #ff9900;
-	--link-color: #ffffff;
+	--link-color: #ffffff; */
 
 	font-synthesis: none;
 	-webkit-font-smoothing: none;
 	text-rendering: optimizeLegibility;
 
-	@media (prefers-color-scheme: light) {
-		--background-color: #eeeeee;
+	/* @media (prefers-color-scheme: light) { */
+		--background-color: #666699;
 		--text-color: #111111;
 		--link-color: #0066cc;
-	}
+	/* } */
 }
 
 img {
@@ -78,7 +78,7 @@ p {
 h1,
 h2 {
 	color: var(--text-color);
-	font-size: var(--font-size);
+	font-size: 11rem;
 	margin: 0;
 	padding: 0 0 20px 0;
 }
@@ -87,6 +87,8 @@ h2 {
 	margin: 0 auto;
 	width: 50%;
 	background: var(--background-color);
+	padding: 10rem 0;
+	font-size: 11rem;
 }
 
 @media(max-width:1500px) {
@@ -114,13 +116,12 @@ h2 {
 	min-width: 100%;
 	height: 100%;
 	z-index: 5;
-	background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+	/* background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06)); */
 	background-size: 100% 2px, 3px 100%;
 
-	@media (prefers-color-scheme: light) {
+	/* @media (prefers-color-scheme: light) { */
 		background: linear-gradient(rgba(237, 239, 239, 0) 50%, rgba(255, 255, 255, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-		background-size: 100% 2px, 3px 100%;
-	}
+	/* } */
 }
 
 .date {
@@ -156,4 +157,139 @@ h2 {
 
 .pagination li {
 	display: inline-block;
+}
+
+/** Mac OS 9 Window **/
+
+.scanlines {
+	position: fixed;
+	pointer-events: none;
+	width: auto;
+	min-width: 100%;
+	height: 100%;
+	z-index: 5;
+	background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+		linear-gradient(90deg,
+			rgba(255, 0, 0, 0.06),
+			rgba(0, 255, 0, 0.02),
+			rgba(0, 0, 255, 0.06));
+	background-size: 100% 2px, 3px 100%;
+}
+
+.window {
+	background: #cccccc;
+	outline: 1rem solid #333333;
+	border-right: 1rem solid #999999;
+	border-bottom: 1rem solid #999999;
+	box-shadow: inset 1rem 1rem 0px #ffffff;
+	padding: 3rem;
+	position: relative;
+}
+
+.header {
+	display: flex;
+	gap: 4rem;
+	padding-bottom: 3rem;
+}
+
+.hole {
+	border-right: 1rem solid #ffffff;
+	border-bottom: 1rem solid #ffffff;
+	box-shadow: -1rem -1rem 0 #999999;
+	margin: 1rem 0 0 1rem;
+	background: #333333;
+	padding: 1rem;
+	position: relative;
+}
+
+.title {
+	white-space: nowrap;
+	line-height: 12rem;
+	font-size: 11rem;
+}
+
+.button {
+	height: 8rem;
+	background: linear-gradient(135deg, #999999 0%, #ffffff 100%);
+	border-top: 1rem solid #cccccc;
+	border-left: 1rem solid #cccccc;
+	width: 8rem;
+	box-shadow: inset -1rem -1rem 0px #999999;
+	position: relative;
+}
+
+.button-line::before {
+	position: absolute;
+	top: 2rem;
+	left: 0;
+	width: 8rem;
+	height: 1rem;
+	background: #333333;
+	display: block;
+	content: " ";
+}
+
+.button::after {
+	position: absolute;
+	top: -1rem;
+	left: -1rem;
+	width: 1rem;
+	height: 1rem;
+	background: #ffffff;
+	display: block;
+	content: " ";
+}
+
+.stripes {
+	width: 100%;
+}
+
+.stripe {
+	background: #ffffff;
+	height: 1rem;
+	box-shadow: 1rem 1rem 0 #999999;
+	margin-bottom: 1rem;
+}
+
+.content {
+	background: #ffffff;
+	padding: 5rem;
+}
+
+.corner {
+	position: absolute;
+	width: 13rem;
+	height: 13rem;
+	bottom: 5rem;
+	right: 5rem;
+	background: #cccccc;
+	border-top: 1rem solid #333333;
+	border-left: 1rem solid #333333;
+}
+
+.corner-inner {
+	border-top: 1rem solid #ffffff;
+	border-left: 1rem solid #ffffff;
+	box-shadow: 1rem 1rem 0 #cccccc;
+	position: absolute;
+	width: 13rem;
+	height: 13rem;
+	bottom: 4rem;
+	right: 4rem;
+	background: #cccccc;
+}
+
+.bars {
+	transform: rotate(-45deg);
+	position: absolute;
+	bottom: 6rem;
+	right: 5rem;
+}
+
+.bar {
+	width: 9rem;
+	background: #ffffff;
+	box-shadow: 0 1rem 0 #999999;
+	height: 1rem;
+	margin-bottom: 1.5rem;
 }
