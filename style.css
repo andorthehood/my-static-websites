@@ -310,7 +310,7 @@ h2 {
 	position: absolute;
 	top: 0;
 	right: 0;
-	background: radial-gradient(circle at center 176%, #000000 65%, #66ccff 65%, #009966 67%, #330066 80%, #000000 95%);
+	background: radial-gradient(circle at center 188%, #000000 65%, #66ccff 65%, #009966 67%, #330066 80%, #000000 95%);
 }
 
 .netscape-logo::after {
@@ -319,7 +319,7 @@ h2 {
 	bottom: 25%;
 	right: 22%;
 	left: 56%;
-	top: 59%;
+	top: 63%;
 	transform: rotate(8deg);
 	overflow: hidden;
 	background: black;
