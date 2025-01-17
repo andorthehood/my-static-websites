@@ -186,6 +186,19 @@ h2 {
 	position: relative;
 }
 
+.window.collapsed .content-hole {
+	display: none;
+}
+.window.collapsed .corner {
+	display: none;
+}
+.window.collapsed .corner-inner {
+	display: none;
+}
+.window.collapsed .bars {
+	display: none;
+}
+
 .header {
 	display: flex;
 	gap: 4rem;
