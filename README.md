@@ -6,6 +6,8 @@ Hello there! 👋 You just found the source code of my personal website. It's po
 
 For storing the content, I'm using Markdown files with Front Matter, and with Liquid and Handlebars templates. I was inspired by Jekyll, which uses a similar structure for content management.
 
+The design was inspired by Mac OS 9, you can steal the CSS from my codepen: [https://codepen.io/hngrhorace/pen/gbYKpxE](https://codepen.io/hngrhorace/pen/gbYKpxE)
+
 ## Requirements
 
 To run the website locally, make sure you have the following installed:

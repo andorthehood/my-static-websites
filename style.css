@@ -255,13 +255,13 @@ h2 {
 	position: relative;
 }
 
-.title {
+.header .title {
 	white-space: nowrap;
 	line-height: 12rem;
 	font-size: 11rem;
 }
 
-.button {
+.header .button {
 	height: 8rem;
 	background: linear-gradient(135deg, #999999 0%, #ffffff 100%);
 	border-top: 1rem solid #cccccc;
@@ -272,7 +272,7 @@ h2 {
 	cursor: pointer;
 }
 
-.button-line::before {
+.header .button-line::before {
 	position: absolute;
 	top: 2rem;
 	left: 0;
@@ -283,7 +283,7 @@ h2 {
 	content: " ";
 }
 
-.button::after {
+.header .button::after {
 	position: absolute;
 	top: -1rem;
 	left: -1rem;
@@ -294,11 +294,11 @@ h2 {
 	content: " ";
 }
 
-.stripes {
+.header .stripes {
 	width: 100%;
 }
 
-.stripe {
+.header .stripe {
 	background: #ffffff;
 	height: 1rem;
 	box-shadow: 1rem 1rem 0 #999999;
@@ -307,7 +307,27 @@ h2 {
 
 .content {
 	background: #ffffff;
-	padding: 5rem;
+	-padding: 5rem;
+}
+
+.head {
+	background: #cccccc;
+	height: 100px;
+	display: flex;
+}
+
+.head .button {
+	width: 100px;
+	height: 100px;
+
+
+	background: #cccccc;
+	border-top: 1rem solid #cccccc;
+	border-left: 1rem solid #cccccc;
+	box-shadow: inset -1rem -1rem 0px #999999;
+
+	position: relative;
+	cursor: pointer;
 }
 
 .corner {
