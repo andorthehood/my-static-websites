@@ -176,6 +176,44 @@ h2 {
 	background-size: 100% 2px, 3px 100%;
 }
 
+.desktop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	gap: 22px;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.icon {
+	text-decoration: none;
+	text-align: center;
+	width: 200px;
+}
+
+.icon:hover {
+	text-decoration: none;
+}
+
+.icon .icon-label {
+	color: #000000;
+	background: #ccccff;
+	font-size: 22px;
+	display: inline;
+}
+
+.icon .icon-picture {
+	font-size: 50px;
+}
+
+.icon:nth-child(1) {
+	top: 10rem;
+	left: 10rem;
+}
+
 .window {
 	background: #cccccc;
 	outline: 1rem solid #333333;
