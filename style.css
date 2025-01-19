@@ -23,8 +23,8 @@ a {
 }
 
 strong {
-	color: var(--background-color);
-	background-color: var(--text-color);
+	color: #ffffff;
+	background-color: #996666;
 }
 
 ul {
@@ -51,7 +51,7 @@ a:visited {
 
 	/* @media (prefers-color-scheme: light) { */
 	--background-color: #666699;
-	--text-color: #111111;
+	--text-color: #000000;
 	--link-color: #0066cc;
 	/* } */
 }
