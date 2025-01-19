@@ -24,44 +24,44 @@ location: 'Zandvoort, Netherlands'
 🏆 Best Erotic Short Film - Hallucinea Film Festival 2022</p>
 
 Screenings:<br />
-- 16th of December 2022 20:00 🎦 OCHO Y MEDIO 📍 Plaza Sta. Teresa, 15, Alicante, Spain
-- 7th of April 2023 23:00 🎦 Trenta Formiche 📍 Via del Mandrione, 3, Roma, Italy
-- 15th of April 2023 16:00 🎦 Schikaneder Kino 📍 Margaretenstraße 22-24, Wien, Austria
-- 28th of April 2023 21:00 🎦 Trenta Formiche 📍 Via del Mandrione, 3, Roma, Italy (Hacker Porn Film Festival)
-- 5th of May 2023 19:00 🎦 Cinéma Aventure (Salle 2) 📍 Rue des Fripiers 15, Bruxelles, Belgium
-- May 8 - 22 🎦 Pinklabel TV 📍 Online streaming
-- 26th of May 2023 16:00 🎦 Delphi Arthaus Kino Tübinger Straße 6, Stuttgart, Germany (Natural Instincts Film Festival)
-- 27th of May 2023 TBD 🎦 Fiesta Murcia sin tabús 📍 Plaza de los Patos, Vistabella, Murcia, Spain
-- June 1 - 14 🎦 Pinklabel TV 📍 Online streaming
-- 3rd of June 2023 18:00 🎦 Romantso 📍 Anaxagora 3, Athens 105 52, Greece (Athens Porn Film Festival)
-- 14th of June 2023 19:30 🎦 Kino Muranów (sala Pola) 📍 Gen. W. Andersa 5, Warsaw, Poland (Post Porn Film Festival Warsaw)
-- 17th of June 2023 12:00 🎦 Kino Muranów (sala Gerard) 📍 Gen. W. Andersa 5, Warsaw, Poland (Post Porn Film Festival Warsaw)
-- 19th of August 2023 19:00 (PST) 🎦 Brava Theater 📍 2781 24th Street, San Francisco, California
-- 11th of September 2023 20:15 🎦 Schikaneder Kino 📍 Margaretenstraße 22-24, Wien, Austria
-- 24th of September 2023 16:45 🎦 AStA Stadkampus 📍 Königspl. 1, Paderborn, Germany (PaderPorn Filmfestival)
-- 6th of October 20:00 🎦 Cine k 📍 Bahnhofstraße 11, Oldeburg, Germany (Das 14. Queer Film Festival Oldenburg)
-- 7th October 19:00 🎦 Inusual Project 📍 Carrer de la Paloma, 5, Ciutat Vella, Barcelona, Spain (Porn Film Festival Barcelona)
-- 6th of October 2023 22:00 🎦 Neues Kino 📍 Klybeckstr. 247, Basel, Switzerland (Luststreifen Film Festival)
-- 8th of October 2023 18:00 🎦 Neues Kino 📍 Klybeckstr. 247, Basel, Switzerland (Luststreifen Film Festival)
-- 26th of October 2023 22:00 🎦 Movimento 📍 Kottbusser Damm 22, Berlin, Germany
-- 27th of October 2023 22:00 🎦 Babylon Kreuzberg 📍 Dresdener Str. 126, Berlin, Germany
-- 28th of October 2023 12:15 🎦 Movimento 📍 Kottbusser Damm 22, Berlin, Germany
-- 28th of October 2023 23:00 🎦 Zebra Kino 📍 Joseph-Belli-Weg 5, Konstanz, Germany
-- November 3-4 TBD 🎦 Cineforo (University of Guadalajara) 📍 Av Juárez 976 piso menos uno, Guadalajara, Mexico  (Peephole Filmfest)
-- November 10-12 TBD 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington (SECS Fest)
-- 10th of November 2023 23:30 🎦 Cinéma Nova 📍 Rue d'Arenberg 3, Bruxelles, Belgium (Pink Screens Queer Film Festival)
-- 3rd of December 16:40 🎦 Rifraff Kino (4) 📍 Neugasse 57-63, Zürich, Switzerland (Porny Days Kust Film Festival)
-- 11th of February 2024 17:00 🎦 De Utikijk 📍 Prinsengracht 452, Amsterdam, Netherlands (Porn Film Festival Amsterdam)
-- 25th of February 2024 19:00 🎦 HGW 📍 Mavromichali 138, Athens, Greece (Aphrodisiac Nights vol.2)
-- 1st of March 2024 TBD 🎦 Leokino 📍 Anichstraße 36, Innsbruck, Austria (DIAMETRALE Filmfestival)
-- 14th of March 2024 20:00 🎦 The Back Door 📍 207 S College Ave, Bloomington, Indiana (Cicada Cinema + SECS Fest Midwest)
-- 31st of May 2024 21:30 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington (Best of SECS Fest)
-- 22nd of June 2024 🎦 Pickford Film Center 📍 1318 Bay St Bellingham, Washington (Best of SECS Fest)
-- 2024 TBD 🎦 TBD 📍 Warsaw, Poland (Post Pxrn Festival Warsaw)
-- 12th of November 2024 17:00 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington (SECS Fest)
-- 19th of December 2024 21:30 🎦 Cinémathèque in der naTo 📍 Karl-Liebknecht-Straße 48, Leipzig, Germany (Der Kurzfilmtag: Fueled by Fantasy: Filme aus PaderPorn) 
-- 21st of December 2024 20:00 🎦 Onkel Emma – das queere Zentrum 📍 Echternstraße 9, Braunschweig, Germany (Der Kurzfilmtag: Fueled by Fantasy: Filme aus PaderPorn)
-- 21st of December 2024 20:00 🎦 Thalia Kino 📍 Görlitzer Str. 6, Dresden, Germany (Der Kurzfilmtag: Fueled by Fantasy: Filme aus PaderPorn)
+- <strong>16th of December 2022 20:00</strong> 🎦 OCHO Y MEDIO 📍 Plaza Sta. Teresa, 15, Alicante, Spain
+- 7th of April 2023 23:00</strong> 🎦 Trenta Formiche 📍 Via del Mandrione, 3, Roma, Italy
+- <strong>15th of April 2023 16:00</strong> 🎦 Schikaneder Kino 📍 Margaretenstraße 22-24, Wien, Austria
+- <strong>28th of April 2023 21:00</strong> 🎦 Trenta Formiche 📍 Via del Mandrione, 3, Roma, Italy (Hacker Porn Film Festival)
+- <strong>5th of May 2023 19:00</strong> 🎦 Cinéma Aventure (Salle 2) 📍 Rue des Fripiers 15, Bruxelles, Belgium
+- <strong>May 8 - 22</strong> 🎦 Pinklabel TV 📍 Online streaming
+- <strong>26th of May 2023 16:00</strong> 🎦 Delphi Arthaus Kino Tübinger Straße 6, Stuttgart, Germany (Natural Instincts Film Festival)
+- <strong>27th of May 2023 TBD</strong> 🎦 Fiesta Murcia sin tabús 📍 Plaza de los Patos, Vistabella, Murcia, Spain
+- <strong>June 1 - 14</strong> 🎦 Pinklabel TV 📍 Online streaming
+- <strong>3rd of June 2023 18:00</strong> 🎦 Romantso 📍 Anaxagora 3, Athens 105 52, Greece (Athens Porn Film Festival)
+- <strong>14th of June 2023 19:30</strong> 🎦 Kino Muranów (sala Pola) 📍 Gen. W. Andersa 5, Warsaw, Poland (Post Porn Film Festival Warsaw)
+- <strong>17th of June 2023 12:00</strong> 🎦 Kino Muranów (sala Gerard) 📍 Gen. W. Andersa 5, Warsaw, Poland (Post Porn Film Festival Warsaw)
+- <strong>19th of August 2023 19:00</strong> (PST) 🎦 Brava Theater 📍 2781 24th Street, San Francisco, California
+- <strong>11th of September 2023 20:15</strong> 🎦 Schikaneder Kino 📍 Margaretenstraße 22-24, Wien, Austria
+- <strong>24th of September 2023 16:45</strong> 🎦 AStA Stadkampus 📍 Königspl. 1, Paderborn, Germany (PaderPorn Filmfestival)
+- <strong>6th of October 20:00</strong> 🎦 Cine k 📍 Bahnhofstraße 11, Oldeburg, Germany (Das 14. Queer Film Festival Oldenburg)
+- <strong>7th October 19:00</strong> 🎦 Inusual Project 📍 Carrer de la Paloma, 5, Ciutat Vella, Barcelona, Spain (Porn Film Festival Barcelona)
+- <strong>6th of October 2023 22:00</strong> 🎦 Neues Kino 📍 Klybeckstr. 247, Basel, Switzerland (Luststreifen Film Festival)
+- <strong>8th of October 2023 18:00</strong> 🎦 Neues Kino 📍 Klybeckstr. 247, Basel, Switzerland (Luststreifen Film Festival)
+- <strong>26th of October 2023 22:00</strong> 🎦 Movimento 📍 Kottbusser Damm 22, Berlin, Germany
+- <strong>27th of October 2023 22:00</strong> 🎦 Babylon Kreuzberg 📍 Dresdener Str. 126, Berlin, Germany
+- <strong>28th of October 2023 12:15</strong> 🎦 Movimento 📍 Kottbusser Damm 22, Berlin, Germany
+- <strong>28th of October 2023 23:00</strong> 🎦 Zebra Kino 📍 Joseph-Belli-Weg 5, Konstanz, Germany
+- <strong>November 3-4 TBD</strong> 🎦 Cineforo (University of Guadalajara) 📍 Av Juárez 976 piso menos uno, Guadalajara, Mexico  (Peephole Filmfest)
+- <strong>November 10-12 TBD</strong> 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington (SECS Fest)
+- <strong>10th of November 2023 23:30</strong> 🎦 Cinéma Nova 📍 Rue d'Arenberg 3, Bruxelles, Belgium (Pink Screens Queer Film Festival)
+- <strong>3rd of December 16:40</strong> 🎦 Rifraff Kino (4) 📍 Neugasse 57-63, Zürich, Switzerland (Porny Days Kust Film Festival)
+- <strong>11th of February 2024 17:00</strong> 🎦 De Utikijk 📍 Prinsengracht 452, Amsterdam, Netherlands (Porn Film Festival Amsterdam)
+- <strong>25th of February 2024 19:00</strong> 🎦 HGW 📍 Mavromichali 138, Athens, Greece (Aphrodisiac Nights vol.2)
+- <strong>1st of March 2024 TBD</strong> 🎦 Leokino 📍 Anichstraße 36, Innsbruck, Austria (DIAMETRALE Filmfestival)
+- <strong>14th of March 2024 20:00</strong> 🎦 The Back Door 📍 207 S College Ave, Bloomington, Indiana (Cicada Cinema + SECS Fest Midwest)
+- <strong>31st of May 2024 21:30</strong> 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington (Best of SECS Fest)
+- <strong>22nd of June 2024</strong> 🎦 Pickford Film Center 📍 1318 Bay St Bellingham, Washington (Best of SECS Fest)
+- <strong>2024 TBD 🎦 TBD</strong> 📍 Warsaw, Poland (Post Pxrn Festival Warsaw)
+- <strong>12th of November 2024 17:00</strong> 🎦 Grand Illusion Cinema 📍 1403 Northeast 50th Street, Seattle, Washington (SECS Fest)
+- <strong>19th of December 2024 21:30</strong> 🎦 Cinémathèque in der naTo 📍 Karl-Liebknecht-Straße 48, Leipzig, Germany (Der Kurzfilmtag: Fueled by Fantasy: Filme aus PaderPorn) 
+- <strong>21st of December 2024 20:00</strong> 🎦 Onkel Emma – das queere Zentrum 📍 Echternstraße 9, Braunschweig, Germany (Der Kurzfilmtag: Fueled by Fantasy: Filme aus PaderPorn)
+- <strong>21st of December 2024 20:00</strong> 🎦 Thalia Kino 📍 Görlitzer Str. 6, Dresden, Germany (Der Kurzfilmtag: Fueled by Fantasy: Filme aus PaderPorn)
 
 {% include candystore.liquid file:"20230416_24_pffvienna_ma_portra800_zm35_tla140" title:"Porn Film Festival Vienna" %}
 {% include candystore.liquid file:"20231028_15_berlin_pff_ma_35zm_portra800" title:"Pornfilmfestival Berlin" %}
