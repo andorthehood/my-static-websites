@@ -14,6 +14,7 @@ use generate::generate;
 use std::env;
 use std::io::Result;
 use server::listen;
+mod generate_pagination_pages;
 
 fn main() -> Result<()> {
     let args: Vec<String> = env::args().collect();
