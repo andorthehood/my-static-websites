@@ -190,28 +190,28 @@ h2 {
 	justify-content: center;
 }
 
-.icon {
+.desktop .icon {
 	text-decoration: none;
 	text-align: center;
 	width: 200px;
 }
 
-.icon:hover {
+.desktop .icon:hover {
 	text-decoration: none;
 }
 
-.icon .icon-label {
+.desktop .icon .icon-label {
 	color: #000000;
 	background: #ccccff;
 	font-size: 22px;
 	display: inline;
 }
 
-.icon .icon-picture {
+.desktop .icon .icon-picture {
 	font-size: 50px;
 }
 
-.icon:nth-child(1) {
+.desktop .icon:nth-child(1) {
 	top: 10rem;
 	left: 10rem;
 }
@@ -319,15 +319,16 @@ h2 {
 .head .button {
 	width: 100px;
 	height: 100px;
-
-
-	background: #cccccc;
-	border-top: 1rem solid #cccccc;
-	border-left: 1rem solid #cccccc;
-	box-shadow: inset -1rem -1rem 0px #999999;
-
 	position: relative;
 	cursor: pointer;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.head .button .icon {
+	font-size: 33px;
 }
 
 .corner {

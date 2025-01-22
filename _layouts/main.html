@@ -78,7 +78,7 @@
         <div class="window">
             <div class="header">
                 <div class="hole">
-                    <div class="button" id="close-button"></div>
+                    <div class="button" id="button-close"></div>
                 </div>
                 <div class="stripes">
                     <div class="stripe"></div>
@@ -100,14 +100,20 @@
                 <div class="hole button-line">
                     <div class="button"></div>
                 </div>
-                <div class="hole" id="collapse-button">
+                <div class="hole" id="button-collapse">
                     <div class="button"></div>
                 </div>
             </div>
             <div class="hole content-hole">
                 <div class="head">
-                    <div class="button" data-nosnippet>Back</div>
-                    <div class="button" data-nosnippet>Forward</div>
+                    <div class="button" id="button-back" data-nosnippet>
+                        <div class="icon">⬅️</div>
+                        <div class="label">Back</div>
+                    </div>
+                    <div class="button" id="button-forward" data-nosnippet>
+                        <div class="icon">➡️</div>
+                        <div class="label">Forward</div>
+                    </div>
                     <div class="netscape-logo" data-nosnippet>A</div>
                 </div>
                 <div class="content">
@@ -155,14 +161,23 @@ ___. <a href="/">Index page</a>
         </div>
     </div>
     <script type="text/javascript">
-        var collapseButton = document.getElementById('collapse-button');
-        var closeButton = document.getElementById('close-button');
+        var collapseButton = document.getElementById('button-collapse');
+        var closeButton = document.getElementById('button-close');
+        var backButton = document.getElementById('button-back');
+        var forwardButton = document.getElementById('button-forward');
         var blogWindow = document.querySelector('.window');
+
         collapseButton.addEventListener('click', function () {
             blogWindow.classList.toggle('collapsed');
         });
         closeButton.addEventListener('click', function () {
             blogWindow.remove();
+        });
+        backButton.addEventListener('click', function () {
+            window.history.back();
+        });
+        forwardButton.addEventListener('click', function () {
+            window.history.forward();
         });
     </script>
 </body>
