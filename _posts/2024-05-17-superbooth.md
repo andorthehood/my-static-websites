@@ -8,6 +8,7 @@ film: 'Kodak Portra 800'
 lens: 'Brightin Star 28mm f/2.8'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
+tags: 'music'
 ---
 
 {% include candystore.liquid file:"20240517_2_superbooth_ma_brightin28_portra800" title:"" %}

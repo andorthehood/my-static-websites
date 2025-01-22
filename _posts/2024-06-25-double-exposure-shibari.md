@@ -8,6 +8,7 @@ film: 'Ilford XP2'
 lens: 'Zeiss ZM 35mm f/2, the candles were double exposed over the original with the Brightin Star 28mm f/2.8'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
+tags: 'shibari,nsfw'
 ---
 
 <p>This was my first go at doing double exposures. I shot two rolls of film with Dolf tying Sick Ducks, then reloaded the same films and shot them again, but this time with a bunch of candles I'd set up on a desk with a black background.</p>

@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Pyongyang, North Korea"
+title: 'Pyongyang, North Korea'
 date: 2019-04-20T22:11+0100
 categories: posts
-tags: travel
-location: "Pyongyang, North Korea"
-emojis: "⭐⭐"
+location: 'Pyongyang, North Korea'
+emojis: '⭐⭐'
+tags: ''
 ---
 
 {% include candystore.liquid file:"20190414_1_nort-korea" title:"" %}

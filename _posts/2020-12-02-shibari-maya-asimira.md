@@ -5,6 +5,7 @@ date: 2020-12-02T22:36+0100
 categories: post
 location: 'Rotterdam, Netherlands'
 emojis: '🔞'
+tags: 'nsfw'
 ---
 
 {% include candystore.liquid file:"20201202_shibari_15_m6_portra800" title:"Maya" %}

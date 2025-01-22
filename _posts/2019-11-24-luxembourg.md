@@ -4,6 +4,7 @@ title: 'Luxembourg, Luxembourg'
 date: 2019-11-24T21:40+0100
 categories: post
 location: 'Luxembourg, Luxembourg'
+tags: ''
 ---
 
 {% include candystore.liquid file:"20200110_luxembourg_1_portra160_rollei" title:"Luxembourg Hotel" %}

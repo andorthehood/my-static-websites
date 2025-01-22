@@ -5,6 +5,7 @@ date: 2021-08-07T17:07+0100
 categories: post
 location: 'Zandvoort, Netherlands'
 emojis: '🔞'
+tags: 'nsfw'
 ---
 
 {% include candystore.liquid file:"20210807_1_goma_m8_portra800_8200i" title:"Ju and Diego" %}

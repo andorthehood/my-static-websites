@@ -5,6 +5,7 @@ date: 2021-09-19T22:56+0100
 categories: post
 location: 'Budapest, Hungary'
 emojis: '🔞'
+tags: 'nsfw'
 ---
 
 {% include candystore.liquid file:"20210919_22_david_m8_portra800_8200i" title:"David" %}

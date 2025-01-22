@@ -8,6 +8,7 @@ film: 'Ilford HP5+ pushed 2 stops'
 lens: 'TTartisan 11mm F/2.8'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
+tags: 'music'
 people:
     - '@cooltigermusic'
     - '@onevennn'

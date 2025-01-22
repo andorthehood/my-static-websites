@@ -5,6 +5,7 @@ date: 2019-08-05T23:23+0100
 categories: post
 location: 'Haarlem, Netherlands'
 emojis: '🔞'
+tags: 'nsfw'
 ---
 
 {% include candystore.liquid file:"20190805_viktoria_4_portra800" title:"Viktoriia" %}

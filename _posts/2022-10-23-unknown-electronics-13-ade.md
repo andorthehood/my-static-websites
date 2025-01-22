@@ -6,6 +6,7 @@ location: 'OT301, Amsterdam, Netherlands'
 lens: 'Sigma 50mm f/1.4 DG HSM ART'
 camera: 'Nikon D780'
 emojis: '🎹'
+tags: 'music'
 ---
 
 Unlike traditional DJ sets, Unknown Electronics features a lineup of musicians who create electronic dance music on the spot using their drum machines, synthesizers, and other electronic instruments.

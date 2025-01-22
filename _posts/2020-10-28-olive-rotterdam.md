@@ -1,12 +1,11 @@
 ---
 layout: post
-title: "Maya, Rotterdam"
+title: 'Olive in Rotterdam'
 date: 2020-10-28T22:36+0100
 categories: post
-tags: travel
-location: "Rotterdam, Netherlands"
-emojis: "🔞"
-
+location: 'Rotterdam, Netherlands'
+emojis: '🔞'
+tags: 'nsfw'
 ---
 
 {% include candystore.liquid file:"20201027_31_maya_rotterdam_portra800_m6_8200i_fujihunt" title:"Maya" %}

@@ -8,6 +8,7 @@ lens: 'ZEISS ZM Biogon T* 35mm f/2'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 flash: 'Contax TLA 140'
+tags: 'roadtrip'
 ---
 
 {% include candystore.liquid file:"20231221_5_us_roadtrip_hollywood_ma_35zm_ultramax400_tla140" title:"" %}

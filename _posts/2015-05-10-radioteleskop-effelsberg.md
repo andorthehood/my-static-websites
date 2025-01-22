@@ -3,6 +3,7 @@ layout: post
 title: 'Radioteleskop Effelsberg'
 date: 2015-05-20T23:10:39-0100
 location: 'Effelsberg, Germany'
+tags: ''
 ---
 
 {% include candystore.liquid file:"20150510_IMG_2281_effelsberg" title:"" %}

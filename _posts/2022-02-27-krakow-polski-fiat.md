@@ -9,6 +9,7 @@ lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 flash: 'Contax TLA 140'
 camera: 'Leica M6 TTL'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
+tags: 'roadtrip'
 ---
 
 {% include candystore.liquid file:"20220306_ANE_3711_krakow_porta800_leicam6_zeiss35mm" title:"Krakow" %}

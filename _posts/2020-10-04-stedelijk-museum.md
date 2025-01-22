@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Stedelijk Museum"
+title: 'Stedelijk Museum'
 date: 2020-10-04T16:47+0100
 categories: post
-tags: travel
-location: "Amsterdam, Netherlands"
+location: 'Amsterdam, Netherlands'
+tags: ''
 ---
 
 {% include candystore.liquid file:"20201004_7_stedelijk_portra800_m6_8200i_fujihunt" title:"" %}

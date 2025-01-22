@@ -1,10 +1,11 @@
 ---
 layout: post
-title: "Ju and the distorted mirror"
+title: 'Ju and the distorted mirror'
 date: 2021-02-20T23:23+0100
 categories: post
-location: "Zandvoort, Netherlands"
-emojis: "🔞⭐"
+location: 'Zandvoort, Netherlands'
+emojis: '🔞⭐'
+tags: 'nsfw'
 ---
 
 {% include candystore.liquid file:"20210220_12_julia_trix400_+1_m6_8200i_d76" title:"Julia" %}

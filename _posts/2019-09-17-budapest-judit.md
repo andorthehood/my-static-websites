@@ -5,6 +5,7 @@ date: 2019-09-17T20:19+0100
 categories: posts
 location: "Budapest, Hungary"
 emojis: "🔞⭐"
+tags: 'nsfw'
 ---
 
 {% include candystore.liquid file:"20190920_18_judit_tmax3200" title:"Judit" %}

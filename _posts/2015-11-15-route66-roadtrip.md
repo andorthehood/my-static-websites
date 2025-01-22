@@ -5,6 +5,7 @@ date: 2015-11-15T22:52:39-0100
 categories: posts
 tags: travel
 location: 'California, United States of America'
+tags: 'roadtrip'
 ---
 
 {% include candystore.liquid file:"20151105_IMG_6093_california" title:"" %}
