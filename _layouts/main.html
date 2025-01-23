@@ -28,7 +28,7 @@
 
 <body>
     <div class="scanlines"></div>
-    <div class="desktop">
+    <nav class="desktop">
         <a href="/aflordepiel" class="icon">
             <div class="icon-picture">🌸</div>
             <div class="icon-label">A Flor de Piel</div>
@@ -73,9 +73,17 @@
             <div class="icon-picture">💡</div>
             <div class="icon-label">The life of my light meter</div>
         </a>
-    </div>
+        <a href="/postmortem" class="icon">
+            <div class="icon-picture">👻</div>
+            <div class="icon-label">Post-mortem.txt</div>
+        </a>
+        <a href="/about" class="icon">
+            <div class="icon-picture">👨‍🔧</div>
+            <div class="icon-label">About Me</div>
+        </a>
+    </nav>
     <div class="container">
-        <div class="window">
+        <main class="window">
             <div class="header">
                 <div class="hole">
                     <div class="button" id="button-close"></div>
@@ -114,36 +122,22 @@
                         <div class="icon">➡️</div>
                         <div class="label">Forward</div>
                     </div>
+                    <div class="button" id="button-reload" data-nosnippet>
+                        <div class="icon">🔄</div>
+                        <div class="label">Reload</div>
+                    </div>
+                    <div class="button" id="button-home" data-nosnippet>
+                        <div class="icon">🏠</div>
+                        <div class="label">Home</div>
+                    </div>
+                    <div class="button" id="button-print" data-nosnippet>
+                        <div class="icon">🖨️</div>
+                        <div class="label">Print</div>
+                    </div>
                     <div class="netscape-logo" data-nosnippet>A</div>
                 </div>
                 <div class="content">
                     {{body}}
-                    <footer>
-                        <p>---<br /><a href="/aflordepiel">A Flor de Piel (2022) 🔞</a> | Social Media: <a
-                                href="https://instagram.com/andorcover" target="_blank">@andorcover</a>, <a
-                                href="https://www.youtube.com/channel/UCF_EgDIkYFIeu-19KleLnFA"
-                                target="_blank">YouTube</a>,
-                            <a href="/links">Other links</a> | Don't worry, my Website doesn't collect your
-                            Personal Information and share it with snoopy third-party Analytics Services. 🍪 You don't
-                            have to
-                            believe me, you can see it yourself by looking at the Source Code on <a
-                                href="https://github.com/andormade/andor.cool" target="_blank">GitHub</a>. | I'm okay
-                            with my Photos
-                            being used for
-                            training AI Models, and I love my AI Overlords. ❤️🤖 | Website last updated on
-                            {{ generated_date }} Unix Time
-                        </p>
-                        <pre data-nosnippet>
-___. <a href="/">Index page</a>
-\_ |__ ___.__. ____ <a href="/about">About Me 👨‍🔧</a>
- | __ <   |  |/ __ \ <a href="/postmortem">Post-mortem 👻</a>
- | \_\ \___  \  ___/ <a href="/bookshelf">Books</a>
- |___  / ____|\___  > <a href="/prints">Prints</a>
-     \/\/ <a href="/page1">Blog</a>    \/ 
-            </pre>
-                    </footer>
-
-
                 </div>
             </div>
             <div class="corner">
@@ -158,26 +152,80 @@ ___. <a href="/">Index page</a>
                 <div class="bar">
                 </div>
             </div>
-        </div>
-    </div>
+        </main>
+        <footer class="window">
+            <div class="header">
+                <div class="hole">
+                    <div class="button" id="button-close"></div>
+                </div>
+                <div class="stripes">
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                </div>
+                <div class="title" data-nosnippet>Terminal</div>
+                <div class="stripes">
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                </div>
+                <div class="hole button-line">
+                    <div class="button"></div>
+                </div>
+                <div class="hole" id="button-collapse">
+                    <div class="button"></div>
+                </div>
+            </div>
+            <div class="hole content-hole">
+                <div class="content">
+                    <p>Don't worry, my website doesn't collect your
+                        personal information nor does it share any of it with snoopy third-party analytics services. 🍪
+                        You don't have to believe me, you can see it yourself by looking at the source code on <a
+                            href="https://github.com/andormade/andor.cool" target="_blank">GitHub</a>. | I'm okay
+                        with my photos
+                        being used for
+                        training AI Models, and I love my AI Overlords. ❤️🤖 | Website last updated on
+                        {{ generated_date }} Unix Time
+                    </p>
+                    <pre data-nosnippet>
+___.
+\_ |__ ___.__. ____ 
+ | __ <   |  |/ __ \ 
+ | \_\ \___  \  ___/
+ |___  / ____|\___  > 
+     \/\/         \/ 
+</pre>
+                </div>
+            </div>
+        </footer>
+    </div><!-- .container -->
     <script type="text/javascript">
-        var collapseButton = document.getElementById('button-collapse');
-        var closeButton = document.getElementById('button-close');
-        var backButton = document.getElementById('button-back');
-        var forwardButton = document.getElementById('button-forward');
-        var blogWindow = document.querySelector('.window');
-
-        collapseButton.addEventListener('click', function () {
-            blogWindow.classList.toggle('collapsed');
+        document.getElementById('button-collapse').addEventListener('click', function (event) {
+            document.body.classList.toggle('collapsed');
         });
-        closeButton.addEventListener('click', function () {
-            blogWindow.remove();
+        document.getElementById('button-close').addEventListener('click', function () {
+            document.querySelectorAll('.window').forEach((window) => window.remove());
         });
-        backButton.addEventListener('click', function () {
+        document.getElementById('button-back').addEventListener('click', function () {
             window.history.back();
         });
-        forwardButton.addEventListener('click', function () {
+        document.getElementById('button-forward').addEventListener('click', function () {
             window.history.forward();
+        });
+        document.getElementById('button-reload').addEventListener('click', function () {
+            window.location.reload();
+        });
+        document.getElementById('button-home').addEventListener('click', function () {
+            window.location.href = '/';
+        });
+        document.getElementById('button-print').addEventListener('click', function () {
+            window.print();
         });
     </script>
 </body>

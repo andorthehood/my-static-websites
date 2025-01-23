@@ -87,7 +87,7 @@ h2 {
 	margin: 0 auto;
 	width: 50%;
 	background: var(--background-color);
-	padding: 10rem 0;
+	padding: 11rem 0;
 	font-size: 11rem;
 }
 
@@ -184,10 +184,9 @@ h2 {
 	bottom: 0;
 	display: flex;
 	flex-wrap: wrap;
-	gap: 22px;
-	flex-direction: column;
-	align-content: flex-end;
-	justify-content: center;
+	gap: 11px;
+	flex-direction: row;
+	align-content: flex-start;
 }
 
 .desktop .icon {
@@ -226,17 +225,32 @@ h2 {
 	position: relative;
 }
 
-.window.collapsed .content-hole {
+body.collapsed .content-hole {
 	display: none;
 }
-.window.collapsed .corner {
+
+body.collapsed .corner {
 	display: none;
 }
-.window.collapsed .corner-inner {
+
+body.collapsed .corner-inner {
 	display: none;
 }
-.window.collapsed .bars {
+
+body.collapsed .bars {
 	display: none;
+}
+
+body.collapsed footer {
+	display: none;
+}
+
+body.collapsed .desktop {
+	position: relative;
+	top: initial;
+	bottom: initial;
+	left: initial;
+	right: initial;
 }
 
 .header {
@@ -397,4 +411,17 @@ h2 {
 	transform: rotate(8deg);
 	overflow: hidden;
 	background: black;
+}
+
+footer {
+	margin-top: 22px;
+}
+
+footer .content {
+	background: #000000;
+	color: #ffffff;
+}
+
+footer pre {
+	color: #ffffff;
 }
