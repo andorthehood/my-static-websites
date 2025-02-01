@@ -15,5 +15,3 @@ tags: ''
 {% include candystore.liquid file:"20220314_2_zandvoort_jan_l35af_proimage100" title:"" %}
 {% include candystore.liquid file:"20220314_3_zandvoort_jan_l35af_proimage100" title:"" %}
 {% include candystore.liquid file:"20220314_4_zandvoort_jan_l35af_proimage100" title:"" %}
-{% include candystore.liquid file:"20220314_5_zandvoort_jan_l35af_proimage100" title:"" %}
-{% include candystore.liquid file:"20220314_6_zandvoort_jan_l35af_proimage100" title:"" %}
