@@ -9,11 +9,13 @@ location: 'Zandvoort, Netherlands'
 
 <p>Is it because you find pleasure seeing it in a physical format, taking in the details up close?</p>
 
-<p>Or maybe it’s about decorating your space, sending  social signals, telling people how much you paid for it?</p>
+<p>Or maybe it’s about decorating your space, sending social signals, showing your taste or values, telling people how much you paid for it?</p>
 
 <p>Or simply enjoying the idea that you own something exclusive from a first edition limited run?</p>
 
-<p>Don’t get me wrong, these are all valid reasons, but what if I told you that I’m not selling prints at all, and you’re free to download any image from my website and print it as large as you like?</p>
+<p>Don’t get me wrong, these are all valid reasons — I myself own art for all of these reasons and more.</p>
+
+<p>But what if I told you that I’m not selling prints at all, and you’re free to download any image from my website and print it as large as you like?</p>
 
 <p>Would that make you feel disappointed?</p>
 
