@@ -5,8 +5,16 @@ date: 2025-01-07 19:00:00 -0100
 location: 'Zandvoort, Netherlands'
 ---
 
-<p>I really appreciate your interest in my work, but I don’t get enough requests to justify setting up a webshop and doing limited-edition prints.</p>
+<p>Have you ever thought about why you buy art?</p>
 
-<p>You are welcome to download any photo from this website and print it at your local print shop for personal use. Just click on a photo, and the original high-quality JPEG will pop up for you to use.</p>
+<p>Is it because you find pleasure seeing it in a physical format, taking in the details up close?</p>
 
-<p>If you print one of my photos, I’d love it if you shared the result with me. It would make me the happiest person to know that someone liked my work enough to do that. I’d love to see how it turns out!</p>
+<p>Or maybe it’s about decorating your space, sending  social signals, telling people how much you paid for it?</p>
+
+<p>Or simply enjoying the idea that you own something exclusive from a first edition limited run?</p>
+
+<p>Don’t get me wrong, these are all valid reasons, but what if I told you that I’m not selling prints at all, and you’re free to download any image from my website and print it as large as you like?</p>
+
+<p>Would that make you feel disappointed?</p>
+
+<p>Would that change how you feel about owning art?</p>
