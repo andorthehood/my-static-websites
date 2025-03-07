@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Noa in the garden'
+title: 'Noa in the orange garden'
 date: 2024-10-31T23:53+0100
 location: 'Almeria, Spain'
 emojis: '🔞'
