@@ -11,7 +11,7 @@ location: 'Zandvoort, Netherlands'
 
 {% include video.liquid id:"aflordepiel_4k.mp4" %}
 
-<p>Directed and produced by Andor Polgar (he/him) [@andorcover](https://instagram.com/andorcover); Cast: Sick Ducks (she/her) [@sick.ducks](https://www.instagram.com/sick.ducks/), Ju GomA (they/them) [@goma_moves](https://www.instagram.com/goma_moves/); Music and mixing: Andrew Visser (he/him) [@onevennn](https://www.instagram.com/onevennn/)<p>
+<p>Directed and produced by Andor Polgar (he/him) <a href="https://instagram.com/andortheinfluence">@andortheinfluence</a>; Cast: Sick Ducks (she/her) <a href="https://www.instagram.com/sick.ducks">@sick.ducks</a>, Ju GomA (they/them) <a href="https://www.instagram.com/who.ropes___ju">@who.ropes___ju</a>; Music and mixing: Andrew Visser (he/him) <a href="https://www.instagram.com/onevennn/">@onevennn</a></p>
 
 <p>🌿 Official Selection - Pornfilmfestival Berlin 2023
 🌿 Official Selection - San Francisco Porn Film Festival 2023
