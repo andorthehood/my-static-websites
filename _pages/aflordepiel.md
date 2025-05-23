@@ -18,13 +18,13 @@ location: 'Zandvoort, Netherlands'
  🌿 Official Selection - Brussels Porn Film Festival 2023
  🌿 Official Selection - Porn Film Festival Vienna 2023
  🌿 Official Selection - Post Porn Film Festival Warsaw 2023
- 🏅 Best of SECS fest - SECS Fest 2023
+ 🏅 Best of SECS fest - SECS Fest Seattle 2023
  🏅 Nominee - Lustreifen Film Festival Basel 2023
- 🏆 Best Erotic Short Film - Erotic & Bizarre Art Film Festival 2022</p>
+ 🏆 Best Erotic Short Film - Erotic & Bizarre Art Film Festival Alicante 2022</p>
 
 Screenings:<br />
-- <strong>16th of December 2022 20:00</strong> 🎦 OCHO Y MEDIO 📍 Plaza Sta. Teresa, 15, Alicante, Spain
-- 7th of April 2023 23:00</strong> 🎦 Trenta Formiche 📍 Via del Mandrione, 3, Roma, Italy
+- <strong>16th of December 2022 20:00</strong> 🎦 OCHO Y MEDIO 📍 Plaza Sta. Teresa, 15, Alicante, Spain (EBAFF Erotic & Bizarre Art Film Festival)
+- <strong>7th of April 2023 23:00</strong> 🎦 Trenta Formiche 📍 Via del Mandrione, 3, Roma, Italy
 - <strong>15th of April 2023 16:00</strong> 🎦 Schikaneder Kino 📍 Margaretenstraße 22-24, Wien, Austria
 - <strong>28th of April 2023 21:00</strong> 🎦 Trenta Formiche 📍 Via del Mandrione, 3, Roma, Italy (Hacker Porn Film Festival)
 - <strong>5th of May 2023 19:00</strong> 🎦 Cinéma Aventure (Salle 2) 📍 Rue des Fripiers 15, Bruxelles, Belgium
@@ -83,26 +83,25 @@ Screenings:<br />
 <p>The individual frames were edited in Lightroom, and then stitched together with FFmpeg. The excessive amount of dust and dirt was transferred onto the film during the digitization process.</p>
 
 Links:
-- [https://pinkscreens.org/en/queer-o-rama/experimental-porn/a-flor-de-piel](https://pinkscreens.org/en/queer-o-rama/experimental-porn/a-flor-de-piel)
-- [https://gdac.org/en/queer-o-rama/experimental-porn/a-flor-de-piel](https://gdac.org/en/queer-o-rama/experimental-porn/a-flor-de-piel)
-- [https://sfpff.pinklabel.tv/sfpff23/](https://sfpff.pinklabel.tv/sfpff23/)
-- [https://www.kurzfilmspiele.de/2023/sexy-shorts](https://www.kurzfilmspiele.de/2023/sexy-shorts)
-- [https://www.schikaneder.at/kino/veranstaltung_detail?veranstaltung_id=1699004570704](https://www.schikaneder.at/kino/veranstaltung_detail?veranstaltung_id=1699004570704)
-- [https://eroticbizarreartfilmfestival.weebly.com/program-viii.html](https://eroticbizarreartfilmfestival.weebly.com/program-viii.html)
-- [https://www.kinomuza.pl/movie/troska-widzialnosci-artystyczne-strategie-postpornografii/](https://www.kinomuza.pl/movie/troska-widzialnosci-artystyczne-strategie-postpornografii/)
-- [https://www.30formiche.it/event/1746/hacker-porn-film-festival-day-3.html](https://www.30formiche.it/event/1746/hacker-porn-film-festival-day-3.html)
-- [https://www.westfalen-blatt.de/owl/kreis-paderborn/paderborn/paderporn-filmfestival-start-22-september-2822414?&npg](https://www.westfalen-blatt.de/owl/kreis-paderborn/paderborn/paderporn-filmfestival-start-22-september-2822414?&npg)
-- [https://www.cinema-aventure.be/catalogue/movie/?9038D773-CB7D-12E0-0893-E6989EBA8FBB](https://www.cinema-aventure.be/catalogue/movie/?9038D773-CB7D-12E0-0893-E6989EBA8FBB)
-- [https://www.nova-cinema.org/prog/2023/194-pink-screens/10-11/?lang=fr](https://www.nova-cinema.org/prog/2023/194-pink-screens/10-11/?lang=fr)
-- [https://luststreifen.com/programme/kurzfilmwettbewerb-gimme-porn/](https://luststreifen.com/programme/kurzfilmwettbewerb-gimme-porn/)
-- [https://www.secsfest.org/secs-fest/secs-fest-2023-films/](https://www.secsfest.org/secs-fest/secs-fest-2023-films/)
-- [https://www.secsfest.org/a-flor-de-piel/](https://www.secsfest.org/a-flor-de-piel/)
-- [https://pornfilmfestivalberlin.de/en/film-2023/lesbian-drama-shorts/](https://pornfilmfestivalberlin.de/en/film-2023/lesbian-drama-shorts/)
-- [https://sfpff.pinklabel.tv/films/](https://sfpff.pinklabel.tv/films/)
-- [https://pornfilmfestival.amsterdam/dayfour.html](https://pornfilmfestival.amsterdam/dayfour.html)
-- [https://www.uitkijk.nl/film/porn-film-festival-amsterdam-touching-touch](https://www.uitkijk.nl/film/porn-film-festival-amsterdam-touching-touch)
-- [https://www.nrc.nl/nieuws/2024/02/09/perverse-pracht-en-seksvampiers-het-eerste-amsterdamse-pornofestival-wil-de-kijker-uitdagen-laten-schrikken-veranderen-a4189698](https://www.nrc.nl/nieuws/2024/02/09/perverse-pracht-en-seksvampiers-het-eerste-amsterdamse-pornofestival-wil-de-kijker-uitdagen-laten-schrikken-veranderen-a4189698)
-- [https://www.folia.nl/nl/actueel/161082/uva-studenten-organiseren-eerste-porn-film-festival](https://www.folia.nl/nl/actueel/161082/uva-studenten-organiseren-eerste-porn-film-festival)
-- [https://athenspff.com/2024-2/outings24/aphrodisiac-nights-vol-2/sappho-shorts/](https://athenspff.com/2024-2/outings24/aphrodisiac-nights-vol-2/sappho-shorts/)
-- [https://grandillusioncinema.org/film/best-of-secs-fest-2023-short-films/](https://grandillusioncinema.org/film/best-of-secs-fest-2023-short-films/)
-- [https://kurzfilmtag.com/programme/fueled-by-fantasy-filme-aus-paderporn.html](https://kurzfilmtag.com/programme/fueled-by-fantasy-filme-aus-paderporn.html)
+<a href="https://pinkscreens.org/en/queer-o-rama/experimental-porn/a-flor-de-piel">Pink Screens – A flor de piel</a>
+<a href="https://gdac.org/en/queer-o-rama/experimental-porn/a-flor-de-piel">Genres d'à côté – A flor de piel</a>
+<a href="https://sfpff.pinklabel.tv/sfpff23/">San Francisco Porn Film Festival – 2023 Edition</a>
+<a href="https://www.kurzfilmspiele.de/2023/sexy-shorts">Kurzfilmspiele – Sexy Shorts 2023</a>
+<a href="https://www.schikaneder.at/kino/veranstaltung_detail?veranstaltung_id=1699004570704">Schikaneder Kino – Veranstaltung</a>
+<a href="https://eroticbizarreartfilmfestival.weebly.com/program-viii.html">Erotic Bizarre Art FF – Program VIII</a>
+<a href="https://www.kinomuza.pl/movie/troska-widzialnosci-artystyczne-strategie-postpornografii/">Kino Muza – Troska widzialnosci</a>
+<a href="https://www.30formiche.it/event/1746/hacker-porn-film-festival-day-3.html">30 Formiche – Hacker Porn FF Day 3</a>
+<a href="https://www.westfalen-blatt.de/owl/kreis-paderborn/paderborn/paderporn-filmfestival-start-22-september-2822414?&npg">Westfalen-Blatt – Paderporn Festival</a>
+<a href="https://www.cinema-aventure.be/catalogue/movie/?9038D773-CB7D-12E0-0893-E6989EBA8FBB">Cinema Aventure – Catalogue Entry</a>
+<a href="https://www.nova-cinema.org/prog/2023/194-pink-screens/10-11/?lang=fr">Nova Cinema – Pink Screens</a>
+<a href="https://luststreifen.com/programme/kurzfilmwettbewerb-gimme-porn/">Luststreifen – Gimme Porn</a>
+<a href="https://www.secsfest.org/secs-fest/secs-fest-2023-films/">SECS Fest – 2023 Films</a>
+<a href="https://www.secsfest.org/a-flor-de-piel/">SECS Fest – A flor de piel</a>
+<a href="https://pornfilmfestivalberlin.de/en/film-2023/lesbian-drama-shorts/">Pornfilmfestival Berlin – Lesbian Shorts</a>
+<a href="https://pornfilmfestival.amsterdam/dayfour.html">Porn FF Amsterdam – Day Four</a>
+<a href="https://www.uitkijk.nl/film/porn-film-festival-amsterdam-touching-touch">Uitkijk – Touching Touch</a>
+<a href="https://www.nrc.nl/nieuws/2024/02/09/perverse-pracht-en-seksvampiers-het-eerste-amsterdamse-pornofestival-wil-de-kijker-uitdagen-laten-schrikken-veranderen-a4189698">NRC – Amsterdamse Pornofestival</a>
+<a href="https://www.folia.nl/nl/actueel/161082/uva-studenten-organiseren-eerste-porn-film-festival">Folia – UVA Studenten Porn FF</a>
+<a href="https://athenspff.com/2024-2/outings24/aphrodisiac-nights-vol-2/sappho-shorts/">Athens PFF – Sappho Shorts</a>
+<a href="https://grandillusioncinema.org/film/best-of-secs-fest-2023-short-films/">Grand Illusion – Best of SECS Fest</a>
+<a href="https://kurzfilmtag.com/programme/fueled-by-fantasy-filme-aus-paderporn.html">Kurzfilmtag – Fueled by Fantasy</a>
