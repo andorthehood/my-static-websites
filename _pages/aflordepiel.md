@@ -14,14 +14,13 @@ location: 'Zandvoort, Netherlands'
 <p>Directed and produced by Andor Polgar (he/him) <a href="https://instagram.com/andortheinfluence">@andortheinfluence</a>; Cast: Sick Ducks (she/her) <a href="https://www.instagram.com/sick.ducks">@sick.ducks</a>, Ju GomA (they/them) <a href="https://www.instagram.com/who.ropes___ju">@who.ropes___ju</a>; Music and mixing: Andrew Visser (he/him) <a href="https://www.instagram.com/onevennn/">@onevennn</a></p>
 
 <p>🌿 Official Selection - Pornfilmfestival Berlin 2023
-🌿 Official Selection - San Francisco Porn Film Festival 2023
-🌿 Official Selection - Brussels Porn Film Festival 2023
-🌿 Official Selection - Porn Film Festival Vienna 2023
-🌿 Official Selection - Post Porn Film Festival Warsaw 2023
-🏅 Best of SECS fest - SECS Fest 2023
-🏅 Nominee - Lustreifen Film Festival Basel 2023
-🏆 Best Erotic Short Film - Erotic & Bizarre Art Film Festival 2022
-🏆 Best Erotic Short Film - Hallucinea Film Festival 2022</p>
+ 🌿 Official Selection - San Francisco Porn Film Festival 2023
+ 🌿 Official Selection - Brussels Porn Film Festival 2023
+ 🌿 Official Selection - Porn Film Festival Vienna 2023
+ 🌿 Official Selection - Post Porn Film Festival Warsaw 2023
+ 🏅 Best of SECS fest - SECS Fest 2023
+ 🏅 Nominee - Lustreifen Film Festival Basel 2023
+ 🏆 Best Erotic Short Film - Erotic & Bizarre Art Film Festival 2022</p>
 
 Screenings:<br />
 - <strong>16th of December 2022 20:00</strong> 🎦 OCHO Y MEDIO 📍 Plaza Sta. Teresa, 15, Alicante, Spain
