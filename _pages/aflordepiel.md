@@ -74,13 +74,13 @@ Screenings:<br />
 {% include candystore.liquid file:"20220412_22_ju_femke_hp5_dirty-1" title:"" %}
 {% include candystore.liquid file:"20220412_7_ju_femke_hp5_dirty-7" title:"" %}
 
-<p>Some technical details: the entire motion picture was shot on 30 rolls of Ilford HP5 Plus film, they were developed by hand in Ilford ID-11. Most of the rolls were push processed by 1 or 2 exposure values.</p>
+<p>Some technical details: I shot the entire film on 30 rolls of Ilford HP5 Plus film, I developed them by hand in ID-11. Most of the rolls were push processed by 1 or 2 exposure values.</p>
 
 <p>Lenses used: Zeiss ZM 50mm F/2.0 Planar T* and Zeiss ZM 35mm F/2.0 Biogon T*, Camera: Leica M6 TTL (1984).</p>
 
-<p>The frames were digitized by re-photographing them from the negatives using a Nikon D780 DSLR camera with a Sigma 105mm f/2.8 EX DG OS HSM macro lens.</p>
+<p>I digitized the frames by re-photographing them from the negatives using a Nikon D780 DSLR camera with a Sigma 105mm f/2.8 EX DG OS HSM macro lens.</p>
 
-<p>The individual frames were edited in Lightroom, and then stitched together with FFmpeg. The excessive amount of dust and dirt was transferred onto the film during the digitization process.</p>
+<p>I edited the individual frames in Lightroom, and then stitched together with FFmpeg. The dust and dirt was transferred onto the film during the digitization process.</p>
 
 Links:
 <ul>
