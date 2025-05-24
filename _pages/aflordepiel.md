@@ -5,6 +5,8 @@ date: 2022-10-28 19:00:00 -0100
 location: 'Zandvoort, Netherlands'
 ---
 
+{% include candystore.liquid file:"a_flor_de_piel_poster_white" title:"" %}
+
 <p>A Flor de Piel is an experimental post-porn short film, which was entirely shot using an analog 35mm rangefinder camera.</p>
 
 <p>The film's title is a Spanish idiom that literally means “like the flower of skin“. The expression refers to the outward display of one's emotions and is similar to the English phrase “wearing one&apos;s heart on one&apos;s sleeve“.</p>
