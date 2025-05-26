@@ -1,10 +1,11 @@
 use std::collections::hash_map::DefaultHasher;
 use std::fs::{self, File};
 use std::hash::Hasher;
-use std::io::{self, Read};
+use std::io::{Read};
 use std::path::Path;
+use crate::error::MyError;
 
-pub fn copy_file_with_versioning(source_path: &str, destination_dir: &str) -> io::Result<String> {
+pub fn copy_file_with_versioning(source_path: &str, destination_dir: &str) -> Result<String, MyError> {
     let source_path = Path::new(source_path);
     let destination_dir = Path::new(destination_dir);
 

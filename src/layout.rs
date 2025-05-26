@@ -1,10 +1,10 @@
 use std::fs;
-use std::io::Result;
 use std::path::Path;
+use crate::error::MyError;
 
 use crate::handlebars::replace_template_variable;
 
-pub fn load_layout(file: &str) -> Result<String> {
+pub fn load_layout(file: &str) -> Result<String, MyError> {
     let file_path = Path::new(file);
     let content = fs::read_to_string(file_path)?;
     Ok(content)

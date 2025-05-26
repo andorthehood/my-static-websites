@@ -1,12 +1,12 @@
 use std::collections::HashMap;
-use std::io::Result;
+use crate::error::MyError;
 
 use crate::{
     handlebars::{remove_handlebars_variables, replace_template_variables},
     layout::insert_body_into_layout,
     liquid::{_if::process_liquid_conditional_tags, include::process_liquid_includes},
     markdown::markdown_to_html,
-    write::write_html_to_file,
+    write::write_html_to_file, // This now returns Result<(), MyError>
 };
 
 fn process_template_tags(input: &str, variables: &HashMap<String, String>) -> String {
@@ -25,10 +25,10 @@ fn render_page(
     layout: &str,
     includes: &HashMap<String, String>,
     variables: &HashMap<String, String>,
-) -> Result<()> {
+) -> Result<(), MyError> {
     let mut html = markdown_to_html(&body);
     let file_name = directory.to_string() + &slug + ".html";
-    html = process_liquid_includes(&html, &includes);
+    html = process_liquid_includes(&html, &includes); // This function takes HashMap, review if it needs error handling
     html = insert_body_into_layout(&layout, &html);
     html = process_template_tags(&html, &variables);
     write_html_to_file(&file_name, &html)?;
@@ -41,7 +41,8 @@ pub fn generate_pagination_pages(
     includes: &HashMap<String, String>,
     main_layout: &String,
     global_variables: &HashMap<String, String>,
-) {
+    config: &crate::config::Config,
+) -> Result<(), MyError> {
     let post_chunks: Vec<Vec<HashMap<String, String>>> = posts
         .chunks(posts_per_page)
         .map(|chunk| chunk.to_vec())
@@ -55,6 +56,8 @@ pub fn generate_pagination_pages(
                 &includes
                     .get("post.liquid")
                     .cloned()
+                    // Consider how to handle missing "post.liquid". For now, an empty string is used.
+                    // This could be a place to return an error if "post.liquid" is essential.
                     .unwrap_or_else(String::new),
                 &post,
             ));
@@ -91,15 +94,21 @@ pub fn generate_pagination_pages(
 
         let slug = format!("page{}", index + 1);
 
-        if let Err(e) = render_page(
+        // Ensure output directory ends with a slash for render_page path concatenation
+        let output_dir_str = if config.output_dir.ends_with('/') {
+            config.output_dir.clone()
+        } else {
+            format!("{}/", config.output_dir)
+        };
+
+        render_page(
             &html,
-            "out/",
+            &output_dir_str,
             &slug,
             &main_layout,
             &includes,
             &global_variables,
-        ) {
-            eprintln!("Error rendering page {}: {}", slug, e);
-        }
+        )?;
     }
+    Ok(())
 }

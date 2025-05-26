@@ -1,0 +1,11 @@
+posts_dir = "_posts"
+pages_dir = "_pages"
+includes_dir = "_includes"
+layouts_dir = "_layouts"
+output_dir = "out"
+style_path = "style.css"
+static_dir = "static" # Adding a new directory for general static files, style.css could be moved here.
+# output_static_dir will be a subdirectory within output_dir, e.g., "out/static"
+output_static_dir_name = "static" # Name of the static directory within the output folder.
+content_image_dir_name = "images" # Name of the image directory within the content folder.
+output_image_dir_name = "images" # Name of the image directory within the output folder.

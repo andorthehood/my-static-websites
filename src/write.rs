@@ -1,8 +1,9 @@
 use std::fs::{self, File};
-use std::io::{self, Write};
+use std::io::{Write};
 use std::path::Path;
+use crate::error::MyError;
 
-pub fn write_html_to_file(path: &str, content: &str) -> io::Result<()> {
+pub fn write_html_to_file(path: &str, content: &str) -> Result<(), MyError> {
     let path = Path::new(path);
 
     if let Some(dir) = path.parent() {

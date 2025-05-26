@@ -10,13 +10,15 @@ mod markdown_with_front_matter;
 mod write;
 mod server;
 mod liquid;
+mod error;
+mod config;
 use generate::generate;
 use std::env;
-use std::io::Result;
 use server::listen;
+use error::MyError;
 mod generate_pagination_pages;
 
-fn main() -> Result<()> {
+fn main() -> Result<(), MyError> {
     let args: Vec<String> = env::args().collect();
 
     if args.len() > 1 {
@@ -25,7 +27,7 @@ fn main() -> Result<()> {
                 generate()?;
             }
             "serve" => {
-                listen();
+                listen()?;
             }
             _ => println!("Unknown command. Use 'generate' or 'serve'."),
         }
