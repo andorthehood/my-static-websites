@@ -61,7 +61,7 @@ pub fn generate_pagination_pages(
         }
 
         // Generate pagination links
-        html.push_str("<ul class=\"pagination\">");
+        html.push_str("<p>This site uses classic pagination on purpose to help you stop when you want to. Doomscrolling not included.</p><ul class=\"pagination\">");
         if index > 0 {
             html.push_str(&format!(
                 "<li><a href=\"/page{}\">🔙 Previous page</a>,&nbsp;</li>",
