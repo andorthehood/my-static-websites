@@ -41,16 +41,16 @@ fn render_page(
     Ok(())
 }
 
-pub fn generate() -> Result<()> {
+pub fn generate(site_name: &str) -> Result<()> {
     // Get the current system time
     let now = SystemTime::now();
     let duration_since_epoch = now.duration_since(UNIX_EPOCH).expect("Time went backwards");
     let generated_date = duration_since_epoch.as_secs().to_string();
 
-    let css_file_name = copy_file_with_versioning("./sites/lepkef.ing/style.css", "./out/")?;
-    let posts = load_and_parse_markdown_files_with_front_matter_in_directory("./sites/lepkef.ing/posts")?;
-    let pages = load_and_parse_markdown_files_with_front_matter_in_directory("./sites/lepkef.ing/pages")?;
-    let includes = load_liquid_includes("./sites/lepkef.ing/includes");
+    let css_file_name = copy_file_with_versioning(&format!("./sites/{}/style.css", site_name), "./out/")?;
+    let posts = load_and_parse_markdown_files_with_front_matter_in_directory(&format!("./sites/{}/posts", site_name))?;
+    let pages = load_and_parse_markdown_files_with_front_matter_in_directory(&format!("./sites/{}/pages", site_name))?;
+    let includes = load_liquid_includes(&format!("./sites/{}/includes", site_name));
 
     let mut global_variables = HashMap::new();
     global_variables.insert(
@@ -58,7 +58,7 @@ pub fn generate() -> Result<()> {
         "Andor Polgar's Visual Journal".to_string(),
     );
 
-    let main_layout_template = load_layout("./sites/lepkef.ing/layouts/main.html")?;
+    let main_layout_template = load_layout(&format!("./sites/{}/layouts/main.html", site_name))?;
     let mut main_layout_variables = HashMap::new();
     main_layout_variables.insert("css_file_name".to_string(), css_file_name);
     main_layout_variables.insert("generated_date".to_string(), generated_date);

@@ -22,15 +22,22 @@ fn main() -> Result<()> {
     if args.len() > 1 {
         match args[1].as_str() {
             "generate" => {
-                generate()?;
+                if args.len() < 3 {
+                    eprintln!("Error: Site name is required for generate command.");
+                    eprintln!("Usage: {} generate <site_name>", args[0]);
+                    eprintln!("Example: {} generate lepkef.ing", args[0]);
+                    std::process::exit(1);
+                }
+                let site_name = &args[2];
+                generate(site_name)?;
             }
             "serve" => {
                 listen();
             }
-            _ => println!("Unknown command. Use 'generate' or 'serve'."),
+            _ => println!("Unknown command. Use 'generate <site_name>' or 'serve'."),
         }
     } else {
-        println!("No command provided. Use 'generate' or 'serve'.");
+        println!("No command provided. Use 'generate <site_name>' or 'serve'.");
     }
 
     Ok(())
