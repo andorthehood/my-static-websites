@@ -3,10 +3,21 @@ source: src/load_includes.rs
 expression: templates_json
 ---
 {
-  "candystore.liquid": "<a href=\"https://static.llllllllllll.com/andor/images/{{ file }}_original.jpg\"><img src=\"https://static.llllllllllll.com/andor/images/{{ file }}.jpg\" alt=\"{{ title }}\" title=\"{{ title }}\" loading=\"lazy\" /></a>\n",
+  "2015.liquid": "<pre>C:\\>list_posts_2015.bat\n\n</pre>",
+  "2016.liquid": "<pre>C:\\>list_posts_2016.bat\n\n</pre>",
+  "2017.liquid": "<pre>#include \"list_posts_2017.HC\";\n\n</pre>",
+  "2018.liquid": "<pre>System.Do list_posts_2018\n\n</pre>",
+  "2019.liquid": "<pre>; run list_posts_2019.dis\n\n</pre>",
+  "2020.liquid": "<pre>$ ./list_posts_2020.sh\n\n</pre>",
+  "2021.liquid": "<pre>/> run list_posts_2021\n\n</pre>",
+  "2022.liquid": "<pre>1> Execute list_posts_2022.script\n\n</pre>",
+  "2023.liquid": "<p>🤫 Shh! If you're looking for the classic blog layout, you can start from <a href=\"/page1\">this page</a>, but be warned, some posts are intended for mature audiences only. (The ones with the 🔞 emoji)</p>\n<pre>[C:\\] list_posts_2023.cmd\n\n</pre>",
+  "2024.liquid": "<pre>C:\\>list_posts_2024.bat\n\n</pre>",
+  "2025.liquid": "<pre>C:\\>list_posts_2025.bat\n\n</pre>",
+  "candystore.liquid": "<p><a href=\"https://static.llllllllllll.com/andor/images/{{ file }}_original.jpg\"><img src=\"https://static.llllllllllll.com/andor/images/{{ file }}.jpg\" alt=\"{{ title }}\" title=\"{{ title }}\" loading=\"lazy\" onload=\"this.classList.add('loaded');\" /></a></p>\n",
   "list_item.liquid": "<li><a href=\"/posts/{{slug}}\">{{title}} {{emojis}}</a></li>",
-  "post.liquid": "<article><a href=\"/posts/{{slug}}\"><h2>{{title}} {{emojis}}</h2></a>{{content}}</article>",
+  "post.liquid": "<article><h2><a href=\"/posts/{{slug}}\">{{title}}</a></h2>{{content}} \n<p>For Nerds: {% if film %}🎞️ Film: {{film}}, {% endif %}\n{% if lens %}🔎 Lens: {{lens}}, {% endif %}\n{% if flash %}⚡ Flash: Contax TLA 140, {% endif %}\n{% if camera %}📷 Camera: {{camera}}, {% endif %} \n{% if scan %}🖨️ {{scan}}{% endif %}</p>\n</article>",
   "video.liquid": "<div class=\"video-container-container\">\n    <video width=\"100%\" controls preload=\"metadata\">\n        <source src=\"https://static.llllllllllll.com/andor/videos/{{id}}\" type=\"video/mp4\">\n    </video>\n</div>",
   "vimeo.liquid": "<div class=\"video-container-container\">\n\t<div class=\"video-container video-container-16-9\">\n\t\t<iframe src=\"https://player.vimeo.com/video/{{id}}\" frameborder=\"0\" allowfullscreen></iframe>\n\t</div>\n</div>",
-  "youtube.liquid": "<div class=\"video-container video-container-16-9\">\n\t<iframe src=\"https://www.youtube-nocookie.com/embed/{{id}}\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n</div>"
+  "youtube.liquid": "<p><div class=\"video-container video-container-16-9\">\n\t<iframe src=\"https://www.youtube-nocookie.com/embed/{{ id }}\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>\n</div></p>"
 }
