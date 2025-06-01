@@ -11,7 +11,7 @@ pub fn copy_file_with_versioning(source_path: &str, destination_dir: &str) -> io
     // Ensure the destination directory exists
     fs::create_dir_all(destination_dir)?;
 
-    // Read the contents of the source file
+    // Read the contents of the source file for hashing
     let mut file = File::open(source_path)?;
     let mut contents = Vec::new();
     file.read_to_end(&mut contents)?;
@@ -26,10 +26,9 @@ pub fn copy_file_with_versioning(source_path: &str, destination_dir: &str) -> io
     let extension = source_path.extension().and_then(|ext| ext.to_str()).unwrap_or_default();
     let new_file_name = format!("{}-{:x}.{}", file_stem, hash, extension);
 
-    let destination_path = destination_dir.join(new_file_name.clone());
+    let destination_path = destination_dir.join(&new_file_name);
 
-    // Copy the file to the new destination
-    fs::write(&destination_path, contents)?;
+    fs::copy(source_path, &destination_path)?;
 
     Ok(new_file_name)
 }
