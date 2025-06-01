@@ -1,0 +1,6 @@
+---
+source: src/load_includes.rs
+assertion_line: 38
+expression: templates_json
+---
+{}

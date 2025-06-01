@@ -2,13 +2,11 @@ use std::collections::HashMap;
 
 /// Removes surrounding single or double quotes from a string.
 fn trim_quotes(s: &str) -> String {
-    if (s.starts_with('\'') && s.ends_with('\'') || s.starts_with('"') && s.ends_with('"'))
-        && s.len() > 1
-    {
-        s[1..s.len() - 1].to_string()
-    } else {
-        s.to_string()
-    }
+    s.strip_prefix('\'')
+        .and_then(|s| s.strip_suffix('\''))
+        .or_else(|| s.strip_prefix('"').and_then(|s| s.strip_suffix('"')))
+        .map(|s| s.to_string())
+        .unwrap_or_else(|| s.to_string())
 }
 
 /// Parses the front matter of a document into a HashMap.
@@ -40,6 +38,53 @@ pub fn extract_front_matter(markdown: &str) -> Option<&str> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn test_trim_quotes_single_quotes() {
+        assert_eq!(trim_quotes("'hello world'"), "hello world");
+        assert_eq!(trim_quotes("'a'"), "a");
+        assert_eq!(trim_quotes("''"), "");
+    }
+
+    #[test]
+    fn test_trim_quotes_double_quotes() {
+        assert_eq!(trim_quotes("\"hello world\""), "hello world");
+        assert_eq!(trim_quotes("\"a\""), "a");
+        assert_eq!(trim_quotes("\"\""), "");
+    }
+
+    #[test]
+    fn test_trim_quotes_no_quotes() {
+        assert_eq!(trim_quotes("hello world"), "hello world");
+        assert_eq!(trim_quotes("a"), "a");
+        assert_eq!(trim_quotes(""), "");
+    }
+
+    #[test]
+    fn test_trim_quotes_mismatched_quotes() {
+        assert_eq!(trim_quotes("'hello world\""), "'hello world\"");
+        assert_eq!(trim_quotes("\"hello world'"), "\"hello world'");
+    }
+
+    #[test]
+    fn test_trim_quotes_partial_quotes() {
+        assert_eq!(trim_quotes("'hello world"), "'hello world");
+        assert_eq!(trim_quotes("hello world'"), "hello world'");
+        assert_eq!(trim_quotes("\"hello world"), "\"hello world");
+        assert_eq!(trim_quotes("hello world\""), "hello world\"");
+    }
+
+    #[test]
+    fn test_trim_quotes_nested_quotes() {
+        assert_eq!(trim_quotes("'\"hello world\"'"), "\"hello world\"");
+        assert_eq!(trim_quotes("\"'hello world'\""), "'hello world'");
+    }
+
+    #[test]
+    fn test_trim_quotes_special_characters() {
+        assert_eq!(trim_quotes("'hello: world, test!'"), "hello: world, test!");
+        assert_eq!(trim_quotes("\"path/to/file.txt\""), "path/to/file.txt");
+    }
 
     #[test]
     fn test_parse_front_matter_success() {
