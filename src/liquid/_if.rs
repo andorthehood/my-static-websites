@@ -1,40 +1,87 @@
-pub fn process_liquid_conditional_tags(input: &str, conditions: &[String]) -> String {
+/// Represents a conditional tag in the template
+#[derive(Debug)]
+struct ConditionalTag {
+    /// Start position of the entire tag in the template
+    start: usize,
+    /// End position of the entire tag in the template
+    end: usize,
+    /// The condition being checked (e.g., "something" in {% if something %})
+    condition: String,
+    /// The content inside the if block
+    content: String,
+}
+
+/// Finds and parses a conditional tag starting at the given position
+fn find_conditional_tag(template: &str, start_pos: usize) -> Option<ConditionalTag> {
     const IF_TAG_START: &str = "{% if ";
     const IF_TAG_END: &str = "%}";
     const ENDIF_TAG: &str = "{% endif %}";
-    const IF_TAG_START_LEN: usize = IF_TAG_START.len();
-    const ENDIF_TAG_LEN: usize = ENDIF_TAG.len();
 
-    let mut result = input.to_string();
-    let mut start = 0;
+    // Find the start of the if tag
+    let tag_start = template[start_pos..].find(IF_TAG_START)
+        .map(|pos| start_pos + pos)?;
+
+    // Find the end of the entire if block
+    let tag_end = template[tag_start..].find(ENDIF_TAG)
+        .map(|pos| tag_start + pos + ENDIF_TAG.len())?;
+
+    // Extract the tag content
+    let tag_content = &template[tag_start..tag_end];
+
+    // Find where the condition ends
+    let condition_end = tag_content.find(IF_TAG_END)?;
+    
+    // Extract and trim the condition
+    let condition = tag_content[IF_TAG_START.len()..condition_end].trim().to_string();
+    
+    // Extract the content between the if and endif tags
+    let content_start = tag_start + condition_end + IF_TAG_END.len();
+    let content_end = tag_end - ENDIF_TAG.len();
+    let content = template[content_start..content_end].to_string();
+
+    Some(ConditionalTag {
+        start: tag_start,
+        end: tag_end,
+        condition,
+        content,
+    })
+}
+
+/// Processes Liquid conditional tags in a template string.
+/// 
+/// This function handles {% if condition %}content{% endif %} tags by:
+/// - Keeping the content if the condition is in the provided conditions list
+/// - Removing the entire tag if the condition is not in the list
+/// 
+/// # Arguments
+/// * `template` - The template string containing conditional tags
+/// * `conditions` - List of condition names that should evaluate to true
+/// 
+/// # Returns
+/// The processed template with conditional tags evaluated
+pub fn process_liquid_conditional_tags(template: &str, conditions: &[String]) -> String {
+    let mut result = template.to_string();
+    let mut current_pos = 0;
     let mut replacements = Vec::new();
 
-    while let Some(start_index) = result[start..].find(IF_TAG_START) {
-        let tag_start = start + start_index;
-        let end_index = match result[tag_start..].find(ENDIF_TAG) {
-            Some(index) => tag_start + index + ENDIF_TAG_LEN,
-            None => break,
-        };
-        let tag_content = &result[tag_start..end_index];
-        if let Some(condition_end) = tag_content.find(IF_TAG_END) {
-            let condition = &tag_content[IF_TAG_START_LEN..condition_end].trim();
-            if conditions.contains(&condition.to_string()) {
-                // Collect the range to replace with just the content inside
-                let content_start = tag_start + condition_end + IF_TAG_END.len();
-                let content_end = end_index - ENDIF_TAG_LEN;
-                let content = &result[content_start..content_end];
-                replacements.push((tag_start, end_index, content.to_string()));
-            } else {
-                // Collect the range to remove
-                replacements.push((tag_start, end_index, "".to_string()));
-            }
-        }
-
-        // Move start to the end of the current tag to avoid overlapping replacements
-        start = end_index;
+    // Early return for empty template or no conditions to process
+    if template.is_empty() {
+        return result;
     }
 
-    // Perform the replacements
+    // Find and process all conditional tags
+    while let Some(tag) = find_conditional_tag(&result, current_pos) {
+        let replacement = if conditions.contains(&tag.condition) {
+            tag.content
+        } else {
+            String::new()
+        };
+        
+        replacements.push((tag.start, tag.end, replacement));
+        current_pos = tag.end;
+    }
+
+    // Apply replacements in reverse order to maintain correct positions
     for (start, end, replacement) in replacements.iter().rev() {
         result.replace_range(*start..*end, replacement);
     }
@@ -80,5 +127,13 @@ mod tests {
         let expected_output = "lorem ipsum dolor sit amet and some other text this should stay";
         let output = process_liquid_conditional_tags(input, &conditions);
         assert_eq!(output, expected_output);
+    }
+
+    #[test]
+    fn test_empty_template() {
+        let input = "";
+        let conditions = vec!["something".to_string()];
+        let output = process_liquid_conditional_tags(input, &conditions);
+        assert_eq!(output, "");
     }
 }
