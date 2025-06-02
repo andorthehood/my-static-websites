@@ -3,8 +3,6 @@ use std::io;
 
 #[derive(Debug)]
 pub enum Error {
-    /// Error that occurs during template processing
-    Template(String),
     /// IO operation error
     Io(io::Error),
     /// Error that occurs during handlebars processing
@@ -14,7 +12,6 @@ pub enum Error {
 impl fmt::Display for Error {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            Error::Template(msg) => write!(f, "Template error: {}", msg),
             Error::Io(err) => write!(f, "IO error: {}", err),
             Error::Handlebars(msg) => write!(f, "Handlebars error: {}", msg),
         }

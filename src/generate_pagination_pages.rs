@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 use crate::{
-    error::{Error, Result},
+    error::Result,
     handlebars::{remove_handlebars_variables, replace_template_variables},
     layout::insert_body_into_layout,
     liquid::{_if::process_liquid_conditional_tags, include::process_liquid_includes},

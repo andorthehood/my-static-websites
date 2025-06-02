@@ -11,7 +11,7 @@ use crate::liquid::include::process_liquid_includes;
 use crate::load_includes::load_liquid_includes;
 use crate::markdown::markdown_to_html;
 use crate::write::write_html_to_file;
-use crate::error::{Error, Result};
+use crate::error::Result;
 use std::collections::HashMap;
 use std::time::{SystemTime, UNIX_EPOCH};
 
