@@ -1,0 +1,21 @@
+---
+source: src/generate.rs
+expression: "read_file_content(\"out/index.html\")"
+---
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Andor Polgar's Visual Journal</title>
+    <link rel="stylesheet" href="/style-38eadec83dd645fa.css">
+</head>
+<body>
+    <div class="content">
+        <p>Hi there! 👋 My name is Andor Polgar. This is my personal website. Here, you'll find my photography projects and random snapshots from my life.</p><ul class="postlist">
+<ul class="postlist">
+<li><a href="/posts/test-post">Test Post</a></li> </ul>
+</ul>
+    </div>
+    <footer>Test Site Footer</footer>
+</body>
+</html>

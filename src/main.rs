@@ -1,22 +1,22 @@
+mod error;
 mod file_copier;
 mod file_readers;
 mod front_matter;
 mod generate;
+mod generate_pagination_pages;
 mod handlebars;
 mod layout;
+mod liquid;
 mod load_includes;
 mod markdown;
 mod markdown_with_front_matter;
-mod write;
 mod server;
-mod liquid;
-mod error;
+mod write;
 
 use generate::generate;
 use std::env;
 use error::Result;
 use server::listen;
-mod generate_pagination_pages;
 
 fn main() -> Result<()> {
     let args: Vec<String> = env::args().collect();

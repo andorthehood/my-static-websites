@@ -219,3 +219,49 @@ pub fn generate(site_name: &str) -> Result<()> {
 
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::fs;
+    use std::path::Path;
+    use insta::assert_snapshot;
+
+    fn clean_output_directory() {
+        let _ = fs::remove_dir_all("out");
+    }
+
+    fn read_file_content(path: &str) -> String {
+        fs::read_to_string(path).unwrap_or_else(|_| String::new())
+    }
+
+    #[test]
+    fn test_site_generation() {
+        clean_output_directory();
+        
+        // Create out directory
+        fs::create_dir_all("out").expect("Failed to create out directory");
+        
+        // Generate the test site
+        generate("test").expect("Failed to generate test site");
+
+        // Check if files exist
+        let html_files = vec![
+            "out/index.html",
+            "out/about.html",
+            "out/posts/test-post.html",
+        ];
+
+        for file in &html_files {
+            assert!(Path::new(file).exists(), "File {} does not exist", file);
+        }
+
+        // Take snapshots of the generated files
+        assert_snapshot!("index_html", read_file_content("out/index.html"));
+        assert_snapshot!("post_html", read_file_content("out/posts/test-post.html"));
+        assert_snapshot!("about_html", read_file_content("out/about.html"));
+        assert_snapshot!("style_css", read_file_content("out/style-d41d8cd98f00b204e9800998ecf8427e.css"));
+
+        clean_output_directory();
+    }
+}
