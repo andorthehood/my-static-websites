@@ -10,9 +10,11 @@ mod markdown_with_front_matter;
 mod write;
 mod server;
 mod liquid;
+mod error;
+
 use generate::generate;
 use std::env;
-use std::io::Result;
+use error::Result;
 use server::listen;
 mod generate_pagination_pages;
 

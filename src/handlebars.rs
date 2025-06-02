@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+use crate::error::{Error, Result};
 
 pub fn replace_template_variable(template: &str, key: &str, value: &str) -> String {
     let mut result = template.to_string();
@@ -22,45 +23,54 @@ pub fn replace_template_variables(template: &str, variables: &HashMap<String, St
     result
 }
 
-pub fn remove_handlebars_variables(input: &str) -> String {
-    let mut result = String::new();
+/// Removes Handlebars variables from the input string.
+/// This function will remove any content between {{ and }} including the braces.
+/// 
+/// # Arguments
+/// * `input` - The input string containing Handlebars variables
+/// 
+/// # Returns
+/// * `Result<String>` - The string with variables removed or an error if malformed
+pub fn remove_handlebars_variables(input: &str) -> Result<String> {
+    let mut result = String::with_capacity(input.len());
+    let mut chars = input.chars().peekable();
     let mut in_variable = false;
-    let mut skip_next = false;
-
-    let chars: Vec<char> = input.chars().collect();
-    let mut i = 0;
-    while i < chars.len() {
-        if skip_next {
-            skip_next = false;
-            i += 1;
-            continue;
-        }
-
-        if i < chars.len() - 1 && chars[i] == '{' && chars[i + 1] == '{' {
+    
+    while let Some(current) = chars.next() {
+        if current == '{' && chars.peek() == Some(&'{') {
+            if in_variable {
+                return Err(Error::Handlebars("Nested opening braces '{{' found inside a variable".to_string()));
+            }
             in_variable = true;
-            i += 2; // Skip the '{{'
-            while i < chars.len() && chars[i] == ' ' {
-                i += 1;
+            // Skip the second '{'
+            chars.next();
+            
+            // Skip whitespace after '{{'
+            while let Some(&c) = chars.peek() {
+                if !c.is_whitespace() {
+                    break;
+                }
+                chars.next();
             }
             continue;
         }
-
-        if in_variable && i < chars.len() - 1 && chars[i] == '}' && chars[i + 1] == '}' {
-            in_variable = false;
-            i += 2; // Skip the '}}'
-            continue;
+        
+        if in_variable {
+            if current == '}' && chars.peek() == Some(&'}') {
+                in_variable = false;
+                chars.next(); // Skip the second '}'
+                continue;
+            }
+        } else {
+            result.push(current);
         }
-
-        if !in_variable {
-            result.push(chars[i]);
-        } else if chars[i] == '}' && i < chars.len() - 1 && chars[i + 1] == '}' {
-            skip_next = true;
-        }
-
-        i += 1;
     }
-
-    result
+    
+    if in_variable {
+        return Err(Error::Handlebars("Unclosed Handlebars variable".to_string()));
+    }
+    
+    Ok(result)
 }
 
 #[cfg(test)]
@@ -94,7 +104,48 @@ mod tests {
     #[test]
     fn test_remove_handlebars_variables() {
         let template = "Lorem ipsum {{foo}} dolor {{ bar }} sit amet.";
-        let result = remove_handlebars_variables(template);
+        let result = remove_handlebars_variables(template).unwrap();
         assert_eq!(result, "Lorem ipsum  dolor  sit amet.");
+    }
+
+    #[test]
+    fn test_remove_handlebars_variables_with_error() {
+        let template = "Lorem ipsum {{foo dolor {{ bar }} sit amet.";
+        let err = remove_handlebars_variables(template).unwrap_err();
+        assert!(matches!(err, Error::Handlebars(_)));
+        if let Error::Handlebars(msg) = err {
+            assert!(msg.contains("Nested opening braces"), "Error message should mention nested braces");
+        }
+    }
+
+    #[test]
+    fn test_nested_variables() {
+        let template = "Hello {{user.name}} and {{deeply.nested.value}}!";
+        let result = remove_handlebars_variables(template).unwrap();
+        assert_eq!(result, "Hello  and !");
+    }
+
+    #[test]
+    fn test_empty_template() {
+        let template = "";
+        let result = remove_handlebars_variables(template).unwrap();
+        assert_eq!(result, "");
+    }
+
+    #[test]
+    fn test_whitespace_handling() {
+        let template = "Hello {{  spaced  }} world";
+        let result = remove_handlebars_variables(template).unwrap();
+        assert_eq!(result, "Hello  world");
+    }
+
+    #[test]
+    fn test_unclosed_variable() {
+        let template = "Hello {{name";
+        let err = remove_handlebars_variables(template).unwrap_err();
+        assert!(matches!(err, Error::Handlebars(_)));
+        if let Error::Handlebars(msg) = err {
+            assert!(msg.contains("Unclosed"), "Error message should mention unclosed variable");
+        }
     }
 }

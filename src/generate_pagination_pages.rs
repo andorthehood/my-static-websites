@@ -1,7 +1,7 @@
 use std::collections::HashMap;
-use std::io::Result;
 
 use crate::{
+    error::{Error, Result},
     handlebars::{remove_handlebars_variables, replace_template_variables},
     layout::insert_body_into_layout,
     liquid::{_if::process_liquid_conditional_tags, include::process_liquid_includes},
@@ -9,13 +9,13 @@ use crate::{
     write::write_html_to_file,
 };
 
-fn process_template_tags(input: &str, variables: &HashMap<String, String>) -> String {
+fn process_template_tags(input: &str, variables: &HashMap<String, String>) -> Result<String> {
     let mut result = input.to_string();
     let keys: Vec<String> = variables.keys().cloned().collect();
     result = process_liquid_conditional_tags(&result, &keys);
     result = replace_template_variables(&result, &variables);
-    result = remove_handlebars_variables(&result);
-    result
+    result = remove_handlebars_variables(&result)?;
+    Ok(result)
 }
 
 fn render_page(
@@ -30,7 +30,7 @@ fn render_page(
     let file_name = directory.to_string() + &slug + ".html";
     html = process_liquid_includes(&html, &includes);
     html = insert_body_into_layout(&layout, &html);
-    html = process_template_tags(&html, &variables);
+    html = process_template_tags(&html, &variables)?;
     write_html_to_file(&file_name, &html)?;
     Ok(())
 }
@@ -51,13 +51,16 @@ pub fn generate_pagination_pages(
         let mut html = String::new();
         html.push_str("<div class=\"postlist\">\n");
         for post in chunk {
-            html.push_str(&process_template_tags(
+            match process_template_tags(
                 &includes
                     .get("post.liquid")
                     .cloned()
                     .unwrap_or_else(String::new),
                 &post,
-            ));
+            ) {
+                Ok(post_html) => html.push_str(&post_html),
+                Err(e) => eprintln!("Error processing template for post: {}", e),
+            }
         }
 
         // Generate pagination links

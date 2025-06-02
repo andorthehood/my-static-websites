@@ -11,17 +11,17 @@ use crate::liquid::include::process_liquid_includes;
 use crate::load_includes::load_liquid_includes;
 use crate::markdown::markdown_to_html;
 use crate::write::write_html_to_file;
+use crate::error::{Error, Result};
 use std::collections::HashMap;
-use std::io::Result;
 use std::time::{SystemTime, UNIX_EPOCH};
 
-fn process_template_tags(input: &str, variables: &HashMap<String, String>) -> String {
+fn process_template_tags(input: &str, variables: &HashMap<String, String>) -> Result<String> {
     let mut result = input.to_string();
     let keys: Vec<String> = variables.keys().cloned().collect();
     result = process_liquid_conditional_tags(&result, &keys);
     result = replace_template_variables(&result, &variables);
-    result = remove_handlebars_variables(&result);
-    result
+    result = remove_handlebars_variables(&result)?;
+    Ok(result)
 }
 
 fn render_page(
@@ -36,7 +36,7 @@ fn render_page(
     let file_name = directory.to_string() + &slug + ".html";
     html = process_liquid_includes(&html, &includes);
     html = insert_body_into_layout(&layout, &html);
-    html = process_template_tags(&html, &variables);
+    html = process_template_tags(&html, &variables)?;
     write_html_to_file(&file_name, &html)?;
     Ok(())
 }
@@ -101,7 +101,7 @@ pub fn generate(site_name: &str) -> Result<()> {
             );
             html_list.push_str("<ul class=\"postlist\">\n");
             for post in posts {
-                html_list.push_str(&process_template_tags(&list_item_template, &post));
+                html_list.push_str(&process_template_tags(&list_item_template, &post)?);
             }
             html_list.push_str("</ul>\n");
         }
@@ -110,7 +110,7 @@ pub fn generate(site_name: &str) -> Result<()> {
     html_list.push_str("</ul>");
     let mut html = insert_body_into_layout(&main_layout, &html_list);
     html = replace_template_variable(&html, "title", "Andor Polgar's Visual Journal");
-    html = remove_handlebars_variables(&html);
+    html = remove_handlebars_variables(&html)?;
     write_html_to_file(&"out/index.html", &html)?;
 
     // Generate posts
@@ -136,7 +136,7 @@ pub fn generate(site_name: &str) -> Result<()> {
                 .cloned()
                 .unwrap_or_else(String::new),
             &post,
-        );
+        )?;
 
         render_page(
             &post_html,
