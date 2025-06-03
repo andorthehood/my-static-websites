@@ -4,7 +4,10 @@ use std::collections::HashMap;
 pub fn parse_liquid_include_tag(tag: &str) -> Option<(String, HashMap<String, String>)> {
     let parts: Vec<&str> = tag.trim().split_whitespace().collect();
 
-    if parts.len() < 2 || !parts[0].starts_with("{%") || !parts.last().unwrap().ends_with("%}") {
+    if parts.len() < 4
+        || !parts.first().map(|p| p.starts_with("{%")).unwrap_or(false)
+        || !parts.last().map(|p| p.ends_with("%}")).unwrap_or(false)
+    {
         return None;
     }
 
@@ -81,6 +84,13 @@ mod tests {
     fn test_malformed_liquid_include_tag() {
         let malformed_tag = "{ this is not a valid tag }";
         assert!(parse_liquid_include_tag(malformed_tag).is_none());
+    }
+
+    #[test]
+    fn test_too_short_tag() {
+        // Missing template name
+        let short_tag = "{% include %}";
+        assert!(parse_liquid_include_tag(short_tag).is_none());
     }
 
     #[test]
