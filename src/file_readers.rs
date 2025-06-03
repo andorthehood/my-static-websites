@@ -37,3 +37,16 @@ pub fn load_and_parse_markdown_files_with_front_matter_in_directory(
 
     Ok(results)
 }
+
+pub fn load_site_config(site_name: &str) -> Result<HashMap<String, String>> {
+    let config_path_str = format!("./sites/{}/config.md", site_name);
+    let config_path = Path::new(&config_path_str);
+    if config_path.exists() {
+        load_and_parse_markdown_file_with_front_matter(&config_path)
+    } else {
+        // Return default configuration if no config file exists
+        let mut default_config = HashMap::new();
+        default_config.insert("title".to_string(), String::new());
+        Ok(default_config)
+    }
+}

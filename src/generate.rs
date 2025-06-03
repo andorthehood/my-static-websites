@@ -1,5 +1,5 @@
 use crate::file_copier::copy_file_with_versioning;
-use crate::file_readers::load_and_parse_markdown_files_with_front_matter_in_directory;
+use crate::file_readers::{load_and_parse_markdown_files_with_front_matter_in_directory, load_site_config};
 use crate::generate_pagination_pages::generate_pagination_pages;
 use crate::handlebars::remove_handlebars_variables;
 use crate::handlebars::replace_template_variable;
@@ -45,6 +45,7 @@ fn generate_index_page(
     posts: &Vec<HashMap<String, String>>,
     includes: &HashMap<String, String>,
     main_layout: &str,
+    global_variables: &HashMap<String, String>,
 ) -> Result<()> {
     // Group posts by year
     let mut posts_by_year: HashMap<String, Vec<HashMap<String, String>>> = HashMap::new();
@@ -65,7 +66,7 @@ fn generate_index_page(
     let list_item_template = includes
         .get("list_item.liquid")
         .cloned()
-        .unwrap_or_else(String::new);
+        .unwrap_or_default();
     let mut html_list = String::new();
     html_list.push_str("<p>Hi there! 👋 My name is Andor Polgar. This is my personal website. Here, you'll find my photography projects and random snapshots from my life.</p><ul class=\"postlist\">\n");
 
@@ -75,7 +76,7 @@ fn generate_index_page(
                 &includes
                     .get(&format!("{}.liquid", year))
                     .cloned()
-                    .unwrap_or_else(String::new),
+                    .unwrap_or_default(),
             );
             html_list.push_str("<ul class=\"postlist\">\n");
             for post in posts {
@@ -87,7 +88,7 @@ fn generate_index_page(
 
     html_list.push_str("</ul>");
     let mut html = insert_body_into_layout(&main_layout, &html_list);
-    html = replace_template_variable(&html, "title", "Andor Polgar's Visual Journal");
+    html = replace_template_variable(&html, "title", global_variables.get("title").map_or("", String::as_str));
     html = remove_handlebars_variables(&html)?;
     write_html_to_file(&"out/index.html", &html)?;
 
@@ -101,18 +102,19 @@ fn generate_posts(
     main_layout_variables: &mut HashMap<String, String>,
     global_variables: &mut HashMap<String, String>,
 ) -> Result<()> {
+    let site_title = global_variables.get("title").cloned().unwrap_or_default();
     for post in posts {
         global_variables.insert(
             "title".to_string(),
             post.get("title")
                 .cloned()
-                .unwrap_or_else(String::new)
+                .unwrap_or_default()
                 .to_owned()
                 + " - "
-                + "Andor Polgar's Visual Journal",
+                + &site_title,
         );
 
-        let slug = post.get("slug").cloned().unwrap_or_else(String::new);
+        let slug = post.get("slug").cloned().unwrap_or_default();
         let pathname: String = "posts/".to_owned() + &slug;
         main_layout_variables.insert("pathname".to_string(), pathname);
         let main_layout = replace_template_variables(&main_layout_template, &main_layout_variables);
@@ -121,7 +123,7 @@ fn generate_posts(
             &includes
                 .get("post.liquid")
                 .cloned()
-                .unwrap_or_else(String::new),
+                .unwrap_or_default(),
             &post,
         )?;
 
@@ -144,18 +146,19 @@ fn generate_pages(
     main_layout_variables: &mut HashMap<String, String>,
     global_variables: &mut HashMap<String, String>,
 ) -> Result<()> {
+    let site_title = global_variables.get("title").cloned().unwrap_or_default();
     for page in pages {
         global_variables.insert(
             "title".to_string(),
             page.get("title")
                 .cloned()
-                .unwrap_or_else(String::new)
+                .unwrap_or_default()
                 .to_owned()
                 + " - "
-                + "Andor Polgar's Visual Journal",
+                + &site_title,
         );
 
-        let slug = page.get("slug").cloned().unwrap_or_else(String::new);
+        let slug = page.get("slug").cloned().unwrap_or_default();
         main_layout_variables.insert("pathname".to_string(), slug);
         let main_layout = replace_template_variables(&main_layout_template, &main_layout_variables);
 
@@ -181,11 +184,12 @@ pub fn generate(site_name: &str) -> Result<()> {
     let posts = load_and_parse_markdown_files_with_front_matter_in_directory(&format!("./sites/{}/posts", site_name))?;
     let pages = load_and_parse_markdown_files_with_front_matter_in_directory(&format!("./sites/{}/pages", site_name))?;
     let includes = load_liquid_includes(&format!("./sites/{}/includes", site_name));
+    let site_config = load_site_config(site_name)?;
 
     let mut global_variables = HashMap::new();
     global_variables.insert(
         "title".to_string(),
-        "Andor Polgar's Visual Journal".to_string(),
+        site_config.get("title").cloned().unwrap_or_else(|| "My Site".to_string()),
     );
 
     let main_layout_template = load_layout(&format!("./sites/{}/layouts/main.html", site_name))?;
@@ -197,7 +201,7 @@ pub fn generate(site_name: &str) -> Result<()> {
     generate_pagination_pages(5, &posts, &includes, &main_layout, &global_variables);
 
     // Generate index page
-    generate_index_page(&posts, &includes, &main_layout)?;
+    generate_index_page(&posts, &includes, &main_layout, &global_variables)?;
 
     // Generate posts
     generate_posts(
