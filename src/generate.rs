@@ -67,27 +67,43 @@ fn generate_index_page(
         .get("list_item.liquid")
         .cloned()
         .unwrap_or_default();
+    let year_section_template = includes
+        .get("year_section.liquid")
+        .cloned()
+        .unwrap_or_default();
     let mut html_list = String::new();
-    html_list.push_str("<p>Hi there! 👋 My name is Andor Polgar. This is my personal website. Here, you'll find my photography projects and random snapshots from my life.</p><ul class=\"postlist\">\n");
 
     for year in years {
         if let Some(posts) = posts_by_year.get(&year) {
-            html_list.push_str(
-                &includes
+            let mut year_content = String::new();
+            for post in posts {
+                year_content.push_str(&process_template_tags(&list_item_template, &post)?);
+            }
+
+            let mut year_variables = HashMap::new();
+            year_variables.insert("content".to_string(), year_content);
+            year_variables.insert(
+                "year_include".to_string(),
+                includes
                     .get(&format!("{}.liquid", year))
                     .cloned()
                     .unwrap_or_default(),
             );
-            html_list.push_str("<ul class=\"postlist\">\n");
-            for post in posts {
-                html_list.push_str(&process_template_tags(&list_item_template, &post)?);
-            }
-            html_list.push_str("</ul>\n");
+
+            html_list.push_str(&process_template_tags(&year_section_template, &year_variables)?);
         }
     }
 
-    html_list.push_str("</ul>");
-    let mut html = insert_body_into_layout(&main_layout, &html_list);
+    let mut variables = global_variables.clone();
+    variables.insert("content".to_string(), html_list);
+    
+    let index_intro_template = includes
+        .get("index_intro.liquid")
+        .cloned()
+        .unwrap_or_default();
+    let processed_content = process_template_tags(&index_intro_template, &variables)?;
+    
+    let mut html = insert_body_into_layout(&main_layout, &processed_content);
     html = replace_template_variable(&html, "title", global_variables.get("title").map_or("", String::as_str));
     html = remove_handlebars_variables(&html)?;
     write_html_to_file(&"out/index.html", &html)?;
