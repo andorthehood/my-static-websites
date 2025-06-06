@@ -47,6 +47,7 @@ pub fn load_site_config(site_name: &str) -> Result<HashMap<String, String>> {
         // Return default configuration if no config file exists
         let mut default_config = HashMap::new();
         default_config.insert("title".to_string(), String::new());
+        default_config.insert("index_filename".to_string(), "index.html".to_string());
         Ok(default_config)
     }
 }

@@ -106,7 +106,12 @@ fn generate_index_page(
     let mut html = insert_body_into_layout(&main_layout, &processed_content);
     html = replace_template_variable(&html, "title", global_variables.get("title").map_or("", String::as_str));
     html = remove_handlebars_variables(&html)?;
-    write_html_to_file(&"out/index.html", &html)?;
+    
+    let index_filename = global_variables
+        .get("index_filename")
+        .map_or("index.html", String::as_str);
+    let output_path = format!("out/{}", index_filename);
+    write_html_to_file(&output_path, &html)?;
 
     Ok(())
 }
@@ -206,6 +211,10 @@ pub fn generate(site_name: &str) -> Result<()> {
     global_variables.insert(
         "title".to_string(),
         site_config.get("title").cloned().unwrap_or_else(|| "My Site".to_string()),
+    );
+    global_variables.insert(
+        "index_filename".to_string(),
+        site_config.get("index_filename").cloned().unwrap_or_else(|| "index.html".to_string()),
     );
 
     let main_layout_template = load_layout(&format!("./sites/{}/layouts/main.html", site_name))?;
