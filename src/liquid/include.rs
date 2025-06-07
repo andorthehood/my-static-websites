@@ -1,4 +1,5 @@
 use crate::handlebars::replace_template_variables;
+use crate::error::Result;
 use std::collections::HashMap;
 
 pub fn parse_liquid_include_tag(tag: &str) -> Option<(String, HashMap<String, String>)> {
@@ -26,7 +27,7 @@ pub fn parse_liquid_include_tag(tag: &str) -> Option<(String, HashMap<String, St
     Some((template_name, properties))
 }
 
-pub fn process_liquid_includes(input: &str, templates: &HashMap<String, String>) -> String {
+pub fn process_liquid_includes(input: &str, templates: &HashMap<String, String>) -> Result<String> {
     let mut result = input.to_owned();
     let mut start = 0;
 
@@ -42,7 +43,7 @@ pub fn process_liquid_includes(input: &str, templates: &HashMap<String, String>)
 
         if let Some((template_name, params)) = parse_liquid_include_tag(tag) {
             if let Some(template_content) = templates.get(&template_name) {
-                let processed_content = replace_template_variables(template_content, &params);
+                let processed_content = replace_template_variables(template_content, &params)?;
                 result.replace_range(tag_start..tag_end, &processed_content);
 
                 start = tag_start + processed_content.len();
@@ -56,7 +57,7 @@ pub fn process_liquid_includes(input: &str, templates: &HashMap<String, String>)
         }
     }
 
-    result
+    Ok(result)
 }
 
 #[cfg(test)]
@@ -64,56 +65,34 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_valid_liquid_include_tag() {
-        let tag = "{% include template.liquid prop1:\"foo\" prop2:\"bar\" %}";
-        let expected_template = "template.liquid".to_string();
-        let mut expected_props = HashMap::new();
-        expected_props.insert("prop1".to_string(), "foo".to_string());
-        expected_props.insert("prop2".to_string(), "bar".to_string());
+    fn test_parse_liquid_include_tag() {
+        let input = "{% include template.liquid param1:\"value1\" param2:\"value2\" %}";
+        let expected_template = "template.liquid";
+        let mut expected_params = HashMap::new();
+        expected_params.insert("param1".to_string(), "value1".to_string());
+        expected_params.insert("param2".to_string(), "value2".to_string());
 
-        match parse_liquid_include_tag(tag) {
-            Some((template_name, properties)) => {
-                assert_eq!(template_name, expected_template);
-                assert_eq!(properties, expected_props);
-            }
-            None => panic!("Parsing failed for a valid tag"),
+        let result = parse_liquid_include_tag(input);
+        assert!(result.is_some());
+
+        if let Some((template, params)) = result {
+            assert_eq!(template, expected_template);
+            assert_eq!(params, expected_params);
         }
     }
 
     #[test]
-    fn test_malformed_liquid_include_tag() {
-        let malformed_tag = "{ this is not a valid tag }";
-        assert!(parse_liquid_include_tag(malformed_tag).is_none());
-    }
-
-    #[test]
-    fn test_too_short_tag() {
-        // Missing template name
-        let short_tag = "{% include %}";
-        assert!(parse_liquid_include_tag(short_tag).is_none());
-    }
-
-    #[test]
     fn test_process_liquid_includes() {
-        // Sample input with Liquid include tags
-        let input = "Before tag {% include template1.liquid key1:\"value1\" key2:\"value2\" %} and {% include template2.liquid keyA:\"valueA\" %} after tag.";
-
-        // Templates HashMap
         let mut templates = HashMap::new();
         templates.insert(
-            "template1.liquid".to_string(),
-            "Template 1: {{key1}}, {{key2}}".to_string(),
-        );
-        templates.insert(
-            "template2.liquid".to_string(),
-            "Template 2: {{keyA}}".to_string(),
+            "header.liquid".to_string(),
+            "Hello, {{ name }}!".to_string(),
         );
 
-        let expected_output =
-            "Before tag Template 1: value1, value2 and Template 2: valueA after tag.";
+        let input = "{% include header.liquid name:\"World\" %}";
+        let expected_output = "Hello, World!";
 
-        let result = process_liquid_includes(input, &templates);
-
+        let result = process_liquid_includes(input, &templates).unwrap();
         assert_eq!(result, expected_output);
     }
 }

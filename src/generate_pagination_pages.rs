@@ -13,7 +13,7 @@ fn process_template_tags(input: &str, variables: &HashMap<String, String>) -> Re
     let mut result = input.to_string();
     let keys: Vec<String> = variables.keys().cloned().collect();
     result = process_liquid_conditional_tags(&result, &keys);
-    result = replace_template_variables(&result, &variables);
+    result = replace_template_variables(&result, &variables)?;
     result = remove_handlebars_variables(&result)?;
     Ok(result)
 }
@@ -28,8 +28,8 @@ fn render_page(
 ) -> Result<()> {
     let mut html = markdown_to_html(&body);
     let file_name = directory.to_string() + &slug + ".html";
-    html = process_liquid_includes(&html, &includes);
-    html = insert_body_into_layout(&layout, &html);
+    html = process_liquid_includes(&html, &includes)?;
+    html = insert_body_into_layout(&layout, &html)?;
     html = process_template_tags(&html, &variables)?;
     write_html_to_file(&file_name, &html)?;
     Ok(())
@@ -41,7 +41,7 @@ pub fn generate_pagination_pages(
     includes: &HashMap<String, String>,
     main_layout: &String,
     global_variables: &HashMap<String, String>,
-) {
+) -> Result<()> {
     let post_chunks: Vec<Vec<HashMap<String, String>>> = posts
         .chunks(posts_per_page)
         .map(|chunk| chunk.to_vec())
@@ -93,16 +93,8 @@ pub fn generate_pagination_pages(
         html.push_str("</div>");
 
         let slug = format!("page{}", index + 1);
-
-        if let Err(e) = render_page(
-            &html,
-            "out/",
-            &slug,
-            &main_layout,
-            &includes,
-            &global_variables,
-        ) {
-            eprintln!("Error rendering page {}: {}", slug, e);
-        }
+        render_page(&html, "out/", &slug, main_layout, includes, global_variables)?;
     }
+
+    Ok(())
 }

@@ -19,7 +19,7 @@ fn process_template_tags(input: &str, variables: &HashMap<String, String>) -> Re
     let mut result = input.to_string();
     let keys: Vec<String> = variables.keys().cloned().collect();
     result = process_liquid_conditional_tags(&result, &keys);
-    result = replace_template_variables(&result, &variables);
+    result = replace_template_variables(&result, &variables)?;
     result = remove_handlebars_variables(&result)?;
     Ok(result)
 }
@@ -34,8 +34,8 @@ fn render_page(
 ) -> Result<()> {
     let mut html = markdown_to_html(&body);
     let file_name = directory.to_string() + &slug + ".html";
-    html = process_liquid_includes(&html, &includes);
-    html = insert_body_into_layout(&layout, &html);
+    html = process_liquid_includes(&html, &includes)?;
+    html = insert_body_into_layout(&layout, &html)?;
     html = process_template_tags(&html, &variables)?;
     write_html_to_file(&file_name, &html)?;
     Ok(())
@@ -103,8 +103,8 @@ fn generate_index_page(
         .unwrap_or_default();
     let processed_content = process_template_tags(&index_intro_template, &variables)?;
     
-    let mut html = insert_body_into_layout(&main_layout, &processed_content);
-    html = replace_template_variable(&html, "title", global_variables.get("title").map_or("", String::as_str));
+    let mut html = insert_body_into_layout(&main_layout, &processed_content)?;
+    html = replace_template_variable(&html, "title", global_variables.get("title").map_or("", String::as_str))?;
     html = remove_handlebars_variables(&html)?;
     
     let index_filename = global_variables
@@ -138,7 +138,7 @@ fn generate_posts(
         let slug = post.get("slug").cloned().unwrap_or_default();
         let pathname: String = "posts/".to_owned() + &slug;
         main_layout_variables.insert("pathname".to_string(), pathname);
-        let main_layout = replace_template_variables(&main_layout_template, &main_layout_variables);
+        let main_layout = replace_template_variables(&main_layout_template, &main_layout_variables)?;
 
         let post_html = process_template_tags(
             &includes
@@ -181,7 +181,7 @@ fn generate_pages(
 
         let slug = page.get("slug").cloned().unwrap_or_default();
         main_layout_variables.insert("pathname".to_string(), slug);
-        let main_layout = replace_template_variables(&main_layout_template, &main_layout_variables);
+        let main_layout = replace_template_variables(&main_layout_template, &main_layout_variables)?;
 
         render_page(
             &page.get("content").map(|s| s.as_str()).unwrap_or(""),
@@ -221,9 +221,9 @@ pub fn generate(site_name: &str) -> Result<()> {
     let mut main_layout_variables = HashMap::new();
     main_layout_variables.insert("css_file_name".to_string(), css_file_name);
     main_layout_variables.insert("generated_date".to_string(), generated_date);
-    let main_layout = replace_template_variables(&main_layout_template, &main_layout_variables);
+    let main_layout = replace_template_variables(&main_layout_template, &main_layout_variables)?;
 
-    generate_pagination_pages(5, &posts, &includes, &main_layout, &global_variables);
+    generate_pagination_pages(5, &posts, &includes, &main_layout, &global_variables)?;
 
     // Generate index page
     generate_index_page(&posts, &includes, &main_layout, &global_variables)?;
