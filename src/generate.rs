@@ -116,6 +116,32 @@ fn generate_index_page(
     Ok(())
 }
 
+fn prepare_page_context<'a>(
+    item: &'a HashMap<String, String>,
+    site_title: &str,
+    main_layout_template: &str,
+    main_layout_variables: &mut HashMap<String, String>,
+    is_post: bool,
+) -> Result<(String, String)> {
+    let title = format!(
+        "{} - {}",
+        item.get("title").cloned().unwrap_or_default(),
+        site_title
+    );
+    
+    let slug = item.get("slug").cloned().unwrap_or_default();
+    let pathname = if is_post {
+        format!("posts/{}", slug)
+    } else {
+        slug
+    };
+    
+    main_layout_variables.insert("pathname".to_string(), pathname);
+    let main_layout = replace_template_variables(main_layout_template, main_layout_variables)?;
+    
+    Ok((title, main_layout))
+}
+
 fn generate_posts(
     posts: &Vec<HashMap<String, String>>,
     includes: &HashMap<String, String>,
@@ -124,28 +150,21 @@ fn generate_posts(
     global_variables: &mut HashMap<String, String>,
 ) -> Result<()> {
     let site_title = global_variables.get("title").cloned().unwrap_or_default();
+    
     for post in posts {
-        global_variables.insert(
-            "title".to_string(),
-            post.get("title")
-                .cloned()
-                .unwrap_or_default()
-                .to_owned()
-                + " - "
-                + &site_title,
-        );
-
-        let slug = post.get("slug").cloned().unwrap_or_default();
-        let pathname: String = "posts/".to_owned() + &slug;
-        main_layout_variables.insert("pathname".to_string(), pathname);
-        let main_layout = replace_template_variables(&main_layout_template, &main_layout_variables)?;
+        let (title, main_layout) = prepare_page_context(
+            post,
+            &site_title,
+            main_layout_template,
+            main_layout_variables,
+            true
+        )?;
+        
+        global_variables.insert("title".to_string(), title);
 
         let post_html = process_template_tags(
-            &includes
-                .get("post.liquid")
-                .cloned()
-                .unwrap_or_default(),
-            &post,
+            &includes.get("post.liquid").cloned().unwrap_or_default(),
+            post,
         )?;
 
         render_page(
@@ -153,8 +172,8 @@ fn generate_posts(
             "out/posts/",
             &post.get("slug").map(|s| s.as_str()).unwrap_or(""),
             &main_layout,
-            &includes,
-            &global_variables,
+            includes,
+            global_variables,
         )?;
     }
     Ok(())
@@ -168,28 +187,25 @@ fn generate_pages(
     global_variables: &mut HashMap<String, String>,
 ) -> Result<()> {
     let site_title = global_variables.get("title").cloned().unwrap_or_default();
+    
     for page in pages {
-        global_variables.insert(
-            "title".to_string(),
-            page.get("title")
-                .cloned()
-                .unwrap_or_default()
-                .to_owned()
-                + " - "
-                + &site_title,
-        );
-
-        let slug = page.get("slug").cloned().unwrap_or_default();
-        main_layout_variables.insert("pathname".to_string(), slug);
-        let main_layout = replace_template_variables(&main_layout_template, &main_layout_variables)?;
+        let (title, main_layout) = prepare_page_context(
+            page,
+            &site_title,
+            main_layout_template,
+            main_layout_variables,
+            false
+        )?;
+        
+        global_variables.insert("title".to_string(), title);
 
         render_page(
             &page.get("content").map(|s| s.as_str()).unwrap_or(""),
             "out/",
             &page.get("slug").map(|s| s.as_str()).unwrap_or(""),
             &main_layout,
-            &includes,
-            &global_variables,
+            includes,
+            global_variables,
         )?;
     }
     Ok(())
