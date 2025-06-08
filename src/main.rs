@@ -18,32 +18,35 @@ use std::env;
 use error::Result;
 use server::listen;
 
-fn main() -> Result<()> {
-    let args: Vec<String> = env::args().collect();
-
-    match args.iter().map(|s| s.as_str()).collect::<Vec<_>>().as_slice() {
-        [_, "generate", site_name] => {
+fn handle_command(args: &[&str]) -> Result<()> {
+    match args {
+        ["generate", site_name] => {
             generate(site_name)?;
         }
-        [_, "generate"] => {
+        ["generate"] => {
             eprintln!("Error: Site name is required for generate command.");
             eprintln!("Usage: {} generate <site_name>", args[0]);
             eprintln!("Example: {} generate lepkef.ing", args[0]);
             std::process::exit(1);
         }
-        [_, "serve"] => {
+        ["serve"] => {
             listen();
         }
-        [_, unknown_cmd] => {
+        [unknown_cmd] => {
             println!("Unknown command '{}'. Use 'generate <site_name>' or 'serve'.", unknown_cmd);
         }
-        [_] => {
+        [] => {
             println!("No command provided. Use 'generate <site_name>' or 'serve'.");
         }
         _ => {
             println!("Too many arguments. Use 'generate <site_name>' or 'serve'.");
         }
     }
-
     Ok(())
+}
+
+fn main() -> Result<()> {
+    let args: Vec<String> = env::args().collect();
+    let args: Vec<&str> = args.iter().map(|s| s.as_str()).collect();
+    handle_command(&args[1..])
 }
