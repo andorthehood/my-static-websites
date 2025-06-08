@@ -1,7 +1,6 @@
 use std::collections::HashMap;
 use crate::error::Result;
-use crate::liquid::_if::process_liquid_conditional_tags;
-use crate::liquid::include::process_liquid_includes;
+use crate::liquid::{process_liquid_conditional_tags, process_liquid_tags};
 use crate::handlebars::{replace_template_variables, remove_handlebars_variables};
 use crate::layout::insert_body_into_layout;
 use crate::markdown::markdown_to_html;
@@ -38,7 +37,11 @@ pub fn render_page(
 ) -> Result<()> {
     let mut html = markdown_to_html(&body);
     let file_name = directory.to_string() + &slug + ".html";
-    html = process_liquid_includes(&html, &includes)?;
+    
+    // Process both liquid includes and conditionals in one step
+    let keys: Vec<String> = variables.keys().cloned().collect();
+    html = process_liquid_tags(&html, &keys, &includes)?;
+    
     html = insert_body_into_layout(&layout, &html)?;
     html = process_template_tags(&html, &variables)?;
     write_html_to_file(&file_name, &html)?;
