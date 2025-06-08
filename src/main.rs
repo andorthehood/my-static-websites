@@ -5,12 +5,14 @@ mod front_matter;
 mod generate;
 mod generate_pagination_pages;
 mod handlebars;
+mod index_page;
 mod layout;
 mod liquid;
 mod load_includes;
 mod markdown;
 mod markdown_with_front_matter;
 mod server;
+mod template_processor;
 mod write;
 
 use generate::generate;

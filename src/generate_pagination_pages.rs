@@ -2,98 +2,42 @@ use std::collections::HashMap;
 
 use crate::{
     error::Result,
-    handlebars::{remove_handlebars_variables, replace_template_variables},
-    layout::insert_body_into_layout,
-    liquid::{_if::process_liquid_conditional_tags, include::process_liquid_includes},
-    markdown::markdown_to_html,
-    write::write_html_to_file,
+    template_processor::{process_template_tags, render_page},
 };
-
-fn process_template_tags(input: &str, variables: &HashMap<String, String>) -> Result<String> {
-    let mut result = input.to_string();
-    let keys: Vec<String> = variables.keys().cloned().collect();
-    result = process_liquid_conditional_tags(&result, &keys);
-    result = replace_template_variables(&result, &variables)?;
-    result = remove_handlebars_variables(&result)?;
-    Ok(result)
-}
-
-fn render_page(
-    body: &str,
-    directory: &str,
-    slug: &str,
-    layout: &str,
-    includes: &HashMap<String, String>,
-    variables: &HashMap<String, String>,
-) -> Result<()> {
-    let mut html = markdown_to_html(&body);
-    let file_name = directory.to_string() + &slug + ".html";
-    html = process_liquid_includes(&html, &includes)?;
-    html = insert_body_into_layout(&layout, &html)?;
-    html = process_template_tags(&html, &variables)?;
-    write_html_to_file(&file_name, &html)?;
-    Ok(())
-}
 
 pub fn generate_pagination_pages(
     posts_per_page: usize,
     posts: &Vec<HashMap<String, String>>,
     includes: &HashMap<String, String>,
-    main_layout: &String,
+    main_layout: &str,
     global_variables: &HashMap<String, String>,
 ) -> Result<()> {
-    let post_chunks: Vec<Vec<HashMap<String, String>>> = posts
-        .chunks(posts_per_page)
-        .map(|chunk| chunk.to_vec())
-        .collect();
+    let total_pages = (posts.len() as f64 / posts_per_page as f64).ceil() as usize;
 
-    for (index, chunk) in post_chunks.iter().enumerate() {
-        let mut html = String::new();
-        html.push_str("<div class=\"postlist\">\n");
-        for post in chunk {
-            match process_template_tags(
-                &includes
-                    .get("post.liquid")
-                    .cloned()
-                    .unwrap_or_else(String::new),
+    for page_num in 1..=total_pages {
+        let start = (page_num - 1) * posts_per_page;
+        let end = std::cmp::min(start + posts_per_page, posts.len());
+        let page_posts = &posts[start..end];
+
+        let mut html_list = String::new();
+        for post in page_posts {
+            html_list.push_str(&process_template_tags(
+                &includes.get("list_item.liquid").cloned().unwrap_or_default(),
                 &post,
-            ) {
-                Ok(post_html) => html.push_str(&post_html),
-                Err(e) => eprintln!("Error processing template for post: {}", e),
-            }
+            )?);
         }
 
-        // Generate pagination links
-        html.push_str("<p>This site uses classic pagination on purpose to help you stop when you want to. Doomscrolling not included.</p><ul class=\"pagination\">");
-        if index > 0 {
-            html.push_str(&format!(
-                "<li><a href=\"/page{}\">🔙 Previous page</a>,&nbsp;</li>",
-                index
-            ));
-        }
+        let mut variables = global_variables.clone();
+        variables.insert("content".to_string(), html_list);
 
-        html.push_str("<li><a href=\"/\">Index page</a>,&nbsp;</li>");
-
-        for index in 0..post_chunks.len() {
-            let url = format!("/page{}", index + 1);
-            html.push_str(&format!(
-                "<li><a href=\"{}\">{}</a>,&nbsp;</li>",
-                url,
-                index + 1
-            ));
-        }
-        if index < post_chunks.len() - 1 {
-            html.push_str(&format!(
-                "<li><a href=\"/page{}\">Next page ⏭️</a></li>",
-                index + 2
-            ));
-        }
-        html.push_str("</ul>");
-
-        html.push_str("</div>");
-
-        let slug = format!("page{}", index + 1);
-        render_page(&html, "out/", &slug, main_layout, includes, global_variables)?;
+        render_page(
+            "",
+            "out/",
+            &format!("page{}", page_num),
+            main_layout,
+            includes,
+            &variables,
+        )?;
     }
 
     Ok(())
