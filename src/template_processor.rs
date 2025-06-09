@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 use crate::error::Result;
-use crate::liquid::{process_liquid_conditional_tags, process_liquid_tags};
+use crate::template_processors::liquid::{process_liquid_conditional_tags, process_liquid_tags};
 use crate::handlebars::{replace_template_variables, remove_handlebars_variables};
 use crate::layout::insert_body_into_layout;
 use crate::markdown::markdown_to_html;

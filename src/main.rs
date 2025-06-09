@@ -7,7 +7,7 @@ mod generate_pagination_pages;
 mod handlebars;
 mod index_page;
 mod layout;
-mod liquid;
+mod template_processors;
 mod load_includes;
 mod markdown;
 mod markdown_with_front_matter;
