@@ -4,7 +4,7 @@ mod file_readers;
 mod front_matter;
 mod generate;
 mod generate_pagination_pages;
-mod handlebars;
+
 mod index_page;
 mod layout;
 mod template_processors;

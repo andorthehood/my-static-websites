@@ -1,7 +1,7 @@
 use crate::file_copier::copy_file_with_versioning;
 use crate::file_readers::{load_and_parse_markdown_files_with_front_matter_in_directory, load_site_config};
 use crate::generate_pagination_pages::generate_pagination_pages;
-use crate::handlebars::replace_template_variables;
+use crate::template_processors::handlebars::replace_template_variables;
 use crate::layout::load_layout;
 use crate::load_includes::load_liquid_includes;
 use crate::error::Result;

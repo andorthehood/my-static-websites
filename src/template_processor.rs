@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use crate::error::Result;
 use crate::template_processors::liquid::{process_liquid_conditional_tags, process_liquid_tags};
-use crate::handlebars::{replace_template_variables, remove_handlebars_variables};
+use crate::template_processors::handlebars::{replace_template_variables, remove_handlebars_variables};
 use crate::layout::insert_body_into_layout;
 use crate::template_processors::markdown::markdown_to_html;
 use crate::write::write_html_to_file;

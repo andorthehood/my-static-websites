@@ -1,4 +1,4 @@
-use crate::handlebars::replace_template_variables;
+use crate::template_processors::handlebars::replace_template_variables;
 use crate::error::Result;
 use std::collections::HashMap;
 
