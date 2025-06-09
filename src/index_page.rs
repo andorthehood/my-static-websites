@@ -3,7 +3,7 @@ use crate::error::Result;
 use crate::template_processors::handlebars::{remove_handlebars_variables, replace_template_variable};
 use crate::layout::insert_body_into_layout;
 use crate::write::write_html_to_file;
-use crate::template_processor::process_template_tags;
+use crate::template_processors::process_template_tags;
 
 pub fn generate_index_page(
     posts: &Vec<HashMap<String, String>>,

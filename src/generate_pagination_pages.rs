@@ -2,7 +2,8 @@ use std::collections::HashMap;
 
 use crate::{
     error::Result,
-    template_processor::{process_template_tags, render_page},
+    template_processor::render_page,
+    template_processors::process_template_tags,
 };
 
 pub fn generate_pagination_pages(
