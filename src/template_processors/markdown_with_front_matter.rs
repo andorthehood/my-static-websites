@@ -1,7 +1,6 @@
 use std::collections::HashMap;
 
-use crate::front_matter::extract_front_matter;
-use crate::front_matter::parse_front_matter;
+use crate::parsers::{extract_front_matter, parse_front_matter};
 
 /// Extracts the content of a Markdown string, excluding the front matter.
 pub fn extract_content(markdown: &str) -> Option<&str> {
