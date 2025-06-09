@@ -1,4 +1,4 @@
-use crate::markdown_with_front_matter::parse_markdown_with_front_matter;
+use crate::template_processors::parse_markdown_with_front_matter;
 use std::collections::HashMap;
 use std::fs;
 use std::io::Result;

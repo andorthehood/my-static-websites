@@ -3,7 +3,7 @@ use crate::error::Result;
 use crate::template_processors::liquid::{process_liquid_conditional_tags, process_liquid_tags};
 use crate::handlebars::{replace_template_variables, remove_handlebars_variables};
 use crate::layout::insert_body_into_layout;
-use crate::markdown::markdown_to_html;
+use crate::template_processors::markdown::markdown_to_html;
 use crate::write::write_html_to_file;
 
 /// Processes all template tags in a given input string.
