@@ -1,10 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a8bd44af-89f0-4afe-8765-f9cfc38191bf/deploy-status)](https://app.netlify.com/sites/andor/deploys)
 
-Hello there! 👋 You just found the source code of my personal website. It's powered by a static site generator I wrote in Rust, without using any third-party libraries. This whole project is a playground for me to improve my "rusty" Rust skills. Originally, I wanted to write it in C, but Netlify still doesn't support deploying C projects. :( 
-
-For storing the content, I'm using Markdown files with Front Matter, and with Liquid and Handlebars templates. I was inspired by Jekyll, which uses a similar structure for content management.
-
-The design was inspired by Mac OS 9, you can steal the CSS from my codepen: [https://codepen.io/hngrhorace/pen/gbYKpxE](https://codepen.io/hngrhorace/pen/gbYKpxE)
+Hello! 👋 You've found the source code for the static site generator I built for my websites. I wrote it in Rust as a practice project, which is why it has zero dependencies.
 
 ## Requirements
 
@@ -18,25 +14,38 @@ To get the website running on your local machine, follow these steps:
 
 ### Clone the repository
 ```bash
-git clone https://github.com/hngrhorace/lepkef.ing.git
-cd lepkef.ing
+git clone https://github.com/hngrhorace/my-static-websites.git
+cd my-static-websites
 ```
 
 ### Generate a site
 ```bash
-cargo run -- generate <site_name>
+cargo run generate <site_name>
 ```
 
 This will generate the static files for the specified site. The site content should be located in `./sites/<site_name>/`.
 
 Example:
 ```bash
-cargo run -- generate lepkef.ing
+cargo run generate lepkef.ing
 ```
+
+### Development with auto-regeneration
+```bash
+# Basic watch mode
+cargo run watch <site_name>
+
+# Watch mode with RAM-based output (Linux only)
+cargo run watch <site_name> --ramdisk
+```
+
+This starts watching your site's directory for changes and automatically regenerates the site when files are modified. 
+
+The `--ramdisk` flag enables storing generated files in RAM instead of on disk, which can help prevent SSD wear during development. This feature is only available on Linux systems and will automatically fall back to regular disk storage on other operating systems.
 
 ### Start development server
 ```bash
-cargo run -- serve
+cargo run serve
 ```
 
 This starts a local development server to preview your generated site.

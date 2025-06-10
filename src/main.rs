@@ -4,6 +4,7 @@ mod file_readers;
 mod parsers;
 mod generate;
 mod generate_pagination_pages;
+mod watch;
 
 mod index_page;
 mod layout;
@@ -18,6 +19,15 @@ use generate::generate;
 use std::env;
 use error::Result;
 use server::listen;
+use watch::watch;
+
+fn print_usage() {
+    eprintln!("Available commands:");
+    eprintln!("  generate <site_name>  Generate the static site");
+    eprintln!("  serve                 Start the development server");
+    eprintln!("  watch <site_name>     Watch for changes and regenerate");
+    eprintln!("  watch <site_name> --ramdisk  Watch with RAM-based output (Linux only)");
+}
 
 fn handle_command(args: &[&str]) -> Result<()> {
     match args {
@@ -33,14 +43,21 @@ fn handle_command(args: &[&str]) -> Result<()> {
         ["serve"] => {
             listen()?;
         }
-        [unknown_cmd] => {
-            println!("Unknown command '{}'. Use 'generate <site_name>' or 'serve'.", unknown_cmd);
+        ["watch", site_name] => {
+            watch(site_name, false)?;
         }
-        [] => {
-            println!("No command provided. Use 'generate <site_name>' or 'serve'.");
+        ["watch", site_name, "--ramdisk"] | ["watch", "--ramdisk", site_name] => {
+            watch(site_name, true)?;
+        }
+        [unknown_command] => {
+            eprintln!("Error: Unknown command '{}'", unknown_command);
+            print_usage();
+            std::process::exit(1);
         }
         _ => {
-            println!("Too many arguments. Use 'generate <site_name>' or 'serve'.");
+            eprintln!("Error: No command specified");
+            print_usage();
+            std::process::exit(1);
         }
     }
     Ok(())
