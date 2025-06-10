@@ -1,6 +1,9 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a8bd44af-89f0-4afe-8765-f9cfc38191bf/deploy-status)](https://app.netlify.com/sites/andor/deploys)
 
-Hello! 👋 You've found the source code for the static site generator I built for my websites. I wrote it in Rust as a practice project, which is why it has zero dependencies.
+- Zero-dep static site generator written in Rust because I was bored and wanted to learn Rust the hard way. 
+- It has built-in ramdisk support so I don't grind my SSD into dust every time I hit rebuild. 
+- It actually powers my real websites. 
+- Regenerates *everything* every time. No caching. Still stupid fast because Rust.
 
 ## Requirements
 
