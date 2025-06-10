@@ -20,11 +20,16 @@ fn handle_client(mut stream: TcpStream) -> Result<()> {
 
             // Construct the file path
             let mut file_path = PathBuf::from("out");
-            file_path.push(path);
-
-            // If the path doesn't have an extension, assume it's .html
-            if file_path.extension().is_none() {
-                file_path.set_extension("html");
+            
+            // If path is empty or just "/", serve index.html
+            if path.is_empty() {
+                file_path.push("index.html");
+            } else {
+                file_path.push(path);
+                // If the path doesn't have an extension, assume it's .html
+                if file_path.extension().is_none() {
+                    file_path.set_extension("html");
+                }
             }
 
             // Read the file and construct the response
@@ -51,6 +56,7 @@ fn handle_client(mut stream: TcpStream) -> Result<()> {
 pub fn listen() -> Result<()> {
     println!("Starting server on 127.0.0.1:2030");
     let listener = TcpListener::bind("127.0.0.1:2030")?;
+    println!("Server is ready and listening for connections!");
 
     for stream in listener.incoming() {
         match stream {
