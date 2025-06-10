@@ -56,7 +56,7 @@ pub fn process_liquid_includes(input: &str, templates: &HashMap<String, String>)
             start = tag_end;
         }
     }
-
+    
     Ok(result)
 }
 
@@ -65,34 +65,32 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_parse_liquid_include_tag() {
-        let input = "{% include template.liquid param1:\"value1\" param2:\"value2\" %}";
-        let expected_template = "template.liquid";
-        let mut expected_params = HashMap::new();
-        expected_params.insert("param1".to_string(), "value1".to_string());
-        expected_params.insert("param2".to_string(), "value2".to_string());
-
-        let result = parse_liquid_include_tag(input);
-        assert!(result.is_some());
-
-        if let Some((template, params)) = result {
-            assert_eq!(template, expected_template);
-            assert_eq!(params, expected_params);
-        }
+    fn test_process_liquid_includes() {
+        let mut templates = HashMap::new();
+        templates.insert("header.liquid".to_string(), "Hello, {{ name }}!".to_string());
+        
+        let input = "{% include header.liquid name:\"World\" %}";
+        let result = process_liquid_includes(input, &templates).unwrap();
+        assert_eq!(result, "Hello, World!");
     }
 
     #[test]
-    fn test_process_liquid_includes() {
+    fn test_process_liquid_includes_without_variables() {
         let mut templates = HashMap::new();
-        templates.insert(
-            "header.liquid".to_string(),
-            "Hello, {{ name }}!".to_string(),
-        );
-
-        let input = "{% include header.liquid name:\"World\" %}";
-        let expected_output = "Hello, World!";
-
+        templates.insert("simple.liquid".to_string(), "Simple template".to_string());
+        
+        let input = "{% include simple.liquid %}";
         let result = process_liquid_includes(input, &templates).unwrap();
-        assert_eq!(result, expected_output);
+        assert_eq!(result, "Simple template");
+    }
+
+    #[test]
+    fn test_process_liquid_includes_with_multiple_variables() {
+        let mut templates = HashMap::new();
+        templates.insert("greeting.liquid".to_string(), "{{ greeting }}, {{ name }}!".to_string());
+        
+        let input = "{% include greeting.liquid greeting:\"Hi\" name:\"Alice\" %}";
+        let result = process_liquid_includes(input, &templates).unwrap();
+        assert_eq!(result, "Hi, Alice!");
     }
 }

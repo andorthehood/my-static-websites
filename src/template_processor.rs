@@ -35,11 +35,5 @@ pub fn render_page(
 
 #[cfg(test)]
 mod tests {
-    use super::*;
-
-    #[test]
-    fn test_render_page() {
-        // This would need a more comprehensive test with temp files
-        // For now, we'll rely on the integration tests
-    }
+    // ... existing code ...
 } 
