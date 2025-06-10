@@ -6,7 +6,7 @@ use crate::layout::load_layout;
 use crate::load_includes::load_liquid_includes;
 use crate::error::Result;
 use crate::index_page::generate_index_page;
-use crate::template_processor::render_page;
+use crate::render_page::render_page;
 use crate::template_processors::process_template_tags;
 use std::collections::HashMap;
 use std::time::{SystemTime, UNIX_EPOCH};

@@ -11,7 +11,7 @@ mod template_processors;
 mod load_includes;
 
 mod server;
-mod template_processor;
+mod render_page;
 mod write;
 
 use generate::generate;

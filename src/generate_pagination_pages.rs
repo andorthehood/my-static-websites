@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use crate::{
     error::Result,
-    template_processor::render_page,
+    render_page::render_page,
     template_processors::process_template_tags,
 };
 

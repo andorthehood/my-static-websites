@@ -1,1 +1,2 @@
 1. Don't add external dependencies.
+2. Always run the tests after code modifications.
