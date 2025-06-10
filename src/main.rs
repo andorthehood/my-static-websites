@@ -31,7 +31,7 @@ fn handle_command(args: &[&str]) -> Result<()> {
             std::process::exit(1);
         }
         ["serve"] => {
-            listen();
+            listen()?;
         }
         [unknown_cmd] => {
             println!("Unknown command '{}'. Use 'generate <site_name>' or 'serve'.", unknown_cmd);

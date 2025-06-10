@@ -3,9 +3,10 @@ use std::net::{TcpListener, TcpStream};
 use std::time::Duration;
 use std::fs;
 use std::path::PathBuf;
+use crate::error::{Error, Result};
 
-fn handle_client(mut stream: TcpStream) {
-    stream.set_read_timeout(Some(Duration::new(5, 0))).unwrap();
+fn handle_client(mut stream: TcpStream) -> Result<()> {
+    stream.set_read_timeout(Some(Duration::new(5, 0)))?;
 
     let mut buffer = [0; 512];
     match stream.read(&mut buffer) {
@@ -36,24 +37,32 @@ fn handle_client(mut stream: TcpStream) {
                 Err(e) => format!("HTTP/1.1 404 Not Found\r\n\r\nFailed to read file: {}", e),
             };
 
-            stream.write(response.as_bytes()).unwrap();
-            stream.flush().unwrap();
+            stream.write_all(response.as_bytes())?;
+            stream.flush()?;
+            Ok(())
         }
         Err(e) => {
             eprintln!("Failed to read from stream: {}", e);
-            return;
+            Err(Error::Io(e))
         }
     }
-
-    stream.flush().unwrap();
 }
 
-pub fn listen() {
+pub fn listen() -> Result<()> {
     println!("Starting server on 127.0.0.1:2030");
-    let listener = TcpListener::bind("127.0.0.1:2030").unwrap();
+    let listener = TcpListener::bind("127.0.0.1:2030")?;
 
     for stream in listener.incoming() {
-        let stream = stream.unwrap();
-        handle_client(stream);
+        match stream {
+            Ok(stream) => {
+                if let Err(e) = handle_client(stream) {
+                    eprintln!("Error handling client: {}", e);
+                }
+            }
+            Err(e) => {
+                eprintln!("Error accepting connection: {}", e);
+            }
+        }
     }
+    Ok(())
 }
