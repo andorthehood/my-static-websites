@@ -105,6 +105,12 @@ pub fn watch(site_name: &str, use_ramdisk: bool) -> Result<()> {
         setup_regular_output()?;
     }
 
+    // Generate the site once initially
+    println!("\nGenerating initial site...");
+    if let Err(e) = generate(site_name) {
+        eprintln!("Error generating initial site: {}", e);
+    }
+
     println!("\nWatching for changes...");
     println!("Press Ctrl+C to stop");
     println!("Monitoring site: {}", site_path);
