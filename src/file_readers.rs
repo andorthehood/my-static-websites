@@ -1,12 +1,12 @@
 use crate::parsers::parse_content_with_front_matter;
-use std::collections::HashMap;
+use crate::types::{ContentItem, ContentCollection};
 use std::fs;
 use std::io::Result;
 use std::path::Path;
 
 pub fn load_and_parse_markdown_file_with_front_matter(
     file_path: &Path,
-) -> Result<HashMap<String, String>> {
+) -> Result<ContentItem> {
     let content = fs::read_to_string(file_path)?;
     let mut parsed_content = parse_content_with_front_matter(&content);
 
@@ -19,7 +19,7 @@ pub fn load_and_parse_markdown_file_with_front_matter(
 
 pub fn load_and_parse_markdown_files_with_front_matter_in_directory(
     dir_path: &str,
-) -> Result<Vec<HashMap<String, String>>> {
+) -> Result<ContentCollection> {
     let path = Path::new(dir_path);
     let mut results = Vec::new();
 
@@ -33,19 +33,19 @@ pub fn load_and_parse_markdown_files_with_front_matter_in_directory(
         }
     }
 
-    results.sort_by(|a: &HashMap<String, String>, b| b["slug"].cmp(&a["slug"]));
+    results.sort_by(|a: &ContentItem, b| b["slug"].cmp(&a["slug"]));
 
     Ok(results)
 }
 
-pub fn load_site_config(site_name: &str) -> Result<HashMap<String, String>> {
+pub fn load_site_config(site_name: &str) -> Result<ContentItem> {
     let config_path_str = format!("./sites/{}/config.md", site_name);
     let config_path = Path::new(&config_path_str);
     if config_path.exists() {
         load_and_parse_markdown_file_with_front_matter(&config_path)
     } else {
         // Return default configuration if no config file exists
-        let mut default_config = HashMap::new();
+        let mut default_config = ContentItem::new();
         default_config.insert("title".to_string(), String::new());
         default_config.insert("index_filename".to_string(), "index.html".to_string());
         Ok(default_config)

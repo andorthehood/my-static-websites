@@ -5,6 +5,7 @@ mod parsers;
 mod generate;
 mod generate_pagination_pages;
 mod watch;
+mod types;
 
 mod index_page;
 mod layout;

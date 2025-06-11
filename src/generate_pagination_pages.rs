@@ -1,17 +1,16 @@
-use std::collections::HashMap;
-
 use crate::{
     error::Result,
     render_page::render_page,
     template_processors::process_template_tags,
+    types::{ContentCollection, TemplateIncludes, Variables},
 };
 
 pub fn generate_pagination_pages(
     posts_per_page: usize,
-    posts: &Vec<HashMap<String, String>>,
-    includes: &HashMap<String, String>,
+    posts: &ContentCollection,
+    includes: &TemplateIncludes,
     main_layout: &str,
-    global_variables: &HashMap<String, String>,
+    global_variables: &Variables,
 ) -> Result<()> {
     let total_pages = (posts.len() as f64 / posts_per_page as f64).ceil() as usize;
 

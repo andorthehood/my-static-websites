@@ -1,18 +1,18 @@
-use std::collections::HashMap;
 use crate::error::Result;
 use crate::template_processors::handlebars::{remove_handlebars_variables, replace_template_variable};
 use crate::layout::insert_body_into_layout;
 use crate::write::write_html_to_file;
 use crate::template_processors::process_template_tags;
+use crate::types::{ContentCollection, Variables, PostsByYear, TemplateIncludes};
 
 pub fn generate_index_page(
-    posts: &Vec<HashMap<String, String>>,
-    includes: &HashMap<String, String>,
+    posts: &ContentCollection,
+    includes: &TemplateIncludes,
     main_layout: &str,
-    global_variables: &HashMap<String, String>,
+    global_variables: &Variables,
 ) -> Result<()> {
     // Group posts by year
-    let mut posts_by_year: HashMap<String, Vec<HashMap<String, String>>> = HashMap::new();
+    let mut posts_by_year: PostsByYear = PostsByYear::new();
     for post in posts {
         if let Some(date_str) = post.get("date") {
             let year = &date_str[0..4]; // Extract the first 4 characters as the year
@@ -44,7 +44,7 @@ pub fn generate_index_page(
                 year_content.push_str(&process_template_tags(&list_item_template, &post)?);
             }
 
-            let mut year_variables = HashMap::new();
+            let mut year_variables = Variables::new();
             year_variables.insert("content".to_string(), year_content);
             year_variables.insert(
                 "year_include".to_string(),

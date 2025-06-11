@@ -1,10 +1,10 @@
-use std::collections::HashMap;
+use crate::types::TemplateIncludes;
 use std::fs;
 use std::path::Path;
 
-pub fn load_liquid_includes(dir_path: &str) -> HashMap<String, String> {
+pub fn load_liquid_includes(dir_path: &str) -> TemplateIncludes {
     let path = Path::new(dir_path);
-    let mut templates = HashMap::new();
+    let mut templates = TemplateIncludes::new();
 
     if let Ok(entries) = fs::read_dir(path) {
         for entry in entries.flatten() {

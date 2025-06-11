@@ -8,14 +8,14 @@ use crate::error::Result;
 use crate::index_page::generate_index_page;
 use crate::render_page::render_page;
 use crate::template_processors::process_template_tags;
-use std::collections::HashMap;
+use crate::types::{ContentItem, ContentCollection, Variables, TemplateIncludes};
 use std::time::{SystemTime, UNIX_EPOCH, Instant};
 
 fn prepare_page_context<'a>(
-    item: &'a HashMap<String, String>,
+    item: &'a ContentItem,
     site_title: &str,
     main_layout_template: &str,
-    main_layout_variables: &mut HashMap<String, String>,
+    main_layout_variables: &mut Variables,
     is_post: bool,
 ) -> Result<(String, String)> {
     let title = format!(
@@ -38,11 +38,11 @@ fn prepare_page_context<'a>(
 }
 
 fn generate_posts(
-    posts: &Vec<HashMap<String, String>>,
-    includes: &HashMap<String, String>,
+    posts: &ContentCollection,
+    includes: &TemplateIncludes,
     main_layout_template: &str,
-    main_layout_variables: &mut HashMap<String, String>,
-    global_variables: &mut HashMap<String, String>,
+    main_layout_variables: &mut Variables,
+    global_variables: &mut Variables,
 ) -> Result<()> {
     let site_title = global_variables.get("title").cloned().unwrap_or_default();
     
@@ -75,11 +75,11 @@ fn generate_posts(
 }
 
 fn generate_pages(
-    pages: &Vec<HashMap<String, String>>,
-    includes: &HashMap<String, String>,
+    pages: &ContentCollection,
+    includes: &TemplateIncludes,
     main_layout_template: &str,
-    main_layout_variables: &mut HashMap<String, String>,
-    global_variables: &mut HashMap<String, String>,
+    main_layout_variables: &mut Variables,
+    global_variables: &mut Variables,
 ) -> Result<()> {
     let site_title = global_variables.get("title").cloned().unwrap_or_default();
     
@@ -115,13 +115,18 @@ pub fn generate(site_name: &str) -> Result<()> {
     let duration_since_epoch = now.duration_since(UNIX_EPOCH).expect("Time went backwards");
     let generated_date = duration_since_epoch.as_secs().to_string();
 
-    let css_file_name = copy_file_with_versioning(&format!("./sites/{}/style.css", site_name), "./out/")?;
-    let posts = load_and_parse_markdown_files_with_front_matter_in_directory(&format!("./sites/{}/posts", site_name))?;
-    let pages = load_and_parse_markdown_files_with_front_matter_in_directory(&format!("./sites/{}/pages", site_name))?;
-    let includes = load_liquid_includes(&format!("./sites/{}/includes", site_name));
+    let css_file_path = format!("./sites/{}/style.css", site_name);
+    let posts_dir = format!("./sites/{}/posts", site_name);
+    let pages_dir = format!("./sites/{}/pages", site_name);
+    let includes_dir = format!("./sites/{}/includes", site_name);
+
+    let css_file_name = copy_file_with_versioning(&css_file_path, "./out/")?;
+    let posts = load_and_parse_markdown_files_with_front_matter_in_directory(&posts_dir)?;
+    let pages = load_and_parse_markdown_files_with_front_matter_in_directory(&pages_dir)?;
+    let includes = load_liquid_includes(&includes_dir);
     let site_config = load_site_config(site_name)?;
 
-    let mut global_variables = HashMap::new();
+    let mut global_variables = Variables::new();
     global_variables.insert(
         "title".to_string(),
         site_config.get("title").cloned().unwrap_or_else(|| "My Site".to_string()),
@@ -131,8 +136,9 @@ pub fn generate(site_name: &str) -> Result<()> {
         site_config.get("index_filename").cloned().unwrap_or_else(|| "index.html".to_string()),
     );
 
-    let main_layout_template = load_layout(&format!("./sites/{}/layouts/main.html", site_name))?;
-    let mut main_layout_variables = HashMap::new();
+    let layout_path = format!("./sites/{}/layouts/main.html", site_name);
+    let main_layout_template = load_layout(&layout_path)?;
+    let mut main_layout_variables = Variables::new();
     main_layout_variables.insert("css_file_name".to_string(), css_file_name);
     main_layout_variables.insert("generated_date".to_string(), generated_date);
     let main_layout = replace_template_variables(&main_layout_template, &main_layout_variables)?;

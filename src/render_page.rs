@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use crate::types::{TemplateIncludes, Variables};
 use crate::error::Result;
 use crate::template_processors::liquid::process_liquid_tags;
 use crate::template_processors::process_template_tags;
@@ -17,8 +17,8 @@ pub fn render_page(
     directory: &str,
     slug: &str,
     layout: &str,
-    includes: &HashMap<String, String>,
-    variables: &HashMap<String, String>,
+    includes: &TemplateIncludes,
+    variables: &Variables,
 ) -> Result<()> {
     let mut html = markdown_to_html(&body);
     let file_name = directory.to_string() + &slug + ".html";
