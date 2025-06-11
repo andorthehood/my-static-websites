@@ -1,3 +1,4 @@
+#[cfg(test)]
 pub fn double_line_breaks_to_html(input: &str) -> String {
     input
         .split("\n\n")

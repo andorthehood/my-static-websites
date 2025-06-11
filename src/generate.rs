@@ -9,7 +9,7 @@ use crate::index_page::generate_index_page;
 use crate::render_page::render_page;
 use crate::template_processors::process_template_tags;
 use std::collections::HashMap;
-use std::time::{SystemTime, UNIX_EPOCH};
+use std::time::{SystemTime, UNIX_EPOCH, Instant};
 
 fn prepare_page_context<'a>(
     item: &'a HashMap<String, String>,
@@ -107,6 +107,9 @@ fn generate_pages(
 }
 
 pub fn generate(site_name: &str) -> Result<()> {
+    // Start timing the generation process
+    let start_time = Instant::now();
+    
     // Get the current system time
     let now = SystemTime::now();
     let duration_since_epoch = now.duration_since(UNIX_EPOCH).expect("Time went backwards");
@@ -156,6 +159,10 @@ pub fn generate(site_name: &str) -> Result<()> {
         &mut main_layout_variables,
         &mut global_variables,
     )?;
+
+    // Log the total generation time
+    let elapsed = start_time.elapsed();
+    println!("✓ Generated site '{}' in {}ms", site_name, elapsed.as_millis());
 
     Ok(())
 }
