@@ -1,9 +1,11 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a8bd44af-89f0-4afe-8765-f9cfc38191bf/deploy-status)](https://app.netlify.com/sites/andor/deploys)
-
 Zero-dep static site generator written in Rust because I was bored and wanted to learn Rust the hard way. 
 It has built-in ramdisk support so I don't grind my SSD into dust every time I hit rebuild. 
-It actually powers my real websites. 
 Regenerates *everything* every time. No caching. Still stupid fast because Rust.
+
+
+It actually powers my real websites:
+- lepkef.ing: [![Netlify Status](https://api.netlify.com/api/v1/badges/a8bd44af-89f0-4afe-8765-f9cfc38191bf/deploy-status)](https://app.netlify.com/sites/andor/deploys)
+- polgarhivatal.nl: [![Netlify Status](https://api.netlify.com/api/v1/badges/ea7ae987-302e-4cb0-816f-0aec9b7b5c18/deploy-status)](https://app.netlify.com/projects/polgarhivatal/deploys)
 
 ## Requirements
 
