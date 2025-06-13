@@ -8,7 +8,7 @@ use crate::error::Result;
 use crate::index_page::generate_index_page;
 use crate::render_page::render_page;
 use crate::template_processors::process_template_tags;
-use crate::types::{ContentItem, ContentCollection, Variables, TemplateIncludes};
+use crate::types::{ContentItem, ContentCollection, Variables, TemplateIncludes, OUTPUT_POSTS_DIR, OUTPUT_DIR, DEFAULT_POSTS_PER_PAGE};
 use std::time::{SystemTime, UNIX_EPOCH, Instant};
 
 fn prepare_page_context<'a>(
@@ -64,7 +64,7 @@ fn generate_posts(
 
         render_page(
             &post_html,
-            "out/posts/",
+            &format!("{}/", OUTPUT_POSTS_DIR),
             &post.get("slug").map(|s| s.as_str()).unwrap_or(""),
             &main_layout,
             includes,
@@ -96,7 +96,7 @@ fn generate_pages(
 
         render_page(
             &page.get("content").map(|s| s.as_str()).unwrap_or(""),
-            "out/",
+            &format!("{}/", OUTPUT_DIR),
             &page.get("slug").map(|s| s.as_str()).unwrap_or(""),
             &main_layout,
             includes,
@@ -136,6 +136,11 @@ pub fn generate(site_name: &str) -> Result<()> {
         site_config.get("index_filename").cloned().unwrap_or_else(|| "index.html".to_string()),
     );
 
+    // Get posts per page from site config, fallback to default
+    let posts_per_page = site_config.get("posts_per_page")
+        .and_then(|s| s.parse::<usize>().ok())
+        .unwrap_or(DEFAULT_POSTS_PER_PAGE);
+
     let layout_path = format!("./sites/{}/layouts/main.html", site_name);
     let main_layout_template = load_layout(&layout_path)?;
     let mut main_layout_variables = Variables::new();
@@ -143,7 +148,7 @@ pub fn generate(site_name: &str) -> Result<()> {
     main_layout_variables.insert("generated_date".to_string(), generated_date);
     let main_layout = replace_template_variables(&main_layout_template, &main_layout_variables)?;
 
-    generate_pagination_pages(5, &posts, &includes, &main_layout, &global_variables)?;
+    generate_pagination_pages(posts_per_page, &posts, &includes, &main_layout, &global_variables)?;
 
     // Generate index page
     generate_index_page(&posts, &includes, &main_layout, &global_variables)?;

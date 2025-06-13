@@ -4,6 +4,7 @@ use std::time::Duration;
 use std::fs;
 use std::path::PathBuf;
 use crate::error::{Error, Result};
+use crate::types::{OUTPUT_DIR, DEFAULT_SERVER_HOST, DEFAULT_SERVER_PORT};
 
 fn handle_client(mut stream: TcpStream) -> Result<()> {
     stream.set_read_timeout(Some(Duration::new(5, 0)))?;
@@ -19,7 +20,7 @@ fn handle_client(mut stream: TcpStream) -> Result<()> {
             let path = path.trim_start_matches('/');
 
             // Construct the file path
-            let mut file_path = PathBuf::from("out");
+            let mut file_path = PathBuf::from(OUTPUT_DIR);
             
             // If path is empty or just "/", serve index.html
             if path.is_empty() {
@@ -54,8 +55,9 @@ fn handle_client(mut stream: TcpStream) -> Result<()> {
 }
 
 pub fn listen() -> Result<()> {
-    println!("Starting server on 127.0.0.1:2030");
-    let listener = TcpListener::bind("127.0.0.1:2030")?;
+    let server_addr = format!("{}:{}", DEFAULT_SERVER_HOST, DEFAULT_SERVER_PORT);
+    println!("Starting server on {}", server_addr);
+    let listener = TcpListener::bind(&server_addr)?;
     println!("Server is ready and listening for connections!");
 
     for stream in listener.incoming() {

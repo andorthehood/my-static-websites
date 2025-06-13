@@ -1,20 +1,27 @@
+// Core types and error handling
 mod error;
-mod file_copier;
-mod file_readers;
-mod parsers;
-mod generate;
-mod generate_pagination_pages;
-mod watch;
 mod types;
 
-mod index_page;
-mod layout;
-mod template_processors;
-mod load_includes;
-
-mod server;
-mod render_page;
+// File operations
+mod file_copier;
+mod file_readers;
 mod write;
+
+// Template processing
+mod layout;
+mod load_includes;
+mod parsers;
+mod template_processors;
+
+// Generation and rendering
+mod generate;
+mod generate_pagination_pages;
+mod index_page;
+mod render_page;
+
+// Development tools
+mod server;
+mod watch;
 
 use generate::generate;
 use std::env;
