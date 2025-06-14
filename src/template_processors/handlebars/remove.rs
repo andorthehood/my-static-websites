@@ -2,26 +2,28 @@ use crate::error::{Error, Result};
 
 /// Removes Handlebars variables from the input string.
 /// This function will remove any content between {{ and }} including the braces.
-/// 
+///
 /// # Arguments
 /// * `input` - The input string containing Handlebars variables
-/// 
+///
 /// # Returns
 /// * `Result<String>` - The string with variables removed or an error if malformed
 pub fn remove_handlebars_variables(input: &str) -> Result<String> {
     let mut result = String::with_capacity(input.len());
     let mut chars = input.chars().peekable();
     let mut in_variable = false;
-    
+
     while let Some(current) = chars.next() {
         if current == '{' && chars.peek() == Some(&'{') {
             if in_variable {
-                return Err(Error::Handlebars("Nested opening braces '{{' found inside a variable".to_string()));
+                return Err(Error::Handlebars(
+                    "Nested opening braces '{{' found inside a variable".to_string(),
+                ));
             }
             in_variable = true;
             // Skip the second '{'
             chars.next();
-            
+
             // Skip whitespace after '{{'
             while let Some(&c) = chars.peek() {
                 if !c.is_whitespace() {
@@ -31,7 +33,7 @@ pub fn remove_handlebars_variables(input: &str) -> Result<String> {
             }
             continue;
         }
-        
+
         if in_variable {
             if current == '}' && chars.peek() == Some(&'}') {
                 in_variable = false;
@@ -42,11 +44,13 @@ pub fn remove_handlebars_variables(input: &str) -> Result<String> {
             result.push(current);
         }
     }
-    
+
     if in_variable {
-        return Err(Error::Handlebars("Unclosed Handlebars variable".to_string()));
+        return Err(Error::Handlebars(
+            "Unclosed Handlebars variable".to_string(),
+        ));
     }
-    
+
     Ok(result)
 }
 
@@ -67,7 +71,10 @@ mod tests {
         let err = remove_handlebars_variables(template).unwrap_err();
         assert!(matches!(err, Error::Handlebars(_)));
         if let Error::Handlebars(msg) = err {
-            assert!(msg.contains("Nested opening braces"), "Error message should mention nested braces");
+            assert!(
+                msg.contains("Nested opening braces"),
+                "Error message should mention nested braces"
+            );
         }
     }
 
@@ -98,7 +105,10 @@ mod tests {
         let err = remove_handlebars_variables(template).unwrap_err();
         assert!(matches!(err, Error::Handlebars(_)));
         if let Error::Handlebars(msg) = err {
-            assert!(msg.contains("Unclosed"), "Error message should mention unclosed variable");
+            assert!(
+                msg.contains("Unclosed"),
+                "Error message should mention unclosed variable"
+            );
         }
     }
-} 
+}

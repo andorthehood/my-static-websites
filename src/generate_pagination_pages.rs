@@ -22,7 +22,10 @@ pub fn generate_pagination_pages(
         let mut html_list = String::new();
         for post in page_posts {
             html_list.push_str(&process_template_tags(
-                &includes.get("list_item.liquid").cloned().unwrap_or_default(),
+                &includes
+                    .get("list_item.liquid")
+                    .cloned()
+                    .unwrap_or_default(),
                 &post,
             )?);
         }

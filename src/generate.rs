@@ -1,15 +1,20 @@
+use crate::error::Result;
 use crate::file_copier::copy_file_with_versioning;
-use crate::file_readers::{load_and_parse_markdown_files_with_front_matter_in_directory, load_site_config};
+use crate::file_readers::{
+    load_and_parse_markdown_files_with_front_matter_in_directory, load_site_config,
+};
 use crate::generate_pagination_pages::generate_pagination_pages;
-use crate::template_processors::handlebars::replace_template_variables;
+use crate::index_page::generate_index_page;
 use crate::layout::load_layout;
 use crate::load_includes::load_liquid_includes;
-use crate::error::Result;
-use crate::index_page::generate_index_page;
 use crate::render_page::render_page;
+use crate::template_processors::handlebars::replace_template_variables;
 use crate::template_processors::process_template_tags;
-use crate::types::{ContentItem, ContentCollection, Variables, TemplateIncludes, OUTPUT_POSTS_DIR, OUTPUT_DIR, DEFAULT_POSTS_PER_PAGE};
-use std::time::{SystemTime, UNIX_EPOCH, Instant};
+use crate::types::{
+    ContentCollection, ContentItem, TemplateIncludes, Variables, DEFAULT_POSTS_PER_PAGE,
+    OUTPUT_DIR, OUTPUT_POSTS_DIR,
+};
+use std::time::{Instant, SystemTime, UNIX_EPOCH};
 
 fn prepare_page_context<'a>(
     item: &'a ContentItem,
@@ -23,17 +28,17 @@ fn prepare_page_context<'a>(
         item.get("title").cloned().unwrap_or_default(),
         site_title
     );
-    
+
     let slug = item.get("slug").cloned().unwrap_or_default();
     let pathname = if is_post {
         format!("posts/{}", slug)
     } else {
         slug
     };
-    
+
     main_layout_variables.insert("pathname".to_string(), pathname);
     let main_layout = replace_template_variables(main_layout_template, main_layout_variables)?;
-    
+
     Ok((title, main_layout))
 }
 
@@ -45,19 +50,19 @@ fn generate_posts(
     global_variables: &Variables,
 ) -> Result<()> {
     let site_title = global_variables.get("title").cloned().unwrap_or_default();
-    
+
     for post in posts {
         let mut post_layout_vars = main_layout_variables.clone();
         let mut post_global_vars = global_variables.clone();
-        
+
         let (title, main_layout) = prepare_page_context(
             post,
             &site_title,
             main_layout_template,
             &mut post_layout_vars,
-            true
+            true,
         )?;
-        
+
         post_global_vars.insert("title".to_string(), title);
 
         let post_html = process_template_tags(
@@ -85,19 +90,19 @@ fn generate_pages(
     global_variables: &Variables,
 ) -> Result<()> {
     let site_title = global_variables.get("title").cloned().unwrap_or_default();
-    
+
     for page in pages {
         let mut page_layout_vars = main_layout_variables.clone();
         let mut page_global_vars = global_variables.clone();
-        
+
         let (title, main_layout) = prepare_page_context(
             page,
             &site_title,
             main_layout_template,
             &mut page_layout_vars,
-            false
+            false,
         )?;
-        
+
         page_global_vars.insert("title".to_string(), title);
 
         render_page(
@@ -115,7 +120,7 @@ fn generate_pages(
 pub fn generate(site_name: &str) -> Result<()> {
     // Start timing the generation process
     let start_time = Instant::now();
-    
+
     // Get the current system time
     let now = SystemTime::now();
     let duration_since_epoch = now.duration_since(UNIX_EPOCH).expect("Time went backwards");
@@ -135,15 +140,22 @@ pub fn generate(site_name: &str) -> Result<()> {
     let mut global_variables = Variables::new();
     global_variables.insert(
         "title".to_string(),
-        site_config.get("title").cloned().unwrap_or_else(|| "My Site".to_string()),
+        site_config
+            .get("title")
+            .cloned()
+            .unwrap_or_else(|| "My Site".to_string()),
     );
     global_variables.insert(
         "index_filename".to_string(),
-        site_config.get("index_filename").cloned().unwrap_or_else(|| "index.html".to_string()),
+        site_config
+            .get("index_filename")
+            .cloned()
+            .unwrap_or_else(|| "index.html".to_string()),
     );
 
     // Get posts per page from site config, fallback to default
-    let posts_per_page = site_config.get("posts_per_page")
+    let posts_per_page = site_config
+        .get("posts_per_page")
         .and_then(|s| s.parse::<usize>().ok())
         .unwrap_or(DEFAULT_POSTS_PER_PAGE);
 
@@ -154,7 +166,13 @@ pub fn generate(site_name: &str) -> Result<()> {
     main_layout_variables.insert("generated_date".to_string(), generated_date);
     let main_layout = replace_template_variables(&main_layout_template, &main_layout_variables)?;
 
-    generate_pagination_pages(posts_per_page, &posts, &includes, &main_layout, &global_variables)?;
+    generate_pagination_pages(
+        posts_per_page,
+        &posts,
+        &includes,
+        &main_layout,
+        &global_variables,
+    )?;
 
     // Generate index page
     generate_index_page(&posts, &includes, &main_layout, &global_variables)?;
@@ -179,7 +197,11 @@ pub fn generate(site_name: &str) -> Result<()> {
 
     // Log the total generation time
     let elapsed = start_time.elapsed();
-    println!("✓ Generated site '{}' in {}ms", site_name, elapsed.as_millis());
+    println!(
+        "✓ Generated site '{}' in {}ms",
+        site_name,
+        elapsed.as_millis()
+    );
 
     Ok(())
 }
@@ -187,9 +209,9 @@ pub fn generate(site_name: &str) -> Result<()> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use insta::assert_snapshot;
     use std::fs;
     use std::path::Path;
-    use insta::assert_snapshot;
 
     fn clean_output_directory() {
         let _ = fs::remove_dir_all("out");
@@ -202,10 +224,10 @@ mod tests {
     #[test]
     fn test_site_generation() {
         clean_output_directory();
-        
+
         // Create out directory
         fs::create_dir_all("out").expect("Failed to create out directory");
-        
+
         // Generate the test site
         generate("test").expect("Failed to generate test site");
 
@@ -224,7 +246,10 @@ mod tests {
         assert_snapshot!("index_html", read_file_content("out/index.html"));
         assert_snapshot!("post_html", read_file_content("out/posts/test-post.html"));
         assert_snapshot!("about_html", read_file_content("out/about.html"));
-        assert_snapshot!("style_css", read_file_content("out/style-d41d8cd98f00b204e9800998ecf8427e.css"));
+        assert_snapshot!(
+            "style_css",
+            read_file_content("out/style-d41d8cd98f00b204e9800998ecf8427e.css")
+        );
 
         clean_output_directory();
     }

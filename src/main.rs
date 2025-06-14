@@ -23,10 +23,10 @@ mod render_page;
 mod server;
 mod watch;
 
-use generate::generate;
-use std::env;
 use error::Result;
+use generate::generate;
 use server::listen;
+use std::env;
 use watch::watch;
 
 fn print_usage() {

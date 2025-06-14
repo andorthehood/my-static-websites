@@ -1,5 +1,5 @@
-use crate::template_processors::handlebars::replace_template_variables;
 use crate::error::Result;
+use crate::template_processors::handlebars::replace_template_variables;
 use std::collections::HashMap;
 
 pub fn parse_liquid_include_tag(tag: &str) -> Option<(String, HashMap<String, String>)> {
@@ -56,7 +56,7 @@ pub fn process_liquid_includes(input: &str, templates: &HashMap<String, String>)
             start = tag_end;
         }
     }
-    
+
     Ok(result)
 }
 
@@ -67,8 +67,11 @@ mod tests {
     #[test]
     fn test_process_liquid_includes() {
         let mut templates = HashMap::new();
-        templates.insert("header.liquid".to_string(), "Hello, {{ name }}!".to_string());
-        
+        templates.insert(
+            "header.liquid".to_string(),
+            "Hello, {{ name }}!".to_string(),
+        );
+
         let input = "{% include header.liquid name:\"World\" %}";
         let result = process_liquid_includes(input, &templates).unwrap();
         assert_eq!(result, "Hello, World!");
@@ -78,7 +81,7 @@ mod tests {
     fn test_process_liquid_includes_without_variables() {
         let mut templates = HashMap::new();
         templates.insert("simple.liquid".to_string(), "Simple template".to_string());
-        
+
         let input = "{% include simple.liquid %}";
         let result = process_liquid_includes(input, &templates).unwrap();
         assert_eq!(result, "Simple template");
@@ -87,8 +90,11 @@ mod tests {
     #[test]
     fn test_process_liquid_includes_with_multiple_variables() {
         let mut templates = HashMap::new();
-        templates.insert("greeting.liquid".to_string(), "{{ greeting }}, {{ name }}!".to_string());
-        
+        templates.insert(
+            "greeting.liquid".to_string(),
+            "{{ greeting }}, {{ name }}!".to_string(),
+        );
+
         let input = "{% include greeting.liquid greeting:\"Hi\" name:\"Alice\" %}";
         let result = process_liquid_includes(input, &templates).unwrap();
         assert_eq!(result, "Hi, Alice!");

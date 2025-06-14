@@ -1,5 +1,5 @@
-use std::fs;
 use crate::error::Result;
+use std::fs;
 use std::path::Path;
 
 use crate::template_processors::handlebars::replace_template_variable;

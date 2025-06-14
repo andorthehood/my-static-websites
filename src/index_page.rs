@@ -1,9 +1,11 @@
 use crate::error::Result;
-use crate::template_processors::handlebars::{remove_handlebars_variables, replace_template_variable};
 use crate::layout::insert_body_into_layout;
-use crate::write::write_html_to_file;
+use crate::template_processors::handlebars::{
+    remove_handlebars_variables, replace_template_variable,
+};
 use crate::template_processors::process_template_tags;
-use crate::types::{ContentCollection, Variables, PostsByYear, TemplateIncludes};
+use crate::types::{ContentCollection, PostsByYear, TemplateIncludes, Variables};
+use crate::write::write_html_to_file;
 
 pub fn generate_index_page(
     posts: &ContentCollection,
@@ -54,23 +56,30 @@ pub fn generate_index_page(
                     .unwrap_or_default(),
             );
 
-            html_list.push_str(&process_template_tags(&year_section_template, &year_variables)?);
+            html_list.push_str(&process_template_tags(
+                &year_section_template,
+                &year_variables,
+            )?);
         }
     }
 
     let mut variables = global_variables.clone();
     variables.insert("content".to_string(), html_list);
-    
+
     let index_intro_template = includes
         .get("index_intro.liquid")
         .cloned()
         .unwrap_or_default();
     let processed_content = process_template_tags(&index_intro_template, &variables)?;
-    
+
     let mut html = insert_body_into_layout(&main_layout, &processed_content)?;
-    html = replace_template_variable(&html, "title", global_variables.get("title").map_or("", String::as_str))?;
+    html = replace_template_variable(
+        &html,
+        "title",
+        global_variables.get("title").map_or("", String::as_str),
+    )?;
     html = remove_handlebars_variables(&html)?;
-    
+
     let index_filename = global_variables
         .get("index_filename")
         .map_or("index.html", String::as_str);
@@ -78,4 +87,4 @@ pub fn generate_index_page(
     write_html_to_file(&output_path, &html)?;
 
     Ok(())
-} 
+}

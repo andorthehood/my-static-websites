@@ -1,5 +1,5 @@
-use std::collections::HashMap;
 use super::{extract_front_matter, parse_front_matter};
+use std::collections::HashMap;
 
 /// Extracts the content of a string, excluding the front matter.
 pub fn extract_content(content: &str) -> Option<&str> {
@@ -89,4 +89,4 @@ This is the content with incomplete front matter.
             Some(&"This is the content of the post.\n Lorem ipsum dolor sit amet.".to_string())
         );
     }
-} 
+}

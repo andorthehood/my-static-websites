@@ -1,12 +1,10 @@
 use crate::parsers::parse_content_with_front_matter;
-use crate::types::{ContentItem, ContentCollection};
+use crate::types::{ContentCollection, ContentItem};
 use std::fs;
 use std::io::Result;
 use std::path::Path;
 
-pub fn load_and_parse_markdown_file_with_front_matter(
-    file_path: &Path,
-) -> Result<ContentItem> {
+pub fn load_and_parse_markdown_file_with_front_matter(file_path: &Path) -> Result<ContentItem> {
     let content = fs::read_to_string(file_path)?;
     let mut parsed_content = parse_content_with_front_matter(&content);
 

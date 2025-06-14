@@ -3,13 +3,14 @@ pub fn is_valid_variable_name(name: &str) -> bool {
     if name.is_empty() {
         return false;
     }
-    
+
     let first_char = name.chars().next().unwrap();
     if !first_char.is_alphabetic() && first_char != '_' {
         return false;
     }
-    
-    name.chars().all(|c| c.is_alphanumeric() || c == '_' || c == '.')
+
+    name.chars()
+        .all(|c| c.is_alphanumeric() || c == '_' || c == '.')
 }
 
 #[cfg(test)]
@@ -32,4 +33,4 @@ mod tests {
         assert!(is_valid_variable_name("user.name"));
         assert!(is_valid_variable_name("deeply.nested.value"));
     }
-} 
+}

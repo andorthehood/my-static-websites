@@ -22,8 +22,14 @@ pub fn copy_file_with_versioning(source_path: &str, destination_dir: &str) -> io
     let hash = hasher.finish();
 
     // Split the file name and extension, then reassemble with the hash
-    let file_stem = source_path.file_stem().and_then(|name| name.to_str()).unwrap_or_default();
-    let extension = source_path.extension().and_then(|ext| ext.to_str()).unwrap_or_default();
+    let file_stem = source_path
+        .file_stem()
+        .and_then(|name| name.to_str())
+        .unwrap_or_default();
+    let extension = source_path
+        .extension()
+        .and_then(|ext| ext.to_str())
+        .unwrap_or_default();
     let new_file_name = format!("{}-{:x}.{}", file_stem, hash, extension);
 
     let destination_path = destination_dir.join(&new_file_name);

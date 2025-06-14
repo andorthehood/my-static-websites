@@ -1,13 +1,13 @@
+use crate::error::Result;
+use crate::generate::generate;
 use std::fs;
+use std::io;
 use std::path::Path;
 use std::thread;
 use std::time::{Duration, SystemTime};
-use std::io;
-use crate::error::Result;
-use crate::generate::generate;
 
 /// Sets up a RAM-based directory for storing generated files during development.
-/// 
+///
 /// This function creates a temporary directory in RAM (/dev/shm) to store the generated
 /// site files instead of writing them to the SSD. This helps prevent SSD wear during
 /// development when files are frequently regenerated.
@@ -18,7 +18,7 @@ fn setup_ramdisk() -> Result<()> {
         fs::remove_dir_all(out_dir)?;
     }
     fs::create_dir_all(out_dir)?;
-    
+
     // Create a symlink from ./out to our ramdisk
     let current_dir = std::env::current_dir()?;
     let out_path = current_dir.join("out");
@@ -30,7 +30,7 @@ fn setup_ramdisk() -> Result<()> {
         }
     }
     std::os::unix::fs::symlink(out_dir, out_path)?;
-    
+
     Ok(())
 }
 
@@ -73,12 +73,13 @@ fn get_latest_modification_time(dir: &Path) -> Result<SystemTime> {
 pub fn watch(site_name: &str, use_ramdisk: bool) -> Result<()> {
     let site_path = format!("./sites/{}", site_name);
     let site_dir = Path::new(&site_path);
-    
+
     if !site_dir.exists() {
         return Err(io::Error::new(
             io::ErrorKind::NotFound,
-            format!("Site directory '{}' does not exist", site_path)
-        ).into());
+            format!("Site directory '{}' does not exist", site_path),
+        )
+        .into());
     }
 
     println!("\nOutput directory setup:");
@@ -130,4 +131,4 @@ pub fn watch(site_name: &str, use_ramdisk: bool) -> Result<()> {
         }
         thread::sleep(Duration::from_secs(1));
     }
-} 
+}

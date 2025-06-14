@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Pre-commit hook for Rust projects
+# This hook automatically formats code with rustfmt before committing
+
+set -e
+
+# Get list of staged Rust files
+staged_files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(rs)$' || true)
+
+if [ -z "$staged_files" ]; then
+    exit 0
+fi
+
+# Check if formatting is needed and format if necessary
+if ! cargo fmt --check &> /dev/null; then
+    cargo fmt
+    
+    # Re-stage the formatted files
+    for file in $staged_files; do
+        git add "$file"
+    done
+fi 

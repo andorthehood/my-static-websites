@@ -1,10 +1,10 @@
+use crate::error::{Error, Result};
+use crate::types::{DEFAULT_SERVER_HOST, DEFAULT_SERVER_PORT, OUTPUT_DIR};
+use std::fs;
 use std::io::prelude::*;
 use std::net::{TcpListener, TcpStream};
-use std::time::Duration;
-use std::fs;
 use std::path::PathBuf;
-use crate::error::{Error, Result};
-use crate::types::{OUTPUT_DIR, DEFAULT_SERVER_HOST, DEFAULT_SERVER_PORT};
+use std::time::Duration;
 
 fn handle_client(mut stream: TcpStream) -> Result<()> {
     stream.set_read_timeout(Some(Duration::new(5, 0)))?;
@@ -21,7 +21,7 @@ fn handle_client(mut stream: TcpStream) -> Result<()> {
 
             // Construct the file path
             let mut file_path = PathBuf::from(OUTPUT_DIR);
-            
+
             // If path is empty or just "/", serve index.html
             if path.is_empty() {
                 file_path.push("index.html");

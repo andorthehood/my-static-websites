@@ -18,11 +18,13 @@ fn find_conditional_tag(template: &str, start_pos: usize) -> Option<ConditionalT
     const ENDIF_TAG: &str = "{% endif %}";
 
     // Find the start of the if tag
-    let tag_start = template[start_pos..].find(IF_TAG_START)
+    let tag_start = template[start_pos..]
+        .find(IF_TAG_START)
         .map(|pos| start_pos + pos)?;
 
     // Find the end of the entire if block
-    let tag_end = template[tag_start..].find(ENDIF_TAG)
+    let tag_end = template[tag_start..]
+        .find(ENDIF_TAG)
         .map(|pos| tag_start + pos + ENDIF_TAG.len())?;
 
     // Extract the tag content
@@ -30,10 +32,12 @@ fn find_conditional_tag(template: &str, start_pos: usize) -> Option<ConditionalT
 
     // Find where the condition ends
     let condition_end = tag_content.find(IF_TAG_END)?;
-    
+
     // Extract and trim the condition
-    let condition = tag_content[IF_TAG_START.len()..condition_end].trim().to_string();
-    
+    let condition = tag_content[IF_TAG_START.len()..condition_end]
+        .trim()
+        .to_string();
+
     // Extract the content between the if and endif tags
     let content_start = tag_start + condition_end + IF_TAG_END.len();
     let content_end = tag_end - ENDIF_TAG.len();
@@ -48,15 +52,15 @@ fn find_conditional_tag(template: &str, start_pos: usize) -> Option<ConditionalT
 }
 
 /// Processes Liquid conditional tags in a template string.
-/// 
+///
 /// This function handles {% if condition %}content{% endif %} tags by:
 /// - Keeping the content if the condition is in the provided conditions list
 /// - Removing the entire tag if the condition is not in the list
-/// 
+///
 /// # Arguments
 /// * `template` - The template string containing conditional tags
 /// * `conditions` - List of condition names that should evaluate to true
-/// 
+///
 /// # Returns
 /// The processed template with conditional tags evaluated
 pub fn process_liquid_conditional_tags(template: &str, conditions: &[String]) -> String {
@@ -76,7 +80,7 @@ pub fn process_liquid_conditional_tags(template: &str, conditions: &[String]) ->
         } else {
             String::new()
         };
-        
+
         replacements.push((tag.start, tag.end, replacement));
         current_pos = tag.end;
     }
