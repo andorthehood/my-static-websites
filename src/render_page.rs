@@ -1,9 +1,9 @@
-use crate::types::{TemplateIncludes, Variables};
 use crate::error::Result;
-use crate::template_processors::liquid::process_liquid_tags;
-use crate::template_processors::process_template_tags;
 use crate::layout::insert_body_into_layout;
+use crate::template_processors::liquid::process_liquid_tags;
 use crate::template_processors::markdown::markdown_to_html;
+use crate::template_processors::process_template_tags;
+use crate::types::{TemplateIncludes, Variables};
 use crate::write::write_html_to_file;
 
 /// Processes a page through the template pipeline:
@@ -20,15 +20,14 @@ pub fn render_page(
     includes: &TemplateIncludes,
     variables: &Variables,
 ) -> Result<()> {
-    let mut html = markdown_to_html(&body);
     let file_name = directory.to_string() + &slug + ".html";
-    
-    // Process both liquid includes and conditionals in one step
     let keys: Vec<String> = variables.keys().cloned().collect();
-    html = process_liquid_tags(&html, &keys, &includes)?;
-    
-    html = insert_body_into_layout(&layout, &html)?;
-    html = process_template_tags(&html, &variables)?;
+
+    // Intentionally bad formatting to test the hook
+    let html = process_liquid_tags(&markdown_to_html(&body), &keys, &includes)
+        .and_then(|html| insert_body_into_layout(&layout, &html))
+        .and_then(|html| process_template_tags(&html, &variables))?;
+
     write_html_to_file(&file_name, &html)?;
     Ok(())
 }
@@ -36,4 +35,4 @@ pub fn render_page(
 #[cfg(test)]
 mod tests {
     // ... existing code ...
-} 
+}
