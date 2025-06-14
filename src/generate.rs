@@ -41,21 +41,24 @@ fn generate_posts(
     posts: &ContentCollection,
     includes: &TemplateIncludes,
     main_layout_template: &str,
-    main_layout_variables: &mut Variables,
-    global_variables: &mut Variables,
+    main_layout_variables: &Variables,
+    global_variables: &Variables,
 ) -> Result<()> {
     let site_title = global_variables.get("title").cloned().unwrap_or_default();
     
     for post in posts {
+        let mut post_layout_vars = main_layout_variables.clone();
+        let mut post_global_vars = global_variables.clone();
+        
         let (title, main_layout) = prepare_page_context(
             post,
             &site_title,
             main_layout_template,
-            main_layout_variables,
+            &mut post_layout_vars,
             true
         )?;
         
-        global_variables.insert("title".to_string(), title);
+        post_global_vars.insert("title".to_string(), title);
 
         let post_html = process_template_tags(
             &includes.get("post.liquid").cloned().unwrap_or_default(),
@@ -68,7 +71,7 @@ fn generate_posts(
             &post.get("slug").map(|s| s.as_str()).unwrap_or(""),
             &main_layout,
             includes,
-            global_variables,
+            &post_global_vars,
         )?;
     }
     Ok(())
@@ -78,21 +81,24 @@ fn generate_pages(
     pages: &ContentCollection,
     includes: &TemplateIncludes,
     main_layout_template: &str,
-    main_layout_variables: &mut Variables,
-    global_variables: &mut Variables,
+    main_layout_variables: &Variables,
+    global_variables: &Variables,
 ) -> Result<()> {
     let site_title = global_variables.get("title").cloned().unwrap_or_default();
     
     for page in pages {
+        let mut page_layout_vars = main_layout_variables.clone();
+        let mut page_global_vars = global_variables.clone();
+        
         let (title, main_layout) = prepare_page_context(
             page,
             &site_title,
             main_layout_template,
-            main_layout_variables,
+            &mut page_layout_vars,
             false
         )?;
         
-        global_variables.insert("title".to_string(), title);
+        page_global_vars.insert("title".to_string(), title);
 
         render_page(
             &page.get("content").map(|s| s.as_str()).unwrap_or(""),
@@ -100,7 +106,7 @@ fn generate_pages(
             &page.get("slug").map(|s| s.as_str()).unwrap_or(""),
             &main_layout,
             includes,
-            global_variables,
+            &page_global_vars,
         )?;
     }
     Ok(())
@@ -158,8 +164,8 @@ pub fn generate(site_name: &str) -> Result<()> {
         &posts,
         &includes,
         &main_layout_template,
-        &mut main_layout_variables,
-        &mut global_variables,
+        &main_layout_variables,
+        &global_variables,
     )?;
 
     // Generate pages
@@ -167,8 +173,8 @@ pub fn generate(site_name: &str) -> Result<()> {
         &pages,
         &includes,
         &main_layout_template,
-        &mut main_layout_variables,
-        &mut global_variables,
+        &main_layout_variables,
+        &global_variables,
     )?;
 
     // Log the total generation time
