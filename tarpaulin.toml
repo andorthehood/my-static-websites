@@ -1,0 +1,26 @@
+[tool.tarpaulin]
+# Exclude files from coverage
+exclude_files = [
+    "src/main.rs",
+    "target/*",
+    "tests/*"
+]
+
+# Set coverage threshold
+fail_under = 70
+
+# Output formats
+out = ["Html", "Xml"]
+
+# Timeout for running tests (in seconds)
+timeout = 300
+
+# Enable line coverage (default)
+line = true
+
+# Enable branch coverage
+branch = true
+
+# Additional flags
+follow_exec = true
+post_args = ["--", "--test-threads", "1"] 

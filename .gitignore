@@ -11,3 +11,4 @@ magick
 .lightbucket-cache
 .bucket-brigade-cache
 .cache
+coverage

@@ -12,12 +12,10 @@ if [ -z "$staged_files" ]; then
     exit 0
 fi
 
-# Check if formatting is needed and format if necessary
-if ! cargo fmt --check &> /dev/null; then
-    cargo fmt
-    
-    # Re-stage the formatted files
-    for file in $staged_files; do
-        git add "$file"
-    done
-fi 
+# Format the code
+cargo fmt
+
+# Re-stage the formatted files
+for file in $staged_files; do
+    git add "$file"
+done 
