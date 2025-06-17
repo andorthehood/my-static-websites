@@ -30,7 +30,7 @@ pub fn copy_file_with_versioning(source_path: &str, destination_dir: &str) -> io
         .extension()
         .and_then(|ext| ext.to_str())
         .unwrap_or_default();
-    let new_file_name = format!("{}-{:x}.{}", file_stem, hash, extension);
+    let new_file_name = format!("{file_stem}-{hash:x}.{extension}");
 
     let destination_path = destination_dir.join(&new_file_name);
 

@@ -12,8 +12,8 @@ pub enum Error {
 impl fmt::Display for Error {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            Error::Io(err) => write!(f, "IO error: {}", err),
-            Error::Handlebars(msg) => write!(f, "Handlebars error: {}", msg),
+            Error::Io(err) => write!(f, "IO error: {err}"),
+            Error::Handlebars(msg) => write!(f, "Handlebars error: {msg}"),
         }
     }
 }

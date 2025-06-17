@@ -71,13 +71,13 @@ fn get_latest_modification_time(dir: &Path) -> Result<SystemTime> {
 }
 
 pub fn watch(site_name: &str, use_ramdisk: bool) -> Result<()> {
-    let site_path = format!("./sites/{}", site_name);
+    let site_path = format!("./sites/{site_name}");
     let site_dir = Path::new(&site_path);
 
     if !site_dir.exists() {
         return Err(io::Error::new(
             io::ErrorKind::NotFound,
-            format!("Site directory '{}' does not exist", site_path),
+            format!("Site directory '{site_path}' does not exist"),
         )
         .into());
     }
@@ -109,12 +109,12 @@ pub fn watch(site_name: &str, use_ramdisk: bool) -> Result<()> {
     // Generate the site once initially
     println!("\nGenerating initial site...");
     if let Err(e) = generate(site_name) {
-        eprintln!("Error generating initial site: {}", e);
+        eprintln!("Error generating initial site: {e}");
     }
 
     println!("\nWatching for changes...");
     println!("Press Ctrl+C to stop");
-    println!("Monitoring site: {}", site_path);
+    println!("Monitoring site: {site_path}");
 
     let mut last_modified = get_latest_modification_time(site_dir)?;
 
@@ -123,7 +123,7 @@ pub fn watch(site_name: &str, use_ramdisk: bool) -> Result<()> {
         if current_modified > last_modified {
             println!("\nChanges detected, regenerating site...");
             if let Err(e) = generate(site_name) {
-                eprintln!("Error generating site: {}", e);
+                eprintln!("Error generating site: {e}");
             } else {
                 println!("Site regenerated successfully!");
             }

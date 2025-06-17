@@ -58,7 +58,7 @@ fn handle_command(args: &[&str]) -> Result<()> {
             watch(site_name, true)?;
         }
         [unknown_command] => {
-            eprintln!("Error: Unknown command '{}'", unknown_command);
+            eprintln!("Error: Unknown command '{unknown_command}'");
             print_usage();
             std::process::exit(1);
         }
@@ -73,6 +73,6 @@ fn handle_command(args: &[&str]) -> Result<()> {
 
 fn main() -> Result<()> {
     let args: Vec<String> = env::args().collect();
-    let args: Vec<&str> = args.iter().map(|s| s.as_str()).collect();
+    let args: Vec<&str> = args.iter().map(std::string::String::as_str).collect();
     handle_command(&args[1..])
 }

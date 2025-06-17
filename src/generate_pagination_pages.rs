@@ -36,7 +36,7 @@ pub fn generate_pagination_pages(
         render_page(
             "",
             "out/",
-            &format!("page{}", page_num),
+            &format!("page{page_num}"),
             main_layout,
             includes,
             &variables,

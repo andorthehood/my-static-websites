@@ -31,7 +31,7 @@ fn prepare_page_context(
 
     let slug = item.get("slug").cloned().unwrap_or_default();
     let pathname = if is_post {
-        format!("posts/{}", slug)
+        format!("posts/{slug}")
     } else {
         slug
     };
@@ -72,8 +72,8 @@ fn generate_posts(
 
         render_page(
             &post_html,
-            &format!("{}/", OUTPUT_POSTS_DIR),
-            post.get("slug").map(|s| s.as_str()).unwrap_or(""),
+            &format!("{OUTPUT_POSTS_DIR}/"),
+            post.get("slug").map_or("", std::string::String::as_str),
             &main_layout,
             includes,
             &post_global_vars,
@@ -106,9 +106,9 @@ fn generate_pages(
         page_global_vars.insert("title".to_string(), title);
 
         render_page(
-            page.get("content").map(|s| s.as_str()).unwrap_or(""),
-            &format!("{}/", OUTPUT_DIR),
-            page.get("slug").map(|s| s.as_str()).unwrap_or(""),
+            page.get("content").map_or("", std::string::String::as_str),
+            &format!("{OUTPUT_DIR}/"),
+            page.get("slug").map_or("", std::string::String::as_str),
             &main_layout,
             includes,
             &page_global_vars,
@@ -126,10 +126,10 @@ pub fn generate(site_name: &str) -> Result<()> {
     let duration_since_epoch = now.duration_since(UNIX_EPOCH).expect("Time went backwards");
     let generated_date = duration_since_epoch.as_secs().to_string();
 
-    let css_file_path = format!("./sites/{}/style.css", site_name);
-    let posts_dir = format!("./sites/{}/posts", site_name);
-    let pages_dir = format!("./sites/{}/pages", site_name);
-    let includes_dir = format!("./sites/{}/includes", site_name);
+    let css_file_path = format!("./sites/{site_name}/style.css");
+    let posts_dir = format!("./sites/{site_name}/posts");
+    let pages_dir = format!("./sites/{site_name}/pages");
+    let includes_dir = format!("./sites/{site_name}/includes");
 
     let css_file_name = copy_file_with_versioning(&css_file_path, "./out/")?;
     let posts = load_and_parse_markdown_files_with_front_matter_in_directory(&posts_dir)?;
@@ -159,7 +159,7 @@ pub fn generate(site_name: &str) -> Result<()> {
         .and_then(|s| s.parse::<usize>().ok())
         .unwrap_or(DEFAULT_POSTS_PER_PAGE);
 
-    let layout_path = format!("./sites/{}/layouts/main.html", site_name);
+    let layout_path = format!("./sites/{site_name}/layouts/main.html");
     let main_layout_template = load_layout(&layout_path)?;
     let mut main_layout_variables = Variables::new();
     main_layout_variables.insert("css_file_name".to_string(), css_file_name);

@@ -13,7 +13,7 @@ use std::collections::HashMap;
 /// * `Result<String>` - The template with the variable replaced or an error if malformed
 pub fn replace_template_variable(template: &str, key: &str, value: &str) -> Result<String> {
     if !is_valid_variable_name(key) {
-        return Err(Error::Handlebars(format!("Invalid variable name: {}", key)));
+        return Err(Error::Handlebars(format!("Invalid variable name: {key}")));
     }
 
     let mut result = String::with_capacity(template.len());
@@ -52,7 +52,7 @@ pub fn replace_template_variable(template: &str, key: &str, value: &str) -> Resu
             if var_name == key {
                 result.push_str(value);
             } else {
-                result.push_str(&format!("{{{{ {} }}}}", var_name));
+                result.push_str(&format!("{{{{ {var_name} }}}}"));
             }
         } else {
             result.push(current);
@@ -66,7 +66,7 @@ pub fn replace_template_variable(template: &str, key: &str, value: &str) -> Resu
 ///
 /// # Arguments
 /// * `template` - The template string containing Handlebars variables
-/// * `variables` - A HashMap containing variable names and their values
+/// * `variables` - A `HashMap` containing variable names and their values
 ///
 /// # Returns
 /// * `Result<String>` - The template with all variables replaced or an error if malformed

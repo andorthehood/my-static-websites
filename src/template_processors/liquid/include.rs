@@ -6,8 +6,8 @@ pub fn parse_liquid_include_tag(tag: &str) -> Option<(String, HashMap<String, St
     let parts: Vec<&str> = tag.split_whitespace().collect();
 
     if parts.len() < 4
-        || !parts.first().map(|p| p.starts_with("{%")).unwrap_or(false)
-        || !parts.last().map(|p| p.ends_with("%}")).unwrap_or(false)
+        || !parts.first().is_some_and(|p| p.starts_with("{%"))
+        || !parts.last().is_some_and(|p| p.ends_with("%}"))
     {
         return None;
     }

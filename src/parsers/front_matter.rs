@@ -5,11 +5,10 @@ fn trim_quotes(s: &str) -> String {
     s.strip_prefix('\'')
         .and_then(|s| s.strip_suffix('\''))
         .or_else(|| s.strip_prefix('"').and_then(|s| s.strip_suffix('"')))
-        .map(|s| s.to_string())
-        .unwrap_or_else(|| s.to_string())
+        .map_or_else(|| s.to_string(), std::string::ToString::to_string)
 }
 
-/// Parses the front matter of a document into a HashMap.
+/// Parses the front matter of a document into a `HashMap`.
 pub fn parse_front_matter(front_matter: &str) -> HashMap<String, String> {
     let mut map = HashMap::new();
 

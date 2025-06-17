@@ -51,7 +51,7 @@ pub fn generate_index_page(
             year_variables.insert(
                 "year_include".to_string(),
                 includes
-                    .get(&format!("{}.liquid", year))
+                    .get(&format!("{year}.liquid"))
                     .cloned()
                     .unwrap_or_default(),
             );
@@ -83,7 +83,7 @@ pub fn generate_index_page(
     let index_filename = global_variables
         .get("index_filename")
         .map_or("index.html", String::as_str);
-    let output_path = format!("out/{}", index_filename);
+    let output_path = format!("out/{index_filename}");
     write_html_to_file(&output_path, &html)?;
 
     Ok(())

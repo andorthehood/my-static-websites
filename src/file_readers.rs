@@ -37,7 +37,7 @@ pub fn load_and_parse_markdown_files_with_front_matter_in_directory(
 }
 
 pub fn load_site_config(site_name: &str) -> Result<ContentItem> {
-    let config_path_str = format!("./sites/{}/config.md", site_name);
+    let config_path_str = format!("./sites/{site_name}/config.md");
     let config_path = Path::new(&config_path_str);
     if config_path.exists() {
         load_and_parse_markdown_file_with_front_matter(config_path)

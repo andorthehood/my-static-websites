@@ -34,13 +34,13 @@ fn handle_client(mut stream: TcpStream) -> Result<()> {
             }
 
             // Read the file and construct the response
-            println!("File path: {:?}", file_path);
+            println!("File path: {file_path:?}");
             let response = match fs::canonicalize(&file_path).and_then(|path| {
-                println!("Trying to serve file: {:?}", path);
+                println!("Trying to serve file: {path:?}");
                 fs::read_to_string(path)
             }) {
-                Ok(contents) => format!("HTTP/1.1 200 OK\r\n\r\n{}", contents),
-                Err(e) => format!("HTTP/1.1 404 Not Found\r\n\r\nFailed to read file: {}", e),
+                Ok(contents) => format!("HTTP/1.1 200 OK\r\n\r\n{contents}"),
+                Err(e) => format!("HTTP/1.1 404 Not Found\r\n\r\nFailed to read file: {e}"),
             };
 
             stream.write_all(response.as_bytes())?;
@@ -48,15 +48,15 @@ fn handle_client(mut stream: TcpStream) -> Result<()> {
             Ok(())
         }
         Err(e) => {
-            eprintln!("Failed to read from stream: {}", e);
+            eprintln!("Failed to read from stream: {e}");
             Err(Error::Io(e))
         }
     }
 }
 
 pub fn listen() -> Result<()> {
-    let server_addr = format!("{}:{}", DEFAULT_SERVER_HOST, DEFAULT_SERVER_PORT);
-    println!("Starting server on {}", server_addr);
+    let server_addr = format!("{DEFAULT_SERVER_HOST}:{DEFAULT_SERVER_PORT}");
+    println!("Starting server on {server_addr}");
     let listener = TcpListener::bind(&server_addr)?;
     println!("Server is ready and listening for connections!");
 
@@ -64,11 +64,11 @@ pub fn listen() -> Result<()> {
         match stream {
             Ok(stream) => {
                 if let Err(e) = handle_client(stream) {
-                    eprintln!("Error handling client: {}", e);
+                    eprintln!("Error handling client: {e}");
                 }
             }
             Err(e) => {
-                eprintln!("Error accepting connection: {}", e);
+                eprintln!("Error accepting connection: {e}");
             }
         }
     }

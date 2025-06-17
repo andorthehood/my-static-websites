@@ -20,7 +20,7 @@ pub fn extract_content(content: &str) -> Option<&str> {
     }
 }
 
-/// Parses content with front matter into a HashMap.
+/// Parses content with front matter into a `HashMap`.
 /// The front matter is parsed into key-value pairs, and the content is stored with the key "content".
 pub fn parse_content_with_front_matter(content: &str) -> HashMap<String, String> {
     let mut result = HashMap::new();

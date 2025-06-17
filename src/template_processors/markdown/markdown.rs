@@ -8,7 +8,7 @@ pub fn double_line_breaks_to_html(input: &str) -> String {
 }
 
 pub fn single_line_breaks_to_html(input: &str) -> String {
-    input.replace("\n", "<br />")
+    input.replace('\n', "<br />")
 }
 
 pub fn list_to_html(input: &str) -> String {
