@@ -29,7 +29,7 @@ pub fn parse_front_matter(front_matter: &str) -> HashMap<String, String> {
 pub fn extract_front_matter(markdown: &str) -> Option<&str> {
     if let Some(start) = markdown.find("---") {
         if let Some(end) = markdown[start + 3..].find("---") {
-            return Some(&markdown[start + 3..start + 3 + end].trim());
+            return Some(markdown[start + 3..start + 3 + end].trim());
         }
     }
     None

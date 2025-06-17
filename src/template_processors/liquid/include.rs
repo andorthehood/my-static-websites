@@ -3,7 +3,7 @@ use crate::template_processors::handlebars::replace_template_variables;
 use std::collections::HashMap;
 
 pub fn parse_liquid_include_tag(tag: &str) -> Option<(String, HashMap<String, String>)> {
-    let parts: Vec<&str> = tag.trim().split_whitespace().collect();
+    let parts: Vec<&str> = tag.split_whitespace().collect();
 
     if parts.len() < 4
         || !parts.first().map(|p| p.starts_with("{%")).unwrap_or(false)

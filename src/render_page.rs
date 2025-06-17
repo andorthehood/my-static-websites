@@ -20,13 +20,13 @@ pub fn render_page(
     includes: &TemplateIncludes,
     variables: &Variables,
 ) -> Result<()> {
-    let file_name = directory.to_string() + &slug + ".html";
+    let file_name = directory.to_string() + slug + ".html";
     let keys: Vec<String> = variables.keys().cloned().collect();
 
     // Intentionally bad formatting to test the hook
-    let html = process_liquid_tags(&markdown_to_html(&body), &keys, &includes)
-        .and_then(|html| insert_body_into_layout(&layout, &html))
-        .and_then(|html| process_template_tags(&html, &variables))?;
+    let html = process_liquid_tags(&markdown_to_html(body), &keys, includes)
+        .and_then(|html| insert_body_into_layout(layout, &html))
+        .and_then(|html| process_template_tags(&html, variables))?;
 
     write_html_to_file(&file_name, &html)?;
     Ok(())

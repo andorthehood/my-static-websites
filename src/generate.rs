@@ -16,8 +16,8 @@ use crate::types::{
 };
 use std::time::{Instant, SystemTime, UNIX_EPOCH};
 
-fn prepare_page_context<'a>(
-    item: &'a ContentItem,
+fn prepare_page_context(
+    item: &ContentItem,
     site_title: &str,
     main_layout_template: &str,
     main_layout_variables: &mut Variables,
@@ -73,7 +73,7 @@ fn generate_posts(
         render_page(
             &post_html,
             &format!("{}/", OUTPUT_POSTS_DIR),
-            &post.get("slug").map(|s| s.as_str()).unwrap_or(""),
+            post.get("slug").map(|s| s.as_str()).unwrap_or(""),
             &main_layout,
             includes,
             &post_global_vars,
@@ -106,9 +106,9 @@ fn generate_pages(
         page_global_vars.insert("title".to_string(), title);
 
         render_page(
-            &page.get("content").map(|s| s.as_str()).unwrap_or(""),
+            page.get("content").map(|s| s.as_str()).unwrap_or(""),
             &format!("{}/", OUTPUT_DIR),
-            &page.get("slug").map(|s| s.as_str()).unwrap_or(""),
+            page.get("slug").map(|s| s.as_str()).unwrap_or(""),
             &main_layout,
             includes,
             &page_global_vars,

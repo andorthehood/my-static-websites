@@ -43,7 +43,7 @@ pub fn generate_index_page(
         if let Some(posts) = posts_by_year.get(&year) {
             let mut year_content = String::new();
             for post in posts {
-                year_content.push_str(&process_template_tags(&list_item_template, &post)?);
+                year_content.push_str(&process_template_tags(&list_item_template, post)?);
             }
 
             let mut year_variables = Variables::new();
@@ -72,7 +72,7 @@ pub fn generate_index_page(
         .unwrap_or_default();
     let processed_content = process_template_tags(&index_intro_template, &variables)?;
 
-    let mut html = insert_body_into_layout(&main_layout, &processed_content)?;
+    let mut html = insert_body_into_layout(main_layout, &processed_content)?;
     html = replace_template_variable(
         &html,
         "title",

@@ -26,7 +26,7 @@ pub fn generate_pagination_pages(
                     .get("list_item.liquid")
                     .cloned()
                     .unwrap_or_default(),
-                &post,
+                post,
             )?);
         }
 

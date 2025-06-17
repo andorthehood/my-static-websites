@@ -14,7 +14,7 @@ pub fn process_template_tags(input: &str, variables: &HashMap<String, String>) -
     result = process_liquid_conditional_tags(&result, &keys);
 
     // Then process Handlebars variables
-    result = replace_template_variables(&result, &variables)?;
+    result = replace_template_variables(&result, variables)?;
     result = remove_handlebars_variables(&result)?;
 
     Ok(result)

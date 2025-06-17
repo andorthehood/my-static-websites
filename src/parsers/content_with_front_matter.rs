@@ -14,7 +14,7 @@ pub fn extract_content(content: &str) -> Option<&str> {
     }
 
     if end_of_front_matter < content.len() {
-        Some(&content[end_of_front_matter..].trim_start())
+        Some(content[end_of_front_matter..].trim_start())
     } else {
         None // No content after front matter
     }

@@ -22,7 +22,7 @@ pub fn list_to_html(input: &str) -> String {
                 result.push_str("<ul>");
             }
             result.push_str("<li>");
-            result.push_str(&line.trim_start_matches('-').trim());
+            result.push_str(line.trim_start_matches('-').trim());
             result.push_str("</li>");
         } else {
             if in_list {
