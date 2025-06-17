@@ -22,7 +22,7 @@ impl std::error::Error for Error {
     fn source(&self) -> Option<&(dyn std::error::Error + 'static)> {
         match self {
             Error::Io(err) => Some(err),
-            _ => None,
+            Error::Handlebars(_) => None,
         }
     }
 }

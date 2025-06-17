@@ -1,6 +1,7 @@
 use super::validation::is_valid_variable_name;
 use crate::error::{Error, Result};
 use std::collections::HashMap;
+use std::fmt::Write;
 
 /// Replaces a single Handlebars variable in a template with its value.
 ///
@@ -52,7 +53,7 @@ pub fn replace_template_variable(template: &str, key: &str, value: &str) -> Resu
             if var_name == key {
                 result.push_str(value);
             } else {
-                result.push_str(&format!("{{{{ {var_name} }}}}"));
+                write!(result, "{{{{ {var_name} }}}}").unwrap();
             }
         } else {
             result.push(current);

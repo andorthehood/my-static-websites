@@ -31,14 +31,10 @@ pub fn remove_handlebars_variables(input: &str) -> Result<String> {
                 }
                 chars.next();
             }
-            continue;
-        }
-
-        if in_variable {
+        } else if in_variable {
             if current == '}' && chars.peek() == Some(&'}') {
                 in_variable = false;
                 chars.next(); // Skip the second '}'
-                continue;
             }
         } else {
             result.push(current);

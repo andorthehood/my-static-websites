@@ -33,9 +33,8 @@ pub fn process_liquid_includes(input: &str, templates: &HashMap<String, String>)
 
     while let Some(start_index) = result[start..].find("{% include") {
         let tag_start = start + start_index;
-        let end_index = match result[tag_start..].find("%}") {
-            Some(index) => index,
-            None => break,
+        let Some(end_index) = result[tag_start..].find("%}") else {
+            break;
         };
 
         let tag_end = tag_start + end_index + 2;

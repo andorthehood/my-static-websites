@@ -12,7 +12,7 @@ pub fn generate_pagination_pages(
     main_layout: &str,
     global_variables: &Variables,
 ) -> Result<()> {
-    let total_pages = (posts.len() as f64 / posts_per_page as f64).ceil() as usize;
+    let total_pages = posts.len().div_ceil(posts_per_page);
 
     for page_num in 1..=total_pages {
         let start = (page_num - 1) * posts_per_page;

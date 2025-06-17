@@ -34,9 +34,9 @@ fn handle_client(mut stream: TcpStream) -> Result<()> {
             }
 
             // Read the file and construct the response
-            println!("File path: {file_path:?}");
+            println!("File path: {}", file_path.display());
             let response = match fs::canonicalize(&file_path).and_then(|path| {
-                println!("Trying to serve file: {path:?}");
+                println!("Trying to serve file: {}", path.display());
                 fs::read_to_string(path)
             }) {
                 Ok(contents) => format!("HTTP/1.1 200 OK\r\n\r\n{contents}"),
