@@ -12,10 +12,12 @@ if [ -z "$staged_files" ]; then
     exit 0
 fi
 
-# Format the code
-cargo fmt
+# Format only the staged files
+for file in $staged_files; do
+    cargo fmt -- "$file"
+done
 
 # Re-stage the formatted files
 for file in $staged_files; do
     git add "$file"
-done 
+done
