@@ -1,14 +1,4 @@
-node_modules
 target
 out
 .DS_Store
-*.pem
-.lightbucketrc
-.bucket-brigaderc
-tsconfig.tsbuildinfo
-.last-run
-magick
-.lightbucket-cache
-.bucket-brigade-cache
-.cache
 coverage
