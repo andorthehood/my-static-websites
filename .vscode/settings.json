@@ -1,7 +1,0 @@
-{
-    "liveServer.settings.root": "/out",
-    "rust-analyzer.linkedProjects": [
-        "./Cargo.toml"
-    ],
-    "makefile.configureOnOpen": false
-}
