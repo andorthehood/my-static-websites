@@ -118,6 +118,25 @@ fn generate_pages(
 }
 
 pub fn generate(site_name: &str) -> Result<()> {
+    // Validate that the site directory exists
+    let site_dir = format!("./sites/{site_name}");
+    if !std::path::Path::new(&site_dir).exists() {
+        return Err(std::io::Error::new(
+            std::io::ErrorKind::NotFound,
+            format!(
+                "Site directory '{}' does not exist. Available sites: {}",
+                site_dir,
+                std::fs::read_dir("./sites")
+                    .map(|entries| entries
+                        .filter_map(|entry| entry.ok()?.file_name().into_string().ok())
+                        .collect::<Vec<_>>()
+                        .join(", "))
+                    .unwrap_or_else(|_| "none".to_string())
+            ),
+        )
+        .into());
+    }
+
     // Start timing the generation process
     let start_time = Instant::now();
 

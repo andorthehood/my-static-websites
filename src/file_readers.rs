@@ -1,11 +1,20 @@
 use crate::parsers::parse_content_with_front_matter;
 use crate::types::{ContentCollection, ContentItem};
 use std::fs;
-use std::io::Result;
+use std::io::{Error, ErrorKind, Result};
 use std::path::Path;
 
 pub fn load_and_parse_markdown_file_with_front_matter(file_path: &Path) -> Result<ContentItem> {
-    let content = fs::read_to_string(file_path)?;
+    let content = fs::read_to_string(file_path).map_err(|e| {
+        Error::new(
+            e.kind(),
+            format!(
+                "Failed to read markdown file '{}': {}",
+                file_path.display(),
+                e
+            ),
+        )
+    })?;
     let mut parsed_content = parse_content_with_front_matter(&content);
 
     if let Some(file_stem) = file_path.file_stem().and_then(|s| s.to_str()) {
@@ -19,9 +28,22 @@ pub fn load_and_parse_markdown_files_with_front_matter_in_directory(
     dir_path: &str,
 ) -> Result<ContentCollection> {
     let path = Path::new(dir_path);
+
+    if !path.exists() {
+        return Err(Error::new(
+            ErrorKind::NotFound,
+            format!("Directory '{}' does not exist. Make sure your site has the required directory structure.", dir_path),
+        ));
+    }
+
     let mut results = Vec::new();
 
-    for entry in fs::read_dir(path)? {
+    for entry in fs::read_dir(path).map_err(|e| {
+        Error::new(
+            e.kind(),
+            format!("Failed to read directory '{}': {}", dir_path, e),
+        )
+    })? {
         let entry = entry?;
         let path = entry.path();
 
