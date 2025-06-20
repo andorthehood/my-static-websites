@@ -1,32 +1,16 @@
+use super::parse_include_tag::parse_liquid_include_tag;
 use crate::error::Result;
 use crate::template_processors::handlebars::replace_template_variables;
 use std::collections::HashMap;
 
-pub fn parse_liquid_include_tag(tag: &str) -> Option<(String, HashMap<String, String>)> {
-    let parts: Vec<&str> = tag.split_whitespace().collect();
-
-    if parts.len() < 4
-        || !parts.first().is_some_and(|p| p.starts_with("{%"))
-        || !parts.last().is_some_and(|p| p.ends_with("%}"))
-    {
-        return None;
-    }
-
-    let template_name = parts[2].to_string();
-    let mut properties = HashMap::new();
-
-    for &part in &parts[3..parts.len() - 1] {
-        let kv: Vec<&str> = part.split(':').collect();
-        if kv.len() == 2 {
-            let key = kv[0].to_string();
-            let value = kv[1].trim_matches('"').to_string();
-            properties.insert(key, value);
-        }
-    }
-
-    Some((template_name, properties))
-}
-
+/// Processes all liquid include tags in the input string and replaces them with template content.
+///
+/// # Arguments
+/// * `input` - The input string containing liquid include tags
+/// * `templates` - A HashMap containing template names and their content
+///
+/// # Returns
+/// * `Result<String>` - The processed string with includes replaced or an error if processing fails
 pub fn process_liquid_includes(input: &str, templates: &HashMap<String, String>) -> Result<String> {
     let mut result = input.to_owned();
     let mut start = 0;
@@ -98,4 +82,4 @@ mod tests {
         let result = process_liquid_includes(input, &templates).unwrap();
         assert_eq!(result, "Hi, Alice!");
     }
-}
+} 

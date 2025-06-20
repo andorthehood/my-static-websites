@@ -1,5 +1,5 @@
 use super::_if::process_liquid_conditional_tags;
-use super::include::process_liquid_includes;
+use super::process_includes::process_liquid_includes;
 use crate::error::Result;
 use std::collections::HashMap;
 

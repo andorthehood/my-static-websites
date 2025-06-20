@@ -1,6 +1,5 @@
 use super::validation::is_valid_variable_name;
 use crate::error::{Error, Result};
-use std::collections::HashMap;
 use std::fmt::Write;
 
 /// Replaces a single Handlebars variable in a template with its value.
@@ -63,52 +62,28 @@ pub fn replace_template_variable(template: &str, key: &str, value: &str) -> Resu
     Ok(result)
 }
 
-/// Replaces all Handlebars variables in a template with their corresponding values.
-///
-/// # Arguments
-/// * `template` - The template string containing Handlebars variables
-/// * `variables` - A `HashMap` containing variable names and their values
-///
-/// # Returns
-/// * `Result<String>` - The template with all variables replaced or an error if malformed
-pub fn replace_template_variables(
-    template: &str,
-    variables: &HashMap<String, String>,
-) -> Result<String> {
-    let mut result = template.to_string();
-
-    for (key, value) in variables {
-        result = replace_template_variable(&result, key, value)?;
-    }
-
-    Ok(result)
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
-    fn test_replace_template_variables() {
-        let mut variables = HashMap::new();
-        variables.insert("foo".to_string(), "apple".to_string());
-        variables.insert("bar".to_string(), "banana".to_string());
-
-        let template = "Lorem ipsum {{foo}} dolor {{bar}} sit amet.";
-        let result = replace_template_variables(template, &variables).unwrap();
-
-        assert_eq!(result, "Lorem ipsum apple dolor banana sit amet.");
+    fn test_replace_single_variable() {
+        let template = "Hello {{name}}, welcome!";
+        let result = replace_template_variable(template, "name", "Alice").unwrap();
+        assert_eq!(result, "Hello Alice, welcome!");
     }
 
     #[test]
-    fn test_replace_template_variables_with_spaces() {
-        let mut variables = HashMap::new();
-        variables.insert("foo".to_string(), "apple".to_string());
-        variables.insert("bar".to_string(), "banana".to_string());
-
-        let template = "Lorem ipsum {{ foo }} dolor {{ bar }} sit amet.";
-        let result = replace_template_variables(template, &variables).unwrap();
-
-        assert_eq!(result, "Lorem ipsum apple dolor banana sit amet.");
+    fn test_replace_single_variable_with_spaces() {
+        let template = "Hello {{ name }}, welcome!";
+        let result = replace_template_variable(template, "name", "Alice").unwrap();
+        assert_eq!(result, "Hello Alice, welcome!");
     }
-}
+
+    #[test]
+    fn test_replace_single_variable_not_found() {
+        let template = "Hello {{ name }}, welcome!";
+        let result = replace_template_variable(template, "age", "25").unwrap();
+        assert_eq!(result, "Hello {{ name }}, welcome!");
+    }
+} 
