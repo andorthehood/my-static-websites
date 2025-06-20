@@ -82,4 +82,4 @@ mod tests {
         let result = process_liquid_includes(input, &templates).unwrap();
         assert_eq!(result, "Hi, Alice!");
     }
-} 
+}

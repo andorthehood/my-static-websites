@@ -86,4 +86,4 @@ mod tests {
         let result = replace_template_variable(template, "age", "25").unwrap();
         assert_eq!(result, "Hello {{ name }}, welcome!");
     }
-} 
+}

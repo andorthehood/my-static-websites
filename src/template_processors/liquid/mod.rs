@@ -8,5 +8,4 @@ mod process_includes;
 mod processor;
 
 pub use _if::process_liquid_conditional_tags;
-pub use process_includes::process_liquid_includes;
 pub use processor::process_liquid_tags;
