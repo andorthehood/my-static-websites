@@ -1,16 +1,12 @@
 /// Validates if a variable name follows Handlebars naming conventions.
 pub fn is_valid_variable_name(name: &str) -> bool {
-    if name.is_empty() {
-        return false;
+    let mut chars = name.chars();
+    if let Some(first) = chars.next() {
+        (first.is_alphabetic() || first == '_')
+            && chars.all(|c| c.is_alphanumeric() || c == '_' || c == '.')
+    } else {
+        false
     }
-
-    let first_char = name.chars().next().unwrap();
-    if !first_char.is_alphabetic() && first_char != '_' {
-        return false;
-    }
-
-    name.chars()
-        .all(|c| c.is_alphanumeric() || c == '_' || c == '.')
 }
 
 #[cfg(test)]

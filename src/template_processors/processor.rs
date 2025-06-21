@@ -31,7 +31,8 @@ mod tests {
         variables.insert("show_greeting".to_string(), "true".to_string());
 
         let input = "{% if show_greeting %}Hello {{name}}!{% endif %}";
-        let result = process_template_tags(input, &variables).unwrap();
+        let result =
+            process_template_tags(input, &variables).expect("Processing template tags failed");
         assert_eq!(result, "Hello World!");
     }
 }
