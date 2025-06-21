@@ -82,4 +82,38 @@ mod tests {
         let result = process_liquid_includes(input, &templates).unwrap();
         assert_eq!(result, "Hi, Alice!");
     }
+
+    #[test]
+    fn test_process_liquid_includes_template_not_found() {
+        let templates = HashMap::new();
+        let input = "{% include not_found.liquid %}";
+        let result = process_liquid_includes(input, &templates).unwrap();
+        assert_eq!(result, "{% include not_found.liquid %}");
+    }
+
+    #[test]
+    fn test_process_liquid_includes_malformed_tag() {
+        let templates = HashMap::new();
+        let input = "{% include malformed %}";
+        let result = process_liquid_includes(input, &templates).unwrap();
+        assert_eq!(result, "{% include malformed %}");
+    }
+
+    #[test]
+    fn test_process_liquid_includes_unclosed_tag() {
+        let templates = HashMap::new();
+        let input = "{% include unclosed";
+        let result = process_liquid_includes(input, &templates).unwrap();
+        assert_eq!(result, "{% include unclosed");
+    }
+
+    #[test]
+    fn test_process_liquid_includes_with_error() {
+        let mut templates = HashMap::new();
+        templates.insert("header.liquid".to_string(), "Hello, {{ name }!".to_string());
+
+        let input = "{% include header.liquid name:\"World\" %}";
+        let result = process_liquid_includes(input, &templates);
+        assert!(result.is_err());
+    }
 }

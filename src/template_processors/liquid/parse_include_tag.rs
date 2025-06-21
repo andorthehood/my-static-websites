@@ -65,4 +65,16 @@ mod tests {
         let result = parse_liquid_include_tag(tag);
         assert!(result.is_none());
     }
+
+    #[test]
+    fn test_parse_include_tag_with_malformed_parameter() {
+        let tag = "{% include t.liquid malformed greeting:\"Hello\" %}";
+        let result = parse_liquid_include_tag(tag);
+
+        assert!(result.is_some());
+        let (template_name, params) = result.unwrap();
+        assert_eq!(template_name, "t.liquid");
+        assert_eq!(params.len(), 1);
+        assert_eq!(params.get("greeting"), Some(&"Hello".to_string()));
+    }
 }

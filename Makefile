@@ -11,10 +11,10 @@ netlify:
 
 # Coverage targets
 coverage:
-	cargo tarpaulin --out html --output-dir coverage/
+	cargo tarpaulin --out html --output-dir coverage/ -- --test-threads=1
 
 coverage-ci:
-	cargo tarpaulin --out xml
+	cargo tarpaulin --out xml -- --test-threads=1
 
 # Help target to show usage
 help:

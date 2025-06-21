@@ -86,4 +86,11 @@ mod tests {
         let result = replace_template_variable(template, "age", "25").unwrap();
         assert_eq!(result, "Hello {{ name }}, welcome!");
     }
+
+    #[test]
+    fn test_invalid_variable_name() {
+        let template = "Hello, world!";
+        let result = replace_template_variable(template, "invalid name", "value");
+        assert!(result.is_err());
+    }
 }
