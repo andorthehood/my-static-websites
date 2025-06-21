@@ -1,12 +1,12 @@
+use crate::config::OUTPUT_DIR;
 use crate::error::{Error, Result};
-use crate::types::{DEFAULT_SERVER_HOST, DEFAULT_SERVER_PORT, OUTPUT_DIR};
 use std::fs;
 use std::io::prelude::*;
-use std::net::{TcpListener, TcpStream};
+use std::net::TcpStream;
 use std::path::PathBuf;
 use std::time::Duration;
 
-fn handle_client(mut stream: TcpStream) -> Result<()> {
+pub(super) fn handle_client(mut stream: TcpStream) -> Result<()> {
     stream.set_read_timeout(Some(Duration::new(5, 0)))?;
 
     let mut buffer = [0; 512];
@@ -39,8 +39,8 @@ fn handle_client(mut stream: TcpStream) -> Result<()> {
                 println!("Trying to serve file: {}", path.display());
                 fs::read_to_string(path)
             }) {
-                Ok(contents) => format!("HTTP/1.1 200 OK\r\n\r\n{contents}"),
-                Err(e) => format!("HTTP/1.1 404 Not Found\r\n\r\nFailed to read file: {e}"),
+                Ok(contents) => format!("HTTP/1.1 200 OK\r\n\r\n{}", contents),
+                Err(e) => format!("HTTP/1.1 404 Not Found\r\n\r\nFailed to read file: {}", e),
             };
 
             stream.write_all(response.as_bytes())?;
@@ -48,29 +48,8 @@ fn handle_client(mut stream: TcpStream) -> Result<()> {
             Ok(())
         }
         Err(e) => {
-            eprintln!("Failed to read from stream: {e}");
+            eprintln!("Failed to read from stream: {}", e);
             Err(Error::Io(e))
         }
     }
-}
-
-pub fn listen() -> Result<()> {
-    let server_addr = format!("{DEFAULT_SERVER_HOST}:{DEFAULT_SERVER_PORT}");
-    println!("Starting server on {server_addr}");
-    let listener = TcpListener::bind(&server_addr)?;
-    println!("Server is ready and listening for connections!");
-
-    for stream in listener.incoming() {
-        match stream {
-            Ok(stream) => {
-                if let Err(e) = handle_client(stream) {
-                    eprintln!("Error handling client: {e}");
-                }
-            }
-            Err(e) => {
-                eprintln!("Error accepting connection: {e}");
-            }
-        }
-    }
-    Ok(())
 }

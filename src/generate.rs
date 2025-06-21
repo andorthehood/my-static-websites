@@ -1,18 +1,18 @@
-use crate::error::Result;
-use crate::file_copier::copy_file_with_versioning;
-use crate::file_readers::{
-    load_and_parse_markdown_files_with_front_matter_in_directory, load_site_config,
-};
-use crate::generate_pagination_pages::generate_pagination_pages;
-use crate::index_page::generate_index_page;
-use crate::layout::load_layout;
-use crate::load_includes::load_liquid_includes;
-use crate::render_page::render_page;
-use crate::template_processors::handlebars::replace_template_variables;
-use crate::template_processors::process_template_tags;
-use crate::types::{
-    ContentCollection, ContentItem, TemplateIncludes, Variables, DEFAULT_POSTS_PER_PAGE,
-    OUTPUT_DIR, OUTPUT_POSTS_DIR,
+use crate::{
+    config::{DEFAULT_POSTS_PER_PAGE, OUTPUT_DIR, OUTPUT_POSTS_DIR},
+    error::Result,
+    file_copier::copy_file_with_versioning,
+    file_readers::{
+        load_and_parse_markdown_files_with_front_matter_in_directory, load_site_config,
+    },
+    generate_pagination_pages::generate_pagination_pages,
+    index_page::generate_index_page,
+    layout::load_layout,
+    load_includes::load_liquid_includes,
+    render_page::render_page,
+    template_processors::handlebars::replace_template_variables,
+    template_processors::process_template_tags,
+    types::{ContentCollection, ContentItem, TemplateIncludes, Variables},
 };
 use std::time::{Instant, SystemTime, UNIX_EPOCH};
 

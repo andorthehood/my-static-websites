@@ -1,4 +1,5 @@
 // Core types and error handling
+mod config;
 mod error;
 mod types;
 

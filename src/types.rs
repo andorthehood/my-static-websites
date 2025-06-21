@@ -2,17 +2,6 @@
 
 use std::collections::HashMap;
 
-// Output directory constants
-pub const OUTPUT_DIR: &str = "out";
-pub const OUTPUT_POSTS_DIR: &str = "out/posts";
-
-// Server configuration
-pub const DEFAULT_SERVER_PORT: u16 = 2030;
-pub const DEFAULT_SERVER_HOST: &str = "127.0.0.1";
-
-// Pagination configuration
-pub const DEFAULT_POSTS_PER_PAGE: usize = 5;
-
 /// Represents a single content item (post or page) with front matter and metadata
 pub type ContentItem = HashMap<String, String>;
 
