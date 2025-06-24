@@ -12,6 +12,9 @@ netlify:
 serve:
 	cargo run -- serve
 
+watch:
+	cargo run -- watch $(SITE) --ramdisk
+
 format:
 	cargo fmt
 
