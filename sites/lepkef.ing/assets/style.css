@@ -425,17 +425,9 @@ footer pre {
 
 #dvd-logo {
 	position: fixed;
-	top: 50px;
-	left: 50px;
-	width: 80px;
-	height: 40px;
-	color: white;
-	font-size: 80px;
+	color: #9999cc;
 	font-weight: bold;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	pointer-events: none;
 	user-select: none;
-	opacity: 0.5;
+	width: 200px;
 }
