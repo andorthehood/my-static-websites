@@ -20,8 +20,9 @@
             font-style: normal;
         }
     </style>
-    <link rel="preload" href="/{{css_file_name}}" as="style" />
-    <link rel="stylesheet" href="/{{css_file_name}}" />
+    <link rel="preload" href="/assets/{{css_file_name}}" as="style" />
+    <link rel="preload" href="/assets/{{js_file_name}}" as="script" />
+    <link rel="stylesheet" href="/assets/{{css_file_name}}" />
     <link rel="canonical" href="https://lepkef.ing/{{pathname}}" />
     <link rel="icon" href="/favicon.ico" />
 </head>
@@ -86,6 +87,7 @@
             <div class="icon-label">Prints</div>
         </a>
     </nav>
+    <div id="dvd-logo">DVD</div>
     <div class="container">
         <main class="window">
             <div class="header">
@@ -209,29 +211,7 @@ ___.
             </div>
         </footer>
     </div><!-- .container -->
-    <script type="text/javascript">
-        document.getElementById('button-collapse').addEventListener('click', function (event) {
-            document.body.classList.toggle('collapsed');
-        });
-        document.getElementById('button-close').addEventListener('click', function () {
-            document.querySelectorAll('.window').forEach((window) => window.remove());
-        });
-        document.getElementById('button-back').addEventListener('click', function () {
-            window.history.back();
-        });
-        document.getElementById('button-forward').addEventListener('click', function () {
-            window.history.forward();
-        });
-        document.getElementById('button-reload').addEventListener('click', function () {
-            window.location.reload();
-        });
-        document.getElementById('button-home').addEventListener('click', function () {
-            window.location.href = '/';
-        });
-        document.getElementById('button-print').addEventListener('click', function () {
-            window.location.href = '/prints';
-        });
-    </script>
+    <script src="/assets/{{js_file_name}}"></script>
 </body>
 
 </html>
