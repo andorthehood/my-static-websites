@@ -2,9 +2,7 @@ use crate::{
     config::{DEFAULT_POSTS_PER_PAGE, OUTPUT_DIR, OUTPUT_POSTS_DIR},
     error::Result,
     file_copier::copy_file_with_versioning,
-    file_readers::{
-        load_and_parse_markdown_files_with_front_matter_in_directory, load_site_config,
-    },
+    file_readers::{load_and_parse_files_with_front_matter_in_directory, load_site_config},
     generate_pagination_pages::generate_pagination_pages,
     index_page::generate_index_page,
     layout::load_layout,
@@ -153,8 +151,8 @@ pub fn generate(site_name: &str) -> Result<()> {
 
     let css_file_name = copy_file_with_versioning(&css_file_path, "./out/assets/")?;
     let js_file_name = copy_file_with_versioning(&js_file_path, "./out/assets/")?;
-    let posts = load_and_parse_markdown_files_with_front_matter_in_directory(&posts_dir)?;
-    let pages = load_and_parse_markdown_files_with_front_matter_in_directory(&pages_dir)?;
+    let posts = load_and_parse_files_with_front_matter_in_directory(&posts_dir)?;
+    let pages = load_and_parse_files_with_front_matter_in_directory(&pages_dir)?;
     let includes = load_liquid_includes(&includes_dir);
     let site_config = load_site_config(site_name)?;
 

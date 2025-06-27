@@ -7,7 +7,7 @@ use crate::types::{TemplateIncludes, Variables};
 use crate::write::write_html_to_file;
 
 /// Processes a page through the template pipeline:
-/// 1. Converts markdown to HTML
+/// 1. Converts markdown to HTML (if content is markdown)
 /// 2. Processes liquid includes
 /// 3. Inserts into layout
 /// 4. Processes template tags
@@ -23,8 +23,15 @@ pub fn render_page(
     let file_name = directory.to_string() + slug + ".html";
     let keys: Vec<String> = variables.keys().cloned().collect();
 
-    // Intentionally bad formatting to test the hook
-    let html = process_liquid_tags(&markdown_to_html(body), &keys, includes)
+    // Check if the content is markdown or HTML
+    let is_markdown = variables.get("file_type").map_or(true, |ft| ft == "md");
+    let processed_body = if is_markdown {
+        markdown_to_html(body)
+    } else {
+        body.to_string()
+    };
+
+    let html = process_liquid_tags(&processed_body, &keys, includes)
         .and_then(|html| insert_body_into_layout(layout, &html))
         .and_then(|html| process_template_tags(&html, variables))?;
 

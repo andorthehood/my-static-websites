@@ -4,15 +4,11 @@ use std::fs;
 use std::io::{Error, ErrorKind, Result};
 use std::path::Path;
 
-pub fn load_and_parse_markdown_file_with_front_matter(file_path: &Path) -> Result<ContentItem> {
+pub fn load_and_parse_file_with_front_matter(file_path: &Path) -> Result<ContentItem> {
     let content = fs::read_to_string(file_path).map_err(|e| {
         Error::new(
             e.kind(),
-            format!(
-                "Failed to read markdown file '{}': {}",
-                file_path.display(),
-                e
-            ),
+            format!("Failed to read file '{}': {}", file_path.display(), e),
         )
     })?;
     let mut parsed_content = parse_content_with_front_matter(&content);
@@ -21,10 +17,15 @@ pub fn load_and_parse_markdown_file_with_front_matter(file_path: &Path) -> Resul
         parsed_content.insert("slug".to_string(), file_stem.to_string());
     }
 
+    // Add file type to content for rendering pipeline
+    if let Some(extension) = file_path.extension().and_then(|ext| ext.to_str()) {
+        parsed_content.insert("file_type".to_string(), extension.to_string());
+    }
+
     Ok(parsed_content)
 }
 
-pub fn load_and_parse_markdown_files_with_front_matter_in_directory(
+pub fn load_and_parse_files_with_front_matter_in_directory(
     dir_path: &str,
 ) -> Result<ContentCollection> {
     let path = Path::new(dir_path);
@@ -47,9 +48,13 @@ pub fn load_and_parse_markdown_files_with_front_matter_in_directory(
         let entry = entry?;
         let path = entry.path();
 
-        if path.is_file() && path.extension().and_then(|ext| ext.to_str()) == Some("md") {
-            let parsed_content = load_and_parse_markdown_file_with_front_matter(&path)?;
-            results.push(parsed_content);
+        if path.is_file() {
+            if let Some(extension) = path.extension().and_then(|ext| ext.to_str()) {
+                if extension == "md" || extension == "html" {
+                    let parsed_content = load_and_parse_file_with_front_matter(&path)?;
+                    results.push(parsed_content);
+                }
+            }
         }
     }
 
@@ -62,7 +67,7 @@ pub fn load_site_config(site_name: &str) -> Result<ContentItem> {
     let config_path_str = format!("./sites/{site_name}/config.md");
     let config_path = Path::new(&config_path_str);
     if config_path.exists() {
-        load_and_parse_markdown_file_with_front_matter(config_path)
+        load_and_parse_file_with_front_matter(config_path)
     } else {
         // Return default configuration if no config file exists
         let mut default_config = ContentItem::new();
