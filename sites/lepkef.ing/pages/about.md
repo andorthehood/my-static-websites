@@ -5,22 +5,168 @@ date: 2023-07-19 19:00:00 -0100
 location: 'Zandvoort, Netherlands'
 ---
 
-{% include candystore.liquid file:"20241015_54_berlin_ma_zm35_portra800" title:"Andor Polgar" %}
+<style>
+    .ourspace {
+        font-family: verdana, arial, sans-serif, helvetica;
+        font-size: 11px;
+    }
 
-<p data-nosnippet id="useragent">It's nice to meet you, #userAgent</p>
+    .content {
+        padding: 0;
+    }
 
-<p>My name is Andor Polgar, I was born into a family of first-generation intellectuals right around the time when the Soviet onion was falling apart, and I grew up in the suburbs of a small city in post-communist Hungary. It was exciting new world, but not everything was for the better. A lot of people had, and I think still have a Stockholm syndrome-esque attachment to the old authoritarian ways and corruption, clinging to a past that should have been left behind. That's partly why, after finishing school, I decided that I'm going to take the first oppurtunitiy to start a new life somewhere else.</p>
+    .ourspace .header {
+        background-color: #003399;
+        height: 70px;
+    }
 
-<p>As a kid, I was hyperfixated on computer programming and technology. I was lucky enough that my parents could afford a computer, however, I didn't have a mentor during those formative years. Eventually, thanks to my fixation, I managed to figure things out on my own, although it took a bit longer. I've also discovered that my brain is wired in a way that makes solving problems feel rewarding, which has made software engineering the perfect job for me. Nowadays, I work as a freelance software consultant, mostly from my home office in the Netherlands.</p>
+    .ourspace .navbar {
+        background-color: #6699cc;
+    }
 
-<p>I like taking photos of people and documenting our lives. It's a way for me to connect with like-minded artists, but also a form therapy. I do this purely for my own enjoyment; I'm not after fame, a lasting legacy, or anything like that. While I like the occasional recognition and attention, I'm not concerned about the afterlife of my work. What matters most to me is the process of creating these images and looking back at them later when I've already forgotten about their existence. They're like little time capsules for me, bringing back memories.</p>
+    .ourspace .content {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        padding: 10px;
+    }
 
-<p>I also like to experiment with altered states of consciousness though meditation: non-dual awareness, astral projection and lucid dreaming. I approach all this from a rational, non-religious perspective. I'm not in for the enlightment, just want to understand how the mind constructs reality.</p>
+    .ourspace .table {
+        border: 1px solid #6699cc;
+    }
 
-<p>I'm fascinated by the idea of humanity creating an artificial superintelligence. I think it's a very exciting time to be alive! Whenever I'm asked which year I would choose to be reborn in or time travel back to if given the choice, I always choose the present.</p>
+    .ourspace .table .title {
+        background-color: #6699cc;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 2px 10px;
+    }
 
-<script>
-    const userAgent = navigator.userAgent;
-    const textElement = document.getElementById('useragent');
-    textElement.innerHTML = textElement.innerHTML.replace('#userAgent', userAgent);
-</script>
+    .ourspace .table-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3px;
+        padding: 3px;
+    }
+
+    .ourspace .table-body .cell {
+        background-color: #d5e8fb;
+        padding: 3px;
+    }
+
+    .ourspace .table-body .heading {
+        background-color: #b1d0f0;
+        color: #336699;
+        font-weight: bold;
+    }
+
+    .extended-network {
+        font-size: 16px;
+        font-weight: bold;
+        padding: 20px;
+        border: 2px solid #000000;
+        text-align: center;
+    }
+
+    .ourspace h2 {
+        background: #ffcc99;
+        color: #ff6600;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .ourspace h3 {
+        color: #ff6600;
+        font-size: 12px;
+        font-weight: bold;
+    }
+</style>
+
+<div class="ourspace">
+    <div class="header">
+    </div>
+    <div class="navbar">
+    </div>
+    <div class="content">
+        <div class="left">
+
+            {% include candystore.liquid file:"20241015_54_berlin_ma_zm35_portra800" title:"Andor Polgar" %}
+
+            <div class="table">
+                <div class="title">Andor's Interests</div>
+                <div class="table-body">
+                    <div class="cell heading">General</div>
+                    <div class="cell">Internet, Photography, Reading, Philosophy, Lucid Dreaming, DIY electronics, Dead
+                        Media, Digital Archiving, Weight Lifting, Travel</div>
+                    <div class="cell heading">Music</div>
+                    <div class="cell">Radiohead, The Smile, Wolf Alice, Susanne Sundfør, AURORA, Yonderboi, Gorillaz,
+                        Queen, The Beatles, Lana Del Rey, Gabor Szabo, Cseh Tamás, Green Day, Charlotte Brandi,
+                        Jeanette, Damon Albarn, Thom Yorke, Voom, Princess Chelsea, Akkezdet Phiai, Massive Attack,
+                        Grimes, Caroline Polachek, Rammstein, Barkóczi Noémi, L.A. Suzi</div>
+                </div>
+            </div>
+
+            <div class="table">
+                <div class="title">Andor's Details</div>
+                <div class="table-body">
+                    <div class="cell heading">Status:</div>
+                    <div class="cell">In a Relationship</div>
+                    <div class="cell heading">Here for:</div>
+                    <div class="cell">Networking, Friends</div>
+                    <div class="cell heading">Hometown:</div>
+                    <div class="cell">Sopron</div>
+                    <div class="cell heading">Ethnicity:</div>
+                    <div class="cell">White / Caucasian</div>
+                    <div class="cell heading">Zodiac Sign:</div>
+                    <div class="cell">Cat</div>
+                    <div class="cell heading">Smoke / Drink:</div>
+                    <div class="cell">Rarely / Sometimes</div>
+                    <div class="cell heading">Occupation:</div>
+                    <div class="cell">Just visiting</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="right">
+
+            <div class="extended-network">Andor is in your extended network</div>
+
+
+            <h2>Andor's Blurbs</h2>
+            <h3>About me</h3>
+
+            <p>My name is Andor Polgar, I was born into a family of first-generation intellectuals right around the time
+                when the Soviet onion was falling apart, and I grew up in the suburbs of a small city in post-communist
+                Hungary. It was exciting new world, but not everything was for the better. A lot of people had, and I
+                think still have a Stockholm syndrome-esque attachment to the old authoritarian ways and corruption,
+                clinging to a past that should have been left behind. That's partly why, after finishing school, I
+                decided that I'm going to take the first oppurtunitiy to start a new life somewhere else.</p>
+
+            <p>As a kid, I was hyperfixated on computer programming and technology. I was lucky enough that my parents
+                could afford a computer, however, I didn't have a mentor during those formative years. Eventually,
+                thanks to my fixation, I managed to figure things out on my own, although it took a bit longer. I've
+                also discovered that my brain is wired in a way that makes solving problems feel rewarding, which has
+                made software engineering the perfect job for me. Nowadays, I work as a freelance software consultant,
+                mostly from my home office in the Netherlands.</p>
+
+            <p>I like taking photos of people and documenting our lives. It's a way for me to connect with like-minded
+                artists, but also a form therapy. I do this purely for my own enjoyment; I'm not after fame, a lasting
+                legacy, or anything like that. While I like the occasional recognition and attention, I'm not concerned
+                about the afterlife of my work. What matters most to me is the process of creating these images and
+                looking back at them later when I've already forgotten about their existence. They're like little time
+                capsules for me, bringing back memories.</p>
+
+            <p>I also like to experiment with altered states of consciousness though meditation: non-dual awareness,
+                astral projection and lucid dreaming. I approach all this from a rational, non-religious perspective.
+                I'm not in for the enlightment, just want to understand how the mind constructs reality.</p>
+
+            <p>I'm fascinated by the idea of humanity creating an artificial superintelligence. I think it's a very
+                exciting time to be alive! Whenever I'm asked which year I would choose to be reborn in or time travel
+                back to if given the choice, I always choose the present.</p>
+
+            <h2>Andor's Friend Space</h2>
+
+        </div>
+    </div>
+</div>
