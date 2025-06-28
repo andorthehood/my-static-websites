@@ -12,7 +12,11 @@ use crate::{
     template_processors::process_template_tags,
     types::{ContentCollection, ContentItem, TemplateIncludes, Variables},
 };
-use std::time::{Instant, SystemTime, UNIX_EPOCH};
+use std::{
+    collections::HashMap,
+    fs,
+    time::{Instant, SystemTime, UNIX_EPOCH},
+};
 
 fn prepare_page_context(
     item: &ContentItem,
@@ -115,6 +119,28 @@ fn generate_pages(
     Ok(())
 }
 
+fn copy_assets(site_name: &str) -> Result<HashMap<String, String>> {
+    let assets_dir = format!("./sites/{site_name}/assets");
+    let mut versioned_assets = HashMap::new();
+
+    if let Ok(entries) = fs::read_dir(&assets_dir) {
+        for entry in entries.flatten() {
+            if entry.file_type().map(|ft| ft.is_file()).unwrap_or(false) {
+                let path = entry.path();
+                if let Some(file_name) = path.file_name().and_then(|n| n.to_str()) {
+                    let versioned_name = copy_file_with_versioning(
+                        &format!("{assets_dir}/{file_name}"),
+                        "./out/assets/",
+                    )?;
+                    versioned_assets.insert(file_name.to_string(), versioned_name);
+                }
+            }
+        }
+    }
+
+    Ok(versioned_assets)
+}
+
 pub fn generate(site_name: &str) -> Result<()> {
     // Validate that the site directory exists
     let site_dir = format!("./sites/{site_name}");
@@ -143,14 +169,11 @@ pub fn generate(site_name: &str) -> Result<()> {
     let duration_since_epoch = now.duration_since(UNIX_EPOCH).expect("Time went backwards");
     let generated_date = duration_since_epoch.as_secs().to_string();
 
-    let css_file_path = format!("./sites/{site_name}/assets/style.css");
-    let js_file_path = format!("./sites/{site_name}/assets/script.js");
     let posts_dir = format!("./sites/{site_name}/posts");
     let pages_dir = format!("./sites/{site_name}/pages");
     let includes_dir = format!("./sites/{site_name}/includes");
 
-    let css_file_name = copy_file_with_versioning(&css_file_path, "./out/assets/")?;
-    let js_file_name = copy_file_with_versioning(&js_file_path, "./out/assets/")?;
+    let versioned_assets = copy_assets(site_name)?;
     let posts = load_and_parse_files_with_front_matter_in_directory(&posts_dir)?;
     let pages = load_and_parse_files_with_front_matter_in_directory(&pages_dir)?;
     let includes = load_liquid_includes(&includes_dir);
@@ -181,8 +204,7 @@ pub fn generate(site_name: &str) -> Result<()> {
     let layout_path = format!("./sites/{site_name}/layouts/main.html");
     let main_layout_template = load_layout(&layout_path)?;
     let mut main_layout_variables = Variables::new();
-    main_layout_variables.insert("css_file_name".to_string(), css_file_name);
-    main_layout_variables.insert("js_file_name".to_string(), js_file_name);
+    main_layout_variables.extend(versioned_assets);
     main_layout_variables.insert("generated_date".to_string(), generated_date);
     let main_layout = replace_template_variables(&main_layout_template, &main_layout_variables)?;
 

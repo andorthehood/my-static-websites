@@ -1,8 +1,11 @@
 use crate::{
+    config::OUTPUT_DIR,
     error::Result,
+    layout::insert_body_into_layout,
     render_page::render_page,
     template_processors::process_template_tags,
-    types::{ContentCollection, TemplateIncludes, Variables},
+    types::{ContentCollection, ContentItem, TemplateIncludes, Variables},
+    write::write_html_to_file,
 };
 
 pub fn generate_pagination_pages(
@@ -77,6 +80,7 @@ pub fn generate_pagination_pages(
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::types::ContentItem;
     use std::collections::HashMap;
     use std::fs;
     use std::path::Path;
@@ -86,6 +90,7 @@ mod tests {
         post.insert("title".to_string(), title.to_string());
         post.insert("date".to_string(), date.to_string());
         post.insert("slug".to_string(), title.to_lowercase().replace(' ', "-"));
+        post.insert("content".to_string(), format!("Content of {}", title));
         post
     }
 
@@ -99,8 +104,8 @@ mod tests {
 
         let mut includes = HashMap::new();
         includes.insert(
-            "list_item.liquid".to_string(),
-            "<li><a href=\"/posts/{{slug}}\">{{title}}</a></li>".to_string(),
+            "post.liquid".to_string(),
+            "<div class=\"post\">{{title}}</div>".to_string(),
         );
 
         let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
