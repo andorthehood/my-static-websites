@@ -1,11 +1,8 @@
 use crate::{
-    config::OUTPUT_DIR,
     error::Result,
-    layout::insert_body_into_layout,
     render_page::render_page,
     template_processors::process_template_tags,
-    types::{ContentCollection, ContentItem, TemplateIncludes, Variables},
-    write::write_html_to_file,
+    types::{ContentCollection, TemplateIncludes, Variables},
 };
 
 pub fn generate_pagination_pages(
@@ -112,6 +109,9 @@ mod tests {
         let mut global_variables = HashMap::new();
         global_variables.insert("site_title".to_string(), "Test Site".to_string());
 
+        // Clean up any existing output directory
+        let _ = fs::remove_dir_all("out");
+
         // Create output directory
         fs::create_dir_all("out").expect("Failed to create output directory");
 
@@ -142,6 +142,6 @@ mod tests {
         assert!(!page3_content.contains("Test Post 1"));
 
         // Clean up
-        fs::remove_dir_all("out").expect("Failed to clean up test output");
+        let _ = fs::remove_dir_all("out");
     }
 }
