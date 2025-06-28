@@ -147,13 +147,24 @@ h2 {
 }
 
 .pagination {
-	padding: 0;
+	padding: 1rem 0;
 	margin: 0;
 	list-style-type: none;
+	text-align: center;
 }
 
 .pagination li {
 	display: inline-block;
+	margin: 0 0.5rem;
+}
+
+.pagination a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.pagination a:hover {
+	text-decoration: underline;
 }
 
 /** Mac OS 9 Window **/
