@@ -58,6 +58,10 @@ pub fn render_page(
             // Then process any template variables in the combined result
             process_template_tags(&layout_with_content, variables)?
         } else {
+            eprintln!(
+                "⚠️  Warning: Layout '{}' specified in '{}' was not found at '{}'",
+                secondary_layout_name, file_name, layout_path
+            );
             processed_content
         }
     } else {
