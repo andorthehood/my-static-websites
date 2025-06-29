@@ -33,6 +33,13 @@ pub fn generate_posts(
         variables.insert("site_name".to_string(), site_name.to_string());
         variables.insert("layout".to_string(), "post".to_string());
 
+        // Merge title with site title if post title exists
+        if let Some(title) = post.get("title") {
+            if let Some(site_title) = global_variables.get("title") {
+                variables.insert("title".to_string(), format!("{} - {}", title, site_title));
+            }
+        }
+
         let content = post.get("content").cloned().unwrap_or_default();
         let slug = post.get("slug").cloned().unwrap_or_default();
 
@@ -62,6 +69,13 @@ pub fn generate_pages(
         variables.extend(main_layout_variables.clone());
         variables.extend(page.clone());
         variables.insert("site_name".to_string(), site_name.to_string());
+
+        // Merge title with site title if page title exists
+        if let Some(title) = page.get("title") {
+            if let Some(site_title) = global_variables.get("title") {
+                variables.insert("title".to_string(), format!("{} - {}", title, site_title));
+            }
+        }
 
         let content = page.get("content").cloned().unwrap_or_default();
         let slug = page.get("slug").cloned().unwrap_or_default();
