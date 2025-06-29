@@ -8,9 +8,9 @@ use crate::write::write_html_to_file;
 
 /// Processes a page through the template pipeline:
 /// 1. Converts markdown to HTML (if content is markdown)
-/// 2. Processes liquid includes
-/// 3. Inserts into secondary layout (if specified)
-/// 4. Inserts into main layout
+/// 2. Inserts into secondary layout (if specified)
+/// 3. Inserts into main layout
+/// 4. Processes liquid includes
 /// 5. Processes template tags
 /// 6. Writes to file
 pub fn render_page(
@@ -40,9 +40,6 @@ pub fn render_page(
         }
     };
 
-    // Process liquid includes in the content
-    let processed_content = process_liquid_tags(&processed_body, &keys, includes)?;
-
     // Apply secondary layout if specified in front matter
     let content_with_layout = if let Some(secondary_layout_name) = variables.get("layout") {
         let layout_path = format!(
@@ -52,25 +49,29 @@ pub fn render_page(
         );
 
         if let Ok(secondary_layout) = load_layout(&layout_path) {
-            // First insert the content into the layout
-            let layout_with_content =
-                insert_body_into_layout(&secondary_layout, &processed_content)?;
-            // Then process any template variables in the combined result
+            // Insert the content into the secondary layout
+            let layout_with_content = insert_body_into_layout(&secondary_layout, &processed_body)?;
+            // Process any template variables in the combined result
             process_template_tags(&layout_with_content, variables)?
         } else {
             eprintln!(
                 "⚠️  Warning: Layout '{}' specified in '{}' was not found at '{}'",
                 secondary_layout_name, file_name, layout_path
             );
-            processed_content
+            processed_body
         }
     } else {
-        processed_content
+        processed_body
     };
 
-    // Apply main layout and process template tags
-    let html = insert_body_into_layout(layout, &content_with_layout)
-        .and_then(|html| process_template_tags(&html, variables))?;
+    // Insert content into main layout
+    let combined_content = insert_body_into_layout(layout, &content_with_layout)?;
+
+    // Process all liquid includes at once
+    let content_with_includes = process_liquid_tags(&combined_content, &keys, includes)?;
+
+    // Process all template tags
+    let html = process_template_tags(&content_with_includes, variables)?;
 
     write_html_to_file(&file_name, &html)?;
     Ok(())

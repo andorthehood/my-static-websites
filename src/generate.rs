@@ -9,6 +9,7 @@ use crate::{
     load_includes::load_liquid_includes,
     render_page::render_page,
     template_processors::handlebars::replace_template_variables,
+    template_processors::liquid::process_liquid_tags,
     template_processors::process_template_tags,
     types::{ContentCollection, ContentItem, TemplateIncludes, Variables},
 };
@@ -221,7 +222,13 @@ pub fn generate(site_name: &str) -> Result<()> {
     let mut main_layout_variables = Variables::new();
     main_layout_variables.extend(versioned_assets);
     main_layout_variables.insert("generated_date".to_string(), generated_date);
-    let main_layout = replace_template_variables(&main_layout_template, &main_layout_variables)?;
+
+    // First process liquid includes in the main layout template
+    let keys: Vec<String> = main_layout_variables.keys().cloned().collect();
+    let main_layout_with_includes = process_liquid_tags(&main_layout_template, &keys, &includes)?;
+    // Then process handlebars variables
+    let main_layout =
+        replace_template_variables(&main_layout_with_includes, &main_layout_variables)?;
 
     generate_pagination_pages(
         site_name,
