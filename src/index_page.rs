@@ -8,6 +8,7 @@ use crate::types::{ContentCollection, PostsByYear, TemplateIncludes, Variables};
 use crate::write::write_html_to_file;
 
 pub fn generate_index_page(
+    site_name: &str,
     posts: &ContentCollection,
     includes: &TemplateIncludes,
     main_layout: &str,
@@ -65,6 +66,7 @@ pub fn generate_index_page(
 
     let mut variables = global_variables.clone();
     variables.insert("content".to_string(), html_list);
+    variables.insert("site_name".to_string(), site_name.to_string());
 
     let index_intro_template = includes
         .get("index_intro.liquid")

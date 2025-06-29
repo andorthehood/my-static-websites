@@ -45,6 +45,7 @@ fn prepare_page_context(
 }
 
 fn generate_posts(
+    site_name: &str,
     posts: &ContentCollection,
     includes: &TemplateIncludes,
     main_layout_template: &str,
@@ -66,6 +67,7 @@ fn generate_posts(
         )?;
 
         post_global_vars.insert("title".to_string(), title);
+        post_global_vars.insert("site_name".to_string(), site_name.to_string());
 
         let post_html = process_template_tags(
             &includes.get("post.liquid").cloned().unwrap_or_default(),
@@ -85,6 +87,7 @@ fn generate_posts(
 }
 
 fn generate_pages(
+    site_name: &str,
     pages: &ContentCollection,
     includes: &TemplateIncludes,
     main_layout_template: &str,
@@ -105,10 +108,22 @@ fn generate_pages(
             false,
         )?;
 
+        // Copy over any front matter variables to the global vars
+        for (key, value) in page {
+            page_global_vars.insert(key.clone(), value.clone());
+        }
+
         page_global_vars.insert("title".to_string(), title);
+        page_global_vars.insert("site_name".to_string(), site_name.to_string());
+
+        // Process the page content through the template processor
+        let page_html = process_template_tags(
+            page.get("content").map_or("", std::string::String::as_str),
+            page,
+        )?;
 
         render_page(
-            page.get("content").map_or("", std::string::String::as_str),
+            &page_html,
             &format!("{OUTPUT_DIR}/"),
             page.get("slug").map_or("", std::string::String::as_str),
             &main_layout,
@@ -209,6 +224,7 @@ pub fn generate(site_name: &str) -> Result<()> {
     let main_layout = replace_template_variables(&main_layout_template, &main_layout_variables)?;
 
     generate_pagination_pages(
+        site_name,
         posts_per_page,
         &posts,
         &includes,
@@ -217,10 +233,17 @@ pub fn generate(site_name: &str) -> Result<()> {
     )?;
 
     // Generate index page
-    generate_index_page(&posts, &includes, &main_layout, &global_variables)?;
+    generate_index_page(
+        site_name,
+        &posts,
+        &includes,
+        &main_layout,
+        &global_variables,
+    )?;
 
     // Generate posts
     generate_posts(
+        site_name,
         &posts,
         &includes,
         &main_layout_template,
@@ -230,6 +253,7 @@ pub fn generate(site_name: &str) -> Result<()> {
 
     // Generate pages
     generate_pages(
+        site_name,
         &pages,
         &includes,
         &main_layout_template,

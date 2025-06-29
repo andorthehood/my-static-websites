@@ -6,6 +6,7 @@ use crate::{
 };
 
 pub fn generate_pagination_pages(
+    site_name: &str,
     posts_per_page: usize,
     posts: &ContentCollection,
     includes: &TemplateIncludes,
@@ -60,6 +61,7 @@ pub fn generate_pagination_pages(
 
         let mut variables = global_variables.clone();
         variables.insert("title".to_string(), format!("Page {page_num}"));
+        variables.insert("site_name".to_string(), site_name.to_string());
 
         render_page(
             &html_list,
@@ -116,8 +118,15 @@ mod tests {
         fs::create_dir_all("out").expect("Failed to create output directory");
 
         // Generate pagination pages (3 posts per page should create 3 pages)
-        generate_pagination_pages(3, &posts, &includes, main_layout, &global_variables)
-            .expect("Failed to generate pagination pages");
+        generate_pagination_pages(
+            "Test Site",
+            3,
+            &posts,
+            &includes,
+            main_layout,
+            &global_variables,
+        )
+        .expect("Failed to generate pagination pages");
 
         // Verify the pages were created
         assert!(Path::new("out/page1.html").exists());
