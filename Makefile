@@ -31,6 +31,9 @@ coverage:
 coverage-ci:
 	cargo tarpaulin --out xml -- --test-threads=1
 
+test:
+	cargo test -- --test-threads=1
+
 # Help target to show usage
 help:
 	@echo "Available targets:"
