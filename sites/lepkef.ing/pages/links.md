@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: 'Links'
 date: 2022-10-28 19:00:00 -0100
 location: 'Zandvoort, Netherlands'

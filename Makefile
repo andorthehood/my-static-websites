@@ -5,6 +5,9 @@ install-hooks:
 	cp hooks/pre-commit .git/hooks/pre-commit
 	chmod +x .git/hooks/pre-commit
 
+generate:
+	cargo run -- generate $(SITE)
+
 netlify:
 	rustup toolchain install stable
 	cargo run -- generate $(SITE)
@@ -38,6 +41,7 @@ test:
 help:
 	@echo "Available targets:"
 	@echo "  install-hooks - Install git hooks for code formatting"
+	@echo "  generate      - Generate the site"
 	@echo "  netlify       - Build the site for Netlify deployment"
 	@echo "  serve         - Start the development server"
 	@echo "  format        - Format the code"
@@ -48,6 +52,7 @@ help:
 	@echo "  help          - Show this help message"
 	@echo ""
 	@echo "Usage:"
+	@echo "  make generate SITE=lepkef.ing   # Generate lepkef.ing site (default)"
 	@echo "  make netlify SITE=lepkef.ing    # Build lepkef.ing site (default)"
 	@echo "  make netlify SITE=mysite.com    # Build mysite.com site"
 	@echo "  make serve                      # Start the development server"
@@ -56,4 +61,4 @@ help:
 	@echo "  make lint-pedantic              # Lint the code with pedantic checks"
 	@echo "  make coverage                   # Generate coverage report"
 
-.PHONY: install-hooks netlify serve format lint lint-pedantic coverage coverage-ci help
+.PHONY: install-hooks generate netlify serve format lint lint-pedantic coverage coverage-ci help

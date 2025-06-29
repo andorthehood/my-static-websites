@@ -1,5 +1,5 @@
 use crate::{
-    config::{DEFAULT_POSTS_PER_PAGE, OUTPUT_DIR, OUTPUT_POSTS_DIR},
+    config::{DEFAULT_POSTS_PER_PAGE, OUTPUT_POSTS_DIR},
     error::Result,
     file_copier::copy_file_with_versioning,
     file_readers::{load_and_parse_files_with_front_matter_in_directory, load_site_config},
@@ -10,8 +10,7 @@ use crate::{
     render_page::render_page,
     template_processors::handlebars::replace_template_variables,
     template_processors::liquid::process_liquid_tags,
-    template_processors::process_template_tags,
-    types::{ContentCollection, ContentItem, TemplateIncludes, Variables},
+    types::{ContentCollection, TemplateIncludes, Variables},
 };
 use std::{
     collections::HashMap,
@@ -19,119 +18,57 @@ use std::{
     time::{Instant, SystemTime, UNIX_EPOCH},
 };
 
-fn prepare_page_context(
-    item: &ContentItem,
-    site_title: &str,
-    main_layout_template: &str,
-    main_layout_variables: &mut Variables,
-    is_post: bool,
-) -> Result<(String, String)> {
-    let title = format!(
-        "{} - {}",
-        item.get("title").cloned().unwrap_or_default(),
-        site_title
-    );
-
-    let slug = item.get("slug").cloned().unwrap_or_default();
-    let pathname = if is_post {
-        format!("posts/{slug}")
-    } else {
-        slug
-    };
-
-    main_layout_variables.insert("pathname".to_string(), pathname);
-    let main_layout = replace_template_variables(main_layout_template, main_layout_variables)?;
-
-    Ok((title, main_layout))
-}
-
-fn generate_posts(
+pub fn generate_posts(
     site_name: &str,
     posts: &ContentCollection,
     includes: &TemplateIncludes,
-    main_layout_template: &str,
+    main_layout: &str,
     main_layout_variables: &Variables,
     global_variables: &Variables,
 ) -> Result<()> {
-    let site_title = global_variables.get("title").cloned().unwrap_or_default();
-
     for post in posts {
-        let mut post_layout_vars = main_layout_variables.clone();
-        let mut post_global_vars = global_variables.clone();
+        let mut variables = global_variables.clone();
+        variables.extend(main_layout_variables.clone());
+        variables.extend(post.clone());
+        variables.insert("site_name".to_string(), site_name.to_string());
+        variables.insert("layout".to_string(), "post".to_string());
 
-        let (title, main_layout) = prepare_page_context(
-            post,
-            &site_title,
-            main_layout_template,
-            &mut post_layout_vars,
-            true,
-        )?;
-
-        post_global_vars.insert("title".to_string(), title);
-        post_global_vars.insert("site_name".to_string(), site_name.to_string());
-
-        let post_html = process_template_tags(
-            &includes.get("post.liquid").cloned().unwrap_or_default(),
-            post,
-        )?;
+        let content = post.get("content").cloned().unwrap_or_default();
+        let slug = post.get("slug").cloned().unwrap_or_default();
 
         render_page(
-            &post_html,
+            &content,
             &format!("{OUTPUT_POSTS_DIR}/"),
-            post.get("slug").map_or("", std::string::String::as_str),
-            &main_layout,
+            &slug,
+            main_layout,
             includes,
-            &post_global_vars,
+            &variables,
         )?;
     }
+
     Ok(())
 }
 
-fn generate_pages(
+pub fn generate_pages(
     site_name: &str,
     pages: &ContentCollection,
     includes: &TemplateIncludes,
-    main_layout_template: &str,
+    main_layout: &str,
     main_layout_variables: &Variables,
     global_variables: &Variables,
 ) -> Result<()> {
-    let site_title = global_variables.get("title").cloned().unwrap_or_default();
-
     for page in pages {
-        let mut page_layout_vars = main_layout_variables.clone();
-        let mut page_global_vars = global_variables.clone();
+        let mut variables = global_variables.clone();
+        variables.extend(main_layout_variables.clone());
+        variables.extend(page.clone());
+        variables.insert("site_name".to_string(), site_name.to_string());
 
-        let (title, main_layout) = prepare_page_context(
-            page,
-            &site_title,
-            main_layout_template,
-            &mut page_layout_vars,
-            false,
-        )?;
+        let content = page.get("content").cloned().unwrap_or_default();
+        let slug = page.get("slug").cloned().unwrap_or_default();
 
-        // Copy over any front matter variables to the global vars
-        for (key, value) in page {
-            page_global_vars.insert(key.clone(), value.clone());
-        }
-
-        page_global_vars.insert("title".to_string(), title);
-        page_global_vars.insert("site_name".to_string(), site_name.to_string());
-
-        // Process the page content through the template processor
-        let page_html = process_template_tags(
-            page.get("content").map_or("", std::string::String::as_str),
-            page,
-        )?;
-
-        render_page(
-            &page_html,
-            &format!("{OUTPUT_DIR}/"),
-            page.get("slug").map_or("", std::string::String::as_str),
-            &main_layout,
-            includes,
-            &page_global_vars,
-        )?;
+        render_page(&content, "out/", &slug, main_layout, includes, &variables)?;
     }
+
     Ok(())
 }
 
@@ -253,7 +190,7 @@ pub fn generate(site_name: &str) -> Result<()> {
         site_name,
         &posts,
         &includes,
-        &main_layout_template,
+        &main_layout,
         &main_layout_variables,
         &global_variables,
     )?;
@@ -263,7 +200,7 @@ pub fn generate(site_name: &str) -> Result<()> {
         site_name,
         &pages,
         &includes,
-        &main_layout_template,
+        &main_layout,
         &main_layout_variables,
         &global_variables,
     )?;
