@@ -20,6 +20,13 @@
 
 .ourspace .navbar {
     background-color: #6699cc;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+}
+
+.navbar a {
+    color: #ffffff;
 }
 
 .ourspace .content {
