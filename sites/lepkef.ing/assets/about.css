@@ -3,6 +3,10 @@
     font-size: 11px;
 }
 
+.ourspace p {
+    padding: 0 0 5px 0;
+}
+
 .content {
     padding: 0;
 }
@@ -46,6 +50,7 @@
 
 .ourspace .table {
     border: 1px solid #6699cc;
+    margin: 0 0 20px 0;
 }
 
 .ourspace .table .title {
@@ -93,6 +98,7 @@
     color: #ff6600;
     font-size: 12px;
     font-weight: bold;
+    padding: 0;
 }
 
 .ourspace h3 {
