@@ -11,11 +11,9 @@ expression: "read_file_content(\"out/posts/test-post.html\")"
 </head>
 <body>
     <div class="content">
-        <article>    <h1>Test Post</h1>    # Test PostThis is a test post content.<ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul><div class="test-include">
+        # Test PostThis is a test post content.<ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul><div class="test-include">
     This is included content for testing.
-</div>      <div class="test-include">
-    This is included content for testing.
-</div> </article> 
+</div>  
     </div>
     <footer>Test Site Footer</footer>
 </body>
