@@ -7,9 +7,33 @@
     padding: 10px;
 }
 
+.google .logo {
+    font-family: serif;
+}
+
+.google .logo .b {
+    color: #4285F4;
+}
+
+.google .logo .r {
+    color: #DB4437;
+}
+
+.google .logo .y {
+    color: #F4B400;
+}
+
+.google .logo .g {
+    color: #0F9D58;
+}
+
 .google ul {
     list-style: none;
     padding: 0;
+}
+
+.google li {
+    padding: 0 0 10px 0;
 }
 
 .google strong {
