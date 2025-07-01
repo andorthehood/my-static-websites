@@ -1,0 +1,33 @@
+.google {
+    font-family: sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: initial;
+    font-synthesis: initial;
+    text-rendering: initial;
+    padding: 10px;
+}
+
+.google ul {
+    list-style: none;
+    padding: 0;
+}
+
+.google strong {
+    background: none;
+    color: inherit;
+}
+
+.google a {
+    color: #0000ff;
+    text-decoration: underline;
+    display: block;
+}
+
+.google .description {
+    display: block;
+}
+
+.google .url {
+    color: #009900;
+    display: block;
+}
