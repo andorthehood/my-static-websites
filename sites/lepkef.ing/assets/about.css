@@ -35,7 +35,7 @@
 .ourspace .content {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 30px;
     padding: 10px;
 }
 
@@ -58,12 +58,12 @@
     }
 }
 
-.ourspace .table {
+.ourspace .bio-table {
     border: 1px solid #6699cc;
     margin: 0 0 20px 0;
 }
 
-.ourspace .table .title {
+.ourspace .bio-table .title {
     background-color: #6699cc;
     color: #ffffff;
     font-size: 12px;
@@ -71,19 +71,32 @@
     padding: 2px 10px;
 }
 
-.ourspace .table-body {
+.ourspace .bio-table-body {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 3px;
     padding: 3px;
 }
 
-.ourspace .table-body .cell {
+.ourspace .contact-table-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    padding: 3px;
+}
+
+.ourspace .bio-table-body .cell {
     background-color: #d5e8fb;
     padding: 3px;
 }
 
-.ourspace .table-body .heading {
+.ourspace .contact-table-body .cell {
+    padding: 5px 0;
+    text-align: center;
+    color: #0000ff;
+}
+
+.ourspace .bio-table-body .heading {
     background-color: #b1d0f0;
     color: #336699;
     font-weight: bold;
@@ -95,6 +108,7 @@
     padding: 20px;
     border: 2px solid #000000;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .ourspace h1 {
