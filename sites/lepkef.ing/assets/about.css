@@ -28,7 +28,7 @@
     line-height: 26px;
 }
 
-.navbar a {
+.ourspace .navbar a {
     color: #ffffff;
 }
 
@@ -58,6 +58,44 @@
     }
 }
 
+.extended-network {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 20px;
+    border: 2px solid #000000;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.ourspace h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.ourspace .left h2 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    padding: 0 0 10px 0;
+}
+
+.ourspace .right h2 {
+    background: #ffcc99;
+    color: #ff6600;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0;
+}
+
+.ourspace h3 {
+    color: #ff6600;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Tables */
+
 .ourspace .bio-table {
     border: 1px solid #6699cc;
     margin: 0 0 20px 0;
@@ -78,15 +116,21 @@
     padding: 3px;
 }
 
+.ourspace .bio-table-body .cell {
+    background-color: #d5e8fb;
+    padding: 3px;
+}
+
+.ourspace .bio-table-body .heading {
+    background-color: #b1d0f0;
+    color: #336699;
+    font-weight: bold;
+}
+
 .ourspace .contact-table-body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3px;
-    padding: 3px;
-}
-
-.ourspace .bio-table-body .cell {
-    background-color: #d5e8fb;
     padding: 3px;
 }
 
@@ -96,37 +140,38 @@
     color: #0000ff;
 }
 
-.ourspace .bio-table-body .heading {
-    background-color: #b1d0f0;
-    color: #336699;
-    font-weight: bold;
-}
+/* Comments */
 
-.extended-network {
-    font-size: 16px;
-    font-weight: bold;
-    padding: 20px;
-    border: 2px solid #000000;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.ourspace h1 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ffffff;
-}
-
-.ourspace h2 {
-    background: #ffcc99;
-    color: #ff6600;
-    font-size: 12px;
-    font-weight: bold;
+.ourspace .friend-comments {
+    list-style: none;
     padding: 0;
 }
 
-.ourspace h3 {
-    color: #ff6600;
-    font-size: 12px;
+.ourspace .friend-comment {
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    padding-bottom: 3px;
+    min-height: 80px;
+}
+
+.ourspace .friend-comment .friend {
+    background-color: #ff9933;
+    width: 30%;
+}
+
+.ourspace .friend-comment .friend-name {
     font-weight: bold;
+    word-wrap: break-word;
+    padding: 3px;
+    text-align: center;
+}
+
+.ourspace .friend-comment .comment {
+    background-color: #f9d6b4;
+    font-size: 12px;
+    color: #000000;
+    padding: 0 0 10px 0;
+    width: 70%;
+    padding: 3px;
 }
