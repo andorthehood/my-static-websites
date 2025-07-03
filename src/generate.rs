@@ -18,69 +18,49 @@ use std::{
     time::{Instant, SystemTime, UNIX_EPOCH},
 };
 
-pub fn generate_posts(
-    site_name: &str,
-    posts: &ContentCollection,
-    includes: &TemplateIncludes,
-    main_layout: &str,
-    main_layout_variables: &Variables,
-    global_variables: &Variables,
-) -> Result<()> {
-    for post in posts {
-        let mut variables = global_variables.clone();
-        variables.extend(main_layout_variables.clone());
-        variables.extend(post.clone());
-        variables.insert("site_name".to_string(), site_name.to_string());
-        variables.insert("layout".to_string(), "post".to_string());
+/// Configuration for generating content items
+struct ContentGenerationConfig<'a> {
+    site_name: &'a str,
+    content_items: &'a ContentCollection,
+    includes: &'a TemplateIncludes,
+    main_layout: &'a str,
+    main_layout_variables: &'a Variables,
+    global_variables: &'a Variables,
+    output_directory: &'a str,
+    default_layout: Option<&'a str>,
+}
 
-        // Merge title with site title if post title exists
-        if let Some(title) = post.get("title") {
-            if let Some(site_title) = global_variables.get("title") {
+/// Generic function to generate content items (posts or pages)
+fn generate_content_items(config: ContentGenerationConfig) -> Result<()> {
+    for content_item in config.content_items {
+        let mut variables = config.global_variables.clone();
+        variables.extend(config.main_layout_variables.clone());
+        variables.extend(content_item.clone());
+        variables.insert("site_name".to_string(), config.site_name.to_string());
+
+        // Set default layout if provided
+        if let Some(layout) = config.default_layout {
+            variables.insert("layout".to_string(), layout.to_string());
+        }
+
+        // Merge title with site title if content item title exists
+        if let Some(title) = content_item.get("title") {
+            if let Some(site_title) = config.global_variables.get("title") {
                 variables.insert("title".to_string(), format!("{} - {}", title, site_title));
             }
         }
 
-        let content = post.get("content").cloned().unwrap_or_default();
-        let slug = post.get("slug").cloned().unwrap_or_default();
+        let content = content_item.get("content").cloned().unwrap_or_default();
+        let slug = content_item.get("slug").cloned().unwrap_or_default();
 
         render_page(
             &content,
-            &format!("{OUTPUT_POSTS_DIR}/"),
+            config.output_directory,
             &slug,
-            main_layout,
-            includes,
+            config.main_layout,
+            config.includes,
             &variables,
         )?;
-    }
-
-    Ok(())
-}
-
-pub fn generate_pages(
-    site_name: &str,
-    pages: &ContentCollection,
-    includes: &TemplateIncludes,
-    main_layout: &str,
-    main_layout_variables: &Variables,
-    global_variables: &Variables,
-) -> Result<()> {
-    for page in pages {
-        let mut variables = global_variables.clone();
-        variables.extend(main_layout_variables.clone());
-        variables.extend(page.clone());
-        variables.insert("site_name".to_string(), site_name.to_string());
-
-        // Merge title with site title if page title exists
-        if let Some(title) = page.get("title") {
-            if let Some(site_title) = global_variables.get("title") {
-                variables.insert("title".to_string(), format!("{} - {}", title, site_title));
-            }
-        }
-
-        let content = page.get("content").cloned().unwrap_or_default();
-        let slug = page.get("slug").cloned().unwrap_or_default();
-
-        render_page(&content, "out/", &slug, main_layout, includes, &variables)?;
     }
 
     Ok(())
@@ -200,24 +180,28 @@ pub fn generate(site_name: &str) -> Result<()> {
     )?;
 
     // Generate posts
-    generate_posts(
+    generate_content_items(ContentGenerationConfig {
         site_name,
-        &posts,
-        &includes,
-        &main_layout,
-        &main_layout_variables,
-        &global_variables,
-    )?;
+        content_items: &posts,
+        includes: &includes,
+        main_layout: &main_layout,
+        main_layout_variables: &main_layout_variables,
+        global_variables: &global_variables,
+        output_directory: &format!("{OUTPUT_POSTS_DIR}/"),
+        default_layout: Some("post"),
+    })?;
 
     // Generate pages
-    generate_pages(
+    generate_content_items(ContentGenerationConfig {
         site_name,
-        &pages,
-        &includes,
-        &main_layout,
-        &main_layout_variables,
-        &global_variables,
-    )?;
+        content_items: &pages,
+        includes: &includes,
+        main_layout: &main_layout,
+        main_layout_variables: &main_layout_variables,
+        global_variables: &global_variables,
+        output_directory: "out/",
+        default_layout: None,
+    })?;
 
     // Log the total generation time
     let elapsed = start_time.elapsed();
