@@ -147,6 +147,9 @@ pub fn generate(site_name: &str) -> Result<()> {
     global_variables.extend(versioned_assets);
     global_variables.insert("generated_date".to_string(), generated_date);
 
+    // Add RSS feed URL to global variables
+    global_variables.insert("rss_feed_url".to_string(), "/feed.xml".to_string());
+
     let layout_path = format!("./sites/{site_name}/layouts/main.html");
     let main_layout = load_layout(&layout_path)?;
 
