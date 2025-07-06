@@ -9,8 +9,6 @@ use crate::{
     load_includes::load_liquid_includes,
     render_page::render_page,
     rss_feed::generate_rss_feed,
-    template_processors::handlebars::replace_template_variables,
-    template_processors::liquid::process_liquid_tags,
     types::{ContentCollection, TemplateIncludes, Variables},
 };
 use std::{
@@ -25,7 +23,6 @@ struct ContentGenerationConfig<'a> {
     content_items: &'a ContentCollection,
     includes: &'a TemplateIncludes,
     main_layout: &'a str,
-    main_layout_variables: &'a Variables,
     global_variables: &'a Variables,
     output_directory: &'a str,
     default_layout: Option<&'a str>,
@@ -35,7 +32,6 @@ struct ContentGenerationConfig<'a> {
 fn generate_content_items(config: ContentGenerationConfig) -> Result<()> {
     for content_item in config.content_items {
         let mut variables = config.global_variables.clone();
-        variables.extend(config.main_layout_variables.clone());
         variables.extend(content_item.clone());
         variables.insert("site_name".to_string(), config.site_name.to_string());
 
@@ -147,18 +143,12 @@ pub fn generate(site_name: &str) -> Result<()> {
     // Then merge/override with site config
     global_variables.extend(site_config);
 
-    let layout_path = format!("./sites/{site_name}/layouts/main.html");
-    let main_layout_template = load_layout(&layout_path)?;
-    let mut main_layout_variables = Variables::new();
-    main_layout_variables.extend(versioned_assets);
-    main_layout_variables.insert("generated_date".to_string(), generated_date);
+    // Add versioned assets and generated date to global variables
+    global_variables.extend(versioned_assets);
+    global_variables.insert("generated_date".to_string(), generated_date);
 
-    // First process liquid includes in the main layout template
-    let keys: Vec<String> = main_layout_variables.keys().cloned().collect();
-    let main_layout_with_includes = process_liquid_tags(&main_layout_template, &keys, &includes)?;
-    // Then process handlebars variables
-    let main_layout =
-        replace_template_variables(&main_layout_with_includes, &main_layout_variables)?;
+    let layout_path = format!("./sites/{site_name}/layouts/main.html");
+    let main_layout = load_layout(&layout_path)?;
 
     generate_pagination_pages(
         site_name,
@@ -187,7 +177,6 @@ pub fn generate(site_name: &str) -> Result<()> {
         content_items: &posts,
         includes: &includes,
         main_layout: &main_layout,
-        main_layout_variables: &main_layout_variables,
         global_variables: &global_variables,
         output_directory: &format!("{OUTPUT_POSTS_DIR}/"),
         default_layout: Some("post"),
@@ -199,7 +188,6 @@ pub fn generate(site_name: &str) -> Result<()> {
         content_items: &pages,
         includes: &includes,
         main_layout: &main_layout,
-        main_layout_variables: &main_layout_variables,
         global_variables: &global_variables,
         output_directory: "out/",
         default_layout: None,
