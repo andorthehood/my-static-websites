@@ -15,6 +15,7 @@ mod parsers;
 mod template_processors;
 
 // Generation and rendering
+mod content_processor;
 mod generate;
 mod generate_pagination_pages;
 mod index_page;

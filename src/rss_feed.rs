@@ -1,11 +1,12 @@
+use crate::content_processor::process_content;
 use crate::error::Result;
-use crate::template_processors::markdown::markdown_to_html;
-use crate::types::{ContentCollection, Variables};
+use crate::types::{ContentCollection, TemplateIncludes, Variables};
 use crate::write::write_html_to_file;
 
 pub fn generate_rss_feed(
     _site_name: &str,
     posts: &ContentCollection,
+    includes: &TemplateIncludes,
     global_variables: &Variables,
 ) -> Result<()> {
     // Get the 20 latest posts sorted by date (newest first)
@@ -68,12 +69,8 @@ pub fn generate_rss_feed(
         let date = post.get("date").unwrap_or(&empty_string);
         let content = post.get("content").unwrap_or(&empty_string);
 
-        // Convert content to HTML if it's markdown
-        let html_content = if post.get("file_type").map_or(true, |ft| ft == "md") {
-            markdown_to_html(content)
-        } else {
-            content.clone()
-        };
+        // Process content through centralized processor (handles liquid includes, markdown, etc.)
+        let html_content = process_content(content, post, includes, global_variables)?;
 
         // Format date for RSS (RFC 2822 format)
         let pub_date = format_date_for_rss(date);
@@ -238,8 +235,12 @@ mod tests {
         // Create out directory
         fs::create_dir_all("out").expect("Failed to create out directory");
 
+        // Create includes (empty for this test)
+        let includes = std::collections::HashMap::new();
+
         // Generate RSS feed
-        generate_rss_feed("test", &posts, &global_variables).expect("Failed to generate RSS feed");
+        generate_rss_feed("test", &posts, &includes, &global_variables)
+            .expect("Failed to generate RSS feed");
 
         // Check if RSS file was created
         assert!(Path::new("out/feed.xml").exists());
