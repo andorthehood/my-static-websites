@@ -1,8 +1,6 @@
 use crate::error::Result;
 use crate::layout::insert_body_into_layout;
-use crate::template_processors::handlebars::{
-    remove_handlebars_variables, replace_template_variable,
-};
+
 use crate::template_processors::process_template_tags;
 use crate::types::{ContentCollection, PostsByYear, TemplateIncludes, Variables};
 use crate::write::write_html_to_file;
@@ -81,13 +79,9 @@ pub fn generate_index_page(
         .unwrap_or_default();
     let processed_content = process_template_tags(&index_intro_template, &variables, None, None)?;
 
-    let mut html = insert_body_into_layout(main_layout, &processed_content)?;
-    html = replace_template_variable(
-        &html,
-        "title",
-        global_variables.get("title").map_or("", String::as_str),
-    )?;
-    html = remove_handlebars_variables(&html)?;
+    // Insert content into main layout and process all template tags
+    let combined_content = insert_body_into_layout(main_layout, &processed_content)?;
+    let html = process_template_tags(&combined_content, &variables, Some(includes), None)?;
 
     let index_filename = global_variables
         .get("index_filename")

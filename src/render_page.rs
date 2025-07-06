@@ -1,6 +1,6 @@
 use crate::error::Result;
 use crate::layout::{insert_body_into_layout, load_layout};
-use crate::template_processors::liquid::process_liquid_tags;
+
 use crate::template_processors::markdown::markdown_to_html;
 use crate::template_processors::process_template_tags;
 use crate::types::{TemplateIncludes, Variables};
@@ -10,9 +10,8 @@ use crate::write::write_html_to_file;
 /// 1. Converts markdown to HTML (if content is markdown)
 /// 2. Inserts into secondary layout (if specified)
 /// 3. Inserts into main layout
-/// 4. Processes liquid includes
-/// 5. Processes template tags
-/// 6. Writes to file
+/// 4. Processes all template tags (liquid includes + conditionals + handlebars)
+/// 5. Writes to file
 pub fn render_page(
     body: &str,
     directory: &str,
@@ -22,7 +21,6 @@ pub fn render_page(
     variables: &Variables,
 ) -> Result<()> {
     let file_name = directory.to_string() + slug + ".html";
-    let keys: Vec<String> = variables.keys().cloned().collect();
 
     // Check if the content is markdown or HTML or handlebars
     let is_markdown = variables.get("file_type").map_or(true, |ft| ft == "md");
@@ -67,11 +65,8 @@ pub fn render_page(
     // Insert content into main layout
     let combined_content = insert_body_into_layout(layout, &content_with_layout)?;
 
-    // Process all liquid includes at once
-    let content_with_includes = process_liquid_tags(&combined_content, &keys, includes)?;
-
-    // Process all template tags
-    let html = process_template_tags(&content_with_includes, variables, None, None)?;
+    // Process all template tags (liquid includes + conditionals + handlebars) in one go
+    let html = process_template_tags(&combined_content, variables, Some(includes), None)?;
 
     write_html_to_file(&file_name, &html)?;
     Ok(())
