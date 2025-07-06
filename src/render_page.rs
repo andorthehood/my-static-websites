@@ -34,7 +34,7 @@ pub fn render_page(
     } else {
         // For handlebars files, process the template variables first
         if is_handlebars {
-            process_template_tags(body, variables)?
+            process_template_tags(body, variables, None, None)?
         } else {
             body.to_string()
         }
@@ -52,7 +52,7 @@ pub fn render_page(
             // Insert the content into the secondary layout
             let layout_with_content = insert_body_into_layout(&secondary_layout, &processed_body)?;
             // Process any template variables in the combined result
-            process_template_tags(&layout_with_content, variables)?
+            process_template_tags(&layout_with_content, variables, None, None)?
         } else {
             eprintln!(
                 "⚠️  Warning: Layout '{}' specified in '{}' was not found at '{}'",
@@ -71,7 +71,7 @@ pub fn render_page(
     let content_with_includes = process_liquid_tags(&combined_content, &keys, includes)?;
 
     // Process all template tags
-    let html = process_template_tags(&content_with_includes, variables)?;
+    let html = process_template_tags(&content_with_includes, variables, None, None)?;
 
     write_html_to_file(&file_name, &html)?;
     Ok(())
