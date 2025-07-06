@@ -1,5 +1,5 @@
-use crate::content_processor::process_content;
 use crate::error::Result;
+use crate::template_processors::process_content;
 use crate::types::{ContentCollection, TemplateIncludes, Variables};
 use crate::write::write_html_to_file;
 
