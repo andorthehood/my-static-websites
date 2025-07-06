@@ -179,7 +179,7 @@ pub fn generate(site_name: &str) -> Result<()> {
     )?;
 
     // Generate RSS feed
-    generate_rss_feed(site_name, &posts, &global_variables)?;
+    generate_rss_feed(site_name, &posts, &includes, &global_variables)?;
 
     // Generate posts
     generate_content_items(ContentGenerationConfig {
