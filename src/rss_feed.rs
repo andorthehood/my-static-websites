@@ -1,5 +1,5 @@
 use crate::error::Result;
-use crate::template_processors::process_content;
+use crate::template_processors::process_template_tags;
 use crate::types::{ContentCollection, TemplateIncludes, Variables};
 use crate::write::write_html_to_file;
 
@@ -70,7 +70,8 @@ pub fn generate_rss_feed(
         let content = post.get("content").unwrap_or(&empty_string);
 
         // Process content through centralized processor (handles liquid includes, markdown, etc.)
-        let html_content = process_content(content, post, includes, global_variables)?;
+        let html_content =
+            process_template_tags(content, global_variables, Some(includes), Some(post))?;
 
         // Format date for RSS (RFC 2822 format)
         let pub_date = format_date_for_rss(date);

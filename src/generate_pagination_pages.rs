@@ -27,6 +27,8 @@ pub fn generate_pagination_pages(
             html_list.push_str(&process_template_tags(
                 &includes.get("post.liquid").cloned().unwrap_or_default(),
                 post,
+                None,
+                None,
             )?);
         }
 
