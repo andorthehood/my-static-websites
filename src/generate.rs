@@ -8,6 +8,7 @@ use crate::{
     layout::load_layout,
     load_includes::load_liquid_includes,
     render_page::render_page,
+    rss_feed::generate_rss_feed,
     template_processors::handlebars::replace_template_variables,
     template_processors::liquid::process_liquid_tags,
     types::{ContentCollection, TemplateIncludes, Variables},
@@ -127,26 +128,24 @@ pub fn generate(site_name: &str) -> Result<()> {
     let site_config = load_site_config(site_name)?;
 
     let mut global_variables = Variables::new();
+
+    // Set defaults first
+    global_variables.insert("title".to_string(), "My Site".to_string());
+    global_variables.insert("index_filename".to_string(), "index.html".to_string());
+    global_variables.insert("site_url".to_string(), "https://example.com".to_string());
     global_variables.insert(
-        "title".to_string(),
-        site_config
-            .get("title")
-            .cloned()
-            .unwrap_or_else(|| "My Site".to_string()),
-    );
-    global_variables.insert(
-        "index_filename".to_string(),
-        site_config
-            .get("index_filename")
-            .cloned()
-            .unwrap_or_else(|| "index.html".to_string()),
+        "description".to_string(),
+        "Latest posts from my site".to_string(),
     );
 
-    // Get posts per page from site config, fallback to default
+    // Get posts per page from site config before we move it, fallback to default
     let posts_per_page = site_config
         .get("posts_per_page")
         .and_then(|s| s.parse::<usize>().ok())
         .unwrap_or(DEFAULT_POSTS_PER_PAGE);
+
+    // Then merge/override with site config
+    global_variables.extend(site_config);
 
     let layout_path = format!("./sites/{site_name}/layouts/main.html");
     let main_layout_template = load_layout(&layout_path)?;
@@ -178,6 +177,9 @@ pub fn generate(site_name: &str) -> Result<()> {
         &main_layout,
         &global_variables,
     )?;
+
+    // Generate RSS feed
+    generate_rss_feed(site_name, &posts, &global_variables)?;
 
     // Generate posts
     generate_content_items(ContentGenerationConfig {

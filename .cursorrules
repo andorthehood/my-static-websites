@@ -3,3 +3,4 @@
 3. Don't ignore warnings in the build or test outputs.
 4. Don't modify the README unless it is explicitly prompted.
 5. If the snapshot tests are failing only because of white space differences, feel free to update them.
+6. Always run the tests in single threaded more.
