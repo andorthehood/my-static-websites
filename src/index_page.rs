@@ -75,8 +75,8 @@ pub fn generate_index_page(
 
     let index_intro_template = includes
         .get("index_intro.liquid")
-        .cloned()
-        .unwrap_or_default();
+        .map(String::as_str)
+        .unwrap_or("");
     let processed_content = process_template_tags(&index_intro_template, &variables, None, None)?;
 
     // Insert content into main layout and process all template tags

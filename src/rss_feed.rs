@@ -1,6 +1,6 @@
 use crate::error::Result;
 use crate::template_processors::process_template_tags;
-use crate::types::{ContentCollection, TemplateIncludes, Variables};
+use crate::types::{ContentCollection, ContentItem, TemplateIncludes, Variables};
 use crate::write::write_html_to_file;
 
 pub fn generate_rss_feed(
@@ -10,8 +10,8 @@ pub fn generate_rss_feed(
     global_variables: &Variables,
 ) -> Result<()> {
     // Get the 20 latest posts sorted by date (newest first)
-    let mut sorted_posts = posts.clone();
-    sorted_posts.sort_by(|a, b| {
+    let mut sorted_post_refs: Vec<&ContentItem> = posts.iter().collect();
+    sorted_post_refs.sort_by(|a, b| {
         let empty_string = String::new();
         let date_a = a.get("date").unwrap_or(&empty_string);
         let date_b = b.get("date").unwrap_or(&empty_string);
@@ -19,7 +19,7 @@ pub fn generate_rss_feed(
     });
 
     // Take only the 20 latest posts
-    let latest_posts: Vec<_> = sorted_posts.iter().take(20).collect();
+    let latest_posts: Vec<&ContentItem> = sorted_post_refs.into_iter().take(20).collect();
 
     // Get site information
     let site_title = global_variables
