@@ -8,7 +8,10 @@ pub fn load_and_parse_file_with_front_matter(file_path: &Path) -> Result<Content
     let content = fs::read_to_string(file_path).map_err(|e| {
         Error::new(
             e.kind(),
-            format!("Failed to read file '{}': {}", file_path.display(), e),
+            format!(
+                "Failed to read file '{file_path}': {e}",
+                file_path = file_path.display()
+            ),
         )
     })?;
     let mut parsed_content = parse_content_with_front_matter(&content);
@@ -33,7 +36,7 @@ pub fn load_and_parse_files_with_front_matter_in_directory(
     if !path.exists() {
         return Err(Error::new(
             ErrorKind::NotFound,
-            format!("Directory '{}' does not exist. Make sure your site has the required directory structure.", dir_path),
+            format!("Directory '{dir_path}' does not exist. Make sure your site has the required directory structure."),
         ));
     }
 
@@ -42,7 +45,7 @@ pub fn load_and_parse_files_with_front_matter_in_directory(
     for entry in fs::read_dir(path).map_err(|e| {
         Error::new(
             e.kind(),
-            format!("Failed to read directory '{}': {}", dir_path, e),
+            format!("Failed to read directory '{dir_path}': {e}"),
         )
     })? {
         let entry = entry?;
