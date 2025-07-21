@@ -1,5 +1,8 @@
 use crate::{
-    config::{DEFAULT_POSTS_PER_PAGE, OUTPUT_POSTS_DIR},
+    config::{
+        ASSETS_SUBDIR, DEFAULT_POSTS_PER_PAGE, INCLUDES_SUBDIR, LAYOUTS_SUBDIR, MAIN_LAYOUT,
+        OUTPUT_POSTS_DIR, PAGES_SUBDIR, POSTS_SUBDIR, SITES_BASE_DIR,
+    },
     error::Result,
     file_copier::copy_file_with_versioning,
     file_readers::{load_and_parse_files_with_front_matter_in_directory, load_site_config},
@@ -64,7 +67,7 @@ fn generate_content_items(config: ContentGenerationConfig) -> Result<()> {
 }
 
 fn copy_assets(site_name: &str) -> Result<HashMap<String, String>> {
-    let assets_dir = format!("./sites/{site_name}/assets");
+    let assets_dir = format!("{SITES_BASE_DIR}/{site_name}/{ASSETS_SUBDIR}");
     let mut versioned_assets = HashMap::new();
 
     if let Ok(entries) = fs::read_dir(&assets_dir) {
@@ -87,7 +90,7 @@ fn copy_assets(site_name: &str) -> Result<HashMap<String, String>> {
 
 pub fn generate(site_name: &str) -> Result<()> {
     // Validate that the site directory exists
-    let site_dir = format!("./sites/{site_name}");
+    let site_dir = format!("{SITES_BASE_DIR}/{site_name}");
     if !std::path::Path::new(&site_dir).exists() {
         return Err(std::io::Error::new(
             std::io::ErrorKind::NotFound,
@@ -113,9 +116,9 @@ pub fn generate(site_name: &str) -> Result<()> {
     let duration_since_epoch = now.duration_since(UNIX_EPOCH).expect("Time went backwards");
     let generated_date = duration_since_epoch.as_secs().to_string();
 
-    let posts_dir = format!("./sites/{site_name}/posts");
-    let pages_dir = format!("./sites/{site_name}/pages");
-    let includes_dir = format!("./sites/{site_name}/includes");
+    let posts_dir = format!("{SITES_BASE_DIR}/{site_name}/{POSTS_SUBDIR}");
+    let pages_dir = format!("{SITES_BASE_DIR}/{site_name}/{PAGES_SUBDIR}");
+    let includes_dir = format!("{SITES_BASE_DIR}/{site_name}/{INCLUDES_SUBDIR}");
 
     let versioned_assets = copy_assets(site_name)?;
     let posts = load_and_parse_files_with_front_matter_in_directory(&posts_dir)?;
@@ -150,7 +153,7 @@ pub fn generate(site_name: &str) -> Result<()> {
     // Add RSS feed URL to global variables
     global_variables.insert("rss_feed_url".to_string(), "/feed.xml".to_string());
 
-    let layout_path = format!("./sites/{site_name}/layouts/main.html");
+    let layout_path = format!("{SITES_BASE_DIR}/{site_name}/{LAYOUTS_SUBDIR}/{MAIN_LAYOUT}");
     let main_layout = load_layout(&layout_path)?;
 
     generate_pagination_pages(
@@ -210,12 +213,13 @@ pub fn generate(site_name: &str) -> Result<()> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::config::OUTPUT_DIR;
     use insta::assert_snapshot;
     use std::fs;
     use std::path::Path;
 
     fn clean_output_directory() {
-        let _ = fs::remove_dir_all("out");
+        let _ = fs::remove_dir_all(OUTPUT_DIR);
     }
 
     fn read_file_content(path: &str) -> String {
@@ -227,7 +231,7 @@ mod tests {
         clean_output_directory();
 
         // Create out directory
-        fs::create_dir_all("out").expect("Failed to create out directory");
+        fs::create_dir_all(OUTPUT_DIR).expect("Failed to create out directory");
 
         // Generate the test site
         generate("test").expect("Failed to generate test site");
