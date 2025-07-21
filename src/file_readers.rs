@@ -1,3 +1,4 @@
+use crate::config::{CONFIG_FILE, SITES_BASE_DIR};
 use crate::parsers::parse_content_with_front_matter;
 use crate::types::{ContentCollection, ContentItem};
 use std::fs;
@@ -67,7 +68,7 @@ pub fn load_and_parse_files_with_front_matter_in_directory(
 }
 
 pub fn load_site_config(site_name: &str) -> Result<ContentItem> {
-    let config_path_str = format!("./sites/{site_name}/config.md");
+    let config_path_str = format!("{SITES_BASE_DIR}/{site_name}/{CONFIG_FILE}");
     let config_path = Path::new(&config_path_str);
     if config_path.exists() {
         load_and_parse_file_with_front_matter(config_path)

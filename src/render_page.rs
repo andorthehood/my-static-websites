@@ -1,3 +1,4 @@
+use crate::config::{LAYOUTS_SUBDIR, SITES_BASE_DIR};
 use crate::error::Result;
 use crate::layout::{insert_body_into_layout, load_layout};
 
@@ -20,11 +21,11 @@ pub fn render_page(
     includes: &TemplateIncludes,
     variables: &Variables,
 ) -> Result<()> {
-    let file_name = directory.to_string() + slug + ".html";
+    let file_name = format!("{directory}{slug}.html");
 
     // Check if the content is markdown or HTML or handlebars
-    let is_markdown = variables.get("file_type").map_or(true, |ft| ft == "md");
-    let is_handlebars = variables.get("file_type").map_or(false, |ft| ft == "hbs");
+    let is_markdown = variables.get("file_type").is_none_or(|ft| ft == "md");
+    let is_handlebars = variables.get("file_type").is_some_and(|ft| ft == "hbs");
 
     // Process the body content first
     let processed_body = if is_markdown {
@@ -41,9 +42,8 @@ pub fn render_page(
     // Apply secondary layout if specified in front matter
     let content_with_layout = if let Some(secondary_layout_name) = variables.get("layout") {
         let layout_path = format!(
-            "./sites/{}/layouts/{}.html",
-            variables.get("site_name").unwrap_or(&"".to_string()),
-            secondary_layout_name
+            "{SITES_BASE_DIR}/{}/{LAYOUTS_SUBDIR}/{secondary_layout_name}.html",
+            variables.get("site_name").unwrap_or(&"".to_string())
         );
 
         if let Ok(secondary_layout) = load_layout(&layout_path) {

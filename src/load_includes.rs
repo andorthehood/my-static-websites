@@ -26,7 +26,6 @@ pub fn load_liquid_includes(dir_path: &str) -> TemplateIncludes {
 mod tests {
     use super::*;
     use insta::assert_snapshot;
-    use serde_json;
     use std::collections::BTreeMap;
 
     #[test]

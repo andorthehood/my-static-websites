@@ -188,6 +188,7 @@ fn get_current_rfc2822_date() -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::config::OUTPUT_DIR;
     use crate::types::ContentItem;
     use std::collections::HashMap;
     use std::fs;
@@ -234,7 +235,7 @@ mod tests {
         );
 
         // Create out directory
-        fs::create_dir_all("out").expect("Failed to create out directory");
+        fs::create_dir_all(OUTPUT_DIR).expect("Failed to create out directory");
 
         // Create includes (empty for this test)
         let includes = std::collections::HashMap::new();
@@ -259,7 +260,7 @@ mod tests {
 
         // Clean up
         let _ = fs::remove_file("out/feed.xml");
-        let _ = fs::remove_dir_all("out");
+        let _ = fs::remove_dir_all(OUTPUT_DIR);
     }
 
     #[test]

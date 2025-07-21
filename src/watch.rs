@@ -1,3 +1,4 @@
+use crate::config::{OUTPUT_DIR, SITES_BASE_DIR};
 use crate::error::Result;
 use crate::generate::generate;
 use std::fs;
@@ -21,7 +22,7 @@ fn setup_ramdisk() -> Result<()> {
 
     // Create a symlink from ./out to our ramdisk
     let current_dir = std::env::current_dir()?;
-    let out_path = current_dir.join("out");
+    let out_path = current_dir.join(OUTPUT_DIR);
     if out_path.exists() {
         if out_path.is_symlink() {
             fs::remove_file(&out_path)?;
@@ -36,7 +37,7 @@ fn setup_ramdisk() -> Result<()> {
 
 fn setup_regular_output() -> Result<()> {
     let current_dir = std::env::current_dir()?;
-    let out_path = current_dir.join("out");
+    let out_path = current_dir.join(OUTPUT_DIR);
     if !out_path.exists() {
         fs::create_dir_all(&out_path)?;
     }
@@ -71,7 +72,7 @@ fn get_latest_modification_time(dir: &Path) -> Result<SystemTime> {
 }
 
 pub fn watch(site_name: &str, use_ramdisk: bool) -> Result<()> {
-    let site_path = format!("./sites/{site_name}");
+    let site_path = format!("{SITES_BASE_DIR}/{site_name}");
     let site_dir = Path::new(&site_path);
 
     if !site_dir.exists() {

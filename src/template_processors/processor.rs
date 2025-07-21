@@ -51,7 +51,7 @@ pub fn process_template_tags(
 
     // Step 2: Convert markdown to HTML if content_item indicates markdown
     if let Some(item) = content_item {
-        let is_markdown = item.get("file_type").map_or(true, |ft| ft == "md");
+        let is_markdown = item.get("file_type").is_none_or(|ft| ft == "md");
         if is_markdown {
             result = markdown_to_html(&result);
         }

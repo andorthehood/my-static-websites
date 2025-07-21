@@ -81,6 +81,7 @@ pub fn generate_pagination_pages(
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::config::OUTPUT_DIR;
     use crate::types::ContentItem;
     use std::collections::HashMap;
     use std::fs;
@@ -114,10 +115,10 @@ mod tests {
         global_variables.insert("site_title".to_string(), "Test Site".to_string());
 
         // Clean up any existing output directory
-        let _ = fs::remove_dir_all("out");
+        let _ = fs::remove_dir_all(OUTPUT_DIR);
 
         // Create output directory
-        fs::create_dir_all("out").expect("Failed to create output directory");
+        fs::create_dir_all(OUTPUT_DIR).expect("Failed to create output directory");
 
         // Generate pagination pages (3 posts per page should create 3 pages)
         generate_pagination_pages(
@@ -153,6 +154,6 @@ mod tests {
         assert!(!page3_content.contains("Test Post 1"));
 
         // Clean up
-        let _ = fs::remove_dir_all("out");
+        let _ = fs::remove_dir_all(OUTPUT_DIR);
     }
 }
