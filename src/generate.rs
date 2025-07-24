@@ -50,8 +50,8 @@ fn generate_content_items(config: ContentGenerationConfig) -> Result<()> {
             }
         }
 
-        let content = content_item.get("content").cloned().unwrap_or_default();
-        let slug = content_item.get("slug").cloned().unwrap_or_default();
+        let content = content_item.get("content").map_or("", |s| s.as_str());
+        let slug = content_item.get("slug").map_or("", |s| s.as_str());
 
         render_page(
             &content,
