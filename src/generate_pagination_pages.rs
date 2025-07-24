@@ -25,7 +25,7 @@ pub fn generate_pagination_pages(
         // Add posts using post.liquid template
         for post in page_posts {
             html_list.push_str(&process_template_tags(
-                &includes.get("post.liquid").cloned().unwrap_or_default(),
+                includes.get("post.liquid").map_or("", |s| s.as_str()),
                 post,
                 None,
                 None,
