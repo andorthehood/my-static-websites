@@ -8,24 +8,107 @@ use std::collections::HashMap;
 /// # Returns
 /// * `Option<(String, HashMap<String, String>)>` - Template name and parameters if parsing succeeds
 pub fn parse_liquid_include_tag(tag: &str) -> Option<(String, HashMap<String, String>)> {
-    let parts: Vec<&str> = tag.split_whitespace().collect();
+    let trimmed = tag.trim();
 
-    if parts.len() < 4
-        || !parts.first().is_some_and(|p| p.starts_with("{%"))
-        || !parts.last().is_some_and(|p| p.ends_with("%}"))
-    {
+    // Check basic structure
+    if !trimmed.starts_with("{% include") || !trimmed.ends_with("%}") {
         return None;
     }
 
-    let template_name = parts[2].to_string();
-    let mut properties = HashMap::new();
+    // Remove the {% include and %} parts
+    let content = &trimmed[10..trimmed.len() - 2].trim();
 
-    for &part in &parts[3..parts.len() - 1] {
-        let kv: Vec<&str> = part.split(':').collect();
-        if kv.len() == 2 {
-            let key = kv[0].to_string();
-            let value = kv[1].trim_matches('"').to_string();
-            properties.insert(key, value);
+    // Find the template name (first token)
+    let mut chars = content.chars().peekable();
+    let mut template_name = String::new();
+
+    // Skip leading whitespace
+    while chars.peek() == Some(&' ') {
+        chars.next();
+    }
+
+    // Read template name
+    while let Some(ch) = chars.peek() {
+        if ch.is_whitespace() {
+            break;
+        }
+        template_name.push(chars.next().unwrap());
+    }
+
+    if template_name.is_empty() {
+        return None;
+    }
+
+    // Parse parameters
+    let mut properties = HashMap::new();
+    let remaining: String = chars.collect();
+    let remaining = remaining.trim();
+
+    if !remaining.is_empty() {
+        let mut i = 0;
+        let remaining_chars: Vec<char> = remaining.chars().collect();
+
+        while i < remaining_chars.len() {
+            // Skip whitespace
+            while i < remaining_chars.len() && remaining_chars[i].is_whitespace() {
+                i += 1;
+            }
+
+            if i >= remaining_chars.len() {
+                break;
+            }
+
+            // Read key - stop at whitespace or colon
+            let mut key = String::new();
+            while i < remaining_chars.len()
+                && remaining_chars[i] != ':'
+                && !remaining_chars[i].is_whitespace()
+            {
+                key.push(remaining_chars[i]);
+                i += 1;
+            }
+
+            // Skip whitespace after key
+            while i < remaining_chars.len() && remaining_chars[i].is_whitespace() {
+                i += 1;
+            }
+
+            if i >= remaining_chars.len() || remaining_chars[i] != ':' {
+                // Malformed parameter (no colon), just continue - we're already positioned correctly
+                continue;
+            }
+
+            i += 1; // Skip the ':'
+
+            // Read value
+            let mut value = String::new();
+            let mut in_quotes = false;
+
+            if i < remaining_chars.len() && remaining_chars[i] == '"' {
+                in_quotes = true;
+                i += 1; // Skip opening quote
+            }
+
+            while i < remaining_chars.len() {
+                let ch = remaining_chars[i];
+                if in_quotes {
+                    if ch == '"' {
+                        i += 1; // Skip closing quote
+                        break;
+                    }
+                    value.push(ch);
+                } else {
+                    if ch.is_whitespace() {
+                        break;
+                    }
+                    value.push(ch);
+                }
+                i += 1;
+            }
+
+            if !key.is_empty() {
+                properties.insert(key.trim().to_string(), value);
+            }
         }
     }
 
@@ -76,5 +159,16 @@ mod tests {
         assert_eq!(template_name, "t.liquid");
         assert_eq!(params.len(), 1);
         assert_eq!(params.get("greeting"), Some(&"Hello".to_string()));
+    }
+
+    #[test]
+    fn test_parse_include_tag_with_spaces_in_quoted_value() {
+        let tag = "{% include header.liquid name:\"Hello Worlds\" %}";
+        let result = parse_liquid_include_tag(tag);
+
+        assert!(result.is_some());
+        let (template_name, params) = result.unwrap();
+        assert_eq!(template_name, "header.liquid");
+        assert_eq!(params.get("name"), Some(&"Hello Worlds".to_string()));
     }
 }
