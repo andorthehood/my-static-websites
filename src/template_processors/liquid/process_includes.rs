@@ -116,4 +116,17 @@ mod tests {
         let result = process_liquid_includes(input, &templates);
         assert!(result.is_err());
     }
+
+    #[test]
+    fn test_process_liquid_includes_with_spaces_in_parameter_value() {
+        let mut templates = HashMap::new();
+        templates.insert(
+            "header.liquid".to_string(),
+            "Hello, {{ name }}!".to_string(),
+        );
+
+        let input = "{% include header.liquid name:\"Hello Worlds\" %}";
+        let result = process_liquid_includes(input, &templates).unwrap();
+        assert_eq!(result, "Hello, Hello Worlds!");
+    }
 }
