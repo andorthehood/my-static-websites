@@ -1,14 +1,14 @@
 use crate::error::{Error, Result};
 
-/// Removes Handlebars variables from the input string.
+/// Removes Liquid variables from the input string.
 /// This function will remove any content between {{ and }} including the braces.
 ///
 /// # Arguments
-/// * `input` - The input string containing Handlebars variables
+/// * `input` - The input string containing Liquid variables
 ///
 /// # Returns
 /// * `Result<String>` - The string with variables removed or an error if malformed
-pub fn remove_handlebars_variables(input: &str) -> Result<String> {
+pub fn remove_liquid_variables(input: &str) -> Result<String> {
     let mut result = String::with_capacity(input.len());
     let mut chars = input.chars().peekable();
     let mut in_variable = false;
@@ -16,7 +16,7 @@ pub fn remove_handlebars_variables(input: &str) -> Result<String> {
     while let Some(current) = chars.next() {
         if current == '{' && chars.peek() == Some(&'{') {
             if in_variable {
-                return Err(Error::Handlebars(
+                return Err(Error::Liquid(
                     "Nested opening braces '{{' found inside a variable".to_string(),
                 ));
             }
@@ -42,8 +42,8 @@ pub fn remove_handlebars_variables(input: &str) -> Result<String> {
     }
 
     if in_variable {
-        return Err(Error::Handlebars(
-            "Unclosed Handlebars variable".to_string(),
+        return Err(Error::Liquid(
+            "Unclosed Liquid variable".to_string(),
         ));
     }
 
@@ -55,19 +55,19 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_remove_handlebars_variables() {
+    fn test_remove_liquid_variables() {
         let template = "Lorem ipsum {{foo}} dolor {{ bar }} sit amet.";
         let result =
-            remove_handlebars_variables(template).expect("Failed to remove handlebars variables");
+            remove_liquid_variables(template).expect("Failed to remove liquid variables");
         assert_eq!(result, "Lorem ipsum  dolor  sit amet.");
     }
 
     #[test]
-    fn test_remove_handlebars_variables_with_error() {
+    fn test_remove_liquid_variables_with_error() {
         let template = "Lorem ipsum {{foo dolor {{ bar }} sit amet.";
-        let err = remove_handlebars_variables(template).unwrap_err();
-        assert!(matches!(err, Error::Handlebars(_)));
-        if let Error::Handlebars(msg) = err {
+        let err = remove_liquid_variables(template).unwrap_err();
+        assert!(matches!(err, Error::Liquid(_)));
+        if let Error::Liquid(msg) = err {
             assert!(
                 msg.contains("Nested opening braces"),
                 "Error message should mention nested braces"
@@ -79,7 +79,7 @@ mod tests {
     fn test_nested_variables() {
         let template = "Hello {{user.name}} and {{deeply.nested.value}}!";
         let result =
-            remove_handlebars_variables(template).expect("Failed to remove nested variables");
+            remove_liquid_variables(template).expect("Failed to remove nested variables");
         assert_eq!(result, "Hello  and !");
     }
 
@@ -87,14 +87,14 @@ mod tests {
     fn test_empty_template() {
         let template = "";
         let result =
-            remove_handlebars_variables(template).expect("Failed to process empty template");
+            remove_liquid_variables(template).expect("Failed to process empty template");
         assert_eq!(result, "");
     }
 
     #[test]
     fn test_whitespace_handling() {
         let template = "Hello {{  user.name  }} World";
-        let result = remove_handlebars_variables(template)
+        let result = remove_liquid_variables(template)
             .expect("Failed to handle whitespace in variables");
         assert_eq!(result, "Hello  World");
     }
@@ -102,9 +102,9 @@ mod tests {
     #[test]
     fn test_unclosed_variable() {
         let template = "Hello {{user.name World";
-        let err = remove_handlebars_variables(template).unwrap_err();
-        assert!(matches!(err, Error::Handlebars(_)));
-        if let Error::Handlebars(msg) = err {
+        let err = remove_liquid_variables(template).unwrap_err();
+        assert!(matches!(err, Error::Liquid(_)));
+        if let Error::Liquid(msg) = err {
             assert!(
                 msg.contains("Unclosed"),
                 "Error message should mention unclosed variable"

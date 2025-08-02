@@ -1,8 +1,8 @@
 use crate::error::Result;
-use crate::template_processors::handlebars::{
-    remove_handlebars_variables, replace_template_variables,
+use crate::template_processors::liquid::{
+    process_liquid_conditional_tags, process_liquid_tags, remove_liquid_variables,
+    replace_template_variables,
 };
-use crate::template_processors::liquid::{process_liquid_conditional_tags, process_liquid_tags};
 use crate::template_processors::markdown::markdown_to_html;
 use crate::types::{ContentItem, TemplateIncludes};
 use std::collections::HashMap;
@@ -13,7 +13,7 @@ use std::collections::HashMap;
 /// - Liquid conditionals (always)
 /// - Liquid includes (when includes are provided)
 /// - Markdown to HTML conversion (when content_item with markdown file_type is provided)
-/// - Handlebars variables (always)
+/// - Liquid variables (always)
 ///
 /// # Arguments
 /// * `input` - The input string containing template tags
@@ -57,9 +57,9 @@ pub fn process_template_tags(
         }
     }
 
-    // Step 3: Process handlebars variables
+    // Step 3: Process liquid variables
     result = replace_template_variables(&result, &combined_variables)?;
-    result = remove_handlebars_variables(&result)?;
+    result = remove_liquid_variables(&result)?;
 
     Ok(result)
 }

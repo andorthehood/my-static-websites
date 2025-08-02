@@ -1,4 +1,4 @@
-/// Validates if a variable name follows Handlebars naming conventions.
+/// Validates if a variable name follows Liquid naming conventions.
 /// Supports simple names and dot notation (including numeric indices like users.0.name).
 pub fn is_valid_variable_name(name: &str) -> bool {
     let mut chars = name.chars();
