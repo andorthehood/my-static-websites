@@ -1,7 +1,7 @@
 use crate::error::Result;
 use crate::template_processors::liquid::{
-    process_liquid_conditional_tags, process_liquid_tags, remove_liquid_variables,
-    replace_template_variables,
+    process_liquid_conditional_tags, process_liquid_for_loops, process_liquid_tags,
+    remove_liquid_variables, replace_template_variables,
 };
 use crate::template_processors::markdown::markdown_to_html;
 use crate::types::{ContentItem, TemplateIncludes};
@@ -40,13 +40,14 @@ pub fn process_template_tags(
 
     let keys: Vec<String> = combined_variables.keys().cloned().collect();
 
-    // Step 1: Process liquid tags (conditionals and includes if provided)
+    // Step 1: Process liquid tags (conditionals, for loops, and includes if provided)
     let mut result = if let Some(includes) = includes {
-        // Process both conditionals and includes
-        process_liquid_tags(input, &keys, includes)?
+        // Process conditionals, for loops, and includes
+        process_liquid_tags(input, &keys, includes, &combined_variables)?
     } else {
-        // Process only conditionals
-        process_liquid_conditional_tags(input, &keys)
+        // Process only conditionals and for loops
+        let processed_conditionals = process_liquid_conditional_tags(input, &keys);
+        process_liquid_for_loops(&processed_conditionals, &combined_variables)?
     };
 
     // Step 2: Convert markdown to HTML if content_item indicates markdown
@@ -154,5 +155,19 @@ mod tests {
             process_template_tags(content, &variables, Some(&includes), Some(&content_item))
                 .unwrap();
         assert_eq!(result, "# Test TitleContent here.");
+    }
+
+    #[test]
+    fn test_process_template_tags_with_for_loops() {
+        let includes = HashMap::new();
+        let mut variables = HashMap::new();
+        variables.insert("people.0.name".to_string(), "Alice".to_string());
+        variables.insert("people.1.name".to_string(), "Bob".to_string());
+        variables.insert("people.2.name".to_string(), "Charlie".to_string());
+
+        let content = "{% for person in people %}Name: {{person.name}}\n{% endfor %}";
+        let result = process_template_tags(content, &variables, Some(&includes), None).unwrap();
+
+        assert_eq!(result, "Name: Alice\nName: Bob\nName: Charlie\n");
     }
 }
