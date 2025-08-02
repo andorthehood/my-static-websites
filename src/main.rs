@@ -6,6 +6,7 @@ mod types;
 // File operations
 mod file_copier;
 mod file_readers;
+mod load_data;
 mod write;
 
 // Template processing

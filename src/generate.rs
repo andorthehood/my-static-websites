@@ -9,6 +9,7 @@ use crate::{
     generate_pagination_pages::generate_pagination_pages,
     index_page::generate_index_page,
     layout::load_layout,
+    load_data::load_site_data,
     load_includes::load_liquid_includes,
     render_page::render_page,
     rss_feed::generate_rss_feed,
@@ -19,6 +20,27 @@ use std::{
     fs,
     time::{Instant, SystemTime, UNIX_EPOCH},
 };
+
+/// Convert a content collection into indexed global variables for use with for loops
+///
+/// Converts a collection like [{"title": "Post 1", "slug": "post-1"}, {"title": "Post 2", "slug": "post-2"}]
+/// into variables like:
+/// - "posts.0.title" => "Post 1"
+/// - "posts.0.slug" => "post-1"
+/// - "posts.1.title" => "Post 2"
+/// - "posts.1.slug" => "post-2"
+fn add_collection_to_global_variables(
+    global_variables: &mut Variables,
+    collection_name: &str,
+    collection: &ContentCollection,
+) {
+    for (index, item) in collection.iter().enumerate() {
+        for (key, value) in item {
+            let global_key = format!("{}.{}.{}", collection_name, index, key);
+            global_variables.insert(global_key, value.clone());
+        }
+    }
+}
 
 /// Configuration for generating content items
 struct ContentGenerationConfig<'a> {
@@ -125,6 +147,7 @@ pub fn generate(site_name: &str) -> Result<()> {
     let pages = load_and_parse_files_with_front_matter_in_directory(&pages_dir)?;
     let includes = load_liquid_includes(&includes_dir);
     let site_config = load_site_config(site_name)?;
+    let data_variables = load_site_data(site_name)?;
 
     let mut global_variables = Variables::new();
 
@@ -146,12 +169,19 @@ pub fn generate(site_name: &str) -> Result<()> {
     // Then merge/override with site config
     global_variables.extend(site_config);
 
+    // Add data variables from JSON files
+    global_variables.extend(data_variables);
+
     // Add versioned assets and generated date to global variables
     global_variables.extend(versioned_assets);
     global_variables.insert("generated_date".to_string(), generated_date);
 
     // Add RSS feed URL to global variables
     global_variables.insert("rss_feed_url".to_string(), "/feed.xml".to_string());
+
+    // Add posts and pages collections as indexed global variables for for loops
+    add_collection_to_global_variables(&mut global_variables, "posts", &posts);
+    add_collection_to_global_variables(&mut global_variables, "pages", &pages);
 
     let layout_path = format!("{SITES_BASE_DIR}/{site_name}/{LAYOUTS_SUBDIR}/{MAIN_LAYOUT}");
     let main_layout = load_layout(&layout_path)?;

@@ -11,6 +11,7 @@ pub const PAGES_SUBDIR: &str = "pages";
 pub const INCLUDES_SUBDIR: &str = "includes";
 pub const LAYOUTS_SUBDIR: &str = "layouts";
 pub const ASSETS_SUBDIR: &str = "assets";
+pub const DATA_SUBDIR: &str = "data";
 
 // File constants
 pub const MAIN_LAYOUT: &str = "main.html";

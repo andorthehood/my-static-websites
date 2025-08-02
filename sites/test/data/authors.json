@@ -1,0 +1,22 @@
+{
+  "john": {
+    "name": "John Doe",
+    "bio": "Software engineer and writer",
+    "avatar": "/images/john.jpg",
+    "social": {
+      "twitter": "@johndoe",
+      "github": "johndoe",
+      "email": "john@example.com"
+    }
+  },
+  "jane": {
+    "name": "Jane Smith",
+    "bio": "Designer and photographer",
+    "avatar": "/images/jane.jpg",
+    "social": {
+      "twitter": "@janesmith",
+      "instagram": "janesmith",
+      "email": "jane@example.com"
+    }
+  }
+}

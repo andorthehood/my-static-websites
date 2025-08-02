@@ -16,7 +16,7 @@ expression: "read_file_content(\"out/index.html\")"
 <ul class="postlist">
 
 <ul class="postlist">
-<li><a href="/posts/test-post">Test Post</a></li> 
+<li><a href="/posts/test-post">Test Post</a></li> <li><a href="/posts/second-test-post">Second Test Post</a></li> 
 </ul> 
 </ul> 
     </div>
