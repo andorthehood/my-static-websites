@@ -18,6 +18,13 @@ serve:
 watch:
 	cargo run -- watch $(SITE) --ramdisk
 
+dev:
+	tmux new-session -d -s lepkef-dev \; \
+	split-window -h \; \
+	send-keys -t 0 'cargo run -- watch lepkef.ing --ramdisk' Enter \; \
+	send-keys -t 1 'cargo run -- serve' Enter \; \
+	attach-session -t lepkef-dev
+
 format:
 	cargo fmt
 
@@ -44,6 +51,7 @@ help:
 	@echo "  generate      - Generate the site"
 	@echo "  netlify       - Build the site for Netlify deployment"
 	@echo "  serve         - Start the development server"
+	@echo "  dev           - Start watch and serve in tmux split view"
 	@echo "  format        - Format the code"
 	@echo "  lint          - Lint the code"
 	@echo "  lint-pedantic - Lint the code with pedantic checks"
@@ -61,4 +69,4 @@ help:
 	@echo "  make lint-pedantic              # Lint the code with pedantic checks"
 	@echo "  make coverage                   # Generate coverage report"
 
-.PHONY: install-hooks generate netlify serve format lint lint-pedantic coverage coverage-ci help
+.PHONY: install-hooks generate netlify serve dev format lint lint-pedantic coverage coverage-ci help
