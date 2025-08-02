@@ -30,7 +30,7 @@ mod tests {
 
     #[test]
     fn test_load_liquid_includes() {
-        let templates = load_liquid_includes("./sites/lepkef.ing/includes");
+        let templates = load_liquid_includes("./sites/test/includes");
         let sorted_templates: BTreeMap<_, _> = templates.into_iter().collect();
         let templates_json = serde_json::to_string_pretty(&sorted_templates)
             .expect("Failed to serialize templates to JSON");
