@@ -2,7 +2,7 @@ use crate::error::Result;
 use std::fs;
 use std::path::Path;
 
-use crate::template_processors::handlebars::replace_template_variables;
+use crate::template_processors::liquid::replace_template_variables;
 use std::collections::HashMap;
 
 pub fn load_layout(file: &str) -> Result<String> {

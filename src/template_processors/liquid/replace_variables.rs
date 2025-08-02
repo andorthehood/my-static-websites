@@ -4,11 +4,11 @@ use crate::error::{Error, Result};
 use std::collections::HashMap;
 use std::fmt::Write;
 
-/// Replaces all Handlebars variables in a template with their corresponding values.
+/// Replaces all Liquid variables in a template with their corresponding values.
 /// Now supports nested object access with dot notation and array indexing.
 ///
 /// # Arguments
-/// * `template` - The template string containing Handlebars variables
+/// * `template` - The template string containing Liquid variables
 /// * `variables` - A `HashMap` containing variable names and their values
 ///
 /// # Returns
@@ -45,13 +45,13 @@ pub fn replace_template_variables(
 
             // Check for closing braces
             if chars.next() != Some('}') || chars.next() != Some('}') {
-                return Err(Error::Handlebars(
+                return Err(Error::Liquid(
                     "Unclosed variable in template".to_string(),
                 ));
             }
 
             if !is_valid_variable_name(&var_name) {
-                return Err(Error::Handlebars(format!(
+                return Err(Error::Liquid(format!(
                     "Invalid variable name: {var_name}"
                 )));
             }

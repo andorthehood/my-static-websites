@@ -1,6 +1,6 @@
 use super::parse_include_tag::parse_liquid_include_tag;
+use super::replace_variables::replace_template_variables;
 use crate::error::Result;
-use crate::template_processors::handlebars::replace_template_variables;
 use std::collections::HashMap;
 
 /// Processes all liquid include tags in the input string and replaces them with template content.

@@ -11,7 +11,7 @@ use crate::write::write_html_to_file;
 /// 1. Converts markdown to HTML (if content is markdown)
 /// 2. Inserts into secondary layout (if specified)
 /// 3. Inserts into main layout
-/// 4. Processes all template tags (liquid includes + conditionals + handlebars)
+/// 4. Processes all template tags (liquid includes + conditionals + variables)
 /// 5. Writes to file
 pub fn render_page(
     body: &str,
@@ -23,16 +23,16 @@ pub fn render_page(
 ) -> Result<()> {
     let file_name = format!("{directory}{slug}.html");
 
-    // Check if the content is markdown or HTML or handlebars
+    // Check if the content is markdown or HTML or liquid template
     let is_markdown = variables.get("file_type").is_none_or(|ft| ft == "md");
-    let is_handlebars = variables.get("file_type").is_some_and(|ft| ft == "hbs");
+    let is_liquid = variables.get("file_type").is_some_and(|ft| ft == "hbs");
 
     // Process the body content first
     let processed_body = if is_markdown {
         markdown_to_html(body)
     } else {
-        // For handlebars files, process the template variables first
-        if is_handlebars {
+        // For liquid files, process the template variables first
+        if is_liquid {
             process_template_tags(body, variables, None, None)?
         } else {
             body.to_string()
@@ -65,7 +65,7 @@ pub fn render_page(
     // Insert content into main layout
     let combined_content = insert_body_into_layout(layout, &content_with_layout)?;
 
-    // Process all template tags (liquid includes + conditionals + handlebars) in one go
+    // Process all template tags (liquid includes + conditionals + variables) in one go
     let html = process_template_tags(&combined_content, variables, Some(includes), None)?;
 
     write_html_to_file(&file_name, &html)?;
