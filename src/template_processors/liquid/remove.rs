@@ -42,9 +42,7 @@ pub fn remove_liquid_variables(input: &str) -> Result<String> {
     }
 
     if in_variable {
-        return Err(Error::Liquid(
-            "Unclosed Liquid variable".to_string(),
-        ));
+        return Err(Error::Liquid("Unclosed Liquid variable".to_string()));
     }
 
     Ok(result)
@@ -57,8 +55,7 @@ mod tests {
     #[test]
     fn test_remove_liquid_variables() {
         let template = "Lorem ipsum {{foo}} dolor {{ bar }} sit amet.";
-        let result =
-            remove_liquid_variables(template).expect("Failed to remove liquid variables");
+        let result = remove_liquid_variables(template).expect("Failed to remove liquid variables");
         assert_eq!(result, "Lorem ipsum  dolor  sit amet.");
     }
 
@@ -78,24 +75,22 @@ mod tests {
     #[test]
     fn test_nested_variables() {
         let template = "Hello {{user.name}} and {{deeply.nested.value}}!";
-        let result =
-            remove_liquid_variables(template).expect("Failed to remove nested variables");
+        let result = remove_liquid_variables(template).expect("Failed to remove nested variables");
         assert_eq!(result, "Hello  and !");
     }
 
     #[test]
     fn test_empty_template() {
         let template = "";
-        let result =
-            remove_liquid_variables(template).expect("Failed to process empty template");
+        let result = remove_liquid_variables(template).expect("Failed to process empty template");
         assert_eq!(result, "");
     }
 
     #[test]
     fn test_whitespace_handling() {
         let template = "Hello {{  user.name  }} World";
-        let result = remove_liquid_variables(template)
-            .expect("Failed to handle whitespace in variables");
+        let result =
+            remove_liquid_variables(template).expect("Failed to handle whitespace in variables");
         assert_eq!(result, "Hello  World");
     }
 

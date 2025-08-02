@@ -45,15 +45,11 @@ pub fn replace_template_variables(
 
             // Check for closing braces
             if chars.next() != Some('}') || chars.next() != Some('}') {
-                return Err(Error::Liquid(
-                    "Unclosed variable in template".to_string(),
-                ));
+                return Err(Error::Liquid("Unclosed variable in template".to_string()));
             }
 
             if !is_valid_variable_name(&var_name) {
-                return Err(Error::Liquid(format!(
-                    "Invalid variable name: {var_name}"
-                )));
+                return Err(Error::Liquid(format!("Invalid variable name: {var_name}")));
             }
 
             // Try to resolve the variable using nested access
