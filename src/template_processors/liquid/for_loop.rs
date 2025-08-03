@@ -18,10 +18,30 @@ use std::collections::HashMap;
 /// ```
 ///
 /// This allows the existing variable replacement system to handle the actual substitution.
+/// Supports nested loops by recursively processing until no more for loops remain.
 pub fn process_liquid_for_loops(
     template: &str,
     variables: &HashMap<String, String>,
 ) -> Result<String> {
+    let mut current_template = template.to_string();
+
+    // Keep processing until no more for loops are found
+    loop {
+        let processed = process_single_pass(&current_template, variables)?;
+
+        // If no changes were made, we're done
+        if processed == current_template {
+            break;
+        }
+
+        current_template = processed;
+    }
+
+    Ok(current_template)
+}
+
+/// Processes a single pass of for loop expansion
+fn process_single_pass(template: &str, variables: &HashMap<String, String>) -> Result<String> {
     let mut result = String::new();
     let mut chars = template.chars().peekable();
 
@@ -150,12 +170,19 @@ fn expand_for_loop(
     for key in variables.keys() {
         if key.starts_with(&collection_prefix) {
             // Extract the index from keys like "people.0.name", "people.1.age", etc.
+            // or from keys like "colors.0", "colors.1" for string arrays
             let suffix = &key[collection_prefix.len()..];
-            if let Some(dot_pos) = suffix.find('.') {
-                let index_str = &suffix[..dot_pos];
-                if let Ok(index) = index_str.parse::<usize>() {
-                    max_index = max_index.max(index + 1);
-                }
+
+            let index_str = if let Some(dot_pos) = suffix.find('.') {
+                // Object properties: "colors.0.name" -> "0"
+                &suffix[..dot_pos]
+            } else {
+                // String arrays: "colors.0" -> "0"
+                suffix
+            };
+
+            if let Ok(index) = index_str.parse::<usize>() {
+                max_index = max_index.max(index + 1);
             }
         }
     }
@@ -288,8 +315,47 @@ mod tests {
         let template = "{% for group in groups %}{% for member in group.members %}{{ member.name }} {% endfor %}{% endfor %}";
         let result = process_liquid_for_loops(template, &variables).unwrap();
 
-        // First expansion: groups
-        let expected = "{% for member in groups.0.members %}{{ member.name }} {% endfor %}{% for member in groups.1.members %}{{ member.name }} {% endfor %}";
+        // Should be fully expanded with both loop levels processed
+        let expected = "{{ groups.0.members.0.name }} {{ groups.0.members.1.name }} {{ groups.1.members.0.name }} ";
+        assert_eq!(result, expected);
+    }
+
+    #[test]
+    fn test_nested_for_loops_with_text() {
+        let mut variables = HashMap::new();
+        variables.insert("departments.0.name".to_string(), "Engineering".to_string());
+        variables.insert(
+            "departments.0.employees.0.name".to_string(),
+            "Alice".to_string(),
+        );
+        variables.insert(
+            "departments.0.employees.1.name".to_string(),
+            "Bob".to_string(),
+        );
+        variables.insert("departments.1.name".to_string(), "Sales".to_string());
+        variables.insert(
+            "departments.1.employees.0.name".to_string(),
+            "Charlie".to_string(),
+        );
+
+        let template = "{% for dept in departments %}Department: {{ dept.name }}\n{% for emp in dept.employees %}  - {{ emp.name }}\n{% endfor %}{% endfor %}";
+        let result = process_liquid_for_loops(template, &variables).unwrap();
+
+        let expected = "Department: {{ departments.0.name }}\n  - {{ departments.0.employees.0.name }}\n  - {{ departments.0.employees.1.name }}\nDepartment: {{ departments.1.name }}\n  - {{ departments.1.employees.0.name }}\n";
+        assert_eq!(result, expected);
+    }
+
+    #[test]
+    fn test_for_loop_with_string_array() {
+        let mut variables = HashMap::new();
+        variables.insert("colors.0".to_string(), "red".to_string());
+        variables.insert("colors.1".to_string(), "green".to_string());
+        variables.insert("colors.2".to_string(), "blue".to_string());
+
+        let template = "{% for color in colors %}{{ color }} {% endfor %}";
+        let result = process_liquid_for_loops(template, &variables).unwrap();
+
+        let expected = "{{ colors.0 }} {{ colors.1 }} {{ colors.2 }} ";
         assert_eq!(result, expected);
     }
 
