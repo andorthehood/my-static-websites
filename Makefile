@@ -18,12 +18,19 @@ serve:
 watch:
 	cargo run -- watch $(SITE) --ramdisk
 
-dev:
+lepkefing-dev:
 	tmux new-session -d -s lepkef-dev \; \
 	split-window -h \; \
 	send-keys -t 0 'cargo run -- watch lepkef.ing --ramdisk' Enter \; \
 	send-keys -t 1 'cargo run -- serve' Enter \; \
 	attach-session -t lepkef-dev
+
+polgarhivatal-dev:
+	tmux new-session -d -s polgarhivatal-dev \; \
+	split-window -h \; \
+	send-keys -t 0 'cargo run -- watch polgarhivatal.nl --ramdisk' Enter \; \
+	send-keys -t 1 'cargo run -- serve' Enter \; \
+	attach-session -t polgarhivatal-dev
 
 format:
 	cargo fmt
@@ -47,17 +54,18 @@ test:
 # Help target to show usage
 help:
 	@echo "Available targets:"
-	@echo "  install-hooks - Install git hooks for code formatting"
-	@echo "  generate      - Generate the site"
-	@echo "  netlify       - Build the site for Netlify deployment"
-	@echo "  serve         - Start the development server"
-	@echo "  dev           - Start watch and serve in tmux split view"
-	@echo "  format        - Format the code"
-	@echo "  lint          - Lint the code"
-	@echo "  lint-pedantic - Lint the code with pedantic checks"
-	@echo "  coverage      - Generate HTML coverage report"
-	@echo "  coverage-ci   - Generate XML coverage report for CI"
-	@echo "  help          - Show this help message"
+	@echo "  install-hooks     - Install git hooks for code formatting"
+	@echo "  generate          - Generate the site"
+	@echo "  netlify           - Build the site for Netlify deployment"
+	@echo "  serve             - Start the development server"
+	@echo "  lepkefing-dev     - Start watch and serve in tmux split view"
+	@echo "  polgarhivatal-dev - Start watch and serve in tmux split view"
+	@echo "  format            - Format the code"
+	@echo "  lint              - Lint the code"
+	@echo "  lint-pedantic     - Lint the code with pedantic checks"
+	@echo "  coverage          - Generate HTML coverage report"
+	@echo "  coverage-ci       - Generate XML coverage report for CI"
+	@echo "  help              - Show this help message"
 	@echo ""
 	@echo "Usage:"
 	@echo "  make generate SITE=lepkef.ing   # Generate lepkef.ing site (default)"
