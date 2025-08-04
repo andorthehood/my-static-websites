@@ -13,6 +13,3 @@ pub type TemplateIncludes = HashMap<String, String>;
 
 /// Template variables used for rendering (site config, layout variables, etc.)
 pub type Variables = HashMap<String, String>;
-
-/// Posts organized by year for pagination and archives
-pub type PostsByYear = HashMap<String, ContentCollection>;

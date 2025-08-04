@@ -18,7 +18,6 @@ mod template_processors;
 // Generation and rendering
 mod generate;
 mod generate_pagination_pages;
-mod index_page;
 mod render_page;
 mod rss_feed;
 

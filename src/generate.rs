@@ -7,7 +7,6 @@ use crate::{
     file_copier::copy_file_with_versioning,
     file_readers::{load_and_parse_files_with_front_matter_in_directory, load_site_config},
     generate_pagination_pages::generate_pagination_pages,
-    index_page::generate_index_page,
     layout::load_layout,
     load_data::load_site_data,
     load_includes::load_liquid_includes,
@@ -189,15 +188,6 @@ pub fn generate(site_name: &str) -> Result<()> {
     generate_pagination_pages(
         site_name,
         posts_per_page,
-        &posts,
-        &includes,
-        &main_layout,
-        &global_variables,
-    )?;
-
-    // Generate index page
-    generate_index_page(
-        site_name,
         &posts,
         &includes,
         &main_layout,
