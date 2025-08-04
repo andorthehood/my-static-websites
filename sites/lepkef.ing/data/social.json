@@ -1,0 +1,28 @@
+{
+  "platforms": [
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/andortheinfluence/",
+      "icon": "📷",
+      "handle": "@andortheinfluence"
+    },
+    {
+      "name": "GitHub", 
+      "url": "https://github.com/andorthehood",
+      "icon": "🐙",
+      "handle": "andorthehood"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/andorstaffed/", 
+      "icon": "💼",
+      "handle": "andorstaffed"
+    },
+    {
+      "name": "YouTube",
+      "url": "https://www.youtube.com/c/Polg%C3%A1rAndor",
+      "icon": "📹",
+      "handle": "Polgár Andor"
+    }
+  ]
+}
