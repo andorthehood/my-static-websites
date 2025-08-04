@@ -10,15 +10,18 @@ pub enum JsonValue {
 }
 
 #[allow(dead_code)]
-pub struct JsonParser<'a> {
-    input: &'a str,
+pub struct JsonParser {
+    chars: Vec<char>,
     pos: usize,
 }
 
 #[allow(dead_code)]
-impl<'a> JsonParser<'a> {
-    pub fn new(input: &'a str) -> Self {
-        Self { input, pos: 0 }
+impl JsonParser {
+    pub fn new(input: &str) -> Self {
+        Self {
+            chars: input.chars().collect(),
+            pos: 0,
+        }
     }
 
     pub fn parse(&mut self) -> Result<JsonValue, String> {
@@ -29,7 +32,7 @@ impl<'a> JsonParser<'a> {
     fn parse_value(&mut self) -> Result<JsonValue, String> {
         self.skip_whitespace();
 
-        if self.pos >= self.input.len() {
+        if self.pos >= self.chars.len() {
             return Err("Unexpected end of input".to_string());
         }
 
@@ -48,33 +51,36 @@ impl<'a> JsonParser<'a> {
         }
 
         self.advance(); // Skip opening quote
-        let start = self.pos;
+        let mut value = String::new();
 
-        while self.pos < self.input.len() && self.current_char() != '"' {
+        while self.pos < self.chars.len() && self.current_char() != '"' {
             if self.current_char() == '\\' {
-                self.advance(); // Skip escape character
-                if self.pos < self.input.len() {
-                    self.advance(); // Skip escaped character
+                value.push(self.current_char()); // Keep the backslash
+                self.advance();
+                if self.pos < self.chars.len() {
+                    value.push(self.current_char()); // Keep the escaped character
+                    self.advance();
                 }
             } else {
+                value.push(self.current_char());
                 self.advance();
             }
         }
 
-        if self.pos >= self.input.len() {
+        if self.pos >= self.chars.len() {
             return Err("Unterminated string".to_string());
         }
 
-        let value = self.input[start..self.pos].to_string();
         self.advance(); // Skip closing quote
 
         Ok(JsonValue::String(value))
     }
 
     fn parse_number(&mut self) -> Result<JsonValue, String> {
-        let start = self.pos;
+        let mut number_str = String::new();
 
         if self.current_char() == '-' {
+            number_str.push(self.current_char());
             self.advance();
         }
 
@@ -82,11 +88,11 @@ impl<'a> JsonParser<'a> {
             return Err("Invalid number format".to_string());
         }
 
-        while self.pos < self.input.len() && self.current_char().is_ascii_digit() {
+        while self.pos < self.chars.len() && self.current_char().is_ascii_digit() {
+            number_str.push(self.current_char());
             self.advance();
         }
 
-        let number_str = &self.input[start..self.pos];
         number_str
             .parse::<i64>()
             .map(JsonValue::Integer)
@@ -182,13 +188,13 @@ impl<'a> JsonParser<'a> {
     }
 
     fn skip_whitespace(&mut self) {
-        while self.pos < self.input.len() && self.current_char().is_whitespace() {
+        while self.pos < self.chars.len() && self.current_char().is_whitespace() {
             self.advance();
         }
     }
 
     fn current_char(&self) -> char {
-        self.input.chars().nth(self.pos).unwrap_or('\0')
+        self.chars.get(self.pos).copied().unwrap_or('\0')
     }
 
     fn advance(&mut self) {

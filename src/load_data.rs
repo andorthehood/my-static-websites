@@ -1,5 +1,6 @@
 use crate::config::{DATA_SUBDIR, SITES_BASE_DIR};
 use crate::error::Result;
+use crate::parsers::{parse_json, JsonValue};
 use crate::types::Variables;
 use std::fs;
 use std::path::Path;
@@ -56,9 +57,9 @@ pub fn load_site_data(site_name: &str) -> Result<Variables> {
 }
 
 /// Load and parse a JSON file
-fn load_json_file(path: &Path) -> Result<serde_json::Value> {
+fn load_json_file(path: &Path) -> Result<JsonValue> {
     let content = fs::read_to_string(path)?;
-    let json_value: serde_json::Value = serde_json::from_str(&content).map_err(|e| {
+    let json_value = parse_json(&content).map_err(|e| {
         std::io::Error::new(
             std::io::ErrorKind::InvalidData,
             format!("JSON parse error: {}", e),
@@ -85,41 +86,31 @@ fn load_json_file(path: &Path) -> Result<serde_json::Value> {
 /// - data.navigation.main.0.url = "/"
 /// - data.navigation.main.1.name = "About"  
 /// - data.navigation.main.1.url = "/about"
-fn add_json_data_to_variables(
-    variables: &mut Variables,
-    file_name: &str,
-    json_value: &serde_json::Value,
-) {
+fn add_json_data_to_variables(variables: &mut Variables, file_name: &str, json_value: &JsonValue) {
     let base_key = format!("data.{}", file_name);
     flatten_json_value(variables, &base_key, json_value);
 }
 
 /// Recursively flatten a JSON value into dot-notation variables
-fn flatten_json_value(variables: &mut Variables, prefix: &str, value: &serde_json::Value) {
+fn flatten_json_value(variables: &mut Variables, prefix: &str, value: &JsonValue) {
     match value {
-        serde_json::Value::String(s) => {
+        JsonValue::String(s) => {
             variables.insert(prefix.to_string(), s.clone());
         }
-        serde_json::Value::Number(n) => {
+        JsonValue::Integer(n) => {
             variables.insert(prefix.to_string(), n.to_string());
         }
-        serde_json::Value::Bool(b) => {
-            variables.insert(prefix.to_string(), b.to_string());
-        }
-        serde_json::Value::Array(arr) => {
+        JsonValue::Array(arr) => {
             for (index, item) in arr.iter().enumerate() {
                 let key = format!("{}.{}", prefix, index);
                 flatten_json_value(variables, &key, item);
             }
         }
-        serde_json::Value::Object(obj) => {
+        JsonValue::Object(obj) => {
             for (key, val) in obj {
                 let new_key = format!("{}.{}", prefix, key);
                 flatten_json_value(variables, &new_key, val);
             }
-        }
-        serde_json::Value::Null => {
-            variables.insert(prefix.to_string(), String::new());
         }
     }
 }
@@ -161,7 +152,7 @@ mod tests {
 
         // Note: This test would need the actual implementation to use configurable base dir
         // For now, we'll test the flattening function directly
-        let json_value: serde_json::Value = serde_json::from_str(json_content).unwrap();
+        let json_value = parse_json(json_content).unwrap();
         let mut variables = Variables::new();
         add_json_data_to_variables(&mut variables, "config", &json_value);
 
@@ -186,7 +177,7 @@ mod tests {
         }
         "#;
 
-        let json_value: serde_json::Value = serde_json::from_str(json_content).unwrap();
+        let json_value = parse_json(json_content).unwrap();
         let mut variables = Variables::new();
         add_json_data_to_variables(&mut variables, "nav", &json_value);
 
@@ -222,7 +213,7 @@ mod tests {
         }
         "#;
 
-        let json_value: serde_json::Value = serde_json::from_str(json_content).unwrap();
+        let json_value = parse_json(json_content).unwrap();
         let mut variables = Variables::new();
         add_json_data_to_variables(&mut variables, "authors", &json_value);
 
