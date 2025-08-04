@@ -12,13 +12,7 @@ expression: "read_file_content(\"out/index.html\")"
 </head>
 <body>
     <div class="content">
-        <p>Hi there! 👋 My name is Andor Polgar. This is my personal website. Here, you'll find my photography projects and random snapshots from my life.</p>
-<ul class="postlist">
-
-<ul class="postlist">
-<li><a href="/posts/test-post">Test Post</a></li> <li><a href="/posts/second-test-post">Second Test Post</a></li> 
-</ul> 
-</ul> 
+        <ul><li>**Test Post** (2024-03-20) - [test-post](/posts/test-post.html)</li></ul><ul><li>**Second Test Post** (2024-03-21) - [second-test-post](/posts/second-test-post.html)</li></ul>
     </div>
     <footer>Test Site Footer</footer>
 </body>
