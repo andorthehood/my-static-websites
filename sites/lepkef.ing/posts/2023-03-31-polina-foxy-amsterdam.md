@@ -4,6 +4,7 @@ title: 'With Polina and Foxy in Amsterdam'
 date: 2023-03-31T22:58+0100
 location: 'Amsterdam, Netherlands'
 emojis: '🔞👯'
+nsfw: true
 film: 'Kodak Gold 200'
 lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 flash: 'Contax TLA 140'

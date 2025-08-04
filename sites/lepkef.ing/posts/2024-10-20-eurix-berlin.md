@@ -4,6 +4,7 @@ title: 'Berlin'
 date: 2024-10-20T23:53+0100
 location: 'Berlin, Germany'
 emojis: '🔞'
+nsfw: true
 film: 'Kodak Gold 200'
 lens: 'Brigtinstar 28mm f/2.8'
 camera: 'Leica M-A (Typ 127)'
