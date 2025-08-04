@@ -25,7 +25,7 @@ pub fn render_page(
 
     // Check if the content is markdown or HTML or liquid template
     let is_markdown = variables.get("file_type").is_none_or(|ft| ft == "md");
-    let is_liquid = variables.get("file_type").is_some_and(|ft| ft == "hbs");
+    let is_liquid = variables.get("file_type").is_some_and(|ft| ft == "liquid");
 
     // Process the body content first
     let processed_body = if is_markdown {

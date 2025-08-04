@@ -71,8 +71,8 @@ make lint-pedantic
 ### Site Structure
 ```
 sites/<site_name>/
-├── posts/          # Blog posts (.md or .hbs files)
-├── pages/          # Static pages (.md or .hbs files) 
+├── posts/          # Blog posts (.md or .liquid files)
+├── pages/          # Static pages (.md or .liquid files) 
 ├── layouts/        # HTML templates
 ├── includes/       # Liquid template partials
 ├── assets/         # Static files (CSS, images, etc.)
