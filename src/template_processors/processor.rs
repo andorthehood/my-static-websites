@@ -1,7 +1,7 @@
 use crate::error::Result;
 use crate::template_processors::liquid::{
-    process_liquid_conditional_tags, process_liquid_for_loops, process_liquid_tags,
-    remove_liquid_variables, replace_template_variables,
+    process_liquid_assign_tags, process_liquid_conditional_tags, process_liquid_for_loops,
+    process_liquid_tags_with_assigns, remove_liquid_variables, replace_template_variables,
 };
 use crate::template_processors::markdown::markdown_to_html;
 use crate::types::{ContentItem, TemplateIncludes};
@@ -30,7 +30,7 @@ pub fn process_template_tags(
     content_item: Option<&ContentItem>,
 ) -> Result<String> {
     // Create combined variables if content_item is provided
-    let combined_variables = if let Some(item) = content_item {
+    let mut combined_variables = if let Some(item) = content_item {
         let mut combined = variables.clone();
         combined.extend(item.clone());
         combined
@@ -40,14 +40,16 @@ pub fn process_template_tags(
 
     let keys: Vec<String> = combined_variables.keys().cloned().collect();
 
-    // Step 1: Process liquid tags (conditionals, for loops, and includes if provided)
+    // Step 1: Process liquid tags (conditionals, assign tags, for loops, and includes if provided)
     let mut result = if let Some(includes) = includes {
-        // Process conditionals, for loops, and includes
-        process_liquid_tags(input, &keys, includes, &combined_variables)?
+        // Process all liquid tags including assigns
+        process_liquid_tags_with_assigns(input, &keys, includes, &mut combined_variables)?
     } else {
-        // Process only conditionals and for loops
+        // Process only conditionals, assigns, and for loops
         let processed_conditionals = process_liquid_conditional_tags(input, &keys);
-        process_liquid_for_loops(&processed_conditionals, &combined_variables)?
+        let processed_assigns =
+            process_liquid_assign_tags(&processed_conditionals, &mut combined_variables)?;
+        process_liquid_for_loops(&processed_assigns, &combined_variables)?
     };
 
     // Step 2: Convert markdown to HTML if content_item indicates markdown
@@ -169,5 +171,22 @@ mod tests {
         let result = process_template_tags(content, &variables, Some(&includes), None).unwrap();
 
         assert_eq!(result, "Name: Alice\nName: Bob\nName: Charlie\n");
+    }
+
+    #[test]
+    fn test_process_template_tags_with_assign_and_where_filter() {
+        let includes = HashMap::new();
+        let mut variables = HashMap::new();
+        variables.insert("users.0.name".to_string(), "Alice".to_string());
+        variables.insert("users.0.active".to_string(), "true".to_string());
+        variables.insert("users.1.name".to_string(), "Bob".to_string());
+        variables.insert("users.1.active".to_string(), "false".to_string());
+        variables.insert("users.2.name".to_string(), "Charlie".to_string());
+        variables.insert("users.2.active".to_string(), "true".to_string());
+
+        let content = "{% assign active_users = users | where: \"active\", \"true\" %}Active users: {% for user in active_users %}{{user.name}} {% endfor %}";
+        let result = process_template_tags(content, &variables, Some(&includes), None).unwrap();
+
+        assert_eq!(result, "Active users: Alice Charlie ");
     }
 }
