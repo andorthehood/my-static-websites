@@ -4,6 +4,7 @@ title: 'Silvy for Noalucia Knitwear'
 date: 2023-11-25T23:53+0100
 location: 'Zandvoort, Netherlands'
 emojis: '🔞'
+nsfw: true
 film: 'Kodak Gold 200'
 lens: 'ZEISS ZM Biogon T* 35mm f/2, ZEISS ZM Biogon T* 21mm f/2.8'
 camera: 'Leica M-A (Typ 127)'

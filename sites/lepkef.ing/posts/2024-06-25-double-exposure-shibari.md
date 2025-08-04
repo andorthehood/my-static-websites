@@ -4,6 +4,7 @@ title: 'Double Exposure Shibari'
 date: 2024-06-25T23:53+0100
 location: 'Arnhem, The Netherlands'
 emojis: '🔞🪢'
+nsfw: true
 film: 'Ilford XP2'
 lens: 'Zeiss ZM 35mm f/2, the candles were double exposed over the original with the Brightin Star 28mm f/2.8'
 camera: 'Leica M-A (Typ 127)'

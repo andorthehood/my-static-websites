@@ -5,6 +5,7 @@ date: 2022-01-30T23:15+0100
 categories: post
 location: 'Zandvoort, Netherlands'
 emojis: '🔞'
+nsfw: true
 film: 'Kodak Tri-X, pushed 2 stops, developed in Kodak D76'
 lens: 'Sigma art 24-70mm f2.8'
 camera: 'Nikon D780'
