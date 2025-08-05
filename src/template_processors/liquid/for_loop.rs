@@ -198,6 +198,16 @@ fn expand_for_loop(
         // Replace variable references with all possible spacing formats
         let mut expanded_body = loop_body.to_string();
 
+        // Process unless tags with current forloop context
+        let mut forloop_vars = HashMap::new();
+        forloop_vars.insert(
+            "forloop.last".to_string(),
+            if i == max_index - 1 { "true" } else { "false" }.to_string(),
+        );
+
+        // Process unless tags in this iteration with the correct forloop context
+        expanded_body = super::unless::process_liquid_unless_tags(&expanded_body, &forloop_vars)?;
+
         // Handle different spacing patterns for variable references
         let patterns_to_replace = vec![
             // No spaces: {{item.
@@ -377,5 +387,19 @@ mod tests {
         let result = process_liquid_for_loops(template, &variables);
 
         assert!(result.is_err());
+    }
+
+    #[test]
+    fn test_forloop_context_processing() {
+        let mut variables = HashMap::new();
+        variables.insert("items.0".to_string(), "apple".to_string());
+        variables.insert("items.1".to_string(), "banana".to_string());
+
+        let template = "{% for item in items %}{{ item }}{% unless forloop.last %},{% endunless %}{% endfor %}";
+        let result = process_liquid_for_loops(template, &variables).unwrap();
+
+        // Should process unless tags with forloop context and remove comma on last item
+        let expected = "{{ items.0 }},{{ items.1 }}";
+        assert_eq!(result, expected);
     }
 }

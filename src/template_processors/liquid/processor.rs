@@ -2,12 +2,13 @@ use super::_if::process_liquid_conditional_tags;
 use super::assign::process_liquid_assign_tags;
 use super::for_loop::process_liquid_for_loops;
 use super::process_includes::process_liquid_includes;
+use super::unless::process_liquid_unless_tags;
 use crate::error::Result;
 use std::collections::HashMap;
 
 /// Process all Liquid tags in a template string, including assign tags
 ///
-/// This function processes conditional tags, assign tags, for loops, and includes
+/// This function processes conditional tags, assign tags, for loops, unless tags, and includes
 /// in the correct order. Assign tags can modify the variables map.
 ///
 /// # Arguments
@@ -27,7 +28,10 @@ pub fn process_liquid_tags_with_assigns(
     let processed_conditionals = process_liquid_conditional_tags(template, conditions);
     let processed_assigns = process_liquid_assign_tags(&processed_conditionals, variables)?;
     let processed_for_loops = process_liquid_for_loops(&processed_assigns, variables)?;
-    process_liquid_includes(&processed_for_loops, templates)
+    // Unless tags are now processed during for loop expansion for forloop context
+    // Still process any remaining unless tags that are outside for loops
+    let processed_unless = process_liquid_unless_tags(&processed_for_loops, variables)?;
+    process_liquid_includes(&processed_unless, templates)
 }
 
 #[cfg(test)]
@@ -55,5 +59,25 @@ mod tests {
             variables.get("active_users.0.name"),
             Some(&"Alice".to_string())
         );
+    }
+
+    #[test]
+    fn test_for_loop_with_unless_forloop_last() {
+        let mut variables = HashMap::new();
+        variables.insert("items.0".to_string(), "apple".to_string());
+        variables.insert("items.1".to_string(), "banana".to_string());
+        variables.insert("items.2".to_string(), "cherry".to_string());
+
+        let templates = HashMap::new();
+        let conditions = Vec::new();
+
+        let input = "{% for item in items %}{{ item }}{% unless forloop.last %}, {% endunless %}{% endfor %}";
+        let result =
+            process_liquid_tags_with_assigns(input, &conditions, &templates, &mut variables)
+                .unwrap();
+
+        // Should have commas for first two items but not the last
+        let expected = "{{ items.0 }}, {{ items.1 }}, {{ items.2 }}";
+        assert_eq!(result, expected);
     }
 }
