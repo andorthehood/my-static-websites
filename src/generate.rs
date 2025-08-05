@@ -1,7 +1,7 @@
 use crate::{
     config::{
-        ASSETS_SUBDIR, DEFAULT_POSTS_PER_PAGE, INCLUDES_SUBDIR, LAYOUTS_SUBDIR, MAIN_LAYOUT,
-        OUTPUT_POSTS_DIR, PAGES_SUBDIR, POSTS_SUBDIR, SITES_BASE_DIR,
+        ASSETS_SUBDIR, DATA_SUBDIR, DEFAULT_POSTS_PER_PAGE, INCLUDES_SUBDIR, LAYOUTS_SUBDIR,
+        MAIN_LAYOUT, OUTPUT_POSTS_DIR, PAGES_SUBDIR, POSTS_SUBDIR, SITES_BASE_DIR,
     },
     error::Result,
     file_copier::copy_file_with_versioning,
@@ -109,6 +109,28 @@ fn copy_assets(site_name: &str) -> Result<HashMap<String, String>> {
     Ok(versioned_assets)
 }
 
+fn copy_data(site_name: &str) -> Result<()> {
+    let data_dir = format!("{SITES_BASE_DIR}/{site_name}/{DATA_SUBDIR}");
+    let output_data_dir = "./out/data";
+
+    if let Ok(entries) = fs::read_dir(&data_dir) {
+        fs::create_dir_all(output_data_dir)?;
+        for entry in entries.flatten() {
+            if entry.file_type().map(|ft| ft.is_file()).unwrap_or(false) {
+                let path = entry.path();
+                if let Some(file_name) = path.file_name().and_then(|n| n.to_str()) {
+                    fs::copy(
+                        &format!("{data_dir}/{file_name}"),
+                        &format!("{output_data_dir}/{file_name}"),
+                    )?;
+                }
+            }
+        }
+    }
+
+    Ok(())
+}
+
 pub fn generate(site_name: &str) -> Result<()> {
     // Validate that the site directory exists
     let site_dir = format!("{SITES_BASE_DIR}/{site_name}");
@@ -142,6 +164,7 @@ pub fn generate(site_name: &str) -> Result<()> {
     let includes_dir = format!("{SITES_BASE_DIR}/{site_name}/{INCLUDES_SUBDIR}");
 
     let versioned_assets = copy_assets(site_name)?;
+    copy_data(site_name)?;
     let posts = load_and_parse_files_with_front_matter_in_directory(&posts_dir)?;
     let pages = load_and_parse_files_with_front_matter_in_directory(&pages_dir)?;
     let includes = load_liquid_includes(&includes_dir);

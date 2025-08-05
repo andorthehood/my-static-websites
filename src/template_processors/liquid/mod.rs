@@ -16,6 +16,6 @@ mod validation;
 pub use _if::process_liquid_conditional_tags;
 pub use assign::process_liquid_assign_tags;
 pub use for_loop::process_liquid_for_loops;
-pub use processor::{process_liquid_tags, process_liquid_tags_with_assigns};
+pub use processor::process_liquid_tags_with_assigns;
 pub use remove::remove_liquid_variables;
 pub use replace_variables::replace_template_variables;
