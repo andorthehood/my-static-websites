@@ -1,3 +1,4 @@
+use super::utils::find_tag_block;
 use crate::error::{Error, Result};
 use std::collections::HashMap;
 
@@ -19,52 +20,37 @@ pub fn process_liquid_unless_tags(
 ) -> Result<String> {
     let mut result = template.to_string();
 
-    // Keep processing until no more unless tags found
-    loop {
-        let start_tag = "{% unless ";
-        let end_tag = "{% endunless %}";
+    // Process all unless tags by collecting them first, then applying replacements in reverse order
+    let mut replacements = Vec::new();
+    let mut current_pos = 0;
 
-        if let Some(start_pos) = result.find(start_tag) {
-            // Find the end of the opening tag
-            let condition_start = start_pos + start_tag.len();
-            let condition_end = result[condition_start..]
-                .find(" %}")
-                .or_else(|| result[condition_start..].find("%}"))
-                .ok_or_else(|| Error::Liquid("Malformed unless tag".to_string()))?
-                + condition_start;
+    // Find all unless blocks
+    while let Some(tag_block) = find_tag_block(&result, "{% unless", "{% endunless %}", current_pos)
+    {
+        // Extract condition from tag content
+        let condition = tag_block.tag_content.trim();
 
-            let opening_end = result[condition_end..]
-                .find("%}")
-                .ok_or_else(|| Error::Liquid("Unclosed unless opening tag".to_string()))?
-                + condition_end
-                + 2;
+        // Evaluate condition
+        let condition_is_true = variables.get(condition).map_or(false, |v| v == "true");
 
-            // Find the closing tag
-            let content_start = opening_end;
-            let closing_start = result[content_start..]
-                .find(end_tag)
-                .ok_or_else(|| Error::Liquid("Missing {% endunless %} tag".to_string()))?
-                + content_start;
-            let closing_end = closing_start + end_tag.len();
-
-            // Extract condition and content
-            let condition = result[condition_start..condition_end].trim();
-            let content = &result[content_start..closing_start];
-
-            // Evaluate condition
-            let condition_is_true = variables.get(condition).map_or(false, |v| v == "true");
-
-            let replacement = if condition_is_true {
-                String::new() // Remove content if condition is true
-            } else {
-                content.to_string() // Keep content if condition is false
-            };
-
-            // Replace the entire unless block
-            result.replace_range(start_pos..closing_end, &replacement);
+        let replacement = if condition_is_true {
+            String::new() // Remove content if condition is true
         } else {
-            break;
-        }
+            tag_block.inner_content // Keep content if condition is false
+        };
+
+        replacements.push((tag_block.start, tag_block.end, replacement));
+        current_pos = tag_block.end;
+    }
+
+    // Apply replacements in reverse order to maintain correct positions
+    for (start, end, replacement) in replacements.iter().rev() {
+        result.replace_range(*start..*end, replacement);
+    }
+
+    // Check if there are any unclosed unless tags
+    if result.contains("{% unless") {
+        return Err(Error::Liquid("Missing {% endunless %} tag".to_string()));
     }
 
     Ok(result)

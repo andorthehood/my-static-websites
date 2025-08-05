@@ -1,6 +1,6 @@
 use super::utils::{
-    clear_variables_with_prefix, get_array_items, resolve_variable_value, split_respecting_quotes,
-    trim_quotes,
+    clear_variables_with_prefix, extract_tag_parameter, get_array_items, parse_assignment,
+    read_until_closing_tag, resolve_variable_value, split_respecting_quotes, trim_quotes,
 };
 use crate::error::{Error, Result};
 use std::collections::HashMap;
@@ -25,43 +25,18 @@ pub fn process_liquid_assign_tags(
         if current == '{' && chars.peek() == Some(&'%') {
             chars.next(); // Skip '%'
 
-            // Check if this is an assign tag
-            let mut tag_content = String::new();
-            let mut found_closing = false;
+            // Use utility functions for tag processing
+            let tag_content = read_until_closing_tag(&mut chars)?;
+            let trimmed_content = tag_content.trim();
 
-            // Skip whitespace
-            while let Some(&c) = chars.peek() {
-                if !c.is_whitespace() {
-                    break;
-                }
-                chars.next();
-            }
-
-            // Collect tag content until we find %}
-            while let Some(c) = chars.next() {
-                if c == '%' && chars.peek() == Some(&'}') {
-                    chars.next(); // Skip '}'
-                    found_closing = true;
-                    break;
-                }
-                tag_content.push(c);
-            }
-
-            if !found_closing {
-                return Err(Error::Liquid("Unclosed liquid tag".to_string()));
-            }
-
-            let tag_content = tag_content.trim();
-
-            if tag_content.starts_with("assign ") {
+            if let Some(assign_content) = extract_tag_parameter(trimmed_content, "assign") {
                 // Parse the assign statement
-                let assign_content = &tag_content[7..]; // Remove "assign "
-                process_assign_statement(assign_content, variables)?;
+                process_assign_statement(&assign_content, variables)?;
                 // Assign tags are removed from output (they don't render anything)
             } else {
                 // Not an assign tag, keep the original tag
                 result.push_str("{% ");
-                result.push_str(tag_content);
+                result.push_str(trimmed_content);
                 result.push_str(" %}");
             }
         } else {
@@ -76,14 +51,9 @@ fn process_assign_statement(
     statement: &str,
     variables: &mut HashMap<String, String>,
 ) -> Result<()> {
-    // Parse: variable_name = source | filter: args
-    let parts: Vec<&str> = statement.split('=').collect();
-    if parts.len() != 2 {
-        return Err(Error::Liquid("Invalid assign syntax".to_string()));
-    }
-
-    let variable_name = parts[0].trim();
-    let expression = parts[1].trim();
+    // Parse: variable_name = source | filter: args using utility function
+    let (variable_name, expression) = parse_assignment(statement)
+        .ok_or_else(|| Error::Liquid("Invalid assign syntax".to_string()))?;
 
     // Check if there's a filter
     if let Some(pipe_pos) = expression.find('|') {
@@ -94,7 +64,7 @@ fn process_assign_statement(
         let filtered_result = apply_filter(source, filter_part, variables)?;
 
         // Clear any existing variables with the same prefix before storing new results
-        clear_variables_with_prefix(variables, variable_name);
+        clear_variables_with_prefix(variables, &variable_name);
 
         // Store filtered results as indexed variables
         for (index, item) in filtered_result.iter().enumerate() {
@@ -105,8 +75,8 @@ fn process_assign_statement(
         }
     } else {
         // No filter, direct assignment
-        if let Some(value) = resolve_variable_value(expression, variables) {
-            variables.insert(variable_name.to_string(), value);
+        if let Some(value) = resolve_variable_value(&expression, variables) {
+            variables.insert(variable_name.clone(), value);
         }
     }
 
