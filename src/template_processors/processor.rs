@@ -1,7 +1,8 @@
 use crate::error::Result;
 use crate::template_processors::liquid::{
     process_liquid_assign_tags, process_liquid_conditional_tags, process_liquid_for_loops,
-    process_liquid_tags_with_assigns, remove_liquid_variables, replace_template_variables,
+    process_liquid_tags_with_assigns, process_liquid_unless_tags, remove_liquid_variables,
+    replace_template_variables,
 };
 use crate::template_processors::markdown::markdown_to_html;
 use crate::types::{ContentItem, TemplateIncludes};
@@ -45,11 +46,16 @@ pub fn process_template_tags(
         // Process all liquid tags including assigns
         process_liquid_tags_with_assigns(input, &keys, includes, &mut combined_variables)?
     } else {
-        // Process only conditionals, assigns, and for loops
+        // Process conditionals, assigns, for loops, assigns again (for forloop context), and unless tags
         let processed_conditionals = process_liquid_conditional_tags(input, &keys);
         let processed_assigns =
             process_liquid_assign_tags(&processed_conditionals, &mut combined_variables)?;
-        process_liquid_for_loops(&processed_assigns, &combined_variables)?
+        let processed_for_loops =
+            process_liquid_for_loops(&processed_assigns, &combined_variables)?;
+        // Process assigns again to handle the forloop context variables injected by for loops
+        let processed_assigns_again =
+            process_liquid_assign_tags(&processed_for_loops, &mut combined_variables)?;
+        process_liquid_unless_tags(&processed_assigns_again, &combined_variables)?
     };
 
     // Step 2: Convert markdown to HTML if content_item indicates markdown
