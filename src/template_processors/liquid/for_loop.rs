@@ -195,20 +195,24 @@ fn expand_for_loop(
     // Expand the loop body for each item
     let mut result = String::new();
     for i in 0..max_index {
-        // Replace variable references with all possible spacing formats
+        // Replace forloop context directly with actual values (no assign tags)
+        let is_last = i == max_index - 1;
+        let is_first = i == 0;
+
         let mut expanded_body = loop_body.to_string();
 
-        // Process unless tags with current forloop context
-        let mut forloop_vars = HashMap::new();
-        forloop_vars.insert(
-            "forloop.last".to_string(),
-            if i == max_index - 1 { "true" } else { "false" }.to_string(),
+        // Only replace forloop references that are NOT inside nested for loops
+        // We do this by only replacing forloop references that are at the same nesting level
+        expanded_body = replace_forloop_context_at_current_level(
+            &expanded_body,
+            is_last,
+            is_first,
+            i + 1, // 1-based index
+            i,     // 0-based index
+            max_index,
         );
 
-        // Process unless tags in this iteration with the correct forloop context
-        expanded_body = super::unless::process_liquid_unless_tags(&expanded_body, &forloop_vars)?;
-
-        // Handle different spacing patterns for variable references
+        // Handle different spacing patterns for item variable references
         let patterns_to_replace = vec![
             // No spaces: {{item.
             (
@@ -245,6 +249,165 @@ fn expand_for_loop(
     }
 
     Ok(result)
+}
+
+fn replace_forloop_context_at_current_level(
+    template: &str,
+    is_last: bool,
+    is_first: bool,
+    index: usize,
+    index0: usize,
+    length: usize,
+) -> String {
+    // Only replace forloop references that are at the top level (not inside nested for loops)
+    let mut result = String::new();
+    let mut chars = template.chars().peekable();
+    let mut nesting_level = 0;
+
+    while let Some(current) = chars.next() {
+        if current == '{' && chars.peek() == Some(&'%') {
+            // Found a potential liquid tag
+            let tag_start = result.len();
+            result.push(current);
+            result.push(chars.next().unwrap()); // push '%'
+
+            // Read the tag content
+            let mut tag_content = String::new();
+            let mut found_closing = false;
+
+            while let Some(c) = chars.next() {
+                if c == '%' && chars.peek() == Some(&'}') {
+                    chars.next(); // consume '}'
+                    result.push(c);
+                    result.push('}');
+                    found_closing = true;
+                    break;
+                } else {
+                    tag_content.push(c);
+                    result.push(c);
+                }
+            }
+
+            if found_closing {
+                let tag_content = tag_content.trim();
+
+                // Track nesting level
+                if tag_content.starts_with("for ") {
+                    nesting_level += 1;
+                } else if tag_content == "endfor" {
+                    nesting_level -= 1;
+                } else if nesting_level == 0 && tag_content.starts_with("unless forloop.last") {
+                    // This is an unless tag at the current level - replace it
+                    let _tag_end = result.len();
+                    if is_last {
+                        // Remove the entire unless block for last iterations
+                        result.truncate(tag_start);
+                        // Skip to endunless and remove that too
+                        skip_to_endunless(&mut chars);
+                    } else {
+                        // Keep content but remove unless tags for non-last iterations
+                        result.truncate(tag_start);
+                        // Read content until endunless and add it directly
+                        let content = read_until_endunless(&mut chars);
+                        result.push_str(&content);
+                    }
+                }
+            }
+        } else if current == '{' && chars.peek() == Some(&'{') {
+            // Found handlebars expression - only replace if at current level
+            let mut expr = String::new();
+            expr.push(current);
+            expr.push(chars.next().unwrap()); // push second '{'
+
+            // Read until }}
+            while let Some(c) = chars.next() {
+                expr.push(c);
+                if c == '}' && chars.peek() == Some(&'}') {
+                    expr.push(chars.next().unwrap());
+                    break;
+                }
+            }
+
+            // Replace forloop variables only at current nesting level
+            if nesting_level == 0 {
+                if expr == "{{ forloop.last }}" {
+                    result.push_str(if is_last { "true" } else { "false" });
+                } else if expr == "{{ forloop.first }}" {
+                    result.push_str(if is_first { "true" } else { "false" });
+                } else if expr == "{{ forloop.index }}" {
+                    result.push_str(&index.to_string());
+                } else if expr == "{{ forloop.index0 }}" {
+                    result.push_str(&index0.to_string());
+                } else if expr == "{{ forloop.length }}" {
+                    result.push_str(&length.to_string());
+                } else {
+                    result.push_str(&expr);
+                }
+            } else {
+                result.push_str(&expr);
+            }
+        } else {
+            result.push(current);
+        }
+    }
+
+    result
+}
+
+fn skip_to_endunless(chars: &mut std::iter::Peekable<std::str::Chars>) {
+    while let Some(c) = chars.next() {
+        if c == '{' && chars.peek() == Some(&'%') {
+            chars.next(); // consume '%'
+            let mut tag_content = String::new();
+            while let Some(tc) = chars.next() {
+                if tc == '%' && chars.peek() == Some(&'}') {
+                    chars.next(); // consume '}'
+                    if tag_content.trim() == "endunless" {
+                        return;
+                    }
+                    break;
+                } else {
+                    tag_content.push(tc);
+                }
+            }
+        }
+    }
+}
+
+fn read_until_endunless(chars: &mut std::iter::Peekable<std::str::Chars>) -> String {
+    let mut content = String::new();
+
+    while let Some(c) = chars.next() {
+        if c == '{' && chars.peek() == Some(&'%') {
+            // Potential tag
+            let tag_start = content.len();
+            content.push(c);
+            content.push(chars.next().unwrap()); // push '%'
+
+            let mut tag_content = String::new();
+            while let Some(tc) = chars.next() {
+                if tc == '%' && chars.peek() == Some(&'}') {
+                    chars.next(); // consume '}'
+                    if tag_content.trim() == "endunless" {
+                        // Remove the tag we just added and return
+                        content.truncate(tag_start);
+                        return content;
+                    } else {
+                        content.push(tc);
+                        content.push('}');
+                    }
+                    break;
+                } else {
+                    tag_content.push(tc);
+                    content.push(tc);
+                }
+            }
+        } else {
+            content.push(c);
+        }
+    }
+
+    content
 }
 
 #[cfg(test)]
@@ -396,10 +559,50 @@ mod tests {
         variables.insert("items.1".to_string(), "banana".to_string());
 
         let template = "{% for item in items %}{{ item }}{% unless forloop.last %},{% endunless %}{% endfor %}";
+
+        // The for loop processor now handles forloop context directly
         let result = process_liquid_for_loops(template, &variables).unwrap();
 
-        // Should process unless tags with forloop context and remove comma on last item
+        // Should have processed unless tags with forloop context and remove comma on last item
         let expected = "{{ items.0 }},{{ items.1 }}";
+        assert_eq!(result, expected);
+    }
+
+    #[test]
+    fn test_nested_forloop_last_context() {
+        let mut variables = HashMap::new();
+
+        // Outer loop: skills
+        variables.insert("skills.0.name".to_string(), "Programming".to_string());
+        variables.insert("skills.0.keywords.0".to_string(), "Rust".to_string());
+        variables.insert("skills.0.keywords.1".to_string(), "Python".to_string());
+        variables.insert("skills.0.keywords.2".to_string(), "JavaScript".to_string());
+
+        variables.insert("skills.1.name".to_string(), "Design".to_string());
+        variables.insert("skills.1.keywords.0".to_string(), "Figma".to_string());
+        variables.insert("skills.1.keywords.1".to_string(), "Photoshop".to_string());
+
+        let template = r#"{% for skill in skills %}
+{{ skill.name }}:
+{% for keyword in skill.keywords %}{{ keyword }}{% unless forloop.last %}, {% endunless %}{% endfor %}
+{% endfor %}"#;
+
+        // The for loop processor now handles forloop context directly
+        let result = process_liquid_for_loops(template, &variables).unwrap();
+
+        // The inner forloop.last should refer to the keywords loop, not the skills loop
+        // So we should see commas between keywords within each skill, but not after the last keyword
+        let expected = r#"
+{{ skills.0.name }}:
+{{ skills.0.keywords.0 }}, {{ skills.0.keywords.1 }}, {{ skills.0.keywords.2 }}
+
+{{ skills.1.name }}:
+{{ skills.1.keywords.0 }}, {{ skills.1.keywords.1 }}
+"#;
+
+        println!("Result:\n{}", result);
+        println!("Expected:\n{}", expected);
+
         assert_eq!(result, expected);
     }
 }

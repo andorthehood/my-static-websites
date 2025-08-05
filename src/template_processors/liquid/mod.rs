@@ -20,4 +20,4 @@ pub use for_loop::process_liquid_for_loops;
 pub use processor::process_liquid_tags_with_assigns;
 pub use remove::remove_liquid_variables;
 pub use replace_variables::replace_template_variables;
-// unless::process_liquid_unless_tags is now used internally by for_loop processing
+pub use unless::process_liquid_unless_tags;

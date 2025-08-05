@@ -89,6 +89,10 @@ fn process_assign_statement(
         // Process the filter
         let filtered_result = apply_filter(source, filter_part, variables)?;
 
+        // Clear any existing variables with the same prefix before storing new results
+        let prefix = format!("{}.", variable_name);
+        variables.retain(|key, _| !key.starts_with(&prefix));
+
         // Store filtered results as indexed variables
         for (index, item) in filtered_result.iter().enumerate() {
             for (key, value) in item {
@@ -203,7 +207,16 @@ fn get_array_items(
 }
 
 fn resolve_variable_value(expression: &str, variables: &HashMap<String, String>) -> Option<String> {
-    variables.get(expression).cloned()
+    // Check if the expression is a quoted string literal
+    if (expression.starts_with('"') && expression.ends_with('"'))
+        || (expression.starts_with('\'') && expression.ends_with('\''))
+    {
+        // Remove quotes and return the literal value
+        Some(expression[1..expression.len() - 1].to_string())
+    } else {
+        // Try to look up as a variable name
+        variables.get(expression).cloned()
+    }
 }
 
 #[cfg(test)]
@@ -427,5 +440,76 @@ mod tests {
 
         // Should not match item with "active" status
         assert_eq!(variables.get("nil_items.2.name"), None);
+    }
+
+    #[test]
+    fn test_multiple_assign_tags_override() {
+        let mut variables = HashMap::new();
+        variables.insert("name".to_string(), "Alice".to_string());
+        variables.insert("age".to_string(), "25".to_string());
+
+        let template = "{% assign user = name %}{% assign user = age %}Hello {{ user }}!";
+        let result = process_liquid_assign_tags(template, &mut variables).unwrap();
+
+        assert_eq!(result, "Hello {{ user }}!");
+        // The second assign should override the first one
+        assert_eq!(variables.get("user"), Some(&"25".to_string()));
+    }
+
+    #[test]
+    fn test_assign_with_dot_in_variable_name() {
+        let mut variables = HashMap::new();
+        variables.insert("test".to_string(), "value".to_string());
+
+        let template = "{% assign forloop.last = \"true\" %}Result: {{ forloop.last }}";
+        let result = process_liquid_assign_tags(template, &mut variables).unwrap();
+
+        assert_eq!(result, "Result: {{ forloop.last }}");
+        // Check that the variable with dot was stored correctly
+        assert_eq!(variables.get("forloop.last"), Some(&"true".to_string()));
+
+        println!("Variables after assign:");
+        for (key, value) in &variables {
+            if key.starts_with("forloop") {
+                println!("  {} = {}", key, value);
+            }
+        }
+    }
+
+    #[test]
+    fn test_multiple_filtered_assign_tags_override() {
+        let mut variables = HashMap::new();
+
+        // First set of users (3 active users)
+        variables.insert("users.0.name".to_string(), "Alice".to_string());
+        variables.insert("users.0.active".to_string(), "true".to_string());
+        variables.insert("users.1.name".to_string(), "Bob".to_string());
+        variables.insert("users.1.active".to_string(), "false".to_string());
+        variables.insert("users.2.name".to_string(), "Carol".to_string());
+        variables.insert("users.2.active".to_string(), "true".to_string());
+        variables.insert("users.3.name".to_string(), "Dan".to_string());
+        variables.insert("users.3.active".to_string(), "true".to_string());
+
+        // Second set (only 1 active admin)
+        variables.insert("admins.0.name".to_string(), "Charlie".to_string());
+        variables.insert("admins.0.active".to_string(), "true".to_string());
+        variables.insert("admins.1.name".to_string(), "David".to_string());
+        variables.insert("admins.1.active".to_string(), "false".to_string());
+
+        let template = r#"{% assign active_people = users | where: "active", "true" %}{% assign active_people = admins | where: "active", "true" %}"#;
+        let result = process_liquid_assign_tags(template, &mut variables).unwrap();
+
+        assert_eq!(result, "");
+
+        // The second assign should override the first one - should only have 1 admin, not 3 users
+        assert_eq!(
+            variables.get("active_people.0.name"),
+            Some(&"Charlie".to_string())
+        );
+
+        // Should NOT have any variables from the first assignment (Alice, Carol, Dan)
+        // This is the key test - if override doesn't work, we'd still have active_people.1 and active_people.2
+        assert_eq!(variables.get("active_people.1.name"), None);
+        assert_eq!(variables.get("active_people.2.name"), None);
     }
 }
