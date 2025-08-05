@@ -105,6 +105,9 @@ Templates are processed in this exact order:
 - Comprehensive test coverage with `cargo-tarpaulin`
 - Modern Rust formatting (inline format args, not `format!("text {}", var)`)
 
+### Development Best Practices
+- **Use git for reversions**: When undoing changes, use `git checkout` or `git revert` instead of manually reverting code to save tokens and time
+
 ## Deployment
 
 - **Netlify**: Use `make netlify SITE=<site_name>` for production builds

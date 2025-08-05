@@ -1,3 +1,4 @@
+use super::utils::skip_whitespace;
 use std::collections::HashMap;
 
 /// Validates the basic structure of a liquid include tag.
@@ -28,10 +29,8 @@ fn extract_template_name(content: &str) -> Option<(String, String)> {
     let mut chars = content.chars().peekable();
     let mut template_name = String::new();
 
-    // Skip leading whitespace
-    while chars.peek() == Some(&' ') {
-        chars.next();
-    }
+    // Skip leading whitespace using utility function
+    skip_whitespace(&mut chars);
 
     // Read template name
     while let Some(ch) = chars.peek() {

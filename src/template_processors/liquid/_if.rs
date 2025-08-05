@@ -1,55 +1,4 @@
-/// Represents a conditional tag in the template
-#[derive(Debug)]
-struct ConditionalTag {
-    /// Start position of the entire tag in the template
-    start: usize,
-    /// End position of the entire tag in the template
-    end: usize,
-    /// The condition being checked (e.g., "something" in {% if something %})
-    condition: String,
-    /// The content inside the if block
-    content: String,
-}
-
-/// Finds and parses a conditional tag starting at the given position
-fn find_conditional_tag(template: &str, start_pos: usize) -> Option<ConditionalTag> {
-    const IF_TAG_START: &str = "{% if ";
-    const IF_TAG_END: &str = "%}";
-    const ENDIF_TAG: &str = "{% endif %}";
-
-    // Find the start of the if tag
-    let tag_start = template[start_pos..]
-        .find(IF_TAG_START)
-        .map(|pos| start_pos + pos)?;
-
-    // Find the end of the entire if block
-    let tag_end = template[tag_start..]
-        .find(ENDIF_TAG)
-        .map(|pos| tag_start + pos + ENDIF_TAG.len())?;
-
-    // Extract the tag content
-    let tag_content = &template[tag_start..tag_end];
-
-    // Find where the condition ends
-    let condition_end = tag_content.find(IF_TAG_END)?;
-
-    // Extract and trim the condition
-    let condition = tag_content[IF_TAG_START.len()..condition_end]
-        .trim()
-        .to_string();
-
-    // Extract the content between the if and endif tags
-    let content_start = tag_start + condition_end + IF_TAG_END.len();
-    let content_end = tag_end - ENDIF_TAG.len();
-    let content = template[content_start..content_end].to_string();
-
-    Some(ConditionalTag {
-        start: tag_start,
-        end: tag_end,
-        condition,
-        content,
-    })
-}
+use super::utils::find_tag_block;
 
 /// Processes Liquid conditional tags in a template string.
 ///
@@ -74,15 +23,16 @@ pub fn process_liquid_conditional_tags(template: &str, conditions: &[String]) ->
     }
 
     // Find and process all conditional tags
-    while let Some(tag) = find_conditional_tag(&result, current_pos) {
-        let replacement = if conditions.contains(&tag.condition) {
-            tag.content
+    while let Some(tag_block) = find_tag_block(&result, "{% if", "{% endif %}", current_pos) {
+        let condition = tag_block.tag_content.trim().to_string();
+        let replacement = if conditions.contains(&condition) {
+            tag_block.inner_content
         } else {
             String::new()
         };
 
-        replacements.push((tag.start, tag.end, replacement));
-        current_pos = tag.end;
+        replacements.push((tag_block.start, tag_block.end, replacement));
+        current_pos = tag_block.end;
     }
 
     // Apply replacements in reverse order to maintain correct positions
