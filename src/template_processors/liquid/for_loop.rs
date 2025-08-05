@@ -1,3 +1,4 @@
+use super::utils::{find_collection_size, read_until_endunless, skip_to_endunless};
 use crate::error::{Error, Result};
 use std::collections::HashMap;
 
@@ -163,29 +164,8 @@ fn expand_for_loop(
     loop_body: &str,
     variables: &HashMap<String, String>,
 ) -> Result<String> {
-    // Find how many items are in the collection by checking variables
-    let mut max_index = 0;
-    let collection_prefix = format!("{collection_var}.");
-
-    for key in variables.keys() {
-        if key.starts_with(&collection_prefix) {
-            // Extract the index from keys like "people.0.name", "people.1.age", etc.
-            // or from keys like "colors.0", "colors.1" for string arrays
-            let suffix = &key[collection_prefix.len()..];
-
-            let index_str = if let Some(dot_pos) = suffix.find('.') {
-                // Object properties: "colors.0.name" -> "0"
-                &suffix[..dot_pos]
-            } else {
-                // String arrays: "colors.0" -> "0"
-                suffix
-            };
-
-            if let Ok(index) = index_str.parse::<usize>() {
-                max_index = max_index.max(index + 1);
-            }
-        }
-    }
+    // Find how many items are in the collection
+    let max_index = find_collection_size(collection_var, variables);
 
     // If no indexed items found, return empty string
     if max_index == 0 {
@@ -352,62 +332,6 @@ fn replace_forloop_context_at_current_level(
     }
 
     result
-}
-
-fn skip_to_endunless(chars: &mut std::iter::Peekable<std::str::Chars>) {
-    while let Some(c) = chars.next() {
-        if c == '{' && chars.peek() == Some(&'%') {
-            chars.next(); // consume '%'
-            let mut tag_content = String::new();
-            while let Some(tc) = chars.next() {
-                if tc == '%' && chars.peek() == Some(&'}') {
-                    chars.next(); // consume '}'
-                    if tag_content.trim() == "endunless" {
-                        return;
-                    }
-                    break;
-                } else {
-                    tag_content.push(tc);
-                }
-            }
-        }
-    }
-}
-
-fn read_until_endunless(chars: &mut std::iter::Peekable<std::str::Chars>) -> String {
-    let mut content = String::new();
-
-    while let Some(c) = chars.next() {
-        if c == '{' && chars.peek() == Some(&'%') {
-            // Potential tag
-            let tag_start = content.len();
-            content.push(c);
-            content.push(chars.next().unwrap()); // push '%'
-
-            let mut tag_content = String::new();
-            while let Some(tc) = chars.next() {
-                if tc == '%' && chars.peek() == Some(&'}') {
-                    chars.next(); // consume '}'
-                    if tag_content.trim() == "endunless" {
-                        // Remove the tag we just added and return
-                        content.truncate(tag_start);
-                        return content;
-                    } else {
-                        content.push(tc);
-                        content.push('}');
-                    }
-                    break;
-                } else {
-                    tag_content.push(tc);
-                    content.push(tc);
-                }
-            }
-        } else {
-            content.push(c);
-        }
-    }
-
-    content
 }
 
 #[cfg(test)]
