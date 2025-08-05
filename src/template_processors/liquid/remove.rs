@@ -1,3 +1,4 @@
+use super::utils::advance_past_whitespace;
 use crate::error::{Error, Result};
 
 /// Removes Liquid variables from the input string.
@@ -25,12 +26,7 @@ pub fn remove_liquid_variables(input: &str) -> Result<String> {
             chars.next();
 
             // Skip whitespace after '{{'
-            while let Some(&c) = chars.peek() {
-                if !c.is_whitespace() {
-                    break;
-                }
-                chars.next();
-            }
+            advance_past_whitespace(&mut chars);
         } else if in_variable {
             if current == '}' && chars.peek() == Some(&'}') {
                 in_variable = false;

@@ -1,3 +1,7 @@
+use super::utils::{
+    clear_variables_with_prefix, get_array_items, resolve_variable_value, split_respecting_quotes,
+    trim_quotes,
+};
 use crate::error::{Error, Result};
 use std::collections::HashMap;
 
@@ -90,8 +94,7 @@ fn process_assign_statement(
         let filtered_result = apply_filter(source, filter_part, variables)?;
 
         // Clear any existing variables with the same prefix before storing new results
-        let prefix = format!("{}.", variable_name);
-        variables.retain(|key, _| !key.starts_with(&prefix));
+        clear_variables_with_prefix(variables, variable_name);
 
         // Store filtered results as indexed variables
         for (index, item) in filtered_result.iter().enumerate() {
@@ -136,16 +139,15 @@ fn apply_where_filter(
     variables: &HashMap<String, String>,
 ) -> Result<Vec<HashMap<String, String>>> {
     // Parse args: "property", value or 'property', value
-    let args = args.trim();
-    let parts: Vec<&str> = args.split(',').collect();
+    let parts = split_respecting_quotes(args);
     if parts.len() != 2 {
         return Err(Error::Liquid(
             "where filter requires exactly 2 arguments".to_string(),
         ));
     }
 
-    let property = parts[0].trim().trim_matches('"').trim_matches('\'');
-    let target_value = parts[1].trim().trim_matches('"').trim_matches('\'');
+    let property = trim_quotes(&parts[0]);
+    let target_value = trim_quotes(&parts[1]);
 
     // Get all items from the source array
     let source_items = get_array_items(source, variables);
@@ -172,51 +174,6 @@ fn apply_where_filter(
     }
 
     Ok(filtered_items)
-}
-
-fn get_array_items(
-    source: &str,
-    variables: &HashMap<String, String>,
-) -> Vec<HashMap<String, String>> {
-    let mut items = Vec::new();
-    let mut current_index = 0;
-
-    loop {
-        let mut item = HashMap::new();
-        let mut found_any = false;
-
-        // Look for all properties of the current item
-        for (key, value) in variables {
-            if let Some(stripped) = key.strip_prefix(&format!("{}.", source)) {
-                if let Some(remainder) = stripped.strip_prefix(&format!("{}.", current_index)) {
-                    item.insert(remainder.to_string(), value.clone());
-                    found_any = true;
-                }
-            }
-        }
-
-        if !found_any {
-            break;
-        }
-
-        items.push(item);
-        current_index += 1;
-    }
-
-    items
-}
-
-fn resolve_variable_value(expression: &str, variables: &HashMap<String, String>) -> Option<String> {
-    // Check if the expression is a quoted string literal
-    if (expression.starts_with('"') && expression.ends_with('"'))
-        || (expression.starts_with('\'') && expression.ends_with('\''))
-    {
-        // Remove quotes and return the literal value
-        Some(expression[1..expression.len() - 1].to_string())
-    } else {
-        // Try to look up as a variable name
-        variables.get(expression).cloned()
-    }
 }
 
 #[cfg(test)]
