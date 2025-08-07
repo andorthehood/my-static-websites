@@ -1,0 +1,49 @@
+<p>If you'd like to review this CV with the help of an AI tool, both machine-readable versions are available:
+
+- [JSON Resume](https://yourdomain.com/andor-polgar-cv.json)
+- [Markdown Version](https://yourdomain.com/andor-polgar-cv.md)
+
+These contain the same information in structured format, ideal for LLM parsing or internal screening tools.</p>
+
+<h1></h1>{{ data.resume.basics.name }}</h1>
+<p>{{ data.resume.basics.summary }}</p>
+
+<h2>Experience</h2>
+<ul>
+  {% for work in data.resume.work %}
+  <li>
+    <h3>{{ work.position }}</h3>
+    <p>{{ work.company }} · {{ work.contract }}</p>
+    <p>{{ work.startDate }} - {{ work.endDate }}</p>
+    <p>{{ work.location }}</p>
+
+    <p>{{ work.summary }}</p>
+    <ul>
+      {% for highlight in work.highlights %}
+
+      <li>{{ highlight }}</li>
+
+      {% endfor %}
+    </ul>
+  </li>
+  {% endfor %}
+</ul>
+<h2>Skills</h2>
+<ul>
+{% for skill in data.resume.skills %}
+<li>
+  <strong>{{ skill.name }}:</strong>
+  {% for keyword in skill.keywords %}
+   {{ keyword }}{% unless forloop.last %}, {% endunless %}
+  {% endfor %}
+</li>
+{% endfor %}
+</ul>
+<h2>References</h2>
+<ul>
+    {% for reference in data.resume.references %}
+  <li>
+    <h3>{{ reference.name }}</h3>
+  </li>
+  {% endfor %}
+</ul>
