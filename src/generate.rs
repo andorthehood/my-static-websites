@@ -208,10 +208,21 @@ pub fn generate(site_name: &str) -> Result<()> {
     let layout_path = format!("{SITES_BASE_DIR}/{site_name}/{LAYOUTS_SUBDIR}/{MAIN_LAYOUT}");
     let main_layout = load_layout(&layout_path)?;
 
+    // Filter out NSFW posts for pagination
+    let filtered_posts: ContentCollection = posts
+        .iter()
+        .filter(|post| {
+            post.get("nsfw")
+                .map(|value| value.to_lowercase() != "true")
+                .unwrap_or(true)
+        })
+        .cloned()
+        .collect();
+
     generate_pagination_pages(
         site_name,
         posts_per_page,
-        &posts,
+        &filtered_posts,
         &includes,
         &main_layout,
         &global_variables,
