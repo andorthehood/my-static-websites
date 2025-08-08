@@ -10,7 +10,7 @@ use crate::write::write_html_to_file;
 /// Processes a page through the template pipeline:
 /// 1. Converts markdown to HTML (if content is markdown)
 /// 2. Inserts into secondary layout (if specified)
-/// 3. Inserts into main layout
+/// 3. Inserts into main layout (can be overridden via `main_layout` in front matter)
 /// 4. Processes all template tags (liquid includes + conditionals + variables)
 /// 5. Writes to file
 pub fn render_page(
@@ -62,8 +62,28 @@ pub fn render_page(
         processed_body
     };
 
-    // Insert content into main layout
-    let combined_content = insert_body_into_layout(layout, &content_with_layout)?;
+    // Determine main layout: allow overriding via front matter `main_layout: <name>`
+    let main_layout_content = if let Some(main_layout_name) = variables.get("main_layout") {
+        let main_layout_path = format!(
+            "{SITES_BASE_DIR}/{}/{LAYOUTS_SUBDIR}/{main_layout_name}.html",
+            variables.get("site_name").unwrap_or(&"".to_string())
+        );
+        match load_layout(&main_layout_path) {
+            Ok(custom_main_layout) => custom_main_layout,
+            Err(err) => {
+                eprintln!(
+                    "⚠️  Warning: Main layout '{}' specified in '{}' was not found at '{}' ({}). Falling back to default main layout.",
+                    main_layout_name, file_name, main_layout_path, err
+                );
+                layout.to_string()
+            }
+        }
+    } else {
+        layout.to_string()
+    };
+
+    // Insert content into main layout (custom if provided, otherwise default)
+    let combined_content = insert_body_into_layout(&main_layout_content, &content_with_layout)?;
 
     // Process all template tags (liquid includes + conditionals + variables) in one go
     let html = process_template_tags(&combined_content, variables, Some(includes), None)?;
