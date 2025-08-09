@@ -88,17 +88,12 @@ fn apply_filter(
     filter_expression: &str,
     variables: &HashMap<String, String>,
 ) -> Result<Vec<HashMap<String, String>>> {
-    // Parse filter: "where: 'property', value"
-    let filter_parts: Vec<&str> = filter_expression.split(':').collect();
-    if filter_parts.len() != 2 {
-        return Err(Error::Liquid("Invalid filter syntax".to_string()));
-    }
+    // Parse filter: "name: args"
+    let (filter_name, filter_args) = super::utils::parse_filter_invocation(filter_expression)
+        .ok_or_else(|| Error::Liquid("Invalid filter syntax".to_string()))?;
 
-    let filter_name = filter_parts[0].trim();
-    let filter_args = filter_parts[1].trim();
-
-    match filter_name {
-        "where" => apply_where_filter(source, filter_args, variables),
+    match filter_name.as_str() {
+        "where" => apply_where_filter(source, &filter_args, variables),
         _ => Err(Error::Liquid(format!("Unknown filter: {}", filter_name))),
     }
 }

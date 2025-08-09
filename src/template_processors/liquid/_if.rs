@@ -36,9 +36,7 @@ pub fn process_liquid_conditional_tags(template: &str, conditions: &[String]) ->
     }
 
     // Apply replacements in reverse order to maintain correct positions
-    for (start, end, replacement) in replacements.iter().rev() {
-        result.replace_range(*start..*end, replacement);
-    }
+    super::utils::apply_replacements_in_reverse(&mut result, &replacements);
 
     result
 }

@@ -22,31 +22,12 @@ pub fn replace_template_variables(
 
     while let Some(current) = chars.next() {
         if current == '{' && chars.peek() == Some(&'{') {
-            chars.next(); // Skip second '{'
-            let mut var_name = String::new();
+            // consume second '{'
+            chars.next();
 
-            // Skip whitespace
-            while let Some(&c) = chars.peek() {
-                if !c.is_whitespace() {
-                    break;
-                }
-                chars.next();
-            }
-
-            // Collect variable name
-            while let Some(&c) = chars.peek() {
-                if c == '}' {
-                    break;
-                }
-                var_name.push(chars.next().unwrap());
-            }
-
-            var_name = var_name.trim().to_string();
-
-            // Check for closing braces
-            if chars.next() != Some('}') || chars.next() != Some('}') {
-                return Err(Error::Liquid("Unclosed variable in template".to_string()));
-            }
+            // Read entire variable content up to '}}'
+            let content = super::utils::read_liquid_variable_content(&mut chars)?;
+            let var_name = content.trim().to_string();
 
             if !is_valid_variable_name(&var_name) {
                 return Err(Error::Liquid(format!("Invalid variable name: {var_name}")));
