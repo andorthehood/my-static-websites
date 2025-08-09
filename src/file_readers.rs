@@ -18,12 +18,32 @@ pub fn load_and_parse_file_with_front_matter(file_path: &Path) -> Result<Content
     let mut parsed_content = parse_content_with_front_matter(&content);
 
     if let Some(file_stem) = file_path.file_stem().and_then(|s| s.to_str()) {
-        parsed_content.insert("slug".to_string(), file_stem.to_string());
+        // For files like "resume.md.liquid", the extension is "liquid" and file_stem is "resume.md".
+        // We want the slug to be just "resume" in that case.
+        let slug = if file_path
+            .extension()
+            .and_then(|ext| ext.to_str())
+            .is_some_and(|ext| ext == "liquid")
+        {
+            if let Some(dot_index) = file_stem.rfind('.') {
+                &file_stem[..dot_index]
+            } else {
+                file_stem
+            }
+        } else {
+            file_stem
+        };
+        parsed_content.insert("slug".to_string(), slug.to_string());
     }
 
     // Add file type to content for rendering pipeline
     if let Some(extension) = file_path.extension().and_then(|ext| ext.to_str()) {
         parsed_content.insert("file_type".to_string(), extension.to_string());
+    }
+
+    // Also store the full source file name (with extensions) for output extension inference
+    if let Some(source_name) = file_path.file_name().and_then(|s| s.to_str()) {
+        parsed_content.insert("source_file_name".to_string(), source_name.to_string());
     }
 
     Ok(parsed_content)

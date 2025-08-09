@@ -21,12 +21,15 @@ pub fn render_page(
     includes: &TemplateIncludes,
     variables: &Variables,
 ) -> Result<()> {
+    // Determine output extension from source file name:
+    // - If original source file is like name.<ext>.liquid -> use <ext> for output
+    // - Otherwise, default to .html
     let output_extension = variables
-        .get("extension")
-        .or_else(|| variables.get("output_extension"))
-        .map(|s| s.trim_start_matches('.').to_string())
-        .filter(|s| !s.is_empty())
-        .unwrap_or_else(|| "html".to_string());
+        .get("source_file_name")
+        .and_then(|name| name.strip_suffix(".liquid"))
+        .and_then(|name_without_liquid| name_without_liquid.rsplit_once('.'))
+        .map(|(_, ext)| ext)
+        .unwrap_or("html");
 
     let file_name = format!("{directory}{slug}.{}", output_extension);
 
