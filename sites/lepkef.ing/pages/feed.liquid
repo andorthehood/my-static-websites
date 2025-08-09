@@ -8,8 +8,8 @@ main_layout: empty
   <channel>
     <title>Andor Polgar&apos;s Visual Journal</title>
     <description>Visual experiments, photography, and creative projects by Andor Polgar</description>
-    <link>https://lepkef.ing</link>
-    <atom:link href="https://lepkef.ing/feed.xml" rel="self" type="application/rss+xml" />
+    <link>{{ site_url }}</link>
+    <atom:link href="{{ site_url }}/feed.xml" rel="self" type="application/rss+xml" />
     <language>en-us</language>
     <generator>lepkefing static site generator</generator>
     <lastBuildDate>Mon, 25 Aug 2025 00:00:00 +0000</lastBuildDate>
@@ -18,8 +18,8 @@ main_layout: empty
 {% for post in filtered limit:20 %}
     <item>
       <title>{{ post.title }}</title>
-      <link>https://lepkef.ing/posts/{{ post.slug }}</link>
-      <guid>https://lepkef.ing/posts/{{ post.slug }}</guid>
+      <link>{{ site_url }}/posts/{{ post.slug }}</link>
+      <guid>{{ site_url }}/posts/{{ post.slug }}</guid>
       <pubDate>{{ post.date }}</pubDate>
       <description><![CDATA[{{ post.content }}]]></description>
     </item>
