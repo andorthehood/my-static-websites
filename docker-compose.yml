@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  web:
+    container_name: andor-sites
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: andor-sites:latest
+    ports:
+      - "8080:80"
+    restart: unless-stopped 
