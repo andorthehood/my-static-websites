@@ -6,7 +6,7 @@ use std::net::TcpStream;
 use std::path::PathBuf;
 use std::time::Duration;
 
-pub(super) fn handle_client(mut stream: TcpStream) -> Result<()> {
+pub(super) fn handle_client(mut stream: TcpStream, site_name: &str) -> Result<()> {
     stream.set_read_timeout(Some(Duration::new(5, 0)))?;
 
     let mut buffer = [0; 512];
@@ -21,6 +21,7 @@ pub(super) fn handle_client(mut stream: TcpStream) -> Result<()> {
 
             // Construct the file path
             let mut file_path = PathBuf::from(OUTPUT_DIR);
+            file_path.push(site_name);
 
             // If path is empty or just "/", serve index.html
             if path.is_empty() {

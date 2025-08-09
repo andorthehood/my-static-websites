@@ -2,7 +2,6 @@
 
 // Output directory constants
 pub const OUTPUT_DIR: &str = "out";
-pub const OUTPUT_POSTS_DIR: &str = "out/posts";
 
 // Site directory structure constants
 pub const SITES_BASE_DIR: &str = "./sites";

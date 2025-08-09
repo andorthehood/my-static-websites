@@ -13,7 +13,7 @@ netlify:
 	cargo run -- generate $(SITE)
 
 serve:
-	cargo run -- serve
+	cargo run -- serve $(SITE)
 
 watch:
 	cargo run -- watch $(SITE) --ramdisk
