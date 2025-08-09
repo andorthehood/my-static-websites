@@ -1,4 +1,4 @@
-use super::utils::skip_whitespace;
+use super::utils::{extract_tag_inner, parse_space_separated_key_value_params, skip_whitespace};
 use std::collections::HashMap;
 
 /// Validates the basic structure of a liquid include tag.
@@ -9,13 +9,7 @@ use std::collections::HashMap;
 /// # Returns
 /// * `Option<&str>` - The content inside the tag if valid, None otherwise
 fn validate_include_tag(tag: &str) -> Option<&str> {
-    let trimmed = tag.trim();
-
-    if !trimmed.starts_with("{% include") || !trimmed.ends_with("%}") {
-        return None;
-    }
-
-    Some(&trimmed[10..trimmed.len() - 2].trim())
+    extract_tag_inner(tag, "include")
 }
 
 /// Extracts the template name from the include tag content.
@@ -56,80 +50,7 @@ fn extract_template_name(content: &str) -> Option<(String, String)> {
 /// # Returns
 /// * `HashMap<String, String>` - Parsed parameters
 fn parse_parameters(remaining: &str) -> HashMap<String, String> {
-    let mut properties = HashMap::new();
-    let remaining = remaining.trim();
-
-    if remaining.is_empty() {
-        return properties;
-    }
-
-    let mut i = 0;
-    let remaining_chars: Vec<char> = remaining.chars().collect();
-
-    while i < remaining_chars.len() {
-        // Skip whitespace
-        while i < remaining_chars.len() && remaining_chars[i].is_whitespace() {
-            i += 1;
-        }
-
-        if i >= remaining_chars.len() {
-            break;
-        }
-
-        // Read key - stop at whitespace or colon
-        let mut key = String::new();
-        while i < remaining_chars.len()
-            && remaining_chars[i] != ':'
-            && !remaining_chars[i].is_whitespace()
-        {
-            key.push(remaining_chars[i]);
-            i += 1;
-        }
-
-        // Skip whitespace after key
-        while i < remaining_chars.len() && remaining_chars[i].is_whitespace() {
-            i += 1;
-        }
-
-        if i >= remaining_chars.len() || remaining_chars[i] != ':' {
-            // Malformed parameter (no colon), just continue - we're already positioned correctly
-            continue;
-        }
-
-        i += 1; // Skip the ':'
-
-        // Read value
-        let mut value = String::new();
-        let mut in_quotes = false;
-
-        if i < remaining_chars.len() && remaining_chars[i] == '"' {
-            in_quotes = true;
-            i += 1; // Skip opening quote
-        }
-
-        while i < remaining_chars.len() {
-            let ch = remaining_chars[i];
-            if in_quotes {
-                if ch == '"' {
-                    i += 1; // Skip closing quote
-                    break;
-                }
-                value.push(ch);
-            } else {
-                if ch.is_whitespace() {
-                    break;
-                }
-                value.push(ch);
-            }
-            i += 1;
-        }
-
-        if !key.is_empty() {
-            properties.insert(key.trim().to_string(), value);
-        }
-    }
-
-    properties
+    parse_space_separated_key_value_params(remaining)
 }
 
 /// Parses a liquid include tag and extracts the template name and parameters.

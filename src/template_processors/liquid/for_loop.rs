@@ -1,4 +1,6 @@
-use super::utils::{find_collection_size, read_until_endunless, skip_to_endunless};
+use super::utils::{
+    find_collection_size, read_until_closing_tag, read_until_endunless, skip_to_endunless,
+};
 use crate::error::{Error, Result};
 use std::collections::HashMap;
 
@@ -50,33 +52,9 @@ fn process_single_pass(template: &str, variables: &HashMap<String, String>) -> R
         if current == '{' && chars.peek() == Some(&'%') {
             chars.next(); // Skip '%'
 
-            // Check if this is a for loop
-            let mut tag_content = String::new();
-            let mut found_closing = false;
-
-            // Skip whitespace
-            while let Some(&c) = chars.peek() {
-                if !c.is_whitespace() {
-                    break;
-                }
-                chars.next();
-            }
-
-            // Collect tag content until we find %}
-            while let Some(c) = chars.next() {
-                if c == '%' && chars.peek() == Some(&'}') {
-                    chars.next(); // Skip '}'
-                    found_closing = true;
-                    break;
-                }
-                tag_content.push(c);
-            }
-
-            if !found_closing {
-                return Err(Error::Liquid("Unclosed liquid tag".to_string()));
-            }
-
-            let tag_content = tag_content.trim();
+            // Read tag content until %}
+            let tag_content = read_until_closing_tag(&mut chars)?;
+            let tag_content = tag_content.trim().to_string();
 
             if tag_content.starts_with("for ") {
                 // Parse the for loop
@@ -91,55 +69,7 @@ fn process_single_pass(template: &str, variables: &HashMap<String, String>) -> R
                 let collection_var = parts[1].trim();
 
                 // Find the loop body until {% endfor %}
-                let mut loop_body = String::new();
-                let mut depth = 1;
-
-                while depth > 0 {
-                    if chars.peek().is_none() {
-                        return Err(Error::Liquid(
-                            "Unclosed for loop - missing {% endfor %}".to_string(),
-                        ));
-                    }
-
-                    let c = chars.next().unwrap();
-
-                    if c == '{' && chars.peek() == Some(&'%') {
-                        chars.next(); // Skip '%'
-                        let mut inner_tag = String::new();
-
-                        // Skip whitespace
-                        while let Some(&ch) = chars.peek() {
-                            if !ch.is_whitespace() {
-                                break;
-                            }
-                            chars.next();
-                        }
-
-                        // Collect tag content
-                        while let Some(ch) = chars.next() {
-                            if ch == '%' && chars.peek() == Some(&'}') {
-                                chars.next(); // Skip '}'
-                                break;
-                            }
-                            inner_tag.push(ch);
-                        }
-
-                        let inner_tag = inner_tag.trim();
-                        if inner_tag.starts_with("for ") {
-                            depth += 1;
-                        } else if inner_tag == "endfor" {
-                            depth -= 1;
-                        }
-
-                        if depth > 0 {
-                            loop_body.push_str("{% ");
-                            loop_body.push_str(&inner_tag);
-                            loop_body.push_str(" %}");
-                        }
-                    } else if depth > 0 {
-                        loop_body.push(c);
-                    }
-                }
+                let loop_body = super::utils::read_nested_block(&mut chars, "for ", "endfor")?;
 
                 // Expand the loop
                 let expanded = expand_for_loop(item_var, collection_var, &loop_body, variables)?;
@@ -193,32 +123,18 @@ fn expand_for_loop(
         );
 
         // Handle different spacing patterns for item variable references
-        let patterns_to_replace = vec![
-            // No spaces: {{item.
-            (
-                format!("{{{{{item_var}."),
-                format!("{{{{{collection_var}.{i}."),
-            ),
-            // Spaces: {{ item.
-            (
-                format!("{{ {item_var}."),
-                format!("{{ {collection_var}.{i}."),
-            ),
-            // No spaces: {{item}}
-            (
-                format!("{{{{{item_var}}}}}"),
-                format!("{{{{{collection_var}.{i}}}}}"),
-            ),
-            // Spaces: {{ item }}
-            (
-                format!("{{ {item_var} }}"),
-                format!("{{ {collection_var}.{i} }}"),
-            ),
+        let patterns = super::utils::variable_placeholders(item_var);
+        let replacements = [
+            format!("{{{{{collection_var}.{i}."),
+            format!("{{ {collection_var}.{i}."),
+            format!("{{{{{collection_var}.{i}}}}}"),
+            format!("{{ {collection_var}.{i} }}"),
         ];
 
-        for (pattern, replacement) in patterns_to_replace {
-            expanded_body = expanded_body.replace(&pattern, &replacement);
+        for (pattern, replacement) in patterns.iter().zip(replacements.iter()) {
+            expanded_body = expanded_body.replace(pattern, replacement);
         }
+
         // Also replace for loop references like "for member in group.members"
         expanded_body = expanded_body.replace(
             &format!(" in {item_var}."),

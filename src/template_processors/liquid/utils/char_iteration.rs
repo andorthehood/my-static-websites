@@ -87,6 +87,40 @@ pub fn advance_past_whitespace(chars: &mut Peekable<Chars>) {
     }
 }
 
+use crate::error::{Error, Result};
+
+/// Detects and consumes a liquid variable start `{{`.
+/// Returns true and advances the iterator past `{{` if present; otherwise returns false and leaves iterator unchanged.
+pub fn detect_variable_start(chars: &mut Peekable<Chars>) -> bool {
+    if let Some(&'{') = chars.peek() {
+        let mut temp = chars.clone();
+        temp.next();
+        if let Some(&'{') = temp.peek() {
+            // consume both '{'
+            chars.next();
+            chars.next();
+            return true;
+        }
+    }
+    false
+}
+
+/// Reads the content of a liquid variable until the closing `}}`.
+/// Returns an error if the variable is unclosed.
+pub fn read_liquid_variable_content(chars: &mut Peekable<Chars>) -> Result<String> {
+    let mut content = String::new();
+
+    while let Some(c) = chars.next() {
+        if c == '}' && chars.peek() == Some(&'}') {
+            chars.next(); // consume second '}'
+            return Ok(content);
+        }
+        content.push(c);
+    }
+
+    Err(Error::Liquid("Unclosed variable in template".to_string()))
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -137,5 +171,26 @@ mod tests {
         let mut chars = "   hello".chars().peekable();
         advance_past_whitespace(&mut chars);
         assert_eq!(chars.next(), Some('h'));
+    }
+
+    #[test]
+    fn test_detect_variable_start_and_read_variable_content() {
+        let mut chars = "{{  user.name  }} rest".chars().peekable();
+        assert!(detect_variable_start(&mut chars));
+        let content = read_liquid_variable_content(&mut chars).unwrap();
+        assert_eq!(content, "  user.name  ");
+        let remaining: String = chars.collect();
+        assert_eq!(remaining, " rest");
+    }
+
+    #[test]
+    fn test_read_liquid_variable_content_unclosed_error() {
+        let mut chars = "{{ unclosed".chars().peekable();
+        assert!(detect_variable_start(&mut chars));
+        let err = read_liquid_variable_content(&mut chars).unwrap_err();
+        match err {
+            crate::error::Error::Liquid(msg) => assert!(msg.contains("Unclosed")),
+            _ => panic!("unexpected error type"),
+        }
     }
 }

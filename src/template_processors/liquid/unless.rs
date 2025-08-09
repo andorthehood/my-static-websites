@@ -44,9 +44,7 @@ pub fn process_liquid_unless_tags(
     }
 
     // Apply replacements in reverse order to maintain correct positions
-    for (start, end, replacement) in replacements.iter().rev() {
-        result.replace_range(*start..*end, replacement);
-    }
+    super::utils::apply_replacements_in_reverse(&mut result, &replacements);
 
     // Check if there are any unclosed unless tags
     if result.contains("{% unless") {

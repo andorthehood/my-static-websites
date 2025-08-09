@@ -172,6 +172,69 @@ pub fn extract_tag_parameter(tag_content: &str, tag_type: &str) -> Option<String
     }
 }
 
+/// Extracts the inner content of a full liquid tag string for a given tag name.
+/// Example: given "{% include header.liquid %}", tag_name "include" -> returns Some("header.liquid").
+pub fn extract_tag_inner<'a>(full_tag: &'a str, tag_name: &str) -> Option<&'a str> {
+    let trimmed = full_tag.trim();
+    let prefix = format!("{{% {}", tag_name);
+    if !trimmed.starts_with(&prefix) || !trimmed.ends_with("%}") {
+        return None;
+    }
+    Some(trimmed[prefix.len()..trimmed.len() - 2].trim())
+}
+
+/// Reads a nested balanced block for arbitrary start/end keywords using a character iterator.
+/// Increments depth when encountering `{% <start_keyword> ... %}` and decrements on `{% <end_keyword> %}`.
+/// Returns the collected inner content (excluding the closing end tag) at depth 0.
+pub fn read_nested_block(
+    chars: &mut Peekable<Chars>,
+    start_keyword: &str,
+    end_keyword: &str,
+) -> Result<String> {
+    let mut content = String::new();
+    let mut depth: i32 = 1;
+
+    while depth > 0 {
+        let Some(c) = chars.next() else {
+            return Err(Error::Liquid(format!(
+                "Unclosed block - missing {{% {} %}}",
+                end_keyword
+            )));
+        };
+
+        if c == '{' && chars.peek() == Some(&'%') {
+            chars.next(); // consume '%'
+            let mut inner_tag = String::new();
+
+            // Read tag content until %}
+            while let Some(tc) = chars.next() {
+                if tc == '%' && chars.peek() == Some(&'}') {
+                    chars.next(); // consume '}'
+                    break;
+                }
+                inner_tag.push(tc);
+            }
+
+            let trimmed = inner_tag.trim();
+            if trimmed.starts_with(start_keyword) {
+                depth += 1;
+            } else if trimmed == end_keyword {
+                depth -= 1;
+            }
+
+            if depth > 0 {
+                content.push_str("{% ");
+                content.push_str(trimmed);
+                content.push_str(" %}");
+            }
+        } else if depth > 0 {
+            content.push(c);
+        }
+    }
+
+    Ok(content)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -268,5 +331,27 @@ mod tests {
 
         assert!(extract_tag_parameter("if", "if").is_none());
         assert!(extract_tag_parameter("assign var = val", "if").is_none());
+    }
+
+    #[test]
+    fn test_extract_tag_inner() {
+        assert_eq!(
+            extract_tag_inner("{% include header %}", "include"),
+            Some("header")
+        );
+        assert_eq!(extract_tag_inner("{% include header", "include"), None);
+        assert_eq!(extract_tag_inner("not a tag", "include"), None);
+    }
+
+    #[test]
+    fn test_read_nested_block_for_endfor() {
+        let mut chars = " inner {% for x in y %} nested {% endfor %} tail {% endfor %} after"
+            .chars()
+            .peekable();
+        // simulate that we've already consumed the outer start tag, so depth starts at 1
+        let content = read_nested_block(&mut chars, "for ", "endfor").unwrap();
+        assert_eq!(content, " inner {% for x in y %} nested {% endfor %} tail ");
+        let remaining: String = chars.collect();
+        assert_eq!(remaining, " after");
     }
 }
