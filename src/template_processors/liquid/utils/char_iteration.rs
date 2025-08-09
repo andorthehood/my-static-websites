@@ -60,6 +60,7 @@ pub fn read_until_endunless(chars: &mut Peekable<Chars>) -> String {
 }
 
 /// Reads a liquid tag's content and returns it along with whether the closing tag was found
+#[cfg(test)]
 pub fn read_liquid_tag_content(chars: &mut Peekable<Chars>) -> (String, bool) {
     let mut tag_content = String::new();
     let mut found_closing = false;
@@ -91,6 +92,7 @@ use crate::error::{Error, Result};
 
 /// Detects and consumes a liquid variable start `{{`.
 /// Returns true and advances the iterator past `{{` if present; otherwise returns false and leaves iterator unchanged.
+#[cfg(test)]
 pub fn detect_variable_start(chars: &mut Peekable<Chars>) -> bool {
     if let Some(&'{') = chars.peek() {
         let mut temp = chars.clone();

@@ -22,6 +22,7 @@ pub struct TagBlock {
 
 /// Finds the next liquid tag starting from the given position
 /// Returns the tag if found, otherwise None
+#[cfg(test)]
 pub fn find_next_liquid_tag(template: &str, start_pos: usize) -> Option<LiquidTag> {
     let template_slice = &template[start_pos..];
     let tag_start_pos = template_slice.find("{%")?;
@@ -119,6 +120,7 @@ pub fn read_until_closing_tag(chars: &mut Peekable<Chars>) -> Result<String> {
 }
 
 /// Detects if the current position in a character iterator is at the start of a liquid tag
+#[cfg(test)]
 pub fn detect_liquid_tag_start(chars: &mut Peekable<Chars>) -> bool {
     if let Some(&'{') = chars.peek() {
         let mut temp_chars = chars.clone();
@@ -143,6 +145,7 @@ pub fn parse_assignment(content: &str) -> Option<(String, String)> {
 }
 
 /// Parses a for loop expression (item in collection)
+#[cfg(test)]
 pub fn parse_for_loop_parts(content: &str) -> Option<(String, String)> {
     let parts: Vec<&str> = content.split(" in ").collect();
     if parts.len() == 2 {
@@ -153,6 +156,7 @@ pub fn parse_for_loop_parts(content: &str) -> Option<(String, String)> {
 }
 
 /// Checks if a string represents a specific tag type
+#[cfg(test)]
 pub fn is_tag_type(tag_content: &str, tag_type: &str) -> bool {
     tag_content.trim().starts_with(tag_type)
 }
@@ -160,8 +164,8 @@ pub fn is_tag_type(tag_content: &str, tag_type: &str) -> bool {
 /// Extracts the condition or parameter part from a tag
 pub fn extract_tag_parameter(tag_content: &str, tag_type: &str) -> Option<String> {
     let trimmed = tag_content.trim();
-    if trimmed.starts_with(tag_type) {
-        let param = trimmed[tag_type.len()..].trim();
+    if let Some(stripped) = trimmed.strip_prefix(tag_type) {
+        let param = stripped.trim();
         if param.is_empty() {
             None
         } else {
