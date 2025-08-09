@@ -56,9 +56,8 @@ fn process_single_pass(template: &str, variables: &HashMap<String, String>) -> R
             let tag_content = read_until_closing_tag(&mut chars)?;
             let tag_content = tag_content.trim().to_string();
 
-            if tag_content.starts_with("for ") {
+            if let Some(for_content) = tag_content.strip_prefix("for ") {
                 // Parse the for loop
-                let for_content = &tag_content[4..]; // Remove "for "
                 let parts: Vec<&str> = for_content.split(" in ").collect();
 
                 if parts.len() != 2 {

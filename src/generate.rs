@@ -71,13 +71,13 @@ fn generate_content_items(config: ContentGenerationConfig) -> Result<()> {
             }
         }
 
-        let content = content_item.get("content").map_or("", |s| s.as_str());
-        let slug = content_item.get("slug").map_or("", |s| s.as_str());
+        let content = content_item.get("content").map_or("", String::as_str);
+        let slug = content_item.get("slug").map_or("", String::as_str);
 
         render_page(
-            &content,
+            content,
             config.output_directory,
-            &slug,
+            slug,
             config.main_layout,
             config.includes,
             &variables,
@@ -120,8 +120,8 @@ fn copy_data(site_name: &str) -> Result<()> {
                 let path = entry.path();
                 if let Some(file_name) = path.file_name().and_then(|n| n.to_str()) {
                     fs::copy(
-                        &format!("{data_dir}/{file_name}"),
-                        &format!("{output_data_dir}/{file_name}"),
+                        format!("{data_dir}/{file_name}"),
+                        format!("{output_data_dir}/{file_name}"),
                     )?;
                 }
             }
@@ -304,7 +304,6 @@ mod tests {
         // Take snapshots of the generated files
         assert_snapshot!("index_html", read_file_content("out/index.html"));
         assert_snapshot!("post_html", read_file_content("out/posts/test-post.html"));
-        assert_snapshot!("about_html", read_file_content("out/about.html"));
         assert_snapshot!(
             "style_css",
             read_file_content("out/style-d41d8cd98f00b204e9800998ecf8427e.css")

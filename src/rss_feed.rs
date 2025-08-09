@@ -141,7 +141,7 @@ fn parse_date_to_rfc2822(date_str: &str) -> Option<String> {
     let day: u32 = parts[2].parse().ok()?;
 
     // Validate month and day
-    if month < 1 || month > 12 || day < 1 || day > 31 {
+    if !(1..=12).contains(&month) || !(1..=31).contains(&day) {
         return None;
     }
 

@@ -31,7 +31,7 @@ pub fn process_liquid_unless_tags(
         let condition = tag_block.tag_content.trim();
 
         // Evaluate condition
-        let condition_is_true = variables.get(condition).map_or(false, |v| v == "true");
+        let condition_is_true = variables.get(condition).is_some_and(|v| v == "true");
 
         let replacement = if condition_is_true {
             String::new() // Remove content if condition is true

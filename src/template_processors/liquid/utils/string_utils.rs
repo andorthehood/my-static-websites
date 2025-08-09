@@ -5,11 +5,13 @@ pub fn trim_quotes(s: &str) -> &str {
 }
 
 /// Checks if a string is a quoted literal
+#[cfg(test)]
 pub fn is_quoted_literal(s: &str) -> bool {
     (s.starts_with('"') && s.ends_with('"')) || (s.starts_with('\'') && s.ends_with('\''))
 }
 
 /// Extracts the literal value from a quoted string, or returns None if not quoted
+#[cfg(test)]
 pub fn extract_literal_value(expression: &str) -> Option<String> {
     if is_quoted_literal(expression) {
         Some(expression[1..expression.len() - 1].to_string())
@@ -19,6 +21,7 @@ pub fn extract_literal_value(expression: &str) -> Option<String> {
 }
 
 /// Parses a key-value pair from a string in the format "key:value" or "key:\"value\""
+#[cfg(test)]
 pub fn parse_key_value_pair(pair: &str) -> Option<(String, String)> {
     let parts: Vec<&str> = pair.split(':').collect();
     if parts.len() != 2 {
