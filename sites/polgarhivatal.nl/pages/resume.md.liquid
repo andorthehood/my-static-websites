@@ -1,6 +1,5 @@
 ---
 main_layout: resume.md
-output_extension: md 
 ---
 
 # {{ data.resume.basics.name }}
@@ -10,7 +9,8 @@ output_extension: md
 
 {% for work in data.resume.work %}
 ### {{ work.position }}
-Company: {{ work.company }} · {{ work.contract }}
+Company: {{ work.company }}
+Contract: {{ work.contract }}
 {{ work.startDate }} - {{ work.endDate }}
 Location: {{ work.location }}
 
