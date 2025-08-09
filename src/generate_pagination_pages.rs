@@ -67,7 +67,7 @@ pub fn generate_pagination_pages(
 
         render_page(
             &html_list,
-            "out/",
+            &format!("out/{}/", site_name),
             &format!("page{page_num}"),
             main_layout,
             includes,
@@ -121,35 +121,28 @@ mod tests {
         fs::create_dir_all(OUTPUT_DIR).expect("Failed to create output directory");
 
         // Generate pagination pages (3 posts per page should create 3 pages)
-        generate_pagination_pages(
-            "Test Site",
-            3,
-            &posts,
-            &includes,
-            main_layout,
-            &global_variables,
-        )
-        .expect("Failed to generate pagination pages");
+        generate_pagination_pages("test", 3, &posts, &includes, main_layout, &global_variables)
+            .expect("Failed to generate pagination pages");
 
         // Verify the pages were created
-        assert!(Path::new("out/page1.html").exists());
-        assert!(Path::new("out/page2.html").exists());
-        assert!(Path::new("out/page3.html").exists());
+        assert!(Path::new("out/test/page1.html").exists());
+        assert!(Path::new("out/test/page2.html").exists());
+        assert!(Path::new("out/test/page3.html").exists());
 
         // Verify page contents
-        let page1_content = fs::read_to_string("out/page1.html").unwrap();
+        let page1_content = fs::read_to_string("out/test/page1.html").unwrap();
         assert!(page1_content.contains("Test Post 1"));
         assert!(page1_content.contains("Test Post 2"));
         assert!(page1_content.contains("Test Post 3"));
         assert!(!page1_content.contains("Test Post 4"));
 
-        let page2_content = fs::read_to_string("out/page2.html").unwrap();
+        let page2_content = fs::read_to_string("out/test/page2.html").unwrap();
         assert!(page2_content.contains("Test Post 4"));
         assert!(page2_content.contains("Test Post 5"));
         assert!(page2_content.contains("Test Post 6"));
         assert!(!page2_content.contains("Test Post 7"));
 
-        let page3_content = fs::read_to_string("out/page3.html").unwrap();
+        let page3_content = fs::read_to_string("out/test/page3.html").unwrap();
         assert!(page3_content.contains("Test Post 7"));
         assert!(!page3_content.contains("Test Post 1"));
 

@@ -1,7 +1,7 @@
 use crate::{
     config::{
         ASSETS_SUBDIR, DATA_SUBDIR, DEFAULT_POSTS_PER_PAGE, INCLUDES_SUBDIR, LAYOUTS_SUBDIR,
-        MAIN_LAYOUT, OUTPUT_POSTS_DIR, PAGES_SUBDIR, POSTS_SUBDIR, SITES_BASE_DIR,
+        MAIN_LAYOUT, OUTPUT_DIR, PAGES_SUBDIR, POSTS_SUBDIR, SITES_BASE_DIR,
     },
     error::Result,
     file_copier::copy_file_with_versioning,
@@ -97,7 +97,7 @@ fn copy_assets(site_name: &str) -> Result<HashMap<String, String>> {
                 if let Some(file_name) = path.file_name().and_then(|n| n.to_str()) {
                     let versioned_name = copy_file_with_versioning(
                         &format!("{assets_dir}/{file_name}"),
-                        "./out/assets/",
+                        &format!("./{}/{}/assets/", OUTPUT_DIR, site_name),
                     )?;
                     versioned_assets.insert(file_name.to_string(), versioned_name);
                 }
@@ -110,17 +110,17 @@ fn copy_assets(site_name: &str) -> Result<HashMap<String, String>> {
 
 fn copy_data(site_name: &str) -> Result<()> {
     let data_dir = format!("{SITES_BASE_DIR}/{site_name}/{DATA_SUBDIR}");
-    let output_data_dir = "./out/data";
+    let output_data_dir = format!("./{}/{}/data", OUTPUT_DIR, site_name);
 
     if let Ok(entries) = fs::read_dir(&data_dir) {
-        fs::create_dir_all(output_data_dir)?;
+        fs::create_dir_all(&output_data_dir)?;
         for entry in entries.flatten() {
             if entry.file_type().map(|ft| ft.is_file()).unwrap_or(false) {
                 let path = entry.path();
                 if let Some(file_name) = path.file_name().and_then(|n| n.to_str()) {
                     fs::copy(
                         format!("{data_dir}/{file_name}"),
-                        format!("{output_data_dir}/{file_name}"),
+                        format!("{}/{}", output_data_dir, file_name),
                     )?;
                 }
             }
@@ -234,7 +234,7 @@ pub fn generate(site_name: &str) -> Result<()> {
         includes: &includes,
         main_layout: &main_layout,
         global_variables: &global_variables,
-        output_directory: &format!("{OUTPUT_POSTS_DIR}/"),
+        output_directory: &format!("{}/{}/posts/", OUTPUT_DIR, site_name),
         default_layout: Some("post"),
     })?;
 
@@ -245,7 +245,7 @@ pub fn generate(site_name: &str) -> Result<()> {
         includes: &includes,
         main_layout: &main_layout,
         global_variables: &global_variables,
-        output_directory: "out/",
+        output_directory: &format!("{}/{}/", OUTPUT_DIR, site_name),
         default_layout: None,
     })?;
 
@@ -288,9 +288,9 @@ mod tests {
 
         // Check if files exist
         let html_files = vec![
-            "out/index.html",
-            "out/about.html",
-            "out/posts/test-post.html",
+            "out/test/index.html",
+            "out/test/about.html",
+            "out/test/posts/test-post.html",
         ];
 
         for file in &html_files {
@@ -298,8 +298,11 @@ mod tests {
         }
 
         // Take snapshots of the generated files
-        assert_snapshot!("index_html", read_file_content("out/index.html"));
-        assert_snapshot!("post_html", read_file_content("out/posts/test-post.html"));
+        assert_snapshot!("index_html", read_file_content("out/test/index.html"));
+        assert_snapshot!(
+            "post_html",
+            read_file_content("out/test/posts/test-post.html")
+        );
         assert_snapshot!(
             "style_css",
             read_file_content("out/style-d41d8cd98f00b204e9800998ecf8427e.css")

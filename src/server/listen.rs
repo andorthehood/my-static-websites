@@ -3,7 +3,7 @@ use super::handle_client::handle_client;
 use crate::error::Result;
 use std::net::TcpListener;
 
-pub fn listen() -> Result<()> {
+pub fn listen(site_name: &str) -> Result<()> {
     let server_addr = format!("{}:{}", DEFAULT_SERVER_HOST, DEFAULT_SERVER_PORT);
     println!("Starting server on http://{}", server_addr);
     let listener = TcpListener::bind(&server_addr)?;
@@ -12,7 +12,7 @@ pub fn listen() -> Result<()> {
     for stream in listener.incoming() {
         match stream {
             Ok(stream) => {
-                if let Err(e) = handle_client(stream) {
+                if let Err(e) = handle_client(stream, site_name) {
                     eprintln!("Error handling client: {}", e);
                 }
             }

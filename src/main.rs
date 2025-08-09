@@ -33,7 +33,7 @@ use watch::watch;
 fn print_usage() {
     eprintln!("Available commands:");
     eprintln!("  generate <site_name>  Generate the static site");
-    eprintln!("  serve                 Start the development server");
+    eprintln!("  serve <site_name>     Start the development server for a site");
     eprintln!("  watch <site_name>     Watch for changes and regenerate");
     eprintln!("  watch <site_name> --ramdisk  Watch with RAM-based output (Linux only)");
 }
@@ -49,8 +49,8 @@ fn handle_command(args: &[&str]) -> Result<()> {
             eprintln!("Example: {} generate lepkef.ing", args[0]);
             std::process::exit(1);
         }
-        ["serve"] => {
-            listen()?;
+        ["serve", site_name] => {
+            listen(site_name)?;
         }
         ["watch", site_name] => {
             watch(site_name, false)?;
