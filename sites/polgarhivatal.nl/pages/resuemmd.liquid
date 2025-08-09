@@ -1,0 +1,48 @@
+---
+main_layout: resume.md
+output_extension: md 
+---
+
+# {{ data.resume.basics.name }}
+{{ data.resume.basics.summary }}
+
+## Experience
+
+{% for work in data.resume.work %}
+### {{ work.position }}
+Company: {{ work.company }} · {{ work.contract }}
+{{ work.startDate }} - {{ work.endDate }}
+Location: {{ work.location }}
+
+{{ work.summary }}
+   
+{% for highlight in work.highlights %}- {{ highlight }}
+{% endfor %}
+{% endfor %}
+
+## Skills
+
+{% for skill in data.resume.skills %}
+
+  - {{ skill.name }}
+  {% for keyword in skill.keywords %}
+   {{ keyword }}{% unless forloop.last %}, {% endunless %}
+  {% endfor %}
+
+{% endfor %}
+
+## Education
+
+- {% for education in data.resume.education %}
+  {{ education.institution }}:
+  {{ education.area }} {{ education.studyType }}
+
+{% endfor %}
+
+## References<
+
+    {% for reference in data.resume.references %}
+
+    - {{ reference.name }}
+
+  {% endfor %}

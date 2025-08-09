@@ -1,3 +1,7 @@
+---
+main_layout: resume
+---
+
 <p>If you'd like to review this CV with the help of an AI tool, both machine-readable versions are available:
 
 - [JSON Resume](https://yourdomain.com/andor-polgar-cv.json)
@@ -12,16 +16,18 @@ These contain the same information in structured format, ideal for LLM parsing o
 <ul>
   {% for work in data.resume.work %}
   <li>
+  <div class="no-break">
     <h3>{{ work.position }}</h3>
     <p>{{ work.company }} · {{ work.contract }}</p>
     <p>{{ work.startDate }} - {{ work.endDate }}</p>
     <p>{{ work.location }}</p>
 
     <p>{{ work.summary }}</p>
+    </div>
     <ul>
       {% for highlight in work.highlights %}
 
-      <li>{{ highlight }}</li>
+      <li class="no-break">{{ highlight }}</li>
 
       {% endfor %}
     </ul>
@@ -36,6 +42,15 @@ These contain the same information in structured format, ideal for LLM parsing o
   {% for keyword in skill.keywords %}
    {{ keyword }}{% unless forloop.last %}, {% endunless %}
   {% endfor %}
+</li>
+{% endfor %}
+</ul>
+<h2>Education</h2>
+<ul>
+{% for education in data.resume.education %}
+<li>
+  <strong>{{ education.institution }}:</strong>
+  {{ education.area }} {{ education.studyType }}
 </li>
 {% endfor %}
 </ul>
