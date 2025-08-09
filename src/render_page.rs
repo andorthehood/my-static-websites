@@ -30,6 +30,22 @@ pub fn render_page(
 
     let file_name = format!("{directory}{slug}.{}", output_extension);
 
+    // Helper to build a layout path that defaults to .html when no extension is provided
+    fn build_layout_path(site_name: &str, layout_name: &str) -> String {
+        let has_extension = std::path::Path::new(layout_name).extension().is_some();
+        if has_extension {
+            format!(
+                "{SITES_BASE_DIR}/{}/{LAYOUTS_SUBDIR}/{}",
+                site_name, layout_name
+            )
+        } else {
+            format!(
+                "{SITES_BASE_DIR}/{}/{LAYOUTS_SUBDIR}/{}.html",
+                site_name, layout_name
+            )
+        }
+    }
+
     // Check if the content is markdown or HTML or liquid template
     let is_markdown = variables.get("file_type").is_none_or(|ft| ft == "md");
     let is_liquid = variables.get("file_type").is_some_and(|ft| ft == "liquid");
@@ -48,10 +64,8 @@ pub fn render_page(
 
     // Apply secondary layout if specified in front matter
     let content_with_layout = if let Some(secondary_layout_name) = variables.get("layout") {
-        let layout_path = format!(
-            "{SITES_BASE_DIR}/{}/{LAYOUTS_SUBDIR}/{secondary_layout_name}.html",
-            variables.get("site_name").unwrap_or(&"".to_string())
-        );
+        let site_name = variables.get("site_name").map(String::as_str).unwrap_or("");
+        let layout_path = build_layout_path(site_name, secondary_layout_name);
 
         if let Ok(secondary_layout) = load_layout(&layout_path) {
             // Insert the content into the secondary layout
@@ -71,10 +85,8 @@ pub fn render_page(
 
     // Determine main layout: allow overriding via front matter `main_layout: <name>`
     let main_layout_content = if let Some(main_layout_name) = variables.get("main_layout") {
-        let main_layout_path = format!(
-            "{SITES_BASE_DIR}/{}/{LAYOUTS_SUBDIR}/{main_layout_name}.html",
-            variables.get("site_name").unwrap_or(&"".to_string())
-        );
+        let site_name = variables.get("site_name").map(String::as_str).unwrap_or("");
+        let main_layout_path = build_layout_path(site_name, main_layout_name);
         match load_layout(&main_layout_path) {
             Ok(custom_main_layout) => custom_main_layout,
             Err(err) => {
