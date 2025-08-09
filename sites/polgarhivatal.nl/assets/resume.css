@@ -1,0 +1,7 @@
+html, body {
+    font-family: sans-serif;
+}
+
+.no-break {
+    break-inside: avoid;
+}

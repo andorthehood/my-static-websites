@@ -18,7 +18,7 @@
       }
     ],
     "label": "Principal Software Engineer | AI Integration Specialist",
-    "summary": "Principal Software Engineer with 15+ years of experience in web development and AI integration. Led architecture and transformation efforts across multiple companies and teams within a holding structure. Focused on scalable systems, practical AI adoption, and developer effectiveness."
+    "summary": "I'm a Principal Software Engineer with 15+ years of experience in web development and AI integration. I've led architectural and transformation efforts across multiple teams and companies within a holding structure. I'm comfortable working in undefined problem spaces and delivering solutions that align with business goals. I've often been the person teams turn to when things are on fire. I bring a calm, solution-oriented mindset to complex technical and organizational problems, and I enjoy turning chaos into clarity, and to make sure that dumpsterfires are not just put out, but prevented from happening in the future."
   },
   "work": [
     {
@@ -70,6 +70,7 @@
         "Developed a fully browser-based video call frontend with real-time, bidirectional audio and video using early WebRTC technology, when cross-browser support and stability were still major challenges.",
         "Created a browser-based, native-feel video player inspired by Instagram Stories, with custom preloading workarounds that made switching between videos seamless.",
         "Led frontend modularization using microfrontends and module federation to eliminate duplication and enable shared, reusable components across projects.",
+        "Collaborated with members of the technical board to develop a frontend knowledge matrix aimed at improving career path clarity and skills management within the engineering teams.",
         "Took part in organizing an online hackathon, came up with the core concept that defined the event's main challenge.",
         "Mentored junior developers and helped onboard new hires into modern frontend practices.",
         "Provided on-call support for the company's primary revenue-generating platform."
@@ -130,6 +131,7 @@
       "summary": "Following a company restructuring, I was relocated from Budapest to Luxembourg to continue my work on OTT and mobile platforms.",
       "highlights": [
         "I carried on the same responsibilities I had in the Budapest office: developing low-latency video players, supporting a wide range of devices (often with very limited resources), and building remote-controllable streaming UIs.",
+        "As HTML5 video became more widely supported, a new challenge emerged: autoplay restrictions on mobile browsers, introduced to conserve data and battery. I experimented with various hacks and platform-specific workarounds to ensure video and livestream playback could still start automatically across different environments.",
         "I often had to work with ambiguous or shifting business requirements, which I handled confidently by proactively clarifying goals and proposing practical solutions."
       ]
     },
@@ -161,7 +163,7 @@
       "highlights": [
         "Provided clients with hosting and domain management through my own cPanel-based setup, handling deployments, domain configuration, and MySQL database management on shared hosting platforms.",
         "Turned vague client inputs (sometimes just PowerPoint mockups) into working websites by staying closely aligned with clients and clarifying requirements throughout the process.",
-        "Proposed and built a Chrome extension that enabled Facebook page owners to schedule posts automatically. Since posts published through the official API had lower visibility compared to those created manually, the extension interacted directly with the Facebook web interface to mimic human behavior. I built this well before tools like Puppeteer, when browser automation was still largely unheard of.",        
+        "Proposed and built a Chrome extension that enabled Facebook page owners to schedule posts automatically. Since posts published through the official API had lower visibility compared to those created manually, the extension interacted directly with the Facebook web interface to mimic human behavior. I built this well before tools like Puppeteer, when browser automation was still largely unheard of.",
         "Built a 3D perspective projection engine using the 2D HTML5 Canvas, before WebGL was invented.",
         "Developed a real-time parser for Hungarian election data to power live visualizations on a news site. Parsed schemaless and inconsistently formed XML feeds from the Hungarian National Election Office, and continuously adapted the parser during the live vote count to ensure uninterrupted data delivery."
       ]
@@ -178,7 +180,7 @@
         "Created Flash intros and animated splash pages for the GeoCities websites of online friends and niche fan communities.",
         "Designed and deployed WAP-based mobile websites offering downloadable MIDI ringtones and OTA bitmap wallpapers.",
         "Took over and maintained my high school's custom PHP website after the original student developer graduated."
-     ]
+      ]
     }
   ],
   "education": [
