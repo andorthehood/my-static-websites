@@ -1,0 +1,29 @@
+---
+output_extension: xml
+main_layout: empty
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Andor Polgar&apos;s Visual Journal</title>
+    <description>Visual experiments, photography, and creative projects by Andor Polgar</description>
+    <link>https://lepkef.ing</link>
+    <atom:link href="https://lepkef.ing/feed.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <generator>lepkefing static site generator</generator>
+    <lastBuildDate>Mon, 25 Aug 2025 00:00:00 +0000</lastBuildDate>
+
+{% assign filtered = posts | where: "nsfw", nil %}
+{% for post in filtered limit:20 %}
+    <item>
+      <title>{{ post.title }}</title>
+      <link>https://lepkef.ing/posts/{{ post.slug }}</link>
+      <guid>https://lepkef.ing/posts/{{ post.slug }}</guid>
+      <pubDate>{{ post.date }}</pubDate>
+      <description><![CDATA[{{ post.content }}]]></description>
+    </item>
+{% endfor %}
+
+  </channel>
+</rss>

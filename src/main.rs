@@ -19,7 +19,6 @@ mod template_processors;
 mod generate;
 mod generate_pagination_pages;
 mod render_page;
-mod rss_feed;
 
 // Development tools
 mod server;

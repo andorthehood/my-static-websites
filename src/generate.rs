@@ -11,7 +11,6 @@ use crate::{
     load_data::load_site_data,
     load_includes::load_liquid_includes,
     render_page::render_page,
-    rss_feed::generate_rss_feed,
     types::{ContentCollection, TemplateIncludes, Variables},
 };
 use std::{
@@ -227,9 +226,6 @@ pub fn generate(site_name: &str) -> Result<()> {
         &main_layout,
         &global_variables,
     )?;
-
-    // Generate RSS feed
-    generate_rss_feed(site_name, &posts, &includes, &global_variables)?;
 
     // Generate posts
     generate_content_items(ContentGenerationConfig {
