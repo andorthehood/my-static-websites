@@ -21,7 +21,14 @@ pub fn render_page(
     includes: &TemplateIncludes,
     variables: &Variables,
 ) -> Result<()> {
-    let file_name = format!("{directory}{slug}.html");
+    let output_extension = variables
+        .get("extension")
+        .or_else(|| variables.get("output_extension"))
+        .map(|s| s.trim_start_matches('.').to_string())
+        .filter(|s| !s.is_empty())
+        .unwrap_or_else(|| "html".to_string());
+
+    let file_name = format!("{directory}{slug}.{}", output_extension);
 
     // Check if the content is markdown or HTML or liquid template
     let is_markdown = variables.get("file_type").is_none_or(|ft| ft == "md");
