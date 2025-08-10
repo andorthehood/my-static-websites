@@ -6,6 +6,10 @@
     text-rendering: initial;
 }
 
+.ourspace img {
+    width: 100%;
+}
+
 .ourspace p {
     padding: 0 0 5px 0;
 }
