@@ -434,4 +434,52 @@ mod tests {
         assert_eq!(variables.get("active_people.1.name"), None);
         assert_eq!(variables.get("active_people.2.name"), None);
     }
+
+    #[test]
+    fn test_assign_literal_string_without_filter() {
+        let mut variables = HashMap::new();
+        let template = r#"{% assign greeting = "Hello" %}X"#;
+        let result = process_liquid_assign_tags(template, &mut variables).unwrap();
+        assert_eq!(result, "X");
+        assert_eq!(variables.get("greeting"), Some(&"Hello".to_string()));
+    }
+
+    #[test]
+    fn test_invalid_filter_syntax_missing_colon() {
+        let mut variables = HashMap::new();
+        variables.insert("items.0.name".to_string(), "A".to_string());
+        let template = "{% assign res = items | where %}"; // no ':' -> invalid filter syntax
+        let result = process_liquid_assign_tags(template, &mut variables);
+        assert!(result.is_err());
+        if let Err(Error::Liquid(msg)) = result {
+            assert!(msg.contains("Invalid filter syntax"));
+        } else {
+            panic!("expected liquid error");
+        }
+    }
+
+    #[test]
+    fn test_where_filter_wrong_argument_count() {
+        let mut variables = HashMap::new();
+        variables.insert("items.0.status".to_string(), "active".to_string());
+        // only one argument after where -> should error
+        let template = r#"{% assign filtered = items | where: "status" %}"#;
+        let result = process_liquid_assign_tags(template, &mut variables);
+        assert!(result.is_err());
+        if let Err(Error::Liquid(msg)) = result {
+            assert!(msg.contains("where filter requires exactly 2 arguments"));
+        } else {
+            panic!("expected liquid error");
+        }
+    }
+
+    #[test]
+    fn test_assign_rhs_variable_missing_results_in_no_insertion() {
+        let mut variables = HashMap::new();
+        // 'missing' is not present; assignment should not create 'x'
+        let template = "{% assign x = missing %}OK";
+        let result = process_liquid_assign_tags(template, &mut variables).unwrap();
+        assert_eq!(result, "OK");
+        assert!(variables.get("x").is_none());
+    }
 }
