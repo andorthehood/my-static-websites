@@ -100,37 +100,20 @@
             <div class="icon-picture">🍪</div>
             <div class="icon-label">Privacy Policy</div>
         </a>
-    </nav>
+    </nav><!-- .desktop -->
+
+    <div class="clippy window">
+        {% include dialogheader.liquid title:"Clippy" %}
+        <div class="hole content-hole">
+            <img src="https://static.llllllllllll.com/andor/assets/clippy/swaying.gif"
+                style="background-image: url('https://static.llllllllllll.com/andor/assets/clippy/clippy_bg.gif')"
+                alt="Clippy" />
+        </div>
+    </div>
+
     <div class="container">
         <main class="window">
-            <div class="header">
-                <div class="hole">
-                    <div class="button" id="button-close"></div>
-                </div>
-                <div class="stripes">
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                </div>
-                <div class="title" data-nosnippet>Andornet Explorer</div>
-                <div class="stripes">
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                </div>
-                <div class="hole button-line">
-                    <div class="button"></div>
-                </div>
-                <div class="hole" id="button-collapse">
-                    <div class="button"></div>
-                </div>
-            </div>
+            {% include windowheader.liquid title:"Andornet Explorer" %}
             <div class="hole content-hole">
                 <div class="head">
                     <div class="button" id="button-back" data-nosnippet>
