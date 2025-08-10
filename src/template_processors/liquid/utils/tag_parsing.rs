@@ -303,11 +303,24 @@ mod tests {
     }
 
     #[test]
+    fn test_detect_liquid_tag_start_negative_when_brace_not_percent() {
+        let mut chars = "{x".chars().peekable();
+        assert!(!detect_liquid_tag_start(&mut chars));
+        // iterator should remain at start since nothing consumed
+        assert_eq!(chars.next(), Some('{'));
+    }
+
+    #[test]
     fn test_parse_assignment() {
         let result = parse_assignment("variable = value").unwrap();
         assert_eq!(result, ("variable".to_string(), "value".to_string()));
 
         assert!(parse_assignment("invalid").is_none());
+    }
+
+    #[test]
+    fn test_parse_assignment_with_extra_equals_returns_none() {
+        assert!(parse_assignment("a=b=c").is_none());
     }
 
     #[test]

@@ -129,4 +129,14 @@ mod tests {
         let result = process_liquid_includes(input, &templates).unwrap();
         assert_eq!(result, "Hello, Hello Worlds!");
     }
+
+    #[test]
+    fn test_process_liquid_includes_resume_after_missing() {
+        let mut templates = HashMap::new();
+        templates.insert("ok.liquid".to_string(), "OK".to_string());
+
+        let input = "{% include missing.liquid %} and {% include ok.liquid %}";
+        let result = process_liquid_includes(input, &templates).unwrap();
+        assert_eq!(result, "{% include missing.liquid %} and OK");
+    }
 }

@@ -176,6 +176,13 @@ mod tests {
     }
 
     #[test]
+    fn test_advance_past_whitespace_on_empty() {
+        let mut chars = "".chars().peekable();
+        advance_past_whitespace(&mut chars);
+        assert!(chars.next().is_none());
+    }
+
+    #[test]
     fn test_detect_variable_start_and_read_variable_content() {
         let mut chars = "{{  user.name  }} rest".chars().peekable();
         assert!(detect_variable_start(&mut chars));
@@ -194,5 +201,15 @@ mod tests {
             crate::error::Error::Liquid(msg) => assert!(msg.contains("Unclosed")),
             _ => panic!("unexpected error type"),
         }
+    }
+
+    #[test]
+    fn test_read_until_endunless_preserves_other_tags() {
+        let content = "A {% if x %}B{% endif %} C {% endunless %} D";
+        let mut chars = content.chars().peekable();
+        let result = read_until_endunless(&mut chars);
+        assert_eq!(result, "A {% if x %}B{% endif %} C ");
+        let remaining: String = chars.collect();
+        assert_eq!(remaining, " D");
     }
 }

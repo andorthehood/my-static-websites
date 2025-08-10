@@ -100,3 +100,67 @@ pub fn load_site_config(site_name: &str) -> Result<ContentItem> {
         Ok(default_config)
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::fs::{self, File};
+    use std::io::Write;
+    use tempfile::tempdir;
+
+    #[test]
+    fn test_load_and_parse_files_with_front_matter_in_directory_missing() {
+        let result = load_and_parse_files_with_front_matter_in_directory("/definitely/not/exist");
+        assert!(result.is_err());
+        let err = result.err().unwrap();
+        assert_eq!(err.kind(), ErrorKind::NotFound);
+    }
+
+    #[test]
+    fn test_load_and_parse_file_with_front_matter_unreadable() {
+        let dir = tempdir().unwrap();
+        let file_path = dir.path().join("secret.md");
+
+        // Create file then remove read permissions to simulate unreadable
+        {
+            let mut f = File::create(&file_path).unwrap();
+            writeln!(f, "---\ntitle: test\n---\nbody").unwrap();
+        }
+        // On Unix, set mode to write-only (no read)
+        #[cfg(unix)]
+        {
+            use std::os::unix::fs::PermissionsExt;
+            let mut perms = fs::metadata(&file_path).unwrap().permissions();
+            perms.set_mode(0o222);
+            fs::set_permissions(&file_path, perms).unwrap();
+        }
+
+        let result = load_and_parse_file_with_front_matter(&file_path);
+        assert!(result.is_err());
+
+        // Cleanup to allow tempdir drop
+        #[cfg(unix)]
+        {
+            use std::os::unix::fs::PermissionsExt;
+            let mut perms = fs::metadata(&file_path).unwrap().permissions();
+            perms.set_mode(0o666);
+            fs::set_permissions(&file_path, perms).unwrap();
+        }
+    }
+
+    #[test]
+    fn test_slug_extraction_from_md_liquid() {
+        let dir = tempdir().unwrap();
+        let file_path = dir.path().join("resume.md.liquid");
+        let content = "---\ntitle: CV\n---\ncontent";
+        fs::write(&file_path, content).unwrap();
+
+        let parsed = load_and_parse_file_with_front_matter(&file_path).unwrap();
+        assert_eq!(parsed.get("slug"), Some(&"resume".to_string()));
+        assert_eq!(parsed.get("file_type"), Some(&"liquid".to_string()));
+        assert_eq!(
+            parsed.get("source_file_name"),
+            Some(&"resume.md.liquid".to_string())
+        );
+    }
+}

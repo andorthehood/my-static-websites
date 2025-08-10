@@ -373,4 +373,46 @@ mod tests {
         let expected = "1/2: {{ items.0.name }}\n2/2: {{ items.1.name }}\n";
         assert_eq!(result, expected);
     }
+
+    #[test]
+    fn test_for_loop_forloop_first_and_index0() {
+        let mut variables = HashMap::new();
+        variables.insert("items.0.name".to_string(), "A".to_string());
+        variables.insert("items.1.name".to_string(), "B".to_string());
+
+        let template = "{% for item in items %}{{ forloop.first }} {{ forloop.index0 }} {{ item.name }}\n{% endfor %}";
+        let result = process_liquid_for_loops(template, &variables).unwrap();
+        let expected = "true 0 {{ items.0.name }}\nfalse 1 {{ items.1.name }}\n";
+        assert_eq!(result, expected);
+    }
+
+    #[test]
+    fn test_for_loop_unless_forloop_last_blocks() {
+        let mut variables = HashMap::new();
+        variables.insert("items.0.name".to_string(), "A".to_string());
+        variables.insert("items.1.name".to_string(), "B".to_string());
+
+        // unless forloop.last should include content for all but last iteration; removed entirely for last
+        let template = "{% for item in items %}{{ item.name }}{% unless forloop.last %}, {% endunless %}{% endfor %}";
+        let result = process_liquid_for_loops(template, &variables).unwrap();
+        // Comma and space only between first and second
+        let expected = "{{ items.0.name }}, {{ items.1.name }}";
+        assert_eq!(result, expected);
+    }
+
+    #[test]
+    fn test_forloop_vars_not_replaced_inside_nested_loops() {
+        let mut variables = HashMap::new();
+        variables.insert("outer.0.inner.0".to_string(), "a".to_string());
+        variables.insert("outer.0.inner.1".to_string(), "b".to_string());
+        variables.insert("outer.1.inner.0".to_string(), "c".to_string());
+
+        // forloop.index in inner loop should not be replaced by outer's forloop replacements
+        let template = "{% for o in outer %}{% for i in o.inner %}({{ forloop.index }}){% endfor %}{% endfor %}";
+        let result = process_liquid_for_loops(template, &variables).unwrap();
+
+        // The inner forloop.index should be replaced by the inner loop indices (1,2 for first outer; 1 for second)
+        let expected = "(1)(2)(1)";
+        assert_eq!(result, expected);
+    }
 }

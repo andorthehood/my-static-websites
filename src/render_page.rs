@@ -116,5 +116,72 @@ pub fn render_page(
 
 #[cfg(test)]
 mod tests {
-    // ... existing code ...
+    use super::*;
+    use std::collections::HashMap;
+    use std::fs;
+
+    fn read_file(path: &str) -> String {
+        fs::read_to_string(path).expect("failed to read output")
+    }
+
+    #[test]
+    fn test_render_page_with_missing_secondary_layout_warns_and_falls_back() {
+        let body = "Hello BODY";
+        let directory = "out/render_tests/";
+        let slug = "missing_secondary";
+        let main_layout = "[MAIN] {{body}} [/MAIN]";
+
+        let includes: TemplateIncludes = HashMap::new();
+        let mut variables: Variables = HashMap::new();
+        variables.insert("site_name".into(), "test".into());
+        variables.insert("layout".into(), "nonexistent_secondary".into());
+        variables.insert("file_type".into(), "html".into());
+
+        render_page(body, directory, slug, main_layout, &includes, &variables)
+            .expect("render_page failed");
+
+        let out_path = format!("{}{}.html", directory, slug);
+        let content = read_file(&out_path);
+        assert_eq!(content, "[MAIN] Hello BODY [/MAIN]");
+    }
+
+    #[test]
+    fn test_render_page_with_missing_main_layout_override_falls_back_to_param_layout() {
+        let body = "X";
+        let directory = "out/render_tests/";
+        let slug = "missing_main_override";
+        let main_layout = "<wrap>{{body}}</wrap>";
+
+        let includes: TemplateIncludes = HashMap::new();
+        let mut variables: Variables = HashMap::new();
+        variables.insert("site_name".into(), "test".into());
+        variables.insert("main_layout".into(), "no_such_layout".into());
+        variables.insert("file_type".into(), "html".into());
+
+        render_page(body, directory, slug, main_layout, &includes, &variables)
+            .expect("render_page failed");
+
+        let out_path = format!("{}{}.html", directory, slug);
+        let content = read_file(&out_path);
+        assert_eq!(content, "<wrap>X</wrap>");
+    }
+
+    #[test]
+    fn test_render_page_with_malformed_include_propagates_error() {
+        let body = "{% include bad.liquid name:\"World\" %}";
+        let directory = "out/render_tests/";
+        let slug = "malformed_include";
+        let main_layout = "{{body}}";
+
+        let mut includes: TemplateIncludes = HashMap::new();
+        // malformed variable (missing second closing brace) inside include template
+        includes.insert("bad.liquid".into(), "Hello, {{ name }!".into());
+
+        let mut variables: Variables = HashMap::new();
+        variables.insert("file_type".into(), "html".into());
+
+        let result = render_page(body, directory, slug, main_layout, &includes, &variables);
+
+        assert!(result.is_err());
+    }
 }

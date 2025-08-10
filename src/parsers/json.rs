@@ -347,4 +347,28 @@ mod tests {
         assert!(parse_json("\"unterminated string").is_err());
         assert!(parse_json("{name: \"John\"}").is_err()); // Unquoted key
     }
+
+    #[test]
+    fn test_parse_array_and_object_unexpected_end() {
+        assert!(parse_json("[").is_err());
+        assert!(parse_json("{").is_err());
+    }
+
+    #[test]
+    fn test_parse_number_invalid_after_minus() {
+        assert!(parse_json("-").is_err());
+        assert!(parse_json("-x").is_err());
+    }
+
+    #[test]
+    fn test_parse_unexpected_top_level_char() {
+        assert!(parse_json("t").is_err());
+        assert!(parse_json(":").is_err());
+    }
+
+    #[test]
+    fn test_parse_object_key_not_string_and_missing_colon() {
+        assert!(parse_json("{123: 1}").is_err());
+        assert!(parse_json("{\"a\" 1}").is_err());
+    }
 }
