@@ -1,6 +1,6 @@
 ---
 source: src/generate.rs
-expression: "read_file_content(\"out/posts/test-post.html\")"
+expression: "read_file_content(\"out/test/posts/test-post.html\")"
 ---
 <!DOCTYPE html>
 <html>
@@ -8,6 +8,7 @@ expression: "read_file_content(\"out/posts/test-post.html\")"
     <meta charset="utf-8">
     <title>Test Post - Test Site</title>
     <link rel="stylesheet" href="/assets/style-84fc2985e8986ebd.css">
+    
     <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="RSS Feed" />
 </head>
 <body>

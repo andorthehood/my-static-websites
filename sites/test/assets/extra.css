@@ -1,0 +1,5 @@
+/* Test page-specific CSS */
+.extra-style {
+    color: red;
+    font-size: 20px;
+} 

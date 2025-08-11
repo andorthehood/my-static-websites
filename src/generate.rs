@@ -63,6 +63,19 @@ fn generate_content_items(config: ContentGenerationConfig) -> Result<()> {
             variables.insert("layout".to_string(), layout.to_string());
         }
 
+        // Handle page-specific CSS from front matter
+        if let Some(css_file) = content_item.get("css") {
+            // Look up the versioned filename from global variables (which contains versioned_assets)
+            if let Some(versioned_css) = config.global_variables.get(css_file) {
+                variables.insert("page_specific_css".to_string(), versioned_css.clone());
+            } else {
+                eprintln!(
+                    "⚠️  Warning: CSS file '{}' specified in front matter was not found in assets",
+                    css_file
+                );
+            }
+        }
+
         // Merge title with site title if content item title exists
         if let Some(title) = content_item.get("title") {
             if let Some(site_title) = config.global_variables.get("title") {
