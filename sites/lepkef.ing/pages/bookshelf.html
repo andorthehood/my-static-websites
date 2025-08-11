@@ -24,7 +24,7 @@ location: 'Zandvoort, Netherlands'
         box-sizing: border-box;
         position: relative;
         overflow: hidden;
-        padding: 0 5px 0 10px;
+        padding: 10px;
     }
 
     .bookshelf li:after {
@@ -40,6 +40,7 @@ location: 'Zandvoort, Netherlands'
     .bookshelf span {
         padding:10px 5px;
         box-sizing: border-box;
+        width: 100%;
     }
 
     .bookshelf .small {
@@ -68,7 +69,7 @@ location: 'Zandvoort, Netherlands'
 
     {% if book %}mukodik{% endif %}
 
-    <li style="{% if book.background %}background: {{book.background}};{% endif %}">
+    <li style="{% if book.background %}background: {{book.background}};{% endif %} {% if book.justify %}justify-content: {{book.justify}};{% endif %}">
         {% for line in book.lines %}
         <span
             class="{% if line.uppercase %}upp{% endif %} {% if line.serif %}serif{% endif %} {% if line.small %}small{% endif %}"
