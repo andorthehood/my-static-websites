@@ -100,6 +100,9 @@ fn flatten_json_value(variables: &mut Variables, prefix: &str, value: &JsonValue
         JsonValue::Integer(n) => {
             variables.insert(prefix.to_string(), n.to_string());
         }
+        JsonValue::Bool(b) => {
+            variables.insert(prefix.to_string(), b.to_string());
+        }
         JsonValue::Array(arr) => {
             for (index, item) in arr.iter().enumerate() {
                 let key = format!("{}.{}", prefix, index);

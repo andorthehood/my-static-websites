@@ -26,7 +26,10 @@ pub fn render_page(
     // - Otherwise, default to .html
     let output_extension = variables
         .get("source_file_name")
-        .and_then(|name| name.strip_suffix(".liquid"))
+        .and_then(|name| {
+            name.strip_suffix(".liquid")
+                .or_else(|| name.strip_suffix(".html"))
+        })
         .and_then(|name_without_liquid| name_without_liquid.rsplit_once('.'))
         .map(|(_, ext)| ext)
         .unwrap_or("html");

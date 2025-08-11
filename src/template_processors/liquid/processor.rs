@@ -13,7 +13,7 @@ use std::collections::HashMap;
 ///
 /// # Arguments
 /// * `template` - The template string to process
-/// * `conditions` - List of condition names that should evaluate to true
+/// * `conditions` - List of condition names that should evaluate to true (deprecated)
 /// * `templates` - Map of template names to their content for includes
 /// * `variables` - Mutable variables map for assign tags and for loop processing
 ///
@@ -21,17 +21,24 @@ use std::collections::HashMap;
 /// The processed template with all liquid tags evaluated
 pub fn process_liquid_tags_with_assigns(
     template: &str,
-    conditions: &[String],
+    _conditions: &[String],
     templates: &HashMap<String, String>,
     variables: &mut HashMap<String, String>,
 ) -> Result<String> {
-    let processed_conditionals = process_liquid_conditional_tags(template, conditions);
-    let processed_assigns = process_liquid_assign_tags(&processed_conditionals, variables)?;
+    // Process assigns first so variables are available to subsequent steps
+    let processed_assigns = process_liquid_assign_tags(template, variables)?;
+
+    // Expand for loops next so that any item-scoped references are transformed
     let processed_for_loops = process_liquid_for_loops(&processed_assigns, variables)?;
-    // Unless tags are now processed during for loop expansion for forloop context
-    // Still process any remaining unless tags that are outside for loops
+
+    // Process unless tags after loop expansion to handle forloop context and any remaining unless tags
     let processed_unless = process_liquid_unless_tags(&processed_for_loops, variables)?;
-    process_liquid_includes(&processed_unless, templates)
+
+    // Process if-conditionals after loop expansion using variables for truthiness
+    let processed_conditionals = process_liquid_conditional_tags(&processed_unless, variables)?;
+
+    // Finally, resolve includes
+    process_liquid_includes(&processed_conditionals, templates)
 }
 
 #[cfg(test)]
@@ -78,6 +85,73 @@ mod tests {
 
         // Should have commas for first two items but not the last
         let expected = "{{ items.0 }}, {{ items.1 }}, {{ items.2 }}";
+        assert_eq!(result, expected);
+    }
+
+    #[test]
+    fn test_for_loop_with_if_on_item_variable() {
+        let mut variables = HashMap::new();
+        variables.insert("users.0.name".to_string(), "Alice".to_string());
+        variables.insert("users.0.active".to_string(), "true".to_string());
+        variables.insert("users.1.name".to_string(), "Bob".to_string());
+        variables.insert("users.1.active".to_string(), "false".to_string());
+
+        let templates = HashMap::new();
+        let conditions = Vec::new();
+
+        let input =
+            "{% for user in users %}{% if user.active %}{{ user.name }} {% endif %}{% endfor %}";
+        let result =
+            process_liquid_tags_with_assigns(input, &conditions, &templates, &mut variables)
+                .unwrap();
+
+        // Only the active user should be included
+        let expected = "{{ users.0.name }} ";
+        assert_eq!(result, expected);
+    }
+
+    #[test]
+    fn test_if_truthy_semantics_outside_loops() {
+        let mut variables = HashMap::new();
+        variables.insert("empty_flag".to_string(), "".to_string());
+        variables.insert("false_flag".to_string(), "false".to_string());
+        variables.insert("other_flag".to_string(), "hello".to_string());
+        variables.insert("zero_flag".to_string(), "0".to_string());
+
+        let templates = HashMap::new();
+        let conditions = Vec::new();
+
+        let input = "{% if empty_flag %}A{% endif %}{% if false_flag %}B{% endif %}{% if missing_flag %}C{% endif %}{% if other_flag %}D{% endif %}{% if zero_flag %}E{% endif %}";
+        let result =
+            process_liquid_tags_with_assigns(input, &conditions, &templates, &mut variables)
+                .unwrap();
+
+        // Only other_flag and zero_flag are truthy
+        let expected = "DE";
+        assert_eq!(result, expected);
+    }
+
+    #[test]
+    fn test_if_truthy_semantics_inside_loops() {
+        let mut variables = HashMap::new();
+        variables.insert("users.0.name".to_string(), "Alice".to_string());
+        variables.insert("users.0.flag".to_string(), "".to_string());
+        variables.insert("users.1.name".to_string(), "Bob".to_string());
+        variables.insert("users.1.flag".to_string(), "false".to_string());
+        variables.insert("users.2.name".to_string(), "Carol".to_string());
+        variables.insert("users.2.flag".to_string(), "yes".to_string());
+
+        let templates = HashMap::new();
+        let conditions = Vec::new();
+
+        let input =
+            "{% for user in users %}{% if user.flag %}{{ user.name }} {% endif %}{% endfor %}";
+        let result =
+            process_liquid_tags_with_assigns(input, &conditions, &templates, &mut variables)
+                .unwrap();
+
+        // Only Carol's flag is truthy
+        let expected = "{{ users.2.name }} ";
         assert_eq!(result, expected);
     }
 }

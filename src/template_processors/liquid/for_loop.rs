@@ -167,6 +167,13 @@ fn expand_for_loop(
             &format!(" in {collection_var}.{i}."),
         );
 
+        // Replace item variable references inside Liquid if tag conditions
+        // e.g., turn `{% if item.active %}` into `{% if collection.0.active %}`
+        expanded_body = expanded_body.replace(
+            &format!("{{% if {item_var}."),
+            &format!("{{% if {collection_var}.{i}."),
+        );
+
         result.push_str(&expanded_body);
     }
 
