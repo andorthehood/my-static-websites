@@ -234,6 +234,41 @@ mod tests {
     }
 
     #[test]
+    fn test_zero_followed_by_hash() {
+        let css = "box-shadow: 0 #fff;";
+        let expected = "box-shadow:0 #fff;";
+        assert_eq!(minify_css(css), expected);
+    }
+
+    #[test]
+    fn test_complex_box_shadow_cases() {
+        let css = "box-shadow: 1rem 1rem 0 #cccccc;";
+        let expected = "box-shadow:1rem 1rem 0 #cccccc;";
+        assert_eq!(minify_css(css), expected);
+    }
+
+    #[test]
+    fn test_three_value_box_shadow() {
+        let css = "box-shadow: 0 1rem 0 #999999;";
+        let expected = "box-shadow:0 1rem 0 #999999;";
+        assert_eq!(minify_css(css), expected);
+    }
+
+    #[test]
+    fn test_bare_zero_before_hash() {
+        let css = "margin: 0 #ff0000;";
+        let expected = "margin:0 #ff0000;";
+        assert_eq!(minify_css(css), expected);
+    }
+
+    #[test]
+    fn test_full_css_like_original() {
+        let css = ".bar{width:9rem;background:#ffffff;box-shadow:0 1rem 0 #999999;height:1rem;margin-bottom:1.5rem;}";
+        let expected = ".bar{width:9rem;background:#ffffff;box-shadow:0 1rem 0 #999999;height:1rem;margin-bottom:1.5rem;}";
+        assert_eq!(minify_css(css), expected);
+    }
+
+    #[test]
     fn test_complex_box_shadow_with_negative_values() {
         let css = "box-shadow: inset -1rem -1rem 0px #999999;";
         let expected = "box-shadow:inset -1rem -1rem 0px #999999;";
