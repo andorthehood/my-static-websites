@@ -1,5 +1,96 @@
 [
 	{
+		"background": "linear-gradient(180deg,rgba(0, 0, 0, 1) 50%, rgba(204, 51, 153, 1) 75%, rgba(153, 204, 0, 1) 100%);",
+		"justify": "start",
+		"lines": [
+			{
+				"color": "#9C0",
+				"small": true,
+				"uppercase": true,
+				"textAlign": "right",
+				"text": "Pilip K. Dick",
+				"background": "#000"
+			},
+			{
+				"color": "#fff",
+				"small": true,
+				"textAlign": "right",
+				"text": "The Three Stigmata of Palmer Eldritch",
+				"background": "#000"
+			}
+		]
+	},
+	{
+		"background": "#fff",
+		"lines": [
+			{
+				"color": "#000",
+				"uppercase": true,
+				"serif": true,
+				"text": "I Am a Strange Loop"
+			},
+			{
+				"color": "#09c",
+				"uppercase": true,
+				"serif": true,
+				"text": "Douglas R. Hofstadter"
+			}
+		]
+	},
+	{
+		"background": "#cc9900",
+		"lines": [
+			{
+				"color": "#fff",
+				"small": true,
+				"uppercase": true,
+				"serif": true,
+				"text": "The Library of Babel",
+				"background": "#000"
+			},
+			{
+				"color": "#fff",
+				"small": true,
+				"serif": true,
+				"text": "Jorge Luis Borges",
+				"background": "#000"
+			}
+		]
+	},
+	{
+		"background": "#c33",
+		"lines": [
+			{
+				"color": "#ffc",
+				"small": true,
+				"uppercase": true,
+				"text": "Jean-Paul Sartre"
+			},
+			{
+				"color": "#ffc",
+				"text": "No Exit",
+				"uppercase": true
+			}
+		]
+	},
+	{
+		"background": "#000",
+		"lines": [
+			{
+				"color": "#fff",
+				"textAlign": "left",
+				"text": "Sartre"
+			},
+			{
+				"color": "#000",
+				"background": "#fff",
+				"small": true,
+				"textAlign": "left",
+				"text": "Being and Nothingness"
+			}
+		]
+	},
+	{
 		"background": "#fff",
 		"lines": [
 			{
@@ -24,47 +115,50 @@
 		]
 	},
 	{
-		"background": "#9cc",
+		"background": "linear-gradient(180deg,rgba(153, 204, 204, 1) 10%, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 1) 80%, rgba(153, 204, 204, 1) 90%)",
+		"justify": "center",
 		"lines": [
 			{
 				"uppercase": true,
 				"color": "#f30",
-				"background": "#fff",
+
 				"text": "The Alignment Problem"
 			},
 			{
 				"small": true,
 				"serif": true,
 				"color": "#000",
-				"background": "#fff",
+
 				"text": "Machine Learning and Human Values"
 			},
 			{
 				"small": true,
 				"uppercase": true,
 				"color": "#f30",
-				"background": "#fff",
+
 				"text": "Brian Christian"
 			}
 		]
 	},
 	{
-		"background": "#36f",
+		"background": "radial-gradient(circle,rgba(0, 0, 51, 1) 40%, rgba(255, 255, 255, 1) 45%, rgba(102, 153, 255, 1) 80%);",
 		"lines": [
 			{
+				"small": true,
+				"color": "#003",
+				"serif": true,
+				"uppercase": true,
+				"text": "Anil Seth"
+			},
+			{
 				"color": "#fff",
-				"background": "#003",
+				"serif": true,
 				"text": "Being You"
 			},
 			{
 				"small": true,
-				"color": "#fff",
-				"background": "#003",
-				"text": "Anil Seth"
-			},
-			{
-				"small": true,
-				"color": "#fff",
+				"color": "#003",
+				"serif": true,
 				"text": "A New Science of Consciousness"
 			}
 		]
