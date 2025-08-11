@@ -1,3 +1,39 @@
+/// Optimizes a hex color by shortening it from 6 digits to 3 digits when possible
+/// Returns the optimized color string (without the # prefix)
+fn optimize_hex_color(chars: &mut std::iter::Peekable<std::str::Chars>) -> String {
+    // Collect the next 6 characters to see if it's a hex color
+    let mut color_chars = Vec::new();
+    for _ in 0..6 {
+        if let Some(&next_ch) = chars.peek() {
+            if next_ch.is_ascii_hexdigit() {
+                color_chars.push(chars.next().unwrap());
+            } else {
+                break;
+            }
+        } else {
+            break;
+        }
+    }
+
+    // If we have exactly 6 hex digits, check if we can shorten it
+    if color_chars.len() == 6 {
+        let can_shorten = color_chars[0] == color_chars[1]
+            && color_chars[2] == color_chars[3]
+            && color_chars[4] == color_chars[5];
+
+        if can_shorten {
+            // Return the shortened version
+            format!("{}{}{}", color_chars[0], color_chars[2], color_chars[4])
+        } else {
+            // Return the full version
+            color_chars.into_iter().collect()
+        }
+    } else {
+        // Not a 6-digit hex color, return as-is
+        color_chars.into_iter().collect()
+    }
+}
+
 /// Minifies CSS by removing unnecessary whitespace while preserving functionality
 pub fn minify_css(css: &str) -> String {
     let mut result = String::with_capacity(css.len());
@@ -45,6 +81,13 @@ pub fn minify_css(css: &str) -> String {
                 // Do nothing, skip comment content
             }
 
+            // Handle hex colors for optimization
+            '#' if !in_string && !in_comment => {
+                result.push('#');
+                let optimized_color = optimize_hex_color(&mut chars);
+                result.push_str(&optimized_color);
+            }
+
             // Handle whitespace - skip all whitespace when not in strings
             ' ' | '\t' | '\r' | '\n' if !in_string => {
                 // Skip all whitespace - we'll add back only necessary spaces
@@ -69,6 +112,10 @@ pub fn minify_css(css: &str) -> String {
                         last_char == ',' && *next_char == '#' ||
                         // Between numbers and hash colors (e.g., "0 #fff")
                         last_char.is_ascii_digit() && *next_char == '#' ||
+                        // Between CSS selectors (e.g., ".foo .bar" should not become ".foo.bar")
+                        (last_char.is_alphanumeric() || last_char == ']' || last_char == ')') && *next_char == '.' ||
+                        // Between CSS selectors with IDs (e.g., "div #id" but not "color: #fff")
+                        last_char.is_alphabetic() && *next_char == '#' ||
                         // Before negative numbers - simplified to just before minus signs after certain characters
                         (last_char.is_ascii_digit() || last_char == 'm' || last_char == 'x' || last_char == '%') && *next_char == '-' ||
                         // Between words and negative numbers (e.g., "inset -1rem")
@@ -192,14 +239,14 @@ mod tests {
     #[test]
     fn test_preserve_spaces_in_box_shadow() {
         let css = "box-shadow: inset 1rem 1rem 0px #ffffff;";
-        let expected = "box-shadow:inset 1rem 1rem 0px #ffffff;";
+        let expected = "box-shadow:inset 1rem 1rem 0px #fff;";
         assert_eq!(minify_css(css), expected);
     }
 
     #[test]
     fn test_preserve_spaces_after_comma_before_hash() {
         let css = "background: linear-gradient(rgba(255,0,0,0.5), #ff0000);";
-        let expected = "background:linear-gradient(rgba(255,0,0,0.5), #ff0000);";
+        let expected = "background:linear-gradient(rgba(255,0,0,0.5), #f00);";
         assert_eq!(minify_css(css), expected);
     }
 
@@ -222,14 +269,14 @@ mod tests {
     #[test]
     fn test_preserve_spaces_before_negative_numbers() {
         let css = "box-shadow: -1rem -1rem 0 #999999;";
-        let expected = "box-shadow:-1rem -1rem 0 #999999;";
+        let expected = "box-shadow:-1rem -1rem 0 #999;";
         assert_eq!(minify_css(css), expected);
     }
 
     #[test]
     fn test_preserve_spaces_between_numbers_and_hash() {
         let css = "box-shadow: 1rem 1rem 0 #999999;";
-        let expected = "box-shadow:1rem 1rem 0 #999999;";
+        let expected = "box-shadow:1rem 1rem 0 #999;";
         assert_eq!(minify_css(css), expected);
     }
 
@@ -243,36 +290,126 @@ mod tests {
     #[test]
     fn test_complex_box_shadow_cases() {
         let css = "box-shadow: 1rem 1rem 0 #cccccc;";
-        let expected = "box-shadow:1rem 1rem 0 #cccccc;";
+        let expected = "box-shadow:1rem 1rem 0 #ccc;";
         assert_eq!(minify_css(css), expected);
     }
 
     #[test]
     fn test_three_value_box_shadow() {
         let css = "box-shadow: 0 1rem 0 #999999;";
-        let expected = "box-shadow:0 1rem 0 #999999;";
+        let expected = "box-shadow:0 1rem 0 #999;";
         assert_eq!(minify_css(css), expected);
     }
 
     #[test]
     fn test_bare_zero_before_hash() {
         let css = "margin: 0 #ff0000;";
-        let expected = "margin:0 #ff0000;";
+        let expected = "margin:0 #f00;";
         assert_eq!(minify_css(css), expected);
     }
 
     #[test]
     fn test_full_css_like_original() {
         let css = ".bar{width:9rem;background:#ffffff;box-shadow:0 1rem 0 #999999;height:1rem;margin-bottom:1.5rem;}";
-        let expected = ".bar{width:9rem;background:#ffffff;box-shadow:0 1rem 0 #999999;height:1rem;margin-bottom:1.5rem;}";
+        let expected = ".bar{width:9rem;background:#fff;box-shadow:0 1rem 0 #999;height:1rem;margin-bottom:1.5rem;}";
+        assert_eq!(minify_css(css), expected);
+    }
+
+    #[test]
+    fn test_css_descendant_selectors() {
+        let css = ".foo .bar { color: red; }";
+        let expected = ".foo .bar{color:red;}";
+        assert_eq!(minify_css(css), expected);
+    }
+
+    #[test]
+    fn test_css_multiple_descendant_selectors() {
+        let css = ".header .title .text { font-size: 12px; }";
+        let expected = ".header .title .text{font-size:12px;}";
+        assert_eq!(minify_css(css), expected);
+    }
+
+    #[test]
+    fn test_css_compound_vs_descendant_selectors() {
+        let css = ".foo.bar { color: blue; } .foo .bar { color: red; }";
+        let expected = ".foo.bar{color:blue;}.foo .bar{color:red;}";
+        assert_eq!(minify_css(css), expected);
+    }
+
+    #[test]
+    fn test_css_id_selectors() {
+        let css = "div #myid { color: green; } #parent .child { color: yellow; }";
+        let expected = "div #myid{color:green;}#parent .child{color:yellow;}";
+        assert_eq!(minify_css(css), expected);
+    }
+
+    #[test]
+    fn test_hex_color_optimization() {
+        let css = "color: #999999; background: #aabbcc;";
+        let expected = "color:#999;background:#abc;";
+        assert_eq!(minify_css(css), expected);
+    }
+
+    #[test]
+    fn test_hex_color_no_optimization() {
+        let css = "color: #123456; background: #abcdef;";
+        let expected = "color:#123456;background:#abcdef;";
+        assert_eq!(minify_css(css), expected);
+    }
+
+    #[test]
+    fn test_mixed_hex_colors() {
+        let css = "border: 1px solid #000000; color: #ff00ff; background: #123abc;";
+        let expected = "border:1px solid #000;color:#f0f;background:#123abc;";
+        assert_eq!(minify_css(css), expected);
+    }
+
+    #[test]
+    fn test_short_hex_colors_preserved() {
+        let css = "color: #fff; background: #000;";
+        let expected = "color:#fff;background:#000;";
         assert_eq!(minify_css(css), expected);
     }
 
     #[test]
     fn test_complex_box_shadow_with_negative_values() {
         let css = "box-shadow: inset -1rem -1rem 0px #999999;";
-        let expected = "box-shadow:inset -1rem -1rem 0px #999999;";
+        let expected = "box-shadow:inset -1rem -1rem 0px #999;";
         assert_eq!(minify_css(css), expected);
+    }
+
+    #[test]
+    fn test_optimize_hex_color_function() {
+        // Test shortenable colors
+        let mut chars = "999999".chars().peekable();
+        assert_eq!(optimize_hex_color(&mut chars), "999");
+
+        let mut chars = "aabbcc".chars().peekable();
+        assert_eq!(optimize_hex_color(&mut chars), "abc");
+
+        let mut chars = "000000".chars().peekable();
+        assert_eq!(optimize_hex_color(&mut chars), "000");
+
+        // Test non-shortenable colors
+        let mut chars = "123456".chars().peekable();
+        assert_eq!(optimize_hex_color(&mut chars), "123456");
+
+        let mut chars = "abcdef".chars().peekable();
+        assert_eq!(optimize_hex_color(&mut chars), "abcdef");
+
+        // Test short colors (3 digits)
+        let mut chars = "fff".chars().peekable();
+        assert_eq!(optimize_hex_color(&mut chars), "fff");
+
+        let mut chars = "000".chars().peekable();
+        assert_eq!(optimize_hex_color(&mut chars), "000");
+
+        // Test invalid/incomplete colors
+        let mut chars = "12".chars().peekable();
+        assert_eq!(optimize_hex_color(&mut chars), "12");
+
+        let mut chars = "1234".chars().peekable();
+        assert_eq!(optimize_hex_color(&mut chars), "1234");
     }
 
     #[test]
