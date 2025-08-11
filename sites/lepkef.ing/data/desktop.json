@@ -73,5 +73,10 @@
 		"href": "/privacy-policy",
 		"icon": "🍪",
 		"label": "Privacy Policy"
+	},
+	{
+		"href": "/bookshelf",
+		"icon": "📚",
+		"label": "Bookshelf"
 	}
 ]
