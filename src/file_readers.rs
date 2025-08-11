@@ -74,7 +74,7 @@ pub fn load_and_parse_files_with_front_matter_in_directory(
 
         if path.is_file() {
             if let Some(extension) = path.extension().and_then(|ext| ext.to_str()) {
-                if extension == "md" || extension == "liquid" {
+                if extension == "md" || extension == "liquid" || extension == "html" {
                     let parsed_content = load_and_parse_file_with_front_matter(&path)?;
                     results.push(parsed_content);
                 }

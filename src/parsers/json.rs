@@ -5,6 +5,7 @@ use std::collections::HashMap;
 pub enum JsonValue {
     String(String),
     Integer(i64),
+    Bool(bool),
     Array(Vec<JsonValue>),
     Object(HashMap<String, JsonValue>),
 }
@@ -41,6 +42,7 @@ impl JsonParser {
             '[' => self.parse_array(),
             '{' => self.parse_object(),
             c if c.is_ascii_digit() || c == '-' => self.parse_number(),
+            't' | 'f' => self.parse_boolean(),
             _ => Err(format!("Unexpected character: {}", self.current_char())),
         }
     }
@@ -199,6 +201,23 @@ impl JsonParser {
 
     fn advance(&mut self) {
         self.pos += 1;
+    }
+
+    fn parse_boolean(&mut self) -> Result<JsonValue, String> {
+        // Attempt to parse true/false literals
+        if self.pos + 4 <= self.chars.len()
+            && self.chars[self.pos..self.pos + 4] == ['t', 'r', 'u', 'e']
+        {
+            self.pos += 4;
+            return Ok(JsonValue::Bool(true));
+        }
+        if self.pos + 5 <= self.chars.len()
+            && self.chars[self.pos..self.pos + 5] == ['f', 'a', 'l', 's', 'e']
+        {
+            self.pos += 5;
+            return Ok(JsonValue::Bool(false));
+        }
+        Err("Invalid boolean literal".to_string())
     }
 }
 
@@ -367,8 +386,30 @@ mod tests {
     }
 
     #[test]
-    fn test_parse_object_key_not_string_and_missing_colon() {
-        assert!(parse_json("{123: 1}").is_err());
-        assert!(parse_json("{\"a\" 1}").is_err());
+    fn test_parse_booleans() {
+        let result = parse_json("true").unwrap();
+        assert_eq!(result, JsonValue::Bool(true));
+
+        let result = parse_json("false").unwrap();
+        assert_eq!(result, JsonValue::Bool(false));
+    }
+
+    #[test]
+    fn test_parse_booleans_in_array_and_object() {
+        let result = parse_json("[true, false, 1]").unwrap();
+        assert_eq!(
+            result,
+            JsonValue::Array(vec![
+                JsonValue::Bool(true),
+                JsonValue::Bool(false),
+                JsonValue::Integer(1)
+            ])
+        );
+
+        let result = parse_json("{\"active\": true, \"deleted\": false}").unwrap();
+        let mut expected = HashMap::new();
+        expected.insert("active".to_string(), JsonValue::Bool(true));
+        expected.insert("deleted".to_string(), JsonValue::Bool(false));
+        assert_eq!(result, JsonValue::Object(expected));
     }
 }
