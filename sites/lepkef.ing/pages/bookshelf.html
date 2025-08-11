@@ -3,66 +3,8 @@ layout: page
 title: 'Bookshelf'
 date: 2023-07-19 19:00:00 -0100
 location: 'Zandvoort, Netherlands'
+css: 'bookshelf.css'
 ---
-
-<style>
-    .bookshelf {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        padding: 10px;
-        font-family: sans-serif;
-    }
-
-    .bookshelf li {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        aspect-ratio: 3 / 4;
-        text-align: center;
-        box-sizing: border-box;
-        position: relative;
-        overflow: hidden;
-        padding: 10px;
-    }
-
-    .bookshelf li:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 10px;
-        left: 0;
-        background: rgba(0, 0, 0, 0.2);
-    }
-
-    .bookshelf span {
-        padding:10px 5px;
-        box-sizing: border-box;
-        width: 100%;
-    }
-
-    .bookshelf .small {
-        font-size: 11px;
-        line-height: 11px;
-        padding: 5px 10px;
-    }
-
-    .bookshelf .big {
-        font-size: 33px;
-        line-height: 33px;
-        padding: 0;
-    }
-
-    .bookshelf .upp {
-        text-transform: uppercase;
-    }
-
-    .bookshelf .serif {
-        font-family: serif;
-    }
-</style>
 
 <ul class="bookshelf">
     {% for book in data.books %}
