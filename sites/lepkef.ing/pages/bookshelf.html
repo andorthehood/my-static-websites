@@ -1,0 +1,82 @@
+---
+layout: page
+title: 'Bookshelf'
+date: 2023-07-19 19:00:00 -0100
+location: 'Zandvoort, Netherlands'
+---
+
+<style>
+    .bookshelf {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        font-family: sans-serif;
+    }
+
+    .bookshelf li {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        aspect-ratio: 3 / 4;
+        text-align: center;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    .bookshelf li:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        left: 0;
+        background: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.08) 100%);
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .bookshelf span {
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    .bookshelf .small {
+        font-size: 11px;
+        line-height: 11px;
+        padding: 5px 10px;
+    }
+
+    .bookshelf .big {
+        font-size: 33px;
+        line-height: 33px;
+        padding: 0;
+    }
+
+    .bookshelf .upp {
+        text-transform: uppercase;
+    }
+
+    .bookshelf .serif {
+        font-family: serif;
+    }
+</style>
+
+<p>Welcome to my virtual bookshelf! The books arranged in no particular order.</p>
+
+<ul class="bookshelf">
+    {% for book in data.books %}
+
+    {% if book %}mukodik{% endif %}
+
+    <li style="{% if book.background %}background: {{book.background}};{% endif %}">
+        {% for line in book.lines %}
+        <span
+            class="{% if line.uppercase %}upp{% endif %} {% if line.serif %}serif{% endif %} {% if line.small %}small{% endif %}"
+            style="{% if line.background %}background: {{line.background}};{% endif %} {% if line.color %}color: {{line.color}};{% endif %} {% if line.textAlign %}text-align: {{line.textAlign}};{% endif %}">{{line.text}}</span>
+        {% endfor %}
+    </li>
+    {% endfor %}
+</ul>
