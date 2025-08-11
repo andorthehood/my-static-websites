@@ -20,15 +20,13 @@
         }
     </style>
     <link rel="preload" href="/assets/{{style.css}}" as="style" />
-    <link rel="preload" href="/assets/{{google.css}}" as="style" />
     <link rel="preload" href="/assets/{{script.js}}" as="script" />
     <link rel="stylesheet" href="/assets/{{style.css}}" />
-    <link rel="stylesheet" href="/assets/{{about.css}}" />
-    <link rel="stylesheet" href="/assets/{{google.css}}" />
-    <link rel="stylesheet" href="/assets/{{cinematickets.css}}" />
-    <link rel="stylesheet" href="/assets/{{instagram.css}}" />
     <link rel="canonical" href="{{site_url}}/{{pathname}}" />
     <link rel="icon" href="/assets/{{favicon.ico}}" />
+    {% if page_specific_css %}
+    <link rel="stylesheet" href="/assets/{{page_specific_css}}">
+    {% endif %}
 </head>
 
 <body>
