@@ -1,0 +1,33 @@
+---
+main_layout: empty
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
+  <url>
+    <loc>{{ site_url }}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Pages -->
+{% for page in pages %}
+  <url>
+    <loc>{{ site_url }}/{{ page.slug }}</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+{% endfor %}
+
+  <!-- Posts (excluding NSFW content) -->
+{% assign filtered_posts = posts | where: "nsfw", nil %}
+{% for post in filtered_posts %}
+  <url>
+    <loc>{{ site_url }}/posts/{{ post.slug }}</loc>
+    <lastmod>{{ post.date }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+{% endfor %}
+</urlset> 
