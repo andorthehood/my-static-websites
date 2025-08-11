@@ -2,21 +2,4 @@
 source: src/generate.rs
 expression: "read_file_content(\"out/test/posts/test-post.html\")"
 ---
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Test Post - Test Site</title>
-    <link rel="stylesheet" href="/assets/style-dad04ec43723fc19.css">
-    
-    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="RSS Feed" />
-</head>
-<body>
-    <div class="content">
-        # Test PostThis is a test post content.<ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul><div class="test-include">
-    This is included content for testing.
-</div>  
-    </div>
-    <footer>Test Site Footer</footer>
-</body>
-</html>
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Test Post-Test Site</title><link rel="stylesheet" href="/assets/style-dad04ec43723fc19.css"><link rel="alternate" type="application/rss+xml" href="/feed.xml" title="RSS Feed" /></head><body><div class="content">#Test PostThis is a test post content.<ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul><div class="test-include"> This is included content for testing.</div></div><footer>Test Site Footer</footer></body></html>

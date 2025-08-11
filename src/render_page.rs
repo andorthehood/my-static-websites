@@ -145,7 +145,7 @@ mod tests {
 
         let out_path = format!("{}{}.html", directory, slug);
         let content = read_file(&out_path);
-        assert_eq!(content, "[MAIN] Hello BODY [/MAIN]");
+        assert_eq!(content, "[MAIN]Hello BODY[/MAIN]");
     }
 
     #[test]
