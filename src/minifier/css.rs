@@ -67,6 +67,12 @@ pub fn minify_css(css: &str) -> String {
                         last_char == ')' && (next_char.is_ascii_digit() || next_char.is_alphabetic()) ||
                         // Between values in functions like rgba() or linear-gradient()
                         last_char == ',' && *next_char == '#' ||
+                        // Between numbers and hash colors (e.g., "0 #fff")
+                        last_char.is_ascii_digit() && *next_char == '#' ||
+                        // Before negative numbers - simplified to just before minus signs after certain characters
+                        (last_char.is_ascii_digit() || last_char == 'm' || last_char == 'x' || last_char == '%') && *next_char == '-' ||
+                        // Between words and negative numbers (e.g., "inset -1rem")
+                        last_char.is_alphabetic() && *next_char == '-' ||
                         // Between alphanumeric characters where CSS requires spaces
                         (last_char.is_alphanumeric() && next_char.is_alphanumeric() &&
                          !matches!(next_char, '{' | '}' | ';' | ':' | ',' | '(' | ')' | '[' | ']' | '>' | '+' | '~' | '*' | '/' | '='));
@@ -210,6 +216,27 @@ mod tests {
             "background: linear-gradient(rgba(237,239,239,0) 50%, rgba(255,255,255,0.25) 50%);";
         let expected =
             "background:linear-gradient(rgba(237,239,239,0) 50%,rgba(255,255,255,0.25) 50%);";
+        assert_eq!(minify_css(css), expected);
+    }
+
+    #[test]
+    fn test_preserve_spaces_before_negative_numbers() {
+        let css = "box-shadow: -1rem -1rem 0 #999999;";
+        let expected = "box-shadow:-1rem -1rem 0 #999999;";
+        assert_eq!(minify_css(css), expected);
+    }
+
+    #[test]
+    fn test_preserve_spaces_between_numbers_and_hash() {
+        let css = "box-shadow: 1rem 1rem 0 #999999;";
+        let expected = "box-shadow:1rem 1rem 0 #999999;";
+        assert_eq!(minify_css(css), expected);
+    }
+
+    #[test]
+    fn test_complex_box_shadow_with_negative_values() {
+        let css = "box-shadow: inset -1rem -1rem 0px #999999;";
+        let expected = "box-shadow:inset -1rem -1rem 0px #999999;";
         assert_eq!(minify_css(css), expected);
     }
 
