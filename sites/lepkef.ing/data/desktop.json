@@ -1,0 +1,77 @@
+[
+	{
+		"href": "/aflordepiel",
+		"icon": "🌸",
+		"label": "A Flor de Piel"
+	},
+	{
+		"href": "/",
+		"icon": "🌍",
+		"label": "Andornet Explorer"
+	},
+	{
+		"href": "/posts/2024-10-20-berlin-video",
+		"icon": "📹",
+		"label": "Berlin 2024.mov"
+	},
+	{
+		"href": "/posts/2024-10-30-spain",
+		"icon": "🖼️",
+		"label": "Spain"
+	},
+	{
+		"href": "/",
+		"icon": "📂",
+		"label": "NSFW Photos"
+	},
+	{
+		"href": "/",
+		"icon": "📂",
+		"label": "Synths Photos"
+	},
+	{
+		"href": "/",
+		"icon": "📂",
+		"label": "Writings"
+	},
+	{
+		"href": "/posts/2019-04-20-north-korea",
+		"icon": "🇰🇵",
+		"label": "North Korea"
+	},
+	{
+		"href": "/links",
+		"icon": "🔗",
+		"label": "Links"
+	},
+	{
+		"href": "/first-frames",
+		"icon": "🎞️",
+		"label": "First Frames"
+	},
+	{
+		"href": "/light-meter",
+		"icon": "💡",
+		"label": "The life of my light meter"
+	},
+	{
+		"href": "/postmortem",
+		"icon": "👻",
+		"label": "Post-mortem.txt"
+	},
+	{
+		"href": "/about",
+		"icon": "👨‍🔧",
+		"label": "About Me"
+	},
+	{
+		"href": "/prints",
+		"icon": "🖨️",
+		"label": "Prints"
+	},
+	{
+		"href": "/privacy-policy",
+		"icon": "🍪",
+		"label": "Privacy Policy"
+	}
+]

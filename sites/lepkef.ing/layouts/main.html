@@ -40,66 +40,12 @@
         </svg>
     </div>
     <nav class="desktop">
-        <a href="/aflordepiel" class="icon">
-            <div class="icon-picture">🌸</div>
-            <div class="icon-label">A Flor de Piel</div>
+        {% for item in data.desktop %}
+        <a href="{{item.href}}" class="icon">
+            <div class="icon-picture">{{item.icon}}</div>
+            <div class="icon-label">{{item.label}}</div>
         </a>
-        <a href="/" class="icon">
-            <div class="icon-picture">🌍</div>
-            <div class="icon-label">Andornet Explorer</div>
-        </a>
-        <a href="/posts/2024-10-20-berlin-video" class="icon">
-            <div class="icon-picture">📹</div>
-            <div class="icon-label">Berlin 2024.mov</div>
-        </a>
-        <a href="/posts/2024-10-30-spain" class="icon">
-            <div class="icon-picture">🖼️</div>
-            <div class="icon-label">Spain</div>
-        </a>
-        <a href="/" class="icon">
-            <div class="icon-picture">📂</div>
-            <div class="icon-label">NSFW Photos</div>
-        </a>
-        <a href="/" class="icon">
-            <div class="icon-picture">📂</div>
-            <div class="icon-label">Synths Photos</div>
-        </a>
-        <a href="/" class="icon">
-            <div class="icon-picture">📂</div>
-            <div class="icon-label">Writings</div>
-        </a>
-        <a href="/posts/2019-04-20-north-korea" class="icon">
-            <div class="icon-picture">🇰🇵</div>
-            <div class="icon-label">North Korea</div>
-        </a>
-        <a href="/links" class="icon">
-            <div class="icon-picture">🔗</div>
-            <div class="icon-label">Links</div>
-        </a>
-        <a href="/first-frames" class="icon">
-            <div class="icon-picture">🎞️</div>
-            <div class="icon-label">First Frames</div>
-        </a>
-        <a href="/light-meter" class="icon">
-            <div class="icon-picture">💡</div>
-            <div class="icon-label">The life of my light meter</div>
-        </a>
-        <a href="/postmortem" class="icon">
-            <div class="icon-picture">👻</div>
-            <div class="icon-label">Post-mortem.txt</div>
-        </a>
-        <a href="/about" class="icon">
-            <div class="icon-picture">👨‍🔧</div>
-            <div class="icon-label">About Me</div>
-        </a>
-        <a href="/prints" class="icon">
-            <div class="icon-picture">🖨️</div>
-            <div class="icon-label">Prints</div>
-        </a>
-        <a href="/privacy-policy" class="icon">
-            <div class="icon-picture">🍪</div>
-            <div class="icon-label">Privacy Policy</div>
-        </a>
+        {% endfor %}
     </nav><!-- .desktop -->
 
     <div class="clippy window">
