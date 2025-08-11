@@ -12,6 +12,7 @@ mod write;
 // Template processing
 mod layout;
 mod load_includes;
+mod minifier;
 mod parsers;
 mod template_processors;
 
