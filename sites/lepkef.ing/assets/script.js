@@ -20,44 +20,77 @@ document.getElementById('button-print').addEventListener('click', function () {
 	window.location.href = '/prints';
 });
 
-(function () {
-	const links = document.querySelectorAll('a');
-	const content = document.querySelector('.content');
-	const head = document.querySelector('head');
+const pageSpecificStyleTags = [];
 
-	window.addEventListener('popstate', function (event) {
-		const json = location.pathname === '/' ? '/index.json' : this.location.pathname + '.json';
+function handleStyleTags(data) {
+	pageSpecificStyleTags.forEach(style => style.remove());
+
+	return new Promise((resolve) => {
+		if (!data.css) {
+			resolve();
+		} else {
+			const head = document.querySelector('head');
+			const style = document.createElement('link');
+			style.rel = 'stylesheet';
+			style.href = '/assets/' + data.css;
+			head.appendChild(style);
+			pageSpecificStyleTags.push(style);
+
+			style.onload = () => {
+				resolve();
+			};
+		}
+	});
+}
+
+function replaceContent(data) {
+	const content = document.querySelector('.content');
+	handleStyleTags(data)
+		.then(() => {
+			content.innerHTML = data.content;
+			registerLinkHandlers();
+		});
+}
+
+function handleLinkClick(event) {
+	const link = event.currentTarget;
+	const href = link.getAttribute('href');
+
+	// If the link is external, don't do anything.
+	if (href.startsWith('http')) {
+		return;
+	}
+
+	event.preventDefault();
+	const content = document.querySelector('.content');
+
+	const json = (href === '/' || href === '') ? '/index.json' : href + '.json';
+	content.innerHTML = 'Loading...';
+	fetch(json)
+		.then(response => response.json())
+		.then(data => {
+			window.history.pushState({}, '', link.href);
+			replaceContent(data);
+		});
+}
+
+function registerLinkHandlers() {
+	const links = document.querySelectorAll('a');
+	links.forEach(link => {
+		link.removeEventListener('click', handleLinkClick);
+		link.addEventListener('click', handleLinkClick);
+	});
+}
+
+(function () {
+	window.addEventListener('popstate', function () {
+		const pathname = location.pathname;
+		const json = (pathname === '/' || pathname === '') ? '/index.json' : pathname + '.json';
+		content.innerHTML = 'Loading...';
 		fetch(location.origin + json)
 			.then(response => response.json())
-			.then(data => {
-				content.innerHTML = data.content;
-			});
+			.then(replaceContent);
 	});
 
-	links.forEach(link => {
-		link.addEventListener('click', function (event) {
-			// If the link is external, don't do anything.
-			if (link.href.startsWith('http')) {
-				return;
-			}
-
-			event.preventDefault();
-			fetch(link.href + '.json')
-				.then(response => response.json())
-				.then(data => {
-					window.history.pushState({}, '', link.href);
-					if (data.css) {
-						const style = document.createElement('link');
-						style.rel = 'stylesheet';
-						style.href = '/assets/' + data.css;
-						head.appendChild(style);
-						style.onload = () => {
-							content.innerHTML = data.content;
-						};
-					} else {
-						content.innerHTML = data.content;
-					}
-				});
-		});
-	});
+	registerLinkHandlers();
 })();
