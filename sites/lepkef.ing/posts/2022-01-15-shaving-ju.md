@@ -5,7 +5,7 @@ date: 2022-01-15T22:23+0100
 categories: post
 location: 'Rotterdam, Netherlands'
 emojis: '🔞'
-nsfw: true
+unlisted: true
 film: 'Kodak Tri-X, pushed 2 stops, developed in Kodak D76'
 lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 camera: 'Leica M6 TTL'

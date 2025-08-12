@@ -4,7 +4,7 @@ title: 'Shibari with Maya and Asimira 2'
 date: 2021-05-28T20:04+0100
 location: 'Zandvoort, Netherlands'
 emojis: '🔞'
-nsfw: true
+unlisted: true
 tags: 'nsfw'
 ---
 

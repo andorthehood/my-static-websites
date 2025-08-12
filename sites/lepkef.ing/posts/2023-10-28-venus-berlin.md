@@ -4,7 +4,7 @@ title: 'Venus Berlin'
 date: 2023-10-28T23:53+0100
 location: 'Berlin, Germany'
 emojis: '🔞'
-nsfw: true
+unlisted: true
 film: 'Kodak Gold 200'
 lens: 'ZEISS ZM Biogon T* 35mm f/2'
 camera: 'Leica M-A (Typ 127)'

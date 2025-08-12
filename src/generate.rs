@@ -225,11 +225,11 @@ pub fn generate(site_name: &str) -> Result<()> {
     let layout_path = format!("{SITES_BASE_DIR}/{site_name}/{LAYOUTS_SUBDIR}/{MAIN_LAYOUT}");
     let main_layout = load_layout(&layout_path)?;
 
-    // Filter out NSFW posts for pagination
+    // Filter out unlisted posts for pagination
     let filtered_posts: ContentCollection = posts
         .iter()
         .filter(|post| {
-            post.get("nsfw")
+            post.get("unlisted")
                 .map(|value| value.to_lowercase() != "true")
                 .unwrap_or(true)
         })

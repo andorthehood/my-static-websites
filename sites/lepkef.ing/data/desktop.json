@@ -20,21 +20,6 @@
 		"label": "Spain"
 	},
 	{
-		"href": "/",
-		"icon": "📂",
-		"label": "NSFW Photos"
-	},
-	{
-		"href": "/",
-		"icon": "📂",
-		"label": "Synths Photos"
-	},
-	{
-		"href": "/",
-		"icon": "📂",
-		"label": "Writings"
-	},
-	{
 		"href": "/posts/2019-04-20-north-korea",
 		"icon": "🇰🇵",
 		"label": "North Korea"
@@ -78,5 +63,10 @@
 		"href": "/bookshelf",
 		"icon": "📚",
 		"label": "Bookshelf"
+	},
+	{
+		"href": "/page1",
+		"icon": "🅱️",
+		"label": "Blog"
 	}
 ]

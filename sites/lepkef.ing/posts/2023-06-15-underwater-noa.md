@@ -4,7 +4,7 @@ title: 'Underwater photos with Noa'
 date: 2023-06-15T23:53+0100
 location: 'Andalusia, Spain'
 emojis: '🔞'
-nsfw: true
+unlisted: true
 film: 'Kodak Ultramax 400'
 lens: 'ZEISS ZM Biogon T* 21mm f/2'
 camera: 'Leica M-A (Typ 127)'
