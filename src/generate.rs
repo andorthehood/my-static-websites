@@ -76,6 +76,11 @@ fn generate_content_items(config: ContentGenerationConfig) -> Result<()> {
             }
         }
 
+        // Store original page title before combining with site title
+        if let Some(original_title) = content_item.get("title") {
+            variables.insert("original_title".to_string(), original_title.clone());
+        }
+
         // Merge title with site title if content item title exists
         if let Some(title) = content_item.get("title") {
             if let Some(site_title) = config.global_variables.get("title") {
