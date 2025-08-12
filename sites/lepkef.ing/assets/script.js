@@ -19,3 +19,41 @@ document.getElementById('button-home').addEventListener('click', function () {
 document.getElementById('button-print').addEventListener('click', function () {
     window.location.href = '/prints';
 });
+
+(function () {
+    const links = document.querySelectorAll('a');
+    const content = document.querySelector('.content');
+    const head = document.querySelector('head');
+
+    window.addEventListener('popstate', function (event) {
+        const json = location.pathname === '/' ? '/index.json' : this.location.pathname + '.json';
+        fetch(location.origin + json)
+            .then(response => response.json())
+            .then(data => {
+                content.innerHTML = data.content;
+            });
+    });
+
+    links.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            fetch(link.href + '.json')
+                .then(response => response.json())
+                .then(data => {
+                    window.history.pushState({}, '', link.href);
+                    if (data.css) {
+                        const style = document.createElement('link');
+                        style.rel = 'stylesheet';
+                        style.href = '/assets/' +data.css;
+                        head.appendChild(style);
+                        style.onload = () => {
+                            content.innerHTML = data.content;
+                            
+                        };                 
+                    } else {
+                        content.innerHTML = data.content;
+                    }
+                });
+        });
+    });
+})();

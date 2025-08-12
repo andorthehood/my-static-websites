@@ -288,8 +288,8 @@ body.collapsed .desktop {
 	background: linear-gradient(135deg, #999999 0%, #ffffff 100%);
 	border-top: 1rem solid #cccccc;
 	border-left: 1rem solid #cccccc;
-	width: 8rem;
 	box-shadow: inset -1rem -1rem 0px #999999;
+	width: 8rem;
 	position: relative;
 	cursor: pointer;
 }
