@@ -450,8 +450,6 @@ footer pre {
 }
 
 .clippy img {
-	width: 248px;
-	height: 184px;
 	image-rendering: pixelated;
 	background-size: 100%;
 	display: block;
