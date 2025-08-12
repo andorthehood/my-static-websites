@@ -4,6 +4,7 @@ title: 'Kuku tied by Ju'
 date: 2023-10-21T23:53+0100
 location: 'Berlin, Germany'
 emojis: '🪢'
+unlisted: true
 film: 'Kodak Portra 800, Ilford XP2 400'
 lens: 'ZEISS ZM Biogon T* 35mm f/2'
 camera: 'Leica M-A (Typ 127)'

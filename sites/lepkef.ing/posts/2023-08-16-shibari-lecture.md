@@ -4,6 +4,7 @@ title: 'Shibari lecture'
 date: 2023-08-16T23:53+0100
 location: 'Arnhem, The Netherlands'
 emojis: '🪢'
+unlisted: true
 film: 'Ilford XP2'
 lens: 'ZEISS ZM Biogon T* 35mm f/2 and 21mm f/2.8'
 camera: 'Leica M-A (Typ 127)'
