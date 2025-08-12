@@ -62,6 +62,7 @@ make lint-pedantic
 - **`src/file_readers.rs`**: Content loading and front matter parsing
 - **`src/server/`**: Development server
 - **`src/watch.rs`**: File watching with optional RAM disk support
+- **`src/minifier/`**: Asset minification (HTML, CSS, JS) for production builds
 
 ### Data Structures
 - **ContentItem**: `HashMap<String, String>` - Single post/page with metadata from YAML front matter
@@ -88,15 +89,25 @@ sites/<site_name>/
 
 ### Template Processing Pipeline
 Templates are processed in this exact order:
-1. Liquid conditionals (`{% if %}` tags)
+1. Liquid conditionals (`{% if %}`, `{% unless %}` tags) with boolean value support
 2. Liquid includes (`{% include %}` tags) 
 3. Markdown to HTML conversion (if `.md` file)
 4. Handlebars variable substitution (`{{variable}}`)
+
+### Liquid Template Features
+- **Conditionals**: `{% if %}` and `{% unless %}` tags with boolean evaluation (true/false values)
+- **Loops**: `{% for %}` tags with optional `limit:N` parameter to restrict iterations
+- **Assignment**: `{% assign variable = value %}` with filter support (e.g., `where` filter)
+- **Variable resolution**: Nested object access with dot notation
+- **Forloop variables**: `forloop.index`, `forloop.length` available in loops
 
 ### Special Features
 - **RAM disk support**: Linux-only `--ramdisk` flag uses `/dev/shm` for output during development
 - **Asset versioning**: Adds content hashes to asset filenames for cache busting
 - **Front matter parsing**: YAML metadata in all content files drives rendering
+- **Page-specific CSS**: Include `css: filename.css` in page front matter to inject page-specific stylesheets
+- **Sitemap generation**: Create `sitemap.xml.liquid` in pages directory for automatic XML sitemap generation
+- **Asset minification**: Automatic minification of HTML, CSS, and JavaScript files for optimized builds
 - **Zero runtime dependencies**: Pure Rust implementation
 
 ### Code Quality Standards
@@ -110,6 +121,12 @@ Templates are processed in this exact order:
 
 ## Deployment
 
+### Docker Containerization
+- **Multi-stage Dockerfile**: Compiles Rust code, runs tests, generates sites, and serves via nginx
+- **Production images**: `docker build` creates optimized nginx-based containers
+- **Docker Compose**: `docker-compose.yml` available for local development and deployment
+
+### Traditional Deployment
 - **Netlify**: Use `make netlify SITE=<site_name>` for production builds
 - **Local preview**: Use `cargo run -- serve` after generation
 - Single binary deployment with no runtime dependencies
