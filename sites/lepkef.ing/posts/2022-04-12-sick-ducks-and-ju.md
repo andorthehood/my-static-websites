@@ -4,7 +4,7 @@ title: 'Sick Ducks and Ju'
 date: 2022-04-12T22:44+0100
 location: 'Zandvoort, Netherlands'
 emojis: '🔞🔞'
-nsfw: true
+unlisted: true
 film: 'Ilford HP5 400 developed in Ilford ID-11 pushed 2 stops'
 lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 camera: 'Leica M6 TTL'

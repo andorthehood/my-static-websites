@@ -4,7 +4,7 @@ title: 'Athens Porn Film Festival'
 date: 2023-06-02T23:53+0100
 location: 'Athens, Greece'
 emojis: '🔞'
-nsfw: true
+unlisted: true
 film: 'Kodak Gold 200'
 lens: 'ZEISS ZM Biogon T* 21mm f/2.8'
 camera: 'Leica M-A (Typ 127)'

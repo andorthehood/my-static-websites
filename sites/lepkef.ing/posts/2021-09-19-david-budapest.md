@@ -5,7 +5,7 @@ date: 2021-09-19T22:56+0100
 categories: post
 location: 'Budapest, Hungary'
 emojis: '🔞'
-nsfw: true
+unlisted: true
 tags: 'nsfw'
 ---
 

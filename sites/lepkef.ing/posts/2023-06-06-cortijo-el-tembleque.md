@@ -4,7 +4,7 @@ title: 'Cortijo el Tembleque'
 date: 2023-06-06T23:53+0100
 location: 'Gador, Spain'
 emojis: '🔞'
-nsfw: true
+unlisted: true
 film: 'Kodak Ultramax 400'
 lens: 'ZEISS ZM Biogon T* 35mm f/2'
 camera: 'Leica M-A (Typ 127)'

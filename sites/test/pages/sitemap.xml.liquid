@@ -20,8 +20,8 @@ main_layout: empty
   </url>
 {% endfor %}
 
-  <!-- Posts (excluding NSFW content) -->
-{% assign filtered_posts = posts | where: "nsfw", nil %}
+  <!-- Posts (excluding unlisted content) -->
+{% assign filtered_posts = posts | where: "unlisted", nil %}
 {% for post in filtered_posts %}
   <url>
     <loc>{{ site_url }}/posts/{{ post.slug }}</loc>

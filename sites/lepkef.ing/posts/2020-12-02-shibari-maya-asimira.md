@@ -5,7 +5,7 @@ date: 2020-12-02T22:36+0100
 categories: post
 location: 'Rotterdam, Netherlands'
 emojis: '🔞'
-nsfw: true
+unlisted: true
 tags: 'nsfw'
 ---
 
