@@ -347,6 +347,8 @@ body.collapsed .desktop {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
+	text-decoration: none;
+	color: #000000;
 }
 
 .head .button .icon {

@@ -13,12 +13,6 @@ document.getElementById('button-forward').addEventListener('click', function () 
 document.getElementById('button-reload').addEventListener('click', function () {
 	window.location.reload();
 });
-document.getElementById('button-home').addEventListener('click', function () {
-	window.location.href = '/';
-});
-document.getElementById('button-print').addEventListener('click', function () {
-	window.location.href = '/prints';
-});
 
 const pageSpecificStyleTags = [];
 const pageCache = new Map();
@@ -75,6 +69,7 @@ function handleLinkClick(event) {
 		return;
 	}
 
+	document.body.classList.remove('collapsed');
 	content.innerHTML = 'Loading...';
 	fetch(json)
 		.then(response => response.json())
@@ -108,6 +103,7 @@ function registerLinkHandlers() {
 			return;
 		}
 		
+		document.body.classList.remove('collapsed');
 		content.innerHTML = 'Loading...';
 		fetch(location.origin + json)
 			.then(response => response.json())

@@ -21,3 +21,7 @@
 .cinema-ticket-1--festival {
     font-size: 10px;
 }
+
+.content img {
+    width: 100%;
+}
