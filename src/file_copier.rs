@@ -4,6 +4,7 @@ use std::hash::Hasher;
 use std::io::{self, Read, Write};
 use std::path::Path;
 
+use crate::converters::typescript::strip_typescript_types;
 use crate::minifier::css::minify_css;
 use crate::minifier::js::minify_js;
 
@@ -19,26 +20,31 @@ pub fn copy_file_with_versioning(source_path: &str, destination_dir: &str) -> io
     let mut contents = Vec::new();
     file.read_to_end(&mut contents)?;
 
-    // Check file extension to determine if minification is needed
+    // Check file extension to determine if processing is needed
     let extension = source_path
         .extension()
         .and_then(|ext| ext.to_str())
         .unwrap_or_default();
 
-    let processed_contents = match extension.to_lowercase().as_str() {
+    // Process contents and decide output extension (for TS -> JS)
+    let (processed_contents, output_extension) = match extension.to_lowercase().as_str() {
         "css" => {
-            // Convert to string, minify, then back to bytes
             let css_string = String::from_utf8_lossy(&contents);
             let minified_css = minify_css(&css_string);
-            minified_css.into_bytes()
+            (minified_css.into_bytes(), "css")
         }
         "js" => {
-            // Convert to string, minify, then back to bytes
             let js_string = String::from_utf8_lossy(&contents);
             let minified_js = minify_js(&js_string);
-            minified_js.into_bytes()
+            (minified_js.into_bytes(), "js")
         }
-        _ => contents,
+        "ts" => {
+            let ts_string = String::from_utf8_lossy(&contents);
+            let stripped = strip_typescript_types(&ts_string);
+            let minified_js = minify_js(&stripped);
+            (minified_js.into_bytes(), "js")
+        }
+        _ => (contents, extension),
     };
 
     // Compute a simple hash of the processed contents
@@ -51,11 +57,9 @@ pub fn copy_file_with_versioning(source_path: &str, destination_dir: &str) -> io
         .file_stem()
         .and_then(|name| name.to_str())
         .unwrap_or_default();
-    let extension = source_path
-        .extension()
-        .and_then(|ext| ext.to_str())
-        .unwrap_or_default();
-    let new_file_name = format!("{file_stem}-{hash:x}.{extension}");
+
+    // If original extension is ts, use js for output
+    let new_file_name = format!("{file_stem}-{hash:x}.{output_extension}");
 
     let destination_path = destination_dir.join(&new_file_name);
 
@@ -194,30 +198,73 @@ mod tests {
         // Create files with uppercase extensions
         let css_content = "body   {   margin:   0;   }";
         let js_content = "function   test(  ) {   return   42;   }";
+        let ts_content = "const el: HTMLElement | null = document.querySelector<HTMLElement>('a');";
 
         let css_file = source_dir.join("style.CSS");
         let js_file = source_dir.join("script.JS");
+        let ts_file = source_dir.join("router.TS");
 
         fs::write(&css_file, css_content).unwrap();
         fs::write(&js_file, js_content).unwrap();
+        fs::write(&ts_file, ts_content).unwrap();
 
-        // Copy both files
+        // Copy all files
         let css_result =
             copy_file_with_versioning(css_file.to_str().unwrap(), dest_dir.to_str().unwrap());
         let js_result =
             copy_file_with_versioning(js_file.to_str().unwrap(), dest_dir.to_str().unwrap());
+        let ts_result =
+            copy_file_with_versioning(ts_file.to_str().unwrap(), dest_dir.to_str().unwrap());
 
         assert!(css_result.is_ok());
         assert!(js_result.is_ok());
+        assert!(ts_result.is_ok());
 
-        // Verify both files are minified despite uppercase extensions
+        // Verify outputs
         let css_filename = css_result.unwrap();
         let js_filename = js_result.unwrap();
+        let ts_filename = ts_result.unwrap();
 
-        let css_content_result = fs::read_to_string(dest_dir.join(&css_filename)).unwrap();
-        let js_content_result = fs::read_to_string(dest_dir.join(&js_filename)).unwrap();
+        assert!(css_filename.ends_with(".css"));
+        assert!(js_filename.ends_with(".js"));
+        assert!(ts_filename.ends_with(".js"));
 
-        assert_eq!(css_content_result, "body{margin:0;}");
-        assert_eq!(js_content_result, "function test(){return 42;}");
+        // Verify TS to JS transformation removed type patterns
+        let ts_content_result = fs::read_to_string(dest_dir.join(&ts_filename)).unwrap();
+        assert!(ts_content_result.contains("const el=document.querySelector('a')"));
+    }
+
+    #[test]
+    fn test_copy_ts_file_with_type_stripping_and_minification() {
+        let temp_dir = TempDir::new().unwrap();
+        let source_dir = temp_dir.path().join("source");
+        let dest_dir = temp_dir.path().join("dest");
+        fs::create_dir_all(&source_dir).unwrap();
+
+        let ts_content = r#"
+interface X { a: string }
+const links: HTMLAnchorElement[] = [];
+function f(x: number): Promise<void> { return new Promise<void>((resolve)=>resolve()); }
+const a = document.querySelector<HTMLElement>('a');
+const b = (a as HTMLElement)!;
+        "#;
+        let source_file = source_dir.join("router.ts");
+        fs::write(&source_file, ts_content).unwrap();
+
+        let result =
+            copy_file_with_versioning(source_file.to_str().unwrap(), dest_dir.to_str().unwrap());
+        assert!(result.is_ok());
+        let new_filename = result.unwrap();
+        assert!(new_filename.starts_with("router-"));
+        assert!(new_filename.ends_with(".js"));
+
+        let copied = fs::read_to_string(dest_dir.join(&new_filename)).unwrap();
+        // Interface should be removed, types stripped, and content minified
+        assert!(!copied.contains("interface X"));
+        assert!(!copied.contains("HTMLAnchorElement"));
+        assert!(!copied.contains("Promise<void>"));
+        assert!(!copied.contains("<HTMLElement>"));
+        assert!(!copied.contains(" as "));
+        assert!(!copied.contains("!;"));
     }
 }

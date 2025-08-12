@@ -16,6 +16,9 @@ mod minifier;
 mod parsers;
 mod template_processors;
 
+// Converters
+mod converters;
+
 // Generation and rendering
 mod generate;
 mod generate_pagination_pages;
