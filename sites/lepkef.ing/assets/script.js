@@ -21,6 +21,7 @@ document.getElementById('button-print').addEventListener('click', function () {
 });
 
 const pageSpecificStyleTags = [];
+const pageCache = new Map();
 
 function handleStyleTags(data) {
 	pageSpecificStyleTags.forEach(style => style.remove());
@@ -65,10 +66,22 @@ function handleLinkClick(event) {
 	const content = document.querySelector('.content');
 
 	const json = (href === '/' || href === '') ? '/index.json' : href + '.json';
+	
+	// Check cache first
+	if (pageCache.has(json)) {
+		const data = pageCache.get(json);
+		window.history.pushState({}, '', link.href);
+		replaceContent(data);
+		return;
+	}
+
 	content.innerHTML = 'Loading...';
 	fetch(json)
 		.then(response => response.json())
 		.then(data => {
+			// Cache the response
+			pageCache.set(json, data);
+			
 			window.history.pushState({}, '', link.href);
 			replaceContent(data);
 		});
@@ -86,10 +99,23 @@ function registerLinkHandlers() {
 	window.addEventListener('popstate', function () {
 		const pathname = location.pathname;
 		const json = (pathname === '/' || pathname === '') ? '/index.json' : pathname + '.json';
+		const content = document.querySelector('.content');
+		
+		// Check cache first
+		if (pageCache.has(json)) {
+			const data = pageCache.get(json);
+			replaceContent(data);
+			return;
+		}
+		
 		content.innerHTML = 'Loading...';
 		fetch(location.origin + json)
 			.then(response => response.json())
-			.then(replaceContent);
+			.then(data => {
+				// Cache the response
+				pageCache.set(json, data);
+				replaceContent(data);
+			});
 	});
 
 	registerLinkHandlers();
