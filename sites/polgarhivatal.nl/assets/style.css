@@ -1,27 +1,142 @@
 body,
 html {
+	color: var(--text-color);
+	line-height: 1.2;
+	font-family: 'DepartureMono-Regular', 'Courier New', monospace;
 	margin: 0;
 	padding: 0;
-	background-color: #eeeeee;
-	font-family: "Source Serif 4", Georgia, Cambria, "Times New Roman", Times, serif;
-	font-optical-sizing: auto;
-	font-weight: 400;
-	font-style: normal;
-	font-size: 18px;
+	background: #399;
 }
 
+a:hover,
+a:visited {
+	text-decoration: line-through;
+}
+
+:root {
+	/* @media (prefers-color-scheme: light) { */
+	--background-color: #666699;
+	--text-color: #000000;
+	--link-color: #0066cc;
+}
+
+article img {
+	display: block;
+	width: 100%;
+	position: relative;
+	z-index: 10;
+	background: var(--text-color);
+	aspect-ratio: 3/2;
+}
+
+article img.loaded {
+	background: initial;
+	aspect-ratio: initial;
+}
 
 .container {
-	background: #ffffff;
 	margin: 0 auto;
-	width: 70%;
-	padding: 40px;
+	width: 50%;
+	padding: 30px 0;
+	font-size: 22px;
 }
 
-.footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 40px;
-    padding-top: 20px;
+@media(max-width:1500px) {
+	.container {
+		width: 65%;
+	}
+}
+
+@media(max-width:1024px) {
+	.container {
+		width: 80%;
+	}
+}
+
+@media(max-width:700px) {
+	.container {
+		width: 100%;
+	}
+}
+
+/** Mac OS 9 Window **/
+.window {
+	background: #cccccc;
+	outline: 2px solid #333333;
+	border-right: 2px solid #999999;
+	border-bottom: 2px solid #999999;
+	box-shadow: inset 2px 2px 0px #ffffff;
+	padding: 6px;
+	position: relative;
+}
+
+.header {
+	display: flex;
+	gap: 8px;
+	padding-bottom: 6px;
+}
+
+.hole {
+	border-right: 2px solid #ffffff;
+	border-bottom: 2px solid #ffffff;
+	box-shadow: -2px -2px 0 #999999;
+	margin: 2px 0 0 2px;
+	background: #333333;
+	padding: 2px;
+	position: relative;
+}
+
+.header .title {
+	white-space: nowrap;
+	line-height: 24px;
+	font-size: 22px;
+}
+
+.header .button {
+	height: 16px;
+	background: linear-gradient(135deg, #999999 0%, #ffffff 100%);
+	border-top: 2px solid #cccccc;
+	border-left: 2px solid #cccccc;
+	box-shadow: inset -2px -2px 0px #999999;
+	width: 16px;
+	position: relative;
+	cursor: pointer;
+}
+
+.header .button-line::before {
+	position: absolute;
+	top: 4px;
+	left: 0;
+	width: 16px;
+	height: 2px;
+	background: #333333;
+	display: block;
+	content: " ";
+}
+
+.header .button::after {
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	width: 2px;
+	height: 2px;
+	background: #ffffff;
+	display: block;
+	content: " ";
+}
+
+.header .stripes {
+	width: 100%;
+}
+
+.header .stripe {
+	background: #ffffff;
+	height: 2px;
+	box-shadow: 2px 2px 0 #999999;
+	margin-bottom: 2px;
+}
+
+.content {
+	background: #ffffff;
+	padding: 10px;
 }
