@@ -133,16 +133,20 @@ pub fn minify_html(html: &str) -> String {
                 if !result.is_empty() {
                     let last_char = result.chars().last().unwrap_or('\0');
 
+                    // Helper function to check if a character is "content" (text, emoji, unicode, etc.)
+                    let is_content_char =
+                        |c: char| c.is_alphanumeric() || c.len_utf8() > 1 || c.is_alphabetic();
+
                     // Preserve space between:
-                    // - alphanumeric characters (words)
-                    // - after punctuation (comma, period, etc.) and before text
-                    // - text and tags
-                    let should_preserve_space = (last_char.is_alphanumeric()
-                        && next_char.is_alphanumeric())
-                        || (last_char.is_alphanumeric() && *next_char == '<')
-                        || (last_char == '>' && next_char.is_alphanumeric())
+                    // - content characters (words, emojis, unicode)
+                    // - after punctuation (comma, period, etc.) and before content
+                    // - content and tags
+                    let should_preserve_space = (is_content_char(last_char)
+                        && is_content_char(*next_char))
+                        || (is_content_char(last_char) && *next_char == '<')
+                        || (last_char == '>' && is_content_char(*next_char))
                         || (matches!(last_char, ',' | '.' | ';' | ':' | '!' | '?')
-                            && next_char.is_alphanumeric());
+                            && is_content_char(*next_char));
 
                     if should_preserve_space {
                         result.push(' ');
@@ -378,6 +382,22 @@ body { margin: 0; }
 
         // Should not contain double spaces or other whitespace issues
         assert!(!result.contains("  "));
+
+        println!("Result: {}", result);
+    }
+
+    #[test]
+    fn test_preserve_spaces_around_emojis() {
+        let html = r#"<p>Hello 🌍 world! I love 📸 photography.</p>"#;
+        let result = minify_html(html);
+
+        // Spaces around emojis should be preserved
+        assert!(result.contains("Hello 🌍 world"));
+        assert!(result.contains("love 📸 photography"));
+
+        // Should not contain missing spaces around emojis
+        assert!(!result.contains("Hello🌍world"));
+        assert!(!result.contains("love📸photography"));
 
         println!("Result: {}", result);
     }
