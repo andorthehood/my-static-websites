@@ -135,11 +135,14 @@ pub fn minify_html(html: &str) -> String {
 
                     // Preserve space between:
                     // - alphanumeric characters (words)
+                    // - after punctuation (comma, period, etc.) and before text
                     // - text and tags
                     let should_preserve_space = (last_char.is_alphanumeric()
                         && next_char.is_alphanumeric())
                         || (last_char.is_alphanumeric() && *next_char == '<')
-                        || (last_char == '>' && next_char.is_alphanumeric());
+                        || (last_char == '>' && next_char.is_alphanumeric())
+                        || (matches!(last_char, ',' | '.' | ';' | ':' | '!' | '?')
+                            && next_char.is_alphanumeric());
 
                     if should_preserve_space {
                         result.push(' ');
@@ -359,5 +362,23 @@ body { margin: 0; }
         // The key test: after </style> there should be no newline before <link
         assert!(!result.contains("</style>\n<link"));
         assert!(result.len() < html.len());
+    }
+
+    #[test]
+    fn test_preserve_spaces_after_punctuation() {
+        let html = r#"<p>Hello, world. How are you? Fine; thanks: great!</p>"#;
+        let result = minify_html(html);
+
+        // Spaces after punctuation should be preserved
+        assert!(result.contains("Hello, world"));
+        assert!(result.contains("world. How"));
+        assert!(result.contains("you? Fine"));
+        assert!(result.contains("Fine; thanks"));
+        assert!(result.contains("thanks: great"));
+
+        // Should not contain double spaces or other whitespace issues
+        assert!(!result.contains("  "));
+
+        println!("Result: {}", result);
     }
 }
