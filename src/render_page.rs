@@ -5,7 +5,7 @@ use crate::layout::{insert_body_into_layout, load_layout};
 use crate::template_processors::markdown::markdown_to_html;
 use crate::template_processors::process_template_tags;
 use crate::types::{TemplateIncludes, Variables};
-use crate::write::write_html_to_file;
+use crate::write::{write_html_to_file, write_json_to_file};
 
 /// Processes a page through the template pipeline:
 /// 1. Converts markdown to HTML (if content is markdown)
@@ -114,6 +114,29 @@ pub fn render_page(
     let html = process_template_tags(&combined_content, variables, Some(includes), None)?;
 
     write_html_to_file(&file_name, &html)?;
+
+    // Generate corresponding JSON file
+    let json_file_name = format!("{directory}{slug}.json");
+
+    // Process template tags on content_with_layout for JSON (without main layout)
+    let json_content =
+        process_template_tags(&content_with_layout, variables, Some(includes), None)?;
+
+    // Extract title from variables (use original_title which is preserved before site title combination)
+    let page_title = variables.get("original_title");
+
+    // Extract CSS reference (prefer versioned, fall back to original)
+    let css_reference = variables
+        .get("page_specific_css")
+        .or_else(|| variables.get("css"));
+
+    write_json_to_file(
+        &json_file_name,
+        &json_content,
+        page_title.map(String::as_str),
+        css_reference.map(String::as_str),
+    )?;
+
     Ok(())
 }
 

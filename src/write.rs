@@ -22,3 +22,55 @@ pub fn write_html_to_file(path: &str, content: &str) -> io::Result<()> {
 
     Ok(())
 }
+
+pub fn write_json_to_file(
+    path: &str,
+    content: &str,
+    title: Option<&str>,
+    css: Option<&str>,
+) -> io::Result<()> {
+    let path = Path::new(path);
+
+    if let Some(dir) = path.parent() {
+        fs::create_dir_all(dir)?;
+    }
+
+    // Escape JSON strings properly
+    let escaped_content = escape_json_string(content);
+    let escaped_title = title
+        .map(escape_json_string)
+        .unwrap_or_else(|| "null".to_string());
+    let escaped_css = css
+        .map(|c| format!("\"{}\"", escape_json_string(c)))
+        .unwrap_or_else(|| "null".to_string());
+
+    let json_content = format!(
+        "{{\n  \"content\": \"{}\",\n  \"title\": {},\n  \"css\": {}\n}}",
+        escaped_content,
+        if title.is_some() {
+            format!("\"{}\"", escaped_title)
+        } else {
+            "null".to_string()
+        },
+        escaped_css
+    );
+
+    let mut file = File::create(path)?;
+    file.write_all(json_content.as_bytes())?;
+
+    Ok(())
+}
+
+fn escape_json_string(s: &str) -> String {
+    s.chars()
+        .map(|c| match c {
+            '"' => "\\\"".to_string(),
+            '\\' => "\\\\".to_string(),
+            '\n' => "\\n".to_string(),
+            '\r' => "\\r".to_string(),
+            '\t' => "\\t".to_string(),
+            c if c.is_control() => format!("\\u{:04x}", c as u32),
+            c => c.to_string(),
+        })
+        .collect()
+}
