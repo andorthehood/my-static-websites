@@ -1,0 +1,17 @@
+.module {
+    background: #000000;
+    color: #00ff00;
+    white-space: pre;
+    width: 240px;
+    font-size: 11px;
+    line-height: 1.1;
+    display: block;
+
+    .number {
+        color: #006600;
+    }
+
+    .instruction {
+        color: #99ff99;
+    }
+}

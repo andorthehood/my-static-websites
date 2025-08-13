@@ -1,7 +1,74 @@
+@use "module";
+
+body,
+html,
+code {
+	font-family: 'DepartureMono-Regular', 'Courier New', monospace;
+}
+
 body,
 html {
-	line-height: 1.2;
-	font-family: 'DepartureMono-Regular', 'Courier New', monospace;
+
 	margin: 0;
 	padding: 0;
+	background: #003300;
+	color: #fff;
+}
+
+.container {
+	width: 60%;
+	background: #000000;
+	margin: 0 auto;
+	font-size: 22px;
+	padding: 22px;
+	margin-top: 176px;
+}
+
+@media(max-width:1500px) {
+	.container {
+		width: 65%;
+	}
+}
+
+@media(max-width:1024px) {
+	.container {
+		width: 80%;
+	}
+}
+
+@media(max-width:700px) {
+	.container {
+		width: 100%;
+	}
+}
+
+:root {
+	font-synthesis: none;
+	-webkit-font-smoothing: none;
+	text-rendering: optimizeLegibility;
+}
+
+p {
+	padding: 0;
+	margin: 0;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 22px;
+}
+
+li {
+	margin: 0;
+	padding: 0;
+}
+
+li i {
+	display: block;
+	text-align: center;
+	font-size: 44px;
 }
