@@ -186,7 +186,12 @@ pub fn generate(site_name: &str) -> Result<()> {
 
     let versioned_assets = copy_assets(site_name)?;
     copy_data(site_name)?;
-    let posts = load_and_parse_files_with_front_matter_in_directory(&posts_dir)?;
+    // Gracefully handle sites without a posts directory
+    let posts = if std::path::Path::new(&posts_dir).exists() {
+        load_and_parse_files_with_front_matter_in_directory(&posts_dir)?
+    } else {
+        Vec::new()
+    };
     let pages = load_and_parse_files_with_front_matter_in_directory(&pages_dir)?;
     let includes = load_liquid_includes(&includes_dir);
     let site_config = load_site_config(site_name)?;
