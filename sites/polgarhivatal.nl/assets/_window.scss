@@ -1,0 +1,100 @@
+.window {
+    background: #cccccc;
+    outline: 2px solid #333333;
+    border-right: 2px solid #999999;
+    border-bottom: 2px solid #999999;
+    box-shadow: inset 2px 2px 0px #ffffff;
+    padding: 6px;
+    position: relative;
+
+    .header {
+        display: flex;
+        gap: 8px;
+        padding-bottom: 6px;
+
+        .title {
+            white-space: nowrap;
+            line-height: 24px;
+            font-size: 22px;
+        }
+
+        .button {
+            height: 16px;
+            background: linear-gradient(135deg, #999999 0%, #ffffff 100%);
+            border-top: 2px solid #cccccc;
+            border-left: 2px solid #cccccc;
+            box-shadow: inset -2px -2px 0px #999999;
+            width: 16px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .button:active::after {
+            background: linear-gradient(135deg, #333333 0%, #999999 100%);
+            width: 18px;
+            height: 18px;
+        }
+
+        .button::after {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 2px;
+            height: 2px;
+            background: #ffffff;
+            display: block;
+            content: " ";
+        }
+
+        .button-resize::before {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 10px;
+            height: 10px;
+            display: block;
+            content: " ";
+            z-index: 1;
+            border-bottom: 2px solid #333;
+            border-right: 2px solid #333;
+        }
+
+        .button-collapse::before {
+            position: absolute;
+            top: 4px;
+            left: -2px;
+            width: 18px;
+            height: 2px;
+            display: block;
+            content: " ";
+            z-index: 1;
+            border-bottom: 2px solid #333;
+            border-top: 2px solid #333;
+        }
+
+        .stripes {
+            width: 100%;
+        }
+
+        .stripe {
+            background: #ffffff;
+            height: 2px;
+            box-shadow: 2px 2px 0 #999999;
+            margin-bottom: 2px;
+        }
+    }
+
+    .hole {
+        border-right: 2px solid #ffffff;
+        border-bottom: 2px solid #ffffff;
+        box-shadow: -2px -2px 0 #999999;
+        margin: 2px 0 0 2px;
+        background: #333333;
+        padding: 2px;
+        position: relative;
+    }
+
+    .content {
+        background: #ffffff;
+    }
+}
