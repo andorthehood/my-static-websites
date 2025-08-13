@@ -9,6 +9,9 @@ It powers my real websites:
 - Partial TypeScript support: `.ts` assets are stripped of types and minified to `.js` (interfaces, simple generics, casts, and type annotations removed).
 - Partial SCSS support: local `@use`/`@import` are inlined and simple nesting flattened; variables and mixins are not supported.
 - Generates `.json` files alongside `.html` pages (content/title/css) to enable client-side routing.
+- Minifies HTML, JS, and CSS.
+- Parses `.json` files under `sites/<site>/data/` and exposes them to templates via `data.*` variables (e.g., `data.navigation.0.name`).
+- Partial Liquid support: `include`, `assign` (with `where` filter), `for` (with `limit`, `forloop` vars like `first`, `last`, `index`, `index0`, `length`), `if`, `unless`, and basic `{{ variable }}` replacement.
 
 
 ## Requirements
