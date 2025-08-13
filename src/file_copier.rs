@@ -4,6 +4,7 @@ use std::hash::Hasher;
 use std::io::{self, Read, Write};
 use std::path::Path;
 
+use crate::converters::scss::scss_to_css_with_inline_imports;
 use crate::converters::typescript::strip_typescript_types;
 use crate::minifier::css::minify_css;
 use crate::minifier::js::minify_js;
@@ -31,6 +32,11 @@ pub fn copy_file_with_versioning(source_path: &str, destination_dir: &str) -> io
         "css" => {
             let css_string = String::from_utf8_lossy(&contents);
             let minified_css = minify_css(&css_string);
+            (minified_css.into_bytes(), "css")
+        }
+        "scss" => {
+            let inlined = scss_to_css_with_inline_imports(source_path)?;
+            let minified_css = minify_css(&inlined);
             (minified_css.into_bytes(), "css")
         }
         "js" => {
@@ -266,5 +272,45 @@ const b = (a as HTMLElement)!;
         assert!(!copied.contains("<HTMLElement>"));
         assert!(!copied.contains(" as "));
         assert!(!copied.contains("!;"));
+    }
+
+    #[test]
+    fn test_copy_scss_file_with_inlining_and_minification() {
+        let temp_dir = TempDir::new().unwrap();
+        let source_dir = temp_dir.path().join("source");
+        let dest_dir = temp_dir.path().join("dest");
+        let partials_dir = source_dir.join("partials");
+        fs::create_dir_all(&partials_dir).unwrap();
+
+        // Create SCSS files
+        fs::write(partials_dir.join("_button.scss"), ".btn { color: red; }\n").unwrap();
+        fs::write(
+            source_dir.join("typography.scss"),
+            "h1 { font-weight: 700; }\n",
+        )
+        .unwrap();
+        fs::write(
+            source_dir.join("main.scss"),
+            "@use './partials/button';\n@import './typography.scss';\nbody { margin: 0; }\n",
+        )
+        .unwrap();
+
+        // Copy with versioning and conversion
+        let result = copy_file_with_versioning(
+            source_dir.join("main.scss").to_str().unwrap(),
+            dest_dir.to_str().unwrap(),
+        );
+
+        assert!(result.is_ok());
+        let new_filename = result.unwrap();
+        assert!(new_filename.starts_with("main-"));
+        assert!(new_filename.ends_with(".css"));
+
+        let copied = fs::read_to_string(dest_dir.join(&new_filename)).unwrap();
+        assert!(copied.contains(".btn{color:red;}"));
+        assert!(copied.contains("h1{font-weight:700;}"));
+        assert!(copied.contains("body{margin:0;}"));
+        assert!(!copied.contains("@use"));
+        assert!(!copied.contains("@import"));
     }
 }
