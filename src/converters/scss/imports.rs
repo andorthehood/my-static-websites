@@ -2,20 +2,7 @@ use std::collections::HashSet;
 use std::fs;
 use std::path::{Path, PathBuf};
 
-/// Very primitive SCSS to CSS converter that only supports inlining of `@use` and `@import`.
-/// - Only local relative imports ("./" or "../") are supported.
-/// - Supports optional quotes and optional trailing semicolon.
-/// - Ignores media queries or import options; just inlines raw content.
-/// - Prevents infinite recursion by tracking visited absolute paths.
-/// - Does NOT process variables, nesting, mixins, etc.
-pub fn scss_to_css_with_inline_imports(entry_path: &Path) -> std::io::Result<String> {
-    let mut visited: HashSet<PathBuf> = HashSet::new();
-    let mut result = String::new();
-    inline_file(entry_path, &mut visited, &mut result)?;
-    Ok(result)
-}
-
-fn inline_file(
+pub fn inline_scss_file(
     path: &Path,
     visited: &mut HashSet<PathBuf>,
     out: &mut String,
@@ -33,7 +20,7 @@ fn inline_file(
             // Try to resolve any local-like target; if we cannot, print a warning but keep the line
             if let Some(candidate) = resolve_scss_like_path(base_dir, &target) {
                 // Recursively inline dependency
-                inline_file(&candidate, visited, out)?;
+                inline_scss_file(&candidate, visited, out)?;
                 continue; // do not emit the @use/@import line
             } else {
                 eprintln!(
@@ -48,17 +35,15 @@ fn inline_file(
         out.push('\n');
     }
 
-    Ok(())
-}
+    // Note: simple selector nesting is flattened in a later pass (see nesting.rs)
 
-fn is_relative(target: &str) -> bool {
-    target.starts_with("./") || target.starts_with("../")
+    Ok(())
 }
 
 /// Extracts the import path from lines like:
 /// @use "./foo";
 /// @import './bar.scss';
-/// @import "../baz";
+/// @import "../baz"
 /// Returns None for non-import lines.
 fn parse_import_target(line: &str) -> Option<String> {
     let lower = line.to_ascii_lowercase();
@@ -137,11 +122,12 @@ mod tests {
         writeln!(main, "@import \"./components/typography.scss\";").unwrap();
         writeln!(main, "body {{ margin: 0; }}").unwrap();
 
-        let css = scss_to_css_with_inline_imports(&main_scss).unwrap();
+        let mut visited: HashSet<PathBuf> = HashSet::new();
+        let mut css = String::new();
+        inline_scss_file(&main_scss, &mut visited, &mut css).unwrap();
         assert!(css.contains(".btn { color: red; }"));
         assert!(css.contains("h1 { font-weight: 700; }"));
         assert!(css.contains("body { margin: 0; }"));
-        // @use/@import lines should be gone
         assert!(!css.contains("@use"));
         assert!(!css.contains("@import"));
     }
@@ -154,7 +140,9 @@ mod tests {
         let b = root.join("b.scss");
         fs::write(&a, "@import './b';\n.a{color:blue;}\n").unwrap();
         fs::write(&b, "@use './a';\n.b{color:red;}\n").unwrap();
-        let css = scss_to_css_with_inline_imports(&a).unwrap();
+        let mut visited: HashSet<PathBuf> = HashSet::new();
+        let mut css = String::new();
+        inline_scss_file(&a, &mut visited, &mut css).unwrap();
         assert!(css.contains(&".a{color:blue;}".replace("{color:blue;}", "{color:blue;}")));
         assert!(css.contains(&".b{color:red;}".replace("{color:red;}", "{color:red;}")));
     }
@@ -168,7 +156,9 @@ mod tests {
         fs::write(&partial, ".window { display: block; }\n").unwrap();
         fs::write(&main, "@import 'window';\nbody { margin: 0; }\n").unwrap();
 
-        let css = scss_to_css_with_inline_imports(&main).unwrap();
+        let mut visited: HashSet<PathBuf> = HashSet::new();
+        let mut css = String::new();
+        inline_scss_file(&main, &mut visited, &mut css).unwrap();
         assert!(css.contains(".window { display: block; }"));
         assert!(css.contains("body { margin: 0; }"));
         assert!(!css.contains("@import"));

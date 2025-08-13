@@ -1,199 +1,203 @@
 .window {
-	background: #cccccc;
-	outline: 1rem solid #333333;
-	border-right: 1rem solid #999999;
-	border-bottom: 1rem solid #999999;
-	box-shadow: inset 1rem 1rem 0px #ffffff;
-	padding: 3rem;
-	position: relative;
+    background: #cccccc;
+    outline: 1rem solid #333333;
+    border-right: 1rem solid #999999;
+    border-bottom: 1rem solid #999999;
+    box-shadow: inset 1rem 1rem 0px #ffffff;
+    padding: 3rem;
+    position: relative;
 }
 
 body.collapsed .content-hole {
-	display: none;
+    display: none;
 }
 
 body.collapsed .corner {
-	display: none;
+    display: none;
 }
 
 body.collapsed .corner-inner {
-	display: none;
+    display: none;
 }
 
 body.collapsed .bars {
-	display: none;
+    display: none;
 }
 
 body.collapsed footer {
-	display: none;
+    display: none;
 }
 
 body.collapsed .desktop {
-	position: relative;
-	top: initial;
-	bottom: initial;
-	left: initial;
-	right: initial;
+    position: relative;
+    top: initial;
+    bottom: initial;
+    left: initial;
+    right: initial;
 }
 
 .header {
-	display: flex;
-	gap: 4rem;
-	padding-bottom: 3rem;
+    display: flex;
+    gap: 4rem;
+    padding-bottom: 3rem;
 }
 
 .hole {
-	border-right: 1rem solid #ffffff;
-	border-bottom: 1rem solid #ffffff;
-	box-shadow: -1rem -1rem 0 #999999;
-	margin: 1rem 0 0 1rem;
-	background: #333333;
-	padding: 1rem;
-	position: relative;
+    border-right: 1rem solid #ffffff;
+    border-bottom: 1rem solid #ffffff;
+    box-shadow: -1rem -1rem 0 #999999;
+    margin: 1rem 0 0 1rem;
+    background: #333333;
+    padding: 1rem;
+    position: relative;
 }
 
-.header .title {
-	white-space: nowrap;
-	line-height: 12rem;
-	font-size: 11rem;
-}
+.window {
+    .header {
+        .title {
+            white-space: nowrap;
+            line-height: 12rem;
+            font-size: 11rem;
+        }
 
-.header .button {
-	height: 8rem;
-	background: linear-gradient(135deg, #999999 0%, #ffffff 100%);
-	border-top: 1rem solid #cccccc;
-	border-left: 1rem solid #cccccc;
-	box-shadow: inset -1rem -1rem 0px #999999;
-	width: 8rem;
-	position: relative;
-	cursor: pointer;
-}
+        .button {
+            height: 8rem;
+            background: linear-gradient(135deg, #999999 0%, #ffffff 100%);
+            border-top: 1rem solid #cccccc;
+            border-left: 1rem solid #cccccc;
+            box-shadow: inset -1rem -1rem 0px #999999;
+            width: 8rem;
+            position: relative;
+            cursor: pointer;
+        }
 
-.header .button-line::before {
-	position: absolute;
-	top: 2rem;
-	left: 0;
-	width: 8rem;
-	height: 1rem;
-	background: #333333;
-	display: block;
-	content: " ";
-}
+        .button::after {
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+            width: 1rem;
+            height: 1rem;
+            background: #ffffff;
+            display: block;
+            content: " ";
+        }
 
-.header .button::after {
-	position: absolute;
-	top: -1rem;
-	left: -1rem;
-	width: 1rem;
-	height: 1rem;
-	background: #ffffff;
-	display: block;
-	content: " ";
-}
+        .button-line::before {
+            position: absolute;
+            top: 2rem;
+            left: 0;
+            width: 8rem;
+            height: 1rem;
+            background: #333333;
+            display: block;
+            content: " ";
+        }
 
-.header .stripes {
-	width: 100%;
-}
+        .stripes {
+            width: 100%;
+        }
 
-.header .stripe {
-	background: #ffffff;
-	height: 1rem;
-	box-shadow: 1rem 1rem 0 #999999;
-	margin-bottom: 1rem;
+        .stripe {
+            background: #ffffff;
+            height: 1rem;
+            box-shadow: 1rem 1rem 0 #999999;
+            margin-bottom: 1rem;
+        }
+    }
 }
 
 .content {
-	background: #ffffff;
-	padding: 5rem;
+    background: #ffffff;
+    padding: 5rem;
 }
 
 .head {
-	background: #cccccc;
-	height: 100px;
-	display: flex;
+    background: #cccccc;
+    height: 100px;
+    display: flex;
 }
 
 .head .button {
-	width: 100px;
-	height: 100px;
-	position: relative;
-	cursor: pointer;
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	text-decoration: none;
-	color: #000000;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-decoration: none;
+    color: #000000;
 }
 
 .head .button .icon {
-	font-size: 33px;
+    font-size: 33px;
 }
 
 .corner {
-	position: absolute;
-	width: 13rem;
-	height: 13rem;
-	bottom: 5rem;
-	right: 5rem;
-	background: #cccccc;
-	border-top: 1rem solid #333333;
-	border-left: 1rem solid #333333;
+    position: absolute;
+    width: 13rem;
+    height: 13rem;
+    bottom: 5rem;
+    right: 5rem;
+    background: #cccccc;
+    border-top: 1rem solid #333333;
+    border-left: 1rem solid #333333;
 }
 
 .corner-inner {
-	border-top: 1rem solid #ffffff;
-	border-left: 1rem solid #ffffff;
-	box-shadow: 1rem 1rem 0 #cccccc;
-	position: absolute;
-	width: 13rem;
-	height: 13rem;
-	bottom: 4rem;
-	right: 4rem;
-	background: #cccccc;
-	cursor: grab;
+    border-top: 1rem solid #ffffff;
+    border-left: 1rem solid #ffffff;
+    box-shadow: 1rem 1rem 0 #cccccc;
+    position: absolute;
+    width: 13rem;
+    height: 13rem;
+    bottom: 4rem;
+    right: 4rem;
+    background: #cccccc;
+    cursor: grab;
 }
 
 .bars {
-	transform: rotate(-45deg);
-	position: absolute;
-	bottom: 6rem;
-	right: 5rem;
-	pointer-events: none;
+    transform: rotate(-45deg);
+    position: absolute;
+    bottom: 6rem;
+    right: 5rem;
+    pointer-events: none;
 }
 
 .bar {
-	width: 9rem;
-	background: #ffffff;
-	box-shadow: 0 1rem 0 #999999;
-	height: 1rem;
-	margin-bottom: 1.5rem;
+    width: 9rem;
+    background: #ffffff;
+    box-shadow: 0 1rem 0 #999999;
+    height: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .netscape-logo {
-	font-size: 40rem;
-	font-weight: normal;
-	font-family: serif;
-	width: 50rem;
-	height: 50rem;
-	color: #ffffff;
-	text-align: center;
-	line-height: 45rem;
-	text-shadow: 0 0 1rem #66ccff;
-	position: absolute;
-	top: 0;
-	right: 0;
-	background: radial-gradient(circle at center 188%, #000000 65%, #66ccff 65%, #009966 67%, #330066 80%, #000000 95%);
+    font-size: 40rem;
+    font-weight: normal;
+    font-family: serif;
+    width: 50rem;
+    height: 50rem;
+    color: #ffffff;
+    text-align: center;
+    line-height: 45rem;
+    text-shadow: 0 0 1rem #66ccff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: radial-gradient(circle at center 188%, #000000 65%, #66ccff 65%, #009966 67%, #330066 80%, #000000 95%);
 }
 
 .netscape-logo::after {
-	content: "";
-	position: absolute;
-	bottom: 25%;
-	right: 22%;
-	left: 56%;
-	top: 63%;
-	transform: rotate(8deg);
-	overflow: hidden;
-	background: black;
+    content: "";
+    position: absolute;
+    bottom: 25%;
+    right: 22%;
+    left: 56%;
+    top: 63%;
+    transform: rotate(8deg);
+    overflow: hidden;
+    background: black;
 }
