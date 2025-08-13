@@ -1,82 +1,40 @@
 .window {
     background: #cccccc;
-    outline: 1rem solid #333333;
-    border-right: 1rem solid #999999;
-    border-bottom: 1rem solid #999999;
-    box-shadow: inset 1rem 1rem 0px #ffffff;
-    padding: 3rem;
+    outline: 2px solid #333333;
+    border-right: 2px solid #999999;
+    border-bottom: 2px solid #999999;
+    box-shadow: inset 2px 2px 0px #ffffff;
+    padding: 6px;
     position: relative;
-}
 
-body.collapsed .content-hole {
-    display: none;
-}
-
-body.collapsed .corner {
-    display: none;
-}
-
-body.collapsed .corner-inner {
-    display: none;
-}
-
-body.collapsed .bars {
-    display: none;
-}
-
-body.collapsed footer {
-    display: none;
-}
-
-body.collapsed .desktop {
-    position: relative;
-    top: initial;
-    bottom: initial;
-    left: initial;
-    right: initial;
-}
-
-.header {
-    display: flex;
-    gap: 4rem;
-    padding-bottom: 3rem;
-}
-
-.hole {
-    border-right: 1rem solid #ffffff;
-    border-bottom: 1rem solid #ffffff;
-    box-shadow: -1rem -1rem 0 #999999;
-    margin: 1rem 0 0 1rem;
-    background: #333333;
-    padding: 1rem;
-    position: relative;
-}
-
-.window {
     .header {
+        display: flex;
+        gap: 8px;
+        padding-bottom: 6px;
+
         .title {
             white-space: nowrap;
-            line-height: 12rem;
-            font-size: 11rem;
+            line-height: 24px;
+            font-size: 22px;
         }
 
         .button {
-            height: 8rem;
+            height: 16px;
             background: linear-gradient(135deg, #999999 0%, #ffffff 100%);
-            border-top: 1rem solid #cccccc;
-            border-left: 1rem solid #cccccc;
-            box-shadow: inset -1rem -1rem 0px #999999;
-            width: 8rem;
+            border-top: 2px solid #cccccc;
+            border-left: 2px solid #cccccc;
+            box-shadow: inset -2px -2px 0px #999999;
+            width: 16px;
             position: relative;
             cursor: pointer;
         }
 
         .button::after {
             position: absolute;
-            top: -1rem;
-            left: -1rem;
-            width: 1rem;
-            height: 1rem;
+            top: -2px;
+            left: -2px;
+            width: 2px;
+            height: 2px;
             background: #ffffff;
             display: block;
             content: " ";
@@ -84,10 +42,10 @@ body.collapsed .desktop {
 
         .button-line::before {
             position: absolute;
-            top: 2rem;
+            top: 4px;
             left: 0;
-            width: 8rem;
-            height: 1rem;
+            width: 16px;
+            height: 2px;
             background: #333333;
             display: block;
             content: " ";
@@ -99,105 +57,143 @@ body.collapsed .desktop {
 
         .stripe {
             background: #ffffff;
-            height: 1rem;
-            box-shadow: 1rem 1rem 0 #999999;
-            margin-bottom: 1rem;
+            height: 2px;
+            box-shadow: 2px 2px 0 #999999;
+            margin-bottom: 2px;
         }
+    }
+
+    .hole {
+        border-right: 2px solid #ffffff;
+        border-bottom: 2px solid #ffffff;
+        box-shadow: -2px -2px 0 #999999;
+        margin: 2px 0 0 2px;
+        background: #333333;
+        padding: 2px;
+        position: relative;
+    }
+
+    .content {
+        background: #ffffff;
+        padding: 10px;
+    }
+
+    .head {
+        background: #cccccc;
+        height: 100px;
+        display: flex;
+    }
+
+    .head .button {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        cursor: pointer;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-decoration: none;
+        color: #000000;
+    }
+
+    .head .button .icon {
+        font-size: 33px;
+    }
+
+    .corner {
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        bottom: 10px;
+        right: 10px;
+        background: #cccccc;
+        border-top: 2px solid #333333;
+        border-left: 2px solid #333333;
+    }
+
+    .corner-inner {
+        border-top: 2px solid #ffffff;
+        border-left: 2px solid #ffffff;
+        box-shadow: 2px 2px 0 #cccccc;
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        bottom: 8px;
+        right: 8px;
+        background: #cccccc;
+        cursor: grab;
+    }
+
+    .bars {
+        transform: rotate(-45deg);
+        position: absolute;
+        bottom: 12px;
+        right: 10px;
+        pointer-events: none;
+    }
+
+    .bar {
+        width: 18px;
+        background: #ffffff;
+        box-shadow: 0 2px 0 #999999;
+        height: 2px;
+        margin-bottom: 3px;
+    }
+
+    .netscape-logo {
+        font-size: 80px;
+        font-weight: normal;
+        font-family: serif;
+        width: 100px;
+        height: 100px;
+        color: #ffffff;
+        text-align: center;
+        line-height: 90px;
+        text-shadow: 0 0 2px #66ccff;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: radial-gradient(circle at center 188%, #000000 65%, #66ccff 65%, #009966 67%, #330066 80%, #000000 95%);
+    }
+
+    .netscape-logo::after {
+        content: "";
+        position: absolute;
+        bottom: 25%;
+        right: 22%;
+        left: 56%;
+        top: 63%;
+        transform: rotate(8deg);
+        overflow: hidden;
+        background: black;
     }
 }
 
-.content {
-    background: #ffffff;
-    padding: 5rem;
-}
+body.collapsed {
+    .desktop {
+        position: relative;
+        top: initial;
+        bottom: initial;
+        left: initial;
+        right: initial;
+    }
 
-.head {
-    background: #cccccc;
-    height: 100px;
-    display: flex;
-}
+    .window {
+        .content-hole {
+            display: none;
+        }
 
-.head .button {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    cursor: pointer;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-decoration: none;
-    color: #000000;
-}
+        .corner {
+            display: none;
+        }
 
-.head .button .icon {
-    font-size: 33px;
-}
+        .corner-inner {
+            display: none;
+        }
 
-.corner {
-    position: absolute;
-    width: 13rem;
-    height: 13rem;
-    bottom: 5rem;
-    right: 5rem;
-    background: #cccccc;
-    border-top: 1rem solid #333333;
-    border-left: 1rem solid #333333;
-}
-
-.corner-inner {
-    border-top: 1rem solid #ffffff;
-    border-left: 1rem solid #ffffff;
-    box-shadow: 1rem 1rem 0 #cccccc;
-    position: absolute;
-    width: 13rem;
-    height: 13rem;
-    bottom: 4rem;
-    right: 4rem;
-    background: #cccccc;
-    cursor: grab;
-}
-
-.bars {
-    transform: rotate(-45deg);
-    position: absolute;
-    bottom: 6rem;
-    right: 5rem;
-    pointer-events: none;
-}
-
-.bar {
-    width: 9rem;
-    background: #ffffff;
-    box-shadow: 0 1rem 0 #999999;
-    height: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.netscape-logo {
-    font-size: 40rem;
-    font-weight: normal;
-    font-family: serif;
-    width: 50rem;
-    height: 50rem;
-    color: #ffffff;
-    text-align: center;
-    line-height: 45rem;
-    text-shadow: 0 0 1rem #66ccff;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: radial-gradient(circle at center 188%, #000000 65%, #66ccff 65%, #009966 67%, #330066 80%, #000000 95%);
-}
-
-.netscape-logo::after {
-    content: "";
-    position: absolute;
-    bottom: 25%;
-    right: 22%;
-    left: 56%;
-    top: 63%;
-    transform: rotate(8deg);
-    overflow: hidden;
-    background: black;
+        .bars {
+            display: none;
+        }
+    }
 }
