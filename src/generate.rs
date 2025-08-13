@@ -196,7 +196,6 @@ pub fn generate(site_name: &str) -> Result<()> {
 
     // Set defaults first
     global_variables.insert("title".to_string(), "My Site".to_string());
-    global_variables.insert("index_filename".to_string(), "index.html".to_string());
     global_variables.insert("site_url".to_string(), "https://example.com".to_string());
     global_variables.insert(
         "description".to_string(),
