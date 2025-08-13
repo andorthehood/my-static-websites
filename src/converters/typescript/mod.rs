@@ -510,4 +510,4 @@ function handleLinkClick(event: Event): void {
         assert!(js.contains("const pageSpecificStyleTags = []"));
         // Avoid brittle formatting checks for browser APIs; converter is covered by copier tests as well
     }
-} 
+}
