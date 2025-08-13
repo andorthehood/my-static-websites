@@ -156,6 +156,8 @@ pub fn minify_html(html: &str) -> String {
 
             // Handle whitespace inside tags - preserve single spaces
             ' ' | '\t' | '\r' | '\n' if in_tag && !in_string => {
+                // Whitespace after the tag name means we've finished collecting it
+                collecting_tag_name = false;
                 let next_char = chars.peek().unwrap_or(&'\0');
 
                 if !result.is_empty() {
@@ -400,5 +402,21 @@ body { margin: 0; }
         assert!(!result.contains("love📸photography"));
 
         println!("Result: {}", result);
+    }
+
+    #[test]
+    fn test_preserve_pre_with_class_content() {
+        let html = "<pre class=\"pretty\">\n    line 1\n    line 2\n</pre>";
+        let expected_contains = "line 1\n    line 2";
+        let result = minify_html(html);
+        assert!(result.contains(expected_contains));
+    }
+
+    #[test]
+    fn test_preserve_code_with_class_content() {
+        let html = "<code class=\"lang-rs\">fn main() {\n    println!(\\\"hi\\\");\n}</code>";
+        let expected_contains = "main() {\n    println!";
+        let result = minify_html(html);
+        assert!(result.contains(expected_contains));
     }
 }
