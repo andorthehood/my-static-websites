@@ -103,7 +103,7 @@ article img.loaded {
 	cursor: pointer;
 }
 
-.header .button-line::before {
+.header .button-resize::before {
 	position: absolute;
 	top: 4px;
 	left: 0;
