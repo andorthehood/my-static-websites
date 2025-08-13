@@ -13,7 +13,6 @@ It powers my real websites:
 - Parses `.json` files under `sites/<site>/data/` and exposes them to templates via `data.*` variables (e.g., `data.navigation.0.name`).
 - Partial Liquid support: `include`, `assign` (with `where` filter), `for` (with `limit`, `forloop` vars like `first`, `last`, `index`, `index0`, `length`), `if`, `unless`, and basic `{{ variable }}` replacement.
 
-
 ## Requirements
 
 To run the website locally, make sure you have the following installed:
@@ -88,4 +87,3 @@ Each site should be organized in the following structure under `./sites/<site_na
 ```
 
 The generated output will be placed in the `./out/` directory.
-

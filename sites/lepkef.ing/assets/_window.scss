@@ -29,6 +29,12 @@
             cursor: pointer;
         }
 
+        .button:active::after {
+            background: linear-gradient(135deg, #333333 0%, #999999 100%);
+            width: 18px;
+            height: 18px;
+        }
+
         .button::after {
             position: absolute;
             top: -2px;
@@ -40,15 +46,30 @@
             content: " ";
         }
 
-        .button-line::before {
+        .button-resize::before {
             position: absolute;
-            top: 4px;
-            left: 0;
-            width: 16px;
-            height: 2px;
-            background: #333333;
+            top: -2px;
+            left: -2px;
+            width: 10px;
+            height: 10px;
             display: block;
             content: " ";
+            z-index: 1;
+            border-bottom: 2px solid #333;
+            border-right: 2px solid #333;
+        }
+
+        .button-collapse::before {
+            position: absolute;
+            top: 4px;
+            left: -2px;
+            width: 18px;
+            height: 2px;
+            display: block;
+            content: " ";
+            z-index: 1;
+            border-bottom: 2px solid #333;
+            border-top: 2px solid #333;
         }
 
         .stripes {
@@ -71,11 +92,6 @@
         background: #333333;
         padding: 2px;
         position: relative;
-    }
-
-    .content {
-        background: #ffffff;
-        padding: 10px;
     }
 
     .head {
