@@ -4,6 +4,13 @@ It powers my real websites:
 - [lepkef.ing](https://lepkef.ing): [![Netlify Status](https://api.netlify.com/api/v1/badges/a8bd44af-89f0-4afe-8765-f9cfc38191bf/deploy-status)](https://app.netlify.com/sites/andor/deploys)
 - [polgarhivatal.nl](https://polgarhivatal.nl): [![Netlify Status](https://api.netlify.com/api/v1/badges/ea7ae987-302e-4cb0-816f-0aec9b7b5c18/deploy-status)](https://app.netlify.com/projects/polgarhivatal/deploys)
 
+## Features
+
+- Partial TypeScript support: `.ts` assets are stripped of types and minified to `.js` (interfaces, simple generics, casts, and type annotations removed).
+- Partial SCSS support: local `@use`/`@import` are inlined and simple nesting flattened; variables and mixins are not supported.
+- Generates `.json` files alongside `.html` pages (content/title/css) to enable client-side routing.
+
+
 ## Requirements
 
 To run the website locally, make sure you have the following installed:
