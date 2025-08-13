@@ -113,6 +113,10 @@ fn copy_assets(site_name: &str) -> Result<HashMap<String, String>> {
             if entry.file_type().map(|ft| ft.is_file()).unwrap_or(false) {
                 let path = entry.path();
                 if let Some(file_name) = path.file_name().and_then(|n| n.to_str()) {
+                    // Skip files starting with underscore (e.g., partials)
+                    if file_name.starts_with('_') {
+                        continue;
+                    }
                     let versioned_name = copy_file_with_versioning(
                         &format!("{assets_dir}/{file_name}"),
                         &format!("./{}/{}/assets/", OUTPUT_DIR, site_name),
