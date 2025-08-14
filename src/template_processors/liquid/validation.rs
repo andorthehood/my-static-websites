@@ -1,6 +1,17 @@
+#[cfg(target_arch = "x86_64")]
+use core::arch::global_asm;
+
+#[cfg(target_arch = "x86_64")]
+global_asm!(include_str!("validation_x86_64.s"));
+
+#[cfg(target_arch = "x86_64")]
+extern "C" {
+    fn liquid_is_valid_variable_name(ptr: *const u8, len: usize) -> u8;
+}
+
 /// Validates if a variable name follows Liquid naming conventions.
 /// Supports simple names and dot notation (including numeric indices like users.0.name).
-pub fn is_valid_variable_name(name: &str) -> bool {
+fn is_valid_variable_name_rust(name: &str) -> bool {
     let mut chars = name.chars();
     if let Some(first) = chars.next() {
         (first.is_alphabetic() || first == '_')
@@ -8,6 +19,25 @@ pub fn is_valid_variable_name(name: &str) -> bool {
     } else {
         false
     }
+}
+
+#[cfg(target_arch = "x86_64")]
+/// Validates if a variable name follows Liquid naming conventions with an x86_64 fast path.
+pub fn is_valid_variable_name(name: &str) -> bool {
+    if !name.is_ascii() {
+        // Preserve Unicode behavior via the Rust implementation
+        return is_valid_variable_name_rust(name);
+    }
+    if name.is_empty() {
+        return false;
+    }
+    unsafe { liquid_is_valid_variable_name(name.as_ptr(), name.len()) != 0 }
+}
+
+#[cfg(not(target_arch = "x86_64"))]
+/// Validates if a variable name follows Liquid naming conventions (pure Rust).
+pub fn is_valid_variable_name(name: &str) -> bool {
+    is_valid_variable_name_rust(name)
 }
 
 #[cfg(test)]
