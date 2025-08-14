@@ -100,21 +100,28 @@
         display: flex;
     }
 
-    .head .button {
-        width: 100px;
-        height: 100px;
-        position: relative;
-        cursor: pointer;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        text-decoration: none;
-        color: #000000;
-    }
+    .head {
+        .button {
+            width: 120px;
+            height: 96px;
+            position: relative;
+            cursor: pointer;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-decoration: none;
+            color: #000000;
+            border-top: 2px solid #fff;
+            border-left: 2px solid #fff;
+            box-shadow: 2px 2px 0 #999;
+            margin-right: 2px;
+            filter: grayscale(100%);
 
-    .head .button .icon {
-        font-size: 33px;
+            .icon {
+                font-size: 33px;
+            }
+        }
     }
 
     .corner {
@@ -187,6 +194,7 @@
 
     .content {
         background: #ffffff;
+        padding: 10px;
     }
 }
 
@@ -200,6 +208,10 @@ body.collapsed {
     }
 
     .window {
+        .header {
+            padding-bottom: 0px;
+        }
+
         .content-hole {
             display: none;
         }
