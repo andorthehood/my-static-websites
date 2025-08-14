@@ -20,59 +20,59 @@ split_quotes_scan:
     xor r10, r10              # quote_char = 0
     
     test rsi, rsi
-    je .Ldone
+    je .Lsplit_done
     
-.Lloop:
+.Lsplit_loop:
     cmp r8, rsi
-    jae .Ldone
+    jae .Lsplit_done
     
     mov bl, BYTE PTR [rdi + r8]  # current char
     
     # Check if we're in quotes
     test r9, r9
-    jnz .Lin_quotes
+    jnz .Lsplit_in_quotes
     
     # Not in quotes - check for quote start
     cmp bl, 0x22              # '"'
-    je .Lstart_quote
+    je .Lsplit_start_quote
     cmp bl, 0x27              # '\''
-    je .Lstart_quote
+    je .Lsplit_start_quote
     
     # Check for comma (split point)
     cmp bl, 0x2c              # ','
-    je .Lfound_comma
+    je .Lsplit_found_comma
     
-    jmp .Lnext_char
+    jmp .Lsplit_next_char
     
-.Lstart_quote:
+.Lsplit_start_quote:
     mov r9, 1                 # in_quotes = true
     mov r10, rbx              # quote_char = current char
-    jmp .Lnext_char
+    jmp .Lsplit_next_char
     
-.Lin_quotes:
+.Lsplit_in_quotes:
     # Check if this char matches our quote char
     cmp bl, r10b
-    jne .Lnext_char
+    jne .Lsplit_next_char
     
     # End quote
     xor r9, r9                # in_quotes = false
     xor r10, r10              # quote_char = 0
-    jmp .Lnext_char
+    jmp .Lsplit_next_char
     
-.Lfound_comma:
+.Lsplit_found_comma:
     # Check if we have space in splits array
     cmp rax, rcx
-    jae .Lnext_char           # No more space
+    jae .Lsplit_next_char     # No more space
     
     # Store the comma position
     mov QWORD PTR [rdx + rax*8], r8
     inc rax                   # split_count++
     
-.Lnext_char:
+.Lsplit_next_char:
     inc r8                    # i++
-    jmp .Lloop
+    jmp .Lsplit_loop
     
-.Ldone:
+.Lsplit_done:
     pop r15
     pop r14
     pop r13
