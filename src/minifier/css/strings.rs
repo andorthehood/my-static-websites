@@ -46,7 +46,7 @@ mod tests {
     #[test]
     fn test_string_detection() {
         let mut handler = StringHandler::new();
-
+        
         // Should not be in string initially
         assert!(!handler.is_in_string());
 
@@ -64,7 +64,7 @@ mod tests {
     #[test]
     fn test_single_quote_strings() {
         let mut handler = StringHandler::new();
-
+        
         // Start string with single quote
         handler.handle_quote('\'', '\0', false);
         assert!(handler.is_in_string());
@@ -78,7 +78,7 @@ mod tests {
     #[test]
     fn test_escaped_quotes() {
         let mut handler = StringHandler::new();
-
+        
         // Start string
         handler.handle_quote('"', '\0', false);
         assert!(handler.is_in_string());
@@ -95,7 +95,7 @@ mod tests {
     #[test]
     fn test_quotes_in_comments_ignored() {
         let mut handler = StringHandler::new();
-
+        
         // Quote in comment should be ignored
         handler.handle_quote('"', '\0', true);
         assert!(!handler.is_in_string()); // Should not enter string state
@@ -104,7 +104,7 @@ mod tests {
     #[test]
     fn test_mismatched_quotes() {
         let mut handler = StringHandler::new();
-
+        
         // Start with double quote
         handler.handle_quote('"', '\0', false);
         assert!(handler.is_in_string());

@@ -2,7 +2,7 @@
 pub struct WhitespaceHandler;
 
 impl WhitespaceHandler {
-    /// Determines if a space should be preserved between the last character in result
+    /// Determines if a space should be preserved between the last character in result 
     /// and the next character being processed
     pub fn should_preserve_space(result: &str, next_char: char) -> bool {
         if result.is_empty() {
