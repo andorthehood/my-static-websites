@@ -16,7 +16,7 @@ pub fn optimize_hex_color(chars: &mut std::iter::Peekable<std::str::Chars>) -> S
     // Collect up to 6 characters to create a buffer for scanning
     let mut temp_chars = Vec::new();
     let mut peek_count = 0;
-    
+
     // Peek ahead to see what characters we have
     loop {
         if peek_count >= 6 {
@@ -34,18 +34,19 @@ pub fn optimize_hex_color(chars: &mut std::iter::Peekable<std::str::Chars>) -> S
             break;
         }
     }
-    
+
     if temp_chars.is_empty() {
         return String::new();
     }
-    
+
     // Use assembly to check if we can shorten
     let mut can_shorten: u8 = 0;
-    let consumed = unsafe { optimize_hex_color_scan(temp_chars.as_ptr(), temp_chars.len(), &mut can_shorten) };
-    
+    let consumed =
+        unsafe { optimize_hex_color_scan(temp_chars.as_ptr(), temp_chars.len(), &mut can_shorten) };
+
     // Convert consumed bytes back to chars
     let color_chars: Vec<char> = temp_chars[..consumed].iter().map(|&b| b as char).collect();
-    
+
     // If we have exactly 6 hex digits and can shorten
     if consumed == 6 && can_shorten != 0 {
         // Return the shortened version

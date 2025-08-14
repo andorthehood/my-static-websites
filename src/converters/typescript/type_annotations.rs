@@ -100,22 +100,19 @@ pub fn remove_type_annotations(input: &str) -> String {
 
             // Move back over whitespace, skipping preceding line if it contains a line comment (// ...\n)
             let mut k = name_start;
-            loop {
-                while k > 0 && (b[k - 1] as char).is_ascii_whitespace() {
-                    if b[k - 1] as char == '\n' {
-                        let mut line_start = k - 1;
-                        while line_start > 0 && b[line_start - 1] as char != '\n' {
-                            line_start -= 1;
-                        }
-                        let line_slice = &input[line_start..k - 1];
-                        if line_slice.contains("//") {
-                            k = line_start;
-                            continue;
-                        }
+            while k > 0 && (b[k - 1] as char).is_ascii_whitespace() {
+                if b[k - 1] as char == '\n' {
+                    let mut line_start = k - 1;
+                    while line_start > 0 && b[line_start - 1] as char != '\n' {
+                        line_start -= 1;
                     }
-                    k -= 1;
+                    let line_slice = &input[line_start..k - 1];
+                    if line_slice.contains("//") {
+                        k = line_start;
+                        continue;
+                    }
                 }
-                break;
+                k -= 1;
             }
 
             let token_before_name = if k > 0 { b[k - 1] as char } else { '\0' };

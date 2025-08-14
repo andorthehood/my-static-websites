@@ -1,5 +1,6 @@
 use super::find_byte::find_byte_index;
 pub use super::quote_utils::trim_quotes;
+pub use super::split_quotes::split_respecting_quotes;
 
 /// Checks if a string is a quoted literal
 #[cfg(test)]
@@ -29,41 +30,6 @@ pub fn parse_key_value_pair(pair: &str) -> Option<(String, String)> {
     let value = trim_quotes(parts[1].trim()).to_string();
 
     Some((key, value))
-}
-
-/// Splits a string on commas while respecting quotes
-pub fn split_respecting_quotes(input: &str) -> Vec<String> {
-    let mut parts = Vec::new();
-    let mut current = String::new();
-    let mut in_quotes = false;
-    let mut quote_char = '"';
-
-    for ch in input.chars() {
-        match ch {
-            '"' | '\'' if !in_quotes => {
-                in_quotes = true;
-                quote_char = ch;
-                current.push(ch);
-            }
-            ch if in_quotes && ch == quote_char => {
-                in_quotes = false;
-                current.push(ch);
-            }
-            ',' if !in_quotes => {
-                parts.push(current.trim().to_string());
-                current.clear();
-            }
-            _ => {
-                current.push(ch);
-            }
-        }
-    }
-
-    if !current.trim().is_empty() {
-        parts.push(current.trim().to_string());
-    }
-
-    parts
 }
 
 use std::collections::HashMap;
@@ -203,18 +169,6 @@ mod tests {
 
         let result = parse_key_value_pair("invalid");
         assert_eq!(result, None);
-    }
-
-    #[test]
-    fn test_split_respecting_quotes() {
-        let result = split_respecting_quotes("\"active\", \"true\"");
-        assert_eq!(result, vec!["\"active\"", "\"true\""]);
-
-        let result = split_respecting_quotes("active, true, \"quoted, value\"");
-        assert_eq!(result, vec!["active", "true", "\"quoted, value\""]);
-
-        let result = split_respecting_quotes("simple, values");
-        assert_eq!(result, vec!["simple", "values"]);
     }
 
     #[test]

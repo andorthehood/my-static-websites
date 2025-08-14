@@ -6,17 +6,17 @@ find_byte_scan:
     # Args: rdi=ptr, rsi=len, rdx=byte
     xor rax, rax              # i = 0
     test rsi, rsi
-    je .Lnot_found
-.Lloop:
+    je .Lfind_byte_not_found
+.Lfind_byte_loop:
     mov bl, BYTE PTR [rdi + rax]
     cmp bl, dl
-    je .Lfound
+    je .Lfind_byte_found
     inc rax
     cmp rax, rsi
-    jb .Lloop
-.Lnot_found:
+    jb .Lfind_byte_loop
+.Lfind_byte_not_found:
     mov rax, -1               # usize::MAX
     ret
-.Lfound:
+.Lfind_byte_found:
     ret
 .size find_byte_scan, .-find_byte_scan 
