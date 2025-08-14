@@ -1,4 +1,5 @@
 pub mod char_iteration;
+pub mod quote_utils;
 pub mod string_utils;
 pub mod tag_parsing;
 pub mod variable_resolution;
