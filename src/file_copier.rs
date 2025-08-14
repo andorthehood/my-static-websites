@@ -313,4 +313,34 @@ const b = (a as HTMLElement)!;
         assert!(!copied.contains("@use"));
         assert!(!copied.contains("@import"));
     }
+
+    #[test]
+    fn test_copy_ts_preserves_url_in_string_literal() {
+        let temp_dir = TempDir::new().unwrap();
+        let source_dir = temp_dir.path().join("source");
+        let dest_dir = temp_dir.path().join("dest");
+        fs::create_dir_all(&source_dir).unwrap();
+
+        let ts_content = r#"
+(function(){
+	setInterval(function(){
+		const el=document.getElementById('clippy-gif');
+		el.src='https://static.llllllllllll.com/andor/assets/clippy/swaying.gif?c=' + Date.now();
+	},8000);
+})();
+		"#;
+        let source_file = source_dir.join("url.ts");
+        fs::write(&source_file, ts_content).unwrap();
+
+        let result =
+            copy_file_with_versioning(source_file.to_str().unwrap(), dest_dir.to_str().unwrap());
+        assert!(result.is_ok());
+        let new_filename = result.unwrap();
+        assert!(new_filename.ends_with(".js"));
+
+        let copied = fs::read_to_string(dest_dir.join(&new_filename)).unwrap();
+        assert!(
+            copied.contains("https://static.llllllllllll.com/andor/assets/clippy/swaying.gif?c=")
+        );
+    }
 }
