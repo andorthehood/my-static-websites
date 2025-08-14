@@ -10,76 +10,76 @@ liquid_is_valid_variable_name:
 	# rdi=ptr, rsi=len
 	# if len == 0 -> invalid
 	test rsi, rsi
-	jz .Linvalid
+	jz .Lvalidation_invalid
 
 	# Load first byte
 	movzx eax, BYTE PTR [rdi]
 
 	# Check underscore '_'
 	cmp al, '_'
-	je .Lfirst_ok
+	je .Lvalidation_first_ok
 
 	# Check 'A'..'Z'
 	cmp al, 'A'
-	jb .Linvalid
+	jb .Lvalidation_invalid
 	cmp al, 'Z'
-	jbe .Lfirst_ok
+	jbe .Lvalidation_first_ok
 
 	# Check 'a'..'z'
 	cmp al, 'a'
-	jb .Linvalid
+	jb .Lvalidation_invalid
 	cmp al, 'z'
-	jbe .Lfirst_ok
+	jbe .Lvalidation_first_ok
 
 	# Not in allowed set for first char
-	jmp .Linvalid
+	jmp .Lvalidation_invalid
 
-.Lfirst_ok:
+.Lvalidation_first_ok:
 	# Advance
 	inc rdi
 	dec rsi
-	jz .Lvalid
+	jz .Lvalidation_valid
 
 	# Loop over remaining bytes
-.Lloop:
+.Lvalidation_loop:
 	movzx eax, BYTE PTR [rdi]
 
 	# Check '0'..'9'
 	cmp al, '0'
-	jb .Lcheck_alpha
+	jb .Lvalidation_check_alpha
 	cmp al, '9'
-	jbe .Lchar_ok
+	jbe .Lvalidation_char_ok
 
-.Lcheck_alpha:
+.Lvalidation_check_alpha:
 	# Check 'A'..'Z'
 	cmp al, 'A'
-	jb .Lcheck_dot_underscore
+	jb .Lvalidation_check_dot_underscore
 	cmp al, 'Z'
-	jbe .Lchar_ok
+	jbe .Lvalidation_char_ok
 
 	# Check 'a'..'z'
 	cmp al, 'a'
-	jb .Lcheck_dot_underscore
+	jb .Lvalidation_check_dot_underscore
 	cmp al, 'z'
-	jbe .Lchar_ok
+	jbe .Lvalidation_char_ok
 
-.Lcheck_dot_underscore:
+.Lvalidation_check_dot_underscore:
 	cmp al, '.'
-	je .Lchar_ok
+	je .Lvalidation_char_ok
 	cmp al, '_'
-	je .Lchar_ok
-	jmp .Linvalid
+	je .Lvalidation_char_ok
+	jmp .Lvalidation_invalid
 
-.Lchar_ok:
+.Lvalidation_char_ok:
 	inc rdi
 	dec rsi
-	jnz .Lloop
+	jnz .Lvalidation_loop
 
-.Lvalid:
+.Lvalidation_valid:
 	mov eax, 1
 	ret
 
-.Linvalid:
+.Lvalidation_invalid:
 	xor eax, eax
 	ret
 .size liquid_is_valid_variable_name, .-liquid_is_valid_variable_name 
