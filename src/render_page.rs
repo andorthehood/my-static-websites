@@ -80,8 +80,7 @@ pub fn render_page(
             process_template_tags(&layout_with_content, variables, None, None)?
         } else {
             eprintln!(
-                "⚠️  Warning: Layout '{}' specified in '{}' was not found at '{}'",
-                secondary_layout_name, file_name, layout_path
+                "⚠️  Warning: Layout '{secondary_layout_name}' specified in '{file_name}' was not found at '{layout_path}'"
             );
             processed_body
         }
@@ -97,8 +96,7 @@ pub fn render_page(
             Ok(custom_main_layout) => custom_main_layout,
             Err(err) => {
                 eprintln!(
-                    "⚠️  Warning: Main layout '{}' specified in '{}' was not found at '{}' ({}). Falling back to default main layout.",
-                    main_layout_name, file_name, main_layout_path, err
+                    "⚠️  Warning: Main layout '{main_layout_name}' specified in '{file_name}' was not found at '{main_layout_path}' ({err}). Falling back to default main layout."
                 );
                 layout.to_string()
             }

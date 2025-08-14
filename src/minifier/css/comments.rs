@@ -59,7 +59,7 @@ mod tests {
     #[test]
     fn test_comment_detection() {
         let mut handler = CommentHandler::new();
-        
+
         // Should not be in comment initially
         assert!(!handler.is_in_comment());
 
@@ -69,7 +69,7 @@ mod tests {
 
         // Create chars iterator positioned at '/' (after the '*' in "*/"
         let mut chars = "/ some text".chars().peekable();
-        
+
         // Handle the end of comment when we encounter '*' and next is '/'
         let should_add = handler.handle_comment_end(&mut chars, false);
         assert!(!should_add); // Should not add comment content
