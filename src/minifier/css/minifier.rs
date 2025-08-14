@@ -1,197 +1,62 @@
-#[cfg(target_arch = "x86_64")]
-use core::arch::global_asm;
-
-#[cfg(target_arch = "x86_64")]
-global_asm!(include_str!("optimize_hex_color_x86_64.s"));
-
-#[cfg(target_arch = "x86_64")]
-extern "C" {
-    fn optimize_hex_color_scan(ptr: *const u8, len: usize, can_shorten: *mut u8) -> usize;
-}
-
-#[cfg(target_arch = "x86_64")]
-/// Optimizes a hex color by shortening it from 6 digits to 3 digits when possible
-/// Returns the optimized color string (without the # prefix)
-fn optimize_hex_color(chars: &mut std::iter::Peekable<std::str::Chars>) -> String {
-    // Collect up to 6 characters to create a buffer for scanning
-    let mut temp_chars = Vec::new();
-    let mut peek_count = 0;
-
-    // Peek ahead to see what characters we have
-    loop {
-        if peek_count >= 6 {
-            break;
-        }
-        if let Some(&next_ch) = chars.peek() {
-            if next_ch.is_ascii_hexdigit() {
-                temp_chars.push(next_ch as u8);
-                peek_count += 1;
-                chars.next(); // consume the character
-            } else {
-                break;
-            }
-        } else {
-            break;
-        }
-    }
-
-    if temp_chars.is_empty() {
-        return String::new();
-    }
-
-    // Use assembly to check if we can shorten
-    let mut can_shorten: u8 = 0;
-    let consumed =
-        unsafe { optimize_hex_color_scan(temp_chars.as_ptr(), temp_chars.len(), &mut can_shorten) };
-
-    // Convert consumed bytes back to chars
-    let color_chars: Vec<char> = temp_chars[..consumed].iter().map(|&b| b as char).collect();
-
-    // If we have exactly 6 hex digits and can shorten
-    if consumed == 6 && can_shorten != 0 {
-        // Return the shortened version
-        format!("{}{}{}", color_chars[0], color_chars[2], color_chars[4])
-    } else {
-        // Return the full version
-        color_chars.into_iter().collect()
-    }
-}
-
-#[cfg(not(target_arch = "x86_64"))]
-/// Optimizes a hex color by shortening it from 6 digits to 3 digits when possible
-/// Returns the optimized color string (without the # prefix)
-fn optimize_hex_color(chars: &mut std::iter::Peekable<std::str::Chars>) -> String {
-    // Collect the next 6 characters to see if it's a hex color
-    let mut color_chars = Vec::new();
-    for _ in 0..6 {
-        if let Some(&next_ch) = chars.peek() {
-            if next_ch.is_ascii_hexdigit() {
-                color_chars.push(chars.next().unwrap());
-            } else {
-                break;
-            }
-        } else {
-            break;
-        }
-    }
-
-    // If we have exactly 6 hex digits, check if we can shorten it
-    if color_chars.len() == 6 {
-        let can_shorten = color_chars[0] == color_chars[1]
-            && color_chars[2] == color_chars[3]
-            && color_chars[4] == color_chars[5];
-
-        if can_shorten {
-            // Return the shortened version
-            format!("{}{}{}", color_chars[0], color_chars[2], color_chars[4])
-        } else {
-            // Return the full version
-            color_chars.into_iter().collect()
-        }
-    } else {
-        // Not a 6-digit hex color, return as-is
-        color_chars.into_iter().collect()
-    }
-}
+use super::comments::CommentHandler;
+use super::hex_colors::optimize_hex_color;
+use super::strings::StringHandler;
+use super::whitespace::WhitespaceHandler;
 
 /// Minifies CSS by removing unnecessary whitespace while preserving functionality
 pub fn minify_css(css: &str) -> String {
     let mut result = String::with_capacity(css.len());
     let mut chars = css.chars().peekable();
-    let mut in_string = false;
-    let mut string_delimiter = '\0';
-    let mut in_comment = false;
+    let mut string_handler = StringHandler::new();
+    let mut comment_handler = CommentHandler::new();
     let mut prev_char = '\0';
 
     while let Some(ch) = chars.next() {
         match ch {
             // Handle string literals (preserve whitespace inside strings)
-            '"' | '\'' if !in_comment => {
-                if !in_string {
-                    in_string = true;
-                    string_delimiter = ch;
-                } else if ch == string_delimiter && prev_char != '\\' {
-                    in_string = false;
-                    string_delimiter = '\0';
-                }
-                result.push(ch);
-            }
-
-            // Handle CSS comments /* ... */
-            '/' if !in_string && !in_comment => {
-                if chars.peek() == Some(&'*') {
-                    chars.next(); // consume the '*'
-                    in_comment = true;
-                    // Skip the comment entirely (don't add to result)
-                } else {
+            '"' | '\'' => {
+                if string_handler.handle_quote(ch, prev_char, comment_handler.is_in_comment()) {
                     result.push(ch);
                 }
             }
 
-            '*' if in_comment && !in_string => {
-                if chars.peek() == Some(&'/') {
-                    chars.next(); // consume the '/'
-                    in_comment = false;
+            // Handle CSS comments /* ... */
+            '/' => {
+                if comment_handler.handle_comment_start(&mut chars, string_handler.is_in_string()) {
+                    result.push(ch);
                 }
-                // Skip comment content (don't add to result)
+            }
+
+            '*' => {
+                if comment_handler.handle_comment_end(&mut chars, string_handler.is_in_string()) {
+                    result.push(ch);
+                }
             }
 
             // Skip comment content
-            _ if in_comment => {
+            _ if comment_handler.is_in_comment() => {
                 // Do nothing, skip comment content
             }
 
             // Handle hex colors for optimization
-            '#' if !in_string && !in_comment => {
+            '#' if !string_handler.is_in_string() && !comment_handler.is_in_comment() => {
                 result.push('#');
                 let optimized_color = optimize_hex_color(&mut chars);
                 result.push_str(&optimized_color);
             }
 
             // Handle whitespace - skip all whitespace when not in strings
-            ' ' | '\t' | '\r' | '\n' if !in_string => {
+            ' ' | '\t' | '\r' | '\n' if !string_handler.is_in_string() => {
                 // Skip all whitespace - we'll add back only necessary spaces
                 let next_char = chars.peek().unwrap_or(&'\0');
 
-                if !result.is_empty() {
-                    let last_char = result.chars().last().unwrap_or('\0');
-
-                    // Preserve space in specific cases where it's needed for CSS to work correctly
-                    let needs_space =
-                        // Between a number/percentage and a word (e.g., "100% 2px", "1rem solid")
-                        (last_char.is_ascii_digit() || last_char == '%') && next_char.is_alphabetic() ||
-                        // Between a percentage and a number (e.g., "100% 2px")
-                        last_char == '%' && next_char.is_ascii_digit() ||
-                        // Between words and numbers (e.g., "solid #fff", "auto 10px")
-                        last_char.is_alphabetic() && (next_char.is_ascii_digit() || *next_char == '#') ||
-                        // Between measurement units and words (e.g., "px solid", "rem auto")
-                        (last_char == 'x' || last_char == 'm' || last_char == '%') && next_char.is_alphabetic() ||
-                        // Between closing parenthesis and other values (e.g., ") 50%")
-                        last_char == ')' && (next_char.is_ascii_digit() || next_char.is_alphabetic()) ||
-                        // Between values in functions like rgba() or linear-gradient()
-                        last_char == ',' && *next_char == '#' ||
-                        // Between numbers and hash colors (e.g., "0 #fff")
-                        last_char.is_ascii_digit() && *next_char == '#' ||
-                        // Between CSS selectors (e.g., ".foo .bar" should not become ".foo.bar")
-                        (last_char.is_alphanumeric() || last_char == ']' || last_char == ')') && *next_char == '.' ||
-                        // Between CSS selectors with IDs (e.g., "div #id" but not "color: #fff")
-                        last_char.is_alphabetic() && *next_char == '#' ||
-                        // Before negative numbers - simplified to just before minus signs after certain characters
-                        (last_char.is_ascii_digit() || last_char == 'm' || last_char == 'x' || last_char == '%') && *next_char == '-' ||
-                        // Between words and negative numbers (e.g., "inset -1rem")
-                        last_char.is_alphabetic() && *next_char == '-' ||
-                        // Between alphanumeric characters where CSS requires spaces
-                        (last_char.is_alphanumeric() && next_char.is_alphanumeric() &&
-                         !matches!(next_char, '{' | '}' | ';' | ':' | ',' | '(' | ')' | '[' | ']' | '>' | '+' | '~' | '*' | '/' | '='));
-
-                    if needs_space {
-                        result.push(' ');
-                    }
+                if WhitespaceHandler::should_preserve_space(&result, *next_char) {
+                    result.push(' ');
                 }
             }
 
             // Handle other characters
-            _ if !in_comment => {
+            _ if !comment_handler.is_in_comment() => {
                 result.push(ch);
             }
 
@@ -439,40 +304,6 @@ mod tests {
     }
 
     #[test]
-    fn test_optimize_hex_color_function() {
-        // Test shortenable colors
-        let mut chars = "999999".chars().peekable();
-        assert_eq!(optimize_hex_color(&mut chars), "999");
-
-        let mut chars = "aabbcc".chars().peekable();
-        assert_eq!(optimize_hex_color(&mut chars), "abc");
-
-        let mut chars = "000000".chars().peekable();
-        assert_eq!(optimize_hex_color(&mut chars), "000");
-
-        // Test non-shortenable colors
-        let mut chars = "123456".chars().peekable();
-        assert_eq!(optimize_hex_color(&mut chars), "123456");
-
-        let mut chars = "abcdef".chars().peekable();
-        assert_eq!(optimize_hex_color(&mut chars), "abcdef");
-
-        // Test short colors (3 digits)
-        let mut chars = "fff".chars().peekable();
-        assert_eq!(optimize_hex_color(&mut chars), "fff");
-
-        let mut chars = "000".chars().peekable();
-        assert_eq!(optimize_hex_color(&mut chars), "000");
-
-        // Test invalid/incomplete colors
-        let mut chars = "12".chars().peekable();
-        assert_eq!(optimize_hex_color(&mut chars), "12");
-
-        let mut chars = "1234".chars().peekable();
-        assert_eq!(optimize_hex_color(&mut chars), "1234");
-    }
-
-    #[test]
     fn test_escaped_quotes_in_strings() {
         let css = r#"body::before { content: "He said \"Hello\""; }"#;
         let expected = r#"body::before{content:"He said \"Hello\"";}"#;
@@ -484,13 +315,10 @@ mod tests {
         // Test CSS with hex colors that should be optimized
         let test_css = "color: #999999; background: #aabbcc; border: #123456;";
         let minified = minify_css(test_css);
-
+        
         // Expected: color:#999;background:#abc;border:#123456;
         let expected = "color:#999;background:#abc;border:#123456;";
-
-        assert_eq!(
-            minified, expected,
-            "Assembly-optimized hex color function should work correctly"
-        );
+        
+        assert_eq!(minified, expected, "Assembly-optimized hex color function should work correctly");
     }
 }
