@@ -48,7 +48,7 @@ pub fn write_json_to_file(
         "{{\n  \"content\": \"{}\",\n  \"title\": {},\n  \"css\": {}\n}}",
         escaped_content,
         if title.is_some() {
-            format!("\"{}\"", escaped_title)
+            format!("\"{escaped_title}\"")
         } else {
             "null".to_string()
         },

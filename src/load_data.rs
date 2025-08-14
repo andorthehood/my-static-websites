@@ -62,7 +62,7 @@ fn load_json_file(path: &Path) -> Result<JsonValue> {
     let json_value = parse_json(&content).map_err(|e| {
         std::io::Error::new(
             std::io::ErrorKind::InvalidData,
-            format!("JSON parse error: {}", e),
+            format!("JSON parse error: {e}"),
         )
     })?;
     Ok(json_value)
@@ -87,7 +87,7 @@ fn load_json_file(path: &Path) -> Result<JsonValue> {
 /// - data.navigation.main.1.name = "About"  
 /// - data.navigation.main.1.url = "/about"
 fn add_json_data_to_variables(variables: &mut Variables, file_name: &str, json_value: &JsonValue) {
-    let base_key = format!("data.{}", file_name);
+    let base_key = format!("data.{file_name}");
     flatten_json_value(variables, &base_key, json_value);
 }
 
@@ -105,13 +105,13 @@ fn flatten_json_value(variables: &mut Variables, prefix: &str, value: &JsonValue
         }
         JsonValue::Array(arr) => {
             for (index, item) in arr.iter().enumerate() {
-                let key = format!("{}.{}", prefix, index);
+                let key = format!("{prefix}.{index}");
                 flatten_json_value(variables, &key, item);
             }
         }
         JsonValue::Object(obj) => {
             for (key, val) in obj {
-                let new_key = format!("{}.{}", prefix, key);
+                let new_key = format!("{prefix}.{key}");
                 flatten_json_value(variables, &new_key, val);
             }
         }

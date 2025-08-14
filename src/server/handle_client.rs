@@ -40,8 +40,8 @@ pub(super) fn handle_client(mut stream: TcpStream, site_name: &str) -> Result<()
                 println!("Trying to serve file: {}", path.display());
                 fs::read_to_string(path)
             }) {
-                Ok(contents) => format!("HTTP/1.1 200 OK\r\n\r\n{}", contents),
-                Err(e) => format!("HTTP/1.1 404 Not Found\r\n\r\nFailed to read file: {}", e),
+                Ok(contents) => format!("HTTP/1.1 200 OK\r\n\r\n{contents}"),
+                Err(e) => format!("HTTP/1.1 404 Not Found\r\n\r\nFailed to read file: {e}"),
             };
 
             stream.write_all(response.as_bytes())?;
@@ -49,7 +49,7 @@ pub(super) fn handle_client(mut stream: TcpStream, site_name: &str) -> Result<()
             Ok(())
         }
         Err(e) => {
-            eprintln!("Failed to read from stream: {}", e);
+            eprintln!("Failed to read from stream: {e}");
             Err(Error::Io(e))
         }
     }
