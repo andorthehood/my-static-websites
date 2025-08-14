@@ -315,10 +315,13 @@ mod tests {
         // Test CSS with hex colors that should be optimized
         let test_css = "color: #999999; background: #aabbcc; border: #123456;";
         let minified = minify_css(test_css);
-        
+
         // Expected: color:#999;background:#abc;border:#123456;
         let expected = "color:#999;background:#abc;border:#123456;";
-        
-        assert_eq!(minified, expected, "Assembly-optimized hex color function should work correctly");
+
+        assert_eq!(
+            minified, expected,
+            "Assembly-optimized hex color function should work correctly"
+        );
     }
 }
