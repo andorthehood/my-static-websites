@@ -1,8 +1,4 @@
-/// Removes surrounding quotes from a string if present
-/// Handles both single and double quotes
-pub fn trim_quotes(s: &str) -> &str {
-    s.trim_matches('"').trim_matches('\'')
-}
+pub use super::quote_utils::trim_quotes;
 
 /// Checks if a string is a quoted literal
 #[cfg(test)]
