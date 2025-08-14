@@ -12,34 +12,31 @@ impl WhitespaceHandler {
         let last_char = result.chars().last().unwrap_or('\0');
 
         // Preserve space in specific cases where it's needed for CSS to work correctly
-        let needs_space =
-            // Between a number/percentage and a word (e.g., "100% 2px", "1rem solid")
-            (last_char.is_ascii_digit() || last_char == '%') && next_char.is_alphabetic() ||
-            // Between a percentage and a number (e.g., "100% 2px")
-            last_char == '%' && next_char.is_ascii_digit() ||
-            // Between words and numbers (e.g., "solid #fff", "auto 10px")
-            last_char.is_alphabetic() && (next_char.is_ascii_digit() || next_char == '#') ||
-            // Between measurement units and words (e.g., "px solid", "rem auto")
-            (last_char == 'x' || last_char == 'm' || last_char == '%') && next_char.is_alphabetic() ||
-            // Between closing parenthesis and other values (e.g., ") 50%")
-            last_char == ')' && (next_char.is_ascii_digit() || next_char.is_alphabetic()) ||
-            // Between values in functions like rgba() or linear-gradient()
-            last_char == ',' && next_char == '#' ||
-            // Between numbers and hash colors (e.g., "0 #fff")
-            last_char.is_ascii_digit() && next_char == '#' ||
-            // Between CSS selectors (e.g., ".foo .bar" should not become ".foo.bar")
-            (last_char.is_alphanumeric() || last_char == ']' || last_char == ')') && next_char == '.' ||
-            // Between CSS selectors with IDs (e.g., "div #id" but not "color: #fff")
-            last_char.is_alphabetic() && next_char == '#' ||
-            // Before negative numbers - simplified to just before minus signs after certain characters
-            (last_char.is_ascii_digit() || last_char == 'm' || last_char == 'x' || last_char == '%') && next_char == '-' ||
-            // Between words and negative numbers (e.g., "inset -1rem")
-            last_char.is_alphabetic() && next_char == '-' ||
-            // Between alphanumeric characters where CSS requires spaces
-            (last_char.is_alphanumeric() && next_char.is_alphanumeric() &&
-             !matches!(next_char, '{' | '}' | ';' | ':' | ',' | '(' | ')' | '[' | ']' | '>' | '+' | '~' | '*' | '/' | '='));
-
-        needs_space
+        // Between a number/percentage and a word (e.g., "100% 2px", "1rem solid")
+        (last_char.is_ascii_digit() || last_char == '%') && next_char.is_alphabetic() ||
+        // Between a percentage and a number (e.g., "100% 2px")
+        last_char == '%' && next_char.is_ascii_digit() ||
+        // Between words and numbers (e.g., "solid #fff", "auto 10px")
+        last_char.is_alphabetic() && (next_char.is_ascii_digit() || next_char == '#') ||
+        // Between measurement units and words (e.g., "px solid", "rem auto")
+        (last_char == 'x' || last_char == 'm' || last_char == '%') && next_char.is_alphabetic() ||
+        // Between closing parenthesis and other values (e.g., ") 50%")
+        last_char == ')' && (next_char.is_ascii_digit() || next_char.is_alphabetic()) ||
+        // Between values in functions like rgba() or linear-gradient()
+        last_char == ',' && next_char == '#' ||
+        // Between numbers and hash colors (e.g., "0 #fff")
+        last_char.is_ascii_digit() && next_char == '#' ||
+        // Between CSS selectors (e.g., ".foo .bar" should not become ".foo.bar")
+        (last_char.is_alphanumeric() || last_char == ']' || last_char == ')') && next_char == '.' ||
+        // Between CSS selectors with IDs (e.g., "div #id" but not "color: #fff")
+        last_char.is_alphabetic() && next_char == '#' ||
+        // Before negative numbers - simplified to just before minus signs after certain characters
+        (last_char.is_ascii_digit() || last_char == 'm' || last_char == 'x' || last_char == '%') && next_char == '-' ||
+        // Between words and negative numbers (e.g., "inset -1rem")
+        last_char.is_alphabetic() && next_char == '-' ||
+        // Between alphanumeric characters where CSS requires spaces
+        (last_char.is_alphanumeric() && next_char.is_alphanumeric() &&
+         !matches!(next_char, '{' | '}' | ';' | ':' | ',' | '(' | ')' | '[' | ']' | '>' | '+' | '~' | '*' | '/' | '='))
     }
 }
 
