@@ -6,17 +6,17 @@ find_equal_scan:
 	# Args: rdi=ptr, rsi=len
 	xor rax, rax              # i = 0
 	test rsi, rsi
-	je .Lnot_found
-.Lloop:
+	je .Lfind_equal_not_found
+.Lfind_equal_loop:
 	mov bl, BYTE PTR [rdi + rax]
 	cmp bl, 0x3d            # '='
-	je .Lfound
+	je .Lfind_equal_found
 	inc rax
 	cmp rax, rsi
-	jb .Lloop
-.Lnot_found:
+	jb .Lfind_equal_loop
+.Lfind_equal_not_found:
 	mov rax, -1             # usize::MAX
 	ret
-.Lfound:
+.Lfind_equal_found:
 	ret
 .size find_equal_scan, .-find_equal_scan 
