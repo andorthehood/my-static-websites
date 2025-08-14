@@ -1,3 +1,6 @@
+mod is_identifier_char;
+use crate::converters::typescript::is_identifier_char::is_identifier_byte;
+
 /// Minimal TypeScript-to-JavaScript stripper tailored for constructs used in router.ts.
 /// This does not fully parse TS; it heuristically removes:
 /// - `interface ... { ... }` blocks
@@ -20,7 +23,7 @@ pub fn strip_typescript_types(input: &str) -> String {
 }
 
 fn is_identifier_char(c: char) -> bool {
-    c.is_ascii_alphanumeric() || c == '_' || c == '$'
+    c.is_ascii() && is_identifier_byte(c as u8)
 }
 
 fn remove_interface_blocks(input: &str) -> String {

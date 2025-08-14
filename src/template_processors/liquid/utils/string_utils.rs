@@ -1,3 +1,4 @@
+use super::find_byte::find_byte_index;
 pub use super::quote_utils::trim_quotes;
 
 /// Checks if a string is a quoted literal
@@ -150,11 +151,9 @@ pub fn variable_placeholders(var: &str) -> [String; 4] {
 
 /// Parses a filter invocation of the form `name: args` and returns (name, args)
 pub fn parse_filter_invocation(s: &str) -> Option<(String, String)> {
-    let parts: Vec<&str> = s.splitn(2, ':').collect();
-    if parts.len() != 2 {
-        return None;
-    }
-    Some((parts[0].trim().to_string(), parts[1].trim().to_string()))
+    let idx = find_byte_index(s.as_bytes(), b':')?;
+    let (left, right) = s.split_at(idx);
+    Some((left.trim().to_string(), right[1..].trim().to_string()))
 }
 
 /// Applies a list of range replacements to a string in reverse order.
