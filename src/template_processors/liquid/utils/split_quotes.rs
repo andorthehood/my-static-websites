@@ -6,7 +6,12 @@ global_asm!(include_str!("split_quotes_x86_64.s"));
 
 #[cfg(target_arch = "x86_64")]
 extern "C" {
-    fn split_quotes_scan(ptr: *const u8, len: usize, splits: *mut usize, max_splits: usize) -> usize;
+    fn split_quotes_scan(
+        ptr: *const u8,
+        len: usize,
+        splits: *mut usize,
+        max_splits: usize,
+    ) -> usize;
 }
 
 /// Splits a string on commas while respecting quotes - x86_64 assembly optimized version
@@ -14,14 +19,19 @@ extern "C" {
 pub fn split_respecting_quotes(input: &str) -> Vec<String> {
     let input_bytes = input.as_bytes();
     let mut splits = [0usize; 32]; // Support up to 32 parts
-    
+
     let split_count = unsafe {
-        split_quotes_scan(input_bytes.as_ptr(), input_bytes.len(), splits.as_mut_ptr(), 32)
+        split_quotes_scan(
+            input_bytes.as_ptr(),
+            input_bytes.len(),
+            splits.as_mut_ptr(),
+            32,
+        )
     };
-    
+
     let mut parts = Vec::new();
     let mut start = 0;
-    
+
     // Process each split position
     for i in 0..split_count {
         let comma_pos = splits[i];
@@ -34,7 +44,7 @@ pub fn split_respecting_quotes(input: &str) -> Vec<String> {
         }
         start = comma_pos + 1; // Skip the comma
     }
-    
+
     // Handle the last part after the final comma
     if start < input.len() {
         let part = &input[start..];
@@ -43,7 +53,7 @@ pub fn split_respecting_quotes(input: &str) -> Vec<String> {
             parts.push(trimmed.to_string());
         }
     }
-    
+
     parts
 }
 
@@ -115,7 +125,10 @@ mod tests {
 
         // Test quoted commas
         let result = split_respecting_quotes("\"part1, still part1\", \"part2, still part2\"");
-        assert_eq!(result, vec!["\"part1, still part1\"", "\"part2, still part2\""]);
+        assert_eq!(
+            result,
+            vec!["\"part1, still part1\"", "\"part2, still part2\""]
+        );
 
         // Test single quotes
         let result = split_respecting_quotes("'single, quote', normal");

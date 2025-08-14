@@ -32,8 +32,6 @@ pub fn parse_key_value_pair(pair: &str) -> Option<(String, String)> {
     Some((key, value))
 }
 
-
-
 use std::collections::HashMap;
 
 /// Parses a space-separated list of key:value pairs with optional quoted values into a HashMap.
