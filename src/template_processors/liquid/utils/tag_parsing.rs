@@ -1,3 +1,5 @@
+use crate::template_processors::liquid::utils::find_equal::find_equal_index;
+
 use crate::error::{Error, Result};
 use std::iter::Peekable;
 use std::str::Chars;
@@ -91,11 +93,37 @@ pub fn find_tag_block(
 /// Skips whitespace characters in a character iterator
 pub fn skip_whitespace(chars: &mut Peekable<Chars>) {
     while let Some(&c) = chars.peek() {
-        if !c.is_whitespace() {
+        if !is_ascii_whitespace_char(c) {
             break;
         }
         chars.next();
     }
+}
+
+/// Optimized check for ASCII whitespace characters
+#[cfg(target_arch = "x86_64")]
+fn is_ascii_whitespace_char(c: char) -> bool {
+    if !c.is_ascii() {
+        return c.is_whitespace(); // fallback for Unicode
+    }
+    let b = c as u8;
+    unsafe { is_ascii_whitespace_scan(b) != 0 }
+}
+
+#[cfg(not(target_arch = "x86_64"))]
+fn is_ascii_whitespace_char(c: char) -> bool {
+    c.is_whitespace()
+}
+
+#[cfg(target_arch = "x86_64")]
+use core::arch::global_asm;
+
+#[cfg(target_arch = "x86_64")]
+global_asm!(include_str!("is_ascii_whitespace_x86_64.s"));
+
+#[cfg(target_arch = "x86_64")]
+extern "C" {
+    fn is_ascii_whitespace_scan(byte: u8) -> u8;
 }
 
 /// Reads content until finding a closing liquid tag pattern
@@ -136,12 +164,13 @@ pub fn detect_liquid_tag_start(chars: &mut Peekable<Chars>) -> bool {
 
 /// Parses an assignment expression (variable = value)
 pub fn parse_assignment(content: &str) -> Option<(String, String)> {
-    let parts: Vec<&str> = content.split('=').collect();
-    if parts.len() == 2 {
-        Some((parts[0].trim().to_string(), parts[1].trim().to_string()))
-    } else {
-        None
+    let idx = find_equal_index(content.as_bytes())?;
+    let (left, right) = content.split_at(idx);
+    // ensure there is exactly one '='
+    if right[1..].bytes().any(|b| b == b'=') {
+        return None;
     }
+    Some((left.trim().to_string(), right[1..].trim().to_string()))
 }
 
 /// Parses a for loop expression (item in collection)
