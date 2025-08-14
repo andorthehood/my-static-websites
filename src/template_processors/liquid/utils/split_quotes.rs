@@ -82,3 +82,43 @@ pub fn split_respecting_quotes(input: &str) -> Vec<String> {
 
     parts
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_split_respecting_quotes() {
+        let result = split_respecting_quotes("\"active\", \"true\"");
+        assert_eq!(result, vec!["\"active\"", "\"true\""]);
+
+        let result = split_respecting_quotes("active, true, \"quoted, value\"");
+        assert_eq!(result, vec!["active", "true", "\"quoted, value\""]);
+
+        let result = split_respecting_quotes("simple, values");
+        assert_eq!(result, vec!["simple", "values"]);
+    }
+
+    #[test]
+    fn test_split_respecting_quotes_edge_cases() {
+        // Test empty string
+        let result = split_respecting_quotes("");
+        assert_eq!(result, Vec::<String>::new());
+
+        // Test no commas
+        let result = split_respecting_quotes("simple string");
+        assert_eq!(result, vec!["simple string"]);
+
+        // Test nested quotes
+        let result = split_respecting_quotes("\"outer 'inner' outer\", next");
+        assert_eq!(result, vec!["\"outer 'inner' outer\"", "next"]);
+
+        // Test quoted commas
+        let result = split_respecting_quotes("\"part1, still part1\", \"part2, still part2\"");
+        assert_eq!(result, vec!["\"part1, still part1\"", "\"part2, still part2\""]);
+
+        // Test single quotes
+        let result = split_respecting_quotes("'single, quote', normal");
+        assert_eq!(result, vec!["'single, quote'", "normal"]);
+    }
+}
