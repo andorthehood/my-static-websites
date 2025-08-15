@@ -58,12 +58,12 @@ single_line_breaks_scan:
     
 .Lbuffer_too_small:
     mov rax, -1               # return SIZE_MAX to indicate buffer too small
-    jmp .Lcleanup
+    jmp .Lcleanup_slb
     
 .Ldone_ok:
     mov rax, r8               # return actual output length
     
-.Lcleanup:
+.Lcleanup_slb:
     pop r15
     pop r14
     pop r13
