@@ -7,3 +7,9 @@
 	width: 200px;
 	height: 89px;
 }
+
+@media(max-width:700px) {
+	#dvd-logo {
+		display: none;
+	}
+}
