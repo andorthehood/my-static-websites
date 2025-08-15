@@ -1,10 +1,49 @@
+#[cfg(target_arch = "x86_64")]
+use core::arch::global_asm;
+
+#[cfg(target_arch = "x86_64")]
+global_asm!(include_str!("should_preserve_space_x86_64.s"));
+
+#[cfg(target_arch = "x86_64")]
+extern "C" {
+    fn should_preserve_space_scan(last_char: u8, next_char: u8) -> u8;
+}
+
 /// Handles CSS whitespace preservation rules
 pub struct WhitespaceHandler;
 
 impl WhitespaceHandler {
     /// Determines if a space should be preserved between the last character in result
-    /// and the next character being processed
+    /// and the next character being processed - x86_64 assembly optimized version
+    #[cfg(target_arch = "x86_64")]
     pub fn should_preserve_space(result: &str, next_char: char) -> bool {
+        if result.is_empty() {
+            return false;
+        }
+
+        let last_char = result.chars().last().unwrap_or('\0');
+        
+        // Use assembly optimization for ASCII characters
+        if last_char.is_ascii() && next_char.is_ascii() {
+            let last_byte = last_char as u8;
+            let next_byte = next_char as u8;
+            let preserve = unsafe { should_preserve_space_scan(last_byte, next_byte) };
+            return preserve != 0;
+        }
+        
+        // Fallback to Rust implementation for non-ASCII characters
+        Self::should_preserve_space_rust_fallback(result, next_char)
+    }
+
+    /// Determines if a space should be preserved between the last character in result
+    /// and the next character being processed - pure Rust fallback version
+    #[cfg(not(target_arch = "x86_64"))]
+    pub fn should_preserve_space(result: &str, next_char: char) -> bool {
+        Self::should_preserve_space_rust_fallback(result, next_char)
+    }
+    
+    /// Pure Rust implementation of space preservation logic
+    fn should_preserve_space_rust_fallback(result: &str, next_char: char) -> bool {
         if result.is_empty() {
             return false;
         }
