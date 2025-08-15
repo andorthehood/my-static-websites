@@ -144,6 +144,28 @@ mod tests {
     }
 
     #[test]
+    fn test_assembly_optimization_direct() {
+        // Test that assembly and Rust implementations give same results for common cases
+        let test_cases = [
+            ("color:10px", 's'), // digit + alphabetic
+            ("width:100%", '2'), // percent + digit  
+            ("border:solid", '#'), // alphabetic + hash
+            ("calc(100% - 10px)", '5'), // parenthesis + digit
+            ("rgba(255,0,0,0.5),", '#'), // comma + hash
+            ("margin:10px", '-'), // digit/unit + minus
+            ("div", '#'), // alphabetic + hash (ID selector)
+            ("", 'a'), // empty string case
+        ];
+
+        for (result_str, next_char) in test_cases {
+            let assembly_result = WhitespaceHandler::should_preserve_space(result_str, next_char);
+            let rust_result = WhitespaceHandler::should_preserve_space_rust_fallback(result_str, next_char);
+            assert_eq!(assembly_result, rust_result, 
+                "Assembly and Rust results differ for '{}' + '{}'", result_str, next_char);
+        }
+    }
+
+    #[test]
     fn test_preserve_space_after_parenthesis() {
         let result = "calc(100% - 10px)";
         assert!(WhitespaceHandler::should_preserve_space(result, '5')); // "50%"
