@@ -122,6 +122,12 @@
                 font-size: 33px;
             }
         }
+
+        .button:active {
+            border-top: 2px solid #999;
+            border-left: 2px solid #999;
+            box-shadow: 2px 2px 0 #fff;
+        }
     }
 
     .corner {
