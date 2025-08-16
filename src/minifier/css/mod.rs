@@ -13,6 +13,7 @@
 mod comments;
 mod hex_colors;
 mod minifier;
+mod should_preserve_space;
 mod strings;
 mod whitespace;
 
