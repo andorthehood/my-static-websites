@@ -10,10 +10,7 @@ impl WhitespaceHandler {
         should_preserve_space_asm(result, next_char)
     }
     
-    /// Pure Rust implementation of space preservation logic (for testing)
-    pub fn should_preserve_space_rust_fallback(result: &str, next_char: char) -> bool {
-        super::should_preserve_space::should_preserve_space_rust_fallback(result, next_char)
-    }
+
 }
 
 #[cfg(test)]
