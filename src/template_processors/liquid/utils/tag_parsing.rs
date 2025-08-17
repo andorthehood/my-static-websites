@@ -4,16 +4,6 @@ use crate::error::{Error, Result};
 use std::iter::Peekable;
 use std::str::Chars;
 
-/// Represents a parsed liquid tag with its content and position
-#[cfg(test)]
-#[derive(Debug, PartialEq)]
-pub struct LiquidTag {
-    pub start: usize,
-    pub end: usize,
-    pub tag_type: String,
-    pub content: String,
-}
-
 /// Represents a parsed tag block with its boundaries and content
 #[derive(Debug, PartialEq)]
 pub struct TagBlock {
@@ -21,35 +11,6 @@ pub struct TagBlock {
     pub end: usize,
     pub tag_content: String,
     pub inner_content: String,
-}
-
-/// Finds the next liquid tag starting from the given position
-/// Returns the tag if found, otherwise None
-#[cfg(test)]
-pub fn find_next_liquid_tag(template: &str, start_pos: usize) -> Option<LiquidTag> {
-    let template_slice = &template[start_pos..];
-    let tag_start_pos = template_slice.find("{%")?;
-    let tag_start = start_pos + tag_start_pos;
-
-    let remaining = &template[tag_start + 2..];
-    let tag_end_pos = remaining.find("%}")?;
-    let tag_end = tag_start + 2 + tag_end_pos + 2;
-
-    let tag_content = &template[tag_start + 2..tag_end - 2].trim();
-
-    // Extract tag type (first word)
-    let tag_type = tag_content
-        .split_whitespace()
-        .next()
-        .unwrap_or("")
-        .to_string();
-
-    Some(LiquidTag {
-        start: tag_start,
-        end: tag_end,
-        tag_type,
-        content: tag_content.to_string(),
-    })
 }
 
 /// Finds a complete tag block (e.g., {% if %}...{% endif %}) starting from a position
@@ -148,20 +109,7 @@ pub fn read_until_closing_tag(chars: &mut Peekable<Chars>) -> Result<String> {
     Ok(content)
 }
 
-/// Detects if the current position in a character iterator is at the start of a liquid tag
-#[cfg(test)]
-pub fn detect_liquid_tag_start(chars: &mut Peekable<Chars>) -> bool {
-    if let Some(&'{') = chars.peek() {
-        let mut temp_chars = chars.clone();
-        temp_chars.next(); // consume '{'
-        if let Some(&'%') = temp_chars.peek() {
-            chars.next(); // consume '{'
-            chars.next(); // consume '%'
-            return true;
-        }
-    }
-    false
-}
+
 
 /// Parses an assignment expression (variable = value)
 pub fn parse_assignment(content: &str) -> Option<(String, String)> {
@@ -174,22 +122,9 @@ pub fn parse_assignment(content: &str) -> Option<(String, String)> {
     Some((left.trim().to_string(), right[1..].trim().to_string()))
 }
 
-/// Parses a for loop expression (item in collection)
-#[cfg(test)]
-pub fn parse_for_loop_parts(content: &str) -> Option<(String, String)> {
-    let parts: Vec<&str> = content.split(" in ").collect();
-    if parts.len() == 2 {
-        Some((parts[0].trim().to_string(), parts[1].trim().to_string()))
-    } else {
-        None
-    }
-}
 
-/// Checks if a string represents a specific tag type
-#[cfg(test)]
-pub fn is_tag_type(tag_content: &str, tag_type: &str) -> bool {
-    tag_content.trim().starts_with(tag_type)
-}
+
+
 
 /// Extracts the condition or parameter part from a tag
 pub fn extract_tag_parameter(tag_content: &str, tag_type: &str) -> Option<String> {
@@ -273,23 +208,7 @@ pub fn read_nested_block(
 mod tests {
     use super::*;
 
-    #[test]
-    fn test_find_next_liquid_tag() {
-        let template = "Hello {% if condition %} world";
-        let tag = find_next_liquid_tag(template, 0).unwrap();
 
-        assert_eq!(tag.start, 6);
-        assert_eq!(tag.end, 24);
-        assert_eq!(tag.tag_type, "if");
-        assert_eq!(tag.content, "if condition");
-    }
-
-    #[test]
-    fn test_find_next_liquid_tag_not_found() {
-        let template = "Hello world";
-        let tag = find_next_liquid_tag(template, 0);
-        assert!(tag.is_none());
-    }
 
     #[test]
     fn test_skip_whitespace() {
@@ -323,22 +242,7 @@ mod tests {
         assert_eq!(result.inner_content, "content");
     }
 
-    #[test]
-    fn test_detect_liquid_tag_start() {
-        let mut chars = "{%".chars().peekable();
-        assert!(detect_liquid_tag_start(&mut chars));
 
-        let mut chars = "no".chars().peekable();
-        assert!(!detect_liquid_tag_start(&mut chars));
-    }
-
-    #[test]
-    fn test_detect_liquid_tag_start_negative_when_brace_not_percent() {
-        let mut chars = "{x".chars().peekable();
-        assert!(!detect_liquid_tag_start(&mut chars));
-        // iterator should remain at start since nothing consumed
-        assert_eq!(chars.next(), Some('{'));
-    }
 
     #[test]
     fn test_parse_assignment() {
@@ -353,20 +257,9 @@ mod tests {
         assert!(parse_assignment("a=b=c").is_none());
     }
 
-    #[test]
-    fn test_parse_for_loop_parts() {
-        let result = parse_for_loop_parts("item in collection").unwrap();
-        assert_eq!(result, ("item".to_string(), "collection".to_string()));
 
-        assert!(parse_for_loop_parts("invalid").is_none());
-    }
 
-    #[test]
-    fn test_is_tag_type() {
-        assert!(is_tag_type("for item in items", "for"));
-        assert!(is_tag_type("  unless condition  ", "unless"));
-        assert!(!is_tag_type("assign var = val", "for"));
-    }
+
 
     #[test]
     fn test_extract_tag_parameter() {
