@@ -1,5 +1,5 @@
 use super::find_byte::find_byte_index;
-pub use super::quote_utils::trim_quotes;
+pub use super::trim_quotes::trim_quotes;
 pub use super::split_quotes::split_respecting_quotes;
 
 /// Checks if a string is a quoted literal
