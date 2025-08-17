@@ -1,7 +1,7 @@
 pub mod char_iteration;
 pub mod find_byte;
 pub mod find_equal;
-pub mod quote_utils;
+pub mod trim_quotes;
 pub mod split_quotes;
 pub mod string_utils;
 pub mod tag_parsing;

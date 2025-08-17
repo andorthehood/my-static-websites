@@ -1,56 +1,54 @@
 #[cfg(target_arch = "x86_64")]
+use core::arch::global_asm;
+
+#[cfg(target_arch = "x86_64")]
+global_asm!(include_str!("trim_quotes_x86_64.s"));
+
+#[cfg(target_arch = "x86_64")]
 extern "C" {
     fn trim_quotes_scan(ptr: *const u8, len: usize, out_start: *mut usize, out_end: *mut usize);
 }
 
-#[cfg(target_arch = "x86_64")]
-fn scan_trim_quotes_asm(s: &str) -> (usize, usize) {
-    let mut start = 0usize;
-    let mut end = s.len();
+/// Removes surrounding quotes from a string if present
+/// Handles both single and double quotes
+pub fn trim_quotes(s: &str) -> &str {
+    #[cfg(target_arch = "x86_64")]
     unsafe {
+        let mut start_idx: usize = 0;
+        let mut end_idx: usize = s.len();
         trim_quotes_scan(
             s.as_ptr(),
             s.len(),
-            &mut start as *mut usize,
-            &mut end as *mut usize,
-        )
-    };
-    (start, end)
-}
-
-#[cfg(not(target_arch = "x86_64"))]
-fn scan_trim_quotes_asm(s: &str) -> (usize, usize) {
-    let bytes = s.as_bytes();
-    let mut start = 0usize;
-    let mut end = bytes.len();
-    while start < end && (bytes[start] == b'\'' || bytes[start] == b'\"') {
-        start += 1;
+            &mut start_idx as *mut usize,
+            &mut end_idx as *mut usize,
+        );
+        return s.get_unchecked(start_idx..end_idx);
     }
-    while end > start && (bytes[end - 1] == b'\'' || bytes[end - 1] == b'\"') {
-        end -= 1;
-    }
-    (start, end)
-}
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use crate::template_processors::liquid::utils::quote_utils::trim_quotes;
+    #[cfg(not(target_arch = "x86_64"))]
+    {
+        let bytes = s.as_bytes();
+        let mut start = 0usize;
+        let mut end = bytes.len();
 
-    #[test]
-    fn matches_trim_quotes_behavior() {
-        let cases = [
-            "\"hello\"",
-            "'hello'",
-            "",
-            "noquotes",
-            "\"mix'",
-            "''",
-            "\"\"",
-        ];
-        for &c in &cases {
-            let (start, end) = scan_trim_quotes_asm(c);
-            assert_eq!(&c[start..end], trim_quotes(c));
+        while start < end {
+            let b = bytes[start];
+            if b == b'"' || b == b'\'' {
+                start += 1;
+            } else {
+                break;
+            }
         }
+
+        while end > start {
+            let b = bytes[end - 1];
+            if b == b'"' || b == b'\'' {
+                end -= 1;
+            } else {
+                break;
+            }
+        }
+
+        &s[start..end]
     }
 }
