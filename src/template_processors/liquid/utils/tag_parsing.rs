@@ -5,6 +5,7 @@ use std::iter::Peekable;
 use std::str::Chars;
 
 /// Represents a parsed liquid tag with its content and position
+#[cfg(test)]
 #[derive(Debug, PartialEq)]
 pub struct LiquidTag {
     pub start: usize,
