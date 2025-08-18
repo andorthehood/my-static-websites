@@ -35,8 +35,8 @@ pub fn remove_query_selector_generics(input: &str) -> String {
         }
 
         // Enter comments if not in string
-        if !in_single && !in_double && !in_backtick {
-            if ch == '/' && i + 1 < len {
+        if !in_single && !in_double && !in_backtick
+            && ch == '/' && i + 1 < len {
                 let n = b[i + 1] as char;
                 if n == '/' {
                     in_line_comment = true;
@@ -53,7 +53,6 @@ pub fn remove_query_selector_generics(input: &str) -> String {
                     continue;
                 }
             }
-        }
 
         // String toggles
         if !in_double && !in_backtick && ch == '\'' {
@@ -81,12 +80,12 @@ pub fn remove_query_selector_generics(input: &str) -> String {
         if i + 12 <= len
             && input
                 .get(i..)
-                .map_or(false, |s| s.starts_with("querySelector"))
+                .is_some_and(|s| s.starts_with("querySelector"))
         {
             out.push_str("querySelector");
             i += "querySelector".len();
             // Optional "All"
-            if i + 3 <= len && input.get(i..).map_or(false, |s| s.starts_with("All")) {
+            if i + 3 <= len && input.get(i..).is_some_and(|s| s.starts_with("All")) {
                 out.push_str("All");
                 i += 3;
             }

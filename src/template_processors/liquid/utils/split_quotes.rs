@@ -33,8 +33,7 @@ pub fn split_respecting_quotes(input: &str) -> Vec<String> {
     let mut start = 0;
 
     // Process each split position
-    for i in 0..split_count {
-        let comma_pos = splits[i];
+    for &comma_pos in splits.iter().take(split_count) {
         if comma_pos > start {
             let part = &input[start..comma_pos];
             let trimmed = part.trim();

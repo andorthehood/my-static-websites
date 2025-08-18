@@ -88,12 +88,7 @@ fn resolve_scss_like_path(base_dir: &Path, target: &str) -> Option<PathBuf> {
             with_ext.with_file_name(format!("_{}", with_ext.file_name()?.to_string_lossy()))
         },
     ];
-    for c in candidates {
-        if c.exists() {
-            return Some(c);
-        }
-    }
-    None
+    candidates.into_iter().find(|c| c.exists())
 }
 
 #[cfg(test)]

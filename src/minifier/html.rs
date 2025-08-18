@@ -72,8 +72,8 @@ pub fn minify_html(html: &str) -> String {
                 }
 
                 // Check for closing tags
-                if tag_name.starts_with('/') {
-                    let closing_tag = tag_name[1..].to_lowercase();
+                if let Some(stripped) = tag_name.strip_prefix('/') {
+                    let closing_tag = stripped.to_lowercase();
                     match closing_tag.as_str() {
                         "script" => in_script = false,
                         "style" => in_style = false,
