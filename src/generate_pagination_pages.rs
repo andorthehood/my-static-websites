@@ -38,10 +38,11 @@ pub fn generate_pagination_pages(
 
         // Previous page link
         if page_num > 1 {
-            html_list.push_str(&format!(
-                "<li><a href=\"/page{}\">🔙 Previous page</a>,&nbsp;</li>",
-                page_num - 1
-            ));
+            let prev_page = page_num - 1;
+            write!(
+                html_list,
+                "<li><a href=\"/page{prev_page}\">🔙 Previous page</a>,&nbsp;</li>"
+            ).unwrap();
         }
 
         // Index page link
@@ -49,7 +50,7 @@ pub fn generate_pagination_pages(
 
         // Page numbers
         for i in 1..=total_pages {
-            html_list.push_str(&format!("<li><a href=\"/page{i}\">{i}</a>,&nbsp;</li>"));
+            write!(html_list, "<li><a href=\"/page{i}\">{i}</a>,&nbsp;</li>").unwrap();
         }
 
         // Next page link

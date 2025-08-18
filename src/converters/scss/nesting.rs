@@ -225,7 +225,7 @@ fn emit_rule(out: &mut String, rule: &Rule, parent: &str) {
     let combined_selector = if parent.is_empty() {
         selector.to_string()
     } else {
-        format!("{} {}", parent, selector)
+        format!("{parent} {selector}")
     };
     let mut decls = String::new();
     for c in &rule.content {

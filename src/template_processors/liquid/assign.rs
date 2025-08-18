@@ -69,7 +69,7 @@ fn process_assign_statement(
         // Store filtered results as indexed variables
         for (index, item) in filtered_result.iter().enumerate() {
             for (key, value) in item {
-                let full_key = format!("{}.{}.{}", variable_name, index, key);
+                let full_key = format!("{variable_name}.{index}.{key}");
                 variables.insert(full_key, value.clone());
             }
         }
@@ -94,7 +94,7 @@ fn apply_filter(
 
     match filter_name.as_str() {
         "where" => apply_where_filter(source, &filter_args, variables),
-        _ => Err(Error::Liquid(format!("Unknown filter: {}", filter_name))),
+        _ => Err(Error::Liquid(format!("Unknown filter: {filter_name}"))),
     }
 }
 

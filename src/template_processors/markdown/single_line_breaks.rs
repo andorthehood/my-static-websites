@@ -16,7 +16,7 @@ extern "C" {
 }
 
 #[cfg(target_arch = "x86_64")]
-/// Converts single line breaks to HTML `<br />` tags - x86_64 assembly optimized version.
+/// Converts single line breaks to HTML `<br />` tags - `x86_64` assembly optimized version.
 ///
 /// # Arguments
 /// * `input` - The input string with single line breaks
