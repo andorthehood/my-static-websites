@@ -23,14 +23,11 @@ pub fn is_identifier_byte(b: u8) -> bool {
 mod tests {
     use super::*;
 
-    fn rust_ref(b: u8) -> bool {
-        (b as char).is_ascii_alphanumeric() || b == b'_' || b == b'$'
-    }
-
     #[test]
     fn ascii_map_matches_rust_ref() {
         for b in 0u8..=127u8 {
-            assert_eq!(is_identifier_byte(b), rust_ref(b), "mismatch for byte {b}");
+            let expected = (b as char).is_ascii_alphanumeric() || b == b'_' || b == b'$';
+            assert_eq!(is_identifier_byte(b), expected, "mismatch for byte {b}");
         }
     }
 }
