@@ -229,16 +229,15 @@ fn emit_rule(out: &mut String, rule: &Rule, parent: &str) {
     };
     let mut decls = String::new();
     for c in &rule.content {
-        match c {
-            Content::Decl(s) => decls.push_str(s),
-            _ => {}
+        if let Content::Decl(s) = c {
+            decls.push_str(s);
         }
     }
-    if decls.trim().len() > 0 {
+    if !decls.trim().is_empty() {
         out.push_str(&combined_selector);
-        out.push_str("{");
+        out.push('{');
         out.push_str(decls.trim());
-        out.push_str("}");
+        out.push('}');
     }
     for c in &rule.content {
         if let Content::Rule(r) = c {

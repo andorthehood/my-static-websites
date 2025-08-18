@@ -13,13 +13,12 @@ pub fn minify_js(js: &str) -> String {
 
     while let Some(ch) = chars.next() {
         // Handle single-line comments
-        if !in_string && !in_template_literal && !in_regex && !in_multi_line_comment && ch == '/' {
-            if chars.peek() == Some(&'/') {
+        if !in_string && !in_template_literal && !in_regex && !in_multi_line_comment && ch == '/'
+            && chars.peek() == Some(&'/') {
                 chars.next(); // consume the second '/'
                 in_single_line_comment = true;
                 continue;
             }
-        }
 
         // End single-line comment on newline
         if in_single_line_comment && ch == '\n' {
@@ -40,22 +39,20 @@ pub fn minify_js(js: &str) -> String {
         }
 
         // Handle multi-line comments
-        if !in_string && !in_template_literal && !in_regex && !in_multi_line_comment && ch == '/' {
-            if chars.peek() == Some(&'*') {
+        if !in_string && !in_template_literal && !in_regex && !in_multi_line_comment && ch == '/'
+            && chars.peek() == Some(&'*') {
                 chars.next(); // consume the '*'
                 in_multi_line_comment = true;
                 continue;
             }
-        }
 
         // End multi-line comment
-        if in_multi_line_comment && ch == '*' {
-            if chars.peek() == Some(&'/') {
+        if in_multi_line_comment && ch == '*'
+            && chars.peek() == Some(&'/') {
                 chars.next(); // consume the '/'
                 in_multi_line_comment = false;
                 continue;
             }
-        }
 
         // Skip multi-line comment content
         if in_multi_line_comment {
