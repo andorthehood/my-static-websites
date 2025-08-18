@@ -7,6 +7,16 @@ use crate::template_processors::process_template_tags;
 use crate::types::{TemplateIncludes, Variables};
 use crate::write::{write_html_to_file, write_json_to_file};
 
+// Helper to build a layout path that defaults to .html when no extension is provided
+fn build_layout_path(site_name: &str, layout_name: &str) -> String {
+    let has_extension = std::path::Path::new(layout_name).extension().is_some();
+    if has_extension {
+        format!("{SITES_BASE_DIR}/{site_name}/{LAYOUTS_SUBDIR}/{layout_name}")
+    } else {
+        format!("{SITES_BASE_DIR}/{site_name}/{LAYOUTS_SUBDIR}/{layout_name}.html")
+    }
+}
+
 /// Processes a page through the template pipeline:
 /// 1. Converts markdown to HTML (if content is markdown)
 /// 2. Inserts into secondary layout (if specified)
@@ -31,26 +41,9 @@ pub fn render_page(
                 .or_else(|| name.strip_suffix(".html"))
         })
         .and_then(|name_without_liquid| name_without_liquid.rsplit_once('.'))
-        .map(|(_, ext)| ext)
-        .unwrap_or("html");
+        .map_or("html", |(_, ext)| ext);
 
-    let file_name = format!("{directory}{slug}.{}", output_extension);
-
-    // Helper to build a layout path that defaults to .html when no extension is provided
-    fn build_layout_path(site_name: &str, layout_name: &str) -> String {
-        let has_extension = std::path::Path::new(layout_name).extension().is_some();
-        if has_extension {
-            format!(
-                "{SITES_BASE_DIR}/{}/{LAYOUTS_SUBDIR}/{}",
-                site_name, layout_name
-            )
-        } else {
-            format!(
-                "{SITES_BASE_DIR}/{}/{LAYOUTS_SUBDIR}/{}.html",
-                site_name, layout_name
-            )
-        }
-    }
+    let file_name = format!("{directory}{slug}.{output_extension}");
 
     // Check if the content is markdown or HTML or liquid template
     let is_markdown = variables.get("file_type").is_none_or(|ft| ft == "md");
@@ -70,7 +63,7 @@ pub fn render_page(
 
     // Apply secondary layout if specified in front matter
     let content_with_layout = if let Some(secondary_layout_name) = variables.get("layout") {
-        let site_name = variables.get("site_name").map(String::as_str).unwrap_or("");
+        let site_name = variables.get("site_name").map_or("", String::as_str);
         let layout_path = build_layout_path(site_name, secondary_layout_name);
 
         if let Ok(secondary_layout) = load_layout(&layout_path) {
@@ -90,7 +83,7 @@ pub fn render_page(
 
     // Determine main layout: allow overriding via front matter `main_layout: <name>`
     let main_layout_content = if let Some(main_layout_name) = variables.get("main_layout") {
-        let site_name = variables.get("site_name").map(String::as_str).unwrap_or("");
+        let site_name = variables.get("site_name").map_or("", String::as_str);
         let main_layout_path = build_layout_path(site_name, main_layout_name);
         match load_layout(&main_layout_path) {
             Ok(custom_main_layout) => custom_main_layout,

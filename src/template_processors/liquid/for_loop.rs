@@ -211,10 +211,9 @@ fn replace_forloop_context_at_current_level(
                     result.push('}');
                     found_closing = true;
                     break;
-                } else {
-                    tag_content.push(c);
-                    result.push(c);
                 }
+                tag_content.push(c);
+                result.push(c);
             }
 
             if found_closing {
