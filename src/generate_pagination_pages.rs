@@ -95,7 +95,7 @@ mod tests {
         post.insert("title".to_string(), title.to_string());
         post.insert("date".to_string(), date.to_string());
         post.insert("slug".to_string(), title.to_lowercase().replace(' ', "-"));
-        post.insert("content".to_string(), format!("Content of {}", title));
+        post.insert("content".to_string(), format!("Content of {title}"));
         post
     }
 
@@ -104,7 +104,7 @@ mod tests {
         // Create test data
         let mut posts = Vec::new();
         for i in 1..=7 {
-            posts.push(create_test_post(&format!("Test Post {}", i), "2024-03-20"));
+            posts.push(create_test_post(&format!("Test Post {i}"), "2024-03-20"));
         }
 
         let mut includes = HashMap::new();

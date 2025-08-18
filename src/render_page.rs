@@ -157,7 +157,7 @@ mod tests {
         render_page(body, directory, slug, main_layout, &includes, &variables)
             .expect("render_page failed");
 
-        let out_path = format!("{}{}.html", directory, slug);
+        let out_path = format!("{directory}{slug}.html");
         let content = read_file(&out_path);
         assert_eq!(content, "[MAIN]Hello BODY[/MAIN]");
     }
@@ -178,7 +178,7 @@ mod tests {
         render_page(body, directory, slug, main_layout, &includes, &variables)
             .expect("render_page failed");
 
-        let out_path = format!("{}{}.html", directory, slug);
+        let out_path = format!("{directory}{slug}.html");
         let content = read_file(&out_path);
         assert_eq!(content, "<wrap>X</wrap>");
     }
