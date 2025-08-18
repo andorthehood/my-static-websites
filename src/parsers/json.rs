@@ -1,6 +1,5 @@
 use std::collections::HashMap;
 
-#[allow(dead_code)]
 #[derive(Debug, Clone, PartialEq)]
 pub enum JsonValue {
     String(String),
@@ -10,7 +9,6 @@ pub enum JsonValue {
     Object(HashMap<String, JsonValue>),
 }
 
-#[allow(dead_code)]
 pub struct JsonParser {
     chars: Vec<char>,
     pos: usize,
@@ -221,7 +219,6 @@ impl JsonParser {
     }
 }
 
-#[allow(dead_code)]
 pub fn parse_json(input: &str) -> Result<JsonValue, String> {
     let mut parser = JsonParser::new(input);
     parser.parse()
