@@ -318,7 +318,7 @@ mod tests {
         ];
 
         for file in &html_files {
-            assert!(Path::new(file).exists(), "File {} does not exist", file);
+            assert!(Path::new(file).exists(), "File {file} does not exist");
         }
 
         // Take snapshots of the generated files

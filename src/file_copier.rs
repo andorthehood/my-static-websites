@@ -247,13 +247,13 @@ mod tests {
         let dest_dir = temp_dir.path().join("dest");
         fs::create_dir_all(&source_dir).unwrap();
 
-        let ts_content = r#"
+        let ts_content = r"
 interface X { a: string }
 const links: HTMLAnchorElement[] = [];
 function f(x: number): Promise<void> { return new Promise<void>((resolve)=>resolve()); }
 const a = document.querySelector<HTMLElement>('a');
 const b = (a as HTMLElement)!;
-        "#;
+        ";
         let source_file = source_dir.join("router.ts");
         fs::write(&source_file, ts_content).unwrap();
 

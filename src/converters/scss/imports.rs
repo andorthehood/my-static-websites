@@ -137,8 +137,8 @@ mod tests {
         let mut visited: HashSet<PathBuf> = HashSet::new();
         let mut css = String::new();
         inline_scss_file(&a, &mut visited, &mut css).unwrap();
-        assert!(css.contains(&".a{color:blue;}".replace("{color:blue;}", "{color:blue;}")));
-        assert!(css.contains(&".b{color:red;}".replace("{color:red;}", "{color:red;}")));
+        assert!(css.contains(".a{color:blue;}"));
+        assert!(css.contains(".b{color:red;}"));
     }
 
     #[test]
