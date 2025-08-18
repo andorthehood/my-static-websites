@@ -37,12 +37,8 @@ pub fn write_json_to_file(
 
     // Escape JSON strings properly
     let escaped_content = escape_json_string(content);
-    let escaped_title = title
-        .map(escape_json_string)
-        .unwrap_or_else(|| "null".to_string());
-    let escaped_css = css
-        .map(|c| format!("\"{}\"", escape_json_string(c)))
-        .unwrap_or_else(|| "null".to_string());
+    let escaped_title = title.map_or_else(|| "null".to_string(), escape_json_string);
+    let escaped_css = css.map_or_else(|| "null".to_string(), |c| format!("\"{}\"", escape_json_string(c)));
 
     let json_content = format!(
         "{{\n  \"content\": \"{}\",\n  \"title\": {},\n  \"css\": {}\n}}",

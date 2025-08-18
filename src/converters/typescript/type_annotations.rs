@@ -168,16 +168,7 @@ pub fn remove_type_annotations(input: &str) -> String {
                                 break;
                             }
                         }
-                        '=' => {
-                            if angle_depth == 0
-                                && paren_depth == 0
-                                && bracket_depth == 0
-                                && brace_depth == 0
-                            {
-                                break;
-                            }
-                        }
-                        ',' | ';' | '\n' => {
+                        '=' | ',' | ';' | '\n' => {
                             if angle_depth == 0
                                 && paren_depth == 0
                                 && bracket_depth == 0

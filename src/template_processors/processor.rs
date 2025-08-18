@@ -13,7 +13,7 @@ use std::collections::HashMap;
 /// This unified function handles:
 /// - Liquid conditionals (always)
 /// - Liquid includes (when includes are provided)
-/// - Markdown to HTML conversion (when content_item with markdown file_type is provided)
+/// - Markdown to HTML conversion (when `content_item` with markdown `file_type` is provided)
 /// - Liquid variables (always)
 ///
 /// # Arguments

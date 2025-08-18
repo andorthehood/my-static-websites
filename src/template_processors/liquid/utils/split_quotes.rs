@@ -14,7 +14,7 @@ extern "C" {
     ) -> usize;
 }
 
-/// Splits a string on commas while respecting quotes - x86_64 assembly optimized version
+/// Splits a string on commas while respecting quotes - `x86_64` assembly optimized version
 #[cfg(target_arch = "x86_64")]
 pub fn split_respecting_quotes(input: &str) -> Vec<String> {
     let input_bytes = input.as_bytes();

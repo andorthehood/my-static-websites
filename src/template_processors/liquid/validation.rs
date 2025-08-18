@@ -22,7 +22,7 @@ fn is_valid_variable_name_rust(name: &str) -> bool {
 }
 
 #[cfg(target_arch = "x86_64")]
-/// Validates if a variable name follows Liquid naming conventions with an x86_64 fast path.
+/// Validates if a variable name follows Liquid naming conventions with an `x86_64` fast path.
 pub fn is_valid_variable_name(name: &str) -> bool {
     if !name.is_ascii() {
         // Preserve Unicode behavior via the Rust implementation

@@ -1,12 +1,12 @@
 use std::collections::HashMap;
 
-/// Gets all items from an array-like structure in the variables HashMap
+/// Gets all items from an array-like structure in the variables `HashMap`
 ///
 /// For a source like "users", this function looks for keys like:
 /// - "users.0.name", "users.0.age" (first user)
 /// - "users.1.name", "users.1.age" (second user)
 ///
-/// And returns a Vec of HashMaps, where each HashMap contains the properties
+/// And returns a Vec of `HashMaps`, where each `HashMap` contains the properties
 /// of one item (e.g., {"name": "Alice", "age": "25"})
 pub fn get_array_items(
     source: &str,
@@ -21,8 +21,8 @@ pub fn get_array_items(
 
         // Look for all properties of the current item
         for (key, value) in variables {
-            if let Some(stripped) = key.strip_prefix(&format!("{}.", source)) {
-                if let Some(remainder) = stripped.strip_prefix(&format!("{}.", current_index)) {
+            if let Some(stripped) = key.strip_prefix(&format!("{source}.")) {
+                if let Some(remainder) = stripped.strip_prefix(&format!("{current_index}.")) {
                     item.insert(remainder.to_string(), value.clone());
                     found_any = true;
                 }
@@ -66,7 +66,7 @@ pub fn resolve_variable_value(
 /// and returns the count of items found.
 pub fn find_collection_size(collection_name: &str, variables: &HashMap<String, String>) -> usize {
     let mut max_index = 0;
-    let collection_prefix = format!("{}.", collection_name);
+    let collection_prefix = format!("{collection_name}.");
 
     for key in variables.keys() {
         if key.starts_with(&collection_prefix) {
@@ -91,10 +91,10 @@ pub fn find_collection_size(collection_name: &str, variables: &HashMap<String, S
     max_index
 }
 
-/// Clears variables with a given prefix from the HashMap
+/// Clears variables with a given prefix from the `HashMap`
 /// Used when overriding filtered results in assign statements
 pub fn clear_variables_with_prefix(variables: &mut HashMap<String, String>, prefix: &str) {
-    let full_prefix = format!("{}.", prefix);
+    let full_prefix = format!("{prefix}.");
     variables.retain(|key, _| !key.starts_with(&full_prefix));
 }
 

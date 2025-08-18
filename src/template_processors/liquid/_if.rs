@@ -34,11 +34,10 @@ pub fn process_liquid_conditional_tags(
         let condition = tag_block.tag_content.trim();
         let is_truthy = variables
             .get(condition)
-            .map(|v| {
+            .is_some_and(|v| {
                 let t = v.trim();
                 !t.is_empty() && t != "false"
-            })
-            .unwrap_or(false);
+            });
 
         let replacement = if is_truthy {
             tag_block.inner_content
