@@ -91,7 +91,7 @@ fn process_single_pass(template: &str, variables: &HashMap<String, String>) -> R
 
                 // Expand the loop
                 let expanded =
-                    expand_for_loop(item_var, collection_var, &loop_body, variables, limit);
+                    expand_for_loop(item_var, collection_var, &loop_body, variables, limit)?;
                 result.push_str(&expanded);
             } else {
                 // Not a for loop, keep the original tag
@@ -113,13 +113,13 @@ fn expand_for_loop(
     loop_body: &str,
     variables: &HashMap<String, String>,
     limit: Option<usize>,
-) -> String {
+) -> Result<String> {
     // Find how many items are in the collection
     let total_size = find_collection_size(collection_var, variables);
 
     // If no indexed items found, return empty string
     if total_size == 0 {
-        return String::new();
+        return Ok(String::new());
     }
 
     // Determine how many iterations to perform based on optional limit
@@ -177,7 +177,7 @@ fn expand_for_loop(
         result.push_str(&expanded_body);
     }
 
-    result
+    Ok(result)
 }
 
 fn replace_forloop_context_at_current_level(
