@@ -151,8 +151,9 @@ impl JsonParser {
 
         loop {
             // Parse key
-            let JsonValue::String(key) = self.parse_value()? else {
-                return Err("Object key must be a string".to_string());
+            let key = match self.parse_value()? {
+                JsonValue::String(s) => s,
+                _ => return Err("Object key must be a string".to_string()),
             };
 
             self.skip_whitespace();

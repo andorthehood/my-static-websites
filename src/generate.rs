@@ -161,13 +161,11 @@ pub fn generate(site_name: &str) -> Result<()> {
                 "Site directory '{}' does not exist. Available sites: {}",
                 site_dir,
                 std::fs::read_dir("./sites")
-                    .map_or_else(
-                        |_| "none".to_string(),
-                        |entries| entries
-                            .filter_map(|entry| entry.ok()?.file_name().into_string().ok())
-                            .collect::<Vec<_>>()
-                            .join(", ")
-                    )
+                    .map(|entries| entries
+                        .filter_map(|entry| entry.ok()?.file_name().into_string().ok())
+                        .collect::<Vec<_>>()
+                        .join(", "))
+                    .unwrap_or_else(|_| "none".to_string())
             ),
         )
         .into());

@@ -1,214 +1,125 @@
 use crate::converters::typescript::utils::push_char_from;
 
-/// Parser state for tracking strings and comments
-#[derive(Default)]
-struct QuerySelectorParserState {
-    in_single_quote: bool,
-    in_double_quote: bool,
-    in_backtick: bool,
-    in_line_comment: bool,
-    in_block_comment: bool,
-}
-
-impl QuerySelectorParserState {
-    fn in_any_string(&self) -> bool {
-        self.in_single_quote || self.in_double_quote || self.in_backtick
-    }
-}
-
-/// Handle comment parsing and state updates
-fn handle_query_selector_comments(
-    state: &mut QuerySelectorParserState,
-    input: &str,
-    bytes: &[u8],
-    current_char: char,
-    index: &mut usize,
-    output: &mut String,
-) -> bool {
-    let length = bytes.len();
-
-    // Handle exiting comments
-    if state.in_line_comment {
-        push_char_from(input, index, output);
-        if current_char == '\n' {
-            state.in_line_comment = false;
-        }
-        return true;
-    }
-    if state.in_block_comment {
-        push_char_from(input, index, output);
-        if current_char == '*' && *index < length && bytes[*index] as char == '/' {
-            output.push('/');
-            *index += 1;
-            state.in_block_comment = false;
-        }
-        return true;
-    }
-
-    // Enter comments if not in string
-    if !state.in_any_string() && current_char == '/' && *index + 1 < length {
-        let next_char = bytes[*index + 1] as char;
-        if next_char == '/' {
-            state.in_line_comment = true;
-            output.push(current_char);
-            output.push(next_char);
-            *index += 2;
-            return true;
-        }
-        if next_char == '*' {
-            state.in_block_comment = true;
-            output.push(current_char);
-            output.push(next_char);
-            *index += 2;
-            return true;
-        }
-    }
-
-    false
-}
-
-/// Handle string parsing and state updates
-fn handle_query_selector_strings(
-    state: &mut QuerySelectorParserState,
-    input: &str,
-    current_char: char,
-    index: &mut usize,
-    output: &mut String,
-) -> bool {
-    match current_char {
-        '\'' if !state.in_double_quote && !state.in_backtick => {
-            state.in_single_quote = !state.in_single_quote;
-            push_char_from(input, index, output);
-            true
-        }
-        '"' if !state.in_single_quote && !state.in_backtick => {
-            state.in_double_quote = !state.in_double_quote;
-            push_char_from(input, index, output);
-            true
-        }
-        '`' if !state.in_single_quote && !state.in_double_quote => {
-            state.in_backtick = !state.in_backtick;
-            push_char_from(input, index, output);
-            true
-        }
-        _ => false,
-    }
-}
-
-/// Skip whitespace characters and return the new position
-fn skip_query_selector_whitespace(bytes: &[u8], start_index: usize) -> usize {
-    let mut index = start_index;
-    let length = bytes.len();
-
-    while index < length && (bytes[index] as char).is_ascii_whitespace() {
-        index += 1;
-    }
-
-    index
-}
-
-/// Skip balanced angle brackets and return the new position
-fn skip_balanced_angle_brackets(bytes: &[u8], start_index: usize) -> usize {
-    let mut index = start_index;
-    let mut depth = 0;
-    let length = bytes.len();
-
-    while index < length {
-        let current_char = bytes[index] as char;
-        match current_char {
-            '<' => depth += 1,
-            '>' => {
-                depth -= 1;
-                index += 1;
-                if depth == 0 {
-                    break;
-                }
-                continue;
-            }
-            _ => {}
-        }
-        index += 1;
-    }
-
-    index
-}
-
-/// Process querySelector methods and remove their generics
-fn process_query_selector_method(
-    input: &str,
-    bytes: &[u8],
-    index: &mut usize,
-    output: &mut String,
-) -> bool {
-    let length = bytes.len();
-    let query_selector_len = "querySelector".len();
-
-    if *index + query_selector_len <= length
-        && input
-            .get(*index..)
-            .is_some_and(|s| s.starts_with("querySelector"))
-    {
-        output.push_str("querySelector");
-        *index += query_selector_len;
-
-        // Optional "All"
-        if *index + 3 <= length && input.get(*index..).is_some_and(|s| s.starts_with("All")) {
-            output.push_str("All");
-            *index += 3;
-        }
-
-        // Skip spaces
-        *index = skip_query_selector_whitespace(bytes, *index);
-
-        // Remove generic if present
-        if *index < length && bytes[*index] as char == '<' {
-            *index = skip_balanced_angle_brackets(bytes, *index);
-
-            // Skip spaces after generic
-            *index = skip_query_selector_whitespace(bytes, *index);
-        }
-
-        return true;
-    }
-
-    false
-}
-
 pub fn remove_query_selector_generics(input: &str) -> String {
-    let mut output = String::with_capacity(input.len());
-    let mut index = 0;
-    let bytes = input.as_bytes();
-    let length = bytes.len();
-    let mut state = QuerySelectorParserState::default();
+    let mut out = String::with_capacity(input.len());
+    let mut i = 0;
+    let b = input.as_bytes();
+    let len = b.len();
 
-    while index < length {
-        let current_char = bytes[index] as char;
+    // Track strings and comments
+    let mut in_single = false;
+    let mut in_double = false;
+    let mut in_backtick = false;
+    let mut in_line_comment = false;
+    let mut in_block_comment = false;
 
-        // Handle comments first
-        if handle_query_selector_comments(&mut state, input, bytes, current_char, &mut index, &mut output) {
+    while i < len {
+        let ch = b[i] as char;
+
+        // Handle exiting comments
+        if in_line_comment {
+            push_char_from(input, &mut i, &mut out);
+            if ch == '\n' {
+                in_line_comment = false;
+            }
+            continue;
+        }
+        if in_block_comment {
+            push_char_from(input, &mut i, &mut out);
+            if ch == '*' && i < len && b[i] as char == '/' {
+                out.push('/');
+                i += 1;
+                in_block_comment = false;
+            }
             continue;
         }
 
-        // Handle strings
-        if handle_query_selector_strings(&mut state, input, current_char, &mut index, &mut output) {
+        // Enter comments if not in string
+        if !in_single && !in_double && !in_backtick
+            && ch == '/' && i + 1 < len {
+                let n = b[i + 1] as char;
+                if n == '/' {
+                    in_line_comment = true;
+                    out.push(ch);
+                    out.push(n);
+                    i += 2;
+                    continue;
+                }
+                if n == '*' {
+                    in_block_comment = true;
+                    out.push(ch);
+                    out.push(n);
+                    i += 2;
+                    continue;
+                }
+            }
+
+        // String toggles
+        if !in_double && !in_backtick && ch == '\'' {
+            in_single = !in_single;
+            push_char_from(input, &mut i, &mut out);
+            continue;
+        }
+        if !in_single && !in_backtick && ch == '"' {
+            in_double = !in_double;
+            push_char_from(input, &mut i, &mut out);
+            continue;
+        }
+        if !in_single && !in_double && ch == '`' {
+            in_backtick = !in_backtick;
+            push_char_from(input, &mut i, &mut out);
             continue;
         }
 
         // If inside any string, just copy
-        if state.in_any_string() {
-            push_char_from(input, &mut index, &mut output);
+        if in_single || in_double || in_backtick {
+            push_char_from(input, &mut i, &mut out);
             continue;
         }
 
-        // Process querySelector methods
-        if process_query_selector_method(input, bytes, &mut index, &mut output) {
+        if i + 12 <= len
+            && input
+                .get(i..)
+                .is_some_and(|s| s.starts_with("querySelector"))
+        {
+            out.push_str("querySelector");
+            i += "querySelector".len();
+            // Optional "All"
+            if i + 3 <= len && input.get(i..).is_some_and(|s| s.starts_with("All")) {
+                out.push_str("All");
+                i += 3;
+            }
+            // Skip spaces
+            while i < len && (b[i] as char).is_ascii_whitespace() {
+                i += 1;
+            }
+            // Remove generic if present
+            if i < len && b[i] as char == '<' {
+                let mut depth = 0;
+                while i < len {
+                    let ch2 = b[i] as char;
+                    if ch2 == '<' {
+                        depth += 1;
+                    }
+                    if ch2 == '>' {
+                        depth -= 1;
+                        i += 1;
+                        if depth == 0 {
+                            break;
+                        }
+                    }
+                    i += 1;
+                }
+                // Skip spaces
+                while i < len && (b[i] as char).is_ascii_whitespace() {
+                    i += 1;
+                }
+            }
             continue;
         }
-
-        push_char_from(input, &mut index, &mut output);
+        push_char_from(input, &mut i, &mut out);
     }
-
-    output
+    out
 }
 
 #[cfg(test)]

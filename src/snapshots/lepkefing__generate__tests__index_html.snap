@@ -2,4 +2,4 @@
 source: src/generate.rs
 expression: "read_file_content(\"out/test/index.html\")"
 ---
-<!DOCTYPE html><html><head><meta charset="utf8"><title>Test Site</title><link rel="stylesheet" href="/assets/styledad04ec43723fc19.css"><link rel="alternate" type="application/rss+xml" href="/feed.xml" title="RSS Feed" /></head><body><div class="content"><ul><li>**Test Post**(20240320)[testpost](/posts/testpost.html)</li></ul><ul><li>**Second Test Post**(20240321)[secondtestpost](/posts/secondtestpost.html)</li></ul></div><footer>Test Site Footer</footer></body></html>
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Test Site</title><link rel="stylesheet" href="/assets/style-dad04ec43723fc19.css"><link rel="alternate" type="application/rss+xml" href="/feed.xml" title="RSS Feed" /></head><body><div class="content"><ul><li>**Test Post**(2024-03-20)-[test-post](/posts/test-post.html)</li></ul><ul><li>**Second Test Post**(2024-03-21)-[second-test-post](/posts/second-test-post.html)</li></ul></div><footer>Test Site Footer</footer></body></html>
