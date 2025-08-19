@@ -7,7 +7,7 @@ use std::path::Path;
 
 /// Load all JSON data files from the site's data directory
 ///
-/// Loads JSON files from sites/{site_name}/data/ and makes them available as variables.
+/// Loads JSON files from `sites/{site_name}/data`/ and makes them available as variables.
 /// For example, sites/test/data/navigation.json becomes accessible as {{ data.navigation }}
 /// and sites/test/data/authors.json becomes {{ data.authors }}
 ///
@@ -15,7 +15,7 @@ use std::path::Path;
 /// * `site_name` - The name of the site
 ///
 /// # Returns
-/// A Variables HashMap with data.{filename} keys pointing to the JSON content
+/// A Variables `HashMap` with data.{filename} keys pointing to the JSON content
 pub fn load_site_data(site_name: &str) -> Result<Variables> {
     let data_dir = format!("{SITES_BASE_DIR}/{site_name}/{DATA_SUBDIR}");
     let mut data_variables = Variables::new();

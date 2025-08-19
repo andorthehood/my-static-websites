@@ -34,7 +34,7 @@ fn add_collection_to_global_variables(
 ) {
     for (index, item) in collection.iter().enumerate() {
         for (key, value) in item {
-            let global_key = format!("{}.{}.{}", collection_name, index, key);
+            let global_key = format!("{collection_name}.{index}.{key}");
             global_variables.insert(global_key, value.clone());
         }
     }
@@ -52,7 +52,7 @@ struct ContentGenerationConfig<'a> {
 }
 
 /// Generic function to generate content items (posts or pages)
-fn generate_content_items(config: ContentGenerationConfig) -> Result<()> {
+fn generate_content_items(config: &ContentGenerationConfig) -> Result<()> {
     for content_item in config.content_items {
         let mut variables = config.global_variables.clone();
         variables.extend(content_item.clone());
@@ -70,8 +70,7 @@ fn generate_content_items(config: ContentGenerationConfig) -> Result<()> {
                 variables.insert("page_specific_css".to_string(), versioned_css.clone());
             } else {
                 eprintln!(
-                    "⚠️  Warning: CSS file '{}' specified in front matter was not found in assets",
-                    css_file
+                    "⚠️  Warning: CSS file '{css_file}' specified in front matter was not found in assets"
                 );
             }
         }
@@ -84,7 +83,7 @@ fn generate_content_items(config: ContentGenerationConfig) -> Result<()> {
         // Merge title with site title if content item title exists
         if let Some(title) = content_item.get("title") {
             if let Some(site_title) = config.global_variables.get("title") {
-                variables.insert("title".to_string(), format!("{} - {}", title, site_title));
+                variables.insert("title".to_string(), format!("{title} - {site_title}"));
             }
         }
 
@@ -119,7 +118,7 @@ fn copy_assets(site_name: &str) -> Result<HashMap<String, String>> {
                     }
                     let versioned_name = copy_file_with_versioning(
                         &format!("{assets_dir}/{file_name}"),
-                        &format!("./{}/{}/assets/", OUTPUT_DIR, site_name),
+                        &format!("./{OUTPUT_DIR}/{site_name}/assets/"),
                     )?;
                     versioned_assets.insert(file_name.to_string(), versioned_name);
                 }
@@ -132,7 +131,7 @@ fn copy_assets(site_name: &str) -> Result<HashMap<String, String>> {
 
 fn copy_data(site_name: &str) -> Result<()> {
     let data_dir = format!("{SITES_BASE_DIR}/{site_name}/{DATA_SUBDIR}");
-    let output_data_dir = format!("./{}/{}/data", OUTPUT_DIR, site_name);
+    let output_data_dir = format!("./{OUTPUT_DIR}/{site_name}/data");
 
     if let Ok(entries) = fs::read_dir(&data_dir) {
         fs::create_dir_all(&output_data_dir)?;
@@ -142,7 +141,7 @@ fn copy_data(site_name: &str) -> Result<()> {
                 if let Some(file_name) = path.file_name().and_then(|n| n.to_str()) {
                     fs::copy(
                         format!("{data_dir}/{file_name}"),
-                        format!("{}/{}", output_data_dir, file_name),
+                        format!("{output_data_dir}/{file_name}"),
                     )?;
                 }
             }
@@ -238,8 +237,7 @@ pub fn generate(site_name: &str) -> Result<()> {
         .iter()
         .filter(|post| {
             post.get("unlisted")
-                .map(|value| value.to_lowercase() != "true")
-                .unwrap_or(true)
+                .is_none_or(|value| value.to_lowercase() != "true")
         })
         .cloned()
         .collect();
@@ -254,24 +252,24 @@ pub fn generate(site_name: &str) -> Result<()> {
     )?;
 
     // Generate posts
-    generate_content_items(ContentGenerationConfig {
+    generate_content_items(&ContentGenerationConfig {
         site_name,
         content_items: &posts,
         includes: &includes,
         main_layout: &main_layout,
         global_variables: &global_variables,
-        output_directory: &format!("{}/{}/posts/", OUTPUT_DIR, site_name),
+        output_directory: &format!("{OUTPUT_DIR}/{site_name}/posts/"),
         default_layout: Some("post"),
     })?;
 
     // Generate pages
-    generate_content_items(ContentGenerationConfig {
+    generate_content_items(&ContentGenerationConfig {
         site_name,
         content_items: &pages,
         includes: &includes,
         main_layout: &main_layout,
         global_variables: &global_variables,
-        output_directory: &format!("{}/{}/", OUTPUT_DIR, site_name),
+        output_directory: &format!("{OUTPUT_DIR}/{site_name}/"),
         default_layout: None,
     })?;
 
@@ -320,7 +318,7 @@ mod tests {
         ];
 
         for file in &html_files {
-            assert!(Path::new(file).exists(), "File {} does not exist", file);
+            assert!(Path::new(file).exists(), "File {file} does not exist");
         }
 
         // Take snapshots of the generated files

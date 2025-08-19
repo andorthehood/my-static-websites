@@ -35,8 +35,8 @@ pub fn remove_interface_blocks(input: &str) -> String {
         }
 
         // Handle string states
-        if !in_single && !in_double && !in_backtick {
-            if c == '/' && i + 1 < len {
+        if !in_single && !in_double && !in_backtick
+            && c == '/' && i + 1 < len {
                 let n = bytes[i + 1] as char;
                 if n == '/' {
                     in_line_comment = true;
@@ -53,7 +53,6 @@ pub fn remove_interface_blocks(input: &str) -> String {
                     continue;
                 }
             }
-        }
         if !in_double && !in_backtick && c == '\'' {
             in_single = !in_single;
             push_char_from(input, &mut i, &mut out);
@@ -75,13 +74,13 @@ pub fn remove_interface_blocks(input: &str) -> String {
             if c == 'i'
                 && (input
                     .get(i..)
-                    .map_or(false, |s| s.starts_with("interface "))
+                    .is_some_and(|s| s.starts_with("interface "))
                     || input
                         .get(i..)
-                        .map_or(false, |s| s.starts_with("interface\t"))
+                        .is_some_and(|s| s.starts_with("interface\t"))
                     || input
                         .get(i..)
-                        .map_or(false, |s| s.starts_with("interface\n")))
+                        .is_some_and(|s| s.starts_with("interface\n")))
             {
                 // Skip keyword
                 i += "interface".len();

@@ -35,8 +35,8 @@ pub fn remove_as_casts(input: &str) -> String {
         }
 
         // Handle entering comments when not in strings
-        if !in_single && !in_double && !in_backtick {
-            if c == '/' && i + 1 < len {
+        if !in_single && !in_double && !in_backtick
+            && c == '/' && i + 1 < len {
                 let n = bytes[i + 1] as char;
                 if n == '/' {
                     in_line_comment = true;
@@ -53,7 +53,6 @@ pub fn remove_as_casts(input: &str) -> String {
                     continue;
                 }
             }
-        }
 
         // Handle string state toggles
         if !in_double && !in_backtick && c == '\'' {
@@ -80,7 +79,7 @@ pub fn remove_as_casts(input: &str) -> String {
 
         if i + 2 < len
             && bytes[i].is_ascii_whitespace()
-            && input.get(i + 1..).map_or(false, |s| s.starts_with("as "))
+            && input.get(i + 1..).is_some_and(|s| s.starts_with("as "))
         {
             // Found " as ": remove until a terminator character
             i += 1 + 3; // skip space + "as "
@@ -94,7 +93,7 @@ pub fn remove_as_casts(input: &str) -> String {
             continue; // do not copy the removed type
         }
         // Handle "(ident as Type)" where there might not be leading space before 'as'
-        if i + 4 < len && input.get(i..).map_or(false, |s| s.starts_with(" as ")) {
+        if i + 4 < len && input.get(i..).is_some_and(|s| s.starts_with(" as ")) {
             i += 4;
             while i < len {
                 let ch = bytes[i] as char;

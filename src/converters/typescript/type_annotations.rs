@@ -35,8 +35,8 @@ pub fn remove_type_annotations(input: &str) -> String {
         }
 
         // Handle entering comments when not in strings
-        if !in_single && !in_double && !in_backtick {
-            if c == '/' && i + 1 < len {
+        if !in_single && !in_double && !in_backtick
+            && c == '/' && i + 1 < len {
                 let n = b[i + 1] as char;
                 if n == '/' {
                     in_line_comment = true;
@@ -53,7 +53,6 @@ pub fn remove_type_annotations(input: &str) -> String {
                     continue;
                 }
             }
-        }
 
         // Handle string state toggles
         if !in_double && !in_backtick && c == '\'' {
@@ -169,16 +168,7 @@ pub fn remove_type_annotations(input: &str) -> String {
                                 break;
                             }
                         }
-                        '=' => {
-                            if angle_depth == 0
-                                && paren_depth == 0
-                                && bracket_depth == 0
-                                && brace_depth == 0
-                            {
-                                break;
-                            }
-                        }
-                        ',' | ';' | '\n' => {
+                        '=' | ',' | ';' | '\n' => {
                             if angle_depth == 0
                                 && paren_depth == 0
                                 && bracket_depth == 0

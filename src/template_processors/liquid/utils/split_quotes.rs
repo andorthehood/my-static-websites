@@ -14,7 +14,7 @@ extern "C" {
     ) -> usize;
 }
 
-/// Splits a string on commas while respecting quotes - x86_64 assembly optimized version
+/// Splits a string on commas while respecting quotes - `x86_64` assembly optimized version
 #[cfg(target_arch = "x86_64")]
 pub fn split_respecting_quotes(input: &str) -> Vec<String> {
     let input_bytes = input.as_bytes();
@@ -33,8 +33,7 @@ pub fn split_respecting_quotes(input: &str) -> Vec<String> {
     let mut start = 0;
 
     // Process each split position
-    for i in 0..split_count {
-        let comma_pos = splits[i];
+    for &comma_pos in splits.iter().take(split_count) {
         if comma_pos > start {
             let part = &input[start..comma_pos];
             let trimmed = part.trim();

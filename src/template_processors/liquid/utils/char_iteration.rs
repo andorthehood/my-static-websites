@@ -14,9 +14,8 @@ pub fn skip_to_endunless(chars: &mut Peekable<Chars>) {
                         return;
                     }
                     break;
-                } else {
-                    tag_content.push(tc);
                 }
+                tag_content.push(tc);
             }
         }
     }
@@ -41,15 +40,13 @@ pub fn read_until_endunless(chars: &mut Peekable<Chars>) -> String {
                         // Remove the tag we just added and return
                         content.truncate(tag_start);
                         return content;
-                    } else {
-                        content.push(tc);
-                        content.push('}');
                     }
-                    break;
-                } else {
-                    tag_content.push(tc);
                     content.push(tc);
+                    content.push('}');
+                    break;
                 }
+                tag_content.push(tc);
+                content.push(tc);
             }
         } else {
             content.push(c);

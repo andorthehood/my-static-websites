@@ -142,10 +142,10 @@ pub fn extract_tag_parameter(tag_content: &str, tag_type: &str) -> Option<String
 }
 
 /// Extracts the inner content of a full liquid tag string for a given tag name.
-/// Example: given "{% include header.liquid %}", tag_name "include" -> returns Some("header.liquid").
+/// Example: given "{% include header.liquid %}", `tag_name` "include" -> returns Some("header.liquid").
 pub fn extract_tag_inner<'a>(full_tag: &'a str, tag_name: &str) -> Option<&'a str> {
     let trimmed = full_tag.trim();
-    let prefix = format!("{{% {}", tag_name);
+    let prefix = format!("{{% {tag_name}");
     if !trimmed.starts_with(&prefix) || !trimmed.ends_with("%}") {
         return None;
     }
@@ -166,8 +166,7 @@ pub fn read_nested_block(
     while depth > 0 {
         let Some(c) = chars.next() else {
             return Err(Error::Liquid(format!(
-                "Unclosed block - missing {{% {} %}}",
-                end_keyword
+                "Unclosed block - missing {{% {end_keyword} %}}"
             )));
         };
 

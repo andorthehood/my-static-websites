@@ -16,7 +16,7 @@ extern "C" {
 }
 
 #[cfg(target_arch = "x86_64")]
-/// Converts single line breaks to HTML `<br />` tags - x86_64 assembly optimized version.
+/// Converts single line breaks to HTML `<br />` tags - `x86_64` assembly optimized version.
 ///
 /// # Arguments
 /// * `input` - The input string with single line breaks
@@ -111,7 +111,11 @@ This is a new paragraph."#;
     #[test]
     fn test_single_line_breaks_large_input() {
         // Test with larger input to ensure assembly handles it correctly
-        let input = (0..1000).map(|i| format!("Line {}\n", i)).collect::<String>();
+        let input = (0..1000).fold(String::new(), |mut acc, i| {
+            use std::fmt::Write;
+            write!(&mut acc, "Line {i}\n").unwrap();
+            acc
+        });
         let result = single_line_breaks_to_html(&input);
         
         // Verify the result contains the expected number of <br /> tags

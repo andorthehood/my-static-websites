@@ -35,8 +35,8 @@ pub fn remove_generics_before_calls(input: &str) -> String {
         }
 
         // Enter comments when not in strings
-        if !in_single && !in_double && !in_backtick {
-            if c == '/' && i + 1 < len {
+        if !in_single && !in_double && !in_backtick
+            && c == '/' && i + 1 < len {
                 let n = b[i + 1] as char;
                 if n == '/' {
                     in_line_comment = true;
@@ -53,7 +53,6 @@ pub fn remove_generics_before_calls(input: &str) -> String {
                     continue;
                 }
             }
-        }
 
         // String toggles
         if !in_double && !in_backtick && c == '\'' {
@@ -127,14 +126,13 @@ pub fn remove_generics_before_calls(input: &str) -> String {
                         // Drop the generic by advancing i to k (after '>')
                         i = k;
                         continue;
-                    } else {
-                        // Not a call context, keep original including whitespace
-                        if let Ok(orig) = std::str::from_utf8(&b[i..k]) {
-                            out.push_str(orig);
-                        }
-                        i = k;
-                        continue;
                     }
+                    // Not a call context, keep original including whitespace
+                    if let Ok(orig) = std::str::from_utf8(&b[i..k]) {
+                        out.push_str(orig);
+                    }
+                    i = k;
+                    continue;
                 }
                 // If not valid generic, fall through
             }
