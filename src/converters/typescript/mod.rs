@@ -32,8 +32,8 @@ pub fn strip_typescript_types(input: &str) -> String {
     let without_call_generics = remove_generics_before_calls(&without_generics);
     let without_casts = remove_as_casts(&without_call_generics);
     let without_types = remove_type_annotations(&without_casts);
-    let without_non_null = remove_postfix_non_null(&without_types);
-    without_non_null
+    
+    remove_postfix_non_null(&without_types)
 }
 
 #[cfg(test)]

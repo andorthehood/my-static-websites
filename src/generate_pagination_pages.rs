@@ -4,6 +4,7 @@ use crate::{
     template_processors::process_template_tags,
     types::{ContentCollection, TemplateIncludes, Variables},
 };
+use std::fmt::Write;
 
 pub fn generate_pagination_pages(
     site_name: &str,
@@ -37,10 +38,11 @@ pub fn generate_pagination_pages(
 
         // Previous page link
         if page_num > 1 {
-            html_list.push_str(&format!(
-                "<li><a href=\"/page{}\">🔙 Previous page</a>,&nbsp;</li>",
-                page_num - 1
-            ));
+            let prev_page = page_num - 1;
+            write!(
+                html_list,
+                "<li><a href=\"/page{prev_page}\">🔙 Previous page</a>,&nbsp;</li>"
+            ).unwrap();
         }
 
         // Index page link
@@ -48,15 +50,16 @@ pub fn generate_pagination_pages(
 
         // Page numbers
         for i in 1..=total_pages {
-            html_list.push_str(&format!("<li><a href=\"/page{}\">{}</a>,&nbsp;</li>", i, i));
+            write!(html_list, "<li><a href=\"/page{i}\">{i}</a>,&nbsp;</li>").unwrap();
         }
 
         // Next page link
         if page_num < total_pages {
-            html_list.push_str(&format!(
-                "<li><a href=\"/page{}\">Next page ⏭️</a></li>",
-                page_num + 1
-            ));
+            let next_page = page_num + 1;
+            write!(
+                html_list,
+                "<li><a href=\"/page{next_page}\">Next page ⏭️</a></li>"
+            ).unwrap();
         }
 
         html_list.push_str("</ul>");
@@ -67,7 +70,7 @@ pub fn generate_pagination_pages(
 
         render_page(
             &html_list,
-            &format!("out/{}/", site_name),
+            &format!("out/{site_name}/"),
             &format!("page{page_num}"),
             main_layout,
             includes,
@@ -92,7 +95,7 @@ mod tests {
         post.insert("title".to_string(), title.to_string());
         post.insert("date".to_string(), date.to_string());
         post.insert("slug".to_string(), title.to_lowercase().replace(' ', "-"));
-        post.insert("content".to_string(), format!("Content of {}", title));
+        post.insert("content".to_string(), format!("Content of {title}"));
         post
     }
 
@@ -101,7 +104,7 @@ mod tests {
         // Create test data
         let mut posts = Vec::new();
         for i in 1..=7 {
-            posts.push(create_test_post(&format!("Test Post {}", i), "2024-03-20"));
+            posts.push(create_test_post(&format!("Test Post {i}"), "2024-03-20"));
         }
 
         let mut includes = HashMap::new();

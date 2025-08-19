@@ -1,15 +1,15 @@
 use std::collections::HashMap;
 
-/// Resolves a nested variable path from a flat HashMap structure.
+/// Resolves a nested variable path from a flat `HashMap` structure.
 /// Supports dot notation for nested access (e.g., "user.name", "people.0.name").
 ///
-/// The function expects JSON-like data to be flattened into the HashMap with keys like:
+/// The function expects JSON-like data to be flattened into the `HashMap` with keys like:
 /// - "people.0.name" for people[0].name in JSON
 /// - "people.0.details.age" for people[0].details.age in JSON
 ///
 /// # Arguments
 /// * `path` - The nested path using dot notation (e.g., "people.0.details.name")
-/// * `variables` - The flat HashMap containing the data
+/// * `variables` - The flat `HashMap` containing the data
 ///
 /// # Returns
 /// * `Option<String>` - The resolved value or None if not found

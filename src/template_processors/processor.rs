@@ -13,7 +13,7 @@ use std::collections::HashMap;
 /// This unified function handles:
 /// - Liquid conditionals (always)
 /// - Liquid includes (when includes are provided)
-/// - Markdown to HTML conversion (when content_item with markdown file_type is provided)
+/// - Markdown to HTML conversion (when `content_item` with markdown `file_type` is provided)
 /// - Liquid variables (always)
 ///
 /// # Arguments
@@ -52,9 +52,8 @@ pub fn process_template_tags(
             process_liquid_for_loops(&processed_assigns, &combined_variables)?;
         let processed_unless =
             process_liquid_unless_tags(&processed_for_loops, &combined_variables)?;
-        let processed_conditionals =
-            process_liquid_conditional_tags(&processed_unless, &combined_variables)?;
-        processed_conditionals
+        
+        process_liquid_conditional_tags(&processed_unless, &combined_variables)?
     };
 
     // Step 2: Convert markdown to HTML if content_item indicates markdown

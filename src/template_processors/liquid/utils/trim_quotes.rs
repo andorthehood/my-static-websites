@@ -19,8 +19,8 @@ pub fn trim_quotes(s: &str) -> &str {
         trim_quotes_scan(
             s.as_ptr(),
             s.len(),
-            &mut start_idx as *mut usize,
-            &mut end_idx as *mut usize,
+            &raw mut start_idx,
+            &raw mut end_idx,
         );
         return s.get_unchecked(start_idx..end_idx);
     }

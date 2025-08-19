@@ -42,7 +42,7 @@ pub fn optimize_hex_color(chars: &mut std::iter::Peekable<std::str::Chars>) -> S
     // Use assembly to check if we can shorten
     let mut can_shorten: u8 = 0;
     let consumed =
-        unsafe { optimize_hex_color_scan(temp_chars.as_ptr(), temp_chars.len(), &mut can_shorten) };
+        unsafe { optimize_hex_color_scan(temp_chars.as_ptr(), temp_chars.len(), &raw mut can_shorten) };
 
     // Convert consumed bytes back to chars
     let color_chars: Vec<char> = temp_chars[..consumed].iter().map(|&b| b as char).collect();

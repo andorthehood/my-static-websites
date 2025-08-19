@@ -34,7 +34,7 @@ pub fn parse_key_value_pair(pair: &str) -> Option<(String, String)> {
 
 use std::collections::HashMap;
 
-/// Parses a space-separated list of key:value pairs with optional quoted values into a HashMap.
+/// Parses a space-separated list of key:value pairs with optional quoted values into a `HashMap`.
 /// Example: `name:"Alice" greeting:"Hello"` -> {"name": "Alice", "greeting": "Hello"}
 pub fn parse_space_separated_key_value_params(input: &str) -> HashMap<String, String> {
     let mut properties = HashMap::new();

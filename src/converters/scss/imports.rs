@@ -22,14 +22,13 @@ pub fn inline_scss_file(
                 // Recursively inline dependency
                 inline_scss_file(&candidate, visited, out)?;
                 continue; // do not emit the @use/@import line
-            } else {
-                eprintln!(
-                    "[scss] Warning: could not resolve import '{}' referenced from {}",
-                    target,
-                    abs.display()
-                );
-                // fall through to emit the original line
             }
+            eprintln!(
+                "[scss] Warning: could not resolve import '{}' referenced from {}",
+                target,
+                abs.display()
+            );
+            // fall through to emit the original line
         }
         out.push_str(line);
         out.push('\n');
@@ -88,12 +87,7 @@ fn resolve_scss_like_path(base_dir: &Path, target: &str) -> Option<PathBuf> {
             with_ext.with_file_name(format!("_{}", with_ext.file_name()?.to_string_lossy()))
         },
     ];
-    for c in candidates {
-        if c.exists() {
-            return Some(c);
-        }
-    }
-    None
+    candidates.into_iter().find(|c| c.exists())
 }
 
 #[cfg(test)]
@@ -143,8 +137,8 @@ mod tests {
         let mut visited: HashSet<PathBuf> = HashSet::new();
         let mut css = String::new();
         inline_scss_file(&a, &mut visited, &mut css).unwrap();
-        assert!(css.contains(&".a{color:blue;}".replace("{color:blue;}", "{color:blue;}")));
-        assert!(css.contains(&".b{color:red;}".replace("{color:red;}", "{color:red;}")));
+        assert!(css.contains(".a{color:blue;}"));
+        assert!(css.contains(".b{color:red;}"));
     }
 
     #[test]

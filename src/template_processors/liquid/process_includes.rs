@@ -7,7 +7,7 @@ use std::collections::HashMap;
 ///
 /// # Arguments
 /// * `input` - The input string containing liquid include tags
-/// * `templates` - A HashMap containing template names and their content
+/// * `templates` - A `HashMap` containing template names and their content
 ///
 /// # Returns
 /// * `Result<String>` - The processed string with includes replaced or an error if processing fails

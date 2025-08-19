@@ -9,7 +9,7 @@ extern "C" {
     fn should_preserve_space_scan(last_char: u8, next_char: u8) -> u8;
 }
 
-/// Determines if a space should be preserved between characters - x86_64 assembly optimized version
+/// Determines if a space should be preserved between characters - `x86_64` assembly optimized version
 #[cfg(target_arch = "x86_64")]
 pub fn should_preserve_space_asm(result: &str, next_char: char) -> bool {
     if result.is_empty() {
