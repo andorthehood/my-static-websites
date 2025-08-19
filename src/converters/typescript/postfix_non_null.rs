@@ -1,44 +1,45 @@
 use crate::converters::typescript::utils::{is_identifier_char, push_char_from};
 
 pub fn remove_postfix_non_null(input: &str) -> String {
-    let mut out = String::with_capacity(input.len());
-    let mut i = 0;
-    let b = input.as_bytes();
-    let len = b.len();
+    let mut output = String::with_capacity(input.len());
+    let mut index = 0;
+    let bytes = input.as_bytes();
+    let length = bytes.len();
 
-    while i < len {
-        let c = b[i] as char;
-        if c == '!' {
+    while index < length {
+        let current_char = bytes[index] as char;
+        if current_char == '!' {
             // Check previous non-space char
-            let mut j = i;
-            while j > 0 && (b[j - 1] as char).is_ascii_whitespace() {
-                j -= 1;
+            let mut prev_index = index;
+            while prev_index > 0 && (bytes[prev_index - 1] as char).is_ascii_whitespace() {
+                prev_index -= 1;
             }
-            let prev = if j > 0 { b[j - 1] as char } else { '\0' };
+            let prev_char = if prev_index > 0 { bytes[prev_index - 1] as char } else { '\0' };
+            
             // Check next non-space char
-            let mut k = i + 1;
-            while k < len && (b[k] as char).is_ascii_whitespace() {
-                k += 1;
+            let mut next_index = index + 1;
+            while next_index < length && (bytes[next_index] as char).is_ascii_whitespace() {
+                next_index += 1;
             }
-            let next = if k < len { b[k] as char } else { '\0' };
+            let next_char = if next_index < length { bytes[next_index] as char } else { '\0' };
 
-            let prev_allows_postfix = prev == ')' || prev == ']' || is_identifier_char(prev);
-            let next_is_terminator = next == '.'
-                || next == ';'
-                || next == ','
-                || next == ')'
-                || next == ']'
-                || next == '\n';
+            let prev_allows_postfix = prev_char == ')' || prev_char == ']' || is_identifier_char(prev_char);
+            let next_is_terminator = next_char == '.'
+                || next_char == ';'
+                || next_char == ','
+                || next_char == ')'
+                || next_char == ']'
+                || next_char == '\n';
             if prev_allows_postfix && next_is_terminator {
                 // Drop this '!'
-                i += 1;
+                index += 1;
                 continue;
             }
         }
-        push_char_from(input, &mut i, &mut out);
+        push_char_from(input, &mut index, &mut output);
     }
 
-    out
+    output
 }
 
 #[cfg(test)]

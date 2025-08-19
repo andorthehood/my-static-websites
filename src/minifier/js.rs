@@ -134,12 +134,11 @@ fn handle_regex_literals(
     result: &mut String,
 ) -> bool {
     // Handle regex start
-    if !state.in_string && !state.in_template_literal && !state.in_regex && ch == '/' {
-        if could_be_regex_start(prev_non_whitespace, result) {
-            state.in_regex = true;
-            result.push(ch);
-            return true;
-        }
+    if !state.in_string && !state.in_template_literal && !state.in_regex && ch == '/'
+        && could_be_regex_start(prev_non_whitespace, result) {
+        state.in_regex = true;
+        result.push(ch);
+        return true;
     }
 
     // End regex literal
@@ -163,8 +162,7 @@ fn should_preserve_whitespace(
         && (next_char.is_alphanumeric() || next_char == '_' || next_char == '$');
 
     // Between operators where space is needed to avoid creating different operators
-    let operator_separation = (matches!(last_char, '+' | '-') && next_char == last_char) // ++ or --
-        || (matches!(last_char, '&' | '|') && next_char == last_char) // && or ||
+    let operator_separation = (matches!(last_char, '&' | '|') || matches!(last_char, '+' | '-')) && next_char == last_char // ++ or -- or && or ||
         || (matches!(last_char, '=' | '!' | '<' | '>') && next_char == '='); // ==, !=, <=, >=
 
     // ASI cases - preserve newlines after certain tokens to prevent issues
