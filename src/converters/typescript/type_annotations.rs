@@ -1,272 +1,207 @@
 use crate::converters::typescript::utils::{is_identifier_char, push_char_from};
 
-/// Parser state for tracking strings and comments
-#[derive(Default)]
-struct ParserState {
-    in_single: bool,
-    in_double: bool,
-    in_backtick: bool,
-    in_line_comment: bool,
-    in_block_comment: bool,
-}
-
-impl ParserState {
-    fn in_any_string(&self) -> bool {
-        self.in_single || self.in_double || self.in_backtick
-    }
-}
-
-/// Handle comment parsing and state updates
-fn handle_comments(
-    state: &mut ParserState,
-    input: &str,
-    bytes: &[u8],
-    current_char: char,
-    index: &mut usize,
-    output: &mut String,
-) -> bool {
-    let length = bytes.len();
-
-    // Handle exiting comments
-    if state.in_line_comment {
-        push_char_from(input, index, output);
-        if current_char == '\n' {
-            state.in_line_comment = false;
-        }
-        return true;
-    }
-    if state.in_block_comment {
-        push_char_from(input, index, output);
-        if current_char == '*' && *index < length && bytes[*index] as char == '/' {
-            output.push('/');
-            *index += 1;
-            state.in_block_comment = false;
-        }
-        return true;
-    }
-
-    // Handle entering comments when not in strings
-    if !state.in_any_string()
-        && current_char == '/'
-        && *index + 1 < length
-    {
-        let next_char = bytes[*index + 1] as char;
-        if next_char == '/' {
-            state.in_line_comment = true;
-            output.push(current_char);
-            output.push(next_char);
-            *index += 2;
-            return true;
-        }
-        if next_char == '*' {
-            state.in_block_comment = true;
-            output.push(current_char);
-            output.push(next_char);
-            *index += 2;
-            return true;
-        }
-    }
-
-    false
-}
-
-/// Handle string parsing and state updates
-fn handle_strings(
-    state: &mut ParserState,
-    input: &str,
-    current_char: char,
-    index: &mut usize,
-    output: &mut String,
-) -> bool {
-    match current_char {
-        '\'' if !state.in_double && !state.in_backtick => {
-            state.in_single = !state.in_single;
-            push_char_from(input, index, output);
-            true
-        }
-        '"' if !state.in_single && !state.in_backtick => {
-            state.in_double = !state.in_double;
-            push_char_from(input, index, output);
-            true
-        }
-        '`' if !state.in_single && !state.in_double => {
-            state.in_backtick = !state.in_backtick;
-            push_char_from(input, index, output);
-            true
-        }
-        _ => false,
-    }
-}
-
-/// Check if a colon represents an object literal property
-fn is_object_literal_property(input: &str, bytes: &[u8], colon_index: usize) -> bool {
-    // Look behind for the identifier end
-    let mut position = colon_index;
-    while position > 0 && (bytes[position - 1] as char).is_ascii_whitespace() {
-        position -= 1;
-    }
-
-    // Find the start of the property name
-    let mut name_start = position;
-    while name_start > 0 {
-        let ch = bytes[name_start - 1] as char;
-        if is_identifier_char(ch) || ch.is_ascii_digit() {
-            name_start -= 1;
-        } else {
-            break;
-        }
-    }
-
-    // Skip back over whitespace and comment lines
-    let mut before_name = name_start;
-    while before_name > 0 && (bytes[before_name - 1] as char).is_ascii_whitespace() {
-        if bytes[before_name - 1] as char == '\n' {
-            let mut line_start = before_name - 1;
-            while line_start > 0 && bytes[line_start - 1] as char != '\n' {
-                line_start -= 1;
-            }
-            let line_slice = &input[line_start..before_name - 1];
-            if line_slice.contains("//") {
-                before_name = line_start;
-                continue;
-            }
-        }
-        before_name -= 1;
-    }
-
-    let token_before_name = if before_name > 0 { bytes[before_name - 1] as char } else { '\0' };
-    token_before_name == '{' || token_before_name == ','
-}
-
-/// Skip type annotation after a colon
-fn skip_type_annotation(bytes: &[u8], start_index: usize) -> usize {
-    let mut index = start_index;
-    let length = bytes.len();
-
-    // Skip initial whitespace
-    while index < length && (bytes[index] as char).is_ascii_whitespace() {
-        index += 1;
-    }
-
-    let mut angle_depth = 0;
-    let mut paren_depth = 0;
-    let mut bracket_depth = 0;
-    let mut brace_depth = 0;
-
-    while index < length {
-        let ch = bytes[index] as char;
-        match ch {
-            '<' => angle_depth += 1,
-            '>' => {
-                if angle_depth > 0 {
-                    angle_depth -= 1;
-                }
-            }
-            '(' => paren_depth += 1,
-            ')' => {
-                if paren_depth > 0 {
-                    paren_depth -= 1;
-                } else {
-                    break;
-                }
-            }
-            '[' => bracket_depth += 1,
-            ']' => {
-                if bracket_depth > 0 {
-                    bracket_depth -= 1;
-                }
-            }
-            '{' => brace_depth += 1,
-            '}' => {
-                if brace_depth > 0 {
-                    brace_depth -= 1;
-                } else {
-                    break;
-                }
-            }
-            '=' | ',' | ';' | '\n' => {
-                if angle_depth == 0
-                    && paren_depth == 0
-                    && bracket_depth == 0
-                    && brace_depth == 0
-                {
-                    break;
-                }
-            }
-            _ => {}
-        }
-        index += 1;
-    }
-
-    index
-}
-
 pub fn remove_type_annotations(input: &str) -> String {
-    let mut output = String::with_capacity(input.len());
-    let mut index = 0;
-    let bytes = input.as_bytes();
-    let length = bytes.len();
-    let mut state = ParserState::default();
+    let mut out = String::with_capacity(input.len());
+    let mut i = 0;
+    let b = input.as_bytes();
+    let len = b.len();
 
-    while index < length {
-        let current_char = bytes[index] as char;
+    // Track strings and comments to avoid modifying inside them
+    let mut in_single = false;
+    let mut in_double = false;
+    let mut in_backtick = false;
+    let mut in_line_comment = false;
+    let mut in_block_comment = false;
 
-        // Handle comments first
-        if handle_comments(&mut state, input, bytes, current_char, &mut index, &mut output) {
+    while i < len {
+        let c = b[i] as char;
+
+        // Handle exiting comments
+        if in_line_comment {
+            push_char_from(input, &mut i, &mut out);
+            if c == '\n' {
+                in_line_comment = false;
+            }
+            continue;
+        }
+        if in_block_comment {
+            push_char_from(input, &mut i, &mut out);
+            if c == '*' && i < len && b[i] as char == '/' {
+                out.push('/');
+                i += 1;
+                in_block_comment = false;
+            }
             continue;
         }
 
-        // Handle strings
-        if handle_strings(&mut state, input, current_char, &mut index, &mut output) {
+        // Handle entering comments when not in strings
+        if !in_single && !in_double && !in_backtick
+            && c == '/' && i + 1 < len {
+                let n = b[i + 1] as char;
+                if n == '/' {
+                    in_line_comment = true;
+                    out.push(c);
+                    out.push(n);
+                    i += 2;
+                    continue;
+                }
+                if n == '*' {
+                    in_block_comment = true;
+                    out.push(c);
+                    out.push(n);
+                    i += 2;
+                    continue;
+                }
+            }
+
+        // Handle string state toggles
+        if !in_double && !in_backtick && c == '\'' {
+            in_single = !in_single;
+            push_char_from(input, &mut i, &mut out);
+            continue;
+        }
+        if !in_single && !in_backtick && c == '"' {
+            in_double = !in_double;
+            push_char_from(input, &mut i, &mut out);
+            continue;
+        }
+        if !in_single && !in_double && c == '`' {
+            in_backtick = !in_backtick;
+            push_char_from(input, &mut i, &mut out);
             continue;
         }
 
         // If inside any string, just copy
-        if state.in_any_string() {
-            push_char_from(input, &mut index, &mut output);
+        if in_single || in_double || in_backtick {
+            push_char_from(input, &mut i, &mut out);
             continue;
         }
 
-        // Handle type annotations after colons
-        if current_char == ':' {
-            // Check if this is an object literal property
-            if is_object_literal_property(input, bytes, index) {
-                output.push(':');
-                index += 1;
+        if c == ':' {
+            // Look behind for something that looks like an identifier or ')' (return type)
+            let mut j = i;
+            while j > 0 && (b[j - 1] as char).is_ascii_whitespace() {
+                j -= 1;
+            }
+            let prev_char = if j > 0 { b[j - 1] as char } else { '\0' };
+
+            // Detect if this colon is part of an object literal property like `{ key: value }`.
+            // Walk back over the property name to find the token immediately before it, skipping comment-only lines.
+            let mut name_start = j;
+            while name_start > 0 {
+                let ch = b[name_start - 1] as char;
+                if is_identifier_char(ch) || ch.is_ascii_digit() {
+                    name_start -= 1;
+                } else {
+                    break;
+                }
+            }
+
+            // Move back over whitespace, skipping preceding line if it contains a line comment (// ...\n)
+            let mut k = name_start;
+            while k > 0 && (b[k - 1] as char).is_ascii_whitespace() {
+                if b[k - 1] as char == '\n' {
+                    let mut line_start = k - 1;
+                    while line_start > 0 && b[line_start - 1] as char != '\n' {
+                        line_start -= 1;
+                    }
+                    let line_slice = &input[line_start..k - 1];
+                    if line_slice.contains("//") {
+                        k = line_start;
+                        continue;
+                    }
+                }
+                k -= 1;
+            }
+
+            let token_before_name = if k > 0 { b[k - 1] as char } else { '\0' };
+
+            // If the token before the property name is '{' or ',', it's an object literal key.
+            if token_before_name == '{' || token_before_name == ',' {
+                out.push(':');
+                i += 1;
                 continue;
             }
 
-            // Look behind for identifier or ')' (indicating a type annotation context)
-            let mut position = index;
-            while position > 0 && (bytes[position - 1] as char).is_ascii_whitespace() {
-                position -= 1;
-            }
-            let prev_char = if position > 0 { bytes[position - 1] as char } else { '\0' };
-
             let looks_like_type_context = is_identifier_char(prev_char) || prev_char == ')';
             if looks_like_type_context {
-                // Skip the type annotation
-                index = skip_type_annotation(bytes, index + 1);
-                
-                // Insert space before '=' if needed
-                let next_delim = if index < length { bytes[index] as char } else { '\0' };
+                // Skip the type until a stopping delimiter at top-level depth
+                i += 1; // skip ':'
+                while i < len && (b[i] as char).is_ascii_whitespace() {
+                    i += 1;
+                }
+
+                let mut k = i;
+                let mut angle_depth = 0;
+                let mut paren_depth = 0;
+                let mut bracket_depth = 0;
+                let mut brace_depth = 0;
+
+                while k < len {
+                    let ch = b[k] as char;
+                    match ch {
+                        '<' => angle_depth += 1,
+                        '>' => {
+                            if angle_depth > 0 {
+                                angle_depth -= 1;
+                            }
+                        }
+                        '(' => paren_depth += 1,
+                        ')' => {
+                            if paren_depth > 0 {
+                                paren_depth -= 1;
+                            } else {
+                                break;
+                            }
+                        }
+                        '[' => bracket_depth += 1,
+                        ']' => {
+                            if bracket_depth > 0 {
+                                bracket_depth -= 1;
+                            }
+                        }
+                        '{' => brace_depth += 1,
+                        '}' => {
+                            if brace_depth > 0 {
+                                brace_depth -= 1;
+                            } else {
+                                break;
+                            }
+                        }
+                        '=' | ',' | ';' | '\n' => {
+                            if angle_depth == 0
+                                && paren_depth == 0
+                                && bracket_depth == 0
+                                && brace_depth == 0
+                            {
+                                break;
+                            }
+                        }
+                        _ => {}
+                    }
+                    k += 1;
+                }
+
+                // Advance i to the delimiter but do not consume it
+                // Insert a single space if the next delimiter is '=' to preserve 'name ='
+                let next_delim = if k < len { b[k] as char } else { '\0' };
+                i = k;
                 if next_delim == '=' {
-                    if let Some(last_char) = output.chars().last() {
-                        if !last_char.is_ascii_whitespace() {
-                            output.push(' ');
+                    if let Some(last_out) = out.chars().last() {
+                        if !last_out.is_ascii_whitespace() {
+                            out.push(' ');
                         }
                     } else {
-                        output.push(' ');
+                        out.push(' ');
                     }
                 }
                 continue;
             }
         }
-        
-        push_char_from(input, &mut index, &mut output);
+        push_char_from(input, &mut i, &mut out);
     }
 
-    output
+    out
 }
 
 #[cfg(test)]
