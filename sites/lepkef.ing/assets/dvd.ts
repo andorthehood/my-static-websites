@@ -1,5 +1,23 @@
-(function () {
-    const dvdLogo = document.getElementById('dvd-logo');
+export {};
+
+interface DVDLogoPosition {
+    x: number;
+    y: number;
+    dx: number;
+    dy: number;
+    frames: number;
+}
+
+interface SimulationResult {
+    startX: number;
+    startY: number;
+    startDx: number;
+    startDy: number;
+}
+
+const dvdLogo = document.getElementById('dvd-logo') as HTMLElement | null;
+
+if (dvdLogo) {
     let x = 50;
     let y = 50;
     let dx = 2;
@@ -7,7 +25,7 @@
     let frameCount = 0;
     const TARGET_FRAMES = 3600; // 1 minute at 60fps
 
-    function traceBackFromBottomLeftCorner(targetFrames) {
+    function traceBackFromBottomLeftCorner(targetFrames: number): DVDLogoPosition | null {
         const rect = dvdLogo.getBoundingClientRect();
         const maxX = window.innerWidth - rect.width;
         const maxY = window.innerHeight - rect.height;
@@ -34,7 +52,7 @@
         return null;
     }
 
-    function simulateBackwards(cornerX, cornerY, approachVx, approachVy, targetFrames, maxX, maxY) {
+    function simulateBackwards(cornerX: number, cornerY: number, approachVx: number, approachVy: number, targetFrames: number, maxX: number, maxY: number): SimulationResult | null {
         // Start from the corner and work backwards
         let x = cornerX;
         let y = cornerY;
@@ -73,7 +91,7 @@
         return null;
     }
 
-    function animate() {
+    function animate(): void {
         const rect = dvdLogo.getBoundingClientRect();
         const maxX = window.innerWidth - rect.width;
         const maxY = window.innerHeight - rect.height;
@@ -119,14 +137,13 @@
         dvdLogo.style.top = y + 'px';
     }
 
-
     animate();
 
-    window.addEventListener('resize', function () {
+    window.addEventListener('resize', () => {
         const rect = dvdLogo.getBoundingClientRect();
         const maxX = window.innerWidth - rect.width;
         const maxY = window.innerHeight - rect.height;
         x = Math.min(x, maxX);
         y = Math.min(y, maxY);
     });
-})();
+}
