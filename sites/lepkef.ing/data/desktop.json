@@ -35,11 +35,6 @@
 		"label": "First Frames"
 	},
 	{
-		"href": "/light-meter",
-		"icon": "💡",
-		"label": "The life of my light meter"
-	},
-	{
 		"href": "/postmortem",
 		"icon": "👻",
 		"label": "Post-mortem.txt"
@@ -73,5 +68,11 @@
 		"href": "/poetry",
 		"icon": "🎤",
 		"label": "Poetry"
+	},
+	{
+		"href": "https://polgarhivatal.nl/",
+		"icon": "💼",
+		"label": "Professional Website",
+		"target": "_blank"
 	}
 ]
