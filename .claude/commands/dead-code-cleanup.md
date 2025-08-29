@@ -1,0 +1,1 @@
+Find dead code in this Rust project and fix it by removing it. Some dead code in this Rust project may be hidden behind #[cfg(test)] or #[allow(dead_code)], so don’t rely only on compiler warnings. Find a single piece of dead code (function, struct, etc.), then fix it: if it’s just a leftover with orphaned tests, delete it along with those tests.
