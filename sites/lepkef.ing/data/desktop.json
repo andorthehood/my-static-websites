@@ -68,5 +68,10 @@
 		"href": "/page1",
 		"icon": "🅱️",
 		"label": "Blog"
+	},
+	{
+		"href": "/poetry",
+		"icon": "🎤",
+		"label": "Poetry"
 	}
 ]
