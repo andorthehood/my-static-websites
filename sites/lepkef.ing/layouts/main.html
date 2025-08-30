@@ -32,15 +32,10 @@
 
 <body>
     <div class="scanlines"></div>
-    <div id="dvd-logo">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1058.4 465.8">
-            <path fill="currentColor"
-                d="M91 0 77 58h127c65 0 106 26 94 73-12 51-69 74-130 74h-23l30-126H72L29 262h145c109 0 213-57 231-131a139 139 0 0 0-7-70l1-4a484 484 0 0 0 4 6l93 260L731 58h124c65 0 106 26 95 73-12 51-70 74-131 74h-23l30-126H723l-43 183h145c109 0 213-57 231-131C1073 57 997 0 887 0H671l-68 81c-57 68-67 87-69 92 0-5-2-24-26-93L480 0H91zm409 324C224 324 0 356 0 395s224 71 500 71 500-32 500-71-224-71-500-71zm-18 49c63 0 114 10 114 23s-51 24-114 24-114-11-114-24 51-23 114-23z" />
-        </svg>
-    </div>
+    <img src="https://static.llllllllllll.com/andor/assets/dvd_logo.gif" alt="DVD logo" id="dvd-logo" />
     <nav class="desktop">
         {% for item in data.desktop %}
-        <a href="{{item.href}}" class="icon" {% if item.target %}target="{{item.target}}"{% endif %}>
+        <a href="{{item.href}}" class="icon" {% if item.target %}target="{{item.target}}" {% endif %}>
             <div class="icon-picture">{{item.icon}}</div>
             <div class="icon-label">{{item.label}}</div>
         </a>
