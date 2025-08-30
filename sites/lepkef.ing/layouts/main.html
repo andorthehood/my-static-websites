@@ -20,8 +20,6 @@
             font-display: block;
         }
     </style>
-    <link rel="preload" href="/assets/{{style.scss}}" as="style" />
-    <link rel="preload" href="/assets/{{script.ts}}" as="script" />
     <link rel="stylesheet" href="/assets/{{style.scss}}" />
     <link rel="canonical" href="{{site_url}}/{{pathname}}" />
     <link rel="icon" href="/assets/{{favicon.ico}}" />
@@ -42,7 +40,7 @@
         {% endfor %}
     </nav><!-- .desktop -->
 
-    <div class="clippy window">
+    <div id="clippy" class="window">
         {% include dialogheader.liquid title:"Clippy" %}
         <div class="hole content-hole">
             <img width="248" height="184" id="clippy-gif"
@@ -53,7 +51,7 @@
     </div>
 
     <div class="container">
-        <main class="window">
+        <main class="window main">
             {% include windowheader.liquid title:"Andornet Explorer" %}
             <div class="hole content-hole">
                 <div class="head">
