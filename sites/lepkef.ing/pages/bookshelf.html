@@ -9,14 +9,8 @@ css: 'bookshelf.scss'
 <ul class="bookshelf">
     {% for book in data.books %}
 
-    {% if book %}mukodik{% endif %}
-
-    <li style="{% if book.background %}background: {{book.background}};{% endif %} {% if book.justify %}justify-content: {{book.justify}};{% endif %}">
-        {% for line in book.lines %}
-        <span
-            class="{% if line.uppercase %}upp{% endif %} {% if line.serif %}serif{% endif %} {% if line.small %}small{% endif %}"
-            style="{% if line.background %}background: {{line.background}};{% endif %} {% if line.color %}color: {{line.color}};{% endif %} {% if line.textAlign %}text-align: {{line.textAlign}};{% endif %}">{{line.text}}</span>
-        {% endfor %}
+    <li>
+        <img src="https://static.llllllllllll.com/andor/assets/books/{{book.coverFile}}" alt="{{book.title}} by {{book.author}}" />
     </li>
     {% endfor %}
 </ul>

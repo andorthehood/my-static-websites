@@ -1,678 +1,167 @@
 [
 	{
-		"background": "linear-gradient(180deg,rgba(0, 0, 0, 1) 50%, rgba(204, 51, 153, 1) 75%, rgba(153, 204, 0, 1) 100%);",
-		"justify": "start",
-		"lines": [
-			{
-				"color": "#9C0",
-				"small": true,
-				"uppercase": true,
-				"textAlign": "right",
-				"text": "Pilip K. Dick",
-				"background": "#000"
-			},
-			{
-				"color": "#fff",
-				"small": true,
-				"textAlign": "right",
-				"text": "The Three Stigmata<br /> of Palmer Eldritch",
-				"background": "#000"
-			}
-		]
+		"coverFile": "philip_k_dick_the_three_stigmata_of_palmer_eldritch.jpg",
+		"title": "The Three Stigmata of Palmer Eldritch",
+		"author": "Philip K. Dick"
 	},
 	{
-		"background": "#fff",
-		"lines": [
-			{
-				"color": "#000",
-				"uppercase": true,
-				"serif": true,
-				"text": "I Am a Strange Loop"
-			},
-			{
-				"color": "#09c",
-				"uppercase": true,
-				"serif": true,
-				"text": "Douglas R. Hofstadter"
-			}
-		]
+		"coverFile": "douglas_r_hofstadter_i_am_a_strange_loop.jpg",
+		"title": "I Am a Strange Loop",
+		"author": "Douglas R. Hofstadter"
 	},
 	{
-		"background": "#cc9900",
-		"lines": [
-			{
-				"color": "#fff",
-				"small": true,
-				"uppercase": true,
-				"serif": true,
-				"text": "The Library of Babel",
-				"background": "#000"
-			},
-			{
-				"color": "#fff",
-				"small": true,
-				"serif": true,
-				"text": "Jorge Luis Borges",
-				"background": "#000"
-			}
-		]
+		"coverFile": "jorge_luis_borges_the_library_of_babel.jpg",
+		"title": "The Library of Babel",
+		"author": "Jorge Luis Borges"
 	},
 	{
-		"background": "#c33",
-		"lines": [
-			{
-				"color": "#ffc",
-				"small": true,
-				"uppercase": true,
-				"text": "Jean-Paul Sartre"
-			},
-			{
-				"color": "#ffc",
-				"text": "No Exit",
-				"uppercase": true
-			}
-		]
+		"coverFile": "jean_paul_sartre_being_and_nothingness.jpg",
+		"title": "Being and Nothingness",
+		"author": "Jean-Paul Sartre"
 	},
 	{
-		"background": "#000",
-		"lines": [
-			{
-				"color": "#fff",
-				"textAlign": "left",
-				"text": "Sartre"
-			},
-			{
-				"color": "#000",
-				"background": "#fff",
-				"small": true,
-				"textAlign": "left",
-				"text": "Being and Nothingness"
-			}
-		]
+		"coverFile": "brian_christian_the_alignment_problem.jpg",
+		"title": "The Alignment Problem",
+		"author": "Brian Christian"
 	},
 	{
-		"background": "#fff",
-		"lines": [
-			{
-				"small": true,
-				"uppercase": true,
-				"color": "#c60",
-				"text": "Nick Bostrom"
-			},
-			{
-				"serif": true,
-				"uppercase": true,
-				"small": true,
-				"color": "#000",
-				"text": "Superintelligence"
-			},
-			{
-				"small": true,
-				"serif": true,
-				"color": "#000",
-				"text": "Paths, Dangers, Strategies"
-			}
-		]
+		"coverFile": "jean_paul_sartre_no_exit.jpg",
+		"title": "No Exit",
+		"author": "Jean-Paul Sartre"
 	},
 	{
-		"background": "linear-gradient(180deg,rgba(153, 204, 204, 1) 10%, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 1) 80%, rgba(153, 204, 204, 1) 90%)",
-		"justify": "center",
-		"lines": [
-			{
-				"uppercase": true,
-				"color": "#f30",
-
-				"text": "The Alignment Problem"
-			},
-			{
-				"small": true,
-				"serif": true,
-				"color": "#000",
-
-				"text": "Machine Learning and Human Values"
-			},
-			{
-				"small": true,
-				"uppercase": true,
-				"color": "#f30",
-
-				"text": "Brian Christian"
-			}
-		]
+		"coverFile": "nick_bostrom_superintelligence.jpg",
+		"title": "Superintelligence",
+		"author": "Nick Bostrom"
 	},
 	{
-		"background": "radial-gradient(circle,rgba(0, 0, 51, 1) 40%, rgba(255, 255, 255, 1) 45%, rgba(102, 153, 255, 1) 80%);",
-		"lines": [
-			{
-				"small": true,
-				"color": "#003",
-				"serif": true,
-				"uppercase": true,
-				"text": "Anil Seth"
-			},
-			{
-				"color": "#fff",
-				"serif": true,
-				"text": "Being You"
-			},
-			{
-				"small": true,
-				"color": "#003",
-				"serif": true,
-				"text": "A New Science of Consciousness"
-			}
-		]
+		"coverFile": "anil_seth_being_you.jpg",
+		"title": "Being You",
+		"author": "Anil Seth"
 	},
 	{
-		"background": "#fff",
-		"lines": [
-			{
-				"color": "#000",
-				"text": "A Thousand Brains"
-			},
-			{
-				"small": true,
-				"color": "#f30",
-				"text": "A New Theory of Intelligence"
-			},
-			{
-				"small": true,
-				"color": "#000",
-				"text": "Jeff Hawkins"
-			}
-		]
+		"coverFile": "jeff_hawkins_a_thousand_brains.jpg",
+		"title": "A Thousand Brains",
+		"author": "Jeff Hawkins"
 	},
 	{
-		"background": "#000",
-		"lines": [
-			{
-				"small": true,
-				"color": "#6699cc",
-				"text": "When Humans Transcend Biology"
-			},
-			{
-				"color": "#fff",
-				"text": "The Singularity Is Near"
-			},
-			{
-				"small": true,
-				"color": "#fc6",
-				"text": "Ray Kurzweil"
-			}
-		]
+		"coverFile": "ray_kurzweil_the_singularity_is_near.jpg",
+		"title": "The Singularity Is Near",
+		"author": "Ray Kurzweil"
 	},
 	{
-		"background": "#c99",
-		"lines": [
-			{
-				"small": true,
-				"color": "#000",
-				"text": "The Science of the Mind and the Myth of the Self"
-			},
-			{
-				"color": "#fff",
-				"background": "#666",
-				"text": "The Ego Tunnel"
-			},
-			{
-				"small": true,
-				"color": "#000",
-				"text": "Thomas Metzinger"
-			}
-		]
+		"coverFile": "thomas_metzinger_the_ego_tunnel.jpg",
+		"title": "The Ego Tunnel",
+		"author": "Thomas Metzinger"
 	},
 	{
-		"background": "#ffc",
-		"lines": [
-			{
-				"small": true,
-				"uppercase": true,
-				"color": "#000",
-				"text": "Evolution, AI, and the Five Breakthroughs That Made Our Brains"
-			},
-			{
-				"uppercase": true,
-				"color": "#000",
-				"text": "A Brief History of Intelligence"
-			},
-			{
-				"small": true,
-				"uppercase": true,
-				"color": "#000",
-				"text": "Max Bennett"
-			}
-		]
+		"coverFile": "max_bennett_a_brief_history_of_intelligence.jpg",
+		"title": "A Brief History of Intelligence",
+		"author": "Max Bennett"
 	},
 	{
-		"background": "#369",
-		"lines": [
-			{
-				"uppercase": true,
-				"textAlign": "left",
-				"color": "#fff",
-				"text": "Global Catastrophic Risks"
-			},
-			{
-				"small": true,
-				"uppercase": true,
-				"color": "#fff",
-				"text": "Nick Bostrom and Milan M. Ćirković"
-			}
-		]
+		"coverFile": "nick_bostrom_milan_m_cirkovic_global_catastrophic_risks.jpg",
+		"title": "Global Catastrophic Risks",
+		"author": "Nick Bostrom and Milan M. Ćirković"
 	},
 	{
-		"background": "#fff",
-		"lines": [
-			{
-				"uppercase": true,
-				"color": "#000",
-				"text": "Behave"
-			},
-			{
-				"uppercase": true,
-				"small": true,
-				"color": "#000",
-				"text": "The Biology of Humans at Our Best and Worst"
-			},
-			{
-				"uppercase": true,
-				"color": "#000",
-				"text": "Robert M. Sapolsky"
-			}
-		]
+		"coverFile": "robert_m_sapolsky_behave.jpg",
+		"title": "Behave",
+		"author": "Robert M. Sapolsky"
 	},
 	{
-		"background": "#036",
-		"lines": [
-			{
-				"uppercase": true,
-				"small": true,
-				"textAlign": "left",
-				"color": "#cc6",
-				"text": "Max Tegmark"
-			},
-			{
-				"uppercase": true,
-				"color": "#fff",
-				"text": "Our Mathematical Universe"
-			},
-			{
-				"uppercase": true,
-				"small": true,
-				"textAlign": "right",
-				"color": "#cc6",
-				"text": "My Quest for the Ultimate Nature of Reality"
-			}
-		]
+		"coverFile": "max_tegmark_our_mathematical_universe.jpg",
+		"title": "Our Mathematical Universe",
+		"author": "Max Tegmark"
 	},
 	{
-		"background": "#633",
-		"lines": [
-			{
-				"uppercase": true,
-				"color": "#fff",
-				"text": "The Order of Time"
-			},
-			{
-				"uppercase": true,
-				"color": "#fff",
-				"text": "Carlo Rovelli"
-			}
-		]
+		"coverFile": "carlo_rovelli_the_order_of_time.jpg",
+		"title": "The Order of Time",
+		"author": "Carlo Rovelli"
 	},
 	{
-		"background": "#336",
-		"lines": [
-			{
-				"uppercase": true,
-				"color": "#fff",
-				"text": "Life 3.0"
-			},
-			{
-				"uppercase": true,
-				"small": true,
-				"color": "#fff",
-				"text": "Being Human in the Age of Artificial Intelligence"
-			},
-			{
-				"uppercase": true,
-				"small": true,
-				"color": "#fff",
-				"text": "Max Tegmark"
-			}
-		]
+		"coverFile": "max_tegmark_life_3_0.jpg",
+		"title": "Life 3.0",
+		"author": "Max Tegmark"
 	},
 	{
-		"background": "#033",
-		"lines": [
-			{
-				"uppercase": true,
-				"color": "#fff",
-				"text": "Alien Information Theory"
-			},
-			{
-				"small": true,
-				"color": "#fff",
-				"text": "Psychedelic Drug Technologies and the Cosmic Game"
-			},
-			{
-				"uppercase": true,
-				"small": true,
-				"color": "#fff",
-				"text": "Andrew R. Gallimore"
-			}
-		]
+		"coverFile": "andrew_r_gallimore_alien_information_theory.jpg",
+		"title": "Alien Information Theory",
+		"author": "Andrew R. Gallimore"
 	},
 	{
-		"background": "#c33",
-		"lines": [
-			{
-				"uppercase": true,
-				"textAlign": "left",
-				"color": "#fff",
-				"text": "Complexity"
-			},
-			{
-				"uppercase": true,
-				"small": true,
-				"textAlign": "left",
-				"color": "#000",
-				"background": "#fff",
-				"text": "The Emerging Science at the Edge of Order and Chaos"
-			},
-			{
-				"uppercase": true,
-				"small": true,
-				"textAlign": "left",
-				"color": "#c33",
-				"background": "#fff",
-				"text": "M. Mitchell Waldrop"
-			}
-		]
+		"coverFile": "m_mitchell_waldrop_complexity.jpg",
+		"title": "Complexity",
+		"author": "M. Mitchell Waldrop"
 	},
 	{
-		"background": "#ffc",
-		"lines": [
-			{
-				"textAlign": "right",
-				"color": "#000",
-				"text": "The Man from the Future"
-			},
-			{
-				"small": true,
-				"color": "#000",
-				"text": "The Visionary Ideas of John von Neumann"
-			},
-			{
-				"textAlign": "left",
-				"color": "#000",
-				"text": "Ananyo Bhattacharya"
-			}
-		]
+		"coverFile": "ananyo_bhattacharya_the_man_from_the_future.jpg",
+		"title": "The Man from the Future",
+		"author": "Ananyo Bhattacharya"
 	},
 	{
-		"background": "#fff",
-		"lines": [
-			{
-				"uppercase": true,
-				"color": "#633",
-				"text": "Richard Dawkins"
-			},
-			{
-				"uppercase": true,
-				"color": "#000",
-				"text": "The Selfish Gene"
-			}
-		]
+		"coverFile": "richard_dawkins_the_selfish_gene.jpg",
+		"title": "The Selfish Gene",
+		"author": "Richard Dawkins"
 	},
 	{
-		"background": "#fc6",
-		"lines": [
-			{
-				"uppercase": true,
-				"small": true,
-				"color": "#336",
-				"text": "Rick Hanson, Ph.D. with Richard Mendius, MD"
-			},
-			{
-				"color": "#fff",
-				"background": "#366",
-				"text": "Buddha's Brain"
-			},
-			{
-				"small": true,
-				"color": "#336",
-				"text": "The Practical Neuroscience of Happiness, Love & Wisdom"
-			}
-		]
+		"coverFile": "rick_hanson_buddhas_brain.jpg",
+		"title": "Buddha's Brain",
+		"author": "Rick Hanson, Ph.D. with Richard Mendius, MD"
 	},
 	{
-		"background": "#cc9",
-		"lines": [
-			{
-				"uppercase": true,
-				"small": true,
-				"color": "#fff",
-				"text": "Thomas Metzinger"
-			},
-			{
-				"uppercase": true,
-				"color": "#fff",
-				"background": "#996",
-				"text": "Being No One"
-			},
-			{
-				"uppercase": true,
-				"small": true,
-				"color": "#fff",
-				"text": "The Self-Model Theory of Subjectivity"
-			}
-		]
+		"coverFile": "thomas_metzinger_being_no_one.jpg",
+		"title": "Being No One",
+		"author": "Thomas Metzinger"
 	},
 	{
-		"background": "#fc9",
-		"lines": [
-			{
-				"color": "#630",
-				"text": "The Most Human Human"
-			},
-			{
-				"small": true,
-				"color": "#000",
-				"text": "What Talking with Computers Teaches Us About What It Means to Be Alive"
-			},
-			{
-				"small": true,
-				"color": "#630",
-				"text": "Brian Christian"
-			}
-		]
+		"coverFile": "brian_christian_the_most_human_human.jpg",
+		"title": "The Most Human Human",
+		"author": "Brian Christian"
 	},
 	{
-		"background": "#000",
-		"lines": [
-			{
-				"uppercase": true,
-				"color": "#fff",
-				"text": "Robert M. Sapolsky"
-			},
-			{
-				"color": "#fff",
-				"text": "Determined"
-			},
-			{
-				"small": true,
-				"uppercase": true,
-				"color": "#fff",
-				"text": "A Science of Life without Free Will"
-			}
-		]
+		"coverFile": "robert_m_sapolsky_determined.jpg",
+		"title": "Determined",
+		"author": "Robert M. Sapolsky"
 	},
 	{
-		"background": "#fff",
-		"lines": [
-			{
-				"color": "#933",
-				"text": "Monkeyluv"
-			},
-			{
-				"small": true,
-				"uppercase": true,
-				"color": "#000",
-				"text": "And Other Essays on Our Lives as Animals"
-			},
-			{
-				"uppercase": true,
-				"color": "#000",
-				"text": "Robert M. Sapolsky"
-			}
-		]
+		"coverFile": "robert_m_sapolsky_monkeyluv.jpg",
+		"title": "Monkeyluv",
+		"author": "Robert M. Sapolsky"
 	},
 	{
-		"background": "#cc6",
-		"lines": [
-			{
-				"uppercase": true,
-				"color": "#000",
-				"background": "#ffc",
-				"text": "Aldous Huxley"
-			},
-			{
-				"small": true,
-				"uppercase": true,
-				"color": "#000",
-				"background": "#ffc",
-				"text": "The Doors of Perception"
-			},
-			{
-				"small": true,
-				"uppercase": true,
-				"color": "#000",
-				"background": "#ffc",
-				"text": "Heaven and Hell"
-			}
-		]
+		"coverFile": "aldous_huxley_the_doors_of_perception.jpg",
+		"title": "The Doors of Perception",
+		"author": "Aldous Huxley"
 	},
 	{
-		"background": "#396",
-		"lines": [
-			{
-				"color": "#fff",
-				"text": "Nuclear War"
-			},
-			{
-				"color": "#fff",
-				"text": "Annie Jacobsen"
-			}
-		]
+		"coverFile": "annie_jacobsen_nuclear_war.jpg",
+		"title": "Nuclear War",
+		"author": "Annie Jacobsen"
 	},
 	{
-		"background": "#f33",
-		"lines": [
-			{
-				"uppercase": true,
-				"color": "#000",
-				"text": "Annie Jacobsen"
-			},
-			{
-				"uppercase": true,
-				"color": "#000",
-				"text": "Operation Paperclip"
-			},
-			{
-				"uppercase": true,
-				"small": true,
-				"textAlign": "left",
-				"color": "#000",
-				"text": "The Secret Intelligence Program That Brought Nazi Scientists to America"
-			}
-		]
+		"coverFile": "annie_jacobsen_operation_paperclip.jpg",
+		"title": "Operation Paperclip",
+		"author": "Annie Jacobsen"
 	},
 	{
-		"background": "#000",
-		"lines": [
-			{
-				"uppercase": true,
-				"color": "#fff",
-				"text": "Billions & Billions"
-			},
-			{
-				"small": true,
-				"color": "#000",
-				"background": "#fff",
-				"text": "Thoughts on Life and Death at the Brink of the Millennium"
-			},
-			{
-				"uppercase": true,
-				"color": "#000",
-				"background": "#fff",
-				"text": "Carl Sagan"
-			}
-		]
+		"coverFile": "carl_sagan_billions_and_billions.jpg",
+		"title": "Billions & Billions",
+		"author": "Carl Sagan"
 	},
 	{
-		"background": "#000",
-		"lines": [
-			{
-				"uppercase": true,
-				"color": "#c63",
-				"background": "#fff",
-				"text": "Carl Sagan"
-			},
-			{
-				"uppercase": true,
-				"color": "#930",
-				"background": "#c63",
-				"text": "The Demon-Haunted World"
-			},
-			{
-				"uppercase": true,
-				"color": "#c63",
-				"text": "Science as a Candle in the Dark"
-			}
-		]
+		"coverFile": "carl_sagan_the_demon_haunted_world.jpg",
+		"title": "The Demon-Haunted World",
+		"author": "Carl Sagan"
 	},
 	{
-		"background": "#399",
-		"lines": [
-			{
-				"uppercase": true,
-				"color": "#cc6",
-				"text": "Lisa Randall"
-			},
-			{
-				"uppercase": true,
-				"color": "#000",
-				"text": "Dark Matter and the Dinosaurs"
-			},
-			{
-				"uppercase": true,
-				"small": true,
-				"color": "#fff",
-				"text": "The Astounding Interconnectedness of the Universe"
-			}
-		]
+		"coverFile": "lisa_randall_dark_matter_and_the_dinosaurs.jpg",
+		"title": "Dark Matter and the Dinosaurs",
+		"author": "Lisa Randall"
 	},
 	{
-		"background": "#996",
-		"lines": [
-			{
-				"small": true,
-				"textAlign": "left",
-				"color": "#fff",
-				"text": "Stories of Personal Triumph from the Frontiers of Brain Science"
-			},
-			{
-				"textAlign": "left",
-				"color": "#fff",
-				"text": "The Brain That Changes Itself"
-			},
-			{
-				"small": true,
-				"textAlign": "left",
-				"color": "#fff",
-				"text": "Norman Doidge, M.D."
-			}
-		]
+		"coverFile": "norman_doidge_the_brain_that_changes_itself.jpg",
+		"title": "The Brain That Changes Itself",
+		"author": "Norman Doidge, M.D."
 	}
 ]
