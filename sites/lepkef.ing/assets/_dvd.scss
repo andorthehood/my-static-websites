@@ -5,7 +5,9 @@
 	pointer-events: none;
 	user-select: none;
 	width: 200px;
-	height: 89px;
+	height: 86px;
+	display: block;
+	opacity: 0.25;
 }
 
 @media(max-width:700px) {
