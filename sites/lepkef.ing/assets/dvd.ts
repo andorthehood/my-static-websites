@@ -5,7 +5,7 @@
     let dx = 2;
     let dy = 1.5;
     let frameCount = 0;
-    const TARGET_FRAMES = 3600; // 1 minute at 60fps
+    const TARGET_FRAMES = 3600 * 1.5; // 1.5 minutes at 60fps
 
     function traceBackFromBottomLeftCorner(targetFrames) {
         const rect = dvdLogo.getBoundingClientRect();
