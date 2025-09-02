@@ -1,179 +1,268 @@
+/// Represents the state of JavaScript parsing
+struct JsParseState {
+    in_string: bool,
+    string_delimiter: char,
+    in_template_literal: bool,
+    in_single_line_comment: bool,
+    in_multi_line_comment: bool,
+    in_regex: bool,
+}
+
+impl JsParseState {
+    fn new() -> Self {
+        Self {
+            in_string: false,
+            string_delimiter: '\0',
+            in_template_literal: false,
+            in_single_line_comment: false,
+            in_multi_line_comment: false,
+            in_regex: false,
+        }
+    }
+
+    fn is_in_any_string(&self) -> bool {
+        self.in_string || self.in_template_literal || self.in_regex
+    }
+
+
+}
+
+/// Handles single-line comment processing
+fn handle_single_line_comments(
+    ch: char,
+    chars: &mut std::iter::Peekable<std::str::Chars>,
+    state: &mut JsParseState,
+    result: &mut String,
+) -> bool {
+    if !state.is_in_any_string() && !state.in_multi_line_comment && ch == '/' 
+        && chars.peek() == Some(&'/') {
+        chars.next(); // consume the second '/'
+        state.in_single_line_comment = true;
+        return true;
+    }
+
+    // End single-line comment on newline
+    if state.in_single_line_comment && ch == '\n' {
+        state.in_single_line_comment = false;
+        // Add a newline to preserve potential ASI (Automatic Semicolon Insertion)
+        if !result.is_empty() {
+            let last_char = result.chars().last().unwrap_or('\0');
+            if !matches!(last_char, ';' | '{' | '}') {
+                result.push('\n');
+            }
+        }
+        return true;
+    }
+
+    // Skip single-line comment content
+    state.in_single_line_comment
+}
+
+/// Handles multi-line comment processing
+fn handle_multi_line_comments(
+    ch: char,
+    chars: &mut std::iter::Peekable<std::str::Chars>,
+    state: &mut JsParseState,
+) -> bool {
+    if !state.is_in_any_string() && !state.in_multi_line_comment && ch == '/'
+        && chars.peek() == Some(&'*') {
+        chars.next(); // consume the '*'
+        state.in_multi_line_comment = true;
+        return true;
+    }
+
+    // End multi-line comment
+    if state.in_multi_line_comment && ch == '*' && chars.peek() == Some(&'/') {
+        chars.next(); // consume the '/'
+        state.in_multi_line_comment = false;
+        return true;
+    }
+
+    // Skip multi-line comment content
+    state.in_multi_line_comment
+}
+
+/// Handles template literal processing
+fn handle_template_literals(
+    ch: char,
+    prev_char: char,
+    state: &mut JsParseState,
+    result: &mut String,
+) -> bool {
+    if !state.in_string && !state.in_regex && ch == '`' {
+        if !state.in_template_literal {
+            state.in_template_literal = true;
+        } else if prev_char != '\\' {
+            state.in_template_literal = false;
+        }
+        result.push(ch);
+        return true;
+    }
+    false
+}
+
+/// Handles string literal processing
+fn handle_string_literals(
+    ch: char,
+    prev_char: char,
+    state: &mut JsParseState,
+    result: &mut String,
+) -> bool {
+    if !state.in_template_literal && !state.in_regex && matches!(ch, '"' | '\'') {
+        if !state.in_string {
+            state.in_string = true;
+            state.string_delimiter = ch;
+        } else if ch == state.string_delimiter && prev_char != '\\' {
+            state.in_string = false;
+            state.string_delimiter = '\0';
+        }
+        result.push(ch);
+        return true;
+    }
+    false
+}
+
+/// Checks if the current context could start a regex literal
+fn could_be_regex_context(prev_non_whitespace: char, result: &str) -> bool {
+    matches!(
+        prev_non_whitespace,
+        '=' | '(' | '[' | '{' | ';' | ':' | '!' | '&' | '|' | '?' | '+' | '-' | '*' | '/' | '%' | '^' | '~' | '<' | '>' | ','
+    ) || result.ends_with("return")
+        || result.ends_with("throw")
+        || result.ends_with("case")
+        || result.ends_with("in ")
+        || result.ends_with("of ")
+        || result.ends_with("delete")
+        || result.ends_with("void")
+        || result.ends_with("typeof")
+        || result.ends_with("new")
+        || result.ends_with("instanceof")
+}
+
+/// Handles regex literal processing
+fn handle_regex_literals(
+    ch: char,
+    prev_char: char,
+    prev_non_whitespace: char,
+    state: &mut JsParseState,
+    result: &mut String,
+) -> bool {
+    // Handle regex literals (simplified detection)
+    if !state.is_in_any_string() && !state.in_regex && ch == '/' {
+        if could_be_regex_context(prev_non_whitespace, result) {
+            state.in_regex = true;
+            result.push(ch);
+            return true;
+        }
+    }
+
+    // End regex literal
+    if state.in_regex && ch == '/' && prev_char != '\\' {
+        state.in_regex = false;
+        result.push(ch);
+        return true;
+    }
+
+    false
+}
+
+/// Handles whitespace minification
+fn handle_whitespace(
+    ch: char,
+    chars: &mut std::iter::Peekable<std::str::Chars>,
+    result: &str,
+) -> bool {
+    if ch.is_whitespace() {
+        let next_char = chars.peek().unwrap_or(&'\0');
+
+        if !result.is_empty() {
+            let last_char = result.chars().last().unwrap_or('\0');
+
+            // Preserve space in specific cases where it's needed for JavaScript syntax
+            let needs_space =
+                // Between alphanumeric characters (keywords, identifiers, numbers)
+                (last_char.is_alphanumeric() || last_char == '_' || last_char == '$') &&
+                (next_char.is_alphanumeric() || *next_char == '_' || *next_char == '$') ||
+                // Between operators where space is needed to avoid creating different operators
+                (matches!(last_char, '+' | '-') && *next_char == last_char) ||  // ++ or --
+                (matches!(last_char, '&' | '|') && *next_char == last_char) ||  // && or ||
+                (matches!(last_char, '=' | '!' | '<' | '>') && *next_char == '=') ||  // ==, !=, <=, >=
+                // ASI cases - preserve newlines after certain tokens to prevent issues
+                (ch == '\n' && matches!(last_char, ')' | ']' | '}' | ';') &&
+                 matches!(*next_char, '(' | '[' | '{' | '+' | '-' | '*' | '/' | '%' | 'a'..='z' | 'A'..='Z' | '_' | '$'));
+
+            needs_space
+        } else {
+            false
+        }
+    } else {
+        false
+    }
+}
+
 /// Minifies JavaScript by removing unnecessary whitespace and comments while preserving functionality
 pub fn minify_js(js: &str) -> String {
     let mut result = String::with_capacity(js.len());
     let mut chars = js.chars().peekable();
-    let mut in_string = false;
-    let mut string_delimiter = '\0';
-    let mut in_template_literal = false;
-    let mut in_single_line_comment = false;
-    let mut in_multi_line_comment = false;
-    let mut in_regex = false;
+    let mut state = JsParseState::new();
     let mut prev_char = '\0';
     let mut prev_non_whitespace = '\0';
 
     while let Some(ch) = chars.next() {
         // Handle single-line comments
-        if !in_string && !in_template_literal && !in_regex && !in_multi_line_comment && ch == '/'
-            && chars.peek() == Some(&'/') {
-                chars.next(); // consume the second '/'
-                in_single_line_comment = true;
-                continue;
-            }
-
-        // End single-line comment on newline
-        if in_single_line_comment && ch == '\n' {
-            in_single_line_comment = false;
-            // Add a newline to preserve potential ASI (Automatic Semicolon Insertion)
-            if !result.is_empty() {
-                let last_char = result.chars().last().unwrap_or('\0');
-                if !matches!(last_char, ';' | '{' | '}') {
-                    result.push('\n');
-                }
-            }
-            continue;
-        }
-
-        // Skip single-line comment content
-        if in_single_line_comment {
+        if handle_single_line_comments(ch, &mut chars, &mut state, &mut result) {
+            prev_char = ch;
             continue;
         }
 
         // Handle multi-line comments
-        if !in_string && !in_template_literal && !in_regex && !in_multi_line_comment && ch == '/'
-            && chars.peek() == Some(&'*') {
-                chars.next(); // consume the '*'
-                in_multi_line_comment = true;
-                continue;
-            }
-
-        // End multi-line comment
-        if in_multi_line_comment && ch == '*'
-            && chars.peek() == Some(&'/') {
-                chars.next(); // consume the '/'
-                in_multi_line_comment = false;
-                continue;
-            }
-
-        // Skip multi-line comment content
-        if in_multi_line_comment {
+        if handle_multi_line_comments(ch, &mut chars, &mut state) {
+            prev_char = ch;
             continue;
         }
 
         // Handle template literals
-        if !in_string && !in_regex && ch == '`' {
-            if !in_template_literal {
-                in_template_literal = true;
-            } else if prev_char != '\\' {
-                in_template_literal = false;
-            }
-            result.push(ch);
+        if handle_template_literals(ch, prev_char, &mut state, &mut result) {
             prev_char = ch;
             continue;
         }
 
         // Handle string literals
-        if !in_template_literal && !in_regex && (ch == '"' || ch == '\'') {
-            if !in_string {
-                in_string = true;
-                string_delimiter = ch;
-            } else if ch == string_delimiter && prev_char != '\\' {
-                in_string = false;
-                string_delimiter = '\0';
-            }
-            result.push(ch);
+        if handle_string_literals(ch, prev_char, &mut state, &mut result) {
             prev_char = ch;
             continue;
         }
 
-        // Handle regex literals (simplified detection)
-        if !in_string && !in_template_literal && !in_regex && ch == '/' {
-            // Check if this could be the start of a regex
-            // Regex typically follows: =, (, [, {, ;, :, !, &, |, ?, +, -, *, /, %, ^, ~, <, >, ,
-            // or keywords like return, throw, case, in, of, delete, void, typeof, new, instanceof
-            let could_be_regex = matches!(
-                prev_non_whitespace,
-                '=' | '('
-                    | '['
-                    | '{'
-                    | ';'
-                    | ':'
-                    | '!'
-                    | '&'
-                    | '|'
-                    | '?'
-                    | '+'
-                    | '-'
-                    | '*'
-                    | '/'
-                    | '%'
-                    | '^'
-                    | '~'
-                    | '<'
-                    | '>'
-                    | ','
-            ) || result.ends_with("return")
-                || result.ends_with("throw")
-                || result.ends_with("case")
-                || result.ends_with("in ")
-                || result.ends_with("of ")
-                || result.ends_with("delete")
-                || result.ends_with("void")
-                || result.ends_with("typeof")
-                || result.ends_with("new")
-                || result.ends_with("instanceof");
-
-            if could_be_regex {
-                in_regex = true;
-                result.push(ch);
-                prev_char = ch;
-                continue;
-            }
-        }
-
-        // End regex literal
-        if in_regex && ch == '/' && prev_char != '\\' {
-            in_regex = false;
-            result.push(ch);
+        // Handle regex literals
+        if handle_regex_literals(ch, prev_char, prev_non_whitespace, &mut state, &mut result) {
             prev_char = ch;
             continue;
         }
 
         // Preserve content inside strings, template literals, and regex
-        if in_string || in_template_literal || in_regex {
+        if state.is_in_any_string() {
             result.push(ch);
             prev_char = ch;
             continue;
         }
 
         // Handle whitespace - skip unnecessary whitespace
-        if ch.is_whitespace() {
-            let next_char = chars.peek().unwrap_or(&'\0');
-
-            if !result.is_empty() {
+        if handle_whitespace(ch, &mut chars, &result) {
+            if ch == '\n' && !result.is_empty() {
                 let last_char = result.chars().last().unwrap_or('\0');
-
-                // Preserve space in specific cases where it's needed for JavaScript syntax
-                let needs_space =
-                    // Between alphanumeric characters (keywords, identifiers, numbers)
-                    (last_char.is_alphanumeric() || last_char == '_' || last_char == '$') &&
-                    (next_char.is_alphanumeric() || *next_char == '_' || *next_char == '$') ||
-                    // Between operators where space is needed to avoid creating different operators
-                    (matches!(last_char, '+' | '-') && *next_char == last_char) ||  // ++ or --
-                    (matches!(last_char, '&' | '|') && *next_char == last_char) ||  // && or ||
-                    (matches!(last_char, '=' | '!' | '<' | '>') && *next_char == '=') ||  // ==, !=, <=, >=
-                    // ASI cases - preserve newlines after certain tokens to prevent issues
-                    (ch == '\n' && matches!(last_char, ')' | ']' | '}' | ';') &&
-                     matches!(*next_char, '(' | '[' | '{' | '+' | '-' | '*' | '/' | '%' | 'a'..='z' | 'A'..='Z' | '_' | '$'));
-
-                if needs_space {
-                    if ch == '\n' && matches!(last_char, ')' | ']' | '}' | ';') {
-                        result.push('\n');
-                    } else {
-                        result.push(' ');
-                    }
+                if matches!(last_char, ')' | ']' | '}' | ';') {
+                    result.push('\n');
+                } else {
+                    result.push(' ');
                 }
+            } else {
+                result.push(' ');
             }
+            prev_char = ch;
+            continue;
+        }
 
+        if ch.is_whitespace() {
             prev_char = ch;
             continue;
         }
