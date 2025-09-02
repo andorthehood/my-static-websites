@@ -1,186 +1,273 @@
+/// Represents the state of HTML parsing
+struct HtmlParseState {
+    in_tag: bool,
+    in_script: bool,
+    in_style: bool,
+    in_pre: bool,
+    in_textarea: bool,
+    in_string: bool,
+    string_delimiter: char,
+    in_comment: bool,
+    tag_name: String,
+    collecting_tag_name: bool,
+}
+
+impl HtmlParseState {
+    fn new() -> Self {
+        Self {
+            in_tag: false,
+            in_script: false,
+            in_style: false,
+            in_pre: false,
+            in_textarea: false,
+            in_string: false,
+            string_delimiter: '\0',
+            in_comment: false,
+            tag_name: String::new(),
+            collecting_tag_name: false,
+        }
+    }
+
+    fn is_in_special_content(&self) -> bool {
+        self.in_script || self.in_style || self.in_pre || self.in_textarea
+    }
+}
+
+/// Handles HTML comment detection and processing
+fn handle_html_comments(
+    ch: char,
+    chars: &mut std::iter::Peekable<std::str::Chars>,
+    state: &mut HtmlParseState,
+    result: &mut String,
+) -> bool {
+    match ch {
+        '<' if !state.in_string => {
+            if chars.peek() == Some(&'!') {
+                // Look ahead to see if this is a comment
+                let mut lookahead = chars.clone();
+                lookahead.next(); // consume '!'
+                if lookahead.next() == Some('-') && lookahead.next() == Some('-') {
+                    // This is a comment, skip it entirely
+                    chars.next(); // consume '!'
+                    chars.next(); // consume first '-'
+                    chars.next(); // consume second '-'
+                    state.in_comment = true;
+                    return true;
+                }
+            }
+
+            if !state.in_comment {
+                state.in_tag = true;
+                state.collecting_tag_name = true;
+                state.tag_name.clear();
+                result.push(ch);
+            }
+            true
+        }
+        '-' if state.in_comment => {
+            if chars.peek() == Some(&'-') {
+                chars.next(); // consume second '-'
+                if chars.peek() == Some(&'>') {
+                    chars.next(); // consume '>'
+                    state.in_comment = false;
+                }
+            }
+            true // Don't add comment content to result
+        }
+        _ if state.in_comment => true, // Skip comment content
+        _ => false,
+    }
+}
+
+/// Updates special content area flags based on tag names
+fn update_special_content_flags(state: &mut HtmlParseState) {
+    let tag_lower = state.tag_name.to_lowercase();
+    match tag_lower.as_str() {
+        "script" => state.in_script = true,
+        "style" => state.in_style = true,
+        "pre" | "code" => state.in_pre = true,
+        "textarea" => state.in_textarea = true,
+        _ => {}
+    }
+
+    // Check for closing tags
+    if let Some(stripped) = state.tag_name.strip_prefix('/') {
+        let closing_tag = stripped.to_lowercase();
+        match closing_tag.as_str() {
+            "script" => state.in_script = false,
+            "style" => state.in_style = false,
+            "pre" | "code" => state.in_pre = false,
+            "textarea" => state.in_textarea = false,
+            _ => {}
+        }
+    }
+}
+
+/// Handles tag processing
+fn handle_tags(
+    ch: char,
+    state: &mut HtmlParseState,
+    result: &mut String,
+) -> bool {
+    match ch {
+        '>' if state.in_tag && !state.in_string && !state.in_comment => {
+            result.push(ch);
+            update_special_content_flags(state);
+            state.in_tag = false;
+            state.collecting_tag_name = false;
+            true
+        }
+        _ if state.collecting_tag_name && !ch.is_whitespace() && ch != '>' => {
+            if ch.is_alphabetic() || ch == '/' {
+                state.tag_name.push(ch);
+            } else {
+                state.collecting_tag_name = false;
+            }
+            result.push(ch);
+            true
+        }
+        _ => false,
+    }
+}
+
+/// Handles string literals within tags
+fn handle_tag_strings(
+    ch: char,
+    prev_char: char,
+    state: &mut HtmlParseState,
+    result: &mut String,
+) -> bool {
+    if matches!(ch, '"' | '\'') && state.in_tag && !state.in_comment {
+        if !state.in_string {
+            state.in_string = true;
+            state.string_delimiter = ch;
+        } else if ch == state.string_delimiter && prev_char != '\\' {
+            state.in_string = false;
+            state.string_delimiter = '\0';
+        }
+        result.push(ch);
+        return true;
+    }
+    false
+}
+
+/// Checks if a character is content (text, emoji, unicode, etc.)
+fn is_content_char(c: char) -> bool {
+    c.is_alphanumeric() || c.len_utf8() > 1 || c.is_alphabetic()
+}
+
+/// Handles whitespace minification outside of tags
+fn handle_content_whitespace(
+    chars: &mut std::iter::Peekable<std::str::Chars>,
+    state: &HtmlParseState,
+    result: &mut String,
+) -> bool {
+    if !state.in_tag && !state.is_in_special_content() {
+        // Skip consecutive whitespace
+        while chars.peek().is_some_and(|c| c.is_whitespace()) {
+            chars.next();
+        }
+
+        let next_char = chars.peek().unwrap_or(&'\0');
+
+        if !result.is_empty() {
+            let last_char = result.chars().last().unwrap_or('\0');
+
+            // Preserve space between:
+            // - content characters (words, emojis, unicode)
+            // - after punctuation (comma, period, etc.) and before content
+            // - content and tags
+            let should_preserve_space = (is_content_char(last_char)
+                && is_content_char(*next_char))
+                || (is_content_char(last_char) && *next_char == '<')
+                || (last_char == '>' && is_content_char(*next_char))
+                || (matches!(last_char, ',' | '.' | ';' | ':' | '!' | '?')
+                    && is_content_char(*next_char));
+
+            if should_preserve_space {
+                result.push(' ');
+            }
+        }
+        return true;
+    }
+    false
+}
+
+/// Handles whitespace inside tags
+fn handle_tag_whitespace(
+    chars: &mut std::iter::Peekable<std::str::Chars>,
+    state: &mut HtmlParseState,
+    result: &mut String,
+) -> bool {
+    if state.in_tag && !state.in_string {
+        // Whitespace after the tag name means we've finished collecting it
+        state.collecting_tag_name = false;
+        let next_char = chars.peek().unwrap_or(&'\0');
+
+        if !result.is_empty() {
+            let last_char = result.chars().last().unwrap_or('\0');
+
+            // Preserve single space between attributes
+            if !last_char.is_whitespace() && !next_char.is_whitespace() && *next_char != '>' {
+                result.push(' ');
+            }
+        }
+        return true;
+    }
+    false
+}
+
 /// Minifies HTML by removing unnecessary whitespace while preserving functionality
 pub fn minify_html(html: &str) -> String {
     let mut result = String::with_capacity(html.len());
     let mut chars = html.chars().peekable();
-    let mut in_tag = false;
-    let mut in_script = false;
-    let mut in_style = false;
-    let mut in_pre = false;
-    let mut in_textarea = false;
-    let mut in_string = false;
-    let mut string_delimiter = '\0';
-    let mut in_comment = false;
+    let mut state = HtmlParseState::new();
     let mut prev_char = '\0';
-    let mut tag_name = String::new();
-    let mut collecting_tag_name = false;
 
     while let Some(ch) = chars.next() {
-        match ch {
-            // Handle HTML comments <!-- ... -->
-            '<' if !in_string => {
-                if chars.peek() == Some(&'!') {
-                    // Look ahead to see if this is a comment
-                    let mut lookahead = chars.clone();
-                    lookahead.next(); // consume '!'
-                    if lookahead.next() == Some('-') && lookahead.next() == Some('-') {
-                        // This is a comment, skip it entirely
-                        chars.next(); // consume '!'
-                        chars.next(); // consume first '-'
-                        chars.next(); // consume second '-'
-                        in_comment = true;
-                        continue;
-                    }
-                }
+        // Handle HTML comments first
+        if handle_html_comments(ch, &mut chars, &mut state, &mut result) {
+            prev_char = ch;
+            continue;
+        }
 
-                if !in_comment {
-                    in_tag = true;
-                    collecting_tag_name = true;
-                    tag_name.clear();
-                    result.push(ch);
-                }
+        // Handle tags
+        if handle_tags(ch, &mut state, &mut result) {
+            prev_char = ch;
+            continue;
+        }
+
+        // Handle string literals within tags
+        if handle_tag_strings(ch, prev_char, &mut state, &mut result) {
+            prev_char = ch;
+            continue;
+        }
+
+        // Preserve content inside special areas
+        if state.is_in_special_content() || state.in_string {
+            result.push(ch);
+            prev_char = ch;
+            continue;
+        }
+
+        // Handle whitespace
+        if ch.is_whitespace() {
+            if handle_content_whitespace(&mut chars, &state, &mut result) {
+                prev_char = ch;
+                continue;
             }
-
-            // End HTML comment
-            '-' if in_comment => {
-                if chars.peek() == Some(&'-') {
-                    chars.next(); // consume second '-'
-                    if chars.peek() == Some(&'>') {
-                        chars.next(); // consume '>'
-                        in_comment = false;
-                    }
-                }
-                // Don't add comment content to result
+            if handle_tag_whitespace(&mut chars, &mut state, &mut result) {
+                prev_char = ch;
+                continue;
             }
+        }
 
-            // Skip comment content
-            _ if in_comment => {
-                // Do nothing, skip comment content
+        // Handle other characters
+        if !state.in_comment {
+            if state.collecting_tag_name && !ch.is_alphabetic() && ch != '/' {
+                state.collecting_tag_name = false;
             }
-
-            // Handle end of tag
-            '>' if in_tag && !in_string && !in_comment => {
-                result.push(ch);
-
-                // Check if we're entering special content areas
-                let tag_lower = tag_name.to_lowercase();
-                match tag_lower.as_str() {
-                    "script" => in_script = true,
-                    "style" => in_style = true,
-                    "pre" | "code" => in_pre = true,
-                    "textarea" => in_textarea = true,
-                    _ => {}
-                }
-
-                // Check for closing tags
-                if let Some(stripped) = tag_name.strip_prefix('/') {
-                    let closing_tag = stripped.to_lowercase();
-                    match closing_tag.as_str() {
-                        "script" => in_script = false,
-                        "style" => in_style = false,
-                        "pre" | "code" => in_pre = false,
-                        "textarea" => in_textarea = false,
-                        _ => {}
-                    }
-                }
-
-                in_tag = false;
-                collecting_tag_name = false;
-            }
-
-            // Collect tag names
-            _ if collecting_tag_name && !ch.is_whitespace() && ch != '>' => {
-                if ch.is_alphabetic() || ch == '/' {
-                    tag_name.push(ch);
-                } else {
-                    collecting_tag_name = false;
-                }
-                result.push(ch);
-            }
-
-            // Handle quotes inside tags
-            '"' | '\'' if in_tag && !in_comment => {
-                if !in_string {
-                    in_string = true;
-                    string_delimiter = ch;
-                } else if ch == string_delimiter && prev_char != '\\' {
-                    in_string = false;
-                    string_delimiter = '\0';
-                }
-                result.push(ch);
-            }
-
-            // Preserve content inside script, style, pre, and textarea tags
-            _ if in_script || in_style || in_pre || in_textarea => {
-                result.push(ch);
-            }
-
-            // Preserve content inside strings
-            _ if in_string => {
-                result.push(ch);
-            }
-
-            // Handle whitespace - the main minification logic
-            ' ' | '\t' | '\r' | '\n'
-                if !in_tag && !in_script && !in_style && !in_pre && !in_textarea =>
-            {
-                // Skip consecutive whitespace
-                while chars.peek().is_some_and(|c| c.is_whitespace()) {
-                    chars.next();
-                }
-
-                let next_char = chars.peek().unwrap_or(&'\0');
-
-                if !result.is_empty() {
-                    let last_char = result.chars().last().unwrap_or('\0');
-
-                    // Helper function to check if a character is "content" (text, emoji, unicode, etc.)
-                    let is_content_char =
-                        |c: char| c.is_alphanumeric() || c.len_utf8() > 1 || c.is_alphabetic();
-
-                    // Preserve space between:
-                    // - content characters (words, emojis, unicode)
-                    // - after punctuation (comma, period, etc.) and before content
-                    // - content and tags
-                    let should_preserve_space = (is_content_char(last_char)
-                        && is_content_char(*next_char))
-                        || (is_content_char(last_char) && *next_char == '<')
-                        || (last_char == '>' && is_content_char(*next_char))
-                        || (matches!(last_char, ',' | '.' | ';' | ':' | '!' | '?')
-                            && is_content_char(*next_char));
-
-                    if should_preserve_space {
-                        result.push(' ');
-                    }
-                }
-            }
-
-            // Handle whitespace inside tags - preserve single spaces
-            ' ' | '\t' | '\r' | '\n' if in_tag && !in_string => {
-                // Whitespace after the tag name means we've finished collecting it
-                collecting_tag_name = false;
-                let next_char = chars.peek().unwrap_or(&'\0');
-
-                if !result.is_empty() {
-                    let last_char = result.chars().last().unwrap_or('\0');
-
-                    // Preserve single space between attributes
-                    if !last_char.is_whitespace() && !next_char.is_whitespace() && *next_char != '>'
-                    {
-                        result.push(' ');
-                    }
-                }
-            }
-
-            // Handle other characters
-            _ if !in_comment => {
-                if collecting_tag_name && !ch.is_alphabetic() && ch != '/' {
-                    collecting_tag_name = false;
-                }
-                result.push(ch);
-            }
-
-            // Skip everything else (comment content)
-            _ => {}
+            result.push(ch);
         }
 
         prev_char = ch;
