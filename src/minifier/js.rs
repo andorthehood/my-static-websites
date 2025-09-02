@@ -1,5 +1,4 @@
 /// Minifies JavaScript by removing unnecessary whitespace and comments while preserving functionality
-#[allow(clippy::too_many_lines)]
 pub fn minify_js(js: &str) -> String {
     let mut result = String::with_capacity(js.len());
     let mut chars = js.chars().peekable();

@@ -1,7 +1,5 @@
 use crate::converters::typescript::utils::{is_identifier_char, push_char_from};
 
-#[allow(clippy::many_single_char_names)]
-#[allow(clippy::too_many_lines)]
 pub fn remove_generics_before_calls(input: &str) -> String {
     let mut out = String::with_capacity(input.len());
     let mut i = 0;
