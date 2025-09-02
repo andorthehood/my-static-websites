@@ -1,143 +1,218 @@
 use crate::converters::typescript::utils::{is_identifier_char, push_char_from};
 
+/// Represents the state of string and comment parsing
+struct ParseState {
+    in_single: bool,
+    in_double: bool,
+    in_backtick: bool,
+    in_line_comment: bool,
+    in_block_comment: bool,
+}
+
+impl ParseState {
+    fn new() -> Self {
+        Self {
+            in_single: false,
+            in_double: false,
+            in_backtick: false,
+            in_line_comment: false,
+            in_block_comment: false,
+        }
+    }
+
+    fn is_in_string(&self) -> bool {
+        self.in_single || self.in_double || self.in_backtick
+    }
+}
+
+/// Handles comment parsing and state updates
+fn handle_comments(
+    input: &str,
+    b: &[u8],
+    len: usize,
+    i: &mut usize,
+    c: char,
+    state: &mut ParseState,
+    out: &mut String,
+) -> bool {
+    // Handle exiting comments
+    if state.in_line_comment {
+        push_char_from(input, i, out);
+        if c == '\n' {
+            state.in_line_comment = false;
+        }
+        return true;
+    }
+    if state.in_block_comment {
+        push_char_from(input, i, out);
+        if c == '*' && *i < len && b[*i] as char == '/' {
+            out.push('/');
+            *i += 1;
+            state.in_block_comment = false;
+        }
+        return true;
+    }
+
+    // Enter comments when not in strings
+    if !state.is_in_string() && c == '/' && *i + 1 < len {
+        let n = b[*i + 1] as char;
+        if n == '/' {
+            state.in_line_comment = true;
+            out.push(c);
+            out.push(n);
+            *i += 2;
+            return true;
+        }
+        if n == '*' {
+            state.in_block_comment = true;
+            out.push(c);
+            out.push(n);
+            *i += 2;
+            return true;
+        }
+    }
+    false
+}
+
+/// Handles string literal parsing and state updates
+fn handle_strings(
+    input: &str,
+    i: &mut usize,
+    c: char,
+    state: &mut ParseState,
+    out: &mut String,
+) -> bool {
+    if !state.in_double && !state.in_backtick && c == '\'' {
+        state.in_single = !state.in_single;
+        push_char_from(input, i, out);
+        return true;
+    }
+    if !state.in_single && !state.in_backtick && c == '"' {
+        state.in_double = !state.in_double;
+        push_char_from(input, i, out);
+        return true;
+    }
+    if !state.in_single && !state.in_double && c == '`' {
+        state.in_backtick = !state.in_backtick;
+        push_char_from(input, i, out);
+        return true;
+    }
+    false
+}
+
+/// Skips whitespace and returns the final position
+fn skip_whitespace(b: &[u8], len: usize, start: usize) -> usize {
+    let mut pos = start;
+    while pos < len && (b[pos] as char).is_ascii_whitespace() {
+        pos += 1;
+    }
+    pos
+}
+
+/// Tries to parse and skip a balanced generic block, returns end position if valid
+fn try_parse_generic_block(b: &[u8], len: usize, start: usize) -> Option<usize> {
+    let mut pos = start;
+    let mut depth = 0;
+    
+    while pos < len {
+        let ch = b[pos] as char;
+        if ch == '<' {
+            depth += 1;
+        } else if ch == '>' {
+            depth -= 1;
+            pos += 1;
+            if depth == 0 {
+                return Some(pos);
+            }
+            continue;
+        }
+        pos += 1;
+    }
+    None
+}
+
+/// Processes identifier and handles generic removal for function calls
+fn handle_identifier(
+    _input: &str,
+    b: &[u8],
+    len: usize,
+    i: &mut usize,
+    c: char,
+    out: &mut String,
+) -> bool {
+    // Detect start of identifier (and ensure previous is not identifier char)
+    if (c.is_ascii_alphabetic() || c == '_' || c == '$')
+        && (*i == 0 || !is_identifier_char(b[*i - 1] as char))
+    {
+        // Read identifier
+        let start_ident = *i;
+        *i += 1;
+        while *i < len && is_identifier_char(b[*i] as char) {
+            *i += 1;
+        }
+        
+        // Copy identifier to output
+        if let Ok(ident_str) = std::str::from_utf8(&b[start_ident..*i]) {
+            out.push_str(ident_str);
+        }
+
+        // Skip whitespace after identifier
+        let j = skip_whitespace(b, len, *i);
+        
+        // If next is '<', try to parse generic and remove it only if next non-space after generic is '('
+        if j < len && b[j] as char == '<' {
+            if let Some(k) = try_parse_generic_block(b, len, j) {
+                // Check if next non-space character is '(' (function call)
+                let m = skip_whitespace(b, len, k);
+                if m < len && b[m] as char == '(' {
+                    // Drop the generic by advancing i to k (after '>')
+                    *i = k;
+                    return true;
+                }
+                // Not a call context, keep original including whitespace
+                if let Ok(orig) = std::str::from_utf8(&b[*i..k]) {
+                    out.push_str(orig);
+                }
+                *i = k;
+                return true;
+            }
+        }
+        return true;
+    }
+    false
+}
+
 pub fn remove_generics_before_calls(input: &str) -> String {
     let mut out = String::with_capacity(input.len());
     let mut i = 0;
     let b = input.as_bytes();
     let len = b.len();
-
-    // Track strings and comments
-    let mut in_single = false;
-    let mut in_double = false;
-    let mut in_backtick = false;
-    let mut in_line_comment = false;
-    let mut in_block_comment = false;
+    let mut state = ParseState::new();
 
     while i < len {
         let c = b[i] as char;
 
-        // Handle exiting comments
-        if in_line_comment {
-            push_char_from(input, &mut i, &mut out);
-            if c == '\n' {
-                in_line_comment = false;
-            }
-            continue;
-        }
-        if in_block_comment {
-            push_char_from(input, &mut i, &mut out);
-            if c == '*' && i < len && b[i] as char == '/' {
-                out.push('/');
-                i += 1;
-                in_block_comment = false;
-            }
+        // Handle comments first
+        if handle_comments(input, b, len, &mut i, c, &mut state, &mut out) {
             continue;
         }
 
-        // Enter comments when not in strings
-        if !in_single && !in_double && !in_backtick
-            && c == '/' && i + 1 < len {
-                let n = b[i + 1] as char;
-                if n == '/' {
-                    in_line_comment = true;
-                    out.push(c);
-                    out.push(n);
-                    i += 2;
-                    continue;
-                }
-                if n == '*' {
-                    in_block_comment = true;
-                    out.push(c);
-                    out.push(n);
-                    i += 2;
-                    continue;
-                }
-            }
-
-        // String toggles
-        if !in_double && !in_backtick && c == '\'' {
-            in_single = !in_single;
-            push_char_from(input, &mut i, &mut out);
-            continue;
-        }
-        if !in_single && !in_backtick && c == '"' {
-            in_double = !in_double;
-            push_char_from(input, &mut i, &mut out);
-            continue;
-        }
-        if !in_single && !in_double && c == '`' {
-            in_backtick = !in_backtick;
-            push_char_from(input, &mut i, &mut out);
+        // Handle strings
+        if handle_strings(input, &mut i, c, &mut state, &mut out) {
             continue;
         }
 
         // If inside strings, just copy
-        if in_single || in_double || in_backtick {
+        if state.is_in_string() {
             push_char_from(input, &mut i, &mut out);
             continue;
         }
 
-        // Detect start of identifier (and ensure previous is not identifier char)
-        if (c.is_ascii_alphabetic() || c == '_' || c == '$')
-            && (i == 0 || !is_identifier_char(b[i - 1] as char))
-        {
-            // Read identifier
-            let start_ident = i;
-            i += 1;
-            while i < len && is_identifier_char(b[i] as char) {
-                i += 1;
-            }
-            // Copy identifier to output
-            if let Ok(ident_str) = std::str::from_utf8(&b[start_ident..i]) {
-                out.push_str(ident_str);
-            }
-
-            // Skip whitespace
-            let mut j = i;
-            while j < len && (b[j] as char).is_ascii_whitespace() {
-                j += 1;
-            }
-            // If next is '<', try to parse generic and remove it only if next non-space after generic is '('
-            if j < len && b[j] as char == '<' {
-                let mut k = j;
-                let mut depth = 0;
-                let mut valid = false;
-                while k < len {
-                    let ch2 = b[k] as char;
-                    if ch2 == '<' {
-                        depth += 1;
-                    } else if ch2 == '>' {
-                        depth -= 1;
-                        if depth == 0 {
-                            k += 1;
-                            valid = true;
-                            break;
-                        }
-                    }
-                    k += 1;
-                }
-                if valid {
-                    // Check next non-space
-                    let mut m = k;
-                    while m < len && (b[m] as char).is_ascii_whitespace() {
-                        m += 1;
-                    }
-                    if m < len && b[m] as char == '(' {
-                        // Drop the generic by advancing i to k (after '>')
-                        i = k;
-                        continue;
-                    }
-                    // Not a call context, keep original including whitespace
-                    if let Ok(orig) = std::str::from_utf8(&b[i..k]) {
-                        out.push_str(orig);
-                    }
-                    i = k;
-                    continue;
-                }
-                // If not valid generic, fall through
-            }
+        // Handle identifiers with potential generics
+        if handle_identifier(input, b, len, &mut i, c, &mut out) {
             continue;
         }
+
         push_char_from(input, &mut i, &mut out);
     }
 
