@@ -1,5 +1,4 @@
 /// Minifies HTML by removing unnecessary whitespace while preserving functionality
-#[allow(clippy::too_many_lines)]
 pub fn minify_html(html: &str) -> String {
     let mut result = String::with_capacity(html.len());
     let mut chars = html.chars().peekable();

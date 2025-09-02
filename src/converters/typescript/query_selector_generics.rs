@@ -1,6 +1,5 @@
 use crate::converters::typescript::utils::push_char_from;
 
-#[allow(clippy::too_many_lines)]
 pub fn remove_query_selector_generics(input: &str) -> String {
     let mut out = String::with_capacity(input.len());
     let mut i = 0;
