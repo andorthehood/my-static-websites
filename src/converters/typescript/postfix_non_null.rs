@@ -1,5 +1,6 @@
 use crate::converters::typescript::utils::{is_identifier_char, push_char_from};
 
+#[allow(clippy::many_single_char_names)]
 pub fn remove_postfix_non_null(input: &str) -> String {
     let mut out = String::with_capacity(input.len());
     let mut i = 0;
