@@ -1,4 +1,4 @@
-use crate::config::OUTPUT_DIR;
+use crate::config::SiteConfig;
 use crate::error::{Error, Result};
 use std::fs;
 use std::io::prelude::*;
@@ -6,7 +6,7 @@ use std::net::TcpStream;
 use std::path::PathBuf;
 use std::time::Duration;
 
-pub(super) fn handle_client(mut stream: TcpStream, site_name: &str) -> Result<()> {
+pub(super) fn handle_client(mut stream: TcpStream, site_name: &str, config: &SiteConfig) -> Result<()> {
     stream.set_read_timeout(Some(Duration::new(5, 0)))?;
 
     let mut buffer = [0; 512];
@@ -20,7 +20,7 @@ pub(super) fn handle_client(mut stream: TcpStream, site_name: &str) -> Result<()
             let path = path.trim_start_matches('/');
 
             // Construct the file path
-            let mut file_path = PathBuf::from(OUTPUT_DIR);
+            let mut file_path = PathBuf::from(&config.output_dir);
             file_path.push(site_name);
 
             // If path is empty or just "/", serve index.html

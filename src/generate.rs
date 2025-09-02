@@ -1,8 +1,5 @@
 use crate::{
-    config::{
-        ASSETS_SUBDIR, DATA_SUBDIR, DEFAULT_POSTS_PER_PAGE, INCLUDES_SUBDIR, LAYOUTS_SUBDIR,
-        MAIN_LAYOUT, OUTPUT_DIR, PAGES_SUBDIR, POSTS_SUBDIR, SITES_BASE_DIR,
-    },
+    config::SiteConfig,
     error::Result,
     file_copier::copy_file_with_versioning,
     file_readers::{load_and_parse_files_with_front_matter_in_directory, load_site_config},
@@ -103,8 +100,8 @@ fn generate_content_items(config: &ContentGenerationConfig) -> Result<()> {
     Ok(())
 }
 
-fn copy_assets(site_name: &str) -> Result<HashMap<String, String>> {
-    let assets_dir = format!("{SITES_BASE_DIR}/{site_name}/{ASSETS_SUBDIR}");
+fn copy_assets(site_name: &str, config: &SiteConfig) -> Result<HashMap<String, String>> {
+    let assets_dir = format!("{}/{site_name}/{}", config.sites_base_dir, config.assets_subdir);
     let mut versioned_assets = HashMap::new();
 
     if let Ok(entries) = fs::read_dir(&assets_dir) {
@@ -118,7 +115,7 @@ fn copy_assets(site_name: &str) -> Result<HashMap<String, String>> {
                     }
                     let versioned_name = copy_file_with_versioning(
                         &format!("{assets_dir}/{file_name}"),
-                        &format!("./{OUTPUT_DIR}/{site_name}/assets/"),
+                        &format!("./{}/{site_name}/assets/", config.output_dir),
                     )?;
                     versioned_assets.insert(file_name.to_string(), versioned_name);
                 }
@@ -129,9 +126,9 @@ fn copy_assets(site_name: &str) -> Result<HashMap<String, String>> {
     Ok(versioned_assets)
 }
 
-fn copy_data(site_name: &str) -> Result<()> {
-    let data_dir = format!("{SITES_BASE_DIR}/{site_name}/{DATA_SUBDIR}");
-    let output_data_dir = format!("./{OUTPUT_DIR}/{site_name}/data");
+fn copy_data(site_name: &str, config: &SiteConfig) -> Result<()> {
+    let data_dir = format!("{}/{site_name}/{}", config.sites_base_dir, config.data_subdir);
+    let output_data_dir = format!("./{}/{site_name}/data", config.output_dir);
 
     if let Ok(entries) = fs::read_dir(&data_dir) {
         fs::create_dir_all(&output_data_dir)?;
@@ -151,16 +148,16 @@ fn copy_data(site_name: &str) -> Result<()> {
     Ok(())
 }
 
-pub fn generate(site_name: &str) -> Result<()> {
+pub fn generate(site_name: &str, config: &SiteConfig) -> Result<()> {
     // Validate that the site directory exists
-    let site_dir = format!("{SITES_BASE_DIR}/{site_name}");
+    let site_dir = format!("{}/{site_name}", config.sites_base_dir);
     if !std::path::Path::new(&site_dir).exists() {
         return Err(std::io::Error::new(
             std::io::ErrorKind::NotFound,
             format!(
                 "Site directory '{}' does not exist. Available sites: {}",
                 site_dir,
-                std::fs::read_dir("./sites")
+                std::fs::read_dir(&config.sites_base_dir)
                     .map_or_else(|_| "none".to_string(), |entries| entries
                         .filter_map(|entry| entry.ok()?.file_name().into_string().ok())
                         .collect::<Vec<_>>()
@@ -178,12 +175,12 @@ pub fn generate(site_name: &str) -> Result<()> {
     let duration_since_epoch = now.duration_since(UNIX_EPOCH).expect("Time went backwards");
     let generated_date = duration_since_epoch.as_secs().to_string();
 
-    let posts_dir = format!("{SITES_BASE_DIR}/{site_name}/{POSTS_SUBDIR}");
-    let pages_dir = format!("{SITES_BASE_DIR}/{site_name}/{PAGES_SUBDIR}");
-    let includes_dir = format!("{SITES_BASE_DIR}/{site_name}/{INCLUDES_SUBDIR}");
+    let posts_dir = format!("{}/{site_name}/{}", config.sites_base_dir, config.posts_subdir);
+    let pages_dir = format!("{}/{site_name}/{}", config.sites_base_dir, config.pages_subdir);
+    let includes_dir = format!("{}/{site_name}/{}", config.sites_base_dir, config.includes_subdir);
 
-    let versioned_assets = copy_assets(site_name)?;
-    copy_data(site_name)?;
+    let versioned_assets = copy_assets(site_name, config)?;
+    copy_data(site_name, config)?;
     // Gracefully handle sites without a posts directory
     let posts = if std::path::Path::new(&posts_dir).exists() {
         load_and_parse_files_with_front_matter_in_directory(&posts_dir)?
@@ -192,8 +189,8 @@ pub fn generate(site_name: &str) -> Result<()> {
     };
     let pages = load_and_parse_files_with_front_matter_in_directory(&pages_dir)?;
     let includes = load_liquid_includes(&includes_dir);
-    let site_config = load_site_config(site_name)?;
-    let data_variables = load_site_data(site_name)?;
+    let site_config = load_site_config(site_name, config)?;
+    let data_variables = load_site_data(site_name, config)?;
 
     let mut global_variables = Variables::new();
 
@@ -209,7 +206,7 @@ pub fn generate(site_name: &str) -> Result<()> {
     let posts_per_page = site_config
         .get("posts_per_page")
         .and_then(|s| s.parse::<usize>().ok())
-        .unwrap_or(DEFAULT_POSTS_PER_PAGE);
+        .unwrap_or(config.default_posts_per_page);
 
     // Then merge/override with site config
     global_variables.extend(site_config);
@@ -228,7 +225,7 @@ pub fn generate(site_name: &str) -> Result<()> {
     add_collection_to_global_variables(&mut global_variables, "posts", &posts);
     add_collection_to_global_variables(&mut global_variables, "pages", &pages);
 
-    let layout_path = format!("{SITES_BASE_DIR}/{site_name}/{LAYOUTS_SUBDIR}/{MAIN_LAYOUT}");
+    let layout_path = format!("{}/{site_name}/{}/{}", config.sites_base_dir, config.layouts_subdir, config.main_layout);
     let main_layout = load_layout(&layout_path)?;
 
     // Filter out unlisted posts for pagination
@@ -248,6 +245,7 @@ pub fn generate(site_name: &str) -> Result<()> {
         &includes,
         &main_layout,
         &global_variables,
+        config,
     )?;
 
     // Generate posts
@@ -257,7 +255,7 @@ pub fn generate(site_name: &str) -> Result<()> {
         includes: &includes,
         main_layout: &main_layout,
         global_variables: &global_variables,
-        output_directory: &format!("{OUTPUT_DIR}/{site_name}/posts/"),
+        output_directory: &format!("{}/{site_name}/posts/", config.output_dir),
         default_layout: Some("post"),
     })?;
 
@@ -268,7 +266,7 @@ pub fn generate(site_name: &str) -> Result<()> {
         includes: &includes,
         main_layout: &main_layout,
         global_variables: &global_variables,
-        output_directory: &format!("{OUTPUT_DIR}/{site_name}/"),
+        output_directory: &format!("{}/{site_name}/", config.output_dir),
         default_layout: None,
     })?;
 
@@ -286,13 +284,12 @@ pub fn generate(site_name: &str) -> Result<()> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::config::OUTPUT_DIR;
     use insta::assert_snapshot;
     use std::fs;
     use std::path::Path;
 
     fn clean_output_directory() {
-        let _ = fs::remove_dir_all(OUTPUT_DIR);
+        let _ = fs::remove_dir_all("out");
     }
 
     fn read_file_content(path: &str) -> String {
@@ -301,18 +298,19 @@ mod tests {
 
     #[test]
     fn test_site_generation() {
+        let config = SiteConfig::default();
         clean_output_directory();
 
         // Create out directory
-        fs::create_dir_all(OUTPUT_DIR).expect("Failed to create out directory");
+        fs::create_dir_all(&config.output_dir).expect("Failed to create out directory");
 
         // Generate the test site
-        generate("test").expect("Failed to generate test site");
+        generate("test", &config).expect("Failed to generate test site");
 
         // Check if files exist
         let html_files = vec![
             "out/test/index.html",
-            "out/test/about.html",
+            "out/test/about.html", 
             "out/test/posts/test-post.html",
         ];
 

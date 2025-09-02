@@ -1,4 +1,4 @@
-use crate::config::{OUTPUT_DIR, SITES_BASE_DIR};
+use crate::config::SiteConfig;
 use crate::error::Result;
 use crate::generate::generate;
 use std::fs;
@@ -12,7 +12,7 @@ use std::time::{Duration, SystemTime};
 /// This function creates a temporary directory in RAM (/dev/shm) to store the generated
 /// site files instead of writing them to the SSD. This helps prevent SSD wear during
 /// development when files are frequently regenerated.
-fn setup_ramdisk() -> Result<()> {
+fn setup_ramdisk(config: &SiteConfig) -> Result<()> {
     // Create a directory in /dev/shm which is already a tmpfs
     let out_dir = "/dev/shm/lepkefing_out";
     if Path::new(out_dir).exists() {
@@ -22,7 +22,7 @@ fn setup_ramdisk() -> Result<()> {
 
     // Create a symlink from ./out to our ramdisk
     let current_dir = std::env::current_dir()?;
-    let out_path = current_dir.join(OUTPUT_DIR);
+    let out_path = current_dir.join(&config.output_dir);
     if out_path.exists() {
         if out_path.is_symlink() {
             fs::remove_file(&out_path)?;
@@ -35,9 +35,9 @@ fn setup_ramdisk() -> Result<()> {
     Ok(())
 }
 
-fn setup_regular_output() -> Result<()> {
+fn setup_regular_output(config: &SiteConfig) -> Result<()> {
     let current_dir = std::env::current_dir()?;
-    let out_path = current_dir.join(OUTPUT_DIR);
+    let out_path = current_dir.join(&config.output_dir);
     if !out_path.exists() {
         fs::create_dir_all(&out_path)?;
     }
@@ -71,8 +71,8 @@ fn get_latest_modification_time(dir: &Path) -> Result<SystemTime> {
     Ok(latest)
 }
 
-pub fn watch(site_name: &str, use_ramdisk: bool) -> Result<()> {
-    let site_path = format!("{SITES_BASE_DIR}/{site_name}");
+pub fn watch(site_name: &str, use_ramdisk: bool, config: &SiteConfig) -> Result<()> {
+    let site_path = format!("{}/{site_name}", config.sites_base_dir);
     let site_dir = Path::new(&site_path);
 
     if !site_dir.exists() {
@@ -90,7 +90,7 @@ pub fn watch(site_name: &str, use_ramdisk: bool) -> Result<()> {
             println!("✓ RAM disk requested: yes");
             println!("✓ RAM disk available: yes (Linux detected)");
             println!("Setting up RAM-based output directory...");
-            setup_ramdisk()?;
+            setup_ramdisk(config)?;
             println!("✓ RAM disk enabled: using /dev/shm/lepkefing_out");
         }
         #[cfg(not(target_os = "linux"))]
@@ -98,18 +98,18 @@ pub fn watch(site_name: &str, use_ramdisk: bool) -> Result<()> {
             println!("✓ RAM disk requested: yes");
             println!("✗ RAM disk available: no (Linux required)");
             println!("Falling back to regular disk output...");
-            setup_regular_output()?;
+            setup_regular_output(config)?;
             println!("✓ Using regular disk output: ./out");
         }
     } else {
         println!("✓ RAM disk requested: no");
         println!("✓ Using regular disk output: ./out");
-        setup_regular_output()?;
+        setup_regular_output(config)?;
     }
 
     // Generate the site once initially
     println!("\nGenerating initial site...");
-    if let Err(e) = generate(site_name) {
+    if let Err(e) = generate(site_name, config) {
         eprintln!("Error generating initial site: {e}");
     }
 
@@ -123,7 +123,7 @@ pub fn watch(site_name: &str, use_ramdisk: bool) -> Result<()> {
         let current_modified = get_latest_modification_time(site_dir)?;
         if current_modified > last_modified {
             println!("\nChanges detected, regenerating site...");
-            if let Err(e) = generate(site_name) {
+            if let Err(e) = generate(site_name, config) {
                 eprintln!("Error generating site: {e}");
             } else {
                 println!("Site regenerated successfully!");
