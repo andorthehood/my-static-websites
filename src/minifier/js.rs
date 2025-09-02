@@ -1,3 +1,5 @@
+use crate::traits::Minifier;
+
 /// Minifies JavaScript by removing unnecessary whitespace and comments while preserving functionality
 pub fn minify_js(js: &str) -> String {
     let mut result = String::with_capacity(js.len());
@@ -187,6 +189,32 @@ pub fn minify_js(js: &str) -> String {
     result
 }
 
+/// JavaScript minifier implementation
+pub struct JsMinifier;
+
+impl JsMinifier {
+    /// Create a new JavaScript minifier
+    pub fn new() -> Self {
+        Self
+    }
+}
+
+impl Default for JsMinifier {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+impl Minifier for JsMinifier {
+    fn minify(&self, input: &str) -> String {
+        minify_js(input)
+    }
+
+    fn content_type(&self) -> &str {
+        "js"
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -336,5 +364,29 @@ mod tests {
         let js = "const html = `<div class=\"${className}\">${content}</div>`;";
         let expected = "const html=`<div class=\"${className}\">${content}</div>`;";
         assert_eq!(minify_js(js), expected);
+    }
+}
+
+#[cfg(test)]
+mod trait_tests {
+    use super::*;
+    use crate::traits::Minifier;
+
+    #[test]
+    fn test_js_minifier_trait() {
+        let minifier = JsMinifier::new();
+        assert_eq!(minifier.content_type(), "js");
+
+        let input = "function   test(  ) {   return   42;   }";
+        let expected = "function test(){return 42;}";
+        assert_eq!(minifier.minify(input), expected);
+    }
+
+    #[test]
+    fn test_js_minifier_preserves_strings() {
+        let minifier = JsMinifier::new();
+        let input = r#"const message = "Hello   World";"#;
+        let expected = r#"const message="Hello   World";"#;
+        assert_eq!(minifier.minify(input), expected);
     }
 }
