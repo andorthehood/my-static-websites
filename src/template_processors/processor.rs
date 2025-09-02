@@ -5,8 +5,41 @@ use crate::template_processors::liquid::{
     replace_template_variables,
 };
 use crate::template_processors::markdown::markdown_to_html;
-use crate::types::{ContentItem, TemplateIncludes};
+use crate::traits::TemplateProcessor;
+use crate::types::{ContentItem, TemplateIncludes, Variables};
 use std::collections::HashMap;
+
+/// Default implementation of the TemplateProcessor trait
+///
+/// This implementation provides the unified template processing functionality
+/// that handles liquid tags, markdown conversion, and variable substitution.
+pub struct DefaultTemplateProcessor;
+
+impl DefaultTemplateProcessor {
+    /// Create a new DefaultTemplateProcessor instance
+    pub fn new() -> Self {
+        Self
+    }
+}
+
+impl Default for DefaultTemplateProcessor {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+impl TemplateProcessor for DefaultTemplateProcessor {
+    fn process_template_tags(
+        &self,
+        input: &str,
+        variables: &Variables,
+        includes: Option<&TemplateIncludes>,
+        content_item: Option<&ContentItem>,
+    ) -> Result<String> {
+        // Delegate to the existing function implementation
+        process_template_tags_impl(input, variables, includes, content_item)
+    }
+}
 
 /// Processes template tags in a given input string with optional advanced features.
 ///
@@ -24,7 +57,7 @@ use std::collections::HashMap;
 ///
 /// # Returns
 /// * `Result<String>` - The processed template or an error if processing fails
-pub fn process_template_tags(
+fn process_template_tags_impl(
     input: &str,
     variables: &HashMap<String, String>,
     includes: Option<&TemplateIncludes>,
@@ -69,6 +102,20 @@ pub fn process_template_tags(
     result = remove_liquid_variables(&result)?;
 
     Ok(result)
+}
+
+/// Public function for template processing (backward compatibility)
+///
+/// This function maintains the existing public API while internally using
+/// the trait-based implementation.
+pub fn process_template_tags(
+    input: &str,
+    variables: &HashMap<String, String>,
+    includes: Option<&TemplateIncludes>,
+    content_item: Option<&ContentItem>,
+) -> Result<String> {
+    let processor = DefaultTemplateProcessor::new();
+    processor.process_template_tags(input, variables, includes, content_item)
 }
 
 #[cfg(test)]
@@ -128,5 +175,40 @@ mod tests {
         let result = process_template_tags(input, &variables, None, Some(&content_item))
             .expect("Processing template tags failed");
         assert_eq!(result, "Hello World!");
+    }
+}
+
+#[cfg(test)]
+mod trait_tests {
+    use super::*;
+    use crate::traits::TemplateProcessor;
+
+    #[test]
+    fn test_default_template_processor_trait() {
+        let processor = DefaultTemplateProcessor::new();
+        let mut variables = HashMap::new();
+        variables.insert("name".to_string(), "World".to_string());
+        variables.insert("show_greeting".to_string(), "true".to_string());
+
+        let input = "{% if show_greeting %}Hello {{name}}!{% endif %}";
+        let result = processor
+            .process_template_tags(input, &variables, None, None)
+            .expect("Processing template tags failed");
+        assert_eq!(result, "Hello World!");
+    }
+
+    #[test]
+    fn test_default_template_processor_with_markdown() {
+        let processor = DefaultTemplateProcessor::new();
+        let mut content_item = HashMap::new();
+        content_item.insert("file_type".to_string(), "md".to_string());
+        let variables = HashMap::new();
+
+        let content = "# Test Heading\n\nThis is a paragraph.";
+        let result = processor
+            .process_template_tags(content, &variables, None, Some(&content_item))
+            .expect("Processing template tags failed");
+        // The markdown processor strips line breaks between non-list lines
+        assert_eq!(result, "# Test HeadingThis is a paragraph.");
     }
 }

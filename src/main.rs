@@ -1,6 +1,7 @@
 // Core types and error handling
 mod config;
 mod error;
+mod traits;
 mod types;
 
 // File operations

@@ -1,3 +1,5 @@
+use crate::traits::Minifier;
+
 /// Minifies HTML by removing unnecessary whitespace while preserving functionality
 pub fn minify_html(html: &str) -> String {
     let mut result = String::with_capacity(html.len());
@@ -187,6 +189,32 @@ pub fn minify_html(html: &str) -> String {
     }
 
     result
+}
+
+/// HTML minifier implementation
+pub struct HtmlMinifier;
+
+impl HtmlMinifier {
+    /// Create a new HTML minifier
+    pub fn new() -> Self {
+        Self
+    }
+}
+
+impl Default for HtmlMinifier {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+impl Minifier for HtmlMinifier {
+    fn minify(&self, input: &str) -> String {
+        minify_html(input)
+    }
+
+    fn content_type(&self) -> &str {
+        "html"
+    }
 }
 
 #[cfg(test)]
@@ -418,5 +446,33 @@ body { margin: 0; }
         let expected_contains = "main() {\n    println!";
         let result = minify_html(html);
         assert!(result.contains(expected_contains));
+    }
+}
+
+#[cfg(test)]
+mod trait_tests {
+    use super::*;
+    use crate::traits::Minifier;
+
+    #[test]
+    fn test_html_minifier_trait() {
+        let minifier = HtmlMinifier::new();
+        assert_eq!(minifier.content_type(), "html");
+
+        let input = "<div>   Hello   World   </div>";
+        let result = minifier.minify(input);
+        
+        // Should remove excessive whitespace but preserve space between words
+        assert!(result.contains("Hello World"));
+        assert!(!result.contains("   "));
+        assert!(result.len() < input.len());
+    }
+
+    #[test]
+    fn test_html_minifier_with_comments() {
+        let minifier = HtmlMinifier::new();
+        let input = "<!-- This is a comment --><div>Hello World</div><!-- Another comment -->";
+        let expected = "<div>Hello World</div>";
+        assert_eq!(minifier.minify(input), expected);
     }
 }
