@@ -3,7 +3,8 @@ use crate::error::Result;
 use crate::layout::{insert_body_into_layout, load_layout};
 
 use crate::template_processors::markdown::markdown_to_html;
-use crate::template_processors::process_template_tags;
+use crate::template_processors::{DefaultTemplateProcessor};
+use crate::traits::TemplateProcessor;
 use crate::types::{TemplateIncludes, Variables};
 use crate::write::{write_html_to_file, write_json_to_file};
 
@@ -53,9 +54,10 @@ pub fn render_page(
     let processed_body = if is_markdown {
         markdown_to_html(body)
     } else {
-        // For liquid files, process the template variables first
+    // For liquid files, process the template variables first
         if is_liquid {
-            process_template_tags(body, variables, None, None)?
+            let processor = DefaultTemplateProcessor::new();
+            processor.process_template_tags(body, variables, None, None)?
         } else {
             body.to_string()
         }
@@ -70,7 +72,8 @@ pub fn render_page(
             // Insert the content into the secondary layout
             let layout_with_content = insert_body_into_layout(&secondary_layout, &processed_body)?;
             // Process any template variables in the combined result
-            process_template_tags(&layout_with_content, variables, None, None)?
+            let processor = DefaultTemplateProcessor::new();
+            processor.process_template_tags(&layout_with_content, variables, None, None)?
         } else {
             eprintln!(
                 "⚠️  Warning: Layout '{secondary_layout_name}' specified in '{file_name}' was not found at '{layout_path}'"
@@ -102,7 +105,8 @@ pub fn render_page(
     let combined_content = insert_body_into_layout(&main_layout_content, &content_with_layout)?;
 
     // Process all template tags (liquid includes + conditionals + variables) in one go
-    let html = process_template_tags(&combined_content, variables, Some(includes), None)?;
+    let processor = DefaultTemplateProcessor::new();
+    let html = processor.process_template_tags(&combined_content, variables, Some(includes), None)?;
 
     write_html_to_file(&file_name, &html)?;
 
@@ -111,7 +115,7 @@ pub fn render_page(
 
     // Process template tags on content_with_layout for JSON (without main layout)
     let json_content =
-        process_template_tags(&content_with_layout, variables, Some(includes), None)?;
+        processor.process_template_tags(&content_with_layout, variables, Some(includes), None)?;
 
     // Extract title from variables (use original_title which is preserved before site title combination)
     let page_title = variables.get("original_title");
