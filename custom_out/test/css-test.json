@@ -1,0 +1,5 @@
+{
+  "content": "# CSS Test PageThis page has page-specific CSS: <div class=\"extra-style\">This text should be styled with the extra CSS.</div> ",
+  "title": "CSS Test Page",
+  "css": "extra.css"
+}

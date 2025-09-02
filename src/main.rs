@@ -28,6 +28,7 @@ mod render_page;
 mod server;
 mod watch;
 
+use config::SiteConfig;
 use error::Result;
 use generate::generate;
 use server::listen;
@@ -43,9 +44,16 @@ fn print_usage() {
 }
 
 fn handle_command(args: &[&str]) -> Result<()> {
+    // Create and validate configuration
+    let config = SiteConfig::from_environment();
+    if let Err(error) = config.validate() {
+        eprintln!("Configuration error: {error}");
+        std::process::exit(1);
+    }
+
     match args {
         ["generate", site_name] => {
-            generate(site_name)?;
+            generate(site_name, &config)?;
         }
         ["generate"] => {
             eprintln!("Error: Site name is required for generate command.");
@@ -54,13 +62,13 @@ fn handle_command(args: &[&str]) -> Result<()> {
             std::process::exit(1);
         }
         ["serve", site_name] => {
-            listen(site_name)?;
+            listen(site_name, &config)?;
         }
         ["watch", site_name] => {
-            watch(site_name, false)?;
+            watch(site_name, false, &config)?;
         }
         ["watch", site_name, "--ramdisk"] | ["watch", "--ramdisk", site_name] => {
-            watch(site_name, true)?;
+            watch(site_name, true, &config)?;
         }
         [unknown_command] => {
             eprintln!("Error: Unknown command '{unknown_command}'");
