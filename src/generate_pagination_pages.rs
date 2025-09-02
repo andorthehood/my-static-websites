@@ -1,7 +1,8 @@
 use crate::{
     error::Result,
     render_page::render_page,
-    template_processors::process_template_tags,
+    template_processors::{DefaultTemplateProcessor},
+    traits::TemplateProcessor,
     types::{ContentCollection, TemplateIncludes, Variables},
 };
 use std::fmt::Write;
@@ -24,8 +25,9 @@ pub fn generate_pagination_pages(
         let mut html_list = String::new();
 
         // Add posts using post.liquid template
+        let processor = DefaultTemplateProcessor::new();
         for post in page_posts {
-            html_list.push_str(&process_template_tags(
+            html_list.push_str(&processor.process_template_tags(
                 includes.get("post.liquid").map_or("", |s| s.as_str()),
                 post,
                 None,

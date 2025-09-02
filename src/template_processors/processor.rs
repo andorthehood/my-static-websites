@@ -36,8 +36,8 @@ impl TemplateProcessor for DefaultTemplateProcessor {
         includes: Option<&TemplateIncludes>,
         content_item: Option<&ContentItem>,
     ) -> Result<String> {
-        // Delegate to the existing function implementation
-        process_template_tags_impl(input, variables, includes, content_item)
+        // Delegate to the function implementation
+        process_template_tags(input, variables, includes, content_item)
     }
 }
 
@@ -57,7 +57,7 @@ impl TemplateProcessor for DefaultTemplateProcessor {
 ///
 /// # Returns
 /// * `Result<String>` - The processed template or an error if processing fails
-fn process_template_tags_impl(
+fn process_template_tags(
     input: &str,
     variables: &HashMap<String, String>,
     includes: Option<&TemplateIncludes>,
@@ -104,23 +104,12 @@ fn process_template_tags_impl(
     Ok(result)
 }
 
-/// Public function for template processing (backward compatibility)
-///
-/// This function maintains the existing public API while internally using
-/// the trait-based implementation.
-pub fn process_template_tags(
-    input: &str,
-    variables: &HashMap<String, String>,
-    includes: Option<&TemplateIncludes>,
-    content_item: Option<&ContentItem>,
-) -> Result<String> {
-    let processor = DefaultTemplateProcessor::new();
-    processor.process_template_tags(input, variables, includes, content_item)
-}
+
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::traits::TemplateProcessor;
 
     #[test]
     fn test_process_template_tags_simple() {
@@ -129,7 +118,8 @@ mod tests {
         variables.insert("show_greeting".to_string(), "true".to_string());
 
         let input = "{% if show_greeting %}Hello {{name}}!{% endif %}";
-        let result = process_template_tags(input, &variables, None, None)
+        let processor = DefaultTemplateProcessor::new();
+        let result = processor.process_template_tags(input, &variables, None, None)
             .expect("Processing template tags failed");
         assert_eq!(result, "Hello World!");
     }
@@ -143,7 +133,8 @@ mod tests {
         variables.insert("name".to_string(), "World".to_string());
 
         let input = "{% include test.liquid name:\"World\" %}";
-        let result = process_template_tags(input, &variables, Some(&includes), None).unwrap();
+        let processor = DefaultTemplateProcessor::new();
+        let result = processor.process_template_tags(input, &variables, Some(&includes), None).unwrap();
         assert_eq!(result, "Hello World!");
     }
 
@@ -155,8 +146,9 @@ mod tests {
         let variables = HashMap::new();
 
         let content = "# Test Heading\n\nThis is a paragraph.";
+        let processor = DefaultTemplateProcessor::new();
         let result =
-            process_template_tags(content, &variables, Some(&includes), Some(&content_item))
+            processor.process_template_tags(content, &variables, Some(&includes), Some(&content_item))
                 .unwrap();
         // The markdown processor strips line breaks between non-list lines
         assert_eq!(result, "# Test HeadingThis is a paragraph.");
@@ -172,7 +164,8 @@ mod tests {
         content_item.insert("greeting".to_string(), "Hello".to_string());
 
         let input = "{{greeting}} {{name}}!";
-        let result = process_template_tags(input, &variables, None, Some(&content_item))
+        let processor = DefaultTemplateProcessor::new();
+        let result = processor.process_template_tags(input, &variables, None, Some(&content_item))
             .expect("Processing template tags failed");
         assert_eq!(result, "Hello World!");
     }
