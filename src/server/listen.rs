@@ -1,6 +1,6 @@
+use super::handle_client::handle_client;
 use crate::config::SiteConfig;
 use crate::error::Result;
-use super::handle_client::handle_client;
 use std::net::TcpListener;
 
 pub fn listen(site_name: &str, config: &SiteConfig) -> Result<()> {

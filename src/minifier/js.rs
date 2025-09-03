@@ -23,8 +23,6 @@ impl JsParseState {
     fn is_in_any_string(&self) -> bool {
         self.in_string || self.in_template_literal || self.in_regex
     }
-
-
 }
 
 /// Handles single-line comment processing
@@ -34,8 +32,11 @@ fn handle_single_line_comments(
     state: &mut JsParseState,
     result: &mut String,
 ) -> bool {
-    if !state.is_in_any_string() && !state.in_multi_line_comment && ch == '/' 
-        && chars.peek() == Some(&'/') {
+    if !state.is_in_any_string()
+        && !state.in_multi_line_comment
+        && ch == '/'
+        && chars.peek() == Some(&'/')
+    {
         chars.next(); // consume the second '/'
         state.in_single_line_comment = true;
         return true;
@@ -64,8 +65,11 @@ fn handle_multi_line_comments(
     chars: &mut std::iter::Peekable<std::str::Chars>,
     state: &mut JsParseState,
 ) -> bool {
-    if !state.is_in_any_string() && !state.in_multi_line_comment && ch == '/'
-        && chars.peek() == Some(&'*') {
+    if !state.is_in_any_string()
+        && !state.in_multi_line_comment
+        && ch == '/'
+        && chars.peek() == Some(&'*')
+    {
         chars.next(); // consume the '*'
         state.in_multi_line_comment = true;
         return true;
@@ -126,7 +130,25 @@ fn handle_string_literals(
 fn could_be_regex_context(prev_non_whitespace: char, result: &str) -> bool {
     matches!(
         prev_non_whitespace,
-        '=' | '(' | '[' | '{' | ';' | ':' | '!' | '&' | '|' | '?' | '+' | '-' | '*' | '/' | '%' | '^' | '~' | '<' | '>' | ','
+        '=' | '('
+            | '['
+            | '{'
+            | ';'
+            | ':'
+            | '!'
+            | '&'
+            | '|'
+            | '?'
+            | '+'
+            | '-'
+            | '*'
+            | '/'
+            | '%'
+            | '^'
+            | '~'
+            | '<'
+            | '>'
+            | ','
     ) || result.ends_with("return")
         || result.ends_with("throw")
         || result.ends_with("case")

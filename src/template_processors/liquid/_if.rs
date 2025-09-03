@@ -32,12 +32,10 @@ pub fn process_liquid_conditional_tags(
     // Find and process all conditional tags
     while let Some(tag_block) = find_tag_block(&result, "{% if", "{% endif %}", current_pos) {
         let condition = tag_block.tag_content.trim();
-        let is_truthy = variables
-            .get(condition)
-            .is_some_and(|v| {
-                let t = v.trim();
-                !t.is_empty() && t != "false"
-            });
+        let is_truthy = variables.get(condition).is_some_and(|v| {
+            let t = v.trim();
+            !t.is_empty() && t != "false"
+        });
 
         let replacement = if is_truthy {
             tag_block.inner_content

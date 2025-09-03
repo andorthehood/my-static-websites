@@ -6,7 +6,11 @@ use std::net::TcpStream;
 use std::path::PathBuf;
 use std::time::Duration;
 
-pub(super) fn handle_client(mut stream: TcpStream, site_name: &str, config: &SiteConfig) -> Result<()> {
+pub(super) fn handle_client(
+    mut stream: TcpStream,
+    site_name: &str,
+    config: &SiteConfig,
+) -> Result<()> {
     stream.set_read_timeout(Some(Duration::new(5, 0)))?;
 
     let mut buffer = [0; 512];

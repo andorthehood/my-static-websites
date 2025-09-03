@@ -109,8 +109,6 @@ pub fn read_until_closing_tag(chars: &mut Peekable<Chars>) -> Result<String> {
     Ok(content)
 }
 
-
-
 /// Parses an assignment expression (variable = value)
 pub fn parse_assignment(content: &str) -> Option<(String, String)> {
     let idx = find_equal_index(content.as_bytes())?;
@@ -121,10 +119,6 @@ pub fn parse_assignment(content: &str) -> Option<(String, String)> {
     }
     Some((left.trim().to_string(), right[1..].trim().to_string()))
 }
-
-
-
-
 
 /// Extracts the condition or parameter part from a tag
 pub fn extract_tag_parameter(tag_content: &str, tag_type: &str) -> Option<String> {
@@ -207,8 +201,6 @@ pub fn read_nested_block(
 mod tests {
     use super::*;
 
-
-
     #[test]
     fn test_skip_whitespace() {
         let mut chars = "   hello".chars().peekable();
@@ -241,8 +233,6 @@ mod tests {
         assert_eq!(result.inner_content, "content");
     }
 
-
-
     #[test]
     fn test_parse_assignment() {
         let result = parse_assignment("variable = value").unwrap();
@@ -255,10 +245,6 @@ mod tests {
     fn test_parse_assignment_with_extra_equals_returns_none() {
         assert!(parse_assignment("a=b=c").is_none());
     }
-
-
-
-
 
     #[test]
     fn test_extract_tag_parameter() {

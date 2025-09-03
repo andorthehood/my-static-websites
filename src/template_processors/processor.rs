@@ -52,7 +52,7 @@ pub fn process_template_tags(
             process_liquid_for_loops(&processed_assigns, &combined_variables)?;
         let processed_unless =
             process_liquid_unless_tags(&processed_for_loops, &combined_variables)?;
-        
+
         process_liquid_conditional_tags(&processed_unless, &combined_variables)?
     };
 

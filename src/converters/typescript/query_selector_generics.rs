@@ -23,8 +23,6 @@ impl ParseState {
     fn is_in_string(&self) -> bool {
         self.in_single || self.in_double || self.in_backtick
     }
-
-
 }
 
 /// Handles comment parsing and state updates
@@ -118,18 +116,18 @@ fn handle_query_selector(
     {
         out.push_str("querySelector");
         *i += "querySelector".len();
-        
+
         // Optional "All"
         if *i + 3 <= len && input.get(*i..).is_some_and(|s| s.starts_with("All")) {
             out.push_str("All");
             *i += 3;
         }
-        
+
         // Skip spaces
         while *i < len && (b[*i] as char).is_ascii_whitespace() {
             *i += 1;
         }
-        
+
         // Remove generic if present
         if *i < len && b[*i] as char == '<' {
             skip_generic_brackets(b, len, i);

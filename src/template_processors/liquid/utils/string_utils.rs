@@ -1,6 +1,6 @@
 use super::find_byte::find_byte_index;
-pub use super::trim_quotes::trim_quotes;
 pub use super::split_quotes::split_respecting_quotes;
+pub use super::trim_quotes::trim_quotes;
 
 /// Checks if a string is a quoted literal
 #[cfg(test)]

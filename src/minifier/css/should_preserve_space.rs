@@ -17,7 +17,7 @@ pub fn should_preserve_space_asm(result: &str, next_char: char) -> bool {
     }
 
     let last_char = result.chars().last().unwrap_or('\0');
-    
+
     // Use assembly optimization for ASCII characters
     if last_char.is_ascii() && next_char.is_ascii() {
         let last_byte = last_char as u8;
@@ -25,7 +25,7 @@ pub fn should_preserve_space_asm(result: &str, next_char: char) -> bool {
         let preserve = unsafe { should_preserve_space_scan(last_byte, next_byte) };
         return preserve != 0;
     }
-    
+
     // Fallback to Rust implementation for non-ASCII characters
     should_preserve_space_rust_fallback(result, next_char)
 }
@@ -80,21 +80,24 @@ mod tests {
     fn test_assembly_optimization_direct() {
         // Test that assembly and Rust implementations give same results for common cases
         let test_cases = [
-            ("color:10px", 's'), // digit + alphabetic
-            ("width:100%", '2'), // percent + digit  
-            ("border:solid", '#'), // alphabetic + hash
-            ("calc(100% - 10px)", '5'), // parenthesis + digit
+            ("color:10px", 's'),         // digit + alphabetic
+            ("width:100%", '2'),         // percent + digit
+            ("border:solid", '#'),       // alphabetic + hash
+            ("calc(100% - 10px)", '5'),  // parenthesis + digit
             ("rgba(255,0,0,0.5),", '#'), // comma + hash
-            ("margin:10px", '-'), // digit/unit + minus
-            ("div", '#'), // alphabetic + hash (ID selector)
-            ("", 'a'), // empty string case
+            ("margin:10px", '-'),        // digit/unit + minus
+            ("div", '#'),                // alphabetic + hash (ID selector)
+            ("", 'a'),                   // empty string case
         ];
 
         for (result_str, next_char) in test_cases {
             let assembly_result = should_preserve_space_asm(result_str, next_char);
             let rust_result = should_preserve_space_rust_fallback(result_str, next_char);
-            assert_eq!(assembly_result, rust_result, 
-                "Assembly and Rust results differ for '{}' + '{}'", result_str, next_char);
+            assert_eq!(
+                assembly_result, rust_result,
+                "Assembly and Rust results differ for '{}' + '{}'",
+                result_str, next_char
+            );
         }
     }
 }
