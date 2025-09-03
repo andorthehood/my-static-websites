@@ -154,6 +154,7 @@ fn copy_data(site_name: &str, config: &SiteConfig) -> Result<()> {
     Ok(())
 }
 
+#[allow(clippy::too_many_lines)]
 pub fn generate(site_name: &str, config: &SiteConfig) -> Result<()> {
     // Validate that the site directory exists
     let site_dir = format!("{}/{site_name}", config.sites_base_dir);

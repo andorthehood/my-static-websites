@@ -1,4 +1,5 @@
 /// Represents the state of HTML parsing
+#[allow(clippy::struct_excessive_bools)]
 struct HtmlParseState {
     in_tag: bool,
     in_script: bool,

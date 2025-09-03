@@ -55,6 +55,7 @@ impl Default for SiteConfig {
 
 impl SiteConfig {
     /// Create a new configuration with defaults
+    #[allow(dead_code)]
     pub fn new() -> Self {
         Self::default()
     }
@@ -157,16 +158,25 @@ impl SiteConfig {
 }
 
 // Keep the old constants for backward compatibility during transition
+#[allow(dead_code)]
 pub const OUTPUT_DIR: &str = "out";
 pub const SITES_BASE_DIR: &str = "./sites";
+#[allow(dead_code)]
 pub const POSTS_SUBDIR: &str = "posts";
+#[allow(dead_code)]
 pub const PAGES_SUBDIR: &str = "pages";
+#[allow(dead_code)]
 pub const INCLUDES_SUBDIR: &str = "includes";
 pub const LAYOUTS_SUBDIR: &str = "layouts";
+#[allow(dead_code)]
 pub const ASSETS_SUBDIR: &str = "assets";
+#[allow(dead_code)]
 pub const DATA_SUBDIR: &str = "data";
+#[allow(dead_code)]
 pub const MAIN_LAYOUT: &str = "main.html";
+#[allow(dead_code)]
 pub const CONFIG_FILE: &str = "config.md";
+#[allow(dead_code)]
 pub const DEFAULT_POSTS_PER_PAGE: usize = 5;
 
 #[cfg(test)]

@@ -1,4 +1,5 @@
 /// Represents the state of JavaScript parsing
+#[allow(clippy::struct_excessive_bools)]
 struct JsParseState {
     in_string: bool,
     string_delimiter: char,
@@ -170,13 +171,12 @@ fn handle_regex_literals(
     result: &mut String,
 ) -> bool {
     // Handle regex literals (simplified detection)
-    if !state.is_in_any_string() && !state.in_regex && ch == '/' {
-        if could_be_regex_context(prev_non_whitespace, result) {
+    if !state.is_in_any_string() && !state.in_regex && ch == '/'
+        && could_be_regex_context(prev_non_whitespace, result) {
             state.in_regex = true;
             result.push(ch);
             return true;
         }
-    }
 
     // End regex literal
     if state.in_regex && ch == '/' && prev_char != '\\' {
@@ -197,13 +197,13 @@ fn handle_whitespace(
     if ch.is_whitespace() {
         let next_char = chars.peek().unwrap_or(&'\0');
 
-        if !result.is_empty() {
+        if result.is_empty() {
+            false
+        } else {
             let last_char = result.chars().last().unwrap_or('\0');
 
             // Preserve space in specific cases where it's needed for JavaScript syntax
-            let needs_space =
-                // Between alphanumeric characters (keywords, identifiers, numbers)
-                (last_char.is_alphanumeric() || last_char == '_' || last_char == '$') &&
+            (last_char.is_alphanumeric() || last_char == '_' || last_char == '$') &&
                 (next_char.is_alphanumeric() || *next_char == '_' || *next_char == '$') ||
                 // Between operators where space is needed to avoid creating different operators
                 (matches!(last_char, '+' | '-') && *next_char == last_char) ||  // ++ or --
@@ -211,11 +211,7 @@ fn handle_whitespace(
                 (matches!(last_char, '=' | '!' | '<' | '>') && *next_char == '=') ||  // ==, !=, <=, >=
                 // ASI cases - preserve newlines after certain tokens to prevent issues
                 (ch == '\n' && matches!(last_char, ')' | ']' | '}' | ';') &&
-                 matches!(*next_char, '(' | '[' | '{' | '+' | '-' | '*' | '/' | '%' | 'a'..='z' | 'A'..='Z' | '_' | '$'));
-
-            needs_space
-        } else {
-            false
+                 matches!(*next_char, '(' | '[' | '{' | '+' | '-' | '*' | '/' | '%' | 'a'..='z' | 'A'..='Z' | '_' | '$'))
         }
     } else {
         false
