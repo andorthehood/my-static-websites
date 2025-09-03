@@ -152,6 +152,6 @@ mod tests {
         assert!(!page3_content.contains("Test Post 1"));
 
         // Clean up
-        let _ = fs::remove_dir_all("out");
+        let _ = fs::remove_dir_all(&config.output_dir);
     }
 }
