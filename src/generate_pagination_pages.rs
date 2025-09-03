@@ -1,4 +1,5 @@
 use crate::{
+    config::SiteConfig,
     error::Result,
     render_page::render_page,
     template_processors::process_template_tags,
@@ -13,6 +14,7 @@ pub fn generate_pagination_pages(
     includes: &TemplateIncludes,
     main_layout: &str,
     global_variables: &Variables,
+    config: &SiteConfig,
 ) -> Result<()> {
     let total_pages = posts.len().div_ceil(posts_per_page);
 
@@ -70,7 +72,7 @@ pub fn generate_pagination_pages(
 
         render_page(
             &html_list,
-            &format!("out/{site_name}/"),
+            &format!("{}/{site_name}/", config.output_dir),
             &format!("page{page_num}"),
             main_layout,
             includes,
@@ -84,7 +86,6 @@ pub fn generate_pagination_pages(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::config::OUTPUT_DIR;
     use crate::types::ContentItem;
     use std::collections::HashMap;
     use std::fs;
@@ -116,15 +117,16 @@ mod tests {
         let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
         let mut global_variables = HashMap::new();
         global_variables.insert("site_title".to_string(), "Test Site".to_string());
+        let config = SiteConfig::default();
 
         // Clean up any existing output directory
-        let _ = fs::remove_dir_all(OUTPUT_DIR);
+        let _ = fs::remove_dir_all(&config.output_dir);
 
         // Create output directory
-        fs::create_dir_all(OUTPUT_DIR).expect("Failed to create output directory");
+        fs::create_dir_all(&config.output_dir).expect("Failed to create output directory");
 
         // Generate pagination pages (3 posts per page should create 3 pages)
-        generate_pagination_pages("test", 3, &posts, &includes, main_layout, &global_variables)
+        generate_pagination_pages("test", 3, &posts, &includes, main_layout, &global_variables, &config)
             .expect("Failed to generate pagination pages");
 
         // Verify the pages were created
@@ -150,6 +152,6 @@ mod tests {
         assert!(!page3_content.contains("Test Post 1"));
 
         // Clean up
-        let _ = fs::remove_dir_all(OUTPUT_DIR);
+        let _ = fs::remove_dir_all(&config.output_dir);
     }
 }

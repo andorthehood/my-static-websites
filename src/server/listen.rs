@@ -1,10 +1,10 @@
-use super::config::{DEFAULT_SERVER_HOST, DEFAULT_SERVER_PORT};
-use super::handle_client::handle_client;
+use crate::config::SiteConfig;
 use crate::error::Result;
+use super::handle_client::handle_client;
 use std::net::TcpListener;
 
-pub fn listen(site_name: &str) -> Result<()> {
-    let server_addr = format!("{DEFAULT_SERVER_HOST}:{DEFAULT_SERVER_PORT}");
+pub fn listen(site_name: &str, config: &SiteConfig) -> Result<()> {
+    let server_addr = format!("{}:{}", config.server_host, config.server_port);
     println!("Starting server on http://{server_addr}");
     let listener = TcpListener::bind(&server_addr)?;
     println!("Server is ready and listening for connections!");
@@ -12,7 +12,7 @@ pub fn listen(site_name: &str) -> Result<()> {
     for stream in listener.incoming() {
         match stream {
             Ok(stream) => {
-                if let Err(e) = handle_client(stream, site_name) {
+                if let Err(e) = handle_client(stream, site_name, config) {
                     eprintln!("Error handling client: {e}");
                 }
             }
