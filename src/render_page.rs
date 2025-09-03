@@ -1,4 +1,4 @@
-use crate::config::{LAYOUTS_SUBDIR, SITES_BASE_DIR};
+use crate::config::SiteConfig;
 use crate::error::Result;
 use crate::layout::{insert_body_into_layout, load_layout};
 
@@ -8,12 +8,12 @@ use crate::types::{TemplateIncludes, Variables};
 use crate::write::{write_html_to_file, write_json_to_file};
 
 // Helper to build a layout path that defaults to .html when no extension is provided
-fn build_layout_path(site_name: &str, layout_name: &str) -> String {
+fn build_layout_path(site_name: &str, layout_name: &str, config: &SiteConfig) -> String {
     let has_extension = std::path::Path::new(layout_name).extension().is_some();
     if has_extension {
-        format!("{SITES_BASE_DIR}/{site_name}/{LAYOUTS_SUBDIR}/{layout_name}")
+        format!("{}/{site_name}/{}/{layout_name}", config.sites_base_dir, config.layouts_subdir)
     } else {
-        format!("{SITES_BASE_DIR}/{site_name}/{LAYOUTS_SUBDIR}/{layout_name}.html")
+        format!("{}/{site_name}/{}/{layout_name}.html", config.sites_base_dir, config.layouts_subdir)
     }
 }
 
@@ -30,6 +30,7 @@ pub fn render_page(
     layout: &str,
     includes: &TemplateIncludes,
     variables: &Variables,
+    config: &SiteConfig,
 ) -> Result<()> {
     // Determine output extension from source file name:
     // - If original source file is like name.<ext>.liquid -> use <ext> for output
@@ -64,7 +65,7 @@ pub fn render_page(
     // Apply secondary layout if specified in front matter
     let content_with_layout = if let Some(secondary_layout_name) = variables.get("layout") {
         let site_name = variables.get("site_name").map_or("", String::as_str);
-        let layout_path = build_layout_path(site_name, secondary_layout_name);
+        let layout_path = build_layout_path(site_name, secondary_layout_name, config);
 
         if let Ok(secondary_layout) = load_layout(&layout_path) {
             // Insert the content into the secondary layout
@@ -84,7 +85,7 @@ pub fn render_page(
     // Determine main layout: allow overriding via front matter `main_layout: <name>`
     let main_layout_content = if let Some(main_layout_name) = variables.get("main_layout") {
         let site_name = variables.get("site_name").map_or("", String::as_str);
-        let main_layout_path = build_layout_path(site_name, main_layout_name);
+        let main_layout_path = build_layout_path(site_name, main_layout_name, config);
         match load_layout(&main_layout_path) {
             Ok(custom_main_layout) => custom_main_layout,
             Err(err) => {
@@ -134,6 +135,7 @@ pub fn render_page(
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::config::SiteConfig;
     use std::collections::HashMap;
     use std::fs;
 
@@ -153,8 +155,10 @@ mod tests {
         variables.insert("site_name".into(), "test".into());
         variables.insert("layout".into(), "nonexistent_secondary".into());
         variables.insert("file_type".into(), "html".into());
+        
+        let config = SiteConfig::default();
 
-        render_page(body, directory, slug, main_layout, &includes, &variables)
+        render_page(body, directory, slug, main_layout, &includes, &variables, &config)
             .expect("render_page failed");
 
         let out_path = format!("{directory}{slug}.html");
@@ -174,8 +178,10 @@ mod tests {
         variables.insert("site_name".into(), "test".into());
         variables.insert("main_layout".into(), "no_such_layout".into());
         variables.insert("file_type".into(), "html".into());
+        
+        let config = SiteConfig::default();
 
-        render_page(body, directory, slug, main_layout, &includes, &variables)
+        render_page(body, directory, slug, main_layout, &includes, &variables, &config)
             .expect("render_page failed");
 
         let out_path = format!("{directory}{slug}.html");
@@ -196,8 +202,10 @@ mod tests {
 
         let mut variables: Variables = HashMap::new();
         variables.insert("file_type".into(), "html".into());
+        
+        let config = SiteConfig::default();
 
-        let result = render_page(body, directory, slug, main_layout, &includes, &variables);
+        let result = render_page(body, directory, slug, main_layout, &includes, &variables, &config);
 
         assert!(result.is_err());
     }

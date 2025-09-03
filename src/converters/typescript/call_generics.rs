@@ -133,49 +133,48 @@ fn try_parse_generic_block(b: &[u8], len: usize, start: usize) -> Option<usize> 
 }
 
 /// Processes identifier and handles generic removal for function calls
-#[allow(clippy::many_single_char_names)]
 fn handle_identifier(
     _input: &str,
-    b: &[u8],
-    len: usize,
-    i: &mut usize,
-    c: char,
-    out: &mut String,
+    bytes: &[u8],
+    length: usize,
+    position: &mut usize,
+    current_char: char,
+    output: &mut String,
 ) -> bool {
     // Detect start of identifier (and ensure previous is not identifier char)
-    if (c.is_ascii_alphabetic() || c == '_' || c == '$')
-        && (*i == 0 || !is_identifier_char(b[*i - 1] as char))
+    if (current_char.is_ascii_alphabetic() || current_char == '_' || current_char == '$')
+        && (*position == 0 || !is_identifier_char(bytes[*position - 1] as char))
     {
         // Read identifier
-        let start_ident = *i;
-        *i += 1;
-        while *i < len && is_identifier_char(b[*i] as char) {
-            *i += 1;
+        let start_ident = *position;
+        *position += 1;
+        while *position < length && is_identifier_char(bytes[*position] as char) {
+            *position += 1;
         }
 
         // Copy identifier to output
-        if let Ok(ident_str) = std::str::from_utf8(&b[start_ident..*i]) {
-            out.push_str(ident_str);
+        if let Ok(ident_str) = std::str::from_utf8(&bytes[start_ident..*position]) {
+            output.push_str(ident_str);
         }
 
         // Skip whitespace after identifier
-        let j = skip_whitespace(b, len, *i);
+        let whitespace_end = skip_whitespace(bytes, length, *position);
 
         // If next is '<', try to parse generic and remove it only if next non-space after generic is '('
-        if j < len && b[j] as char == '<' {
-            if let Some(k) = try_parse_generic_block(b, len, j) {
+        if whitespace_end < length && bytes[whitespace_end] as char == '<' {
+            if let Some(generic_end) = try_parse_generic_block(bytes, length, whitespace_end) {
                 // Check if next non-space character is '(' (function call)
-                let m = skip_whitespace(b, len, k);
-                if m < len && b[m] as char == '(' {
-                    // Drop the generic by advancing i to k (after '>')
-                    *i = k;
+                let after_generic = skip_whitespace(bytes, length, generic_end);
+                if after_generic < length && bytes[after_generic] as char == '(' {
+                    // Drop the generic by advancing position to generic_end (after '>')
+                    *position = generic_end;
                     return true;
                 }
                 // Not a call context, keep original including whitespace
-                if let Ok(orig) = std::str::from_utf8(&b[*i..k]) {
-                    out.push_str(orig);
+                if let Ok(orig) = std::str::from_utf8(&bytes[*position..generic_end]) {
+                    output.push_str(orig);
                 }
-                *i = k;
+                *position = generic_end;
                 return true;
             }
         }
@@ -185,40 +184,40 @@ fn handle_identifier(
 }
 
 pub fn remove_generics_before_calls(input: &str) -> String {
-    let mut out = String::with_capacity(input.len());
-    let mut i = 0;
-    let b = input.as_bytes();
-    let len = b.len();
+    let mut output = String::with_capacity(input.len());
+    let mut position = 0;
+    let bytes = input.as_bytes();
+    let length = bytes.len();
     let mut state = ParseState::new();
 
-    while i < len {
-        let c = b[i] as char;
+    while position < length {
+        let current_char = bytes[position] as char;
 
         // Handle comments first
-        if handle_comments(input, b, len, &mut i, c, &mut state, &mut out) {
+        if handle_comments(input, bytes, length, &mut position, current_char, &mut state, &mut output) {
             continue;
         }
 
         // Handle strings
-        if handle_strings(input, &mut i, c, &mut state, &mut out) {
+        if handle_strings(input, &mut position, current_char, &mut state, &mut output) {
             continue;
         }
 
         // If inside strings, just copy
         if state.is_in_string() {
-            push_char_from(input, &mut i, &mut out);
+            push_char_from(input, &mut position, &mut output);
             continue;
         }
 
         // Handle identifiers with potential generics
-        if handle_identifier(input, b, len, &mut i, c, &mut out) {
+        if handle_identifier(input, bytes, length, &mut position, current_char, &mut output) {
             continue;
         }
 
-        push_char_from(input, &mut i, &mut out);
+        push_char_from(input, &mut position, &mut output);
     }
 
-    out
+    output
 }
 
 #[cfg(test)]
