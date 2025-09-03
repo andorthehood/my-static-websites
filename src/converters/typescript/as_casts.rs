@@ -35,24 +35,23 @@ pub fn remove_as_casts(input: &str) -> String {
         }
 
         // Handle entering comments when not in strings
-        if !in_single && !in_double && !in_backtick
-            && c == '/' && i + 1 < len {
-                let n = bytes[i + 1] as char;
-                if n == '/' {
-                    in_line_comment = true;
-                    out.push(c);
-                    out.push(n);
-                    i += 2;
-                    continue;
-                }
-                if n == '*' {
-                    in_block_comment = true;
-                    out.push(c);
-                    out.push(n);
-                    i += 2;
-                    continue;
-                }
+        if !in_single && !in_double && !in_backtick && c == '/' && i + 1 < len {
+            let n = bytes[i + 1] as char;
+            if n == '/' {
+                in_line_comment = true;
+                out.push(c);
+                out.push(n);
+                i += 2;
+                continue;
             }
+            if n == '*' {
+                in_block_comment = true;
+                out.push(c);
+                out.push(n);
+                i += 2;
+                continue;
+            }
+        }
 
         // Handle string state toggles
         if !in_double && !in_backtick && c == '\'' {

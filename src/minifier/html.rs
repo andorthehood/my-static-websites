@@ -104,11 +104,7 @@ fn update_special_content_flags(state: &mut HtmlParseState) {
 }
 
 /// Handles tag processing
-fn handle_tags(
-    ch: char,
-    state: &mut HtmlParseState,
-    result: &mut String,
-) -> bool {
+fn handle_tags(ch: char, state: &mut HtmlParseState, result: &mut String) -> bool {
     match ch {
         '>' if state.in_tag && !state.in_string && !state.in_comment => {
             result.push(ch);
@@ -177,8 +173,7 @@ fn handle_content_whitespace(
             // - content characters (words, emojis, unicode)
             // - after punctuation (comma, period, etc.) and before content
             // - content and tags
-            let should_preserve_space = (is_content_char(last_char)
-                && is_content_char(*next_char))
+            let should_preserve_space = (is_content_char(last_char) && is_content_char(*next_char))
                 || (is_content_char(last_char) && *next_char == '<')
                 || (last_char == '>' && is_content_char(*next_char))
                 || (matches!(last_char, ',' | '.' | ';' | ':' | '!' | '?')

@@ -16,12 +16,7 @@ pub fn trim_quotes(s: &str) -> &str {
     unsafe {
         let mut start_idx: usize = 0;
         let mut end_idx: usize = s.len();
-        trim_quotes_scan(
-            s.as_ptr(),
-            s.len(),
-            &raw mut start_idx,
-            &raw mut end_idx,
-        );
+        trim_quotes_scan(s.as_ptr(), s.len(), &raw mut start_idx, &raw mut end_idx);
         return s.get_unchecked(start_idx..end_idx);
     }
 

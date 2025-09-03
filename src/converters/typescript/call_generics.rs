@@ -113,7 +113,7 @@ fn skip_whitespace(b: &[u8], len: usize, start: usize) -> usize {
 fn try_parse_generic_block(b: &[u8], len: usize, start: usize) -> Option<usize> {
     let mut pos = start;
     let mut depth = 0;
-    
+
     while pos < len {
         let ch = b[pos] as char;
         if ch == '<' {
@@ -150,7 +150,7 @@ fn handle_identifier(
         while *i < len && is_identifier_char(b[*i] as char) {
             *i += 1;
         }
-        
+
         // Copy identifier to output
         if let Ok(ident_str) = std::str::from_utf8(&b[start_ident..*i]) {
             out.push_str(ident_str);
@@ -158,7 +158,7 @@ fn handle_identifier(
 
         // Skip whitespace after identifier
         let j = skip_whitespace(b, len, *i);
-        
+
         // If next is '<', try to parse generic and remove it only if next non-space after generic is '('
         if j < len && b[j] as char == '<' {
             if let Some(k) = try_parse_generic_block(b, len, j) {

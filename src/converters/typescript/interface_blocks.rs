@@ -102,15 +102,9 @@ fn handle_strings(
 
 /// Checks if current position starts with interface keyword followed by whitespace
 fn starts_with_interface(input: &str, i: usize) -> bool {
-    input
-        .get(i..)
-        .is_some_and(|s| s.starts_with("interface "))
-        || input
-            .get(i..)
-            .is_some_and(|s| s.starts_with("interface\t"))
-        || input
-            .get(i..)
-            .is_some_and(|s| s.starts_with("interface\n"))
+    input.get(i..).is_some_and(|s| s.starts_with("interface "))
+        || input.get(i..).is_some_and(|s| s.starts_with("interface\t"))
+        || input.get(i..).is_some_and(|s| s.starts_with("interface\n"))
 }
 
 /// Skips whitespace characters
@@ -158,12 +152,12 @@ fn handle_interface_block(
     if !state.is_in_string() && c == 'i' && starts_with_interface(input, *i) {
         // Skip keyword
         *i += "interface".len();
-        
+
         // Skip whitespace and interface name
         skip_whitespace(bytes, len, i);
         skip_identifier(bytes, len, i);
         skip_whitespace(bytes, len, i);
-        
+
         // Expect block starting with '{'
         if *i < len && bytes[*i] as char == '{' {
             skip_brace_block(bytes, len, i);

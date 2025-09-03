@@ -9,8 +9,6 @@ impl WhitespaceHandler {
     pub fn should_preserve_space(result: &str, next_char: char) -> bool {
         should_preserve_space_asm(result, next_char)
     }
-    
-
 }
 
 #[cfg(test)]

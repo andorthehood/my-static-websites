@@ -18,7 +18,10 @@ use std::path::Path;
 /// # Returns
 /// A Variables `HashMap` with data.{filename} keys pointing to the JSON content
 pub fn load_site_data(site_name: &str, config: &SiteConfig) -> Result<Variables> {
-    let data_dir = format!("{}/{site_name}/{}", config.sites_base_dir, config.data_subdir);
+    let data_dir = format!(
+        "{}/{site_name}/{}",
+        config.sites_base_dir, config.data_subdir
+    );
     let mut data_variables = Variables::new();
 
     // Check if data directory exists

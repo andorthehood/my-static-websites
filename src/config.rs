@@ -209,7 +209,10 @@ mod tests {
         let mut config = SiteConfig::default();
         config.output_dir = String::new();
         assert!(config.validate().is_err());
-        assert_eq!(config.validate().unwrap_err(), "Output directory cannot be empty");
+        assert_eq!(
+            config.validate().unwrap_err(),
+            "Output directory cannot be empty"
+        );
     }
 
     #[test]
@@ -217,7 +220,10 @@ mod tests {
         let mut config = SiteConfig::default();
         config.default_posts_per_page = 0;
         assert!(config.validate().is_err());
-        assert_eq!(config.validate().unwrap_err(), "Default posts per page must be greater than 0");
+        assert_eq!(
+            config.validate().unwrap_err(),
+            "Default posts per page must be greater than 0"
+        );
     }
 
     #[test]
@@ -225,7 +231,10 @@ mod tests {
         let mut config = SiteConfig::default();
         config.server_port = 0;
         assert!(config.validate().is_err());
-        assert_eq!(config.validate().unwrap_err(), "Server port must be greater than 0");
+        assert_eq!(
+            config.validate().unwrap_err(),
+            "Server port must be greater than 0"
+        );
     }
 
     #[test]

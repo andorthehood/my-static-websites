@@ -44,7 +44,8 @@ pub fn generate_pagination_pages(
             write!(
                 html_list,
                 "<li><a href=\"/page{prev_page}\">🔙 Previous page</a>,&nbsp;</li>"
-            ).unwrap();
+            )
+            .unwrap();
         }
 
         // Index page link
@@ -61,7 +62,8 @@ pub fn generate_pagination_pages(
             write!(
                 html_list,
                 "<li><a href=\"/page{next_page}\">Next page ⏭️</a></li>"
-            ).unwrap();
+            )
+            .unwrap();
         }
 
         html_list.push_str("</ul>");
@@ -126,8 +128,16 @@ mod tests {
         fs::create_dir_all(&config.output_dir).expect("Failed to create output directory");
 
         // Generate pagination pages (3 posts per page should create 3 pages)
-        generate_pagination_pages("test", 3, &posts, &includes, main_layout, &global_variables, &config)
-            .expect("Failed to generate pagination pages");
+        generate_pagination_pages(
+            "test",
+            3,
+            &posts,
+            &includes,
+            main_layout,
+            &global_variables,
+            &config,
+        )
+        .expect("Failed to generate pagination pages");
 
         // Verify the pages were created
         assert!(Path::new("out/test/page1.html").exists());

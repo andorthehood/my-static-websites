@@ -101,7 +101,10 @@ fn generate_content_items(config: &ContentGenerationConfig) -> Result<()> {
 }
 
 fn copy_assets(site_name: &str, config: &SiteConfig) -> Result<HashMap<String, String>> {
-    let assets_dir = format!("{}/{site_name}/{}", config.sites_base_dir, config.assets_subdir);
+    let assets_dir = format!(
+        "{}/{site_name}/{}",
+        config.sites_base_dir, config.assets_subdir
+    );
     let mut versioned_assets = HashMap::new();
 
     if let Ok(entries) = fs::read_dir(&assets_dir) {
@@ -127,7 +130,10 @@ fn copy_assets(site_name: &str, config: &SiteConfig) -> Result<HashMap<String, S
 }
 
 fn copy_data(site_name: &str, config: &SiteConfig) -> Result<()> {
-    let data_dir = format!("{}/{site_name}/{}", config.sites_base_dir, config.data_subdir);
+    let data_dir = format!(
+        "{}/{site_name}/{}",
+        config.sites_base_dir, config.data_subdir
+    );
     let output_data_dir = format!("./{}/{site_name}/data", config.output_dir);
 
     if let Ok(entries) = fs::read_dir(&data_dir) {
@@ -157,11 +163,13 @@ pub fn generate(site_name: &str, config: &SiteConfig) -> Result<()> {
             format!(
                 "Site directory '{}' does not exist. Available sites: {}",
                 site_dir,
-                std::fs::read_dir(&config.sites_base_dir)
-                    .map_or_else(|_| "none".to_string(), |entries| entries
+                std::fs::read_dir(&config.sites_base_dir).map_or_else(
+                    |_| "none".to_string(),
+                    |entries| entries
                         .filter_map(|entry| entry.ok()?.file_name().into_string().ok())
                         .collect::<Vec<_>>()
-                        .join(", "))
+                        .join(", ")
+                )
             ),
         )
         .into());
@@ -175,9 +183,18 @@ pub fn generate(site_name: &str, config: &SiteConfig) -> Result<()> {
     let duration_since_epoch = now.duration_since(UNIX_EPOCH).expect("Time went backwards");
     let generated_date = duration_since_epoch.as_secs().to_string();
 
-    let posts_dir = format!("{}/{site_name}/{}", config.sites_base_dir, config.posts_subdir);
-    let pages_dir = format!("{}/{site_name}/{}", config.sites_base_dir, config.pages_subdir);
-    let includes_dir = format!("{}/{site_name}/{}", config.sites_base_dir, config.includes_subdir);
+    let posts_dir = format!(
+        "{}/{site_name}/{}",
+        config.sites_base_dir, config.posts_subdir
+    );
+    let pages_dir = format!(
+        "{}/{site_name}/{}",
+        config.sites_base_dir, config.pages_subdir
+    );
+    let includes_dir = format!(
+        "{}/{site_name}/{}",
+        config.sites_base_dir, config.includes_subdir
+    );
 
     let versioned_assets = copy_assets(site_name, config)?;
     copy_data(site_name, config)?;
@@ -225,7 +242,10 @@ pub fn generate(site_name: &str, config: &SiteConfig) -> Result<()> {
     add_collection_to_global_variables(&mut global_variables, "posts", &posts);
     add_collection_to_global_variables(&mut global_variables, "pages", &pages);
 
-    let layout_path = format!("{}/{site_name}/{}/{}", config.sites_base_dir, config.layouts_subdir, config.main_layout);
+    let layout_path = format!(
+        "{}/{site_name}/{}/{}",
+        config.sites_base_dir, config.layouts_subdir, config.main_layout
+    );
     let main_layout = load_layout(&layout_path)?;
 
     // Filter out unlisted posts for pagination
@@ -310,7 +330,7 @@ mod tests {
         // Check if files exist
         let html_files = vec![
             "out/test/index.html",
-            "out/test/about.html", 
+            "out/test/about.html",
             "out/test/posts/test-post.html",
         ];
 

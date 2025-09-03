@@ -208,12 +208,7 @@ fn is_object_literal_property(input: &str, b: &[u8], i: usize) -> bool {
 }
 
 /// Skips a type annotation until a stopping delimiter
-fn skip_type_annotation(
-    b: &[u8],
-    len: usize,
-    i: &mut usize,
-    out: &mut String,
-) {
+fn skip_type_annotation(b: &[u8], len: usize, i: &mut usize, out: &mut String) {
     *i += 1; // skip ':'
     while *i < len && (b[*i] as char).is_ascii_whitespace() {
         *i += 1;
@@ -224,7 +219,7 @@ fn skip_type_annotation(
 
     while k < len {
         let ch = b[k] as char;
-        
+
         if counters.update(ch) {
             break; // Hit unmatched delimiter
         }
@@ -232,7 +227,7 @@ fn skip_type_annotation(
         if matches!(ch, '=' | ',' | ';' | '\n') && counters.all_zero() {
             break;
         }
-        
+
         k += 1;
     }
 
@@ -252,13 +247,7 @@ fn skip_type_annotation(
 }
 
 /// Processes colon characters and handles type annotation removal
-fn handle_colon(
-    input: &str,
-    b: &[u8],
-    len: usize,
-    i: &mut usize,
-    out: &mut String,
-) -> bool {
+fn handle_colon(input: &str, b: &[u8], len: usize, i: &mut usize, out: &mut String) -> bool {
     // If this is an object literal property, keep the colon
     if is_object_literal_property(input, b, *i) {
         out.push(':');
