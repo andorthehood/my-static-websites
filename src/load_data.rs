@@ -1,4 +1,4 @@
-use crate::config::{DATA_SUBDIR, SITES_BASE_DIR};
+use crate::config::SiteConfig;
 use crate::error::Result;
 use crate::parsers::{parse_json, JsonValue};
 use crate::types::Variables;
@@ -13,11 +13,12 @@ use std::path::Path;
 ///
 /// # Arguments
 /// * `site_name` - The name of the site
+/// * `config` - The site configuration
 ///
 /// # Returns
 /// A Variables `HashMap` with data.{filename} keys pointing to the JSON content
-pub fn load_site_data(site_name: &str) -> Result<Variables> {
-    let data_dir = format!("{SITES_BASE_DIR}/{site_name}/{DATA_SUBDIR}");
+pub fn load_site_data(site_name: &str, config: &SiteConfig) -> Result<Variables> {
+    let data_dir = format!("{}/{site_name}/{}", config.sites_base_dir, config.data_subdir);
     let mut data_variables = Variables::new();
 
     // Check if data directory exists
