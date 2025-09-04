@@ -1,6 +1,7 @@
 use crate::converters::typescript::utils::{is_identifier_char, push_char_from};
 
 /// Represents the state of string and comment parsing
+#[allow(clippy::struct_excessive_bools)]
 struct ParseState {
     in_single: bool,
     in_double: bool,
