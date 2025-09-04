@@ -16,6 +16,179 @@ use std::{
     time::{Instant, SystemTime, UNIX_EPOCH},
 };
 
+/// Validates that the site directory exists
+fn validate_site_directory(site_name: &str, config: &SiteConfig) -> Result<()> {
+    let site_dir = format!("{}/{site_name}", config.sites_base_dir);
+    if !std::path::Path::new(&site_dir).exists() {
+        return Err(std::io::Error::new(
+            std::io::ErrorKind::NotFound,
+            format!(
+                "Site directory '{}' does not exist. Available sites: {}",
+                site_dir,
+                std::fs::read_dir(&config.sites_base_dir).map_or_else(
+                    |_| "none".to_string(),
+                    |entries| entries
+                        .filter_map(|entry| entry.ok()?.file_name().into_string().ok())
+                        .collect::<Vec<_>>()
+                        .join(", ")
+                )
+            ),
+        )
+        .into());
+    }
+    Ok(())
+}
+
+/// Container for all loaded site content
+struct SiteContent {
+    posts: ContentCollection,
+    pages: ContentCollection,
+    includes: TemplateIncludes,
+    site_config: Variables,
+    data_variables: Variables,
+    main_layout: String,
+}
+
+/// Loads all site content (posts, pages, includes, etc.)
+fn load_site_content(site_name: &str, config: &SiteConfig) -> Result<SiteContent> {
+    let posts_dir = format!(
+        "{}/{site_name}/{}",
+        config.sites_base_dir, config.posts_subdir
+    );
+    let pages_dir = format!(
+        "{}/{site_name}/{}",
+        config.sites_base_dir, config.pages_subdir
+    );
+    let includes_dir = format!(
+        "{}/{site_name}/{}",
+        config.sites_base_dir, config.includes_subdir
+    );
+
+    // Gracefully handle sites without a posts directory
+    let posts = if std::path::Path::new(&posts_dir).exists() {
+        load_and_parse_files_with_front_matter_in_directory(&posts_dir)?
+    } else {
+        Vec::new()
+    };
+    let pages = load_and_parse_files_with_front_matter_in_directory(&pages_dir)?;
+    let includes = load_liquid_includes(&includes_dir);
+    let site_config = load_site_config(site_name, config)?;
+    let data_variables = load_site_data(site_name, config)?;
+
+    let layout_path = format!(
+        "{}/{site_name}/{}/{}",
+        config.sites_base_dir, config.layouts_subdir, config.main_layout
+    );
+    let main_layout = load_layout(&layout_path)?;
+
+    Ok(SiteContent {
+        posts,
+        pages,
+        includes,
+        site_config,
+        data_variables,
+        main_layout,
+    })
+}
+
+/// Sets up global variables from various sources
+fn setup_global_variables(
+    content: &SiteContent,
+    versioned_assets: HashMap<String, String>,
+    generated_date: String,
+    config: &SiteConfig,
+) -> (Variables, usize) {
+    let mut global_variables = Variables::new();
+
+    // Set defaults first
+    global_variables.insert("title".to_string(), "My Site".to_string());
+    global_variables.insert("site_url".to_string(), "https://example.com".to_string());
+    global_variables.insert(
+        "description".to_string(),
+        "Latest posts from my site".to_string(),
+    );
+
+    // Get posts per page from site config before we move it, fallback to default
+    let posts_per_page = content.site_config
+        .get("posts_per_page")
+        .and_then(|s| s.parse::<usize>().ok())
+        .unwrap_or(config.default_posts_per_page);
+
+    // Then merge/override with site config
+    global_variables.extend(content.site_config.clone());
+
+    // Add data variables from JSON files
+    global_variables.extend(content.data_variables.clone());
+
+    // Add versioned assets and generated date to global variables
+    global_variables.extend(versioned_assets);
+    global_variables.insert("generated_date".to_string(), generated_date);
+
+    // Add RSS feed URL to global variables
+    global_variables.insert("rss_feed_url".to_string(), "/feed.xml".to_string());
+
+    // Add posts and pages collections as indexed global variables for for loops
+    add_collection_to_global_variables(&mut global_variables, "posts", &content.posts);
+    add_collection_to_global_variables(&mut global_variables, "pages", &content.pages);
+
+    (global_variables, posts_per_page)
+}
+
+/// Generates all site content (pagination, posts, pages)
+fn generate_site_content(
+    site_name: &str,
+    content: &SiteContent,
+    global_variables: &Variables,
+    posts_per_page: usize,
+    config: &SiteConfig,
+) -> Result<()> {
+    // Filter out unlisted posts for pagination
+    let filtered_posts: ContentCollection = content.posts
+        .iter()
+        .filter(|post| {
+            post.get("unlisted")
+                .is_none_or(|value| value.to_lowercase() != "true")
+        })
+        .cloned()
+        .collect();
+
+    generate_pagination_pages(
+        site_name,
+        posts_per_page,
+        &filtered_posts,
+        &content.includes,
+        &content.main_layout,
+        global_variables,
+        config,
+    )?;
+
+    // Generate posts
+    generate_content_items(&ContentGenerationConfig {
+        site_name,
+        content_items: &content.posts,
+        includes: &content.includes,
+        main_layout: &content.main_layout,
+        global_variables,
+        output_directory: &format!("{}/{site_name}/posts/", config.output_dir),
+        default_layout: Some("post"),
+        site_config: config,
+    })?;
+
+    // Generate pages
+    generate_content_items(&ContentGenerationConfig {
+        site_name,
+        content_items: &content.pages,
+        includes: &content.includes,
+        main_layout: &content.main_layout,
+        global_variables,
+        output_directory: &format!("{}/{site_name}/", config.output_dir),
+        default_layout: None,
+        site_config: config,
+    })?;
+
+    Ok(())
+}
+
 /// Convert a content collection into indexed global variables for use with for loops
 ///
 /// Converts a collection like [{"title": "Post 1", "slug": "post-1"}, {"title": "Post 2", "slug": "post-2"}]
@@ -46,6 +219,7 @@ struct ContentGenerationConfig<'a> {
     global_variables: &'a Variables,
     output_directory: &'a str,
     default_layout: Option<&'a str>,
+    site_config: &'a SiteConfig,
 }
 
 /// Generic function to generate content items (posts or pages)
@@ -94,6 +268,7 @@ fn generate_content_items(config: &ContentGenerationConfig) -> Result<()> {
             config.main_layout,
             config.includes,
             &variables,
+            config.site_config,
         )?;
     }
 
@@ -155,140 +330,29 @@ fn copy_data(site_name: &str, config: &SiteConfig) -> Result<()> {
 }
 
 pub fn generate(site_name: &str, config: &SiteConfig) -> Result<()> {
-    // Validate that the site directory exists
-    let site_dir = format!("{}/{site_name}", config.sites_base_dir);
-    if !std::path::Path::new(&site_dir).exists() {
-        return Err(std::io::Error::new(
-            std::io::ErrorKind::NotFound,
-            format!(
-                "Site directory '{}' does not exist. Available sites: {}",
-                site_dir,
-                std::fs::read_dir(&config.sites_base_dir).map_or_else(
-                    |_| "none".to_string(),
-                    |entries| entries
-                        .filter_map(|entry| entry.ok()?.file_name().into_string().ok())
-                        .collect::<Vec<_>>()
-                        .join(", ")
-                )
-            ),
-        )
-        .into());
-    }
-
     // Start timing the generation process
     let start_time = Instant::now();
+
+    // Validate that the site directory exists
+    validate_site_directory(site_name, config)?;
 
     // Get the current system time
     let now = SystemTime::now();
     let duration_since_epoch = now.duration_since(UNIX_EPOCH).expect("Time went backwards");
     let generated_date = duration_since_epoch.as_secs().to_string();
 
-    let posts_dir = format!(
-        "{}/{site_name}/{}",
-        config.sites_base_dir, config.posts_subdir
-    );
-    let pages_dir = format!(
-        "{}/{site_name}/{}",
-        config.sites_base_dir, config.pages_subdir
-    );
-    let includes_dir = format!(
-        "{}/{site_name}/{}",
-        config.sites_base_dir, config.includes_subdir
-    );
-
+    // Copy assets and data
     let versioned_assets = copy_assets(site_name, config)?;
     copy_data(site_name, config)?;
-    // Gracefully handle sites without a posts directory
-    let posts = if std::path::Path::new(&posts_dir).exists() {
-        load_and_parse_files_with_front_matter_in_directory(&posts_dir)?
-    } else {
-        Vec::new()
-    };
-    let pages = load_and_parse_files_with_front_matter_in_directory(&pages_dir)?;
-    let includes = load_liquid_includes(&includes_dir);
-    let site_config = load_site_config(site_name, config)?;
-    let data_variables = load_site_data(site_name, config)?;
 
-    let mut global_variables = Variables::new();
+    // Load all site content
+    let content = load_site_content(site_name, config)?;
 
-    // Set defaults first
-    global_variables.insert("title".to_string(), "My Site".to_string());
-    global_variables.insert("site_url".to_string(), "https://example.com".to_string());
-    global_variables.insert(
-        "description".to_string(),
-        "Latest posts from my site".to_string(),
-    );
+    // Setup global variables
+    let (global_variables, posts_per_page) = setup_global_variables(&content, versioned_assets, generated_date, config);
 
-    // Get posts per page from site config before we move it, fallback to default
-    let posts_per_page = site_config
-        .get("posts_per_page")
-        .and_then(|s| s.parse::<usize>().ok())
-        .unwrap_or(config.default_posts_per_page);
-
-    // Then merge/override with site config
-    global_variables.extend(site_config);
-
-    // Add data variables from JSON files
-    global_variables.extend(data_variables);
-
-    // Add versioned assets and generated date to global variables
-    global_variables.extend(versioned_assets);
-    global_variables.insert("generated_date".to_string(), generated_date);
-
-    // Add RSS feed URL to global variables
-    global_variables.insert("rss_feed_url".to_string(), "/feed.xml".to_string());
-
-    // Add posts and pages collections as indexed global variables for for loops
-    add_collection_to_global_variables(&mut global_variables, "posts", &posts);
-    add_collection_to_global_variables(&mut global_variables, "pages", &pages);
-
-    let layout_path = format!(
-        "{}/{site_name}/{}/{}",
-        config.sites_base_dir, config.layouts_subdir, config.main_layout
-    );
-    let main_layout = load_layout(&layout_path)?;
-
-    // Filter out unlisted posts for pagination
-    let filtered_posts: ContentCollection = posts
-        .iter()
-        .filter(|post| {
-            post.get("unlisted")
-                .is_none_or(|value| value.to_lowercase() != "true")
-        })
-        .cloned()
-        .collect();
-
-    generate_pagination_pages(
-        site_name,
-        posts_per_page,
-        &filtered_posts,
-        &includes,
-        &main_layout,
-        &global_variables,
-        config,
-    )?;
-
-    // Generate posts
-    generate_content_items(&ContentGenerationConfig {
-        site_name,
-        content_items: &posts,
-        includes: &includes,
-        main_layout: &main_layout,
-        global_variables: &global_variables,
-        output_directory: &format!("{}/{site_name}/posts/", config.output_dir),
-        default_layout: Some("post"),
-    })?;
-
-    // Generate pages
-    generate_content_items(&ContentGenerationConfig {
-        site_name,
-        content_items: &pages,
-        includes: &includes,
-        main_layout: &main_layout,
-        global_variables: &global_variables,
-        output_directory: &format!("{}/{site_name}/", config.output_dir),
-        default_layout: None,
-    })?;
+    // Generate all content
+    generate_site_content(site_name, &content, &global_variables, posts_per_page, config)?;
 
     // Log the total generation time
     let elapsed = start_time.elapsed();

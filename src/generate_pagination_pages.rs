@@ -79,6 +79,7 @@ pub fn generate_pagination_pages(
             main_layout,
             includes,
             &variables,
+            config,
         )?;
     }
 
