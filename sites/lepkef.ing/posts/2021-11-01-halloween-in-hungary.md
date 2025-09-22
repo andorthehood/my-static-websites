@@ -2,7 +2,6 @@
 layout: post
 title: 'Halloween in Hungary'
 date: 2021-11-01T23:52+0100
-categories: post
 location: 'Mád, Hungary & Budapest, Hungary'
 emojis: ''
 tags: ''

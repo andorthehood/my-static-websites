@@ -2,7 +2,6 @@
 layout: post
 title: "Susanne Sundfør @ Paradiso"
 date: 2018-02-26 23:20 +0100
-categories: posts
 tags: concert
 location: "Amsterdam, Netherlands"
 ---

@@ -2,7 +2,6 @@
 layout: post
 title: 'Shibari with Maya and Asimira'
 date: 2020-12-02T22:36+0100
-categories: post
 location: 'Rotterdam, Netherlands'
 emojis: '🔞'
 unlisted: true

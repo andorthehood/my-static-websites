@@ -2,7 +2,6 @@
 layout: post
 title: "Barcelona"
 date: 2019-03-02 17:07 +0100
-categories: posts
 tags: travel art
 location: "Barcelona, Spain"
 ---

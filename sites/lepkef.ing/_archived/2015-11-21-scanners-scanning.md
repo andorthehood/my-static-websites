@@ -2,7 +2,6 @@
 layout: post
 title: "Weekend art project: Two scanners scanning each other at the same time"
 date: 2015-11-21 22:52:39 -0100
-categories: posts
 tags: art
 location: "Trier, Germany"
 ---

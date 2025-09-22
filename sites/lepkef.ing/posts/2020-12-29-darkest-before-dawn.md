@@ -2,7 +2,6 @@
 layout: post
 title: 'Darkest Before Dawn'
 date: 2020-12-29T22:52:39-0100
-categories: posts
 location: 'Zandvoort, Netherlands'
 emojis: '🎹'
 tags: 'music,video'

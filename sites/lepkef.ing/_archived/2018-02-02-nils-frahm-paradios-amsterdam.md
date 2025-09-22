@@ -2,7 +2,6 @@
 layout: post
 title: "Nils Frahm @ Paradiso, Amsterdam"
 date: 2018-02-02 10:13 +0100
-categories: posts
 tags: concert
 location: "Amsterdam, Netherlands"
 ---

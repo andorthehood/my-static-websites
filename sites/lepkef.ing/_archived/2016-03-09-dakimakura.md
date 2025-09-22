@@ -2,7 +2,6 @@
 layout: post
 title: "Dakimakura"
 date: 2016-03-09 22:52:39 -0100
-categories: posts
 tags: travel art
 location: "Tokyo, Japan"
 ---

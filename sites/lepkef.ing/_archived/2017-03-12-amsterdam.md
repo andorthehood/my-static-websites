@@ -2,7 +2,6 @@
 layout: post
 title: "Amsterdam"
 date: 2017-03-12 21:28:00 +0100
-categories: posts
 tags: art
 location: "Amsterdam, Netherlands"
 ---
