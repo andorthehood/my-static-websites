@@ -2,7 +2,6 @@
 layout: post
 title: 'Luxembourg, Luxembourg'
 date: 2019-11-24T21:40+0100
-categories: post
 location: 'Luxembourg, Luxembourg'
 tags: ''
 ---

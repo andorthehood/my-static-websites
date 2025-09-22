@@ -2,7 +2,7 @@
 layout: post
 title: "Synthesizing in Los Angeles"
 date: 2016-11-24 22:43:00 -0800
-categories: [music]
+category: music
 tags: art eurorack
 location: "Los Angeles, California"
 ---

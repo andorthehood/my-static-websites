@@ -2,7 +2,7 @@
 layout: post
 title: "Brighton Pier"
 date: 2018-07-02 23:57 +0100
-categories: cinemascope
+category: cinemascope
 tags: travel
 location: "Brighton, United Kingdom"
 ---

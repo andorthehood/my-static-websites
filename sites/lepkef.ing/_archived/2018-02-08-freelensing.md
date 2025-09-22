@@ -2,7 +2,6 @@
 layout: post
 title: "Freelensing"
 date: 2018-02-08 10:31 +0100
-categories: posts
 tags: art
 location: "Haarlem, Netherlands"
 ---

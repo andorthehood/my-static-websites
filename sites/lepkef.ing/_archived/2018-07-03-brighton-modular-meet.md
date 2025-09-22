@@ -2,7 +2,7 @@
 layout: post
 title: "Brighton Modular Meet"
 date: 2018-07-03 23:41 +0100
-categories: music
+category: music
 tags: music art
 location: "Brighton, United Kingdom"
 ---

@@ -2,7 +2,6 @@
 layout: post
 title: "Barcelona"
 date: 2014-08-29 22:12:00 -0100
-categories: posts
 tags: travel
 location: "Barcelona, Spain"
 ---

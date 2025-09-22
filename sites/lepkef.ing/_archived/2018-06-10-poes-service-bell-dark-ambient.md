@@ -2,7 +2,7 @@
 layout: post
 title: "Cat rings service bell to get food"
 date: 2018-06-10 23:14 +0100
-categories: [music]
+category: music
 tags: music video eurorack art
 location: "Haarlem, Netherlands"
 ---

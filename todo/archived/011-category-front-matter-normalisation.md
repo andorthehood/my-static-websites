@@ -3,8 +3,8 @@
 **Priority**: 🟡
 **Estimated Effort**: 1-2 days
 **Created**: 2025-09-22
-**Status**: Open
-**Completed**: N/A
+**Status**: Completed
+**Completed**: 2025-01-11
 
 ## Problem Description
 
@@ -41,9 +41,9 @@ Many posts declare a `category` or `categories` field in their front matter, but
 
 ## Success Criteria
 
-- [ ] All posts define at most one meaningful `category` value (or none) in their front matter.
-- [ ] Placeholder categories (`post`/`posts`) are removed from the repository.
-- [ ] Guidance or tooling exists to prevent reintroducing arrays or placeholders in new posts.
+- [x] All posts define at most one meaningful `category` value (or none) in their front matter.
+- [x] Placeholder categories (`post`/`posts`) are removed from the repository.
+- [x] Guidance or tooling exists to prevent reintroducing arrays or placeholders in new posts.
 
 ## Affected Components
 
@@ -233,6 +233,23 @@ These posts currently declare a `categories` field and should be validated durin
 - sites/lepkef.ing/_archived/2019-02-20-kamilla.md
 - sites/lepkef.ing/_archived/2019-03-02-mwc-barcelona.md
 - sites/lepkef.ing/_archived/2019-05-19-waveform-research-centre.md
+
+## Completion Summary
+
+**Completed on**: 2025-01-11
+
+**Changes Made**:
+- Normalized 153 posts across active and archived content
+- Removed all placeholder values (`post`, `posts`) from active posts  
+- Converted array syntax `[category]` to singular `category: value` in archived posts
+- Archived posts now have meaningful categories: `music`, `cinemascope`, `travel`, `artnude`
+- Active posts with placeholder categories now have no category field (as intended)
+
+**Files Added**:
+- `scripts/validate_categories.py` - Validation script to prevent regressions
+- `docs/category-guidelines.md` - Documentation for contributors
+
+**Validation**: All tests pass and validation script confirms no invalid category usage remains.
 
 ## Archive Instructions
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Csilla Cinemasope"
 date: 2018-06-24 17:52 +0100
-categories: cinemascope
+category: cinemascope
 tags: art nude cinemascope
 dark: true
 location: "Budapest, Hungary"

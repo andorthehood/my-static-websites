@@ -2,7 +2,7 @@
 layout: post
 title: "Modular meditation"
 date: 2017-07-22 17:09 +0100
-categories: [music]
+category: music
 tags: eurorack art video
 location: "Haarlem, Netherlands"
 ---
