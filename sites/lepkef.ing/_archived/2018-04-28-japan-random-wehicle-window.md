@@ -2,7 +2,7 @@
 layout: post
 title: "Japan from random vehicle windows"
 date: 2018-04-28 21:38 +0100
-categories: [cinemascope]
+category: cinemascope
 tags: travel cinemascope
 location: "Tokyo, Japan"
 ---

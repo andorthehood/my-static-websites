@@ -2,7 +2,6 @@
 layout: post
 title: "Nationaal Park Zuid-Kennemerland"
 date: 2017-04-23 11:08 +0100
-categories: posts
 tags: art travel
 location: "Nationaal Park Zuid-Kennemerland, Netherlands"
 ---

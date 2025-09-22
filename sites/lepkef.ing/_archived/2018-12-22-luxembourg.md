@@ -2,7 +2,7 @@
 layout: post
 title: "Luxembourg"
 date: 2018-12-22 23:41 +0100
-categories: [travel]
+category: travel
 tags: travel
 location: "Luxembourg, Luxembourg"
 ---

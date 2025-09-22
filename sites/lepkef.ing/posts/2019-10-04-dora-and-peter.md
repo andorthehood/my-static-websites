@@ -2,7 +2,6 @@
 layout: post
 title: 'Dori & Peti'
 date: 2019-10-04T23:51+0100
-categories: post
 location: 'Szomod, Hungary'
 emojis: '👰‍♀️🤵‍♂️'
 tags: ''

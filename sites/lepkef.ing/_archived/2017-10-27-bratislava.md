@@ -2,7 +2,6 @@
 layout: post
 title: "Bratislava"
 date: 2017-10-27 22:31 +0100
-categories: posts
 tags: travel
 location: "Bratislava, Slovakia"
 ---

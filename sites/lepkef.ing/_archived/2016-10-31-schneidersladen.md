@@ -2,7 +2,7 @@
 layout: post
 title: "SchneidersLaden Berlin"
 date: 2016-10-31 22:52:39 -0800
-categories: [music]
+category: music
 tags: eurorack synth
 location: "Berlin, Germany"
 ---

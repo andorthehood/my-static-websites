@@ -2,7 +2,7 @@
 layout: post
 title: "Noodlebar @ Wunderbar, Rotterdam"
 date: 2018-02-19 09:08 +0100
-categories: [music]
+category: music
 tags: eurorack concert
 location: "Rotterdam, Netherlands"
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: "Colin Benders: Museum van Geluid"
 date: 2018-06-03 23:20 +0100
-categories: [music, cinemascope]
+category: music
 tags: concert cinemascope
 location: "Utrect, Netherlands"
 ---
