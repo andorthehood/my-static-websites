@@ -2,7 +2,6 @@
 layout: post
 title: 'Route 66 roadtrip'
 date: 2015-11-15T22:52:39-0100
-categories: posts
 tags: travel
 location: 'California, United States of America'
 tags: 'roadtrip'

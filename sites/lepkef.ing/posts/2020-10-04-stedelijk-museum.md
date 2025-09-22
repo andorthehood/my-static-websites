@@ -2,7 +2,6 @@
 layout: post
 title: 'Stedelijk Museum'
 date: 2020-10-04T16:47+0100
-categories: post
 location: 'Amsterdam, Netherlands'
 tags: ''
 ---

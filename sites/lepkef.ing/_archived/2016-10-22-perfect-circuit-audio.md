@@ -2,7 +2,7 @@
 layout: post
 title: "Perfect Circuit Audio"
 date: 2016-10-22 22:52:39 -0800
-categories: [music]
+category: music
 tags: eurorack synth
 location: "Los Angeles, California"
 ---

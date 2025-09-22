@@ -2,7 +2,6 @@
 layout: post
 title: 'Christmas in Hollywood'
 date: 2016-12-25T22:52:39-0800
-categories: posts
 location: 'Los Angeles, California'
 tags: ''
 ---

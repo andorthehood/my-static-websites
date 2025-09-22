@@ -2,7 +2,7 @@
 layout: post
 title: "Live @ Paradiso (Voltage Control Amsterdam)"
 date: 2019-01-21 16:38 +0100
-categories: [music]
+category: music
 tags: music
 location: "Amsterdam, Netherlands"
 ---
