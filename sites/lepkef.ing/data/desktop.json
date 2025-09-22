@@ -74,5 +74,10 @@
 		"icon": "💼",
 		"label": "Professional Website",
 		"target": "_blank"
+	},
+	{
+		"href": "/tabs",
+		"icon": "🎸",
+		"label": "Tabs"
 	}
 ]
