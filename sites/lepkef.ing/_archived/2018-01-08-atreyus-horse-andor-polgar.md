@@ -2,7 +2,7 @@
 layout: post
 title: "Atreyu's horse & Andor Polgar @ Aurora"
 date: 2018-01-08 19:05 +0100
-categories: [music]
+category: music
 tags: concert eurorack art
 location: "Budapest, Hungary"
 ---

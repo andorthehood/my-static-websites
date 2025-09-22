@@ -2,7 +2,6 @@
 layout: post
 title: 'Pyongyang, North Korea'
 date: 2019-04-20T22:11+0100
-categories: posts
 location: 'Pyongyang, North Korea'
 emojis: '⭐⭐'
 tags: ''

@@ -2,7 +2,6 @@
 layout: post
 title: 'Boating in Haarlem'
 date: 2021-08-28T23:17+0100
-categories: post
 location: 'Haarlem, Netherlands'
 emojis: ''
 tags: ''

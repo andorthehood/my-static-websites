@@ -2,7 +2,6 @@
 layout: post
 title: "Marina del Rey"
 date: 2016-10-08 21:10:00 -0700
-categories: posts
 tags: travel
 location: "Marina del Rey, California"
 ---

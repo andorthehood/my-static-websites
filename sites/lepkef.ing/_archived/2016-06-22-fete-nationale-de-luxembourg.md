@@ -2,7 +2,6 @@
 layout: post
 title: "Fête nationale du Luxembourg"
 date: 2016-06-23 22:52:39 -0100
-categories: posts
 location: "Luxembourg, Luxembourg"
 ---
 

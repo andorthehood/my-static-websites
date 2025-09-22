@@ -2,7 +2,7 @@
 layout: post
 title: "My first photos with the Isco Ultra Star Cinemascope anamorphic lens"
 date: 2017-08-18 20:19 +0100
-categories: [cinemascope]
+category: cinemascope
 tags: art
 location: "Zandvoort, Netherlands"
 ---

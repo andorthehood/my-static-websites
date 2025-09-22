@@ -2,7 +2,6 @@
 layout: post
 title: 'Sick Ducks (film)'
 date: 2022-01-30T23:15+0100
-categories: post
 location: 'Zandvoort, Netherlands'
 emojis: '🔞'
 unlisted: true
