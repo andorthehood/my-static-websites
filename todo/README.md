@@ -40,24 +40,6 @@ When a TODO is completed:
 3. **Move to archived folder**: Move the file to `todo/archived/` for historical reference
 5. **Review dependencies**: Update any other TODOs that depended on this completed item
 
-## Current TODO Items
-
-### 🟡 Medium Priority
-
-- **001-traits-for-abstract-interfaces.md** - Create trait-based interfaces for better abstraction
-- **002-module-level-privacy-control.md** - Use visibility modifiers to control module boundaries
-- **003-builder-pattern-for-complex-operations.md** - Implement builder pattern for site generation
-- **004-error-type-abstraction.md** - Improve error handling with better context and types
-- **006-dependency-injection-pattern.md** - Implement dependency injection for better testing
-- **009-interface-segregation.md** - Break down large interfaces into focused ones
-- **010-testing-with-mocks.md** - Implement comprehensive testing with mocks
-
-### 🟢 Low Priority
-
-- **005-configuration-structs.md** - Replace scattered constants with structured configuration
-- **007-feature-flags-for-optional-components.md** - Add feature flags for optional functionality
-- **008-module-re-exports-for-clean-public-api.md** - Create clean public API through re-exports
-
 ## Implementation Order
 
 The TODOs are designed to be implemented in order, with each building on the previous ones:
