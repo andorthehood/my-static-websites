@@ -12,7 +12,9 @@ pub fn load_liquid_includes(dir_path: &str) -> TemplateIncludes {
             if path.is_file() && path.extension().and_then(|ext| ext.to_str()) == Some("liquid") {
                 if let Some(filename) = path.file_name().and_then(|name| name.to_str()) {
                     if let Ok(contents) = fs::read_to_string(&path) {
-                        templates.insert(filename.to_string(), contents);
+                        // Normalize the key by removing the .liquid extension
+                        let normalized_key = filename.strip_suffix(".liquid").unwrap_or(filename);
+                        templates.insert(normalized_key.to_string(), contents);
                     }
                 }
             }
