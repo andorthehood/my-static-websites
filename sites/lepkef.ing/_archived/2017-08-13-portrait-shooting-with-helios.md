@@ -2,7 +2,6 @@
 layout: post
 title: "Portrait shooting with the Helios 40-2"
 date: 2017-08-13 15:39 +0100
-categories: posts
 tags: art
 location: "Amsterdam, Netherlands"
 ---

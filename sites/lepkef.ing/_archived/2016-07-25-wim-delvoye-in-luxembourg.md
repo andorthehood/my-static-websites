@@ -2,7 +2,6 @@
 layout: post
 title: "Wim Delvoye in Luxembourg"
 date: 2016-07-25 22:52:39 -0100
-categories: posts
 location: "Luxembourg, Luxembourg"
 tags: art
 ---

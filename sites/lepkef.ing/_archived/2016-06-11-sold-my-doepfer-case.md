@@ -2,7 +2,7 @@
 layout: post
 title: "Sold my Doepfer case"
 date: 2016-06-11 22:52:39 -0100
-categories: [music]
+category: music
 tags: eurorack synth
 location: "Trier, Germany"
 ---

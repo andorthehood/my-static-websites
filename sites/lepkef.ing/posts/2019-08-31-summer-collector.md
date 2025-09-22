@@ -2,7 +2,6 @@
 layout: post
 title: '2019 Summer (collector)'
 date: 2019-08-30T17:08+0100
-categories: posts
 location: 'Netherlands'
 emojis: ''
 tags: ''

@@ -2,7 +2,7 @@
 layout: post
 title: "Broken radio"
 date: 2017-04-15 18:52:00 +0100
-categories: [music]
+category: music
 tags: art eurorack video
 location: "Haarlem, Netherlands"
 ---

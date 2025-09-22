@@ -2,7 +2,7 @@
 layout: post
 title: "Happy New Year!"
 date: 2019-01-01 14:52 +0100
-categories: [travel]
+category: travel
 tags: travel
 location: "Amsterdam, Netherlands"
 ---

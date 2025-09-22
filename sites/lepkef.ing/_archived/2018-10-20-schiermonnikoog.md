@@ -2,7 +2,7 @@
 layout: post
 title: "Schiermonnikoog"
 date: 2018-10-20 22:02 +0100
-categories: [cinemascope]
+category: cinemascope
 tags: travel
 location: "Schiermonnikoog, Netherlands"
 ---
