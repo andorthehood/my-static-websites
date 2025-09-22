@@ -90,7 +90,7 @@ mod tests {
     #[test]
     fn test_process_template_tags_with_includes() {
         let mut includes = HashMap::new();
-        includes.insert("test.liquid".to_string(), "Hello {{ name }}!".to_string());
+        includes.insert("test".to_string(), "Hello {{ name }}!".to_string()); // Normalized key
 
         let mut variables = HashMap::new();
         variables.insert("name".to_string(), "World".to_string());
