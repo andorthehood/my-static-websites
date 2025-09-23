@@ -21,6 +21,7 @@ mod converters;
 
 // Generation and rendering
 mod generate;
+mod generate_category_pages;
 mod generate_pagination_pages;
 mod render_page;
 
