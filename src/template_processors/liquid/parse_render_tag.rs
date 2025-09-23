@@ -247,8 +247,14 @@ mod tests {
     fn test_parse_render_tag_nested_paths() {
         // Test nested path handling
         let test_cases = vec![
-            ("{% render 'components/buttons/cta' %}", "components/buttons/cta"),
-            ("{% render \"components/buttons/cta.liquid\" %}", "components/buttons/cta"),
+            (
+                "{% render 'components/buttons/cta' %}",
+                "components/buttons/cta",
+            ),
+            (
+                "{% render \"components/buttons/cta.liquid\" %}",
+                "components/buttons/cta",
+            ),
             ("{% render components/card %}", "components/card"),
             ("{% render 'layout/sidebar.liquid' %}", "layout/sidebar"),
             ("{% render \"foo/bar/baz\" %}", "foo/bar/baz"),
