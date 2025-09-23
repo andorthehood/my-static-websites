@@ -84,11 +84,7 @@ fn generate_category_pagination_pages(
         // Previous page link
         if page_num > 1 {
             let prev_page = page_num - 1;
-            let prev_url = if prev_page == 1 {
-                format!("/category/{category_slug}/")
-            } else {
-                format!("/category/{category_slug}/page{prev_page}")
-            };
+            let prev_url = format!("/category/{category_slug}/page{prev_page}");
             write!(
                 html_list,
                 "<li><a href=\"{prev_url}\">🔙 Previous page</a>,&nbsp;</li>"
@@ -99,7 +95,7 @@ fn generate_category_pagination_pages(
         // Index page link for this category
         write!(
             html_list,
-            "<li><a href=\"/category/{category_slug}/\">Category index</a>,&nbsp;</li>"
+            "<li><a href=\"/category/{category_slug}/page1\">Category index</a>,&nbsp;</li>"
         )
         .unwrap();
 
@@ -108,11 +104,7 @@ fn generate_category_pagination_pages(
 
         // Page numbers
         for i in 1..=total_pages {
-            let page_url = if i == 1 {
-                format!("/category/{category_slug}/")
-            } else {
-                format!("/category/{category_slug}/page{i}")
-            };
+            let page_url = format!("/category/{category_slug}/page{i}");
             write!(html_list, "<li><a href=\"{page_url}\">{i}</a>,&nbsp;</li>").unwrap();
         }
 
@@ -160,11 +152,7 @@ fn generate_category_pagination_pages(
             "{}/{}/category/{}/",
             config.output_dir, site_name, category_slug
         );
-        let page_slug = if page_num == 1 {
-            "index".to_string()
-        } else {
-            format!("page{}", page_num)
-        };
+        let page_slug = format!("page{}", page_num);
 
         render_page(
             &html_list,
@@ -330,17 +318,17 @@ mod tests {
         .expect("Failed to generate category pages");
 
         // Check that travel category pages were created (3 posts, 2 per page = 2 pages)
-        assert!(Path::new("out/category-test/category/travel/index.html").exists());
+        assert!(Path::new("out/category-test/category/travel/page1.html").exists());
         assert!(Path::new("out/category-test/category/travel/page2.html").exists());
         assert!(!Path::new("out/category-test/category/travel/page3.html").exists());
 
         // Check that music category pages were created (2 posts, 2 per page = 1 page)
-        assert!(Path::new("out/category-test/category/music/index.html").exists());
+        assert!(Path::new("out/category-test/category/music/page1.html").exists());
         assert!(!Path::new("out/category-test/category/music/page2.html").exists());
 
         // Check the content of travel category index page
         let travel_index_content =
-            fs::read_to_string("out/category-test/category/travel/index.html").unwrap();
+            fs::read_to_string("out/category-test/category/travel/page1.html").unwrap();
         assert!(travel_index_content.contains("Posts in category:"));
         assert!(travel_index_content.contains("<strong>Travel</strong>"));
         assert!(travel_index_content.contains("Travel Post 1"));
