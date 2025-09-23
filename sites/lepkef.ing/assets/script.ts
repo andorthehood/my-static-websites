@@ -56,7 +56,13 @@ function handleLinkClick(event) {
 		return;
 	}
 
+	// If the link is a hash, don't do anything.
+	if (href.startsWith('#')) {
+		return;
+	}
+
 	event.preventDefault();
+
 	const content = document.querySelector('.content');
 
 	const json = (href === '/' || href === '') ? '/index.json' : href + '.json';
@@ -92,6 +98,10 @@ function registerLinkHandlers() {
 
 (function () {
 	window.addEventListener('popstate', function () {
+		if (location.hash !== '') {
+			return;
+		}
+		
 		const pathname = location.pathname;
 		const json = (pathname === '/' || pathname === '') ? '/index.json' : pathname + '.json';
 		const content = document.querySelector('.content');
