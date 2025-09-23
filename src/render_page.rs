@@ -198,7 +198,7 @@ mod tests {
 
         let mut includes: TemplateIncludes = HashMap::new();
         // malformed variable (missing second closing brace) inside include template
-        includes.insert("bad.liquid".into(), "Hello, {{ name }!".into());
+        includes.insert("bad".into(), "Hello, {{ name }!".into()); // Normalized key
 
         let mut variables: Variables = HashMap::new();
         variables.insert("file_type".into(), "html".into());
