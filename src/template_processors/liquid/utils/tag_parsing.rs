@@ -136,7 +136,7 @@ pub fn extract_tag_parameter(tag_content: &str, tag_type: &str) -> Option<String
 }
 
 /// Extracts the inner content of a full liquid tag string for a given tag name.
-/// Example: given "{% include header.liquid %}", `tag_name` "include" -> returns Some("header.liquid").
+/// Example: given "{% render header.liquid %}", `tag_name` "render" -> returns Some("header.liquid").
 pub fn extract_tag_inner<'a>(full_tag: &'a str, tag_name: &str) -> Option<&'a str> {
     let trimmed = full_tag.trim();
     let prefix = format!("{{% {tag_name}");

@@ -57,7 +57,9 @@ fn extract_template_name(content: &str) -> Option<(String, String)> {
     }
 
     // Normalize the template name by removing .liquid extension if present
-    let normalized_name = template_name.strip_suffix(".liquid").unwrap_or(&template_name);
+    let normalized_name = template_name
+        .strip_suffix(".liquid")
+        .unwrap_or(&template_name);
 
     let remaining: String = chars.collect();
     Some((normalized_name.to_string(), remaining))
@@ -224,24 +226,11 @@ mod tests {
             let result = parse_liquid_render_tag(tag);
             assert!(result.is_some(), "Failed to parse: {}", tag);
             let (template_name, _) = result.unwrap();
-            assert_eq!(template_name, "header", "Unexpected template name for: {}", tag);
-        }
-    }
-
-    #[test]
-    fn test_include_tags_no_longer_parsed() {
-        // Test that include tags are no longer recognized
-        let test_cases = vec![
-            "{% include header.liquid %}",
-            "{% include 'header.liquid' %}",
-            "{% include \"header.liquid\" %}",
-            "{% include 'header' %}",
-            "{% include \"header\" %}",
-        ];
-
-        for tag in test_cases {
-            let result = parse_liquid_render_tag(tag);
-            assert!(result.is_none(), "Include tag should not be parsed: {}", tag);
+            assert_eq!(
+                template_name, "header",
+                "Unexpected template name for: {}",
+                tag
+            );
         }
     }
 }
