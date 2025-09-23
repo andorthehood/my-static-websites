@@ -7,4 +7,4 @@ tags: eurorack art video
 location: "Haarlem, Netherlands"
 ---
 
-{% include youtube.liquid id="EYunaM4sWOY" %}
+{% render youtube.liquid id="EYunaM4sWOY" %}

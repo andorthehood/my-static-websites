@@ -7,5 +7,5 @@ tags: art eurorack
 location: "Amsterdam, Netherlands"
 ---
 
-{% include img.liquid img:"33201594736_fe281257d1_k" date:page.date %}
-{% include img.liquid img:"33010473550_aaa292dd6d_k" date:page.date %}
+{% render img.liquid img:"33201594736_fe281257d1_k" date:page.date %}
+{% render img.liquid img:"33010473550_aaa292dd6d_k" date:page.date %}

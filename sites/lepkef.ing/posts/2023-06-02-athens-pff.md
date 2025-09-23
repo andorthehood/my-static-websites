@@ -17,5 +17,5 @@ people:
     - '@officerflower'
 ---
 
-{% include candystore.liquid file:"20220602_4_athenspff_gold200_ma_zm35" title:"" %}
-{% include candystore.liquid file:"20220602_5_athenspff_gold200_ma_zm35" title:"" %}
+{% render candystore.liquid file:"20220602_4_athenspff_gold200_ma_zm35" title:"" %}
+{% render candystore.liquid file:"20220602_5_athenspff_gold200_ma_zm35" title:"" %}

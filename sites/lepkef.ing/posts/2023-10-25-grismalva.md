@@ -16,15 +16,15 @@ people:
     - '@asimira_iliac'
 ---
 
-{% include candystore.liquid file:"20231025_104_grismalva_ma_35zm_portra800" title:"Grismalva" %}
-{% include candystore.liquid file:"20231025_102_grismalva_ma_35zm_portra800_tla140" title:"Grismalva" %}
-{% include candystore.liquid file:"20231025_25_grismalva_ma_35zm_superia400_tla140" title:"Grismalva" %}
-{% include candystore.liquid file:"20231025_20_grismalva_ma_35zm_gold200_tla140" title:"Grismalva" %}
-{% include candystore.liquid file:"20231025_32_grismalva_ma_35zm_superia400_tla140" title:"Grismalva" %}
-{% include candystore.liquid file:"20231025_100_grismalva_ma_35zm_portra800_tla140" title:"Grismalva" %}
-{% include candystore.liquid file:"20231025_1_grismalva_ma_35zm_gold200_tla140" title:"Grismalva" %}
-{% include candystore.liquid file:"20231025_50_grismalva_ma_35zm_ultramax400_tla140" title:"Grismalva" %}
-{% include candystore.liquid file:"20231025_77_grismalva_ma_35zm_gold200_tla140" title:"Grismalva" %}
-{% include candystore.liquid file:"20231025_78_grismalva_ma_35zm_gold200_tla140" title:"Grismalva" %}
-{% include candystore.liquid file:"20231025_82_grismalva_ma_35zm_gold200_tla140" title:"Grismalva" %}
-{% include candystore.liquid file:"20231025_83_grismalva_ma_35zm_gold200_tla140" title:"Grismalva" %}
+{% render candystore.liquid file:"20231025_104_grismalva_ma_35zm_portra800" title:"Grismalva" %}
+{% render candystore.liquid file:"20231025_102_grismalva_ma_35zm_portra800_tla140" title:"Grismalva" %}
+{% render candystore.liquid file:"20231025_25_grismalva_ma_35zm_superia400_tla140" title:"Grismalva" %}
+{% render candystore.liquid file:"20231025_20_grismalva_ma_35zm_gold200_tla140" title:"Grismalva" %}
+{% render candystore.liquid file:"20231025_32_grismalva_ma_35zm_superia400_tla140" title:"Grismalva" %}
+{% render candystore.liquid file:"20231025_100_grismalva_ma_35zm_portra800_tla140" title:"Grismalva" %}
+{% render candystore.liquid file:"20231025_1_grismalva_ma_35zm_gold200_tla140" title:"Grismalva" %}
+{% render candystore.liquid file:"20231025_50_grismalva_ma_35zm_ultramax400_tla140" title:"Grismalva" %}
+{% render candystore.liquid file:"20231025_77_grismalva_ma_35zm_gold200_tla140" title:"Grismalva" %}
+{% render candystore.liquid file:"20231025_78_grismalva_ma_35zm_gold200_tla140" title:"Grismalva" %}
+{% render candystore.liquid file:"20231025_82_grismalva_ma_35zm_gold200_tla140" title:"Grismalva" %}
+{% render candystore.liquid file:"20231025_83_grismalva_ma_35zm_gold200_tla140" title:"Grismalva" %}

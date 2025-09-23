@@ -12,7 +12,7 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'nsfw'
 ---
 
-{% include candystore.liquid file:"20241031_77_spain_ma_zm35_gold200" title:"" %}
-{% include candystore.liquid file:"20241031_79_spain_ma_zm35_gold200" title:"" %}
-{% include candystore.liquid file:"20241031_86_spain_ma_zm35_gold200" title:"" %}
-{% include candystore.liquid file:"20241031_89_spain_ma_zm35_gold200" title:"" %}
+{% render candystore.liquid file:"20241031_77_spain_ma_zm35_gold200" title:"" %}
+{% render candystore.liquid file:"20241031_79_spain_ma_zm35_gold200" title:"" %}
+{% render candystore.liquid file:"20241031_86_spain_ma_zm35_gold200" title:"" %}
+{% render candystore.liquid file:"20241031_89_spain_ma_zm35_gold200" title:"" %}

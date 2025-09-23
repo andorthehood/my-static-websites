@@ -14,8 +14,8 @@ people:
     - '@mechayucca'
 ---
 
-{% include candystore.liquid file:"20230421_4_ue16_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230421_7_ue16_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230421_9_ue16_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230421_10_ue16_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230421_11_ue16_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230421_4_ue16_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230421_7_ue16_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230421_9_ue16_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230421_10_ue16_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230421_11_ue16_ma_xp2_zm21_tla140" title:"" %}

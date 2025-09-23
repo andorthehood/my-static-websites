@@ -7,6 +7,6 @@ tags: cinemascope
 location: "Haarlem, Netherlands"
 ---
 
-{% include ucare.liquid uuid:"64453ce7-a6d2-48bb-8662-e4ff515c6257" title:"Kaaswinkeltje" %}
+{% render ucare.liquid uuid:"64453ce7-a6d2-48bb-8662-e4ff515c6257" title:"Kaaswinkeltje" %}
 
 Sony α7 II, Isco Ultra Star Cinemascope, taking lens: Canon 85mm f/1.8 USM

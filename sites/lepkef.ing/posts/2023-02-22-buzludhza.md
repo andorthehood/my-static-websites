@@ -12,15 +12,15 @@ people:
     - '@eniko.insta'
 ---
 
-{% include candystore.liquid file:"20230222_1_buzludzha_ma_fujixtra400_zm35" title:"Buzludzha" %}
+{% render candystore.liquid file:"20230222_1_buzludzha_ma_fujixtra400_zm35" title:"Buzludzha" %}
 
 The Buzludzha Monument is a large concrete building located on a mountain peak in Bulgaria. It was built in the 1970s as a tribute to the Bulgarian Communist Party and was used as a meeting place for the party's rallies and events.
 
-{% include candystore.liquid file:"20230222_3_buzludzha_ma_fujixtra400_zm35" title:"Buzludzha" %}
-{% include candystore.liquid file:"20230222_4_buzludzha_ma_fujixtra400_zm21" title:"Buzludzha" %}
+{% render candystore.liquid file:"20230222_3_buzludzha_ma_fujixtra400_zm35" title:"Buzludzha" %}
+{% render candystore.liquid file:"20230222_4_buzludzha_ma_fujixtra400_zm21" title:"Buzludzha" %}
 
 Since the fall of communism in Bulgaria in 1989, the Buzludzha Monument has fallen into disrepair and is no longer used for its original purpose. It has become a popular destination for urban explorers and tourists interested in the country's communist past.
 
-{% include candystore.liquid file:"20230222_5_buzludzha_ma_fujixtra400_zm21" title:"Buzludzha" %}
-{% include candystore.liquid file:"20230222_8_buzludzha_ma_fujixtra400_zm21" title:"Buzludzha" %}
-{% include candystore.liquid file:"20230222_15_buzludzha_ma_fujixtra400_zm35" title:"Buzludzha" %}
+{% render candystore.liquid file:"20230222_5_buzludzha_ma_fujixtra400_zm21" title:"Buzludzha" %}
+{% render candystore.liquid file:"20230222_8_buzludzha_ma_fujixtra400_zm21" title:"Buzludzha" %}
+{% render candystore.liquid file:"20230222_15_buzludzha_ma_fujixtra400_zm35" title:"Buzludzha" %}

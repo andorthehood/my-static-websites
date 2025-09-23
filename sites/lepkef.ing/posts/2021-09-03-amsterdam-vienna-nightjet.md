@@ -7,8 +7,8 @@ emojis: ''
 tags: ''
 ---
 
-{% include candystore.liquid file:"20210903_8_eniko_rollei_portra800_8200i" title:"Amsterdam Vienna Nightjet" %}
-{% include candystore.liquid file:"20210903_16_eniko_rollei_portra800_8200i" title:"Amsterdam Vienna Nightjet" %}
-{% include candystore.liquid file:"20210903_19_eniko_rollei_portra800_8200i" title:"Amsterdam Vienna Nightjet" %}
+{% render candystore.liquid file:"20210903_8_eniko_rollei_portra800_8200i" title:"Amsterdam Vienna Nightjet" %}
+{% render candystore.liquid file:"20210903_16_eniko_rollei_portra800_8200i" title:"Amsterdam Vienna Nightjet" %}
+{% render candystore.liquid file:"20210903_19_eniko_rollei_portra800_8200i" title:"Amsterdam Vienna Nightjet" %}
 
 Camera: Rollei 35 classic, film: Kodak Portra 800

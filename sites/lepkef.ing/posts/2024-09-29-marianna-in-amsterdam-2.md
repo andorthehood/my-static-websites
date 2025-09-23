@@ -13,14 +13,14 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: ''
 ---
 
-{% include candystore.liquid file:"20240929_40_marianna_ma_zm35_portra800_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_49_marianna_ma_zm21_portra800_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_50_marianna_ma_zm21_portra800_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_52_marianna_ma_zm21_portra800_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_56_marianna_ma_zm21_portra800_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_57_marianna_ma_zm21_portra800_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_29_marianna_ma_zm35_portra800_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_30_marianna_ma_zm35_portra800_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_31_marianna_ma_zm35_portra800_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_33_marianna_ma_zm35_portra800_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_39_marianna_ma_zm35_portra800_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_40_marianna_ma_zm35_portra800_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_49_marianna_ma_zm21_portra800_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_50_marianna_ma_zm21_portra800_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_52_marianna_ma_zm21_portra800_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_56_marianna_ma_zm21_portra800_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_57_marianna_ma_zm21_portra800_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_29_marianna_ma_zm35_portra800_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_30_marianna_ma_zm35_portra800_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_31_marianna_ma_zm35_portra800_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_33_marianna_ma_zm35_portra800_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_39_marianna_ma_zm35_portra800_tla140" title:"" %}

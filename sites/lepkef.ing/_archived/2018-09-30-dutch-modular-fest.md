@@ -7,4 +7,4 @@ tags: art concert
 location: "The Hague, Netherlands"
 ---
 
-{% include ucare.liquid uuid:"ddd9378e-4d3b-431f-a000-0fcf18dab67e" date:page.date %}
+{% render ucare.liquid uuid:"ddd9378e-4d3b-431f-a000-0fcf18dab67e" date:page.date %}

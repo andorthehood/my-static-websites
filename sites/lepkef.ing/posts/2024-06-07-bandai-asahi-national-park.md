@@ -11,13 +11,13 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'roadtrip'
 ---
 
-{% include candystore.liquid file:"20240607_80_goshikinuma_ma_brightinstar28_superia400" title:"Goshikinuma Ponds" %}
-{% include candystore.liquid file:"20240607_81_goshikinuma_ma_brightinstar28_superia400" title:"Goshikinuma Ponds" %}
-{% include candystore.liquid file:"20240607_82_goshikinuma_ma_brightinstar28_superia400" title:"Goshikinuma Ponds" %}
-{% include candystore.liquid file:"20240607_83_goshikinuma_ma_brightinstar28_superia400" title:"Goshikinuma Ponds" %}
-{% include candystore.liquid file:"20240607_84_goshikinuma_ma_brightinstar28_superia400" title:"Goshikinuma Ponds" %}
-{% include candystore.liquid file:"20240607_85_onogawafudotaki_ma_brightinstar28_superia400" title:"Onogawafudotaki Falls" %}
-{% include candystore.liquid file:"20240607_87_onogawafudotaki_ma_brightinstar28_superia400" title:"Onogawafudotaki Falls" %}
-{% include candystore.liquid file:"20240607_92_aizuwakamatsushi_ma_brightinstar28_superia400" title:"Aizuwakamatsu-shi" %}
-{% include candystore.liquid file:"20240607_94_aizuwakamatsushi_ma_brightinstar28_superia400" title:"Aizuwakamatsu-shi" %}
-{% include candystore.liquid file:"20240607_95_aizuwakamatsushi_ma_brightinstar28_superia400" title:"Aizuwakamatsu-shi" %}
+{% render candystore.liquid file:"20240607_80_goshikinuma_ma_brightinstar28_superia400" title:"Goshikinuma Ponds" %}
+{% render candystore.liquid file:"20240607_81_goshikinuma_ma_brightinstar28_superia400" title:"Goshikinuma Ponds" %}
+{% render candystore.liquid file:"20240607_82_goshikinuma_ma_brightinstar28_superia400" title:"Goshikinuma Ponds" %}
+{% render candystore.liquid file:"20240607_83_goshikinuma_ma_brightinstar28_superia400" title:"Goshikinuma Ponds" %}
+{% render candystore.liquid file:"20240607_84_goshikinuma_ma_brightinstar28_superia400" title:"Goshikinuma Ponds" %}
+{% render candystore.liquid file:"20240607_85_onogawafudotaki_ma_brightinstar28_superia400" title:"Onogawafudotaki Falls" %}
+{% render candystore.liquid file:"20240607_87_onogawafudotaki_ma_brightinstar28_superia400" title:"Onogawafudotaki Falls" %}
+{% render candystore.liquid file:"20240607_92_aizuwakamatsushi_ma_brightinstar28_superia400" title:"Aizuwakamatsu-shi" %}
+{% render candystore.liquid file:"20240607_94_aizuwakamatsushi_ma_brightinstar28_superia400" title:"Aizuwakamatsu-shi" %}
+{% render candystore.liquid file:"20240607_95_aizuwakamatsushi_ma_brightinstar28_superia400" title:"Aizuwakamatsu-shi" %}

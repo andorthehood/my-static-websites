@@ -6,9 +6,9 @@ location: 'Montville, France'
 tags: ''
 ---
 
-{% include candystore.liquid file:"20220522_285_paeulini_andor" title:"Andor" %}
-{% include candystore.liquid file:"20220522_288_paeulini_andor" title:"Andor" %}
-{% include candystore.liquid file:"20220522_295_paeulini_andor" title:"Andor" %}
-{% include candystore.liquid file:"20220522_301_paeulini_andor" title:"Andor" %}
-{% include candystore.liquid file:"20220522_304_paeulini_andor" title:"Andor" %}
-{% include candystore.liquid file:"20220522_307_paeulini_andor" title:"Andor" %}
+{% render candystore.liquid file:"20220522_285_paeulini_andor" title:"Andor" %}
+{% render candystore.liquid file:"20220522_288_paeulini_andor" title:"Andor" %}
+{% render candystore.liquid file:"20220522_295_paeulini_andor" title:"Andor" %}
+{% render candystore.liquid file:"20220522_301_paeulini_andor" title:"Andor" %}
+{% render candystore.liquid file:"20220522_304_paeulini_andor" title:"Andor" %}
+{% render candystore.liquid file:"20220522_307_paeulini_andor" title:"Andor" %}

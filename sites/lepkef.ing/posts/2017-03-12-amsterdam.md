@@ -6,6 +6,6 @@ location: 'Amsterdam, Netherlands'
 tags: ''
 ---
 
-{% include candystore.liquid file:"20170312_DSC_2032_amsterdam" title:"" %}
+{% render candystore.liquid file:"20170312_DSC_2032_amsterdam" title:"" %}
 
 Camera: Nikon D610, lens: Nikon AF-D 50mm f/1.4

@@ -12,10 +12,10 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'nsfw'
 ---
 
-{% include candystore.liquid file:"20240525_10_athens_ma_brightinstar28_ultramax400_tla140" title:"Fucking Conflicts BTS" %}
-{% include candystore.liquid file:"20240525_14_athens_ma_brightinstar28_ultramax400_tla140" title:"Fucking Conflicts BTS" %}
-{% include candystore.liquid file:"20240525_15_athens_ma_brightinstar28_ultramax400_tla140" title:"Fucking Conflicts BTS" %}
-{% include candystore.liquid file:"20240525_18_athens_ma_brightinstar28_ultramax400_tla140" title:"Fucking Conflicts BTS" %}
-{% include candystore.liquid file:"20240525_19_athens_ma_brightinstar28_ultramax400_tla140" title:"Fucking Conflicts BTS" %}
-{% include candystore.liquid file:"20240525_22_athens_ma_brightinstar28_ultramax400_tla140" title:"Fucking Conflicts BTS" %}
-{% include candystore.liquid file:"20240525_25_athens_ma_brightinstar28_ultramax400_tla140" title:"Fucking Conflicts BTS" %}
+{% render candystore.liquid file:"20240525_10_athens_ma_brightinstar28_ultramax400_tla140" title:"Fucking Conflicts BTS" %}
+{% render candystore.liquid file:"20240525_14_athens_ma_brightinstar28_ultramax400_tla140" title:"Fucking Conflicts BTS" %}
+{% render candystore.liquid file:"20240525_15_athens_ma_brightinstar28_ultramax400_tla140" title:"Fucking Conflicts BTS" %}
+{% render candystore.liquid file:"20240525_18_athens_ma_brightinstar28_ultramax400_tla140" title:"Fucking Conflicts BTS" %}
+{% render candystore.liquid file:"20240525_19_athens_ma_brightinstar28_ultramax400_tla140" title:"Fucking Conflicts BTS" %}
+{% render candystore.liquid file:"20240525_22_athens_ma_brightinstar28_ultramax400_tla140" title:"Fucking Conflicts BTS" %}
+{% render candystore.liquid file:"20240525_25_athens_ma_brightinstar28_ultramax400_tla140" title:"Fucking Conflicts BTS" %}

@@ -14,5 +14,5 @@ people:
     - '@silvy_sirius'
 ---
 
-{% include candystore.liquid file:"20230501_62_silvy_ma_ultramax400_zm35_tla140" title:"" %}
-{% include candystore.liquid file:"20230501_39_silvy_ma_ultramax400_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230501_62_silvy_ma_ultramax400_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230501_39_silvy_ma_ultramax400_zm35_tla140" title:"" %}

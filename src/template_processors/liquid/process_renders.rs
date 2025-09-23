@@ -159,4 +159,34 @@ mod tests {
             assert_eq!(result, "HEADER", "Failed for input: {}", input);
         }
     }
+
+    #[test]
+    fn test_include_tags_no_longer_processed() {
+        let mut templates = HashMap::new();
+        templates.insert("header".to_string(), "HEADER".to_string());
+
+        // Test that include tags are no longer processed and remain as-is
+        let test_cases = vec![
+            "{% include header.liquid %}",
+            "{% include 'header.liquid' %}",
+            "{% include \"header.liquid\" %}",
+            "{% include 'header' %}",
+            "{% include \"header\" %}",
+        ];
+
+        for input in test_cases {
+            let result = process_liquid_renders(input, &templates).unwrap();
+            assert_eq!(result, input, "Include tag should not be processed: {}", input);
+        }
+    }
+
+    #[test]
+    fn test_mixed_render_and_include_tags() {
+        let mut templates = HashMap::new();
+        templates.insert("header".to_string(), "HEADER".to_string());
+
+        let input = "{% render header.liquid %} and {% include header.liquid %}";
+        let result = process_liquid_renders(input, &templates).unwrap();
+        assert_eq!(result, "HEADER and {% include header.liquid %}");
+    }
 }

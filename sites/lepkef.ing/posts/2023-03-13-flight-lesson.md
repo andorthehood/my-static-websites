@@ -12,6 +12,6 @@ people:
     - '@eniko.insta'
 ---
 
-{% include candystore.liquid file:"20230305_13_vliegles_ma_gold200_zm21" title:"" %}
-{% include candystore.liquid file:"20230305_5_vliegles_ma_gold200_zm21" title:"" %}
-{% include candystore.liquid file:"20230305_1_vliegles_ma_gold200_zm21" title:"" %}
+{% render candystore.liquid file:"20230305_13_vliegles_ma_gold200_zm21" title:"" %}
+{% render candystore.liquid file:"20230305_5_vliegles_ma_gold200_zm21" title:"" %}
+{% render candystore.liquid file:"20230305_1_vliegles_ma_gold200_zm21" title:"" %}

@@ -13,9 +13,9 @@ flash: 'Contax TLA 140'
 tags: 'nsfw'
 ---
 
-{% include candystore.liquid file:"20230513_41_polina_ma_lomography800_zm35" title:"" %}
-{% include candystore.liquid file:"20230513_19_polina_ma_lomography800_zm35" title:"" %}
-{% include candystore.liquid file:"20230513_55_polina_ma_lomography800_zm35" title:"" %}
-{% include candystore.liquid file:"20230513_60_polina_ma_lomography800_zm35" title:"" %}
-{% include candystore.liquid file:"20230513_81_polina_ma_ultramax400_zm35" title:"" %}
-{% include candystore.liquid file:"20230513_93_polina_ma_ultramax400_zm35" title:"" %}
+{% render candystore.liquid file:"20230513_41_polina_ma_lomography800_zm35" title:"" %}
+{% render candystore.liquid file:"20230513_19_polina_ma_lomography800_zm35" title:"" %}
+{% render candystore.liquid file:"20230513_55_polina_ma_lomography800_zm35" title:"" %}
+{% render candystore.liquid file:"20230513_60_polina_ma_lomography800_zm35" title:"" %}
+{% render candystore.liquid file:"20230513_81_polina_ma_ultramax400_zm35" title:"" %}
+{% render candystore.liquid file:"20230513_93_polina_ma_ultramax400_zm35" title:"" %}

@@ -7,4 +7,4 @@ tags: music
 location: "Amsterdam, Netherlands"
 ---
 
-{% include ucare.liquid uuid:"3ac421cc-4e80-48bd-87fe-c1bb92f8d077" %}
+{% render ucare.liquid uuid:"3ac421cc-4e80-48bd-87fe-c1bb92f8d077" %}

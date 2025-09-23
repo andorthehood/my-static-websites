@@ -7,7 +7,7 @@ emojis: '🎹'
 tags: 'music'
 ---
 
-{% include candystore.liquid file:"20180922_DSC06900_modular_moon" title:"Marta Smilga" %}
-{% include candystore.liquid file:"20180922_DSC06938_modular_moon" title:"Marta Smilga" %}
+{% render candystore.liquid file:"20180922_DSC06900_modular_moon" title:"Marta Smilga" %}
+{% render candystore.liquid file:"20180922_DSC06938_modular_moon" title:"Marta Smilga" %}
 
 Sony α7 II, Nikkor 50mm AI-S f/1.4

@@ -12,13 +12,13 @@ people:
     - '@eniko.insta'
 ---
 
-{% include candystore.liquid file:"20230222_2_bulgaria_ma_fujixtra400_zm21" title:"Bulgaria" %}
-{% include candystore.liquid file:"20230222_3_bulgaria_ma_fujixtra400_zm21" title:"Bulgaria" %}
-{% include candystore.liquid file:"20230222_5_bulgaria_ma_fujixtra400_zm21" title:"Bulgaria" %}
-{% include candystore.liquid file:"20230222_6_bulgaria_ma_fujixtra400_zm21" title:"Bulgaria" %}
-{% include candystore.liquid file:"20230222_8_bulgaria_ma_fujixtra400_zm35" title:"Bulgaria" %}
-{% include candystore.liquid file:"20230222_11_bulgaria_ma_gold200_zm21_tla140" title:"Bulgaria" %}
-{% include candystore.liquid file:"20230223_19_bulgaria_ma_gold200_zm21" title:"Bulgaria" %}
-{% include candystore.liquid file:"20230223_26_bulgaria_ma_gold200_zm21" title:"Bulgaria" %}
-{% include candystore.liquid file:"20230223_30_bulgaria_ma_gold200_zm35" title:"Bulgaria" %}
-{% include candystore.liquid file:"20230223_32_bulgaria_ma_gold200_zm35" title:"Bulgaria" %}
+{% render candystore.liquid file:"20230222_2_bulgaria_ma_fujixtra400_zm21" title:"Bulgaria" %}
+{% render candystore.liquid file:"20230222_3_bulgaria_ma_fujixtra400_zm21" title:"Bulgaria" %}
+{% render candystore.liquid file:"20230222_5_bulgaria_ma_fujixtra400_zm21" title:"Bulgaria" %}
+{% render candystore.liquid file:"20230222_6_bulgaria_ma_fujixtra400_zm21" title:"Bulgaria" %}
+{% render candystore.liquid file:"20230222_8_bulgaria_ma_fujixtra400_zm35" title:"Bulgaria" %}
+{% render candystore.liquid file:"20230222_11_bulgaria_ma_gold200_zm21_tla140" title:"Bulgaria" %}
+{% render candystore.liquid file:"20230223_19_bulgaria_ma_gold200_zm21" title:"Bulgaria" %}
+{% render candystore.liquid file:"20230223_26_bulgaria_ma_gold200_zm21" title:"Bulgaria" %}
+{% render candystore.liquid file:"20230223_30_bulgaria_ma_gold200_zm35" title:"Bulgaria" %}
+{% render candystore.liquid file:"20230223_32_bulgaria_ma_gold200_zm35" title:"Bulgaria" %}

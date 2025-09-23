@@ -6,4 +6,4 @@ tags: art video
 location: "Haarlem, Netherlands"
 ---
 
-{% include vimeo.liquid id="234227712" %}
+{% render vimeo.liquid id="234227712" %}

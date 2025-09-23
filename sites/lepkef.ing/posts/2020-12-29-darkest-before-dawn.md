@@ -7,7 +7,7 @@ emojis: '🎹'
 tags: 'music,video'
 ---
 
-{% include youtube.liquid id:"plaEM_Z4D2k" %}
+{% render youtube.liquid id:"plaEM_Z4D2k" %}
 
 Darkest Before Dawn A\V livestream: Andor Polgar × Jakub Valtar
 
