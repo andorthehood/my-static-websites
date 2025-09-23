@@ -159,4 +159,48 @@ mod tests {
             assert_eq!(result, "HEADER", "Failed for input: {}", input);
         }
     }
+
+    #[test]
+    fn test_process_liquid_renders_nested_paths() {
+        let mut templates = HashMap::new();
+        templates.insert("components/buttons/cta".to_string(), "<button class=\"cta-button\">{{ text }}</button>".to_string());
+        templates.insert("layout/sidebar".to_string(), "<aside>{{ title }}</aside>".to_string());
+
+        // Test nested path with parameters
+        let input = "{% render 'components/buttons/cta' text:\"Buy Now\" %}";
+        let result = process_liquid_renders(input, &templates).unwrap();
+        assert_eq!(result, "<button class=\"cta-button\">Buy Now</button>");
+
+        // Test different levels of nesting
+        let input = "{% render layout/sidebar title:\"My Sidebar\" %}";
+        let result = process_liquid_renders(input, &templates).unwrap();
+        assert_eq!(result, "<aside>My Sidebar</aside>");
+
+        // Test basic template without variables
+        templates.insert("components/card".to_string(), "<div class=\"card\">Card content</div>".to_string());
+        let input = "{% render 'components/card' %}";
+        let result = process_liquid_renders(input, &templates).unwrap();
+        assert_eq!(result, "<div class=\"card\">Card content</div>");
+    }
+
+    #[test]
+    fn test_process_liquid_renders_nested_path_not_found() {
+        let templates = HashMap::new();
+
+        let input = "Before {% render 'components/not/found' %} After";
+        let result = process_liquid_renders(input, &templates).unwrap();
+        // Should leave the tag unchanged when template is not found
+        assert_eq!(result, "Before {% render 'components/not/found' %} After");
+    }
+
+    #[test]
+    fn test_process_liquid_renders_mixed_flat_and_nested() {
+        let mut templates = HashMap::new();
+        templates.insert("header".to_string(), "<h1>{{ title }}</h1>".to_string());
+        templates.insert("components/footer".to_string(), "<footer>{{ copyright }}</footer>".to_string());
+
+        let input = "{% render header title:\"Welcome\" %} {% render 'components/footer' copyright:\"2024\" %}";
+        let result = process_liquid_renders(input, &templates).unwrap();
+        assert_eq!(result, "<h1>Welcome</h1> <footer>2024</footer>");
+    }
 }

@@ -13,7 +13,8 @@ fn validate_render_tag(tag: &str) -> Option<&str> {
 }
 
 /// Extracts the template name from the render tag content.
-/// Now supports both quoted and unquoted template names, and normalizes by removing .liquid extension.
+/// Now supports both quoted and unquoted template names, preserves nested paths,
+/// and normalizes by removing .liquid extension.
 ///
 /// # Arguments
 /// * `content` - The content inside the render tag
@@ -56,13 +57,21 @@ fn extract_template_name(content: &str) -> Option<(String, String)> {
         return None;
     }
 
+    // Validate that the path doesn't contain ".." segments for security
+    if template_name.contains("..") {
+        return None;
+    }
+
     // Normalize the template name by removing .liquid extension if present
     let normalized_name = template_name
         .strip_suffix(".liquid")
         .unwrap_or(&template_name);
 
+    // Normalize path separators to forward slashes
+    let normalized_name = normalized_name.replace('\\', "/");
+
     let remaining: String = chars.collect();
-    Some((normalized_name.to_string(), remaining))
+    Some((normalized_name, remaining))
 }
 
 /// Parses parameters from the remaining content after the template name.
@@ -232,5 +241,65 @@ mod tests {
                 tag
             );
         }
+    }
+
+    #[test]
+    fn test_parse_render_tag_nested_paths() {
+        // Test nested path handling
+        let test_cases = vec![
+            ("{% render 'components/buttons/cta' %}", "components/buttons/cta"),
+            ("{% render \"components/buttons/cta.liquid\" %}", "components/buttons/cta"),
+            ("{% render components/card %}", "components/card"),
+            ("{% render 'layout/sidebar.liquid' %}", "layout/sidebar"),
+            ("{% render \"foo/bar/baz\" %}", "foo/bar/baz"),
+        ];
+
+        for (tag, expected_name) in test_cases {
+            let result = parse_liquid_render_tag(tag);
+            assert!(result.is_some(), "Failed to parse nested path: {}", tag);
+            let (template_name, _) = result.unwrap();
+            assert_eq!(
+                template_name, expected_name,
+                "Unexpected nested template name for: {}",
+                tag
+            );
+        }
+    }
+
+    #[test]
+    fn test_parse_render_tag_nested_paths_with_parameters() {
+        let tag = "{% render 'components/buttons/cta' text:\"Buy Now\" %}";
+        let result = parse_liquid_render_tag(tag);
+
+        assert!(result.is_some());
+        let (template_name, params) = result.unwrap();
+        assert_eq!(template_name, "components/buttons/cta");
+        assert_eq!(params.get("text"), Some(&"Buy Now".to_string()));
+    }
+
+    #[test]
+    fn test_parse_render_tag_rejects_parent_directory_access() {
+        // Test that ".." segments are rejected for security
+        let malicious_cases = vec![
+            "{% render '../../../etc/passwd' %}",
+            "{% render 'components/../../../secrets' %}",
+            "{% render \"foo/../bar\" %}",
+        ];
+
+        for tag in malicious_cases {
+            let result = parse_liquid_render_tag(tag);
+            assert!(result.is_none(), "Should reject malicious path: {}", tag);
+        }
+    }
+
+    #[test]
+    fn test_parse_render_tag_normalizes_path_separators() {
+        // Test that Windows-style path separators are normalized to forward slashes
+        let tag = "{% render 'components\\buttons\\cta.liquid' %}";
+        let result = parse_liquid_render_tag(tag);
+
+        assert!(result.is_some());
+        let (template_name, _) = result.unwrap();
+        assert_eq!(template_name, "components/buttons/cta");
     }
 }
