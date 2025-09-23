@@ -11,9 +11,9 @@ scan: 'developing, scan, and coloring by Southsun Film Lab, Wales'
 tags: ''
 ---
 
-{% include candystore.liquid file:"20220521_3005732-R1-05_ma_lomopurple_400" title:"Hann" %}
-{% include candystore.liquid file:"20220521_3005732-R1-07_ma_lomopurple_400" title:"Hann" %}
-{% include candystore.liquid file:"20220521_3005732-R1-10_ma_lomopurple_400" title:"Hann" %}
-{% include candystore.liquid file:"20220521_3005732-R1-25_ma_lomopurple_400" title:"Hann" %}
-{% include candystore.liquid file:"20220521_3005732-R1-29_ma_lomopurple_400" title:"Hann" %}
-{% include candystore.liquid file:"20220521_3005732-R1-31_ma_lomopurple_400" title:"Hann" %}
+{% render candystore.liquid file:"20220521_3005732-R1-05_ma_lomopurple_400" title:"Hann" %}
+{% render candystore.liquid file:"20220521_3005732-R1-07_ma_lomopurple_400" title:"Hann" %}
+{% render candystore.liquid file:"20220521_3005732-R1-10_ma_lomopurple_400" title:"Hann" %}
+{% render candystore.liquid file:"20220521_3005732-R1-25_ma_lomopurple_400" title:"Hann" %}
+{% render candystore.liquid file:"20220521_3005732-R1-29_ma_lomopurple_400" title:"Hann" %}
+{% render candystore.liquid file:"20220521_3005732-R1-31_ma_lomopurple_400" title:"Hann" %}

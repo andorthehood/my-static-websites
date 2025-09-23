@@ -10,12 +10,12 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'roadtrip'
 ---
 
-{% include candystore.liquid file:"20220415_1_scotland_portra800_ma" title:"" %}
-{% include candystore.liquid file:"20220415_20_scotland_portra800_ma" title:"" %}
-{% include candystore.liquid file:"20220415_25_scotland_portra800_ma" title:"" %}
-{% include candystore.liquid file:"20220415_29_scotland_portra800_ma" title:"" %}
-{% include candystore.liquid file:"20220415_35_scotland_portra800_ma" title:"" %}
-{% include candystore.liquid file:"20220415_36_scotland_portra800_ma" title:"" %}
-{% include candystore.liquid file:"20220415_40_scotland_portra800_ma" title:"" %}
-{% include candystore.liquid file:"20220415_13_scotland_portra800_ma" title:"" %}
-{% include candystore.liquid file:"20220415_17_scotland_portra800_ma" title:"" %}
+{% render candystore.liquid file:"20220415_1_scotland_portra800_ma" title:"" %}
+{% render candystore.liquid file:"20220415_20_scotland_portra800_ma" title:"" %}
+{% render candystore.liquid file:"20220415_25_scotland_portra800_ma" title:"" %}
+{% render candystore.liquid file:"20220415_29_scotland_portra800_ma" title:"" %}
+{% render candystore.liquid file:"20220415_35_scotland_portra800_ma" title:"" %}
+{% render candystore.liquid file:"20220415_36_scotland_portra800_ma" title:"" %}
+{% render candystore.liquid file:"20220415_40_scotland_portra800_ma" title:"" %}
+{% render candystore.liquid file:"20220415_13_scotland_portra800_ma" title:"" %}
+{% render candystore.liquid file:"20220415_17_scotland_portra800_ma" title:"" %}

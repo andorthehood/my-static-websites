@@ -11,11 +11,11 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'roadtrip'
 ---
 
-{% include candystore.liquid file:"20220304_ANE_3682_poland_ilford_hp5_400_d76_18c_rollei35" title:"Gdansk" %}
-{% include candystore.liquid file:"20220304_ANE_3675_poland_ilford_hp5_400_d76_18c_rollei35" title:"Gdansk" %}
-{% include candystore.liquid file:"20220304_ANE_3677_poland_ilford_hp5_400_d76_18c_rollei35" title:"Gdansk" %}
-{% include candystore.liquid file:"20220304_ANE_3658_poland_ilford_hp5_400_d76_18c_rollei35" title:"Gdansk" %}
-{% include candystore.liquid file:"20220304_ANE_3653_poland_ilford_hp5_400_d76_18c_rollei35" title:"Gdansk" %}
-{% include candystore.liquid file:"20220304_ANE_3629_poland_ilford_hp5_400_d76_18c_rollei35" title:"Torun" %}
-{% include candystore.liquid file:"20220304_ANE_3665_poland_ilford_hp5_400_d76_18c_rollei35" title:"Hel" %}
-{% include candystore.liquid file:"20220304_ANE_3709_poland_ilford_hp5_400_d76_18c_rollei35" title:"Lodz" %}
+{% render candystore.liquid file:"20220304_ANE_3682_poland_ilford_hp5_400_d76_18c_rollei35" title:"Gdansk" %}
+{% render candystore.liquid file:"20220304_ANE_3675_poland_ilford_hp5_400_d76_18c_rollei35" title:"Gdansk" %}
+{% render candystore.liquid file:"20220304_ANE_3677_poland_ilford_hp5_400_d76_18c_rollei35" title:"Gdansk" %}
+{% render candystore.liquid file:"20220304_ANE_3658_poland_ilford_hp5_400_d76_18c_rollei35" title:"Gdansk" %}
+{% render candystore.liquid file:"20220304_ANE_3653_poland_ilford_hp5_400_d76_18c_rollei35" title:"Gdansk" %}
+{% render candystore.liquid file:"20220304_ANE_3629_poland_ilford_hp5_400_d76_18c_rollei35" title:"Torun" %}
+{% render candystore.liquid file:"20220304_ANE_3665_poland_ilford_hp5_400_d76_18c_rollei35" title:"Hel" %}
+{% render candystore.liquid file:"20220304_ANE_3709_poland_ilford_hp5_400_d76_18c_rollei35" title:"Lodz" %}

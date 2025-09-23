@@ -8,4 +8,4 @@ location: "Los Angeles, California"
 ---
 
 
-{% include youtube.liquid id="W_aqpwpMkn8" %}
+{% render youtube.liquid id="W_aqpwpMkn8" %}

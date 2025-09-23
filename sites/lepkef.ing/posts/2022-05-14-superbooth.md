@@ -11,7 +11,7 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'music'
 ---
 
-{% include candystore.liquid file:"20220514_2_superbooth_portra800_ma" title:"Superbooth" %}
-{% include candystore.liquid file:"20220514_14_superbooth_portra800_ma" title:"Superbooth" %}
+{% render candystore.liquid file:"20220514_2_superbooth_portra800_ma" title:"Superbooth" %}
+{% render candystore.liquid file:"20220514_14_superbooth_portra800_ma" title:"Superbooth" %}
 
 Camera: Leica M-A (Typ 127), ZEISS ZM Planar T\* 35mm f/2 ZM; film: Kodak Portra 800, scanned with a Plustek 8200i, edited in Lightroom

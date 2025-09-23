@@ -6,9 +6,9 @@ location: 'Irbene, Latvia'
 tags: 'roadtrip'
 ---
 
-{% include candystore.liquid file:"20170903_DSC02192_irbene" title:"" %}
-{% include candystore.liquid file:"20170903_DSC02193_irbene" title:"" %}
-{% include candystore.liquid file:"20170903_DSC02195_irbene" title:"" %}
-{% include candystore.liquid file:"20170903_DSC02217_irbene" title:"" %}
+{% render candystore.liquid file:"20170903_DSC02192_irbene" title:"" %}
+{% render candystore.liquid file:"20170903_DSC02193_irbene" title:"" %}
+{% render candystore.liquid file:"20170903_DSC02195_irbene" title:"" %}
+{% render candystore.liquid file:"20170903_DSC02217_irbene" title:"" %}
 
 Camera: Sony α7 II, lens: Helios 44-2 58mm f/2

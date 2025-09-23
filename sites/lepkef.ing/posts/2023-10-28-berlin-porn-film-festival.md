@@ -12,10 +12,10 @@ tags: ''
 flash: 'Contax TLA 140'
 ---
 
-{% include candystore.liquid file:"20231028_11_berlin_pff_ma_35zm_portra800" title:"" %}
-{% include candystore.liquid file:"20231028_12_berlin_pff_ma_35zm_portra800" title:"" %}
-{% include candystore.liquid file:"20231022_4_berlin_pff_ma_35zm_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20231022_5_berlin_pff_ma_35zm_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20231025_1_berlin_pff_ma_35zm_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20231028_15_berlin_pff_ma_35zm_portra800" title:"" %}
-{% include candystore.liquid file:"20231028_18_berlin_pff_ma_35zm_portra800" title:"" %}
+{% render candystore.liquid file:"20231028_11_berlin_pff_ma_35zm_portra800" title:"" %}
+{% render candystore.liquid file:"20231028_12_berlin_pff_ma_35zm_portra800" title:"" %}
+{% render candystore.liquid file:"20231022_4_berlin_pff_ma_35zm_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20231022_5_berlin_pff_ma_35zm_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20231025_1_berlin_pff_ma_35zm_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20231028_15_berlin_pff_ma_35zm_portra800" title:"" %}
+{% render candystore.liquid file:"20231028_18_berlin_pff_ma_35zm_portra800" title:"" %}

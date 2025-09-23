@@ -12,15 +12,15 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'music'
 ---
 
-{% include candystore.liquid file:"20250208_3_ue20_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20250208_6_ue20_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20250208_22_ue20_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20250208_25_ue20_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20250208_29_ue20_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20250208_36_ue20_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20250208_39_ue20_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20250208_41_ue20_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20250208_43_ue20_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20250208_57_ue20_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20250208_59_ue20_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20250208_62_ue20_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20250208_3_ue20_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20250208_6_ue20_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20250208_22_ue20_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20250208_25_ue20_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20250208_29_ue20_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20250208_36_ue20_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20250208_39_ue20_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20250208_41_ue20_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20250208_43_ue20_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20250208_57_ue20_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20250208_59_ue20_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20250208_62_ue20_ma_xp2_zm21_tla140" title:"" %}

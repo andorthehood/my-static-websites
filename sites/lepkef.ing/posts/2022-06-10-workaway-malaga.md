@@ -10,26 +10,26 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: ''
 ---
 
-{% include candystore.liquid file:"20220529_1_torremolinos_portra160_ma" title:"Torremolinos" %}
-{% include candystore.liquid file:"20220604_13_antequera_portra160_ma" title:"Antequera" %}
-{% include candystore.liquid file:"20220604_16_antequera_portra160_ma" title:"Antequera" %}
-{% include candystore.liquid file:"20220529_7_torremolinos_portra160_ma" title:"Torremolinos" %}
+{% render candystore.liquid file:"20220529_1_torremolinos_portra160_ma" title:"Torremolinos" %}
+{% render candystore.liquid file:"20220604_13_antequera_portra160_ma" title:"Antequera" %}
+{% render candystore.liquid file:"20220604_16_antequera_portra160_ma" title:"Antequera" %}
+{% render candystore.liquid file:"20220529_7_torremolinos_portra160_ma" title:"Torremolinos" %}
 
 Camera: Leica M-A (Typ 127), ZEISS ZM Planar T\* 35mm f/2 ZM; film: Kodak Portra 160
 
-{% include candystore.liquid file:"20220605_torremolinos_12_swisspro" title:"Torremolinos" %}
-{% include candystore.liquid file:"20220605_torremolinos_16_swisspro" title:"Torremolinos" %}
-{% include candystore.liquid file:"20220605_torremolinos_3_swisspro" title:"Torremolinos" %}
-{% include candystore.liquid file:"20220605_torremolinos_7_swisspro" title:"Torremolinos" %}
-{% include candystore.liquid file:"20220605_torremolinos_9_swisspro" title:"Torremolinos" %}
+{% render candystore.liquid file:"20220605_torremolinos_12_swisspro" title:"Torremolinos" %}
+{% render candystore.liquid file:"20220605_torremolinos_16_swisspro" title:"Torremolinos" %}
+{% render candystore.liquid file:"20220605_torremolinos_3_swisspro" title:"Torremolinos" %}
+{% render candystore.liquid file:"20220605_torremolinos_7_swisspro" title:"Torremolinos" %}
+{% render candystore.liquid file:"20220605_torremolinos_9_swisspro" title:"Torremolinos" %}
 
 Camera: SwissPro disposable camera; film: ISO 400, unknown brand
 
-{% include candystore.liquid file:"20220610_10_torremolinos_gold_ma" title:"Torremolinos" %}
-{% include candystore.liquid file:"20220610_13_torremolinos_gold_ma" title:"Torremolinos" %}
-{% include candystore.liquid file:"20220610_5_benalmadena_gold_ma" title:"Benalmadena" %}
-{% include candystore.liquid file:"20220610_7_torremolinos_gold_ma" title:"Torremolinos" %}
-{% include candystore.liquid file:"20220610_1_torremolinos_gold_ma" title:"Torremolinos" %}
-{% include candystore.liquid file:"20220610_2_torremolinos_gold_ma" title:"Torremolinos" %}
-{% include candystore.liquid file:"20220610_5_torremolinos_gold_ma" title:"Torremolinos" %}
-{% include candystore.liquid file:"20220609_2_mijas_gold_ma" title:"Torremolinos" %}
+{% render candystore.liquid file:"20220610_10_torremolinos_gold_ma" title:"Torremolinos" %}
+{% render candystore.liquid file:"20220610_13_torremolinos_gold_ma" title:"Torremolinos" %}
+{% render candystore.liquid file:"20220610_5_benalmadena_gold_ma" title:"Benalmadena" %}
+{% render candystore.liquid file:"20220610_7_torremolinos_gold_ma" title:"Torremolinos" %}
+{% render candystore.liquid file:"20220610_1_torremolinos_gold_ma" title:"Torremolinos" %}
+{% render candystore.liquid file:"20220610_2_torremolinos_gold_ma" title:"Torremolinos" %}
+{% render candystore.liquid file:"20220610_5_torremolinos_gold_ma" title:"Torremolinos" %}
+{% render candystore.liquid file:"20220609_2_mijas_gold_ma" title:"Torremolinos" %}

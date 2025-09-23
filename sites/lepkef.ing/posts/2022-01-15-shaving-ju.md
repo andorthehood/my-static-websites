@@ -12,9 +12,9 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'nsfw'
 ---
 
-{% include candystore.liquid file:"20220216_ANE_3550_julia_leo_400trix_1600_m6" title:"Julia and Leo" %}
-{% include candystore.liquid file:"20220216_ANE_3552_julia_leo_400trix_1600_m6" title:"Julia and Leo" %}
-{% include candystore.liquid file:"20220216_ANE_3558_julia_leo_400trix_1600_m6" title:"Julia and Leo" %}
-{% include candystore.liquid file:"20220216_ANE_3563_julia_leo_400trix_1600_m6" title:"Julia and Leo" %}
-{% include candystore.liquid file:"20220216_ANE_3572_julia_leo_400trix_1600_m6" title:"Julia and Leo" %}
-{% include candystore.liquid file:"20220216_ANE_3573_julia_leo_400trix_1600_m6" title:"Julia and Leo" %}
+{% render candystore.liquid file:"20220216_ANE_3550_julia_leo_400trix_1600_m6" title:"Julia and Leo" %}
+{% render candystore.liquid file:"20220216_ANE_3552_julia_leo_400trix_1600_m6" title:"Julia and Leo" %}
+{% render candystore.liquid file:"20220216_ANE_3558_julia_leo_400trix_1600_m6" title:"Julia and Leo" %}
+{% render candystore.liquid file:"20220216_ANE_3563_julia_leo_400trix_1600_m6" title:"Julia and Leo" %}
+{% render candystore.liquid file:"20220216_ANE_3572_julia_leo_400trix_1600_m6" title:"Julia and Leo" %}
+{% render candystore.liquid file:"20220216_ANE_3573_julia_leo_400trix_1600_m6" title:"Julia and Leo" %}

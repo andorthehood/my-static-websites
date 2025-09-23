@@ -10,10 +10,10 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: ''
 ---
 
-{% include candystore.liquid file:"20220515_12_berlin_boating_portra400_ma" title:"Berlin" %}
-{% include candystore.liquid file:"20220515_13_berlin_boating_portra400_ma" title:"Berlin" %}
-{% include candystore.liquid file:"20220515_16_berlin_boating_portra400_ma" title:"Berlin" %}
-{% include candystore.liquid file:"20220515_18_berlin_boating_portra400_ma" title:"Berlin" %}
-{% include candystore.liquid file:"20220515_9_berlin_boating_portra400_ma" title:"Berlin" %}
+{% render candystore.liquid file:"20220515_12_berlin_boating_portra400_ma" title:"Berlin" %}
+{% render candystore.liquid file:"20220515_13_berlin_boating_portra400_ma" title:"Berlin" %}
+{% render candystore.liquid file:"20220515_16_berlin_boating_portra400_ma" title:"Berlin" %}
+{% render candystore.liquid file:"20220515_18_berlin_boating_portra400_ma" title:"Berlin" %}
+{% render candystore.liquid file:"20220515_9_berlin_boating_portra400_ma" title:"Berlin" %}
 
 Camera: Leica M-A (Typ 127), ZEISS ZM Planar T\* 35mm f/2 ZM; film: Kodak Portra 400, scanned with a Plustek 8200i, edited in Lightroom

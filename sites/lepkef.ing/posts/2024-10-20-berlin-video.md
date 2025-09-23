@@ -9,7 +9,7 @@ camera: 'Canon IXUS 75'
 tags: 'video'
 ---
 
-{% include youtube.liquid id:"yaYOiga_8Ps?si=gEeysJW4UjKhBdzE" %}
+{% render youtube.liquid id:"yaYOiga_8Ps?si=gEeysJW4UjKhBdzE" %}
 
 <p>Hänschen klein, steht allein<br />
 Vor dem Club im Neonschein<br />

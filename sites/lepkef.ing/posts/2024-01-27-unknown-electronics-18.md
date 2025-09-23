@@ -17,8 +17,8 @@ people:
 
 Unknown Electronics is the event series where skilled electricians make techno beats by repairing fuse boxes.
 
-{% include candystore.liquid file:"20240127_16_ua18_35zm_xp2_400_tla140" title:"" %}
-{% include candystore.liquid file:"20240127_17_ua18_35zm_xp2_400_tla140" title:"" %}
-{% include candystore.liquid file:"20240127_27_ua18_35zm_xp2_400_tla140" title:"" %}
-{% include candystore.liquid file:"20240127_29_ua18_35zm_xp2_400_tla140" title:"" %}
-{% include candystore.liquid file:"20240127_4_ua18_35zm_xp2_400_tla140" title:"" %}
+{% render candystore.liquid file:"20240127_16_ua18_35zm_xp2_400_tla140" title:"" %}
+{% render candystore.liquid file:"20240127_17_ua18_35zm_xp2_400_tla140" title:"" %}
+{% render candystore.liquid file:"20240127_27_ua18_35zm_xp2_400_tla140" title:"" %}
+{% render candystore.liquid file:"20240127_29_ua18_35zm_xp2_400_tla140" title:"" %}
+{% render candystore.liquid file:"20240127_4_ua18_35zm_xp2_400_tla140" title:"" %}

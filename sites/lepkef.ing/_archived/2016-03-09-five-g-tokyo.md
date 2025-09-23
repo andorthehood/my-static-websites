@@ -9,4 +9,4 @@ location: "Tokyo, Japan"
 
 The famous modular wall of Tokyo.
 
-{% include img.liquid img:"25491302140_d8084aa737_k" date:page.date title:"Five G Music Tokyo" %}
+{% render img.liquid img:"25491302140_d8084aa737_k" date:page.date title:"Five G Music Tokyo" %}

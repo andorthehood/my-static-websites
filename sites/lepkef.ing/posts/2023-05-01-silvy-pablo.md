@@ -14,6 +14,6 @@ people:
     - '@silvy_sirius'
 ---
 
-{% include candystore.liquid file:"20230501_3_silvy_ma_superia400_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230501_1_silvy_ma_superia400_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230501_2_silvy_ma_superia400_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230501_3_silvy_ma_superia400_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230501_1_silvy_ma_superia400_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230501_2_silvy_ma_superia400_zm21_tla140" title:"" %}

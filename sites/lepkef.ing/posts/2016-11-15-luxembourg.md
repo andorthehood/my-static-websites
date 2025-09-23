@@ -6,4 +6,4 @@ location: 'Luxembourg, Luxembourg'
 tags: ''
 ---
 
-{% include candystore.liquid file:"20161115_DSC_9953_luxembourg" title:"" %}
+{% render candystore.liquid file:"20161115_DSC_9953_luxembourg" title:"" %}

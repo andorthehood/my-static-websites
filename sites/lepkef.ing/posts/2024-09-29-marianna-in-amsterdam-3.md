@@ -12,7 +12,7 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: ''
 ---
 
-{% include candystore.liquid file:"20240929_78_marianna_ma_zm35_ultramax400_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_83_marianna_ma_zm35_ultramax400_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_84_marianna_ma_zm35_ultramax400_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_86_marianna_ma_zm35_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_78_marianna_ma_zm35_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_83_marianna_ma_zm35_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_84_marianna_ma_zm35_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_86_marianna_ma_zm35_ultramax400_tla140" title:"" %}

@@ -11,5 +11,5 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: ''
 ---
 
-{% include candystore.liquid file:"20220626_2_luxembourg_portra800_ma" title:"Luxembourg" %}
-{% include candystore.liquid file:"20220626_5_luxembourg_portra800_ma" title:"Luxembourg" %}
+{% render candystore.liquid file:"20220626_2_luxembourg_portra800_ma" title:"Luxembourg" %}
+{% render candystore.liquid file:"20220626_5_luxembourg_portra800_ma" title:"Luxembourg" %}

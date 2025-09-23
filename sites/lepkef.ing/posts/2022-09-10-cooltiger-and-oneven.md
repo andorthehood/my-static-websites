@@ -16,12 +16,12 @@ people:
     - '@butkutte'
 ---
 
-{% include candystore.liquid file:"20220910_1_gammawerk_hp5_400_rollei35" title:"Oneven" %}
-{% include candystore.liquid file:"20220910_4_gammawerk_hp5_400_rollei35" title:"Oneven" %}
-{% include candystore.liquid file:"20220910_5_gammawerk_hp5_400_rollei35" title:"Oneven" %}
-{% include candystore.liquid file:"20220910_7_gammawerk_hp5_400_rollei35" title:"Oneven" %}
-{% include candystore.liquid file:"20220910_8_gammawerk_hp5_400_rollei35" title:"Oneven" %}
-{% include candystore.liquid file:"20220910_11_gammawerk_hp5_400_rollei35" title:"Oneven" %}
-{% include candystore.liquid file:"20220910_13_gammawerk_hp5_400_rollei35" title:"Oneven" %}
-{% include candystore.liquid file:"20220910_14_gammawerk_hp5_400_rollei35" title:"Oneven" %}
-{% include candystore.liquid file:"20220910_15_gammawerk_hp5_400_rollei35" title:"Oneven" %}
+{% render candystore.liquid file:"20220910_1_gammawerk_hp5_400_rollei35" title:"Oneven" %}
+{% render candystore.liquid file:"20220910_4_gammawerk_hp5_400_rollei35" title:"Oneven" %}
+{% render candystore.liquid file:"20220910_5_gammawerk_hp5_400_rollei35" title:"Oneven" %}
+{% render candystore.liquid file:"20220910_7_gammawerk_hp5_400_rollei35" title:"Oneven" %}
+{% render candystore.liquid file:"20220910_8_gammawerk_hp5_400_rollei35" title:"Oneven" %}
+{% render candystore.liquid file:"20220910_11_gammawerk_hp5_400_rollei35" title:"Oneven" %}
+{% render candystore.liquid file:"20220910_13_gammawerk_hp5_400_rollei35" title:"Oneven" %}
+{% render candystore.liquid file:"20220910_14_gammawerk_hp5_400_rollei35" title:"Oneven" %}
+{% render candystore.liquid file:"20220910_15_gammawerk_hp5_400_rollei35" title:"Oneven" %}

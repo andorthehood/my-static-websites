@@ -18,10 +18,10 @@ people:
 
 Unlike traditional DJ sets, Unknown Electronics features a lineup of musicians who create electronic dance music on the spot using their drum machines, synthesizers, and other electronic instruments.
 
-{% include candystore.liquid file:"20230421_14_ue16_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230421_20_ue16_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230421_24_ue16_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230421_28_ue16_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230421_58_ue16_ma_xp2_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230421_55_ue16_ma_xp2_zm21_tla140" title:"Andor Polgar" %}
-{% include candystore.liquid file:"20230421_56_ue16_ma_xp2_zm21_tla140" title:"Andor Polgar" %}
+{% render candystore.liquid file:"20230421_14_ue16_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230421_20_ue16_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230421_24_ue16_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230421_28_ue16_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230421_58_ue16_ma_xp2_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230421_55_ue16_ma_xp2_zm21_tla140" title:"Andor Polgar" %}
+{% render candystore.liquid file:"20230421_56_ue16_ma_xp2_zm21_tla140" title:"Andor Polgar" %}

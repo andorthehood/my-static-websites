@@ -12,8 +12,8 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'nsfw'
 ---
 
-{% include candystore.liquid file:"20240518_12_polina_ma_zm35_cinestill800t" title:"Polina" %}
-{% include candystore.liquid file:"20240518_16_polina_ma_zm35_cinestill800t" title:"Polina" %}
-{% include candystore.liquid file:"20240518_27_polina_ma_zm35_cinestill800t" title:"Polina" %}
-{% include candystore.liquid file:"20240518_31_polina_ma_zm35_cinestill800t" title:"Polina" %}
-{% include candystore.liquid file:"20240518_46_polina_ma_zm35_ultramax400" title:"Polina" %}
+{% render candystore.liquid file:"20240518_12_polina_ma_zm35_cinestill800t" title:"Polina" %}
+{% render candystore.liquid file:"20240518_16_polina_ma_zm35_cinestill800t" title:"Polina" %}
+{% render candystore.liquid file:"20240518_27_polina_ma_zm35_cinestill800t" title:"Polina" %}
+{% render candystore.liquid file:"20240518_31_polina_ma_zm35_cinestill800t" title:"Polina" %}
+{% render candystore.liquid file:"20240518_46_polina_ma_zm35_ultramax400" title:"Polina" %}

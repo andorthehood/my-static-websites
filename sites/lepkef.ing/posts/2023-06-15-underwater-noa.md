@@ -16,6 +16,6 @@ people:
 
 I took these photos with my Leica in a DICAPac underwater housing. I used a Kodak Ultramax 400, but I couldn't get the colors right, so I re-scanned them in black and white.
 
-{% include candystore.liquid file:"20220615_13_andalusia_ultramax400_ma_zm35" title:"" %}
-{% include candystore.liquid file:"20220615_14_andalusia_ultramax400_ma_zm35" title:"" %}
-{% include candystore.liquid file:"20220615_18_andalusia_ultramax400_ma_zm35" title:"" %}
+{% render candystore.liquid file:"20220615_13_andalusia_ultramax400_ma_zm35" title:"" %}
+{% render candystore.liquid file:"20220615_14_andalusia_ultramax400_ma_zm35" title:"" %}
+{% render candystore.liquid file:"20220615_18_andalusia_ultramax400_ma_zm35" title:"" %}

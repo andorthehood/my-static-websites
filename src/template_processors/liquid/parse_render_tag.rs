@@ -227,4 +227,21 @@ mod tests {
             assert_eq!(template_name, "header", "Unexpected template name for: {}", tag);
         }
     }
+
+    #[test]
+    fn test_include_tags_no_longer_parsed() {
+        // Test that include tags are no longer recognized
+        let test_cases = vec![
+            "{% include header.liquid %}",
+            "{% include 'header.liquid' %}",
+            "{% include \"header.liquid\" %}",
+            "{% include 'header' %}",
+            "{% include \"header\" %}",
+        ];
+
+        for tag in test_cases {
+            let result = parse_liquid_render_tag(tag);
+            assert!(result.is_none(), "Include tag should not be parsed: {}", tag);
+        }
+    }
 }

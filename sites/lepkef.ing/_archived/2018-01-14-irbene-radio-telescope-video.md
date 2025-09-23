@@ -6,7 +6,7 @@ tags: eurorack video art
 location: "Irbene, Latvia"
 ---
 
-{% include youtube.liquid id="feqoMaYEX58" %}
+{% render youtube.liquid id="feqoMaYEX58" %}
 
 Location: Location: Ventspils International Radio Astronomy Center, Latvia
 

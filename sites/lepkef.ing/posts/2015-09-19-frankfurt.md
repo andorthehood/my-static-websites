@@ -6,6 +6,6 @@ location: 'Frankfurt, Germany'
 tags: ''
 ---
 
-{% include candystore.liquid file:"20150919_IMG_5459_frankfurt" title:"" %}
+{% render candystore.liquid file:"20150919_IMG_5459_frankfurt" title:"" %}
 
 Camera: Canon EOS 700D, Lens: Canon EF 50mm f/1.4 USM

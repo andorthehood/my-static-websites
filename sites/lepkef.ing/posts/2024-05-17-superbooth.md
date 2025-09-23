@@ -11,16 +11,16 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'music'
 ---
 
-{% include candystore.liquid file:"20240517_2_superbooth_ma_brightin28_portra800" title:"" %}
-{% include candystore.liquid file:"20240517_3_superbooth_ma_brightin28_portra800" title:"" %}
-{% include candystore.liquid file:"20240517_12_superbooth_ma_brightin28_portra800" title:"" %}
-{% include candystore.liquid file:"20240517_13_superbooth_ma_brightin28_portra800" title:"" %}
-{% include candystore.liquid file:"20240517_14_superbooth_ma_brightin28_portra800" title:"" %}
-{% include candystore.liquid file:"20240517_16_superbooth_ma_brightin28_portra800" title:"" %}
-{% include candystore.liquid file:"20240517_17_superbooth_ma_brightin28_portra800" title:"" %}
-{% include candystore.liquid file:"20240517_18_superbooth_ma_brightin28_portra800" title:"" %}
-{% include candystore.liquid file:"20240517_4_superbooth_ma_brightin28_portra800" title:"" %}
-{% include candystore.liquid file:"20240517_5_superbooth_ma_brightin28_portra800" title:"" %}
-{% include candystore.liquid file:"20240517_6_superbooth_ma_brightin28_portra800" title:"" %}
-{% include candystore.liquid file:"20240517_8_superbooth_ma_brightin28_portra800" title:"" %}
-{% include candystore.liquid file:"20240517_9_superbooth_ma_brightin28_portra800" title:"" %}
+{% render candystore.liquid file:"20240517_2_superbooth_ma_brightin28_portra800" title:"" %}
+{% render candystore.liquid file:"20240517_3_superbooth_ma_brightin28_portra800" title:"" %}
+{% render candystore.liquid file:"20240517_12_superbooth_ma_brightin28_portra800" title:"" %}
+{% render candystore.liquid file:"20240517_13_superbooth_ma_brightin28_portra800" title:"" %}
+{% render candystore.liquid file:"20240517_14_superbooth_ma_brightin28_portra800" title:"" %}
+{% render candystore.liquid file:"20240517_16_superbooth_ma_brightin28_portra800" title:"" %}
+{% render candystore.liquid file:"20240517_17_superbooth_ma_brightin28_portra800" title:"" %}
+{% render candystore.liquid file:"20240517_18_superbooth_ma_brightin28_portra800" title:"" %}
+{% render candystore.liquid file:"20240517_4_superbooth_ma_brightin28_portra800" title:"" %}
+{% render candystore.liquid file:"20240517_5_superbooth_ma_brightin28_portra800" title:"" %}
+{% render candystore.liquid file:"20240517_6_superbooth_ma_brightin28_portra800" title:"" %}
+{% render candystore.liquid file:"20240517_8_superbooth_ma_brightin28_portra800" title:"" %}
+{% render candystore.liquid file:"20240517_9_superbooth_ma_brightin28_portra800" title:"" %}

@@ -11,10 +11,10 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'roadtrip'
 ---
 
-{% include candystore.liquid file:"20240609_119_tashirojima_ma_brightinstar28_ultramax400" title:"Tashirojima Island" %}
-{% include candystore.liquid file:"20240609_120_tashirojima_ma_brightinstar28_ultramax400" title:"Tashirojima Island" %}
-{% include candystore.liquid file:"20240609_121_tashirojima_ma_brightinstar28_ultramax400" title:"Tashirojima Island" %}
-{% include candystore.liquid file:"20240609_123_tashirojima_ma_brightinstar28_ultramax400" title:"Tashirojima Island" %}
-{% include candystore.liquid file:"20240609_124_tashirojima_ma_brightinstar28_ultramax400" title:"Tashirojima Island" %}
-{% include candystore.liquid file:"20240609_131_tashirojima_ma_brightinstar28_ultramax400" title:"Tashirojima Island" %}
-{% include candystore.liquid file:"20240609_132_tashirojima_ma_brightinstar28_ultramax400" title:"Tashirojima Island" %}
+{% render candystore.liquid file:"20240609_119_tashirojima_ma_brightinstar28_ultramax400" title:"Tashirojima Island" %}
+{% render candystore.liquid file:"20240609_120_tashirojima_ma_brightinstar28_ultramax400" title:"Tashirojima Island" %}
+{% render candystore.liquid file:"20240609_121_tashirojima_ma_brightinstar28_ultramax400" title:"Tashirojima Island" %}
+{% render candystore.liquid file:"20240609_123_tashirojima_ma_brightinstar28_ultramax400" title:"Tashirojima Island" %}
+{% render candystore.liquid file:"20240609_124_tashirojima_ma_brightinstar28_ultramax400" title:"Tashirojima Island" %}
+{% render candystore.liquid file:"20240609_131_tashirojima_ma_brightinstar28_ultramax400" title:"Tashirojima Island" %}
+{% render candystore.liquid file:"20240609_132_tashirojima_ma_brightinstar28_ultramax400" title:"Tashirojima Island" %}

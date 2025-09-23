@@ -13,10 +13,10 @@ tags: 'nsfw'
 flash: 'Contax TLA 140'
 ---
 
-{% include candystore.liquid file:"20230506_9_brusselspff_ma_portra800_zm35" title:"" %}
-{% include candystore.liquid file:"20230506_11_brusselspff_ma_portra800_zm35" title:"" %}
-{% include candystore.liquid file:"20230506_12_brusselspff_ma_portra800_zm35" title:"" %}
-{% include candystore.liquid file:"20230506_13_brusselspff_ma_portra800_zm35" title:"" %}
-{% include candystore.liquid file:"20230506_5_brusselspff_ma_portra800_zm35" title:"" %}
-{% include candystore.liquid file:"20230506_7_brusselspff_ma_portra800_zm35" title:"" %}
-{% include candystore.liquid file:"20230506_8_brusselspff_ma_portra800_zm35" title:"" %}
+{% render candystore.liquid file:"20230506_9_brusselspff_ma_portra800_zm35" title:"" %}
+{% render candystore.liquid file:"20230506_11_brusselspff_ma_portra800_zm35" title:"" %}
+{% render candystore.liquid file:"20230506_12_brusselspff_ma_portra800_zm35" title:"" %}
+{% render candystore.liquid file:"20230506_13_brusselspff_ma_portra800_zm35" title:"" %}
+{% render candystore.liquid file:"20230506_5_brusselspff_ma_portra800_zm35" title:"" %}
+{% render candystore.liquid file:"20230506_7_brusselspff_ma_portra800_zm35" title:"" %}
+{% render candystore.liquid file:"20230506_8_brusselspff_ma_portra800_zm35" title:"" %}
