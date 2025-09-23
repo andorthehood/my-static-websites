@@ -3,6 +3,7 @@ use crate::{
     error::Result,
     file_copier::copy_file_with_versioning,
     file_readers::{load_and_parse_files_with_front_matter_in_directory, load_site_config},
+    generate_category_pages::generate_category_pages,
     generate_pagination_pages::generate_pagination_pages,
     layout::load_layout,
     load_data::load_site_data,
@@ -158,6 +159,17 @@ fn generate_site_content(
         site_name,
         posts_per_page,
         &filtered_posts,
+        &content.includes,
+        &content.main_layout,
+        global_variables,
+        config,
+    )?;
+
+    // Generate category-based pagination pages
+    generate_category_pages(
+        site_name,
+        posts_per_page,
+        &content.posts, // Use all posts (filtering is done inside)
         &content.includes,
         &content.main_layout,
         global_variables,
