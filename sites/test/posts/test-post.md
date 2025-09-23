@@ -12,4 +12,4 @@ This is a test post content.
 - Item 2
 - Item 3
 
-{% include test-include.liquid %} 
+{% render test-include.liquid %} 

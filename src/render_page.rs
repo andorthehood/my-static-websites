@@ -21,7 +21,7 @@ fn build_layout_path(site_name: &str, layout_name: &str, config: &SiteConfig) ->
 /// 1. Converts markdown to HTML (if content is markdown)
 /// 2. Inserts into secondary layout (if specified)
 /// 3. Inserts into main layout (can be overridden via `main_layout` in front matter)
-/// 4. Processes all template tags (liquid includes + conditionals + variables)
+/// 4. Processes all template tags (liquid renders + conditionals + variables)
 /// 5. Writes to file
 pub fn render_page(
     body: &str,
@@ -190,14 +190,14 @@ mod tests {
     }
 
     #[test]
-    fn test_render_page_with_malformed_include_propagates_error() {
-        let body = "{% include bad.liquid name:\"World\" %}";
+    fn test_render_page_with_malformed_render_propagates_error() {
+        let body = "{% render bad.liquid name:\"World\" %}";
         let directory = "out/render_tests/";
-        let slug = "malformed_include";
+        let slug = "malformed_render";
         let main_layout = "{{body}}";
 
         let mut includes: TemplateIncludes = HashMap::new();
-        // malformed variable (missing second closing brace) inside include template
+        // malformed variable (missing second closing brace) inside render template
         includes.insert("bad".into(), "Hello, {{ name }!".into()); // Normalized key
 
         let mut variables: Variables = HashMap::new();
