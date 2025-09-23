@@ -90,7 +90,7 @@ sites/<site_name>/
 ### Template Processing Pipeline
 Templates are processed in this exact order:
 1. Liquid conditionals (`{% if %}`, `{% unless %}` tags) with boolean value support
-2. Liquid includes (`{% include %}` tags) 
+2. Liquid render tags (`{% render %}` tags) 
 3. Markdown to HTML conversion (if `.md` file)
 4. Handlebars variable substitution (`{{variable}}`)
 
