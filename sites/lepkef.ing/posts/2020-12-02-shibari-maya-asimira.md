@@ -4,8 +4,8 @@ title: 'Shibari with Maya and Asimira'
 date: 2020-12-02T22:36+0100
 location: 'Rotterdam, Netherlands'
 emojis: '🔞'
-unlisted: true
 tags: 'nsfw'
+category: 'shibari'
 ---
 
 {% render candystore.liquid file:"20201202_shibari_15_m6_portra800" title:"Maya" %}
