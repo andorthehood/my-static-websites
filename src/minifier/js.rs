@@ -171,12 +171,15 @@ fn handle_regex_literals(
     result: &mut String,
 ) -> bool {
     // Handle regex literals (simplified detection)
-    if !state.is_in_any_string() && !state.in_regex && ch == '/'
-        && could_be_regex_context(prev_non_whitespace, result) {
-            state.in_regex = true;
-            result.push(ch);
-            return true;
-        }
+    if !state.is_in_any_string()
+        && !state.in_regex
+        && ch == '/'
+        && could_be_regex_context(prev_non_whitespace, result)
+    {
+        state.in_regex = true;
+        result.push(ch);
+        return true;
+    }
 
     // End regex literal
     if state.in_regex && ch == '/' && prev_char != '\\' {

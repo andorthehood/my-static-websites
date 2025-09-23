@@ -11,9 +11,15 @@ use crate::write::{write_html_to_file, write_json_to_file};
 fn build_layout_path(site_name: &str, layout_name: &str, config: &SiteConfig) -> String {
     let has_extension = std::path::Path::new(layout_name).extension().is_some();
     if has_extension {
-        format!("{}/{site_name}/{}/{layout_name}", config.sites_base_dir, config.layouts_subdir)
+        format!(
+            "{}/{site_name}/{}/{layout_name}",
+            config.sites_base_dir, config.layouts_subdir
+        )
     } else {
-        format!("{}/{site_name}/{}/{layout_name}.html", config.sites_base_dir, config.layouts_subdir)
+        format!(
+            "{}/{site_name}/{}/{layout_name}.html",
+            config.sites_base_dir, config.layouts_subdir
+        )
     }
 }
 
@@ -155,11 +161,19 @@ mod tests {
         variables.insert("site_name".into(), "test".into());
         variables.insert("layout".into(), "nonexistent_secondary".into());
         variables.insert("file_type".into(), "html".into());
-        
+
         let config = SiteConfig::default();
 
-        render_page(body, directory, slug, main_layout, &includes, &variables, &config)
-            .expect("render_page failed");
+        render_page(
+            body,
+            directory,
+            slug,
+            main_layout,
+            &includes,
+            &variables,
+            &config,
+        )
+        .expect("render_page failed");
 
         let out_path = format!("{directory}{slug}.html");
         let content = read_file(&out_path);
@@ -178,11 +192,19 @@ mod tests {
         variables.insert("site_name".into(), "test".into());
         variables.insert("main_layout".into(), "no_such_layout".into());
         variables.insert("file_type".into(), "html".into());
-        
+
         let config = SiteConfig::default();
 
-        render_page(body, directory, slug, main_layout, &includes, &variables, &config)
-            .expect("render_page failed");
+        render_page(
+            body,
+            directory,
+            slug,
+            main_layout,
+            &includes,
+            &variables,
+            &config,
+        )
+        .expect("render_page failed");
 
         let out_path = format!("{directory}{slug}.html");
         let content = read_file(&out_path);
@@ -202,10 +224,18 @@ mod tests {
 
         let mut variables: Variables = HashMap::new();
         variables.insert("file_type".into(), "html".into());
-        
+
         let config = SiteConfig::default();
 
-        let result = render_page(body, directory, slug, main_layout, &includes, &variables, &config);
+        let result = render_page(
+            body,
+            directory,
+            slug,
+            main_layout,
+            &includes,
+            &variables,
+            &config,
+        );
 
         assert!(result.is_err());
     }

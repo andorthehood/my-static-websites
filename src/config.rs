@@ -157,8 +157,6 @@ impl SiteConfig {
     }
 }
 
-
-
 #[cfg(test)]
 mod tests {
     use super::*;

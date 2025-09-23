@@ -109,7 +109,8 @@ fn setup_global_variables(
     );
 
     // Get posts per page from site config before we move it, fallback to default
-    let posts_per_page = content.site_config
+    let posts_per_page = content
+        .site_config
         .get("posts_per_page")
         .and_then(|s| s.parse::<usize>().ok())
         .unwrap_or(config.default_posts_per_page);
@@ -143,7 +144,8 @@ fn generate_site_content(
     config: &SiteConfig,
 ) -> Result<()> {
     // Filter out unlisted posts for pagination
-    let filtered_posts: ContentCollection = content.posts
+    let filtered_posts: ContentCollection = content
+        .posts
         .iter()
         .filter(|post| {
             post.get("unlisted")
@@ -349,10 +351,17 @@ pub fn generate(site_name: &str, config: &SiteConfig) -> Result<()> {
     let content = load_site_content(site_name, config)?;
 
     // Setup global variables
-    let (global_variables, posts_per_page) = setup_global_variables(&content, versioned_assets, generated_date, config);
+    let (global_variables, posts_per_page) =
+        setup_global_variables(&content, versioned_assets, generated_date, config);
 
     // Generate all content
-    generate_site_content(site_name, &content, &global_variables, posts_per_page, config)?;
+    generate_site_content(
+        site_name,
+        &content,
+        &global_variables,
+        posts_per_page,
+        config,
+    )?;
 
     // Log the total generation time
     let elapsed = start_time.elapsed();
