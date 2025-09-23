@@ -67,6 +67,8 @@ function handleLinkClick(event) {
 
 	const json = (href === '/' || href === '') ? '/index.json' : href + '.json';
 	
+	document.body.classList.remove('collapsed');
+
 	// Check cache first
 	if (pageCache.has(json)) {
 		const data = pageCache.get(json);
@@ -75,7 +77,6 @@ function handleLinkClick(event) {
 		return;
 	}
 
-	document.body.classList.remove('collapsed');
 	content.innerHTML = 'Loading...';
 	fetch(json)
 		.then(response => response.json())
