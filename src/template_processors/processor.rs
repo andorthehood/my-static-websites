@@ -12,14 +12,14 @@ use std::collections::HashMap;
 ///
 /// This unified function handles:
 /// - Liquid conditionals (always)
-/// - Liquid includes (when includes are provided)
+/// - Liquid renders (when includes are provided)
 /// - Markdown to HTML conversion (when `content_item` with markdown `file_type` is provided)
 /// - Liquid variables (always)
 ///
 /// # Arguments
 /// * `input` - The input string containing template tags
 /// * `variables` - Variables for template processing
-/// * `includes` - Optional liquid includes for {% include %} tags
+/// * `includes` - Optional liquid includes for {% render %} tags
 /// * `content_item` - Optional content metadata for markdown processing and additional variables
 ///
 /// # Returns
@@ -41,7 +41,7 @@ pub fn process_template_tags(
 
     let keys: Vec<String> = combined_variables.keys().cloned().collect();
 
-    // Step 1: Process liquid tags (conditionals, assign tags, for loops, and includes if provided)
+    // Step 1: Process liquid tags (conditionals, assign tags, for loops, and renders if provided)
     let mut result = if let Some(includes) = includes {
         // Process all liquid tags including assigns
         process_liquid_tags_with_assigns(input, &keys, includes, &mut combined_variables)?
@@ -88,14 +88,14 @@ mod tests {
     }
 
     #[test]
-    fn test_process_template_tags_with_includes() {
+    fn test_process_template_tags_with_renders() {
         let mut includes = HashMap::new();
         includes.insert("test".to_string(), "Hello {{ name }}!".to_string()); // Normalized key
 
         let mut variables = HashMap::new();
         variables.insert("name".to_string(), "World".to_string());
 
-        let input = "{% include test.liquid name:\"World\" %}";
+        let input = "{% render test.liquid name:\"World\" %}";
         let result = process_template_tags(input, &variables, Some(&includes), None).unwrap();
         assert_eq!(result, "Hello World!");
     }

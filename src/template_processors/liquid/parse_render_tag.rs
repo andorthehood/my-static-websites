@@ -1,22 +1,22 @@
 use super::utils::{extract_tag_inner, parse_space_separated_key_value_params, skip_whitespace};
 use std::collections::HashMap;
 
-/// Validates the basic structure of a liquid include tag.
+/// Validates the basic structure of a liquid render tag.
 ///
 /// # Arguments
 /// * `tag` - The tag to validate
 ///
 /// # Returns
 /// * `Option<&str>` - The content inside the tag if valid, None otherwise
-fn validate_include_tag(tag: &str) -> Option<&str> {
-    extract_tag_inner(tag, "include")
+fn validate_render_tag(tag: &str) -> Option<&str> {
+    extract_tag_inner(tag, "render")
 }
 
-/// Extracts the template name from the include tag content.
+/// Extracts the template name from the render tag content.
 /// Now supports both quoted and unquoted template names, and normalizes by removing .liquid extension.
 ///
 /// # Arguments
-/// * `content` - The content inside the include tag
+/// * `content` - The content inside the render tag
 ///
 /// # Returns
 /// * `Option<(String, String)>` - Template name and remaining content if parsing succeeds
@@ -74,15 +74,15 @@ fn parse_parameters(remaining: &str) -> HashMap<String, String> {
     parse_space_separated_key_value_params(remaining)
 }
 
-/// Parses a liquid include tag and extracts the template name and parameters.
+/// Parses a liquid render tag and extracts the template name and parameters.
 ///
 /// # Arguments
-/// * `tag` - The liquid include tag to parse
+/// * `tag` - The liquid render tag to parse
 ///
 /// # Returns
 /// * `Option<(String, HashMap<String, String>)>` - Template name and parameters if parsing succeeds
-pub fn parse_liquid_include_tag(tag: &str) -> Option<(String, HashMap<String, String>)> {
-    let content = validate_include_tag(tag)?;
+pub fn parse_liquid_render_tag(tag: &str) -> Option<(String, HashMap<String, String>)> {
+    let content = validate_render_tag(tag)?;
     let (template_name, remaining) = extract_template_name(content)?;
     let properties = parse_parameters(&remaining);
 
@@ -92,13 +92,13 @@ pub fn parse_liquid_include_tag(tag: &str) -> Option<(String, HashMap<String, St
 #[cfg(test)]
 mod tests {
     use super::*;
-    use super::{extract_template_name, parse_parameters, validate_include_tag};
+    use super::{extract_template_name, parse_parameters, validate_render_tag};
 
     #[test]
-    fn test_validate_include_tag() {
-        assert!(validate_include_tag("{% include test.liquid %}").is_some());
-        assert!(validate_include_tag("invalid tag").is_none());
-        assert!(validate_include_tag("{% include test.liquid").is_none());
+    fn test_validate_render_tag() {
+        assert!(validate_render_tag("{% render test.liquid %}").is_some());
+        assert!(validate_render_tag("invalid tag").is_none());
+        assert!(validate_render_tag("{% render test.liquid").is_none());
     }
 
     #[test]
@@ -124,9 +124,9 @@ mod tests {
     }
 
     #[test]
-    fn test_parse_simple_include_tag() {
-        let tag = "{% include header.liquid %}";
-        let result = parse_liquid_include_tag(tag);
+    fn test_parse_simple_render_tag() {
+        let tag = "{% render header.liquid %}";
+        let result = parse_liquid_render_tag(tag);
 
         assert!(result.is_some());
         let (template_name, params) = result.unwrap();
@@ -135,9 +135,9 @@ mod tests {
     }
 
     #[test]
-    fn test_parse_include_tag_with_parameters() {
-        let tag = "{% include greeting.liquid name:\"Alice\" greeting:\"Hello\" %}";
-        let result = parse_liquid_include_tag(tag);
+    fn test_parse_render_tag_with_parameters() {
+        let tag = "{% render greeting.liquid name:\"Alice\" greeting:\"Hello\" %}";
+        let result = parse_liquid_render_tag(tag);
 
         assert!(result.is_some());
         let (template_name, params) = result.unwrap();
@@ -147,16 +147,16 @@ mod tests {
     }
 
     #[test]
-    fn test_parse_invalid_include_tag() {
+    fn test_parse_invalid_render_tag() {
         let tag = "invalid tag";
-        let result = parse_liquid_include_tag(tag);
+        let result = parse_liquid_render_tag(tag);
         assert!(result.is_none());
     }
 
     #[test]
-    fn test_parse_include_tag_with_malformed_parameter() {
-        let tag = "{% include t.liquid malformed greeting:\"Hello\" %}";
-        let result = parse_liquid_include_tag(tag);
+    fn test_parse_render_tag_with_malformed_parameter() {
+        let tag = "{% render t.liquid malformed greeting:\"Hello\" %}";
+        let result = parse_liquid_render_tag(tag);
 
         assert!(result.is_some());
         let (template_name, params) = result.unwrap();
@@ -166,9 +166,9 @@ mod tests {
     }
 
     #[test]
-    fn test_parse_include_tag_with_spaces_in_quoted_value() {
-        let tag = "{% include header.liquid name:\"Hello Worlds\" %}";
-        let result = parse_liquid_include_tag(tag);
+    fn test_parse_render_tag_with_spaces_in_quoted_value() {
+        let tag = "{% render header.liquid name:\"Hello Worlds\" %}";
+        let result = parse_liquid_render_tag(tag);
 
         assert!(result.is_some());
         let (template_name, params) = result.unwrap();
@@ -177,9 +177,9 @@ mod tests {
     }
 
     #[test]
-    fn test_parse_include_tag_with_single_quotes() {
-        let tag = "{% include 'header.liquid' name:\"World\" %}";
-        let result = parse_liquid_include_tag(tag);
+    fn test_parse_render_tag_with_single_quotes() {
+        let tag = "{% render 'header.liquid' name:\"World\" %}";
+        let result = parse_liquid_render_tag(tag);
 
         assert!(result.is_some());
         let (template_name, params) = result.unwrap();
@@ -188,9 +188,9 @@ mod tests {
     }
 
     #[test]
-    fn test_parse_include_tag_with_double_quotes() {
-        let tag = "{% include \"header.liquid\" name:\"World\" %}";
-        let result = parse_liquid_include_tag(tag);
+    fn test_parse_render_tag_with_double_quotes() {
+        let tag = "{% render \"header.liquid\" name:\"World\" %}";
+        let result = parse_liquid_render_tag(tag);
 
         assert!(result.is_some());
         let (template_name, params) = result.unwrap();
@@ -199,9 +199,9 @@ mod tests {
     }
 
     #[test]
-    fn test_parse_include_tag_quoted_without_extension() {
-        let tag = "{% include 'header' name:\"World\" %}";
-        let result = parse_liquid_include_tag(tag);
+    fn test_parse_render_tag_quoted_without_extension() {
+        let tag = "{% render 'header' name:\"World\" %}";
+        let result = parse_liquid_render_tag(tag);
 
         assert!(result.is_some());
         let (template_name, params) = result.unwrap();
@@ -210,18 +210,18 @@ mod tests {
     }
 
     #[test]
-    fn test_parse_include_tag_comprehensive_syntax_support() {
+    fn test_parse_render_tag_comprehensive_syntax_support() {
         // Test that all these syntaxes produce the same normalized template name
         let test_cases = vec![
-            "{% include header.liquid %}",
-            "{% include 'header.liquid' %}",
-            "{% include \"header.liquid\" %}",
-            "{% include 'header' %}",
-            "{% include \"header\" %}",
+            "{% render header.liquid %}",
+            "{% render 'header.liquid' %}",
+            "{% render \"header.liquid\" %}",
+            "{% render 'header' %}",
+            "{% render \"header\" %}",
         ];
 
         for tag in test_cases {
-            let result = parse_liquid_include_tag(tag);
+            let result = parse_liquid_render_tag(tag);
             assert!(result.is_some(), "Failed to parse: {}", tag);
             let (template_name, _) = result.unwrap();
             assert_eq!(template_name, "header", "Unexpected template name for: {}", tag);
