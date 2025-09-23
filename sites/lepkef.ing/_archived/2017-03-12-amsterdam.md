@@ -6,6 +6,6 @@ tags: art
 location: "Amsterdam, Netherlands"
 ---
 
-{% include img.liquid img:"33380404391_502a4ed276_k" date:page.date %}
-{% include img.liquid img:"33125277760_fa533b4f39_k" date:page.date %}
-{% include img.liquid img:"33509045315_5f7e9c63a1_k" date:page.date %}
+{% render img.liquid img:"33380404391_502a4ed276_k" date:page.date %}
+{% render img.liquid img:"33125277760_fa533b4f39_k" date:page.date %}
+{% render img.liquid img:"33509045315_5f7e9c63a1_k" date:page.date %}

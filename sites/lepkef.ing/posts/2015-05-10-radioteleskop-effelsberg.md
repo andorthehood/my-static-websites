@@ -6,6 +6,6 @@ location: 'Effelsberg, Germany'
 tags: ''
 ---
 
-{% include candystore.liquid file:"20150510_IMG_2281_effelsberg" title:"" %}
+{% render candystore.liquid file:"20150510_IMG_2281_effelsberg" title:"" %}
 
 Camera: Canon EOS 700D, Lens: Canon EF 50mm f/1.4 USM

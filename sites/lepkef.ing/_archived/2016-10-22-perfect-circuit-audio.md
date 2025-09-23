@@ -11,5 +11,5 @@ location: "Los Angeles, California"
 Perfect Circuit Audio &#x2713;<br />
 SchneidersLaden
 
-{% include img.liquid img:"30642762432_6d7ce3ea4c_k" date:page.date %}
-{% include img.liquid img:"30759341295_bd6dca5a66_k" date:page.date %}
+{% render img.liquid img:"30642762432_6d7ce3ea4c_k" date:page.date %}
+{% render img.liquid img:"30759341295_bd6dca5a66_k" date:page.date %}

@@ -11,5 +11,5 @@ flash: 'Contax TLA 140'
 tags: 'roadtrip'
 ---
 
-{% include candystore.liquid file:"20231225_86_us_roadtrip_flagstaff_ma_35zm_ultramax400_tla140" title:"" %}
-{% include candystore.liquid file:"20231225_87_us_roadtrip_flagstaff_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20231225_86_us_roadtrip_flagstaff_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20231225_87_us_roadtrip_flagstaff_ma_35zm_ultramax400_tla140" title:"" %}

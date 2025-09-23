@@ -13,11 +13,11 @@ tags: 'shibari'
 flash: 'Contax TLA 140'
 ---
 
-{% include candystore.liquid file:"20230816_3_shibari_ma_xp2_zm35_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230816_7_shibari_ma_xp2_zm35_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230816_12_shibari_ma_xp2_zm35_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230816_22_shibari_ma_xp2_zm35_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230816_26_shibari_ma_xp2_zm35_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230816_27_shibari_ma_xp2_zm35_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230816_29_shibari_ma_xp2_zm35_zm21_tla140" title:"" %}
-{% include candystore.liquid file:"20230816_35_shibari_ma_xp2_zm35_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230816_3_shibari_ma_xp2_zm35_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230816_7_shibari_ma_xp2_zm35_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230816_12_shibari_ma_xp2_zm35_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230816_22_shibari_ma_xp2_zm35_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230816_26_shibari_ma_xp2_zm35_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230816_27_shibari_ma_xp2_zm35_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230816_29_shibari_ma_xp2_zm35_zm21_tla140" title:"" %}
+{% render candystore.liquid file:"20230816_35_shibari_ma_xp2_zm35_zm21_tla140" title:"" %}

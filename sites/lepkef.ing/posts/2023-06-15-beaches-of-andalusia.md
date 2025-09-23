@@ -17,9 +17,9 @@ people:
     - '@malas_tierras'
 ---
 
-{% include candystore.liquid file:"20220615_11_andalusia_ultramax400_ma_zm35" title:"" %}
-{% include candystore.liquid file:"20220606_42_andalusia_gold200_ma_zm35" title:"" %}
-{% include candystore.liquid file:"20220615_25_andalusia_ultramax400_ma_zm35" title:"" %}
-{% include candystore.liquid file:"20230606_226_andalusia_gold200_ma_zm35" title:"" %}
-{% include candystore.liquid file:"20230606_228_andalusia_gold200_ma_zm35" title:"" %}
-{% include candystore.liquid file:"20230606_241_andalusia_gold200_ma_zm35" title:"" %}
+{% render candystore.liquid file:"20220615_11_andalusia_ultramax400_ma_zm35" title:"" %}
+{% render candystore.liquid file:"20220606_42_andalusia_gold200_ma_zm35" title:"" %}
+{% render candystore.liquid file:"20220615_25_andalusia_ultramax400_ma_zm35" title:"" %}
+{% render candystore.liquid file:"20230606_226_andalusia_gold200_ma_zm35" title:"" %}
+{% render candystore.liquid file:"20230606_228_andalusia_gold200_ma_zm35" title:"" %}
+{% render candystore.liquid file:"20230606_241_andalusia_gold200_ma_zm35" title:"" %}

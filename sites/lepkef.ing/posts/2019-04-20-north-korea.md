@@ -7,11 +7,11 @@ emojis: '⭐⭐'
 tags: ''
 ---
 
-{% include candystore.liquid file:"20190414_1_nort-korea" title:"" %}
-{% include candystore.liquid file:"20190414_2_north-korea" title:"" %}
-{% include candystore.liquid file:"20190414_3_north-korea" title:"" %}
-{% include candystore.liquid file:"20190414_4_north-korea" title:"" %}
-{% include candystore.liquid file:"20190414_5_north-korea" title:"" %}
+{% render candystore.liquid file:"20190414_1_nort-korea" title:"" %}
+{% render candystore.liquid file:"20190414_2_north-korea" title:"" %}
+{% render candystore.liquid file:"20190414_3_north-korea" title:"" %}
+{% render candystore.liquid file:"20190414_4_north-korea" title:"" %}
+{% render candystore.liquid file:"20190414_5_north-korea" title:"" %}
 
 “I look down from my window  
 To the island where I'm held  

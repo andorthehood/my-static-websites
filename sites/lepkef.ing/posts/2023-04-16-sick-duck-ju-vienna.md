@@ -16,20 +16,20 @@ people:
     - '@goma_moves'
 ---
 
-{% include candystore.liquid file:"20230416_79_pffvienna_ma_superia400_zm35_tla140" title:"" %}
-{% include candystore.liquid file:"20230416_80_pffvienna_ma_superia400_zm35_tla140" title:"" %}
-{% include candystore.liquid file:"20230416_81_pffvienna_ma_superia400_zm35_tla140" title:"" %}
-{% include candystore.liquid file:"20230416_82_pffvienna_ma_superia400_zm35_tla140" title:"" %}
-{% include candystore.liquid file:"20230416_83_pffvienna_ma_superia400_zm35_tla140" title:"" %}
-{% include candystore.liquid file:"20230416_84_pffvienna_ma_superia400_zm35_tla140" title:"" %}
-{% include candystore.liquid file:"20230416_87_pffvienna_ma_superia400_zm35_tla140" title:"" %}
-{% include candystore.liquid file:"20230416_114_pffvienna_ma_superia400_zm35_tla140" title:"" %}
-{% include candystore.liquid file:"20230416_117_pffvienna_ma_superia400_zm35_tla140" title:"" %}
-{% include candystore.liquid file:"20230416_120_pffvienna_ma_superia400_zm35_tla140" title:"" %}
-{% include candystore.liquid file:"20230416_121_pffvienna_ma_superia400_zm35_tla140" title:"" %}
-{% include candystore.liquid file:"20230416_45_pffvienna_ma_portra800_zm35_tla140" title:"" %}
-{% include candystore.liquid file:"20230416_56_pffvienna_ma_portra800_zm35_tla140" title:"" %}
-{% include candystore.liquid file:"20230416_68_pffvienna_ma_superia400_zm35_tla140" title:"" %}
-{% include candystore.liquid file:"20230416_69_pffvienna_ma_superia400_zm35_tla140" title:"" %}
-{% include candystore.liquid file:"20230416_96_pffvienna_ma_superia400_zm35_tla140" title:"" %}
-{% include candystore.liquid file:"20230416_97_pffvienna_ma_superia400_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230416_79_pffvienna_ma_superia400_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230416_80_pffvienna_ma_superia400_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230416_81_pffvienna_ma_superia400_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230416_82_pffvienna_ma_superia400_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230416_83_pffvienna_ma_superia400_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230416_84_pffvienna_ma_superia400_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230416_87_pffvienna_ma_superia400_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230416_114_pffvienna_ma_superia400_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230416_117_pffvienna_ma_superia400_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230416_120_pffvienna_ma_superia400_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230416_121_pffvienna_ma_superia400_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230416_45_pffvienna_ma_portra800_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230416_56_pffvienna_ma_portra800_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230416_68_pffvienna_ma_superia400_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230416_69_pffvienna_ma_superia400_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230416_96_pffvienna_ma_superia400_zm35_tla140" title:"" %}
+{% render candystore.liquid file:"20230416_97_pffvienna_ma_superia400_zm35_tla140" title:"" %}

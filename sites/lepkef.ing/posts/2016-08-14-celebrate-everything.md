@@ -6,7 +6,7 @@ location: 'Los Angeles, California'
 tags: ''
 ---
 
-{% include candystore.liquid file:"20160814_DSC_4061_celebrate_everything" title:"" %}
-{% include candystore.liquid file:"20160814_DSC_4310_celebrate_everything" title:"" %}
-{% include candystore.liquid file:"20160814_DSC_4322_celebrate_everything" title:"" %}
-{% include candystore.liquid file:"20160814_DSC_4517_celebrate_everything" title:"" %}
+{% render candystore.liquid file:"20160814_DSC_4061_celebrate_everything" title:"" %}
+{% render candystore.liquid file:"20160814_DSC_4310_celebrate_everything" title:"" %}
+{% render candystore.liquid file:"20160814_DSC_4322_celebrate_everything" title:"" %}
+{% render candystore.liquid file:"20160814_DSC_4517_celebrate_everything" title:"" %}

@@ -11,7 +11,7 @@ flash: 'Contax TLA 140'
 tags: 'roadtrip'
 ---
 
-{% include candystore.liquid file:"20231221_5_us_roadtrip_hollywood_ma_35zm_ultramax400_tla140" title:"" %}
-{% include candystore.liquid file:"20231221_6_us_roadtrip_hollywood_ma_35zm_ultramax400_tla140" title:"" %}
-{% include candystore.liquid file:"20231221_4_us_roadtrip_hollywood_ma_35zm_ultramax400_tla140" title:"" %}
-{% include candystore.liquid file:"20231221_1_us_roadtrip_amsterdam_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20231221_5_us_roadtrip_hollywood_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20231221_6_us_roadtrip_hollywood_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20231221_4_us_roadtrip_hollywood_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20231221_1_us_roadtrip_amsterdam_ma_35zm_ultramax400_tla140" title:"" %}

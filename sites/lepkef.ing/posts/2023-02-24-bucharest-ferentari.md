@@ -10,8 +10,8 @@ tags: 'roadtrip'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
 
-{% include candystore.liquid file:"20230224_6_ferentari_ma_fujixtra400_zm35" title:"Ferentari" %}
-{% include candystore.liquid file:"20230224_10_ferentari_ma_fujixtra400_zm35" title:"Ferentari" %}
-{% include candystore.liquid file:"20230224_7_ferentari_ma_fujixtra400_zm35" title:"Ferentari" %}
-{% include candystore.liquid file:"20230224_1_ferentari_ma_fujixtra400_zm35" title:"Ferentari" %}
-{% include candystore.liquid file:"20230224_5_ferentari_ma_fujixtra400_zm35" title:"Ferentari" %}
+{% render candystore.liquid file:"20230224_6_ferentari_ma_fujixtra400_zm35" title:"Ferentari" %}
+{% render candystore.liquid file:"20230224_10_ferentari_ma_fujixtra400_zm35" title:"Ferentari" %}
+{% render candystore.liquid file:"20230224_7_ferentari_ma_fujixtra400_zm35" title:"Ferentari" %}
+{% render candystore.liquid file:"20230224_1_ferentari_ma_fujixtra400_zm35" title:"Ferentari" %}
+{% render candystore.liquid file:"20230224_5_ferentari_ma_fujixtra400_zm35" title:"Ferentari" %}

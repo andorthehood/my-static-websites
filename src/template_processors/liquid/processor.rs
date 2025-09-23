@@ -1,20 +1,20 @@
 use super::_if::process_liquid_conditional_tags;
 use super::assign::process_liquid_assign_tags;
 use super::for_loop::process_liquid_for_loops;
-use super::process_includes::process_liquid_includes;
+use super::process_renders::process_liquid_renders;
 use super::unless::process_liquid_unless_tags;
 use crate::error::Result;
 use std::collections::HashMap;
 
 /// Process all Liquid tags in a template string, including assign tags
 ///
-/// This function processes conditional tags, assign tags, for loops, unless tags, and includes
+/// This function processes conditional tags, assign tags, for loops, unless tags, and renders
 /// in the correct order. Assign tags can modify the variables map.
 ///
 /// # Arguments
 /// * `template` - The template string to process
 /// * `conditions` - List of condition names that should evaluate to true (deprecated)
-/// * `templates` - Map of template names to their content for includes
+/// * `templates` - Map of template names to their content for renders
 /// * `variables` - Mutable variables map for assign tags and for loop processing
 ///
 /// # Returns
@@ -37,8 +37,8 @@ pub fn process_liquid_tags_with_assigns(
     // Process if-conditionals after loop expansion using variables for truthiness
     let processed_conditionals = process_liquid_conditional_tags(&processed_unless, variables)?;
 
-    // Finally, resolve includes
-    process_liquid_includes(&processed_conditionals, templates)
+    // Finally, resolve renders
+    process_liquid_renders(&processed_conditionals, templates)
 }
 
 #[cfg(test)]

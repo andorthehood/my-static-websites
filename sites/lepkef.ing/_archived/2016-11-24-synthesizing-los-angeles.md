@@ -7,5 +7,5 @@ tags: art eurorack
 location: "Los Angeles, California"
 ---
 
-{% include img.liquid img:"30402659014_dcc31bc22e_k" date:page.date %}
-{% include img.liquid img:"31188115206_78ed84e747_k" date:page.date %}
+{% render img.liquid img:"30402659014_dcc31bc22e_k" date:page.date %}
+{% render img.liquid img:"31188115206_78ed84e747_k" date:page.date %}

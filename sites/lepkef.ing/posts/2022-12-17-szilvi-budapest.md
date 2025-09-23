@@ -14,11 +14,11 @@ people:
     - '@valevicious'
 ---
 
-{% include candystore.liquid file:"20221217_39_szilvi_proimage_100_ma" title:"Szilvi" %}
-{% include candystore.liquid file:"20221217_33_szilvi_proimage_100_ma" title:"Szilvi" %}
-{% include candystore.liquid file:"20221217_36_szilvi_proimage_100_ma" title:"Szilvi" %}
-{% include candystore.liquid file:"20221217_4_szilvi_gold_200_ma" title:"Szilvi" %}
-{% include candystore.liquid file:"20221217_2_szilvi_gold_200_ma" title:"Szilvi" %}
-{% include candystore.liquid file:"20221217_8_szilvi_gold_200_ma" title:"Szilvi" %}
-{% include candystore.liquid file:"20221217_11_szilvi_gold_200_ma" title:"Szilvi" %}
+{% render candystore.liquid file:"20221217_39_szilvi_proimage_100_ma" title:"Szilvi" %}
+{% render candystore.liquid file:"20221217_33_szilvi_proimage_100_ma" title:"Szilvi" %}
+{% render candystore.liquid file:"20221217_36_szilvi_proimage_100_ma" title:"Szilvi" %}
+{% render candystore.liquid file:"20221217_4_szilvi_gold_200_ma" title:"Szilvi" %}
+{% render candystore.liquid file:"20221217_2_szilvi_gold_200_ma" title:"Szilvi" %}
+{% render candystore.liquid file:"20221217_8_szilvi_gold_200_ma" title:"Szilvi" %}
+{% render candystore.liquid file:"20221217_11_szilvi_gold_200_ma" title:"Szilvi" %}
 

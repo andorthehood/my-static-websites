@@ -6,4 +6,4 @@ tags: video art
 location: "Los Angeles, California"
 ---
 
-{% include youtube.liquid id="VGBZjjIOkW8" %}
+{% render youtube.liquid id="VGBZjjIOkW8" %}

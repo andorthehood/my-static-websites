@@ -8,4 +8,4 @@ camera: 'Sony ZV-1'
 tags: 'music,video'
 ---
 
-{% include youtube.liquid id:"I5gMH5YlJv0?si=UIegi0o9ywAND8jh" %}
+{% render youtube.liquid id:"I5gMH5YlJv0?si=UIegi0o9ywAND8jh" %}

@@ -13,11 +13,11 @@ people:
     - '@setherian'
 ---
 
-{% include candystore.liquid file:"20230513_40_setherian_ma_portra800_zm35" title:"" %}
-{% include candystore.liquid file:"20230513_14_setherian_ma_xp2_400_zm35" title:"" %}
-{% include candystore.liquid file:"20230513_17_setherian_ma_xp2_400_zm35" title:"" %}
-{% include candystore.liquid file:"20230513_19_setherian_ma_xp2_400_zm35" title:"" %}
-{% include candystore.liquid file:"20230513_1_setherian_ma_xp2_400_zm35" title:"" %}
-{% include candystore.liquid file:"20230513_22_setherian_ma_xp2_400_zm35" title:"" %}
-{% include candystore.liquid file:"20230513_32_setherian_ma_xp2_400_zm35" title:"" %}
-{% include candystore.liquid file:"20230513_34_setherian_ma_xp2_400_zm35" title:"" %}
+{% render candystore.liquid file:"20230513_40_setherian_ma_portra800_zm35" title:"" %}
+{% render candystore.liquid file:"20230513_14_setherian_ma_xp2_400_zm35" title:"" %}
+{% render candystore.liquid file:"20230513_17_setherian_ma_xp2_400_zm35" title:"" %}
+{% render candystore.liquid file:"20230513_19_setherian_ma_xp2_400_zm35" title:"" %}
+{% render candystore.liquid file:"20230513_1_setherian_ma_xp2_400_zm35" title:"" %}
+{% render candystore.liquid file:"20230513_22_setherian_ma_xp2_400_zm35" title:"" %}
+{% render candystore.liquid file:"20230513_32_setherian_ma_xp2_400_zm35" title:"" %}
+{% render candystore.liquid file:"20230513_34_setherian_ma_xp2_400_zm35" title:"" %}

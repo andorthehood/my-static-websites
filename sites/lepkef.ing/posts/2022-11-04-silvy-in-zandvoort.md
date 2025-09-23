@@ -13,11 +13,11 @@ people:
     - '@silvy_sirius'
 ---
 
-{% include candystore.liquid file:"20221104_14_silvy_zand_gold200_ma" title:"Silvy" %}
-{% include candystore.liquid file:"20221104_5_silvy_zand_gold200_ma" title:"Silvy" %}
-{% include candystore.liquid file:"20221104_9_silvy_zand_gold200_ma" title:"Silvy" %}
-{% include candystore.liquid file:"20221104_11_silvy_zand_gold200_ma" title:"Silvy" %}
-{% include candystore.liquid file:"20221104_12_silvy_zand_gold200_ma" title:"Silvy" %}
-{% include candystore.liquid file:"20221104_26_silvy_zand_portra800_ma" title:"Silvy" %}
-{% include candystore.liquid file:"20221104_31_silvy_zand_portra800_ma" title:"Silvy" %}
-{% include candystore.liquid file:"20221104_34_silvy_zand_portra800_ma" title:"Silvy" %}
+{% render candystore.liquid file:"20221104_14_silvy_zand_gold200_ma" title:"Silvy" %}
+{% render candystore.liquid file:"20221104_5_silvy_zand_gold200_ma" title:"Silvy" %}
+{% render candystore.liquid file:"20221104_9_silvy_zand_gold200_ma" title:"Silvy" %}
+{% render candystore.liquid file:"20221104_11_silvy_zand_gold200_ma" title:"Silvy" %}
+{% render candystore.liquid file:"20221104_12_silvy_zand_gold200_ma" title:"Silvy" %}
+{% render candystore.liquid file:"20221104_26_silvy_zand_portra800_ma" title:"Silvy" %}
+{% render candystore.liquid file:"20221104_31_silvy_zand_portra800_ma" title:"Silvy" %}
+{% render candystore.liquid file:"20221104_34_silvy_zand_portra800_ma" title:"Silvy" %}

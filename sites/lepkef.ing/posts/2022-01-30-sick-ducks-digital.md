@@ -11,5 +11,5 @@ camera: 'Nikon D780'
 tags: 'nsfw'
 ---
 
-{% include candystore.liquid file:"20220215_ANE_3144_femke" title:"Sick Ducks" %}
-{% include candystore.liquid file:"20220215_ANE_3482_femke" title:"Sick Ducks" %}
+{% render candystore.liquid file:"20220215_ANE_3144_femke" title:"Sick Ducks" %}
+{% render candystore.liquid file:"20220215_ANE_3482_femke" title:"Sick Ducks" %}
