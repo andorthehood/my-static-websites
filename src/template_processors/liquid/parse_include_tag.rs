@@ -13,6 +13,7 @@ fn validate_include_tag(tag: &str) -> Option<&str> {
 }
 
 /// Extracts the template name from the include tag content.
+/// Now supports both quoted and unquoted template names, and normalizes by removing .liquid extension.
 ///
 /// # Arguments
 /// * `content` - The content inside the include tag
@@ -26,10 +27,27 @@ fn extract_template_name(content: &str) -> Option<(String, String)> {
     // Skip leading whitespace using utility function
     skip_whitespace(&mut chars);
 
+    // Check if the template name is quoted
+    let is_quoted = chars.peek() == Some(&'\'') || chars.peek() == Some(&'"');
+    let quote_char = if is_quoted {
+        chars.next() // consume the opening quote
+    } else {
+        None
+    };
+
     // Read template name
     while let Some(ch) = chars.peek() {
-        if ch.is_whitespace() {
-            break;
+        if is_quoted {
+            // If quoted, read until the closing quote
+            if Some(*ch) == quote_char {
+                chars.next(); // consume the closing quote
+                break;
+            }
+        } else {
+            // If not quoted, read until whitespace (backward compatibility)
+            if ch.is_whitespace() {
+                break;
+            }
         }
         template_name.push(chars.next().unwrap());
     }
@@ -38,8 +56,11 @@ fn extract_template_name(content: &str) -> Option<(String, String)> {
         return None;
     }
 
+    // Normalize the template name by removing .liquid extension if present
+    let normalized_name = template_name.strip_suffix(".liquid").unwrap_or(&template_name);
+
     let remaining: String = chars.collect();
-    Some((template_name, remaining))
+    Some((normalized_name.to_string(), remaining))
 }
 
 /// Parses parameters from the remaining content after the template name.
@@ -85,7 +106,7 @@ mod tests {
         let result = extract_template_name(" test.liquid param:value");
         assert!(result.is_some());
         let (name, remaining) = result.unwrap();
-        assert_eq!(name, "test.liquid");
+        assert_eq!(name, "test"); // Now expects normalized name without .liquid
         assert_eq!(remaining.trim(), "param:value");
 
         assert!(extract_template_name("").is_none());
@@ -109,7 +130,7 @@ mod tests {
 
         assert!(result.is_some());
         let (template_name, params) = result.unwrap();
-        assert_eq!(template_name, "header.liquid");
+        assert_eq!(template_name, "header"); // Now expects normalized name without .liquid
         assert!(params.is_empty());
     }
 
@@ -120,7 +141,7 @@ mod tests {
 
         assert!(result.is_some());
         let (template_name, params) = result.unwrap();
-        assert_eq!(template_name, "greeting.liquid");
+        assert_eq!(template_name, "greeting"); // Now expects normalized name without .liquid
         assert_eq!(params.get("name"), Some(&"Alice".to_string()));
         assert_eq!(params.get("greeting"), Some(&"Hello".to_string()));
     }
@@ -139,7 +160,7 @@ mod tests {
 
         assert!(result.is_some());
         let (template_name, params) = result.unwrap();
-        assert_eq!(template_name, "t.liquid");
+        assert_eq!(template_name, "t"); // Now expects normalized name without .liquid
         assert_eq!(params.len(), 1);
         assert_eq!(params.get("greeting"), Some(&"Hello".to_string()));
     }
@@ -151,7 +172,59 @@ mod tests {
 
         assert!(result.is_some());
         let (template_name, params) = result.unwrap();
-        assert_eq!(template_name, "header.liquid");
+        assert_eq!(template_name, "header"); // Now expects normalized name without .liquid
         assert_eq!(params.get("name"), Some(&"Hello Worlds".to_string()));
+    }
+
+    #[test]
+    fn test_parse_include_tag_with_single_quotes() {
+        let tag = "{% include 'header.liquid' name:\"World\" %}";
+        let result = parse_liquid_include_tag(tag);
+
+        assert!(result.is_some());
+        let (template_name, params) = result.unwrap();
+        assert_eq!(template_name, "header"); // Extension stripped
+        assert_eq!(params.get("name"), Some(&"World".to_string()));
+    }
+
+    #[test]
+    fn test_parse_include_tag_with_double_quotes() {
+        let tag = "{% include \"header.liquid\" name:\"World\" %}";
+        let result = parse_liquid_include_tag(tag);
+
+        assert!(result.is_some());
+        let (template_name, params) = result.unwrap();
+        assert_eq!(template_name, "header"); // Extension stripped
+        assert_eq!(params.get("name"), Some(&"World".to_string()));
+    }
+
+    #[test]
+    fn test_parse_include_tag_quoted_without_extension() {
+        let tag = "{% include 'header' name:\"World\" %}";
+        let result = parse_liquid_include_tag(tag);
+
+        assert!(result.is_some());
+        let (template_name, params) = result.unwrap();
+        assert_eq!(template_name, "header"); // No extension to strip
+        assert_eq!(params.get("name"), Some(&"World".to_string()));
+    }
+
+    #[test]
+    fn test_parse_include_tag_comprehensive_syntax_support() {
+        // Test that all these syntaxes produce the same normalized template name
+        let test_cases = vec![
+            "{% include header.liquid %}",
+            "{% include 'header.liquid' %}",
+            "{% include \"header.liquid\" %}",
+            "{% include 'header' %}",
+            "{% include \"header\" %}",
+        ];
+
+        for tag in test_cases {
+            let result = parse_liquid_include_tag(tag);
+            assert!(result.is_some(), "Failed to parse: {}", tag);
+            let (template_name, _) = result.unwrap();
+            assert_eq!(template_name, "header", "Unexpected template name for: {}", tag);
+        }
     }
 }

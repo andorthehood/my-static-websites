@@ -51,7 +51,7 @@ mod tests {
     fn test_process_liquid_includes() {
         let mut templates = HashMap::new();
         templates.insert(
-            "header.liquid".to_string(),
+            "header".to_string(), // Now using normalized key without .liquid
             "Hello, {{ name }}!".to_string(),
         );
 
@@ -63,7 +63,7 @@ mod tests {
     #[test]
     fn test_process_liquid_includes_without_variables() {
         let mut templates = HashMap::new();
-        templates.insert("simple.liquid".to_string(), "Simple template".to_string());
+        templates.insert("simple".to_string(), "Simple template".to_string()); // Normalized key
 
         let input = "{% include simple.liquid %}";
         let result = process_liquid_includes(input, &templates).unwrap();
@@ -74,7 +74,7 @@ mod tests {
     fn test_process_liquid_includes_with_multiple_variables() {
         let mut templates = HashMap::new();
         templates.insert(
-            "greeting.liquid".to_string(),
+            "greeting".to_string(), // Normalized key
             "{{ greeting }}, {{ name }}!".to_string(),
         );
 
@@ -110,7 +110,7 @@ mod tests {
     #[test]
     fn test_process_liquid_includes_with_error() {
         let mut templates = HashMap::new();
-        templates.insert("header.liquid".to_string(), "Hello, {{ name }!".to_string());
+        templates.insert("header".to_string(), "Hello, {{ name }!".to_string()); // Normalized key
 
         let input = "{% include header.liquid name:\"World\" %}";
         let result = process_liquid_includes(input, &templates);
@@ -121,7 +121,7 @@ mod tests {
     fn test_process_liquid_includes_with_spaces_in_parameter_value() {
         let mut templates = HashMap::new();
         templates.insert(
-            "header.liquid".to_string(),
+            "header".to_string(), // Normalized key
             "Hello, {{ name }}!".to_string(),
         );
 
@@ -133,10 +133,30 @@ mod tests {
     #[test]
     fn test_process_liquid_includes_resume_after_missing() {
         let mut templates = HashMap::new();
-        templates.insert("ok.liquid".to_string(), "OK".to_string());
+        templates.insert("ok".to_string(), "OK".to_string()); // Normalized key
 
         let input = "{% include missing.liquid %} and {% include ok.liquid %}";
         let result = process_liquid_includes(input, &templates).unwrap();
         assert_eq!(result, "{% include missing.liquid %} and OK");
+    }
+
+    #[test]
+    fn test_process_liquid_includes_comprehensive_syntax() {
+        let mut templates = HashMap::new();
+        templates.insert("header".to_string(), "HEADER".to_string());
+
+        // Test that all syntaxes resolve to the same template
+        let test_cases = vec![
+            "{% include header.liquid %}",
+            "{% include 'header.liquid' %}",
+            "{% include \"header.liquid\" %}",
+            "{% include 'header' %}",
+            "{% include \"header\" %}",
+        ];
+
+        for input in test_cases {
+            let result = process_liquid_includes(input, &templates).unwrap();
+            assert_eq!(result, "HEADER", "Failed for input: {}", input);
+        }
     }
 }
