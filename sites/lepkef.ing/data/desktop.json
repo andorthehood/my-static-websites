@@ -37,7 +37,7 @@
 	{
 		"href": "/postmortem",
 		"icon": "👻",
-		"label": "Post-mortem.txt"
+		"label": "Post-mortem"
 	},
 	{
 		"href": "/about",
@@ -79,5 +79,10 @@
 		"href": "/tabs",
 		"icon": "🎸",
 		"label": "Tabs"
+	},
+	{
+		"href": "/category/shibari/page1",
+		"icon": "🪢",
+		"label": "Shibari"
 	}
 ]
