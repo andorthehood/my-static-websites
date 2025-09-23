@@ -12,11 +12,11 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: ''
 ---
 
-{% include candystore.liquid file:"20240929_3_marianna_ma_zm35_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_5_marianna_ma_zm35_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_6_marianna_ma_zm35_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_9_marianna_ma_zm35_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_10_marianna_ma_zm35_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_12_marianna_ma_zm35_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_13_marianna_ma_zm35_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20240929_16_marianna_ma_zm35_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_3_marianna_ma_zm35_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_5_marianna_ma_zm35_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_6_marianna_ma_zm35_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_9_marianna_ma_zm35_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_10_marianna_ma_zm35_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_12_marianna_ma_zm35_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_13_marianna_ma_zm35_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20240929_16_marianna_ma_zm35_gold200_tla140" title:"" %}

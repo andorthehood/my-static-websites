@@ -11,6 +11,6 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'roadtrip'
 ---
 
-{% include candystore.liquid file:"20220304_ANE_3690_poland_ilford_hp5_400_d76_18c_rollei35" title:"Oświęcim" %}
-{% include candystore.liquid file:"20220304_ANE_3693_poland_ilford_hp5_400_d76_18c_rollei35" title:"Oświęcim" %}
-{% include candystore.liquid file:"20220304_ANE_3683_poland_ilford_hp5_400_d76_18c_rollei35" title:"Oświęcim" %}
+{% render candystore.liquid file:"20220304_ANE_3690_poland_ilford_hp5_400_d76_18c_rollei35" title:"Oświęcim" %}
+{% render candystore.liquid file:"20220304_ANE_3693_poland_ilford_hp5_400_d76_18c_rollei35" title:"Oświęcim" %}
+{% render candystore.liquid file:"20220304_ANE_3683_poland_ilford_hp5_400_d76_18c_rollei35" title:"Oświęcim" %}

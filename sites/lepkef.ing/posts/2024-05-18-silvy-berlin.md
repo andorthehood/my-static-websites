@@ -12,11 +12,11 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: ''
 ---
 
-{% include candystore.liquid file:"20240518_10_silvy_ma_zm35_cinestill800t" title:"Silvy" %}
-{% include candystore.liquid file:"20240518_12_silvy_ma_zm35_cinestill800t" title:"Silvy" %}
-{% include candystore.liquid file:"20240518_18_silvy_ma_zm35_cinestill800t" title:"Silvy" %}
-{% include candystore.liquid file:"20240518_21_silvy_ma_zm35_cinestill800t" title:"Silvy" %}
-{% include candystore.liquid file:"20240518_35_silvy_ma_zm35_ultramax400_tla140" title:"Silvy" %}
-{% include candystore.liquid file:"20240518_37_silvy_ma_zm35_ultramax400_tla140" title:"Silvy" %}
-{% include candystore.liquid file:"20240518_40_silvy_ma_zm35_ultramax400_tla140" title:"Silvy" %}
-{% include candystore.liquid file:"20240518_52_silvy_ma_zm35_ultramax400_tla140" title:"Silvy" %}
+{% render candystore.liquid file:"20240518_10_silvy_ma_zm35_cinestill800t" title:"Silvy" %}
+{% render candystore.liquid file:"20240518_12_silvy_ma_zm35_cinestill800t" title:"Silvy" %}
+{% render candystore.liquid file:"20240518_18_silvy_ma_zm35_cinestill800t" title:"Silvy" %}
+{% render candystore.liquid file:"20240518_21_silvy_ma_zm35_cinestill800t" title:"Silvy" %}
+{% render candystore.liquid file:"20240518_35_silvy_ma_zm35_ultramax400_tla140" title:"Silvy" %}
+{% render candystore.liquid file:"20240518_37_silvy_ma_zm35_ultramax400_tla140" title:"Silvy" %}
+{% render candystore.liquid file:"20240518_40_silvy_ma_zm35_ultramax400_tla140" title:"Silvy" %}
+{% render candystore.liquid file:"20240518_52_silvy_ma_zm35_ultramax400_tla140" title:"Silvy" %}

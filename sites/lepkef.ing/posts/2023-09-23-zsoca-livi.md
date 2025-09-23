@@ -11,14 +11,14 @@ tags: ''
 flash: 'Contax TLA 140'
 ---
 
-{% include candystore.liquid file:"20230923_103_zse_livia_ma_35zm_ultramax400_tla140" title:"" %}
-{% include candystore.liquid file:"20230923_108_zse_livia_ma_35zm_proimage100_tla140" title:"" %}
-{% include candystore.liquid file:"20230923_127_zse_livia_ma_35zm_proimage100_tla140" title:"" %}
-{% include candystore.liquid file:"20230923_13_zse_livia_ma_35zm_ultramax400_tla140" title:"" %}
-{% include candystore.liquid file:"20230923_32_zse_livia_ma_35zm_ultramax400_tla140" title:"" %}
-{% include candystore.liquid file:"20230923_38_zse_livia_ma_35zm_ultramax400_tla140" title:"" %}
-{% include candystore.liquid file:"20230923_62_zse_livia_ma_35zm_proimage100_tla140" title:"" %}
-{% include candystore.liquid file:"20230923_64_zse_livia_ma_35zm_proimage100_tla140" title:"" %}
-{% include candystore.liquid file:"20230923_67_zse_livia_ma_35zm_proimage100_tla140" title:"" %}
-{% include candystore.liquid file:"20230923_73_zse_livia_ma_35zm_proimage100_tla140" title:"" %}
-{% include candystore.liquid file:"20230923_86_zse_livia_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20230923_103_zse_livia_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20230923_108_zse_livia_ma_35zm_proimage100_tla140" title:"" %}
+{% render candystore.liquid file:"20230923_127_zse_livia_ma_35zm_proimage100_tla140" title:"" %}
+{% render candystore.liquid file:"20230923_13_zse_livia_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20230923_32_zse_livia_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20230923_38_zse_livia_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20230923_62_zse_livia_ma_35zm_proimage100_tla140" title:"" %}
+{% render candystore.liquid file:"20230923_64_zse_livia_ma_35zm_proimage100_tla140" title:"" %}
+{% render candystore.liquid file:"20230923_67_zse_livia_ma_35zm_proimage100_tla140" title:"" %}
+{% render candystore.liquid file:"20230923_73_zse_livia_ma_35zm_proimage100_tla140" title:"" %}
+{% render candystore.liquid file:"20230923_86_zse_livia_ma_35zm_ultramax400_tla140" title:"" %}

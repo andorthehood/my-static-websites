@@ -6,7 +6,7 @@ tags: music
 location: "Rotterdam, Netherlands"
 ---
 
-{% include ucare.liquid uuid:"f703cee6-86fd-47bf-a90c-76a2ccb36661" %}
+{% render ucare.liquid uuid:"f703cee6-86fd-47bf-a90c-76a2ccb36661" %}
 
 Panasonic GH5, Mitakon Zhongyi Speedmaster 25mm f/0.95
 

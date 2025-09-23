@@ -12,11 +12,11 @@ scan: 'photographed from negative with a Nikon D780 and a SIGMA 105mm F/2.8 EX D
 tags: 'nsfw'
 ---
 
-{% include candystore.liquid file:"20220412_17_ju_femke_m6_hp5_id11_1600-6" title:"" %}
-{% include candystore.liquid file:"20220412_1_ju_femke_m6_hp5_id11_1600-42" title:"" %}
-{% include candystore.liquid file:"20220412_22_ju_femke_m6_hp5_id11_1600-3" title:"" %}
-{% include candystore.liquid file:"20220412_6_ju_femke_m6_hp5_id11_800-33" title:"" %}
-{% include candystore.liquid file:"20220412_7_ju_femke_m6_hp5_id11_800-7" title:"" %}
-{% include candystore.liquid file:"20220412_21_ju_femke_m6_hp5_id11_1600-72" title:"" %}
-{% include candystore.liquid file:"20220412_21_ju_femke_m6_hp5_id11_1600-68" title:"" %}
-{% include candystore.liquid file:"20220412_18_ju_femke_portra800_m6" title:"" %}
+{% render candystore.liquid file:"20220412_17_ju_femke_m6_hp5_id11_1600-6" title:"" %}
+{% render candystore.liquid file:"20220412_1_ju_femke_m6_hp5_id11_1600-42" title:"" %}
+{% render candystore.liquid file:"20220412_22_ju_femke_m6_hp5_id11_1600-3" title:"" %}
+{% render candystore.liquid file:"20220412_6_ju_femke_m6_hp5_id11_800-33" title:"" %}
+{% render candystore.liquid file:"20220412_7_ju_femke_m6_hp5_id11_800-7" title:"" %}
+{% render candystore.liquid file:"20220412_21_ju_femke_m6_hp5_id11_1600-72" title:"" %}
+{% render candystore.liquid file:"20220412_21_ju_femke_m6_hp5_id11_1600-68" title:"" %}
+{% render candystore.liquid file:"20220412_18_ju_femke_portra800_m6" title:"" %}

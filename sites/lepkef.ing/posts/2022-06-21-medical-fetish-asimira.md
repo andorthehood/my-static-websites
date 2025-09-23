@@ -12,9 +12,9 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'nsfw'
 ---
 
-{% include candystore.liquid file:"20220621_5_asimira_portra800_ma" title:"Asimira" %}
-{% include candystore.liquid file:"20220621_13_asimira_portra800_ma" title:"Asimira" %}
-{% include candystore.liquid file:"20220621_27_asimira_portra800_ma" title:"Asimira" %}
-{% include candystore.liquid file:"20220621_38_asimira_portra800_ma" title:"Asimira" %}
-{% include candystore.liquid file:"20220621_68_asimira_portra800_ma" title:"Asimira" %}
-{% include candystore.liquid file:"20220621_52_asimira_portra800_ma" title:"Asimira" %}
+{% render candystore.liquid file:"20220621_5_asimira_portra800_ma" title:"Asimira" %}
+{% render candystore.liquid file:"20220621_13_asimira_portra800_ma" title:"Asimira" %}
+{% render candystore.liquid file:"20220621_27_asimira_portra800_ma" title:"Asimira" %}
+{% render candystore.liquid file:"20220621_38_asimira_portra800_ma" title:"Asimira" %}
+{% render candystore.liquid file:"20220621_68_asimira_portra800_ma" title:"Asimira" %}
+{% render candystore.liquid file:"20220621_52_asimira_portra800_ma" title:"Asimira" %}

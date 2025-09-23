@@ -7,13 +7,13 @@ emojis: '⭐'
 tags: 'roadtrip'
 ---
 
-{% include candystore.liquid file:"20200307_23_newzealand_portra800_m6_8200i_lab" title:"Sky Tower Auckland" %}
-{% include candystore.liquid file:"20200307_85_newzealand_portra800_m6_8200i_lab" title:"Hobbiton" %}
-{% include candystore.liquid file:"20200307_20_newzealand_portra800_m6_8200i_lab" title:"Rotorua rainbow" %}
-{% include candystore.liquid file:"20200307_91_newzealand_portra800_m6_8200i_lab" title:"Glamping" %}
-{% include candystore.liquid file:"20200307_21_newzealand_portra800_m6_8200i_lab" title:"Rotorua dusk" %}
-{% include candystore.liquid file:"20200307_87_newzealand_portra800_m6_8200i_lab" title:"Hotel" %}
-{% include candystore.liquid file:"20200307_1_newzealand" title:"Eniko" %}
+{% render candystore.liquid file:"20200307_23_newzealand_portra800_m6_8200i_lab" title:"Sky Tower Auckland" %}
+{% render candystore.liquid file:"20200307_85_newzealand_portra800_m6_8200i_lab" title:"Hobbiton" %}
+{% render candystore.liquid file:"20200307_20_newzealand_portra800_m6_8200i_lab" title:"Rotorua rainbow" %}
+{% render candystore.liquid file:"20200307_91_newzealand_portra800_m6_8200i_lab" title:"Glamping" %}
+{% render candystore.liquid file:"20200307_21_newzealand_portra800_m6_8200i_lab" title:"Rotorua dusk" %}
+{% render candystore.liquid file:"20200307_87_newzealand_portra800_m6_8200i_lab" title:"Hotel" %}
+{% render candystore.liquid file:"20200307_1_newzealand" title:"Eniko" %}
 
 Last photo: Panasonic GX9, Lumix G 25mm f/1.7
 

@@ -7,4 +7,4 @@ tags: eurorack
 location: "Haarlem, Netherlands"
 ---
 
-{% include img.liquid img:"35214406185_2300e2dba6_k" date:page.date title:"Fox" %}
+{% render img.liquid img:"35214406185_2300e2dba6_k" date:page.date title:"Fox" %}

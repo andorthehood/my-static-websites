@@ -10,8 +10,8 @@ tags: 'roadtrip'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
 
-{% include candystore.liquid file:"20231226_102_us_roadtrip_vla_ma_35zm_ultramax400_tla140" title:"" %}
-{% include candystore.liquid file:"20231226_104_us_roadtrip_vla_ma_35zm_ultramax400_tla140" title:"" %}
-{% include candystore.liquid file:"20231226_107_us_roadtrip_vla_ma_35zm_ultramax400_tla140" title:"" %}
-{% include candystore.liquid file:"20231226_110_us_roadtrip_vla_ma_35zm_ultramax400_tla140" title:"" %}
-{% include candystore.liquid file:"20231226_112_us_roadtrip_vla_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20231226_102_us_roadtrip_vla_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20231226_104_us_roadtrip_vla_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20231226_107_us_roadtrip_vla_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20231226_110_us_roadtrip_vla_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20231226_112_us_roadtrip_vla_ma_35zm_ultramax400_tla140" title:"" %}

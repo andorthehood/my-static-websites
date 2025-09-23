@@ -12,10 +12,10 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'nsfw'
 ---
 
-{% include candystore.liquid file:"20220130_1_femke_portra800_m6_8200i" title:"Sick Ducks" %}
-{% include candystore.liquid file:"20220130_16_femke_portra800_m6_8200i" title:"Sick Ducks" %}
-{% include candystore.liquid file:"20220130_18_femke_portra800_m6_8200i" title:"Sick Ducks" %}
-{% include candystore.liquid file:"20220130_20_femke_portra800_m6_8200i" title:"Sick Ducks" %}
-{% include candystore.liquid file:"20220130_28_femke_portra800_m6_8200i" title:"Sick Ducks" %}
-{% include candystore.liquid file:"20220130_35_femke_portra800_m6_8200i" title:"Sick Ducks" %}
-{% include candystore.liquid file:"20220130_41_femke_portra800_m6_8200i" title:"Sick Ducks" %}
+{% render candystore.liquid file:"20220130_1_femke_portra800_m6_8200i" title:"Sick Ducks" %}
+{% render candystore.liquid file:"20220130_16_femke_portra800_m6_8200i" title:"Sick Ducks" %}
+{% render candystore.liquid file:"20220130_18_femke_portra800_m6_8200i" title:"Sick Ducks" %}
+{% render candystore.liquid file:"20220130_20_femke_portra800_m6_8200i" title:"Sick Ducks" %}
+{% render candystore.liquid file:"20220130_28_femke_portra800_m6_8200i" title:"Sick Ducks" %}
+{% render candystore.liquid file:"20220130_35_femke_portra800_m6_8200i" title:"Sick Ducks" %}
+{% render candystore.liquid file:"20220130_41_femke_portra800_m6_8200i" title:"Sick Ducks" %}

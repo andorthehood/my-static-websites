@@ -7,6 +7,6 @@ emojis: '🎹'
 tags: 'music,video'
 ---
 
-{% include vimeo.liquid id:"314563100?h=edfa311ecf" %}
+{% render vimeo.liquid id:"314563100?h=edfa311ecf" %}
 
 Panasonic GH5, Metabones Speedbooster XL 0.64x, Nikkor 50mm f/1.4 AI-S

@@ -11,5 +11,5 @@ tags: ''
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
 
-{% include candystore.liquid file:"20240211_2_pff_amsterdam_ma_35zm_ultramax400_tla140" title:"" %}
-{% include candystore.liquid file:"20240211_3_pff_amsterdam_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20240211_2_pff_amsterdam_ma_35zm_ultramax400_tla140" title:"" %}
+{% render candystore.liquid file:"20240211_3_pff_amsterdam_ma_35zm_ultramax400_tla140" title:"" %}

@@ -8,8 +8,8 @@ tags: ''
 
 My wife took some photos of the process, so you don't have to imagine what you can't possibly imagine anyway.
 
-{% include candystore.liquid file:"20170116_DSC_0724_longbeach" title:"" %}
-{% include candystore.liquid file:"20170116_DSC_0811_longbeach" title:"" %}
-{% include candystore.liquid file:"20170116_DSC_0709_longbeach" title:"" %}
+{% render candystore.liquid file:"20170116_DSC_0724_longbeach" title:"" %}
+{% render candystore.liquid file:"20170116_DSC_0811_longbeach" title:"" %}
+{% render candystore.liquid file:"20170116_DSC_0709_longbeach" title:"" %}
 
 Camera: Nikon D610, lens: Nikon AF-D 50mm f/1.4

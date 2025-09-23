@@ -11,7 +11,7 @@ scan: 'scanned from negative with a Fuji Frontier SP-3000'
 tags: ''
 ---
 
-{% include candystore.liquid file:"20220314_1_zandvoort_jan_l35af_proimage100" title:"" %}
-{% include candystore.liquid file:"20220314_2_zandvoort_jan_l35af_proimage100" title:"" %}
-{% include candystore.liquid file:"20220314_3_zandvoort_jan_l35af_proimage100" title:"" %}
-{% include candystore.liquid file:"20220314_4_zandvoort_jan_l35af_proimage100" title:"" %}
+{% render candystore.liquid file:"20220314_1_zandvoort_jan_l35af_proimage100" title:"" %}
+{% render candystore.liquid file:"20220314_2_zandvoort_jan_l35af_proimage100" title:"" %}
+{% render candystore.liquid file:"20220314_3_zandvoort_jan_l35af_proimage100" title:"" %}
+{% render candystore.liquid file:"20220314_4_zandvoort_jan_l35af_proimage100" title:"" %}

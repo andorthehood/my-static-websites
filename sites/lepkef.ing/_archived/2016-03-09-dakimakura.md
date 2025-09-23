@@ -6,8 +6,8 @@ tags: travel art
 location: "Tokyo, Japan"
 ---
 
-{% include img.liquid img:"25697520021_7edf6606d2_k" date:page.date %}
-{% include img.liquid img:"25491225710_af66090f8a_k" date:page.date %}
+{% render img.liquid img:"25697520021_7edf6606d2_k" date:page.date %}
+{% render img.liquid img:"25491225710_af66090f8a_k" date:page.date %}
 
 - Would you like some more?
 - Oh, no, thank you, I'm stuffed.

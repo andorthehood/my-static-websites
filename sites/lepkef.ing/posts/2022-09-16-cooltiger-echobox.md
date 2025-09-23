@@ -14,6 +14,6 @@ people:
     - '@onevennn'
 ---
 
-{% include candystore.liquid file:"20220916_2_echobox_ma_hp5_1600_ttartisan11" title:"Cooltiger and Oneven" %}
-{% include candystore.liquid file:"20220916_3_echobox_ma_hp5_1600_ttartisan11" title:"Cooltiger and Oneven" %}
-{% include candystore.liquid file:"20220916_4_echobox_ma_hp5_1600_ttartisan11" title:"Cooltiger and Oneven" %}
+{% render candystore.liquid file:"20220916_2_echobox_ma_hp5_1600_ttartisan11" title:"Cooltiger and Oneven" %}
+{% render candystore.liquid file:"20220916_3_echobox_ma_hp5_1600_ttartisan11" title:"Cooltiger and Oneven" %}
+{% render candystore.liquid file:"20220916_4_echobox_ma_hp5_1600_ttartisan11" title:"Cooltiger and Oneven" %}

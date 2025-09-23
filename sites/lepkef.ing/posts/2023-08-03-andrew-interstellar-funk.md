@@ -14,8 +14,8 @@ people:
 
 ---
 
-{% include candystore.liquid file:"20230803_2_dekmantel_ma_xp2_zm35" title:"" %}
-{% include candystore.liquid file:"20230803_6_dekmantel_ma_xp2_zm35" title:"" %}
-{% include candystore.liquid file:"20230803_10_dekmantel_ma_xp2_zm35" title:"" %}
-{% include candystore.liquid file:"20230803_13_dekmantel_ma_xp2_zm35" title:"" %}
-{% include candystore.liquid file:"20230803_16_dekmantel_ma_xp2_zm35" title:"" %}
+{% render candystore.liquid file:"20230803_2_dekmantel_ma_xp2_zm35" title:"" %}
+{% render candystore.liquid file:"20230803_6_dekmantel_ma_xp2_zm35" title:"" %}
+{% render candystore.liquid file:"20230803_10_dekmantel_ma_xp2_zm35" title:"" %}
+{% render candystore.liquid file:"20230803_13_dekmantel_ma_xp2_zm35" title:"" %}
+{% render candystore.liquid file:"20230803_16_dekmantel_ma_xp2_zm35" title:"" %}

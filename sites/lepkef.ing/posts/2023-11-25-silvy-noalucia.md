@@ -13,13 +13,13 @@ tags: 'nsfw'
 flash: 'Contax TLA 140'
 ---
 
-{% include candystore.liquid file:"20231125_12_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20231125_30_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20231125_6_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20231125_36_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20231125_51_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20231125_53_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20231125_67_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20231125_74_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20231125_132_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
-{% include candystore.liquid file:"20231125_148_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20231125_12_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20231125_30_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20231125_6_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20231125_36_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20231125_51_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20231125_53_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20231125_67_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20231125_74_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20231125_132_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}
+{% render candystore.liquid file:"20231125_148_silvy_ma_35zm_21zm_gold200_tla140" title:"" %}

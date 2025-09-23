@@ -6,7 +6,7 @@ location: "Luxembourg, Luxembourg"
 tags: art
 ---
 
-{% include img.liquid img:"27935793693_5622f81233_k" date:page.date %}
-{% include img.liquid img:"28267176210_9d206cdac8_k" date:page.date %}
-{% include img.liquid img:"27934259114_f00a380585_k" date:page.date %}
-{% include img.liquid img:"28267213590_cc52b5693e_k" date:page.date %}
+{% render img.liquid img:"27935793693_5622f81233_k" date:page.date %}
+{% render img.liquid img:"28267176210_9d206cdac8_k" date:page.date %}
+{% render img.liquid img:"27934259114_f00a380585_k" date:page.date %}
+{% render img.liquid img:"28267213590_cc52b5693e_k" date:page.date %}

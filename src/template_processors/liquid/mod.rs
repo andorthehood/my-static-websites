@@ -1,13 +1,13 @@
 /// Liquid template processing module
 ///
 /// This module provides functionality for processing Liquid-style templates,
-/// including conditional tags, includes, for loops, assign tags, unless tags, and variable substitution.
+/// including conditional tags, renders, for loops, assign tags, unless tags, and variable substitution.
 mod _if;
 mod assign;
 mod for_loop;
 mod nested_access;
-mod parse_include_tag;
-mod process_includes;
+mod parse_render_tag;
+mod process_renders;
 mod processor;
 mod remove;
 mod replace_variables;

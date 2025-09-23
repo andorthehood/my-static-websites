@@ -7,4 +7,4 @@ tags: eurorack synth art
 location: "Trier, Germany"
 ---
 
-{% include img.liquid img:"26769770291_d86adb5d95_k" date:page.date %}
+{% render img.liquid img:"26769770291_d86adb5d95_k" date:page.date %}

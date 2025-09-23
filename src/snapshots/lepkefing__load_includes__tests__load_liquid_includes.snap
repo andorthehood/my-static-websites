@@ -5,7 +5,7 @@ expression: templates_debug
 {
     "index_intro": "<p>Hi there! 👋 My name is Andor Polgar. This is my personal website. Here, you'll find my photography projects and random snapshots from my life.</p>\n<ul class=\"postlist\">\n{{ content }}\n</ul> ",
     "list_item": "<li><a href=\"/posts/{{slug}}\">{{title}}</a></li> ",
-    "post": "<article>\n    <h1>{{title}}</h1>\n    {{content}}\n    {% include 'test-include' %}\n</article> ",
+    "post": "<article>\n    <h1>{{title}}</h1>\n    {{content}}\n    {% render 'test-include' %}\n</article> ",
     "test-include": "<div class=\"test-include\">\n    This is included content for testing.\n</div> ",
     "year_section": "{{ year_include }}\n<ul class=\"postlist\">\n{{ content }}\n</ul> ",
 }

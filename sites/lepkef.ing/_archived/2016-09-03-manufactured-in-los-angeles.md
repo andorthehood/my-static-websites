@@ -9,8 +9,8 @@ location: "Los Angeles, California"
 
 Baseck performing on his Dave Smith Instruments Tempest:
 
-{% include img.liquid img:"29354585121_5e069847b3_k" date:page.date title:"Baseck" %}
+{% render img.liquid img:"29354585121_5e069847b3_k" date:page.date title:"Baseck" %}
 
 Chelsey Rae Holland and Christopher Steven Wormald as the Intimatchine:
 
-{% include img.liquid img:"29324172012_a3cfb15afd_k" date:page.date title:"Intimatchine" %}
+{% render img.liquid img:"29324172012_a3cfb15afd_k" date:page.date title:"Intimatchine" %}
