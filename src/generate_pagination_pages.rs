@@ -27,12 +27,12 @@ pub fn generate_pagination_pages(
 
         // Add posts using post.liquid template
         for post in page_posts {
-            html_list.push_str(&process_template_tags(
-                includes.get("post.liquid").map_or("", |s| s.as_str()),
-                post,
-                None,
-                None,
-            )?);
+            let post_template = includes
+                .get("post")
+                .or_else(|| includes.get("post.liquid"))
+                .map_or("", |s| s.as_str());
+
+            html_list.push_str(&process_template_tags(post_template, post, None, None)?);
         }
 
         // Add pagination links
@@ -89,6 +89,7 @@ pub fn generate_pagination_pages(
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::load_includes::load_liquid_includes;
     use crate::types::ContentItem;
     use std::collections::HashMap;
     use std::fs;
@@ -111,11 +112,7 @@ mod tests {
             posts.push(create_test_post(&format!("Test Post {i}"), "2024-03-20"));
         }
 
-        let mut includes = HashMap::new();
-        includes.insert(
-            "post.liquid".to_string(),
-            "<div class=\"post\">{{title}}</div>".to_string(),
-        );
+        let includes = load_liquid_includes("./sites/test/includes");
 
         let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
         let mut global_variables = HashMap::new();
@@ -163,6 +160,60 @@ mod tests {
         assert!(!page3_content.contains("Test Post 1"));
 
         // Clean up
+        let _ = fs::remove_dir_all(&config.output_dir);
+    }
+
+    #[test]
+    fn test_pagination_generation_handles_legacy_post_liquid_key() {
+        let mut posts = Vec::new();
+        for i in 1..=2 {
+            posts.push(create_test_post(&format!("Legacy Post {i}"), "2024-03-21"));
+        }
+
+        let mut includes = HashMap::new();
+        includes.insert(
+            "post.liquid".to_string(),
+            "<article><h2>{{title}}</h2></article>".to_string(),
+        );
+
+        let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
+        let mut global_variables = HashMap::new();
+        global_variables.insert("site_title".to_string(), "Legacy Site".to_string());
+        let config = SiteConfig::default();
+
+        let _ = fs::remove_dir_all(&config.output_dir);
+        fs::create_dir_all(&config.output_dir).expect("Failed to create output directory");
+
+        generate_pagination_pages(
+            "legacy",
+            1,
+            &posts,
+            &includes,
+            main_layout,
+            &global_variables,
+            &config,
+        )
+        .expect("Failed to generate pagination pages with legacy key");
+
+        let legacy_dir = Path::new(&config.output_dir).join("legacy");
+        let page1_path = legacy_dir.join("page1.html");
+        assert!(
+            page1_path.exists(),
+            "expected {} to exist",
+            page1_path.display()
+        );
+        let page1_content = fs::read_to_string(&page1_path).unwrap();
+        assert!(page1_content.contains("Legacy Post 1"));
+
+        let page2_path = legacy_dir.join("page2.html");
+        assert!(
+            page2_path.exists(),
+            "expected {} to exist",
+            page2_path.display()
+        );
+        let page2_content = fs::read_to_string(&page2_path).unwrap();
+        assert!(page2_content.contains("Legacy Post 2"));
+
         let _ = fs::remove_dir_all(&config.output_dir);
     }
 }
