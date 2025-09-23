@@ -194,7 +194,15 @@ pub fn remove_generics_before_calls(input: &str) -> String {
         let current_char = bytes[position] as char;
 
         // Handle comments first
-        if handle_comments(input, bytes, length, &mut position, current_char, &mut state, &mut output) {
+        if handle_comments(
+            input,
+            bytes,
+            length,
+            &mut position,
+            current_char,
+            &mut state,
+            &mut output,
+        ) {
             continue;
         }
 
@@ -210,7 +218,14 @@ pub fn remove_generics_before_calls(input: &str) -> String {
         }
 
         // Handle identifiers with potential generics
-        if handle_identifier(input, bytes, length, &mut position, current_char, &mut output) {
+        if handle_identifier(
+            input,
+            bytes,
+            length,
+            &mut position,
+            current_char,
+            &mut output,
+        ) {
             continue;
         }
 
