@@ -1,12 +1,49 @@
 use crate::types::TemplateIncludes;
 use std::fs;
 use std::path::Path;
-use walkdir::WalkDir;
 
 /// Normalizes a path key by converting separators to `/` and removing `.liquid` extension
 fn normalize_template_key(relative_path: &str) -> String {
     let normalized = relative_path.replace('\\', "/");
     normalized.strip_suffix(".liquid").unwrap_or(&normalized).to_string()
+}
+
+/// Recursively walks a directory and collects all .liquid files
+fn walk_directory_recursive(
+    base_path: &Path,
+    current_path: &Path,
+    templates: &mut TemplateIncludes,
+) -> std::io::Result<()> {
+    if current_path.is_dir() {
+        let entries = fs::read_dir(current_path)?;
+        for entry in entries {
+            let entry = entry?;
+            let path = entry.path();
+            
+            if path.is_dir() {
+                // Recursively walk subdirectories
+                walk_directory_recursive(base_path, &path, templates)?;
+            } else if path.is_file() && path.extension().and_then(|ext| ext.to_str()) == Some("liquid") {
+                // Process .liquid files
+                if let Ok(relative_path) = path.strip_prefix(base_path) {
+                    if let Some(relative_str) = relative_path.to_str() {
+                        if let Ok(contents) = fs::read_to_string(&path) {
+                            // Normalize the key by converting path separators and removing .liquid extension
+                            let normalized_key = normalize_template_key(relative_str);
+                            
+                            // Check for duplicates and warn if found
+                            if templates.contains_key(&normalized_key) {
+                                eprintln!("Warning: Duplicate template key '{}' found. File '{}' overwrites previous entry.", normalized_key, relative_str);
+                            }
+                            
+                            templates.insert(normalized_key, contents);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    Ok(())
 }
 
 pub fn load_liquid_includes(dir_path: &str) -> TemplateIncludes {
@@ -17,34 +54,9 @@ pub fn load_liquid_includes(dir_path: &str) -> TemplateIncludes {
         return templates;
     }
 
-    for entry in WalkDir::new(base_path)
-        .into_iter()
-        .filter_map(|e| e.ok())
-        .filter(|e| e.file_type().is_file())
-    {
-        let path = entry.path();
-        
-        // Only process .liquid files
-        if path.extension().and_then(|ext| ext.to_str()) != Some("liquid") {
-            continue;
-        }
-
-        // Calculate relative path from base directory
-        if let Ok(relative_path) = path.strip_prefix(base_path) {
-            if let Some(relative_str) = relative_path.to_str() {
-                if let Ok(contents) = fs::read_to_string(path) {
-                    // Normalize the key by converting path separators and removing .liquid extension
-                    let normalized_key = normalize_template_key(relative_str);
-                    
-                    // Check for duplicates and warn if found
-                    if templates.contains_key(&normalized_key) {
-                        eprintln!("Warning: Duplicate template key '{}' found. File '{}' overwrites previous entry.", normalized_key, relative_str);
-                    }
-                    
-                    templates.insert(normalized_key, contents);
-                }
-            }
-        }
+    // Use our recursive function instead of walkdir
+    if let Err(e) = walk_directory_recursive(base_path, base_path, &mut templates) {
+        eprintln!("Warning: Error walking directory '{}': {}", dir_path, e);
     }
 
     templates
