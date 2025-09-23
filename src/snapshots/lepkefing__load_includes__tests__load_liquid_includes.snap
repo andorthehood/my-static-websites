@@ -3,10 +3,10 @@ source: src/load_includes.rs
 expression: templates_debug
 ---
 {
-    "components/buttons/cta": "<button class=\"cta-button\">{{ text | default: \"Click Me\" }}</button>",
+    "components/buttons/cta": "<button class=\"cta-button\">{{ text }}</button>",
     "components/card": "<div class=\"card\">\n  <h4>{{ title }}</h4>\n  <p>{{ description }}</p>\n</div>",
     "index_intro": "<p>Hi there! 👋 My name is Andor Polgar. This is my personal website. Here, you'll find my photography projects and random snapshots from my life.</p>\n<ul class=\"postlist\">\n{{ content }}\n</ul> ",
-    "layout/sidebar": "<aside class=\"sidebar\">\n  <h3>{{ title | default: \"Sidebar\" }}</h3>\n  <p>{{ content | default: \"Sidebar content\" }}</p>\n</aside>",
+    "layout/sidebar": "<aside class=\"sidebar\">\n  <h3>{{ title }}</h3>\n  <p>Sidebar content here</p>\n</aside>",
     "list_item": "<li><a href=\"/posts/{{slug}}\">{{title}}</a></li> ",
     "post": "<article>\n    <h1>{{title}}</h1>\n    {{content}}\n    {% render 'test-include' %}\n</article> ",
     "test-include": "<div class=\"test-include\">\n    This is included content for testing.\n</div> ",
