@@ -4,7 +4,6 @@ title: 'Emma and Manya'
 date: 2022-10-23T23:47+0100
 location: 'Lopik, Netherlands'
 emojis: '🔞👯'
-unlisted: true
 film: 'Kodak Portra 800 and Kodak Gold 200'
 lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 flash: 'Contax TLA 140'
@@ -23,5 +22,5 @@ scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 {% render candystore.liquid file:"20221023_32_emma_manya_portra800_ma" title:"Manya and Emma" %}
 {% render candystore.liquid file:"20221023_53_emma_manya_gold200_ma" title:"Manya and Emma" %}
 {% render candystore.liquid file:"20221023_55_emma_manya_gold200_ma" title:"Manya and Emma" %}
-{% render candystore.liquid file:"20221023_65_emma_manya_gold200_ma" title:"Manya and Emma" %}
-{% render candystore.liquid file:"20221023_66_emma_manya_gold200_ma" title:"Manya and Emma" %}
+
+{% render 'explicit-images' %}
