@@ -5,6 +5,7 @@ date: 2018-12-29T15:32+0100
 location: 'The Hague, Netherlands'
 emojis: '🎹'
 tags: 'music'
+category: 'music'
 ---
 
 {% render vimeo.liquid id:"307361064?h=2383414100" %}

@@ -5,6 +5,7 @@ date: 2018-11-25T22:02+0100
 location: 'Leipzig, Germany'
 emojis: '🎹'
 tags: 'music,video'
+category: 'music'
 ---
 
 {% render vimeo.liquid id:"314563100?h=edfa311ecf" %}

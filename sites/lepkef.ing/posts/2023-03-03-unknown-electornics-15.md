@@ -9,6 +9,7 @@ lens: 'ZEISS ZM Biogon T* 21mm f/2.8 ZM'
 camera: 'Leica M-A (Typ 127)'
 flash: 'Contax TLA 140'
 tags: 'music'
+category: 'music'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
 

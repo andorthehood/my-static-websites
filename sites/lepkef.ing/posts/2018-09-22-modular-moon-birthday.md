@@ -5,6 +5,7 @@ date: 2018-09-22T23:03+0100
 location: 'Amsterdam, Netherlands'
 emojis: '🎹'
 tags: 'music'
+category: 'music'
 ---
 
 {% render candystore.liquid file:"20180922_DSC06900_modular_moon" title:"Marta Smilga" %}

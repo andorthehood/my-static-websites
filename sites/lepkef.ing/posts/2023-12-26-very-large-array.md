@@ -8,6 +8,7 @@ lens: 'ZEISS ZM Biogon T* 35mm f/2'
 camera: 'Leica M-A (Typ 127)'
 tags: 'roadtrip'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
+category: 'usa'
 ---
 
 {% render candystore.liquid file:"20231226_102_us_roadtrip_vla_ma_35zm_ultramax400_tla140" title:"" %}

@@ -9,6 +9,7 @@ lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'music'
+category: 'music'
 ---
 
 {% render candystore.liquid file:"20220514_2_superbooth_portra800_ma" title:"Superbooth" %}

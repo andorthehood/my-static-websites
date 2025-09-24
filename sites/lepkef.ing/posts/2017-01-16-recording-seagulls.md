@@ -4,6 +4,7 @@ title: 'Recording seagulls on the beach of Long Beach'
 date: 2017-01-16T22:52:39-0800
 location: 'Long Beach, California'
 tags: ''
+category: 'usa'
 ---
 
 My wife took some photos of the process, so you don't have to imagine what you can't possibly imagine anyway.
