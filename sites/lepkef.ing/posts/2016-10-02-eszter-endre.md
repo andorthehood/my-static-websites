@@ -5,6 +5,7 @@ date: 2016-10-02T23:40:00-0700
 location: 'Los Angeles, California'
 emojis: '👰‍♀️🤵‍♂️'
 tags: ''
+category: 'usa'
 ---
 
 {% render candystore.liquid file:"20161002_DSC_7482_eszti_endre" title:"Eszter & Endre" %}

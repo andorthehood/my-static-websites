@@ -9,6 +9,7 @@ lens: 'Brightin Star 28mm f/2.8'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'roadtrip,urbex'
+category: 'east-asia'
 ---
 
 {% render candystore.liquid file:"20240610_148_fukushima_ma_brightinstar28_fuji400" title:"Abandoned Fukushima" %}

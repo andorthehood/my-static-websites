@@ -5,6 +5,7 @@ date: 2019-04-20T22:11+0100
 location: 'Pyongyang, North Korea'
 emojis: '⭐⭐'
 tags: ''
+category: 'east-asia'
 ---
 
 {% render candystore.liquid file:"20190414_1_nort-korea" title:"" %}

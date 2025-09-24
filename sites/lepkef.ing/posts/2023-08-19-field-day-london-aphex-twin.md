@@ -8,6 +8,7 @@ film: 'Fuji Superia 400'
 camera: 'Lomography Lomoapparat'
 tags: 'music'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
+category: 'music'
 ---
 
 {% render candystore.liquid file:"20230819_12_fieldday_lomoapparat_superia400" title:"" %}

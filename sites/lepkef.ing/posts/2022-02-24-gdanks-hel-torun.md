@@ -9,6 +9,7 @@ lens: 'Zeiss Sonnar T* 40mm f/2.8'
 camera: 'Rollei 35 classic'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'roadtrip'
+category: 'eastern-europe'
 ---
 
 {% render candystore.liquid file:"20220304_ANE_3682_poland_ilford_hp5_400_d76_18c_rollei35" title:"Gdansk" %}

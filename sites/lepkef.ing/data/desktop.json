@@ -15,8 +15,8 @@
 		"label": "Berlin 2024.mov"
 	},
 	{
-		"href": "/posts/2024-10-30-spain",
-		"icon": "🖼️",
+		"href": "/category/spain/page1",
+		"icon": "🥘",
 		"label": "Spain"
 	},
 	{
@@ -79,5 +79,30 @@
 		"href": "/tabs",
 		"icon": "🎸",
 		"label": "Tabs"
+	},
+	{
+		"href": "/category/shibari/page1",
+		"icon": "🪢",
+		"label": "Shibari"
+	},
+	{
+		"href": "/category/east-asia/page1",
+		"icon": "🏮",
+		"label": "East Asia"
+	},
+	{
+		"href": "/category/eastern-europe/page1",
+		"icon": "🏰",
+		"label": "Eastern Europe"
+	},
+	{
+		"href": "/category/usa/page1",
+		"icon": "🦅",
+		"label": "USA"
+	},
+	{
+		"href": "/category/music/page1",
+		"icon": "🎹",
+		"label": "Music"
 	}
 ]

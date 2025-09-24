@@ -4,6 +4,7 @@ title: 'Celebrate everything'
 date: 2016-08-14T22:52:39-0700
 location: 'Los Angeles, California'
 tags: ''
+category: 'usa'
 ---
 
 {% render candystore.liquid file:"20160814_DSC_4061_celebrate_everything" title:"" %}

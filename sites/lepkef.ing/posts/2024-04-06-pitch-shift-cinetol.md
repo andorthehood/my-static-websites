@@ -10,6 +10,7 @@ camera: 'Leica M-A (Typ 127)'
 tags: 'music'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 flash: 'Contax TLA 140'
+category: 'music'
 ---
 
 {% render candystore.liquid file:"20240406_11_cinetol_ma_zm35_ultramax400_tla140" title:"" %}
