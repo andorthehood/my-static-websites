@@ -1,8 +1,8 @@
 <article><h2><a href="/posts/{{slug}}">{{title}}</a></h2>
 {{body}} 
-<p>For Nerds: {% if film %}🎞️ Film: {{film}}, {% endif %}
+{% if camera %}<p>Details for camera nerds: {% if film %}🎞️ Film: {{film}}, {% endif %}
 {% if lens %}🔎 Lens: {{lens}}, {% endif %}
 {% if flash %}⚡ Flash: Contax TLA 140, {% endif %}
 {% if camera %}📷 Camera: {{camera}}, {% endif %} 
-{% if scan %}🖨️ {{scan}}{% endif %}</p>
+{% if scan %}🖨️ {{scan}}{% endif %}</p>{% endif %}
 </article>
