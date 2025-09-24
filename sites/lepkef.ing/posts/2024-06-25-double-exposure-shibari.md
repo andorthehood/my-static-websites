@@ -14,16 +14,15 @@ category: 'shibari'
 
 <p>This was my first go at doing double exposures. I shot two rolls of film with Dolf tying Sick Ducks, then reloaded the same films and shot them again, but this time with a bunch of candles I'd set up on a desk with a black background.</p>
 
-{% render candystore.liquid file:"20240625_8_sd_dolf_ma_35zm_xp2" title:"" %}
+{% render candystore.liquid file:"20240625_24_sd_dolf_ma_35zm_xp2" title:"" %}
 
 <p>To get the frames to line up, most photographers use a pen to mark the lines of the first frame on the film, so when they load it again, they know how to position the film. I kinda skipped that step, so I had no clue where the candles were gonna end up in the final images.
 
-{% render candystore.liquid file:"20240625_14_sd_dolf_ma_35zm_xp2" title:"" %}
+{% render candystore.liquid file:"20240625_20_sd_dolf_ma_35zm_xp2" title:"" %}
 
 <p>It’s super rewarding to see them align just right.</p>
 
-{% render candystore.liquid file:"20240625_20_sd_dolf_ma_35zm_xp2" title:"" %}
-{% render candystore.liquid file:"20240625_24_sd_dolf_ma_35zm_xp2" title:"" %}
+
 {% render candystore.liquid file:"20240625_26_sd_dolf_ma_35zm_xp2" title:"" %}
 {% render candystore.liquid file:"20240625_28_sd_dolf_ma_35zm_xp2" title:"" %}
 {% render candystore.liquid file:"20240625_30_sd_dolf_ma_35zm_xp2" title:"" %}
@@ -34,3 +33,5 @@ category: 'shibari'
 {% render candystore.liquid file:"20240625_51_sd_dolf_ma_35zm_xp2" title:"" %}
 <p>Bonus photo with Pablo:</p>
 {% render candystore.liquid file:"20240625_52_sd_dolf_ma_35zm_xp2" title:"" %}
+
+{% render 'explicit-images' %}
