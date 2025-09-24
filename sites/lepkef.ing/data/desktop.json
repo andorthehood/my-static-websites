@@ -30,11 +30,6 @@
 		"label": "Links"
 	},
 	{
-		"href": "/first-frames",
-		"icon": "🎞️",
-		"label": "First Frames"
-	},
-	{
 		"href": "/postmortem",
 		"icon": "👻",
 		"label": "Post-mortem"
@@ -43,11 +38,6 @@
 		"href": "/about",
 		"icon": "👨‍🔧",
 		"label": "About Me"
-	},
-	{
-		"href": "/prints",
-		"icon": "🖨️",
-		"label": "Prints"
 	},
 	{
 		"href": "/privacy-policy",
@@ -66,7 +56,7 @@
 	},
 	{
 		"href": "/poetry",
-		"icon": "🎤",
+		"icon": "📜",
 		"label": "Poetry"
 	},
 	{
@@ -92,7 +82,7 @@
 	},
 	{
 		"href": "/category/eastern-bloc/page1",
-		"icon": "🏰",
+		"icon": "🌾",
 		"label": "Eastern Bloc"
 	},
 	{
@@ -104,5 +94,11 @@
 		"href": "/category/music/page1",
 		"icon": "🎹",
 		"label": "Music"
+	},
+	{
+		"href": "https://github.com/andorthehood/my-static-websites",
+		"icon": "🐙",
+		"label": "GitHub",
+		"target": "_blank"
 	}
 ]
