@@ -170,6 +170,10 @@ h2 {
 	width: 200px;
 }
 
+.desktop .icon:active .icon-label {
+	background: #9999cc;
+}
+
 .desktop .icon:hover {
 	text-decoration: none;
 }
