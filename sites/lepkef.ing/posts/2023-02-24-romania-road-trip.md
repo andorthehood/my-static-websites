@@ -8,7 +8,7 @@ lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 camera: 'Leica M-A (Typ 127)'
 tags: 'roadtrip'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
-category: 'eastern-europe'
+category: 'eastern-bloc'
 ---
 
 {% render candystore.liquid file:"20230224_10_bucharest_ma_fujixtra400_zm21" title:"Romania" %}
