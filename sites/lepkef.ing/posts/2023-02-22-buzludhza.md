@@ -8,7 +8,7 @@ lens: 'ZEISS ZM Biogon T* 21mm f/2.8 ZM'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 tags: 'roadtrip'
-category: 'eastern-europe'
+category: 'eastern-bloc'
 people: 
     - '@eniko.insta'
 ---
