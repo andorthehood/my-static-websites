@@ -287,4 +287,98 @@ mod tests {
 
         let _ = fs::remove_dir_all(&config.output_dir);
     }
+
+    #[test]
+    fn test_pagination_with_custom_layout() {
+        // Create test data
+        let mut posts = Vec::new();
+        for i in 1..=3 {
+            posts.push(create_test_post(&format!("Test Post {i}"), "2024-03-20"));
+        }
+
+        let includes = load_liquid_includes("./sites/test/includes");
+        let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
+        let mut global_variables = HashMap::new();
+        global_variables.insert("site_title".to_string(), "Test Site".to_string());
+        global_variables.insert("pagination_layout".to_string(), "pagination".to_string());
+        let config = SiteConfig::default();
+
+        // Clean up any existing output directory
+        let _ = fs::remove_dir_all(&config.output_dir);
+        fs::create_dir_all(&config.output_dir).expect("Failed to create output directory");
+
+        // Generate pagination pages (1 post per page should create 3 pages)
+        generate_pagination_pages(
+            "test",
+            1,
+            &posts,
+            &includes,
+            main_layout,
+            &global_variables,
+            &config,
+        )
+        .expect("Failed to generate pagination pages");
+
+        // Verify that pagination pages were created
+        assert!(Path::new("out/test/page1.html").exists());
+        assert!(Path::new("out/test/page2.html").exists());
+        assert!(Path::new("out/test/page3.html").exists());
+
+        // Verify that the custom layout is being used (if available)
+        let page1_content = fs::read_to_string("out/test/page1.html").unwrap();
+        // The test should work regardless of whether the layout file exists
+        // (it will fall back to hardcoded HTML if not found)
+        assert!(page1_content.contains("Test Post 1"));
+        assert!(!page1_content.contains("Test Post 2"));
+
+        let page2_content = fs::read_to_string("out/test/page2.html").unwrap();
+        assert!(page2_content.contains("Test Post 2"));
+        assert!(!page2_content.contains("Test Post 1"));
+
+        // Clean up
+        let _ = fs::remove_dir_all(&config.output_dir);
+    }
+
+    #[test]
+    fn test_pagination_layout_fallback_behavior() {
+        // Create test data
+        let mut posts = Vec::new();
+        posts.push(create_test_post("Fallback Test Post", "2024-03-20"));
+
+        let includes = HashMap::new(); // Empty includes
+        let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
+        let mut global_variables = HashMap::new();
+        global_variables.insert("site_title".to_string(), "Test Site".to_string());
+        // Set a non-existent layout to test fallback
+        global_variables.insert("pagination_layout".to_string(), "non-existent-layout".to_string());
+        let config = SiteConfig::default();
+
+        // Clean up any existing output directory
+        let _ = fs::remove_dir_all(&config.output_dir);
+        fs::create_dir_all(&config.output_dir).expect("Failed to create output directory");
+
+        // Generate pagination pages - should fallback to hardcoded HTML
+        generate_pagination_pages(
+            "test",
+            1,
+            &posts,
+            &includes,
+            main_layout,
+            &global_variables,
+            &config,
+        )
+        .expect("Failed to generate pagination pages with fallback");
+
+        // Verify that the page was created with fallback HTML
+        let page1_path = Path::new("out/test/page1.html");
+        assert!(page1_path.exists());
+        
+        let page1_content = fs::read_to_string(&page1_path).unwrap();
+        // Should contain the hardcoded pagination text
+        assert!(page1_content.contains("This site uses classic pagination"));
+        assert!(page1_content.contains("Doomscrolling not included"));
+
+        // Clean up
+        let _ = fs::remove_dir_all(&config.output_dir);
+    }
 }

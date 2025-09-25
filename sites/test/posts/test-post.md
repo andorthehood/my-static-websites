@@ -2,6 +2,7 @@
 title: Test Post
 date: 2024-03-20
 slug: test-post
+category: Technology
 ---
 
 # Test Post
@@ -12,4 +13,4 @@ This is a test post content.
 - Item 2
 - Item 3
 
-{% render test-include.liquid %} 
+{% render test-include.liquid %}
