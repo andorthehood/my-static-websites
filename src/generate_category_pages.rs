@@ -3,10 +3,9 @@ use crate::{
     error::Result,
     layout::load_and_render_pagination_layout,
     render_page::render_page,
-    template_processors::process_template_tags,
     types::{ContentCollection, ContentItem, TemplateIncludes, Variables},
 };
-use std::{collections::HashMap, fmt::Write};
+use std::collections::HashMap;
 
 /// Convert a category name to a URL-safe slug
 fn slugify_category(category: &str) -> String {
@@ -119,32 +118,22 @@ fn generate_category_pagination_pages(
         // Add posts collection to context
         add_category_posts_collection_to_variables(&mut variables, "page_posts", page_posts);
 
-        // Try to render using category pagination layout template first, then fallback to regular pagination layout
-        let body = if let Some(rendered_content) = load_and_render_pagination_layout(
-            site_name,
-            global_variables.get("category_pagination_layout"),
-            &variables,
-            includes,
-            config,
-        ) {
-            rendered_content
-        } else if let Some(rendered_content) = load_and_render_pagination_layout(
-            site_name,
-            global_variables.get("pagination_layout"),
-            &variables,
-            includes,
-            config,
-        ) {
-            rendered_content
-        } else {
-            // Fall back to original hardcoded HTML generation
-            generate_fallback_category_pagination_html(
-                page_posts,
-                page_num,
-                total_pages,
-                category_name,
-                category_slug,
+        // Try to render using category pagination layout template first, then regular pagination layout
+        let body = if global_variables.contains_key("category_pagination_layout") {
+            load_and_render_pagination_layout(
+                site_name,
+                global_variables.get("category_pagination_layout"),
+                &variables,
                 includes,
+                config,
+            )?
+        } else {
+            load_and_render_pagination_layout(
+                site_name,
+                global_variables.get("pagination_layout"),
+                &variables,
+                includes,
+                config,
             )?
         };
 
@@ -300,6 +289,7 @@ mod tests {
         let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
         let mut global_variables = HashMap::new();
         global_variables.insert("title".to_string(), "Test Site".to_string());
+        global_variables.insert("pagination_layout".to_string(), "pagination".to_string());
         let config = SiteConfig::default();
 
         // Clean up any existing output directory
@@ -308,7 +298,7 @@ mod tests {
 
         // Generate category pages with 2 posts per page
         generate_category_pages(
-            "category-test",
+            "test", // Use "test" site which has pagination layout files
             2,
             &posts,
             &includes,
@@ -319,33 +309,29 @@ mod tests {
         .expect("Failed to generate category pages");
 
         // Check that travel category pages were created (3 posts, 2 per page = 2 pages)
-        assert!(Path::new("out/category-test/category/travel/page1.html").exists());
-        assert!(Path::new("out/category-test/category/travel/page2.html").exists());
-        assert!(!Path::new("out/category-test/category/travel/page3.html").exists());
+        assert!(Path::new("out/test/category/travel/page1.html").exists());
+        assert!(Path::new("out/test/category/travel/page2.html").exists());
+        assert!(!Path::new("out/test/category/travel/page3.html").exists());
 
         // Check that music category pages were created (2 posts, 2 per page = 1 page)
-        assert!(Path::new("out/category-test/category/music/page1.html").exists());
-        assert!(!Path::new("out/category-test/category/music/page2.html").exists());
+        assert!(Path::new("out/test/category/music/page1.html").exists());
+        assert!(!Path::new("out/test/category/music/page2.html").exists());
 
         // Check the content of travel category index page
         let travel_index_content =
-            fs::read_to_string("out/category-test/category/travel/page1.html").unwrap();
-        assert!(travel_index_content.contains("Posts in category:"));
-        assert!(travel_index_content.contains("<strong>Travel</strong>"));
+            fs::read_to_string("out/test/category/travel/page1.html").unwrap();
         assert!(travel_index_content.contains("Travel Post 1"));
         assert!(travel_index_content.contains("Travel Post 2"));
         assert!(!travel_index_content.contains("Travel Post 3")); // Should be on page 2
 
         // Check the content of travel category page 2
         let travel_page2_content =
-            fs::read_to_string("out/category-test/category/travel/page2.html").unwrap();
-        assert!(travel_page2_content.contains("Posts in category:"));
-        assert!(travel_page2_content.contains("<strong>Travel</strong>"));
+            fs::read_to_string("out/test/category/travel/page2.html").unwrap();
         assert!(travel_page2_content.contains("Travel Post 3"));
         assert!(!travel_page2_content.contains("Travel Post 1")); // Should be on page 1
 
         // Check that uncategorized posts don't get category pages
-        assert!(!Path::new("out/category-test/category/uncategorized").exists());
+        assert!(!Path::new("out/test/category/uncategorized").exists());
 
         // Clean up
         let _ = fs::remove_dir_all(&config.output_dir);
@@ -396,26 +382,25 @@ mod tests {
     }
 
     #[test]
-    fn test_category_pagination_layout_fallback_behavior() {
+    fn test_category_pagination_layout_error_behavior() {
         let posts = vec![
-            create_test_post_with_category("Fallback Post", "2024-01-01", Some("Test Category")),
+            create_test_post_with_category("Error Post", "2024-01-01", Some("Test Category")),
         ];
 
         let includes = HashMap::new();
         let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
         let mut global_variables = HashMap::new();
         global_variables.insert("title".to_string(), "Test Site".to_string());
-        // Set a non-existent layout to test fallback to regular pagination layout
+        // Set a non-existent layout to test error
         global_variables.insert("category_pagination_layout".to_string(), "non-existent".to_string());
-        global_variables.insert("pagination_layout".to_string(), "also-non-existent".to_string());
         let config = SiteConfig::default();
 
         // Clean up any existing output directory
         let _ = fs::remove_dir_all(&config.output_dir);
         fs::create_dir_all(&config.output_dir).expect("Failed to create output directory");
 
-        // Generate category pages - should fallback to hardcoded HTML
-        generate_category_pages(
+        // Generate category pages - should error out for missing layout
+        let result = generate_category_pages(
             "test",
             1,
             &posts,
@@ -423,92 +408,17 @@ mod tests {
             main_layout,
             &global_variables,
             &config,
-        )
-        .expect("Failed to generate category pages with fallback");
+        );
 
-        // Verify that the page was created with fallback HTML
-        let page1_path = Path::new("out/test/category/test-category/page1.html");
-        assert!(page1_path.exists());
-        
-        let page1_content = fs::read_to_string(&page1_path).unwrap();
-        // Should contain the hardcoded category pagination text
-        assert!(page1_content.contains("Posts in category:"));
-        assert!(page1_content.contains("Test Category"));
-        assert!(page1_content.contains("This site uses classic pagination"));
+        // Should return an error for missing layout
+        assert!(result.is_err());
+        let error_message = format!("{:?}", result.unwrap_err());
+        assert!(error_message.contains("non-existent"));
+        assert!(error_message.contains("was not found"));
 
         // Clean up
         let _ = fs::remove_dir_all(&config.output_dir);
     }
-}
-
-/// Generates the original hardcoded category pagination HTML as a fallback
-fn generate_fallback_category_pagination_html(
-    page_posts: &[ContentItem],
-    page_num: usize,
-    total_pages: usize,
-    category_name: &str,
-    category_slug: &str,
-    includes: &TemplateIncludes,
-) -> Result<String> {
-    let mut html_list = String::new();
-
-    // Add posts using post.liquid template
-    for post in page_posts {
-        let post_template = includes
-            .get("post")
-            .or_else(|| includes.get("post.liquid"))
-            .map_or("", |s| s.as_str());
-
-        html_list.push_str(&process_template_tags(post_template, post, None, None)?);
-    }
-
-    // Add pagination links
-    html_list.push_str(&format!(
-        "<p>Posts in category: <strong>{}</strong></p>",
-        category_name
-    ));
-    html_list.push_str("<p>This site uses classic pagination on purpose to help you stop when you want to. Doomscrolling not included.</p><ul class=\"pagination\">");
-
-    // Previous page link
-    if page_num > 1 {
-        let prev_page = page_num - 1;
-        let prev_url = format!("/category/{category_slug}/page{prev_page}");
-        write!(
-            html_list,
-            "<li><a href=\"{prev_url}\">🔙 Previous page</a>,&nbsp;</li>"
-        )
-        .unwrap();
-    }
-
-    // Index page link for this category
-    write!(
-        html_list,
-        "<li><a href=\"/category/{category_slug}/page1\">Category index</a>,&nbsp;</li>"
-    )
-    .unwrap();
-
-    // Global index page link
-    html_list.push_str("<li><a href=\"/\">Site index</a>,&nbsp;</li>");
-
-    // Page numbers
-    for i in 1..=total_pages {
-        let page_url = format!("/category/{category_slug}/page{i}");
-        write!(html_list, "<li><a href=\"{page_url}\">{i}</a>,&nbsp;</li>").unwrap();
-    }
-
-    // Next page link
-    if page_num < total_pages {
-        let next_page = page_num + 1;
-        write!(
-            html_list,
-            "<li><a href=\"/category/{category_slug}/page{next_page}\">Next page ⏭️</a></li>"
-        )
-        .unwrap();
-    }
-
-    html_list.push_str("</ul>");
-
-    Ok(html_list)
 }
 
 /// Adds a posts collection to variables for category template access
