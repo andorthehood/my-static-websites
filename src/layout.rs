@@ -37,17 +37,19 @@ pub fn insert_body_into_layout(layout: &str, body: &str) -> Result<String> {
 }
 
 /// Loads and renders a pagination layout with the provided context variables.
-/// Returns an error if the layout is not configured or cannot be loaded.
+/// Returns None if no layout is configured (meaning pagination should be skipped).
+/// Returns an error if the layout is configured but cannot be loaded or rendered.
 pub fn load_and_render_pagination_layout(
     site_name: &str,
     layout_name: Option<&String>,
     context_variables: &Variables,
     includes: &TemplateIncludes,
     config: &SiteConfig,
-) -> Result<String> {
-    let layout_name = layout_name.ok_or_else(|| {
-        crate::error::Error::Liquid("No pagination layout configured".to_string())
-    })?;
+) -> Result<Option<String>> {
+    let layout_name = match layout_name {
+        Some(name) => name,
+        None => return Ok(None), // No layout configured, skip pagination
+    };
     
     let layout_path = build_layout_path(site_name, layout_name, config);
     
@@ -59,11 +61,13 @@ pub fn load_and_render_pagination_layout(
     })?;
 
     // Process the layout content with all template tags and variables
-    process_template_tags(&layout_content, context_variables, Some(includes), None)
+    let rendered_content = process_template_tags(&layout_content, context_variables, Some(includes), None)
         .map_err(|err| {
             crate::error::Error::Liquid(format!(
                 "Failed to render pagination layout '{}': {}",
                 layout_name, err
             ))
-        })
+        })?;
+    
+    Ok(Some(rendered_content))
 }

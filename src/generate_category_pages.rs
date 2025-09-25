@@ -120,21 +120,27 @@ fn generate_category_pagination_pages(
 
         // Try to render using category pagination layout template first, then regular pagination layout
         let body = if global_variables.contains_key("category_pagination_layout") {
-            load_and_render_pagination_layout(
+            match load_and_render_pagination_layout(
                 site_name,
                 global_variables.get("category_pagination_layout"),
                 &variables,
                 includes,
                 config,
-            )?
+            )? {
+                Some(rendered_content) => rendered_content,
+                None => return Ok(()), // Skip if no category layout is configured
+            }
         } else {
-            load_and_render_pagination_layout(
+            match load_and_render_pagination_layout(
                 site_name,
                 global_variables.get("pagination_layout"),
                 &variables,
                 includes,
                 config,
-            )?
+            )? {
+                Some(rendered_content) => rendered_content,
+                None => return Ok(()), // Skip if no regular pagination layout is configured
+            }
         };
 
         // Determine the output file name and path
@@ -168,6 +174,13 @@ pub fn generate_category_pages(
     global_variables: &Variables,
     config: &SiteConfig,
 ) -> Result<()> {
+    // Check if category pagination or regular pagination layout is configured
+    // If neither is configured, skip category pagination generation
+    if !global_variables.contains_key("category_pagination_layout") 
+        && !global_variables.contains_key("pagination_layout") {
+        return Ok(()); // Skip category pagination generation
+    }
+    
     // Filter out unlisted posts for category pagination (same as main pagination)
     let filtered_posts: ContentCollection = posts
         .iter()
@@ -382,7 +395,7 @@ mod tests {
     }
 
     #[test]
-    fn test_category_pagination_layout_error_behavior() {
+    fn test_category_pagination_layout_missing_file_error() {
         let posts = vec![
             create_test_post_with_category("Error Post", "2024-01-01", Some("Test Category")),
         ];
@@ -391,7 +404,7 @@ mod tests {
         let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
         let mut global_variables = HashMap::new();
         global_variables.insert("title".to_string(), "Test Site".to_string());
-        // Set a non-existent layout to test error
+        // Set a non-existent layout to test error when layout is configured but file missing
         global_variables.insert("category_pagination_layout".to_string(), "non-existent".to_string());
         let config = SiteConfig::default();
 
@@ -399,7 +412,7 @@ mod tests {
         let _ = fs::remove_dir_all(&config.output_dir);
         fs::create_dir_all(&config.output_dir).expect("Failed to create output directory");
 
-        // Generate category pages - should error out for missing layout
+        // Generate category pages - should error out for missing layout file
         let result = generate_category_pages(
             "test",
             1,
@@ -410,11 +423,49 @@ mod tests {
             &config,
         );
 
-        // Should return an error for missing layout
+        // Should return an error for missing layout file
         assert!(result.is_err());
         let error_message = format!("{:?}", result.unwrap_err());
         assert!(error_message.contains("non-existent"));
         assert!(error_message.contains("was not found"));
+
+        // Clean up
+        let _ = fs::remove_dir_all(&config.output_dir);
+    }
+
+    #[test]
+    fn test_category_pagination_skipped_when_no_layout_configured() {
+        let posts = vec![
+            create_test_post_with_category("Skip Post", "2024-01-01", Some("Test Category")),
+        ];
+
+        let includes = HashMap::new();
+        let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
+        let mut global_variables = HashMap::new();
+        global_variables.insert("title".to_string(), "Test Site".to_string());
+        // No pagination layouts configured - category pagination should be skipped
+        let config = SiteConfig::default();
+
+        // Clean up any existing output directory
+        let _ = fs::remove_dir_all(&config.output_dir);
+        fs::create_dir_all(&config.output_dir).expect("Failed to create output directory");
+
+        // Generate category pages - should succeed and skip pagination
+        let result = generate_category_pages(
+            "test",
+            1,
+            &posts,
+            &includes,
+            main_layout,
+            &global_variables,
+            &config,
+        );
+
+        // Should succeed without generating any category pagination pages
+        assert!(result.is_ok());
+        
+        // No category pagination pages should be created
+        assert!(!Path::new("out/test/category/test-category/page1.html").exists());
 
         // Clean up
         let _ = fs::remove_dir_all(&config.output_dir);

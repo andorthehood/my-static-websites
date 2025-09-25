@@ -15,6 +15,11 @@ pub fn generate_pagination_pages(
     global_variables: &Variables,
     config: &SiteConfig,
 ) -> Result<()> {
+    // Check if pagination layout is configured, if not, skip pagination generation
+    if !global_variables.contains_key("pagination_layout") {
+        return Ok(()); // Skip pagination generation
+    }
+    
     let total_pages = posts.len().div_ceil(posts_per_page);
 
     for page_num in 1..=total_pages {
@@ -59,13 +64,16 @@ pub fn generate_pagination_pages(
         variables.insert("page_links".to_string(), format!("[{}]", page_links.join(", ")));
 
         // Try to render using pagination layout template
-        let body = load_and_render_pagination_layout(
+        let body = match load_and_render_pagination_layout(
             site_name,
             global_variables.get("pagination_layout"),
             &variables,
             includes,
             config,
-        )?;
+        )? {
+            Some(rendered_content) => rendered_content,
+            None => return Ok(()), // This should not happen since we check above, but handle it gracefully
+        };
 
         render_page(
             &body,
@@ -281,7 +289,7 @@ mod tests {
     }
 
     #[test]
-    fn test_pagination_layout_error_behavior() {
+    fn test_pagination_layout_missing_file_error() {
         // Create test data
         let mut posts = Vec::new();
         posts.push(create_test_post("Error Test Post", "2024-03-20"));
@@ -290,7 +298,7 @@ mod tests {
         let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
         let mut global_variables = HashMap::new();
         global_variables.insert("site_title".to_string(), "Test Site".to_string());
-        // Set a non-existent layout to test error
+        // Set a non-existent layout to test error when layout is configured but file missing
         global_variables.insert("pagination_layout".to_string(), "non-existent-layout".to_string());
         let config = SiteConfig::default();
 
@@ -298,7 +306,7 @@ mod tests {
         let _ = fs::remove_dir_all(&config.output_dir);
         fs::create_dir_all(&config.output_dir).expect("Failed to create output directory");
 
-        // Generate pagination pages - should error out for missing layout
+        // Generate pagination pages - should error out for missing layout file
         let result = generate_pagination_pages(
             "test",
             1,
@@ -309,11 +317,49 @@ mod tests {
             &config,
         );
 
-        // Should return an error for missing layout
+        // Should return an error for missing layout file
         assert!(result.is_err());
         let error_message = format!("{:?}", result.unwrap_err());
         assert!(error_message.contains("non-existent-layout"));
         assert!(error_message.contains("was not found"));
+
+        // Clean up
+        let _ = fs::remove_dir_all(&config.output_dir);
+    }
+
+    #[test]
+    fn test_pagination_skipped_when_no_layout_configured() {
+        // Create test data
+        let mut posts = Vec::new();
+        posts.push(create_test_post("Skip Test Post", "2024-03-20"));
+
+        let includes = HashMap::new();
+        let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
+        let mut global_variables = HashMap::new();
+        global_variables.insert("site_title".to_string(), "Test Site".to_string());
+        // No pagination_layout configured - pagination should be skipped
+        let config = SiteConfig::default();
+
+        // Clean up any existing output directory
+        let _ = fs::remove_dir_all(&config.output_dir);
+        fs::create_dir_all(&config.output_dir).expect("Failed to create output directory");
+
+        // Generate pagination pages - should succeed and skip pagination
+        let result = generate_pagination_pages(
+            "test",
+            1,
+            &posts,
+            &includes,
+            main_layout,
+            &global_variables,
+            &config,
+        );
+
+        // Should succeed without generating any pagination pages
+        assert!(result.is_ok());
+        
+        // No pagination pages should be created
+        assert!(!Path::new("out/test/page1.html").exists());
 
         // Clean up
         let _ = fs::remove_dir_all(&config.output_dir);
