@@ -1,0 +1,75 @@
+<!-- Pagination layout template for lepkef.ing -->
+<div class="pagination-page">
+    <header class="pagination-header">
+        <h1>Visual Journal Archive - Page {{page_number}}</h1>
+        <p>Page {{page_number}} of {{total_pages}} in my visual experiments and photography</p>
+    </header>
+
+    <section class="posts-list">
+        {% for post in page_posts %}
+        <article class="post-preview">
+            <h2><a href="/posts/{{post.slug}}">{{post.title}}</a></h2>
+            <time class="post-date">{{post.date}}</time>
+            {% if post.content %}
+            <div class="post-excerpt">
+                {{post.content}}
+            </div>
+            {% endif %}
+        </article>
+        {% endfor %}
+    </section>
+
+    <nav class="pagination-navigation" aria-label="Archive Navigation">
+        <p class="pagination-description">
+            Browse through my visual journal chronologically. Each page contains {{posts_per_page}} entries.
+        </p>
+        
+        <ul class="pagination-links">
+            {% if has_previous %}
+            <li>
+                <a href="{{previous_page_url}}" rel="prev">
+                    ← Previous ({{previous_page_number}})
+                </a>
+            </li>
+            {% endif %}
+            
+            <li>
+                <a href="/" rel="home">🏠 Home</a>
+            </li>
+            
+            <li>
+                {% if page_number == 1 %}
+                <span class="current-page" aria-current="page">1</span>
+                {% else %}
+                <a href="/page1">1</a>
+                {% endif %}
+            </li>
+            {% if total_pages > 1 %}
+            <li>
+                {% if page_number == 2 %}
+                <span class="current-page" aria-current="page">2</span>
+                {% else %}
+                <a href="/page2">2</a>
+                {% endif %}
+            </li>
+            {% endif %}
+            {% if total_pages > 2 %}
+            <li>
+                {% if page_number == 3 %}
+                <span class="current-page" aria-current="page">3</span>
+                {% else %}
+                <a href="/page3">3</a>
+                {% endif %}
+            </li>
+            {% endif %}
+            
+            {% if has_next %}
+            <li>
+                <a href="{{next_page_url}}" rel="next">
+                    Next ({{next_page_number}}) →
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
