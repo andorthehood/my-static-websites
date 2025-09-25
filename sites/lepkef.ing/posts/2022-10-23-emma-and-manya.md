@@ -8,7 +8,6 @@ film: 'Kodak Portra 800 and Kodak Gold 200'
 lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 flash: 'Contax TLA 140'
 camera: 'Leica M-A (Typ 127)'
-tags: 'nsfw'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
 

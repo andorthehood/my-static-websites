@@ -3,7 +3,6 @@ layout: post
 title: "Elite modular 208"
 date: 2016-06-12 22:52:39 -0100
 category: music
-tags: eurorack synth
 location: "Trier, Germany"
 ---
 

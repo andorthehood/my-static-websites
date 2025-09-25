@@ -2,7 +2,6 @@
 layout: post
 title: "Los Angeles"
 date: 2017-09-21 23:10 +0100
-tags: travel
 location: "Los Angeles, California, United States"
 ---
 

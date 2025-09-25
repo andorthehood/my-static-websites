@@ -4,7 +4,7 @@ title: 'Tech freeloading evolution'
 date: 2024-03-26T23:53+0100
 location: 'Zandvoort, Netherlands'
 emojis: ''
-tags: 'rant'
+category: 'rant'
 ---
 
 One downside of accepting every LinkedIn connection is that lately I've been getting offers to be the "founding engineer" of AI startups. It's always the same story: someone has a vague idea for a ChatGPT-powered app and needs me to build the whole thing. No salary, just equity in a company that doesn't exist. It reminded me of past tech hypes and how the freeloaders never really left, they just rebrand every few years:

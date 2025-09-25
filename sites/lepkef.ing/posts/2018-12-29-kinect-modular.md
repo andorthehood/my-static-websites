@@ -4,7 +4,6 @@ title: 'Petra Eros & Andor Polgar: Kinect + Modular'
 date: 2018-12-29T15:32+0100
 location: 'The Hague, Netherlands'
 emojis: '🎹'
-tags: 'music'
 category: 'music'
 ---
 

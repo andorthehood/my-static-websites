@@ -6,7 +6,6 @@ location: 'OT301, Amsterdam, Netherlands'
 lens: 'Sigma 50mm f/1.4 DG HSM ART'
 camera: 'Nikon D780'
 emojis: '🎹'
-tags: 'music'
 category: 'music'
 ---
 

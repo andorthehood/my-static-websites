@@ -3,7 +3,6 @@ layout: post
 title: "Superbooth 2017"
 date: 2017-04-23 11:08 +0100
 category: music
-tags: eurorack
 location: "Berlin, Germany"
 ---
 

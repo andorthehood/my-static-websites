@@ -3,7 +3,7 @@ layout: post
 title: 'Luxembourg, Luxembourg'
 date: 2019-11-24T21:40+0100
 location: 'Luxembourg, Luxembourg'
-tags: ''
+
 ---
 
 {% render candystore.liquid file:"20200110_luxembourg_1_portra160_rollei" title:"Luxembourg Hotel" %}

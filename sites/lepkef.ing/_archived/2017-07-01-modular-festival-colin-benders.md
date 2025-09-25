@@ -3,7 +3,6 @@ layout: post
 title: "Colin Benders @ Modular Festival"
 date: 2017-07-01 21:16 +0100
 category: music
-tags: eurorack concert
 location: "Schiedam, Netherlands"
 ---
 

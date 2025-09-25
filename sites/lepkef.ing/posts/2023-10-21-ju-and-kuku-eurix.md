@@ -7,7 +7,6 @@ emojis: '🪢'
 film: 'Kodak Portra 800, Ilford XP2 400'
 lens: 'ZEISS ZM Biogon T* 35mm f/2'
 camera: 'Leica M-A (Typ 127)'
-tags: 'shibari,nsfw'
 category: 'shibari'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---

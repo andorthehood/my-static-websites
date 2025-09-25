@@ -4,7 +4,6 @@ title: 'Modular on the spot'
 date: 2016-10-20T22:52:39-0700
 location: 'Los Angeles, California'
 emojis: '🎹'
-tags: 'music'
 category: 'usa'
 ---
 

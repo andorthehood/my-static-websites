@@ -4,7 +4,6 @@ title: 'Shibari with Maya and Asimira'
 date: 2020-12-02T22:36+0100
 location: 'Rotterdam, Netherlands'
 emojis: '🔞'
-tags: 'nsfw'
 category: 'shibari'
 ---
 

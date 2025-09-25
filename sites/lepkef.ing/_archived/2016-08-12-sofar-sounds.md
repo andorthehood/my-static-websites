@@ -3,7 +3,6 @@ layout: post
 title: "Sofar Sounds"
 date: 2016-08-12 22:52:39 -0700
 category: music
-tags: concert
 location: "Los Angeles, California"
 ---
 

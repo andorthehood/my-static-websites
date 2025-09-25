@@ -3,7 +3,6 @@ layout: post
 title: "Visiting the Erica Synths HQ"
 date: 2017-09-06 21:43 +0100
 category: music
-tags: travel eurorack
 location: "Riga, Latvia"
 ---
 

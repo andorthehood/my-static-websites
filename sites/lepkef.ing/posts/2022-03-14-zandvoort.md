@@ -8,7 +8,7 @@ film: 'Kodak Pro Image 100'
 lens: 'Nikon 35mm f/2.8'
 camera: 'Nikon L35AF'
 scan: 'scanned from negative with a Fuji Frontier SP-3000'
-tags: ''
+
 ---
 
 {% render candystore.liquid file:"20220314_1_zandvoort_jan_l35af_proimage100" title:"" %}

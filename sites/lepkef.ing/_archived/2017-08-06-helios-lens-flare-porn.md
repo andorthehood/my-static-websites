@@ -2,7 +2,6 @@
 layout: post
 title: "Helios 40-2 lens flare porn"
 date: 2017-08-06 23:21 +0100
-tags: art
 location: "Haarlem, Netherlands"
 ---
 
