@@ -3,7 +3,6 @@ layout: post
 title: "Brighton Suburb"
 date: 2018-07-02 23:30 +0100
 category: cinemascope
-tags: travel
 location: "Brighton, United Kingdom"
 ---
 

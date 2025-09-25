@@ -4,7 +4,7 @@ title: 'Halloween in Hungary'
 date: 2021-11-01T23:52+0100
 location: 'Mád, Hungary & Budapest, Hungary'
 emojis: ''
-tags: ''
+
 ---
 
 {% render candystore.liquid file:"20211101_11_mad_rollei32_portra800_8200i" title:"Eniko" %}

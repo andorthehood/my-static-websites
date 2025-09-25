@@ -4,7 +4,7 @@ title: '2019 Summer (collector)'
 date: 2019-08-30T17:08+0100
 location: 'Netherlands'
 emojis: ''
-tags: ''
+
 ---
 
 {% render candystore.liquid file:"2019_5_summer_contaxg2_zp45mmf2" title:"2019 summer" %}

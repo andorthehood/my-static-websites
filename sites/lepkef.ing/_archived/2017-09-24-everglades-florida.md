@@ -2,7 +2,6 @@
 layout: post
 title: "Alligators of Everglades"
 date: 2017-09-24 0:20 +0100
-tags: travel
 location: "Everglades, Florida, United States"
 ---
 

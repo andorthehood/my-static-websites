@@ -7,7 +7,7 @@ film: 'Kodak Portra 160 and Kodak Gold 200'
 lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 camera: 'Leica M-A (Typ 127) and a SwissPro disposable camera'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
-tags: ''
+
 category: 'spain'
 ---
 

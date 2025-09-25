@@ -2,7 +2,6 @@
 layout: post
 title: "Susanne Sundfør @ Vondelkerk"
 date: 2017-09-19 0:20 +0100
-tags: concert
 location: "Amsterdam, Netherlands"
 ---
 

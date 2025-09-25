@@ -2,7 +2,6 @@
 layout: post
 title: "Waveform Research Centre"
 date: 2019-05-19 22:17 +0100
-tags: music
 location: "Rotterdam, Netherlands"
 ---
 

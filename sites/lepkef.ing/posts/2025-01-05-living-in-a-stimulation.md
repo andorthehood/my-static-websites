@@ -4,7 +4,7 @@ title: 'Living in a Stimulation'
 date: 2025-01-05T23:53+0100
 location: 'Zandvoort, Netherlands'
 emojis: '📝'
-tags: 'writing'
+category: 'writing'
 ---
 
 <p><strong>Host:</strong> Welcome back to Mind Expanded, the show where we tackle the weird, the wonderful, and the "what ifs" of existence. Today, we have a philosopher in the studio, Dr. Simon Moore, who’s going to blow our minds with a thought experiment that might make us question... well, everything. Welcome, Dr. Moore.</p>

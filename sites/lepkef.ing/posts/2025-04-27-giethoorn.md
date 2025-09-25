@@ -8,7 +8,7 @@ film: 'Harman Phoenix 200'
 lens: 'Zeiss Sonnar T* 40mm f/2.8'
 camera: 'Rollei 35 Classic'
 scan: 'scanned from negative with a Plustek 8100, edited in Lightroom'
-tags: ''
+
 ---
 
 {% render candystore.liquid file:"20250427_7_giethoorn_rollei35classic_phoenix200" title:"" %}

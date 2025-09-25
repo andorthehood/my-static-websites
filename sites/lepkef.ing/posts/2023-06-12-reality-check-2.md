@@ -3,7 +3,7 @@ layout: post
 title: 'Reality Check 2'
 date: 2023-06-10T23:53+0100
 location: 'Gador, Spain'
-tags: 'writing'
+category: 'writing'
 emojis: ''
 ---
 

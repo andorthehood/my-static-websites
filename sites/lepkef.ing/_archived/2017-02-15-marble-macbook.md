@@ -2,7 +2,6 @@
 layout: post
 title: "Marble MacBook"
 date: 2017-02-15 20:52:39 -0800
-tags: art
 location: "Los Angeles, California"
 ---
 
