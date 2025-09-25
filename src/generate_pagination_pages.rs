@@ -3,10 +3,8 @@ use crate::{
     error::Result,
     layout::load_and_render_pagination_layout,
     render_page::render_page,
-    template_processors::process_template_tags,
     types::{ContentCollection, ContentItem, TemplateIncludes, Variables},
 };
-use std::fmt::Write;
 
 pub fn generate_pagination_pages(
     site_name: &str,
@@ -61,18 +59,13 @@ pub fn generate_pagination_pages(
         variables.insert("page_links".to_string(), format!("[{}]", page_links.join(", ")));
 
         // Try to render using pagination layout template
-        let body = if let Some(rendered_content) = load_and_render_pagination_layout(
+        let body = load_and_render_pagination_layout(
             site_name,
             global_variables.get("pagination_layout"),
             &variables,
             includes,
             config,
-        ) {
-            rendered_content
-        } else {
-            // Fall back to original hardcoded HTML generation
-            generate_fallback_pagination_html(page_posts, page_num, total_pages, includes)?
-        };
+        )?;
 
         render_page(
             &body,
@@ -86,61 +79,6 @@ pub fn generate_pagination_pages(
     }
 
     Ok(())
-}
-
-/// Generates the original hardcoded pagination HTML as a fallback
-fn generate_fallback_pagination_html(
-    page_posts: &[ContentItem],
-    page_num: usize,
-    total_pages: usize,
-    includes: &TemplateIncludes,
-) -> Result<String> {
-    let mut html_list = String::new();
-
-    // Add posts using post.liquid template
-    for post in page_posts {
-        let post_template = includes
-            .get("post")
-            .or_else(|| includes.get("post.liquid"))
-            .map_or("", |s| s.as_str());
-
-        html_list.push_str(&process_template_tags(post_template, post, None, None)?);
-    }
-
-    // Add pagination links
-    html_list.push_str("<p>This site uses classic pagination on purpose to help you stop when you want to. Doomscrolling not included.</p><ul class=\"pagination\">");
-
-    // Previous page link
-    if page_num > 1 {
-        let prev_page = page_num - 1;
-        write!(
-            html_list,
-            "<li><a href=\"/page{prev_page}\">🔙 Previous page</a>,&nbsp;</li>"
-        )
-        .unwrap();
-    }
-
-    // Index page link
-    html_list.push_str("<li><a href=\"/\">Index page</a>,&nbsp;</li>");
-
-    // Page numbers
-    for i in 1..=total_pages {
-        write!(html_list, "<li><a href=\"/page{i}\">{i}</a>,&nbsp;</li>").unwrap();
-    }
-
-    // Next page link
-    if page_num < total_pages {
-        let next_page = page_num + 1;
-        write!(
-            html_list,
-            "<li><a href=\"/page{next_page}\">Next page ⏭️</a></li>"
-        )
-        .unwrap();
-    }
-
-    html_list.push_str("</ul>");
-
-    Ok(html_list)
 }
 
 /// Adds a posts collection to variables for template access
@@ -188,6 +126,7 @@ mod tests {
         let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
         let mut global_variables = HashMap::new();
         global_variables.insert("site_title".to_string(), "Test Site".to_string());
+        global_variables.insert("pagination_layout".to_string(), "pagination".to_string());
         let config = SiteConfig::default();
 
         // Clean up any existing output directory
@@ -236,6 +175,7 @@ mod tests {
 
     #[test]
     fn test_pagination_generation_handles_legacy_post_liquid_key() {
+        // Use the "test" site which has the necessary layout files
         let mut posts = Vec::new();
         for i in 1..=2 {
             posts.push(create_test_post(&format!("Legacy Post {i}"), "2024-03-21"));
@@ -250,13 +190,14 @@ mod tests {
         let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
         let mut global_variables = HashMap::new();
         global_variables.insert("site_title".to_string(), "Legacy Site".to_string());
+        global_variables.insert("pagination_layout".to_string(), "pagination".to_string());
         let config = SiteConfig::default();
 
         let _ = fs::remove_dir_all(&config.output_dir);
         fs::create_dir_all(&config.output_dir).expect("Failed to create output directory");
 
         generate_pagination_pages(
-            "legacy",
+            "test", // Use "test" site which has pagination layout files
             1,
             &posts,
             &includes,
@@ -266,8 +207,8 @@ mod tests {
         )
         .expect("Failed to generate pagination pages with legacy key");
 
-        let legacy_dir = Path::new(&config.output_dir).join("legacy");
-        let page1_path = legacy_dir.join("page1.html");
+        let test_dir = Path::new(&config.output_dir).join("test");
+        let page1_path = test_dir.join("page1.html");
         assert!(
             page1_path.exists(),
             "expected {} to exist",
@@ -276,7 +217,7 @@ mod tests {
         let page1_content = fs::read_to_string(&page1_path).unwrap();
         assert!(page1_content.contains("Legacy Post 1"));
 
-        let page2_path = legacy_dir.join("page2.html");
+        let page2_path = test_dir.join("page2.html");
         assert!(
             page2_path.exists(),
             "expected {} to exist",
@@ -340,16 +281,16 @@ mod tests {
     }
 
     #[test]
-    fn test_pagination_layout_fallback_behavior() {
+    fn test_pagination_layout_error_behavior() {
         // Create test data
         let mut posts = Vec::new();
-        posts.push(create_test_post("Fallback Test Post", "2024-03-20"));
+        posts.push(create_test_post("Error Test Post", "2024-03-20"));
 
         let includes = HashMap::new(); // Empty includes
         let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
         let mut global_variables = HashMap::new();
         global_variables.insert("site_title".to_string(), "Test Site".to_string());
-        // Set a non-existent layout to test fallback
+        // Set a non-existent layout to test error
         global_variables.insert("pagination_layout".to_string(), "non-existent-layout".to_string());
         let config = SiteConfig::default();
 
@@ -357,8 +298,8 @@ mod tests {
         let _ = fs::remove_dir_all(&config.output_dir);
         fs::create_dir_all(&config.output_dir).expect("Failed to create output directory");
 
-        // Generate pagination pages - should fallback to hardcoded HTML
-        generate_pagination_pages(
+        // Generate pagination pages - should error out for missing layout
+        let result = generate_pagination_pages(
             "test",
             1,
             &posts,
@@ -366,17 +307,13 @@ mod tests {
             main_layout,
             &global_variables,
             &config,
-        )
-        .expect("Failed to generate pagination pages with fallback");
+        );
 
-        // Verify that the page was created with fallback HTML
-        let page1_path = Path::new("out/test/page1.html");
-        assert!(page1_path.exists());
-        
-        let page1_content = fs::read_to_string(&page1_path).unwrap();
-        // Should contain the hardcoded pagination text
-        assert!(page1_content.contains("This site uses classic pagination"));
-        assert!(page1_content.contains("Doomscrolling not included"));
+        // Should return an error for missing layout
+        assert!(result.is_err());
+        let error_message = format!("{:?}", result.unwrap_err());
+        assert!(error_message.contains("non-existent-layout"));
+        assert!(error_message.contains("was not found"));
 
         // Clean up
         let _ = fs::remove_dir_all(&config.output_dir);
