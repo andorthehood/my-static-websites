@@ -37,31 +37,12 @@
                 <a href="/" rel="home">🏠 Home</a>
             </li>
             
+            <!-- Generate all numbered page links -->
+            {% for page in page_numbers %}
             <li>
-                {% if page_number == 1 %}
-                <span class="current-page" aria-current="page">1</span>
-                {% else %}
-                <a href="/page1">1</a>
-                {% endif %}
+                <a href="{{page.url}}">{{page.number}}</a>
             </li>
-            {% if total_pages > 1 %}
-            <li>
-                {% if page_number == 2 %}
-                <span class="current-page" aria-current="page">2</span>
-                {% else %}
-                <a href="/page2">2</a>
-                {% endif %}
-            </li>
-            {% endif %}
-            {% if total_pages > 2 %}
-            <li>
-                {% if page_number == 3 %}
-                <span class="current-page" aria-current="page">3</span>
-                {% else %}
-                <a href="/page3">3</a>
-                {% endif %}
-            </li>
-            {% endif %}
+            {% endfor %}
             
             {% if has_next %}
             <li>

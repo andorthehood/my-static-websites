@@ -55,7 +55,10 @@ pub fn generate_pagination_pages(
         // Add posts collection to context
         add_posts_collection_to_variables(&mut variables, "page_posts", page_posts);
 
-        // Add page navigation links
+        // Add page numbers collection for iteration in templates
+        add_page_links_collection_to_variables(&mut variables, "page_numbers", page_num, total_pages);
+
+        // Add page navigation links (JSON format for backwards compatibility)
         let mut page_links = Vec::new();
         for i in 1..=total_pages {
             page_links.push(format!("{{\"number\": {i}, \"url\": \"/page{i}\", \"current\": {}}}",
@@ -100,6 +103,22 @@ fn add_posts_collection_to_variables(
             let variable_name = format!("{}.{}.{}", collection_name, index, key);
             variables.insert(variable_name, value.clone());
         }
+    }
+}
+
+/// Adds page link variables for template iteration
+fn add_page_links_collection_to_variables(
+    variables: &mut Variables,
+    collection_name: &str,
+    current_page: usize,
+    total_pages: usize,
+) {
+    for page_num in 1..=total_pages {
+        let index = page_num - 1; // 0-based index
+        variables.insert(format!("{}.{}.number", collection_name, index), page_num.to_string());
+        variables.insert(format!("{}.{}.url", collection_name, index), format!("/page{}", page_num));
+        variables.insert(format!("{}.{}.current", collection_name, index), 
+            if page_num == current_page { "true".to_string() } else { "false".to_string() });
     }
 }
 
