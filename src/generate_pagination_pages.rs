@@ -1,9 +1,10 @@
 use crate::{
     config::SiteConfig,
     error::Result,
+    layout::load_and_render_pagination_layout,
     render_page::render_page,
     template_processors::process_template_tags,
-    types::{ContentCollection, TemplateIncludes, Variables},
+    types::{ContentCollection, ContentItem, TemplateIncludes, Variables},
 };
 use std::fmt::Write;
 
@@ -23,57 +24,58 @@ pub fn generate_pagination_pages(
         let end = std::cmp::min(start + posts_per_page, posts.len());
         let page_posts = &posts[start..end];
 
-        let mut html_list = String::new();
-
-        // Add posts using post.liquid template
-        for post in page_posts {
-            let post_template = includes
-                .get("post")
-                .or_else(|| includes.get("post.liquid"))
-                .map_or("", |s| s.as_str());
-
-            html_list.push_str(&process_template_tags(post_template, post, None, None)?);
-        }
-
-        // Add pagination links
-        html_list.push_str("<p>This site uses classic pagination on purpose to help you stop when you want to. Doomscrolling not included.</p><ul class=\"pagination\">");
-
-        // Previous page link
-        if page_num > 1 {
-            let prev_page = page_num - 1;
-            write!(
-                html_list,
-                "<li><a href=\"/page{prev_page}\">🔙 Previous page</a>,&nbsp;</li>"
-            )
-            .unwrap();
-        }
-
-        // Index page link
-        html_list.push_str("<li><a href=\"/\">Index page</a>,&nbsp;</li>");
-
-        // Page numbers
-        for i in 1..=total_pages {
-            write!(html_list, "<li><a href=\"/page{i}\">{i}</a>,&nbsp;</li>").unwrap();
-        }
-
-        // Next page link
-        if page_num < total_pages {
-            let next_page = page_num + 1;
-            write!(
-                html_list,
-                "<li><a href=\"/page{next_page}\">Next page ⏭️</a></li>"
-            )
-            .unwrap();
-        }
-
-        html_list.push_str("</ul>");
-
+        // Create context variables for pagination template
         let mut variables = global_variables.clone();
         variables.insert("title".to_string(), format!("Page {page_num}"));
         variables.insert("site_name".to_string(), site_name.to_string());
+        variables.insert("page_number".to_string(), page_num.to_string());
+        variables.insert("total_pages".to_string(), total_pages.to_string());
+
+        // Add pagination navigation context
+        let has_previous = page_num > 1;
+        let has_next = page_num < total_pages;
+        variables.insert("has_previous".to_string(), has_previous.to_string());
+        variables.insert("has_next".to_string(), has_next.to_string());
+        
+        if has_previous {
+            let prev_page = page_num - 1;
+            variables.insert("previous_page_number".to_string(), prev_page.to_string());
+            variables.insert("previous_page_url".to_string(), format!("/page{prev_page}"));
+        }
+        
+        if has_next {
+            let next_page = page_num + 1;
+            variables.insert("next_page_number".to_string(), next_page.to_string());
+            variables.insert("next_page_url".to_string(), format!("/page{next_page}"));
+        }
+
+        // Add posts collection to context
+        add_posts_collection_to_variables(&mut variables, "page_posts", page_posts);
+
+        // Add page navigation links
+        let mut page_links = Vec::new();
+        for i in 1..=total_pages {
+            page_links.push(format!("{{\"number\": {i}, \"url\": \"/page{i}\", \"current\": {}}}",
+                if i == page_num { "true" } else { "false" }));
+        }
+        variables.insert("page_links".to_string(), format!("[{}]", page_links.join(", ")));
+
+        // Try to render using pagination layout template
+        let body = if let Some(rendered_content) = load_and_render_pagination_layout(
+            site_name,
+            global_variables.get("pagination_layout"),
+            &variables,
+            includes,
+            config,
+        ) {
+            rendered_content
+        } else {
+            // Fall back to original hardcoded HTML generation
+            generate_fallback_pagination_html(page_posts, page_num, total_pages, includes)?
+        };
 
         render_page(
-            &html_list,
+            &body,
             &format!("{}/{site_name}/", config.output_dir),
             &format!("page{page_num}"),
             main_layout,
@@ -84,6 +86,75 @@ pub fn generate_pagination_pages(
     }
 
     Ok(())
+}
+
+/// Generates the original hardcoded pagination HTML as a fallback
+fn generate_fallback_pagination_html(
+    page_posts: &[ContentItem],
+    page_num: usize,
+    total_pages: usize,
+    includes: &TemplateIncludes,
+) -> Result<String> {
+    let mut html_list = String::new();
+
+    // Add posts using post.liquid template
+    for post in page_posts {
+        let post_template = includes
+            .get("post")
+            .or_else(|| includes.get("post.liquid"))
+            .map_or("", |s| s.as_str());
+
+        html_list.push_str(&process_template_tags(post_template, post, None, None)?);
+    }
+
+    // Add pagination links
+    html_list.push_str("<p>This site uses classic pagination on purpose to help you stop when you want to. Doomscrolling not included.</p><ul class=\"pagination\">");
+
+    // Previous page link
+    if page_num > 1 {
+        let prev_page = page_num - 1;
+        write!(
+            html_list,
+            "<li><a href=\"/page{prev_page}\">🔙 Previous page</a>,&nbsp;</li>"
+        )
+        .unwrap();
+    }
+
+    // Index page link
+    html_list.push_str("<li><a href=\"/\">Index page</a>,&nbsp;</li>");
+
+    // Page numbers
+    for i in 1..=total_pages {
+        write!(html_list, "<li><a href=\"/page{i}\">{i}</a>,&nbsp;</li>").unwrap();
+    }
+
+    // Next page link
+    if page_num < total_pages {
+        let next_page = page_num + 1;
+        write!(
+            html_list,
+            "<li><a href=\"/page{next_page}\">Next page ⏭️</a></li>"
+        )
+        .unwrap();
+    }
+
+    html_list.push_str("</ul>");
+
+    Ok(html_list)
+}
+
+/// Adds a posts collection to variables for template access
+fn add_posts_collection_to_variables(
+    variables: &mut Variables,
+    collection_name: &str,
+    posts: &[ContentItem],
+) {
+    for (index, post) in posts.iter().enumerate() {
+        for (key, value) in post {
+            let variable_name = format!("{}.{}.{}", collection_name, index, key);
+            variables.insert(variable_name, value.clone());
+        }
+    }
 }
 
 #[cfg(test)]
