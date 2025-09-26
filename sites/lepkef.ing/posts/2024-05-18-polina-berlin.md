@@ -8,7 +8,7 @@ film: 'Kodak Ultramax 400, Cinestill 800T'
 lens: 'ZEISS ZM Biogon T* 35mm f/2'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
-tags: 'nsfw'
+
 ---
 
 {% render candystore.liquid file:"20240518_12_polina_ma_zm35_cinestill800t" title:"Polina" %}

@@ -3,7 +3,7 @@ title: 'Ju and Elyisan: First Communion'
 date: 2021-10-09T21:35+0100
 location: 'The Hague, Netherlands'
 emojis: '⛪'
-tags: ''
+
 ---
 
 {% render candystore.liquid file:"20220308_DSC_7269_elyisan_julia_terp" title:"First Communion" %}

@@ -3,7 +3,6 @@ layout: post
 title: "My modest synth cave"
 date: 2016-05-05 22:52:39 -0100
 category: music
-tags: eurorack synth art
 location: "Trier, Germany"
 ---
 

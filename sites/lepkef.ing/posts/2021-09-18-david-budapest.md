@@ -4,8 +4,6 @@ title: 'David'
 date: 2021-09-19T22:56+0100
 location: 'Budapest, Hungary'
 emojis: '🔞'
-unlisted: true
-tags: 'nsfw'
 ---
 
 {% render candystore.liquid file:"20210919_22_david_m8_portra800_8200i" title:"David" %}

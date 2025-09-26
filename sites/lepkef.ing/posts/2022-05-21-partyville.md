@@ -8,7 +8,7 @@ lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 flash: 'Contax TLA 140'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
-tags: ''
+
 ---
 
 {% render candystore.liquid file:"20220522_140_montville_portra400_ma" title:"Montville" %}

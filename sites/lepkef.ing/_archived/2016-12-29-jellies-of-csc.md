@@ -2,7 +2,6 @@
 layout: post
 title: "Jellies of California Science Center"
 date: 2016-12-29 22:52:39 -0800
-tags: art
 location: "Los Angeles, California"
 ---
 

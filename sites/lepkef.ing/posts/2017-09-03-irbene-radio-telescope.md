@@ -3,7 +3,6 @@ layout: post
 title: 'Ventspils International Radio Astronomy Center'
 date: 2017-09-03T22:10+0100
 location: 'Irbene, Latvia'
-tags: 'roadtrip'
 category: 'eastern-bloc'
 ---
 

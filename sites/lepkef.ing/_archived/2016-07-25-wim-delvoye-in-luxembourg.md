@@ -3,7 +3,6 @@ layout: post
 title: "Wim Delvoye in Luxembourg"
 date: 2016-07-25 22:52:39 -0100
 location: "Luxembourg, Luxembourg"
-tags: art
 ---
 
 {% render img.liquid img:"27935793693_5622f81233_k" date:page.date %}

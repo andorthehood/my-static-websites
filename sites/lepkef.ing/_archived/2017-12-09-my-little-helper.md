@@ -3,7 +3,6 @@ layout: post
 title: "My little helper"
 date: 2017-12-09 18:09 +0100
 category: music
-tags: eurorack cat video
 location: "Haarlem, Netherlands"
 ---
 

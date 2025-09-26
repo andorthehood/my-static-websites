@@ -4,7 +4,6 @@ title: 'New Zealand'
 date: 2020-03-07T13:10+0100
 location: 'Auckland, New Zealand'
 emojis: '⭐'
-tags: 'roadtrip'
 ---
 
 {% render candystore.liquid file:"20200307_23_newzealand_portra800_m6_8200i_lab" title:"Sky Tower Auckland" %}

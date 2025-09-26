@@ -7,7 +7,7 @@ film: 'Kodak Portra 800'
 lens: 'Zeiss ZM 35mm f/2'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
-tags: ''
+
 ---
 
 {% render candystore.liquid file:"20241015_54_berlin_ma_zm35_portra800" title:"" %}

@@ -3,7 +3,7 @@ layout: post
 title: 'Christmas in Dublin'
 date: 2018-12-25T13:29+0100
 location: 'Dublin, Ireland'
-tags: ''
+
 ---
 
 {% render candystore.liquid file:"20181225_P1000609_dublin" title:"" %}

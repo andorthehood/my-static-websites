@@ -3,7 +3,6 @@ layout: post
 title: "Manufactured in Los Angeles"
 date: 2016-09-03 22:52:39 -0700
 category: music
-tags: concert synth
 location: "Los Angeles, California"
 ---
 

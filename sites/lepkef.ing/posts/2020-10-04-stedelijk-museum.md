@@ -3,7 +3,7 @@ layout: post
 title: 'Stedelijk Museum'
 date: 2020-10-04T16:47+0100
 location: 'Amsterdam, Netherlands'
-tags: ''
+
 ---
 
 {% render candystore.liquid file:"20201004_7_stedelijk_portra800_m6_8200i_fujihunt" title:"" %}

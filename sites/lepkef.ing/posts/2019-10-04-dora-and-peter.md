@@ -4,7 +4,7 @@ title: 'Dori & Peti'
 date: 2019-10-04T23:51+0100
 location: 'Szomod, Hungary'
 emojis: '👰‍♀️🤵‍♂️'
-tags: ''
+
 ---
 
 {% render candystore.liquid file:"20191004_37_dora_peter_35ti_ektar" title:"Dori & Peti" %}
