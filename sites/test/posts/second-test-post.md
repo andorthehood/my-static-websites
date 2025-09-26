@@ -2,6 +2,7 @@
 title: Second Test Post
 date: 2024-03-21
 slug: second-test-post
+category: Technology
 ---
 
 # Second Test Post
