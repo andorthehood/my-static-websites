@@ -3,7 +3,6 @@ layout: post
 title: "Kaaswinkeltje"
 date: 2018-03-10 23:48 +0100
 category: cinemascope
-tags: cinemascope
 location: "Haarlem, Netherlands"
 ---
 

@@ -8,7 +8,7 @@ lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 flash: 'Contax TLA 140'
 camera: 'Leica M-A (Typ 127)'
 scan: 'developing, scan, and coloring by Southsun Film Lab, Wales'
-tags: ''
+
 ---
 
 {% render candystore.liquid file:"20220521_3005732-R1-05_ma_lomopurple_400" title:"Hann" %}

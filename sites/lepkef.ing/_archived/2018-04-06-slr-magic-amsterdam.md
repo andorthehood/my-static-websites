@@ -3,7 +3,6 @@ layout: post
 title: "First time with the SLR Magic Anamorphot in Amsterdam"
 date: 2018-04-06 23:31 +0100
 category: cinemascope
-tags: cinemascope
 location: "Amsterdam, Netherlands"
 ---
 

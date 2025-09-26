@@ -3,7 +3,6 @@ layout: post
 title: "Synthesizing in Amsterdam"
 date: 2017-03-04 14:31:00 +0100
 category: music
-tags: art eurorack
 location: "Amsterdam, Netherlands"
 ---
 

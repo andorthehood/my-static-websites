@@ -2,7 +2,6 @@
 layout: post
 title: "Trier"
 date: 2015-01-12 22:52:39 -0100
-tags: travel
 location: "Trier, Germany"
 ---
 

@@ -9,7 +9,6 @@ film: 'Ilford HP5 400 developed in Ilford ID-11 pushed 2 stops'
 lens: 'ZEISS ZM Biogon T* 35mm f/2 ZM'
 camera: 'Leica M6 TTL'
 scan: 'photographed from negative with a Nikon D780 and a SIGMA 105mm F/2.8 EX DG Macro OS HSM, edited in Lightroom'
-tags: 'nsfw'
 ---
 
 {% render candystore.liquid file:"20220412_17_ju_femke_m6_hp5_id11_1600-6" title:"" %}

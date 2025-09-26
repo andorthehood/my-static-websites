@@ -9,7 +9,7 @@ film: 'Kodak Gold 200'
 lens: 'Zeiss ZM 35mm f/2'
 camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
-tags: 'nsfw'
+
 category: 'spain'
 ---
 

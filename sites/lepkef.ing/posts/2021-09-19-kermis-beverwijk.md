@@ -4,7 +4,7 @@ title: 'Kermis in Beverwijk'
 date: 2021-09-19T20:34+0100
 location: 'Beverwijk, Netherlands'
 emojis: ''
-tags: ''
+
 ---
 
 {% render candystore.liquid file:"20210919_13_beverwijk_kermis_m6_cinestill800t_push1_8200i" title:"" %}

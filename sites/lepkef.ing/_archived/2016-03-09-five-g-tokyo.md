@@ -3,7 +3,6 @@ layout: post
 title: "Five G Music Technology"
 date: 2016-03-09 22:52:39 -0100
 category: music
-tags: eurorack synth
 location: "Tokyo, Japan"
 ---
 

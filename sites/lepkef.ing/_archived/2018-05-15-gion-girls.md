@@ -3,7 +3,6 @@ layout: post
 title: "Gion girls"
 date: 2018-05-15 22:16 +0100
 category: cinemascope
-tags: travel cinemascope
 location: "Kyoto, Japan"
 ---
 

@@ -3,7 +3,6 @@ layout: post
 title: "EARSession #5 @ Studio Nieuw Ensemble"
 date: 2018-03-18 23:31 +0100
 category: cinemascope
-tags: concert cinemascope
 location: "Amsterdam, Netherlands"
 ---
 

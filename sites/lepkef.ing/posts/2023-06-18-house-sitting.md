@@ -6,7 +6,7 @@ location: 'Zandvoort, Netherlands'
 emojis: ''
 film: 'Lomography Color 400'
 camera: 'Lomography Lomoapparat'
-tags: ''
+
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 ---
 

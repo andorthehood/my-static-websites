@@ -10,7 +10,7 @@ camera: 'Leica M-A (Typ 127)'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
 flash: 'Contax TLA 140'
 category: 'spain'
-tags: ''
+
 people: 
     - '@noathemodel'
     - '@pepa.de.luna_'

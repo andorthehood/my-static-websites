@@ -3,7 +3,6 @@ layout: post
 title: "Home is where my Rhodes is"
 date: 2017-10-09 19:28 +0100
 category: music
-tags: art eurorack
 location: "Haarlem, Netherlands"
 ---
 

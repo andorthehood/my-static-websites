@@ -6,7 +6,7 @@ location: 'Berlin, Germany'
 emojis: '🎥'
 lens: 'Canon Zoom Lens 5.8-17.4mm 1:2.8-4.9'
 camera: 'Canon IXUS 75'
-tags: 'video'
+category: 'video'
 ---
 
 {% render youtube.liquid id:"yaYOiga_8Ps?si=gEeysJW4UjKhBdzE" %}

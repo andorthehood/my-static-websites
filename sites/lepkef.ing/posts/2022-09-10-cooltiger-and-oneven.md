@@ -9,7 +9,6 @@ lens: 'Zeiss Sonnar T* 40mm f/2.8'
 camera: 'Rollei 35 Classic'
 flash: 'Contax TLA 140'
 scan: 'scanned from negative with a Plustek 8200i, edited in Lightroom'
-tags: 'music'
 category: 'music'
 people:
     - '@cooltigermusic'

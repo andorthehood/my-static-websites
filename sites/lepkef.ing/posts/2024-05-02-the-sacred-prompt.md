@@ -3,7 +3,7 @@ layout: post
 title: 'The Sacred Prompt'
 date: 2024-05-02T23:53+0100
 location: 'Zandvoort, Netherlands'
-tags: 'writing'
+category: 'writing'
 ---
 
 In the beginning, God programmed the universal constants, calibrating the forces and values that govern all creation. He laid down the laws of physics, setting the stage for complexity and life.

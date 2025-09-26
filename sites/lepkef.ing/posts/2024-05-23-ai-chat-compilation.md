@@ -4,7 +4,7 @@ title: 'Questions'
 date: 2024-07-23T23:53+0100
 location: 'Zandvoort, Netherlands'
 emojis: ''
-tags: 'writing'
+category: 'writing'
 ---
 
 Browsing through the chat histories of the AI chatbots and copilots I use often makes me cringe or laugh at the questions I asked. Sometimes, I don't even remember the context anymore, which makes them more bizarre or funny. Here are some of the strangest questions I asked this year so far:
