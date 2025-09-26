@@ -42,31 +42,12 @@
                 <a href="{{site_index_url}}" rel="home">🏠 Visual Journal Home</a>
             </li>
             
+            <!-- Generate all numbered page links using the page_numbers collection -->
+            {% for page in page_numbers %}
             <li>
-                {% if page_number == 1 %}
-                <span class="current-page" aria-current="page">1</span>
-                {% else %}
-                <a href="/category/{{category_slug}}/page1">1</a>
-                {% endif %}
+                <a href="{{page.url}}">{{page.number}}</a>
             </li>
-            {% if total_pages > 1 %}
-            <li>
-                {% if page_number == 2 %}
-                <span class="current-page" aria-current="page">2</span>
-                {% else %}
-                <a href="/category/{{category_slug}}/page2">2</a>
-                {% endif %}
-            </li>
-            {% endif %}
-            {% if total_pages > 2 %}
-            <li>
-                {% if page_number == 3 %}
-                <span class="current-page" aria-current="page">3</span>
-                {% else %}
-                <a href="/category/{{category_slug}}/page3">3</a>
-                {% endif %}
-            </li>
-            {% endif %}
+            {% endfor %}
             
             {% if has_next %}
             <li>

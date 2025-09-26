@@ -118,6 +118,9 @@ fn generate_category_pagination_pages(
         // Add posts collection to context
         add_category_posts_collection_to_variables(&mut variables, "page_posts", page_posts);
 
+        // Add page numbers collection for iteration in category templates
+        add_category_page_links_collection_to_variables(&mut variables, "page_numbers", page_num, total_pages, category_slug);
+
         // Try to render using category pagination layout template first, then regular pagination layout
         let body = if global_variables.contains_key("category_pagination_layout") {
             match load_and_render_pagination_layout(
@@ -483,5 +486,22 @@ fn add_category_posts_collection_to_variables(
             let variable_name = format!("{}.{}.{}", collection_name, index, key);
             variables.insert(variable_name, value.clone());
         }
+    }
+}
+
+/// Adds category page link variables for template iteration
+fn add_category_page_links_collection_to_variables(
+    variables: &mut Variables,
+    collection_name: &str,
+    current_page: usize,
+    total_pages: usize,
+    category_slug: &str,
+) {
+    for page_num in 1..=total_pages {
+        let index = page_num - 1; // 0-based index
+        variables.insert(format!("{}.{}.number", collection_name, index), page_num.to_string());
+        variables.insert(format!("{}.{}.url", collection_name, index), format!("/category/{}/page{}", category_slug, page_num));
+        variables.insert(format!("{}.{}.current", collection_name, index), 
+            if page_num == current_page { "true".to_string() } else { "false".to_string() });
     }
 }
