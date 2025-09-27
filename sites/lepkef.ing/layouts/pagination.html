@@ -1,0 +1,32 @@
+{% for post in page_posts %}
+<article>
+    <h2><a href="/posts/{{post.slug}}">{{post.title}}</a></h2>
+    {% if post.content %}
+        {{post.content}}
+    {% endif %}
+</article>
+{% endfor %}
+
+<ul class="pagination">
+    {% if has_previous %}
+    <li>
+        <a href="{{previous_page_url}}" rel="prev">
+            ← Previous ({{previous_page_number}})
+        </a>
+    </li>
+    {% endif %}
+
+    {% for page in page_numbers %}
+    <li>
+        <a href="{{page.url}}">{{page.number}}</a>
+    </li>
+    {% endfor %}
+
+    {% if has_next %}
+    <li>
+        <a href="{{next_page_url}}" rel="next">
+            Next ({{next_page_number}}) →
+        </a>
+    </li>
+    {% endif %}
+</ul>
