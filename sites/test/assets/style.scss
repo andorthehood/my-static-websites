@@ -9,6 +9,19 @@ body {
     margin: 0 auto;
 }
 
+.flexbox-test {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    user-select: none;
+    appearance: none;
+}
+
+.effects-test {
+    backdrop-filter: blur(5px);
+}
+
 footer {
     margin-top: 40px;
     text-align: center;
