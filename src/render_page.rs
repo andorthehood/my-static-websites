@@ -1,27 +1,11 @@
 use crate::config::SiteConfig;
 use crate::error::Result;
-use crate::layout::{insert_body_into_layout, load_layout};
+use crate::layout::{build_layout_path, insert_body_into_layout, load_layout};
 
 use crate::template_processors::markdown::markdown_to_html;
 use crate::template_processors::process_template_tags;
 use crate::types::{TemplateIncludes, Variables};
 use crate::write::{write_html_to_file, write_json_to_file};
-
-// Helper to build a layout path that defaults to .html when no extension is provided
-fn build_layout_path(site_name: &str, layout_name: &str, config: &SiteConfig) -> String {
-    let has_extension = std::path::Path::new(layout_name).extension().is_some();
-    if has_extension {
-        format!(
-            "{}/{site_name}/{}/{layout_name}",
-            config.sites_base_dir, config.layouts_subdir
-        )
-    } else {
-        format!(
-            "{}/{site_name}/{}/{layout_name}.html",
-            config.sites_base_dir, config.layouts_subdir
-        )
-    }
-}
 
 /// Processes a page through the template pipeline:
 /// 1. Converts markdown to HTML (if content is markdown)

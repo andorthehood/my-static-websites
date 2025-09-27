@@ -1,0 +1,76 @@
+<!-- Category pagination layout template for polgarhivatal.nl -->
+<div class="category-pagination-page">
+    <header class="category-pagination-header">
+        <h1>{{category_name}} - Page {{page_number}}</h1>
+        <p>{{category_name}} entries (Page {{page_number}} of {{total_pages}})</p>
+    </header>
+
+    <section class="posts-list">
+        {% for post in page_posts %}
+        <article class="post-preview category-post">
+            <h2><a href="/posts/{{post.slug}}">{{post.title}}</a></h2>
+            <time class="post-date">{{post.date}}</time>
+            <span class="post-category">📁 {{post.category}}</span>
+            {% if post.content %}
+            <div class="post-excerpt">
+                {{post.content}}
+            </div>
+            {% endif %}
+        </article>
+        {% endfor %}
+    </section>
+
+    <nav class="category-pagination-navigation" aria-label="Category Navigation">
+        <ul class="pagination-links">
+            {% if has_previous %}
+            <li>
+                <a href="{{previous_page_url}}" rel="prev">
+                    ← Previous ({{previous_page_number}})
+                </a>
+            </li>
+            {% endif %}
+            
+            <li>
+                <a href="{{category_index_url}}" rel="category-home">📂 {{category_name}} Index</a>
+            </li>
+            
+            <li>
+                <a href="{{site_index_url}}" rel="home">🏠 Polgár Hivatal Home</a>
+            </li>
+            
+            <li>
+                {% if page_number == 1 %}
+                <span class="current-page" aria-current="page">1</span>
+                {% else %}
+                <a href="/category/{{category_slug}}/page1">1</a>
+                {% endif %}
+            </li>
+            {% if total_pages > 1 %}
+            <li>
+                {% if page_number == 2 %}
+                <span class="current-page" aria-current="page">2</span>
+                {% else %}
+                <a href="/category/{{category_slug}}/page2">2</a>
+                {% endif %}
+            </li>
+            {% endif %}
+            {% if total_pages > 2 %}
+            <li>
+                {% if page_number == 3 %}
+                <span class="current-page" aria-current="page">3</span>
+                {% else %}
+                <a href="/category/{{category_slug}}/page3">3</a>
+                {% endif %}
+            </li>
+            {% endif %}
+            
+            {% if has_next %}
+            <li>
+                <a href="{{next_page_url}}" rel="next">
+                    Next ({{next_page_number}}) →
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
