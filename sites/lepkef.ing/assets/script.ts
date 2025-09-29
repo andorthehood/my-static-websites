@@ -2,7 +2,8 @@ document.getElementById('button-collapse').addEventListener('click', function (e
 	document.body.classList.toggle('collapsed');
 });
 document.getElementById('button-close').addEventListener('click', function () {
-	document.querySelectorAll('.window').forEach((window) => window.remove());
+	document.body.classList.add('closed');
+	window.history.pushState({}, '', '/');
 });
 document.getElementById('button-back').addEventListener('click', function () {
 	window.history.back();
@@ -63,16 +64,18 @@ function handleLinkClick(event) {
 
 	event.preventDefault();
 
+	window.history.pushState({}, '', link.href);
+
 	const content = document.querySelector('.content');
 
 	const json = (href === '/' || href === '') ? '/index.json' : href + '.json';
 	
 	document.body.classList.remove('collapsed');
+	document.body.classList.remove('closed');
 
 	// Check cache first
 	if (pageCache.has(json)) {
 		const data = pageCache.get(json);
-		window.history.pushState({}, '', link.href);
 		replaceContent(data);
 		return;
 	}
@@ -83,8 +86,6 @@ function handleLinkClick(event) {
 		.then(data => {
 			// Cache the response
 			pageCache.set(json, data);
-			
-			window.history.pushState({}, '', link.href);
 			replaceContent(data);
 		});
 }

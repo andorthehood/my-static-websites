@@ -239,3 +239,17 @@ body.collapsed {
         }
     }
 }
+
+body.closed {
+    .desktop {
+        position: relative;
+        top: initial;
+        bottom: initial;
+        left: initial;
+        right: initial;
+    }
+
+    .window.main {
+        display: none;
+    }
+}
