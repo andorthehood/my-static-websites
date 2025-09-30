@@ -1,5 +1,5 @@
 # Default site name (can be overridden)
-SITE ?= lepkef.ing
+SITE ?= polgarand.org
 
 install-hooks:
 	cp hooks/pre-commit .git/hooks/pre-commit
@@ -21,7 +21,7 @@ watch:
 lepkefing-dev:
 	tmux new-session -d -s lepkef-dev \; \
 	split-window -h \; \
-	send-keys -t 0 'cargo run -- watch lepkef.ing --ramdisk' Enter \; \
+	send-keys -t 0 'cargo run -- watch polgarand.org --ramdisk' Enter \; \
 	send-keys -t 1 'cargo run -- serve' Enter \; \
 	attach-session -t lepkef-dev
 
@@ -68,8 +68,8 @@ help:
 	@echo "  help              - Show this help message"
 	@echo ""
 	@echo "Usage:"
-	@echo "  make generate SITE=lepkef.ing   # Generate lepkef.ing site (default)"
-	@echo "  make netlify SITE=lepkef.ing    # Build lepkef.ing site (default)"
+	@echo "  make generate SITE=polgarand.org   # Generate polgarand.org site (default)"
+	@echo "  make netlify SITE=polgarand.org    # Build polgarand.org site (default)"
 	@echo "  make netlify SITE=mysite.com    # Build mysite.com site"
 	@echo "  make serve                      # Start the development server"
 	@echo "  make format                     # Format the code"

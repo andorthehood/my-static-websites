@@ -1,7 +1,7 @@
 Zero-dep static site generator written in Rust. I originally built it to learn Rust, now it's my playground for testing AI coding tools. It regenerates everything on each build (no caching), but still stupid fast thanks to Rust. Includes built-in ramdisk support so I don't wear out my SSD.
 
 It powers my real websites:
-- [lepkef.ing](https://lepkef.ing): [![Netlify Status](https://api.netlify.com/api/v1/badges/a8bd44af-89f0-4afe-8765-f9cfc38191bf/deploy-status)](https://app.netlify.com/sites/andor/deploys)
+- [polgarand.org](https://polgarand.org): [![Netlify Status](https://api.netlify.com/api/v1/badges/a8bd44af-89f0-4afe-8765-f9cfc38191bf/deploy-status)](https://app.netlify.com/sites/andor/deploys)
 - [polgarhivatal.nl](https://polgarhivatal.nl): [![Netlify Status](https://api.netlify.com/api/v1/badges/ea7ae987-302e-4cb0-816f-0aec9b7b5c18/deploy-status)](https://app.netlify.com/projects/polgarhivatal/deploys)
 - [8f4e.com](https://8f4e.com): [![Netlify Status](https://api.netlify.com/api/v1/badges/ea7ae987-302e-4cb0-816f-0aec9b7b5c18/deploy-status)](https://app.netlify.com/projects/polgarhivatal/deploys)
 
@@ -51,7 +51,7 @@ This will generate the static files for the specified site. The site content sho
 
 Example:
 ```bash
-cargo run generate lepkef.ing
+cargo run generate polgarand.org
 ```
 
 ### Development with auto-regeneration

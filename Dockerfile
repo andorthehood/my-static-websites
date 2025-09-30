@@ -28,7 +28,7 @@ COPY sites ./sites
 
 # Generate sites (outputs into ./out/<site_name>)
 RUN ./target/release/lepkefing generate polgarhivatal.nl \
- && ./target/release/lepkefing generate lepkef.ing
+ && ./target/release/lepkefing generate polgarand.org
 
 
 # ---------- Runtime: nginx to serve generated output ----------
