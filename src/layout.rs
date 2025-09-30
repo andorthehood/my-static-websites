@@ -50,9 +50,9 @@ pub fn load_and_render_pagination_layout(
         Some(name) => name,
         None => return Ok(None), // No layout configured, skip pagination
     };
-    
+
     let layout_path = build_layout_path(site_name, layout_name, config);
-    
+
     let layout_content = load_layout(&layout_path).map_err(|err| {
         crate::error::Error::Liquid(format!(
             "Pagination layout '{}' was not found at '{}': {}",
@@ -61,13 +61,15 @@ pub fn load_and_render_pagination_layout(
     })?;
 
     // Process the layout content with all template tags and variables
-    let rendered_content = process_template_tags(&layout_content, context_variables, Some(includes), None)
-        .map_err(|err| {
-            crate::error::Error::Liquid(format!(
-                "Failed to render pagination layout '{}': {}",
-                layout_name, err
-            ))
-        })?;
-    
+    let rendered_content =
+        process_template_tags(&layout_content, context_variables, Some(includes), None).map_err(
+            |err| {
+                crate::error::Error::Liquid(format!(
+                    "Failed to render pagination layout '{}': {}",
+                    layout_name, err
+                ))
+            },
+        )?;
+
     Ok(Some(rendered_content))
 }

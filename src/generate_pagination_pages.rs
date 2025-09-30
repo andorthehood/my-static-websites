@@ -19,7 +19,7 @@ pub fn generate_pagination_pages(
     if !global_variables.contains_key("pagination_layout") {
         return Ok(()); // Skip pagination generation
     }
-    
+
     let total_pages = posts.len().div_ceil(posts_per_page);
 
     for page_num in 1..=total_pages {
@@ -39,13 +39,13 @@ pub fn generate_pagination_pages(
         let has_next = page_num < total_pages;
         variables.insert("has_previous".to_string(), has_previous.to_string());
         variables.insert("has_next".to_string(), has_next.to_string());
-        
+
         if has_previous {
             let prev_page = page_num - 1;
             variables.insert("previous_page_number".to_string(), prev_page.to_string());
             variables.insert("previous_page_url".to_string(), format!("/page{prev_page}"));
         }
-        
+
         if has_next {
             let next_page = page_num + 1;
             variables.insert("next_page_number".to_string(), next_page.to_string());
@@ -56,15 +56,25 @@ pub fn generate_pagination_pages(
         add_posts_collection_to_variables(&mut variables, "page_posts", page_posts);
 
         // Add page numbers collection for iteration in templates
-        add_page_links_collection_to_variables(&mut variables, "page_numbers", page_num, total_pages);
+        add_page_links_collection_to_variables(
+            &mut variables,
+            "page_numbers",
+            page_num,
+            total_pages,
+        );
 
         // Add page navigation links (JSON format for backwards compatibility)
         let mut page_links = Vec::new();
         for i in 1..=total_pages {
-            page_links.push(format!("{{\"number\": {i}, \"url\": \"/page{i}\", \"current\": {}}}",
-                if i == page_num { "true" } else { "false" }));
+            page_links.push(format!(
+                "{{\"number\": {i}, \"url\": \"/page{i}\", \"current\": {}}}",
+                if i == page_num { "true" } else { "false" }
+            ));
         }
-        variables.insert("page_links".to_string(), format!("[{}]", page_links.join(", ")));
+        variables.insert(
+            "page_links".to_string(),
+            format!("[{}]", page_links.join(", ")),
+        );
 
         // Try to render using pagination layout template
         let body = match load_and_render_pagination_layout(
@@ -115,10 +125,22 @@ fn add_page_links_collection_to_variables(
 ) {
     for page_num in 1..=total_pages {
         let index = page_num - 1; // 0-based index
-        variables.insert(format!("{}.{}.number", collection_name, index), page_num.to_string());
-        variables.insert(format!("{}.{}.url", collection_name, index), format!("/page{}", page_num));
-        variables.insert(format!("{}.{}.current", collection_name, index), 
-            if page_num == current_page { "true".to_string() } else { "false".to_string() });
+        variables.insert(
+            format!("{}.{}.number", collection_name, index),
+            page_num.to_string(),
+        );
+        variables.insert(
+            format!("{}.{}.url", collection_name, index),
+            format!("/page{}", page_num),
+        );
+        variables.insert(
+            format!("{}.{}.current", collection_name, index),
+            if page_num == current_page {
+                "true".to_string()
+            } else {
+                "false".to_string()
+            },
+        );
     }
 }
 
@@ -318,7 +340,10 @@ mod tests {
         let mut global_variables = HashMap::new();
         global_variables.insert("site_title".to_string(), "Test Site".to_string());
         // Set a non-existent layout to test error when layout is configured but file missing
-        global_variables.insert("pagination_layout".to_string(), "non-existent-layout".to_string());
+        global_variables.insert(
+            "pagination_layout".to_string(),
+            "non-existent-layout".to_string(),
+        );
         let config = SiteConfig::default();
 
         // Clean up any existing output directory
@@ -376,7 +401,7 @@ mod tests {
 
         // Should succeed without generating any pagination pages
         assert!(result.is_ok());
-        
+
         // No pagination pages should be created
         assert!(!Path::new("out/test/page1.html").exists());
 
