@@ -59,7 +59,7 @@ fn handle_command(args: &[&str]) -> Result<()> {
         ["generate"] => {
             eprintln!("Error: Site name is required for generate command.");
             eprintln!("Usage: {} generate <site_name>", args[0]);
-            eprintln!("Example: {} generate lepkef.ing", args[0]);
+            eprintln!("Example: {} generate polgarand.org", args[0]);
             std::process::exit(1);
         }
         ["serve", site_name] => {

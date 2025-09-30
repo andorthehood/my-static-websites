@@ -2,7 +2,7 @@
 
 **ALWAYS follow these instructions first. Only fall back to search or bash commands when you encounter unexpected information that does not match these instructions.**
 
-lepkefing is a zero-dependency static site generator written in Rust. It regenerates everything on each build (no caching) but remains fast due to Rust's performance. It powers real websites like lepkef.ing, polgarhivatal.nl, and 8f4e.com deployed on Netlify.
+lepkefing is a zero-dependency static site generator written in Rust. It regenerates everything on each build (no caching) but remains fast due to Rust's performance. It powers real websites like polgarand.org, polgarhivatal.nl, and 8f4e.com deployed on Netlify.
 
 ## Working Effectively
 
@@ -41,12 +41,12 @@ cargo build --release
 
 ### Generate Static Sites
 ```bash
-# Generate a specific site (very fast - ~5ms for test site, ~1.7s for lepkef.ing)
+# Generate a specific site (very fast - ~5ms for test site, ~1.7s for polgarand.org)
 cargo run -- generate <site_name>
 
 # Examples:
 cargo run -- generate test
-cargo run -- generate lepkef.ing
+cargo run -- generate polgarand.org
 cargo run -- generate polgarhivatal.nl
 ```
 
@@ -74,7 +74,7 @@ cargo run -- watch <site_name> --ramdisk
 
 ### Advanced Development with tmux
 ```bash
-# Start split-screen development for lepkef.ing (watch + serve)
+# Start split-screen development for polgarand.org (watch + serve)
 make lepkefing-dev
 
 # Start split-screen development for polgarhivatal.nl
@@ -129,7 +129,7 @@ cargo test -- --test-threads=1               # ~10s - NEVER use parallel tests
 ```bash
 # Test site generation with different sites
 cargo run -- generate test                   # Fast test site (~5ms)
-cargo run -- generate lepkef.ing            # Real site (~1.7s)
+cargo run -- generate polgarand.org            # Real site (~1.7s)
 
 # Verify output structure
 ls -la out/test/                             # Should contain .html, .json, assets/, posts/
@@ -168,7 +168,7 @@ ls -la /dev/shm/ | grep lepkefing           # Should show lepkefing_out director
   - `src/minifier/` - HTML, CSS, JS minification
 - `sites/` - Site content directories
   - `sites/test/` - Test site for development and testing
-  - `sites/lepkef.ing/` - Production site example
+  - `sites/polgarand.org/` - Production site example
 - `out/` - Generated static files (created during generation)
 - `hooks/` - Git hooks for code formatting
 - `.github/workflows/` - CI/CD pipeline
@@ -214,7 +214,7 @@ All timings are measured on typical development hardware:
 - **Release build**: ~3 seconds  
 - **Test suite**: ~10 seconds (with `--test-threads=1`)
 - **Test site generation**: ~5 milliseconds
-- **lepkef.ing generation**: ~1.7 seconds
+- **polgarand.org generation**: ~1.7 seconds
 - **Development server startup**: ~1 second
 - **Linting**: ~3 seconds
 - **Coverage generation**: ~10 seconds (after tarpaulin installed)

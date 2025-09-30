@@ -24,7 +24,7 @@ mod tests {
 
     #[test]
     fn test_convert_real_style_scss_contains_expected_rules() {
-        let path = Path::new("sites/lepkef.ing/assets/style.scss");
+        let path = Path::new("sites/polgarand.org/assets/style.scss");
         let css = scss_to_css_with_inline_imports(path).expect("convert scss");
         println!("FLATTENED_LEN={}", css.len());
         if let Some(pos) = css.find("article") {
