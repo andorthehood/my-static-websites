@@ -96,14 +96,14 @@ fn generate_category_pagination_pages(
         let has_next = page_num < total_pages;
         variables.insert("has_previous".to_string(), has_previous.to_string());
         variables.insert("has_next".to_string(), has_next.to_string());
-        
+
         if has_previous {
             let prev_page = page_num - 1;
             let prev_url = format!("/category/{category_slug}/page{prev_page}");
             variables.insert("previous_page_number".to_string(), prev_page.to_string());
             variables.insert("previous_page_url".to_string(), prev_url);
         }
-        
+
         if has_next {
             let next_page = page_num + 1;
             let next_url = format!("/category/{category_slug}/page{next_page}");
@@ -112,14 +112,23 @@ fn generate_category_pagination_pages(
         }
 
         // Add category-specific navigation URLs
-        variables.insert("category_index_url".to_string(), format!("/category/{category_slug}/page1"));
+        variables.insert(
+            "category_index_url".to_string(),
+            format!("/category/{category_slug}/page1"),
+        );
         variables.insert("site_index_url".to_string(), "/".to_string());
 
         // Add posts collection to context
         add_category_posts_collection_to_variables(&mut variables, "page_posts", page_posts);
 
         // Add page numbers collection for iteration in category templates
-        add_category_page_links_collection_to_variables(&mut variables, "page_numbers", page_num, total_pages, category_slug);
+        add_category_page_links_collection_to_variables(
+            &mut variables,
+            "page_numbers",
+            page_num,
+            total_pages,
+            category_slug,
+        );
 
         // Try to render using category pagination layout template first, then regular pagination layout
         let body = if global_variables.contains_key("category_pagination_layout") {
@@ -179,11 +188,12 @@ pub fn generate_category_pages(
 ) -> Result<()> {
     // Check if category pagination or regular pagination layout is configured
     // If neither is configured, skip category pagination generation
-    if !global_variables.contains_key("category_pagination_layout") 
-        && !global_variables.contains_key("pagination_layout") {
+    if !global_variables.contains_key("category_pagination_layout")
+        && !global_variables.contains_key("pagination_layout")
+    {
         return Ok(()); // Skip category pagination generation
     }
-    
+
     // Filter out unlisted posts for category pagination (same as main pagination)
     let filtered_posts: ContentCollection = posts
         .iter()
@@ -364,7 +374,10 @@ mod tests {
         let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
         let mut global_variables = HashMap::new();
         global_variables.insert("title".to_string(), "Test Site".to_string());
-        global_variables.insert("category_pagination_layout".to_string(), "category-pagination".to_string());
+        global_variables.insert(
+            "category_pagination_layout".to_string(),
+            "category-pagination".to_string(),
+        );
         let config = SiteConfig::default();
 
         // Clean up any existing output directory
@@ -399,16 +412,21 @@ mod tests {
 
     #[test]
     fn test_category_pagination_layout_missing_file_error() {
-        let posts = vec![
-            create_test_post_with_category("Error Post", "2024-01-01", Some("Test Category")),
-        ];
+        let posts = vec![create_test_post_with_category(
+            "Error Post",
+            "2024-01-01",
+            Some("Test Category"),
+        )];
 
         let includes = HashMap::new();
         let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
         let mut global_variables = HashMap::new();
         global_variables.insert("title".to_string(), "Test Site".to_string());
         // Set a non-existent layout to test error when layout is configured but file missing
-        global_variables.insert("category_pagination_layout".to_string(), "non-existent".to_string());
+        global_variables.insert(
+            "category_pagination_layout".to_string(),
+            "non-existent".to_string(),
+        );
         let config = SiteConfig::default();
 
         // Clean up any existing output directory
@@ -438,9 +456,11 @@ mod tests {
 
     #[test]
     fn test_category_pagination_skipped_when_no_layout_configured() {
-        let posts = vec![
-            create_test_post_with_category("Skip Post", "2024-01-01", Some("Test Category")),
-        ];
+        let posts = vec![create_test_post_with_category(
+            "Skip Post",
+            "2024-01-01",
+            Some("Test Category"),
+        )];
 
         let includes = HashMap::new();
         let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
@@ -466,7 +486,7 @@ mod tests {
 
         // Should succeed without generating any category pagination pages
         assert!(result.is_ok());
-        
+
         // No category pagination pages should be created
         assert!(!Path::new("out/test/category/test-category/page1.html").exists());
 
@@ -499,9 +519,21 @@ fn add_category_page_links_collection_to_variables(
 ) {
     for page_num in 1..=total_pages {
         let index = page_num - 1; // 0-based index
-        variables.insert(format!("{}.{}.number", collection_name, index), page_num.to_string());
-        variables.insert(format!("{}.{}.url", collection_name, index), format!("/category/{}/page{}", category_slug, page_num));
-        variables.insert(format!("{}.{}.current", collection_name, index), 
-            if page_num == current_page { "true".to_string() } else { "false".to_string() });
+        variables.insert(
+            format!("{}.{}.number", collection_name, index),
+            page_num.to_string(),
+        );
+        variables.insert(
+            format!("{}.{}.url", collection_name, index),
+            format!("/category/{}/page{}", category_slug, page_num),
+        );
+        variables.insert(
+            format!("{}.{}.current", collection_name, index),
+            if page_num == current_page {
+                "true".to_string()
+            } else {
+                "false".to_string()
+            },
+        );
     }
 }
