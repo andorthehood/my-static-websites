@@ -1,3 +1,8 @@
+const trivia = [
+    "Did you know that if the DVD logo hits one corner, it is guaranteed to hit a second one?",
+    "Did you know that if the DVD logo ever hits a corner, it retraces its previous path in reverse?",
+];
+
 (function () {
     const clippy = document.getElementById('clippy');
     const clippyGif = document.getElementById('clippy-gif');
@@ -6,18 +11,17 @@
         clippyGif.src = 'https://static.llllllllllll.com/andor/assets/clippy/swaying.gif?c=' + Date.now();
     }, 8000);
 
-    setTimeout(function () {
-        if (!document.body.classList.contains('collapsed')) {
-            return;
-        }
-
+    let i = 0;
+    setInterval(function() {
         const message = document.createElement('div');
         message.className = 'message';
-        message.innerHTML = 'It looks like you\'re waiting for the DVD logo to hit the corner. I\'d love to see it too... If we\'re both patient, something just might happen soon...';
+        message.innerHTML = trivia[i % trivia.length];
         clippy.appendChild(message);
 
         setTimeout(function () {
             message.remove();
         }, 1000 * 15);
+
+        i++;
     }, 1000 * 60);
 })();
