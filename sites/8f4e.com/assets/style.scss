@@ -11,7 +11,7 @@ html {
 
 	margin: 0;
 	padding: 0;
-	background: #003300;
+	background: #000000;
 	color: #fff;
 }
 
@@ -22,6 +22,7 @@ html {
 	font-size: 22px;
 	padding: 22px;
 	margin-top: 176px;
+	position: relative;
 }
 
 @media(max-width:1500px) {
@@ -71,4 +72,12 @@ li i {
 	display: block;
 	text-align: center;
 	font-size: 44px;
+}
+
+#glcanvas {
+	background: #000000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	image-rendering: pixelated;
 }
