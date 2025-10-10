@@ -1,102 +1,75 @@
-const pageSpecificStyleTags = [];
-const pageCache = new Map();
+function mainThreadLogicRuntime(state, events) {
+	let runtime;
 
-function handleStyleTags(data) {
-	pageSpecificStyleTags.forEach(style => style.remove());
-
-	return new Promise((resolve) => {
-		if (!data.css) {
-			resolve();
-		} else {
-			const head = document.querySelector('head');
-			const style = document.createElement('link');
-			style.rel = 'stylesheet';
-			style.href = '/assets/' + data.css;
-			head.appendChild(style);
-			pageSpecificStyleTags.push(style);
-
-			style.onload = () => {
-				resolve();
-			};
-		}
-	});
-}
-
-function replaceContent(data) {
-	const content = document.querySelector('.content');
-	handleStyleTags(data)
-		.then(() => {
-			content.innerHTML = data.content;
-			registerLinkHandlers();
-		});
-}
-
-function handleLinkClick(event) {
-	const link = event.currentTarget;
-	const href = link.getAttribute('href');
-
-	// If the link is external, don't do anything.
-	if (href.startsWith('http')) {
-		return;
+	function onInitialized() {
+		events.dispatch('runtimeInitialized');
 	}
 
-	event.preventDefault();
-	const content = document.querySelector('.content');
-
-	const json = (href === '/' || href === '') ? '/index.json' : href + '.json';
-	
-	// Check cache first
-	if (pageCache.has(json)) {
-		const data = pageCache.get(json);
-		window.history.pushState({}, '', link.href);
-		replaceContent(data);
-		return;
+	function onStats(stats: { drift: number; timeToExecute: number }) {
+		console.log(stats);
 	}
 
-	document.body.classList.remove('collapsed');
-	content.innerHTML = 'Loading...';
-	fetch(json)
-		.then(response => response.json())
-		.then(data => {
-			// Cache the response
-			pageCache.set(json, data);
-			
-			window.history.pushState({}, '', link.href);
-			replaceContent(data);
-		});
-}
+	function onError(error: unknown) {
+		console.error('Main thread runtime error:', error);
+	}
 
-function registerLinkHandlers() {
-	const links = document.querySelectorAll('a');
-	links.forEach(link => {
-		link.removeEventListener('click', handleLinkClick);
-		link.addEventListener('click', handleLinkClick);
-	});
-}
-
-(function () {
-	window.addEventListener('popstate', function () {
-		const pathname = location.pathname;
-		const json = (pathname === '/' || pathname === '') ? '/index.json' : pathname + '.json';
-		const content = document.querySelector('.content');
-		
-		// Check cache first
-		if (pageCache.has(json)) {
-			const data = pageCache.get(json);
-			replaceContent(data);
+	function syncCodeAndSettingsWithRuntime() {
+		if (!runtime) {
 			return;
 		}
-		
-		document.body.classList.remove('collapsed');
-		content.innerHTML = 'Loading...';
-		fetch(location.origin + json)
-			.then(response => response.json())
-			.then(data => {
-				// Cache the response
-				pageCache.set(json, data);
-				replaceContent(data);
-			});
+		runtime.init(
+			state.compiler.memoryRef,
+			state.project.runtimeSettings[state.project.selectedRuntime].sampleRate,
+			state.compiler.codeBuffer
+		);
+	}
+
+	runtime = RuntimeMainThreadLogic(onInitialized, onStats, onError);
+	syncCodeAndSettingsWithRuntime();
+
+	events.on('syncCodeAndSettingsWithRuntime', syncCodeAndSettingsWithRuntime);
+
+	return () => {
+		events.off('syncCodeAndSettingsWithRuntime', syncCodeAndSettingsWithRuntime);
+		if (runtime) {
+			runtime.stop();
+			runtime = undefined;
+		}
+	};
+}
+
+(async function () {
+
+	const canvas = document.getElementById('glcanvas');
+
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+
+	const editor = await Editor8f4e(canvas, {
+		featureFlags: {
+			persistentStorage: true,
+			infoOverlay: true,
+			viewportDragging: true,
+			moduleDragging: true,
+			contextMenu: true,
+		},
+		callbacks: {
+			requestRuntime: async function () {
+				console.log("requestRuntime");
+				return mainThreadLogicRuntime;
+			},
+			loadProjectFromStorage: async function () {
+				const response = await fetch("https://static.llllllllllll.com/andor/8f4e/test-project-3.json");
+				return await response.json();
+			},
+		}
 	});
 
-	registerLinkHandlers();
+	editor.resize(window.innerWidth, window.innerHeight);
+
+	window.addEventListener('resize', () => {
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+		editor.resize(window.innerWidth, window.innerHeight);
+	});
 })();
