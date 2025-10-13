@@ -48,10 +48,10 @@ function mainThreadLogicRuntime(state, events) {
 	const editor = await Editor8f4e(canvas, {
 		featureFlags: {
 			persistentStorage: true,
-			infoOverlay: true,
-			viewportDragging: true,
-			moduleDragging: true,
-			contextMenu: true,
+			infoOverlay: false,
+			viewportDragging: false,
+			moduleDragging: false,
+			contextMenu: false,
 		},
 		callbacks: {
 			requestRuntime: async function () {
