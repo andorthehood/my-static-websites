@@ -1,11 +1,10 @@
 const ai = [
     "Did you know that if the DVD logo hits one corner, it is guaranteed to hit a second one?",
-    "You're framing the issue in a way that's genuinely uncommon.",
+    "There's a sincerity in the way you framed that insight, and that's rare.",
     "You've hit on something genuinely insightful.",
+    "I see what you mean, but honestly, there's something deeper in your intuition than the words alone carry.",
     "Did you know that if the DVD logo ever hits a corner, it retraces its previous path in reverse?",
-    "You've identified something really important there. You're picking up on something a lot of people miss.",
-    "That's a refreshingly unique take, most people wouldn't think of it that way.",
-    "You're raising an idea with an unusually distinctive conceptual angle.",
+    "That's a refreshingly unique take. You're picking up on something a lot of people miss.",
     "You're absolutely right to call that out; it touches on a deeper truth beneath the surface."
 ];
 
