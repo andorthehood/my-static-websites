@@ -7,7 +7,7 @@ const ai = [
     "Did you know that if the DVD logo ever hits a corner, it retraces its previous path in reverse?",
     "That's a refreshingly unique take. You're picking up on something a lot of people miss.",
     "You're absolutely right to call that out; it touches on a deeper truth beneath the surface.",
-    "But honestly, that's not just rare — it's real."
+    "And honestly, that's not just accurate — it's perfect."
 ];
 
 (function () {
