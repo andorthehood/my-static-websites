@@ -1,8 +1,9 @@
 <div>
 
     <p>8f4e is a stack oriented programming language with a visual code editor that I created to perform generative
-        music at algorave events. I wanted an efficient and portable tool for real time audio signal generation and
-        processing.</p>
+        music at algorave events.</p>
+    <p>Its primary target is the WebAssembly virtual machine, as I wanted an efficient yet portable tool for real time
+        audio signal generation and processing.</p>
 </div>
 <div>
     <a href="https://editor.8f4e.com">Launch the Editor</a>
@@ -10,27 +11,39 @@
 
 <div>
     <p>
-        Stack oriented programming means that instead of using variables, values are pushed onto a stack, and
-        instructions take their inputs from the same stack and leave their results there for the next instruction.
+        Stack oriented programming means that instead of using registers, instructions take their operands
+        from a stack, and
+        push their results back onto the same stack for the next instruction.
     </p>
+
+    <p>I chose this programming paradigm because the WebAssembly virtual machine is
+        itself a stack machine.</p>
+
+    <p>Staying native to this execution model avoids costly abstractions and makes it possible to build a simpler and
+        faster compiler.</p>
 </div>
 
 <div>
     <pre>
 <span class="instruction">push</span> 2
 <span class="instruction">push</span> 3
+<span class="comment">; Pushing values 2 and 3 onto the stack.</span>
 <span class="instruction">add</span>
-<span class="comment">; After executing these three instructions,</span>
+<span class="comment">; After executing the add instruction,</span>
 <span class="comment">; the stack will contain the value 5</span>
 
 <span class="instruction">push</span> 10
-<span class="instruction">multiply</span>
+<span class="instruction">mul</span>
 <span class="comment">; Now the stack will contain the value 50</span>
+
+<span class="instruction">push</span> 10
+<span class="instruction">div</span>
+<span class="comment">; Now 5 again</span>
 </pre>
 </div>
 
 <div>
-    <p>It's also possible to take values from the stack and store them in variables.</p>
+    <p>It's also possible to take values from the stack and store them in the memory.</p>
     <p>The language utilizes C-style pointer
         notations.</p>
 </div>
@@ -45,12 +58,26 @@
 </pre>
 </div>
 
+
+<div>Programs in 8f4e run inside an endless loop. This reflects how real time audio systems operate, where
+    processing consists of continuously reading from and writing to audio buffers.</p>
+    <p>8f4e removes this control flow boilerplate and allows programs to focus purely on signal generation and
+        transformation.</p>
+</div>
+
+
+<div>
+    <pre>
+<span class="comment">; Assuming word size is 4 bytes</span>
+<span class="comment">; Memory address of a is 0x1000</span>
+    </pre>
+
+</div>
+
 <div>
     <p>In 8f4e, variables declared sequentially in the code are allocated in adjacent memory locations.</p>
     <p>Runtime memory allocation is not supported, developers must pre-plan their software's memory needs during coding.
     </p>
-
-
 </div>
 
 <div>
@@ -61,15 +88,6 @@
 <span class="comment">; Memory address of c is b + word size</span></pre>
 </div>
 
-<div>The syntax and commands of 8f4e were inspired by assembly languages, but instead of the typical cryptic mnemonics
-    like cndjmp, 8f4e uses more descriptive operation names such as branchIfTrue.</div>
-<div>
-    <pre>
-<span class="instruction">branchIfTrue</span>
-<span class="instruction">greaterOrEqual</span>
-<span class="instruction">shiftRightUnsigned</span>
-</pre>
-</div>
 
 <div>
     <p>The code is organized into modules, each containing variable declarations and a sequence of commands.</p>
