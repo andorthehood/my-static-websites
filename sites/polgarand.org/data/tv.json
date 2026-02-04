@@ -6,6 +6,18 @@
         "date": "February 3, 2026"
     },
     {
+        "title": "High-level is the goal (but why?)",
+        "id": "AmrBpxAtPrI",
+        "author": "Ben Visness",
+        "date": "January 3, 2026"
+    },
+    {
+        "title": "From Chengdu - Passepartout Duo",
+        "id": "F4jxwdfRdgM",
+        "author": "Passepartout Duo",
+        "date": "December 18, 2025"
+    },
+    {
         "title": "Pushing Simulation to the Limit to Find Order in Chaos",
         "id": "8jVogdTJESw",
         "author": "Drew's Campfire",
@@ -48,10 +60,34 @@
         "date": "October 3, 2025"
     },
     {
+        "title": "AI Sleeper Agents: How Anthropic Trains and Catches Them",
+        "id": "Z3WMt_ncgUI",
+        "author": "Rational Animations",
+        "date": "August 30, 2025"
+    },
+    {
         "title": "I Saved a PNG Image To A Bird",
         "id": "hCQCP-5g5bo",
         "author": "Benn Jordan",
         "date": "July 26, 2025"
+    },
+    {
+        "title": "The Headless Way: A Simple Trick to Realize You're Not in the World",
+        "id": "KNw7j4jF20o",
+        "author": "Jamess Larcey",
+        "date": "April 21, 2025"
+    },
+    {
+        "title": "Making an 8 Channel Active Audio Mixer",
+        "id": "SHH72r4SKWQ",
+        "author": "Something Physical",
+        "date": "March 31, 2025"
+    },
+    {
+        "title": "ChatGPT is made from 100 million of these (The Perceptron)",
+        "id": "l-9ALe3U-Fg",
+        "author": "Welch Labs",
+        "date": "February 1, 2025"
     },
     {
         "title": "Jreg: Post-Ironic Hyper-Political Extremism",
@@ -90,10 +126,28 @@
         "date": "July 10, 2023"
     },
     {
+        "title": "How Electricity Actually Works",
+        "id": "oI_X2cMHNe0",
+        "author": "Veritasium",
+        "date": "April 29, 2022"
+    },
+    {
         "title": "15 Step - Radiohead (cover)",
         "id": "Rbe00KUyTwM",
         "author": "Nichola Ingvarson",
         "date": "June 15, 2021"
+    },
+    {
+        "title": "Freddie Mercury Slips On Ice and Can't Get Up",
+        "id": "0-gPcpDgeI4",
+        "author": "Walf Archives",
+        "date": "October 20, 2019"
+    },
+    {
+        "title": "The STD Song",
+        "id": "uukvEcd25oQ",
+        "author": "Caroline Konstnar",
+        "date": "May 16, 2019"
     },
     {
         "title": "That's the sound.",
@@ -120,9 +174,27 @@
         "date": "April 24, 2017"
     },
     {
+        "title": "New.Txt - TextMode Demo (50FPS)",
+        "id": "fWyvoKzQn78",
+        "author": "Quebarium",
+        "date": "December 15, 2015"
+    },
+    {
         "title": "We Get Some Kids Riled Up For Pizza And Then Leave",
         "id": "eDmRXlj39Dc",
         "author": "ClickHole",
         "date": "March 24, 2015"
+    },
+    {
+        "title": "John I Want a Divorce",
+        "id": "XDXrP9HET2A",
+        "author": "Dandy",
+        "date": "September 14, 2013"
+    },
+    {
+        "title": "Gaia Machina - Approximate | 64k Revision 2012",
+        "id": "UchVsOVxYXQ",
+        "author": "Demoscene High Quality Videos",
+        "date": "April 11, 2012"
     }
 ]
