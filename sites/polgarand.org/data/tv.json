@@ -8,7 +8,7 @@
     {
         "title": "Pushing Simulation to the Limit to Find Order in Chaos",
         "id": "8jVogdTJESw",
-        "author": "Drew's Campfire",  
+        "author": "Drew's Campfire",
         "date": "December 17, 2025"
     },
     {
@@ -36,6 +36,12 @@
         "date": "October 8, 2025"
     },
     {
+        "title": "Wolfram Was Right About Everything",
+        "id": "A5_yh6Jnrbk",
+        "author": "Curt Jaimungai",
+        "date": "October 5, 2025"
+    },
+    {
         "title": "Programming in Assembly without an Operating System",
         "id": "ZFHnbozz7b4",
         "author": "Inkbox",
@@ -45,7 +51,7 @@
         "title": "I Saved a PNG Image To A Bird",
         "id": "hCQCP-5g5bo",
         "author": "Benn Jordan",
-        "date": "Jul 26, 2025"
+        "date": "July 26, 2025"
     },
     {
         "title": "Jreg: Post-Ironic Hyper-Political Extremism",
@@ -57,19 +63,43 @@
         "title": "Downloading Images From US Military Satellites",
         "id": "ReHYn7llzy4",
         "author": "saveitforparts",
-        "date": "Aug 29, 2024"
+        "date": "August 29, 2024"
+    },
+    {
+        "title": "Harry Potter and the Stone",
+        "id": "lEDGdzulfoQ",
+        "author": "Doggie House",
+        "date": "July 21, 2024"
+    },
+    {
+        "title": "What's inside the World's Most Exclusive Club?",
+        "id": "rAbe9QJD7LA",
+        "author": "Hoog",
+        "date": "April 13, 2024"
     },
     {
         "title": "Non-Eucledian Therapy for AI Trauma",
         "id": "FQ9l4v7zB3I",
         "author": "neoknowstic",
-        "date": "Aug 19, 2023"
+        "date": "August 19, 2023"
+    },
+    {
+        "title": "The ten rules of techno",
+        "id": "B_D3dCSylCg",
+        "author": "Underdog Electronic Music School",
+        "date": "July 10, 2023"
     },
     {
         "title": "15 Step - Radiohead (cover)",
         "id": "Rbe00KUyTwM",
         "author": "Nichola Ingvarson",
-        "date": "Jun 15, 2021"
+        "date": "June 15, 2021"
+    },
+    {
+        "title": "That's the sound.",
+        "id": "seFHSuL0nsw",
+        "author": "jazz",
+        "date": "December 25, 2018"
     },
     {
         "title": "Amazon's Union-Busting Training Video",
@@ -81,12 +111,18 @@
         "title": "JavaScript for-loops are... complicated",
         "id": "Nzokr6Boeaw",
         "author": "Chrome for Developers",
-        "date": "Aug 7, 2018"
+        "date": "August 7, 2018"
     },
     {
         "title": "cat city",
         "id": "NWeyUpqnKuk",
         "author": "vewn",
-        "date": "Apr 24, 2017"
+        "date": "April 24, 2017"
+    },
+    {
+        "title": "We Get Some Kids Riled Up For Pizza And Then Leave",
+        "id": "eDmRXlj39Dc",
+        "author": "ClickHole",
+        "date": "March 24, 2015"
     }
 ]
