@@ -31,3 +31,9 @@
         }
     }
 }
+
+@media (max-width: 600px) {
+    .tv ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
