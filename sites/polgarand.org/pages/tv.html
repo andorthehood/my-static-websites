@@ -11,11 +11,11 @@ css: 'tv.scss'
     <ul>
         {% for video in data.tv %}
         <li>
-            <img src="https://static.llllllllllll.com/andor/assets/thumbnails/{{video.id}}.jpg" />
-            <a href="https://www.youtube.com/watch?v={{video.id}}" alt="{{video.title}}"
-                target="_blank">{{video.title}}</a>
-            &nbsp;|&nbsp;<span class="author">{{video.author}}</span>
-            &nbsp;|&nbsp;<span class="date">{{video.date}}</span>
+            <img src="https://static.llllllllllll.com/andor/assets/thumbnails/{{video.id}}.jpg" loading="lazy"
+                alt="{{video.title}}" />
+            <a href="https://www.youtube.com/watch?v={{video.id}}" target="_blank">{{video.title}}</a>
+            <span class="author">{{video.author}}</span>
+            <span class="date">{{video.date}}</span>
         </li>
         {% endfor %}
     </ul>

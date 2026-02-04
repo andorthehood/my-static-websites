@@ -1,21 +1,33 @@
 .tv {
     font-family: "Departure Mono", sans-serif;
     font-size: 16.5px;
-}
 
-.tv ul {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    font-family: "Departure Mono", sans-serif;
-    list-style: none;
-    font-size: 16.5px;
-}
+    ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        font-family: "Departure Mono", sans-serif;
+        list-style: none;
+        font-size: 16.5px;
+    }
 
-.tv li {
+    li {
+        a {
+            text-decoration: underline;
+            color: blue;
+            display: block;
+        }
 
-    img {
-        width: 100%;
-        display: block;
+        span {
+            display: block;
+            color: #666666;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
     }
 }
