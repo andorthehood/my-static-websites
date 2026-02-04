@@ -1,0 +1,22 @@
+---
+layout: page
+title: 'TV'
+date: 2023-07-19 19:00:00 -0100
+location: 'Zandvoort, Netherlands'
+css: 'tv.scss'
+---
+<div class="tv">
+    <p>Every time I find a video I like, I save it to this list.</p>
+
+    <ul>
+        {% for video in data.tv %}
+        <li>
+            <img src="https://static.llllllllllll.com/andor/assets/thumbnails/{{video.id}}.jpg" />
+            <a href="https://www.youtube.com/watch?v={{video.id}}" alt="{{video.title}}"
+                target="_blank">{{video.title}}</a>
+            &nbsp;|&nbsp;<span class="author">{{video.author}}</span>
+            &nbsp;|&nbsp;<span class="date">{{video.date}}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

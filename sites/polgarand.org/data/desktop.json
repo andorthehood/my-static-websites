@@ -100,5 +100,10 @@
 		"icon": "🐙",
 		"label": "GitHub",
 		"target": "_blank"
+	},
+	{
+		"href": "/tv",
+		"icon": "📺",
+		"label": "TV"
 	}
 ]

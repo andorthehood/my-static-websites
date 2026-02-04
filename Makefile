@@ -18,12 +18,12 @@ serve:
 watch:
 	cargo run -- watch $(SITE) --ramdisk
 
-lepkefing-dev:
-	tmux new-session -d -s lepkef-dev \; \
+polgarandorg-dev:
+	tmux new-session -d -s polgarandorg-dev \; \
 	split-window -h \; \
 	send-keys -t 0 'cargo run -- watch polgarand.org --ramdisk' Enter \; \
-	send-keys -t 1 'cargo run -- serve' Enter \; \
-	attach-session -t lepkef-dev
+	send-keys -t 1 'cargo run -- serve polgarand.org' Enter \; \
+	attach-session -t polgarandorg-dev
 
 polgarhivatal-dev:
 	tmux new-session -d -s polgarhivatal-dev \; \
@@ -34,7 +34,7 @@ polgarhivatal-dev:
 
 format:
 	cargo fmt
-
+=
 lint:
 	cargo clippy
 

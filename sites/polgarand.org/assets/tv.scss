@@ -1,0 +1,21 @@
+.tv {
+    font-family: "Departure Mono", sans-serif;
+    font-size: 16.5px;
+}
+
+.tv ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    font-family: "Departure Mono", sans-serif;
+    list-style: none;
+    font-size: 16.5px;
+}
+
+.tv li {
+
+    img {
+        width: 100%;
+        display: block;
+    }
+}
