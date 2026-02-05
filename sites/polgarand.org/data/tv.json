@@ -54,6 +54,12 @@
         "date": "October 5, 2025"
     },
     {
+        "title": "Every goto in the Linux kernel",
+        "id": "v1Mfirg2-Z8",
+        "author": "Srcerer",
+        "date": "October 4, 2025"
+    },
+    {
         "title": "Programming in Assembly without an Operating System",
         "id": "ZFHnbozz7b4",
         "author": "Inkbox",
@@ -72,10 +78,22 @@
         "date": "August 25, 2025"
     },
     {
+        "title": "Tape Bowing Ensemble",
+        "id": "vaG5tVnpkwc",
+        "author": "Open Reel Ensemble",
+        "date": "August 11, 2025"
+    },
+    {
         "title": "I Saved a PNG Image To A Bird",
         "id": "hCQCP-5g5bo",
         "author": "Benn Jordan",
         "date": "July 26, 2025"
+    },
+    {
+        "title": "I took Magic Mushrooms and did Math",
+        "id": "78EZD4JIJWA",
+        "author": "Maggie Vail",
+        "date": "May 6, 2025"
     },
     {
         "title": "The Headless Way: A Simple Trick to Realize You're Not in the World",
@@ -96,16 +114,40 @@
         "date": "February 1, 2025"
     },
     {
+        "title": "Corporate Ice Breakers",
+        "id": "JEzGm8da1M4",
+        "author": "kyle lucero",
+        "date": "January 18, 2025"
+    },
+    {
+        "title": "Why you should make junk zines",
+        "id": "9AQmeHZwUeA",
+        "author": "Gabe Donovan",
+        "date": "January 6, 2025"
+    },
+    {
         "title": "A felnőtt Mézga Aladár felhívja MZ/X-et 2024-ből",
         "id": "LOEljKoyOY0",
         "author": "Különös történések a Szondi utcában",
         "date": "October 28, 2024"
     },
     {
+        "title": "Analog horror - streetlight",
+        "id": "pQweWdXeqVM",
+        "author": "Zenith Initiative",
+        "date": "October 27, 2024"
+    },
+    {
         "title": "Jreg: Post-Ironic Hyper-Political Extremism",
         "id": "jhsUchBe3I0",
         "author": "Joshua Citarella",
         "date": "September 17, 2024"
+    },
+    {
+        "title": "How 9/11 happened in Cars",
+        "id": "Rv88YLeM_DQ",
+        "author": "vro",
+        "date": "September 11, 2024"
     },
     {
         "title": "Downloading Images From US Military Satellites",
@@ -138,10 +180,22 @@
         "date": "July 10, 2023"
     },
     {
+        "title": "Rare Chord: Maj7‡11‡15‡19 (harmony in 31-edo)",
+        "id": "I9h-aZUxXS0",
+        "author": "Zheanna Erose",
+        "date": "April 11, 2023"
+    },
+    {
         "title": "Why is LinkedIn so weird?",
         "id": "IMfBS4mBfBQ",
         "author": "Good Work",
         "date": "April 7, 2023"
+    },
+    {
+        "title": "Toilet Paper Bears",
+        "id": "IMKW-ifxikE",
+        "author": "Joel Haver",
+        "date": "Jul 14, 2022"
     },
     {
         "title": "How Electricity Actually Works",
@@ -150,10 +204,28 @@
         "date": "April 29, 2022"
     },
     {
+        "title": "The Nut Room is Crazy",
+        "id": "6OUDk4gMFLA",
+        "author": "Don Stever",
+        "date": "December 28, 2021"
+    },
+    {
         "title": "15 Step - Radiohead (cover)",
         "id": "Rbe00KUyTwM",
         "author": "Nichola Ingvarson",
         "date": "June 15, 2021"
+    },
+    {
+        "title": "POV you just turned on the History Channel for the first time in 15 years",
+        "id": "TPSr9eTmeKI",
+        "author": "Joel Haver",
+        "date": "February 16, 2021"
+    },
+    {
+        "title": "Megalovania on church organ",
+        "id": "PeUfo_sVpsU",
+        "author": "Komp15",
+        "date": "January 3, 2020"
     },
     {
         "title": "This Video Is Sponsored By ███ VPN",
@@ -172,6 +244,12 @@
         "id": "h6fcK_fRYaI",
         "author": "Kurzgesagt",
         "date": "September 1, 2019"
+    },
+    {
+        "title": "THE SIMPSONS. Russian Art Film Version",
+        "id": "q1u7XZ9c8fI",
+        "author": "Lazy Square",
+        "date": "July 7, 2019"
     },
     {
         "title": "What is Mr. Krabs' Net Worth?",
@@ -252,6 +330,12 @@
         "date": "July 4, 2018"
     },
     {
+        "title": "Pink Panther theme song played with a marker",
+        "id": "RSnVBQl09OA",
+        "author": "A Music",
+        "date": "April 21, 2018"
+    },
+    {
         "title": "Harry Potter except it's written by an AI",
         "id": "6rEkKWXCcR4",
         "author": "SootHouse",
@@ -300,6 +384,12 @@
         "date": "May 13, 2016"
     },
     {
+        "title": "Stopping at Mcdonald's in 1989",
+        "id": "EZJAtkqiV8U",
+        "author": "5ninthavenueproject",
+        "date": "March 24, 2016"
+    },
+    {
         "title": "Káromkodó robot - feat Mucsi Zoltán",
         "id": "u4zGSc57euk",
         "author": "Mronk",
@@ -316,6 +406,12 @@
         "id": "eDmRXlj39Dc",
         "author": "ClickHole",
         "date": "March 24, 2015"
+    },
+    {
+        "title": "Creating a DOOM-style 3D engine in C",
+        "id": "HQYsFshbkYw",
+        "author": "Bisquit",
+        "date": "January 19, 2015"
     },
     {
         "title": "John I Want a Divorce",
@@ -358,5 +454,17 @@
         "id": "WAG9Xn5bJwQ",
         "author": "BriTANicK",
         "date": "January 21, 2011"
+    },
+    {
+        "title": "RADIOHEAD NUDE Big Ideas (don't get any) covered by machines",
+        "id": "CgB5DU0uEdg",
+        "author": "unbrandhead",
+        "date": "May 28, 2010"
+    },
+    {
+        "title": "Ben Shapiro, 12, Plays Schindler's List",
+        "id": "aK8mbA083hE",
+        "author": "Ben Shapiro",
+        "date": "March 19, 2012"
     }
 ]
