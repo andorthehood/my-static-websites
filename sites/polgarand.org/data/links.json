@@ -16,7 +16,8 @@
     },
     {
         "url": "https://wattenberger.com/",
-        "title": "Amelia Wattenberger"
+        "title": "Amelia Wattenberger",
+        "description": "Personal site of Amelia Wattenberger, creating web-based data visualizations and novel interfaces."
     },
     {
         "url": "https://dynamicland.org/",
@@ -25,7 +26,7 @@
     },
     {
         "url": "https://github.com/mozilla/bedrock/commit/d459addab846d8144b61939b7f4310eb80c5470e",
-        "title": "Tos copy updates (fix #16016) (#16018) · mozilla/bedrock@d459add",
+        "title": "Tos copy updates (fix #16016) (#16018) \u00b7 mozilla/bedrock@d459add",
         "description": "* ToS copy updates (fix #16016) * Apply suggestions from code review - copy change"
     },
     {
@@ -45,23 +46,28 @@
     },
     {
         "url": "https://tonsky.me/",
-        "title": "Blog @ tonsky.me"
+        "title": "Blog @ tonsky.me",
+        "description": "Blog by Niki (tonsky) about programming and UI design."
     },
     {
         "url": "https://www.crudlabs.org/",
-        "title": "Crudlabs"
+        "title": "Crudlabs",
+        "description": "Crudlabs builds the Crudman cassette-walkman-based electronic instrument and shares specs, demos, and ordering info."
     },
     {
         "url": "https://ohshitgit.com/",
-        "title": "Oh Shit, Git!?!"
+        "title": "Oh Shit, Git!?!",
+        "description": "Plain-English guide to fixing common Git mistakes."
     },
     {
         "url": "https://nathanleclaire.com/",
-        "title": "nathan leclaire | I care, I share, I'm Nathan LeClaire."
+        "title": "nathan leclaire | I care, I share, I'm Nathan LeClaire.",
+        "description": "Essays on software engineering, business, and startups by Nathan LeClaire."
     },
     {
         "url": "https://fabiensanglard.net/",
-        "title": "Fabien Sanglard's Website"
+        "title": "Fabien Sanglard's Website",
+        "description": "Personal website with code and ideas by Fabien Sanglard, including articles on game engines and graphics."
     },
     {
         "url": "https://www.theverge.com/a/luka-artificial-intelligence-memorial-roman-mazurenko-bot",
@@ -70,15 +76,18 @@
     },
     {
         "url": "https://bost.ocks.org/mike/algorithms/",
-        "title": "Visualizing Algorithms"
+        "title": "Visualizing Algorithms",
+        "description": "Essay with interactive visualizations explaining algorithms and how to visualize them."
     },
     {
         "url": "https://bost.ocks.org/mike/",
-        "title": "Computerphile"
+        "title": "Computerphile",
+        "description": "Archive of Mike Bostock's writing, examples, talks, and projects."
     },
     {
         "url": "https://linusakesson.net/",
-        "title": "linusakesson.net"
+        "title": "linusakesson.net",
+        "description": "Linus Akesson's bilingual homepage, blog, and file archive."
     },
     {
         "url": "https://beej.us/",
@@ -87,36 +96,43 @@
     },
     {
         "title": "Julia Evans",
-        "url": "https://jvns.ca/"
+        "url": "https://jvns.ca/",
+        "description": "Julia Evans's blog with programming posts and links to her zines."
     },
     {
-        "title":"Hannah Kristina Metz",
-        "url": "http://hannahkristinametz.co/"
+        "title": "Hannah Kristina Metz",
+        "url": "http://hannahkristinametz.co/",
+        "description": "Portfolio and site for womenswear designer Hannah Kristina Metz."
     },
     {
         "url": "https://css-tricks.com/gooey-effect/",
-        "title": "The Gooey Effect | CSS-Tricks"
+        "title": "The Gooey Effect | CSS-Tricks",
+        "description": "CSS-Tricks article by Lucas Bebber explaining SVG filters for a gooey effect."
     },
     {
         "url": "https://github.com/regl-project/regl",
-        "title": "regl-project/regl: 👑 Functional WebGL"
+        "title": "regl-project/regl: \ud83d\udc51 Functional WebGL",
+        "description": "regl is a functional WebGL library focused on minimalism and performance."
     },
     {
         "url": "https://acko.net/",
-        "title": "Hackery, Math & Design — Acko.net",
+        "title": "Hackery, Math & Design \u2014 Acko.net",
         "description": "A blog about random hacks, graphics and design, math and other ephemera."
     },
     {
         "url": "http://www.romancortes.com/blog/furbee-my-js1k-spring-13-entry/",
-        "title": "Román Cortés » Furbee - My Js1k Spring ‘13 entry"
+        "title": "Rom\u00e1n Cort\u00e9s \u00bb Furbee - My Js1k Spring \u201813 entry",
+        "description": "Blog post about the Furbee JS1k Spring 2013 entry and how it was made."
     },
     {
         "url": "https://github.com/phanan/htaccess",
-        "title": "phanan/htaccess: ✂A collection of useful .htaccess snippets."
+        "title": "phanan/htaccess: \u2702A collection of useful .htaccess snippets.",
+        "description": "Collection of useful .htaccess snippets in one place."
     },
     {
         "url": "https://wingolog.org/archives/2011/06/08/what-does-v8-do-with-that-loop",
-        "title": "what does v8 do with that loop?"
+        "title": "what does v8 do with that loop?",
+        "description": "Wingolog blog post exploring how the V8 engine optimizes a loop."
     },
     {
         "url": "https://wingolog.org/",
@@ -125,11 +141,13 @@
     },
     {
         "url": "https://www.exampointers.com/teletext/teletext.phtml",
-        "title": "ExamPointers.com - Teletext Transmission"
+        "title": "ExamPointers.com - Teletext Transmission",
+        "description": "Technical notes on teletext transmission format, line structure, and packets."
     },
     {
         "url": "https://www.bbcbasic.co.uk/tccgen/tccgen.html",
-        "title": "Programmable Colour Test Card Generator"
+        "title": "Programmable Colour Test Card Generator",
+        "description": "Product page for a programmable colour test card generator that outputs PAL video and teletext pages."
     },
     {
         "url": "https://www.bbcbasic.co.uk/",
@@ -138,11 +156,13 @@
     },
     {
         "url": "https://zxnet.co.uk/",
-        "title": "My rubbish website"
+        "title": "My rubbish website",
+        "description": "Personal site with teletext, ZX Spectrum, narrow-bandwidth TV, and photo galleries."
     },
     {
         "url": "https://en.wikipedia.org/wiki/Duff%27s_device",
-        "title": "Duff's device - Wikipedia"
+        "title": "Duff's device - Wikipedia",
+        "description": "Wikipedia article on Duff's device, a C loop-unrolling technique using switch fall-through."
     },
     {
         "url": "https://riccardoscalco.it/",
@@ -156,6 +176,7 @@
     },
     {
         "url": "https://www.ioccc.org/",
-        "title": "The International Obfuscated C Code Contest"
+        "title": "The International Obfuscated C Code Contest",
+        "description": "Official site of the International Obfuscated C Code Contest with rules and entries."
     }
 ]
