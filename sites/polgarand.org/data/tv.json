@@ -1,5 +1,11 @@
 [
     {
+        "title": "What pedal makers don't want you to see",
+        "id": "WRcm2b877ek",
+        "author": "Harp Lady",
+        "date": "February 6, 2026"
+    },
+    {
         "title": "Suno, AI Music, and the Bad Future",
         "id": "U8dcFhF0Dlk",
         "author": "Adam Neely",
@@ -114,6 +120,12 @@
         "date": "April 21, 2025"
     },
     {
+        "title": "This Invention Made Disney MILLIONS, but Then They LOST It!",
+        "id": "UQuIVsNzqDk",
+        "author": "Corridor Crew",
+        "date": "April 7, 2025"
+    },
+    {
         "title": "Making an 8 Channel Active Audio Mixer",
         "id": "SHH72r4SKWQ",
         "author": "Something Physical",
@@ -216,6 +228,12 @@
         "date": "April 7, 2023"
     },
     {
+        "title": "Cultural observations: The skinfade + north face jacket combo",
+        "id": "A6pTyPYwqpY",
+        "author": "Meditations for the anxious mind",
+        "date": "November 23, 2022"
+    },
+    {
         "title": "I did the double slit experiment at home",
         "id": "v_uBaBuarEM",
         "author": "Looking Glass Universe",
@@ -232,6 +250,12 @@
         "id": "oI_X2cMHNe0",
         "author": "Veritasium",
         "date": "April 29, 2022"
+    },
+    {
+        "title": "Old Green Day vs New Green Day",
+        "id": "ifTHOfkdPIs",
+        "author": "Billy Cobb",
+        "date": "March 20, 2022"
     },
     {
         "title": "Interview with a Senior JS Developer",
@@ -402,12 +426,6 @@
         "date": "August 14, 2017"
     },
     {
-        "title": "Wolf Alice - Don't Delete The Kisses",
-        "id": "WqxE-zppu30",
-        "author": "Wolf Alice",
-        "date": "August 11, 2017"
-    },
-    {
         "title": "cat city",
         "id": "NWeyUpqnKuk",
         "author": "vewn",
@@ -468,6 +486,12 @@
         "date": "January 19, 2015"
     },
     {
+        "title": "What is NOT Random?",
+        "id": "sMb00lz-IfE",
+        "author": "Veritasium",
+        "date": "July 16, 2014"
+    },
+    {
         "title": "John I Want a Divorce",
         "id": "XDXrP9HET2A",
         "author": "Dandy",
@@ -510,12 +534,6 @@
         "date": "March 19, 2012"
     },
     {
-        "title": "Grimes - Oblivion",
-        "id": "JtH68PJIQLE",
-        "author": "Grimes",
-        "date": "March 2, 2012"
-    },
-    {
         "title": "Academy Award Winning Movie Trailer",
         "id": "WAG9Xn5bJwQ",
         "author": "BriTANicK",
@@ -528,10 +546,22 @@
         "date": "December 7, 2010"
     },
     {
+        "title": "The Chipophone",
+        "id": "m1pchpDD5EU",
+        "author": "lftkryo",
+        "date": "July 21, 2010"
+    },
+    {
         "title": "RADIOHEAD NUDE Big Ideas (don't get any) covered by machines",
         "id": "CgB5DU0uEdg",
         "author": "unbrandhead",
         "date": "May 28, 2010"
+    },
+    {
+        "title": "Shouting in the Datacenter",
+        "id": "tDacjrSCeq4",
+        "author": "Bryan Cantrill",
+        "date": "January 1, 2009"
     },
     {
         "title": "Björk talking about her TV",
