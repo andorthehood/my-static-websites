@@ -216,11 +216,18 @@ fn skip_type_annotation(b: &[u8], len: usize, i: &mut usize, out: &mut String) {
         *i += 1;
     }
 
+    let type_start = *i;
     let mut k = *i;
     let mut counters = DepthCounters::new();
 
     while k < len {
         let ch = b[k] as char;
+
+        // In function signatures, `{` can start the function body after the return type.
+        // Do not treat a leading `{` as delimiter so object-literal return types still work.
+        if ch == '{' && counters.all_zero() && k > type_start {
+            break;
+        }
 
         if counters.update(ch) {
             break; // Hit unmatched delimiter
@@ -248,6 +255,25 @@ fn skip_type_annotation(b: &[u8], len: usize, i: &mut usize, out: &mut String) {
     }
 }
 
+/// Removes an optional marker (`?`) that was already written to output.
+fn remove_optional_marker_from_output(out: &mut String) {
+    let mut trailing_ws = String::new();
+    while matches!(out.chars().last(), Some(ch) if ch.is_ascii_whitespace()) {
+        if let Some(ch) = out.pop() {
+            trailing_ws.push(ch);
+        }
+    }
+
+    if out.ends_with('?') {
+        out.pop();
+    }
+
+    // Preserve original spacing after the optional marker.
+    for ch in trailing_ws.chars().rev() {
+        out.push(ch);
+    }
+}
+
 /// Processes colon characters and handles type annotation removal
 fn handle_colon(input: &str, b: &[u8], len: usize, i: &mut usize, out: &mut String) -> bool {
     // If this is an object literal property, keep the colon
@@ -264,7 +290,21 @@ fn handle_colon(input: &str, b: &[u8], len: usize, i: &mut usize, out: &mut Stri
     }
     let prev_char = if j > 0 { b[j - 1] as char } else { '\0' };
 
-    let looks_like_type_context = is_identifier_char(prev_char) || prev_char == ')';
+    let mut looks_like_type_context = is_identifier_char(prev_char) || prev_char == ')';
+
+    // Support optional parameters/properties like `name?: string`.
+    if !looks_like_type_context && prev_char == '?' {
+        let mut k = j.saturating_sub(1); // points to the '?'
+        while k > 0 && (b[k - 1] as char).is_ascii_whitespace() {
+            k -= 1;
+        }
+        let before_optional = if k > 0 { b[k - 1] as char } else { '\0' };
+        if is_identifier_char(before_optional) || before_optional == ')' {
+            remove_optional_marker_from_output(out);
+            looks_like_type_context = true;
+        }
+    }
+
     if looks_like_type_context {
         skip_type_annotation(b, len, i, out);
         return true;
@@ -347,5 +387,35 @@ function f(){
         assert!(js.contains("startY: y"));
         assert!(js.contains("startDx: vx"));
         assert!(js.contains("startDy: vy"));
+    }
+
+    #[test]
+    fn strips_optional_parameter_type_annotation() {
+        let ts = r#"
+function navigateToJson(json, fetchUrl?: string) {
+    return [json, fetchUrl];
+}
+        "#;
+        let js = remove_type_annotations(ts);
+        assert!(js.contains("function navigateToJson(json, fetchUrl)"));
+        assert!(!js.contains("?: string"));
+        assert!(!js.contains("fetchUrl?"));
+    }
+
+    #[test]
+    fn strips_return_type_without_removing_function_body() {
+        let ts = r#"
+function handleStyleTags(data): Promise<void> {
+    const pageSpecificStyleTags = document.querySelectorAll('link.page-specific-css');
+    return new Promise((resolve) => resolve());
+}
+        "#;
+        let js = remove_type_annotations(ts);
+        assert!(js.contains("function handleStyleTags(data)"));
+        assert!(js.contains(
+            "const pageSpecificStyleTags = document.querySelectorAll('link.page-specific-css');"
+        ));
+        assert!(js.contains("return new Promise((resolve) => resolve());"));
+        assert!(!js.contains(": Promise<void>"));
     }
 }
