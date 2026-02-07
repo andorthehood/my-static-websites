@@ -54,6 +54,9 @@ function handleLinkClick(event: Event): void {
 
     // Spot-check a few expected transformations
     assert!(js.contains("const pageSpecificStyleTags = []"));
+    assert!(js.contains("function handleStyleTags(data)"));
+    assert!(js.contains("pageSpecificStyleTags.forEach((style) => style.remove());"));
+    assert!(js.contains("return new Promise((resolve) => {"));
     // Avoid brittle formatting checks for browser APIs; converter is covered by copier tests as well
 }
 
@@ -92,4 +95,17 @@ fn does_not_strip_type_like_sequences_inside_strings_and_templates() {
     assert!(js.contains("as HTMLLinkElement : number <T> ! interface X { a: string }"));
     assert!(js.contains("querySelector<HTMLElement> as Type : string !"));
     assert!(js.contains("template keeps as Cast<T> : number and bang!"));
+}
+
+#[test]
+fn strips_optional_parameter_annotations() {
+    let ts = r#"
+function loadAndReplaceContent(json, fetchUrl?: string) {
+	return navigateToJson(json, fetchUrl);
+}
+		"#;
+    let js = strip_typescript_types(ts);
+    assert!(js.contains("function loadAndReplaceContent(json, fetchUrl)"));
+    assert!(!js.contains("?: string"));
+    assert!(!js.contains("fetchUrl?"));
 }
