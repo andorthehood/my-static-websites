@@ -173,12 +173,15 @@ fn handle_content_whitespace(
             // Preserve space between:
             // - content characters (words, emojis, unicode)
             // - after punctuation (comma, period, etc.) and before content
+            // - around textual punctuation like parentheses and dashes
             // - content and tags
             let should_preserve_space = (is_content_char(last_char) && is_content_char(*next_char))
                 || (is_content_char(last_char) && *next_char == '<')
                 || (last_char == '>' && is_content_char(*next_char))
                 || (matches!(last_char, ',' | '.' | ';' | ':' | '!' | '?')
-                    && is_content_char(*next_char));
+                    && is_content_char(*next_char))
+                || (is_content_char(last_char) && matches!(*next_char, '(' | ')' | '-'))
+                || (matches!(last_char, '(' | ')' | '-') && is_content_char(*next_char));
 
             if should_preserve_space {
                 result.push(' ');
@@ -485,6 +488,24 @@ body { margin: 0; }
         assert!(!result.contains("love📸photography"));
 
         println!("Result: {}", result);
+    }
+
+    #[test]
+    fn test_preserve_spaces_around_parentheses() {
+        let html = r#"<p>Alpha ( Beta ) Gamma</p>"#;
+        let result = minify_html(html);
+
+        assert!(result.contains("Alpha ( Beta ) Gamma"));
+        assert!(!result.contains("Alpha(Beta)Gamma"));
+    }
+
+    #[test]
+    fn test_preserve_spaces_around_dash() {
+        let html = r#"<p>Alpha - Beta</p>"#;
+        let result = minify_html(html);
+
+        assert!(result.contains("Alpha - Beta"));
+        assert!(!result.contains("Alpha-Beta"));
     }
 
     #[test]
