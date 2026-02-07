@@ -105,5 +105,10 @@
 		"href": "/tv",
 		"icon": "📺",
 		"label": "TV"
+	},
+	{
+		"href": "/bookmarks",
+		"icon": "🔖",
+		"label": "Bookmarks"
 	}
 ]

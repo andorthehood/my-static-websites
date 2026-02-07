@@ -1,0 +1,33 @@
+.bookmarks {
+    font-family: "Departure Mono", sans-serif;
+    font-size: 16.5px;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    li {
+        padding-bottom: 10px;
+    }
+
+    a {
+        color: blue;
+        text-decoration: underline;
+    }
+
+    span {
+        color: #333333;
+        display: block;
+    }
+
+    .favicon {
+        width: 16px;
+        height: 16px;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+}

@@ -5,3 +5,6 @@ custom_out
 coverage
 .vscode
 tarpaulin-report.html
+sites/polgarand.org/.favicons/
+__pycache__/
+*.pyc

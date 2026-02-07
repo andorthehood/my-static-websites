@@ -1,11 +1,19 @@
 [
     {
+        "url": "https://webmachinelearning.github.io/webmcp/",
+        "favicon": "webmachinelearning.github.io.ico",
+        "title": "WebMCP Draft Community Group Report",
+        "description": "The WebMCP API enables web applications to provide JavaScript-based tools to AI agents."
+    },
+    {
         "url": "https://lars.ingebrigtsen.no/2026/02/02/whats-up-with-all-those-equals-signs-anyway/",
+        "favicon": "lars.ingebrigtsen.no.ico",
         "title": "What’s up with all those equals signs, anyway? | Lars Ingebrigtsen",
         "description": "Lars Ingebrigtsen's blog post explaining why many of the emails from the Epstein case have a large number of equals signs"
     },
     {
         "url": "https://huzat.eu/",
+        "favicon": "huzat.eu.ico",
         "title": "huzat.eu | Rediscover the cultural heritage of Central Europe",
         "description": "huzat is a collection of different products of culture. The purpose of this project is to repaint and rediscover the once vividly sensible cultural unity of Eastern-central europe."
     },
@@ -16,66 +24,79 @@
     },
     {
         "url": "https://instrumentinventors.org/",
+        "favicon": "instrumentinventors.org.ico",
         "title": "Instrument Inventors",
         "description": "iii is an artist run, community platform supporting new interdisciplinary practices linking performance, technology and the human senses."
     },
     {
         "url": "https://wattenberger.com/",
+        "favicon": "wattenberger.com.png",
         "title": "Amelia Wattenberger",
         "description": "Personal site of Amelia Wattenberger, creating web-based data visualizations and novel interfaces."
     },
     {
         "url": "https://dynamicland.org/",
+        "favicon": "dynamicland.org.ico",
         "title": "Dynamicland front shelf",
         "description": "Incubating a humane dynamic medium."
     },
     {
         "url": "https://github.com/mozilla/bedrock/commit/d459addab846d8144b61939b7f4310eb80c5470e",
-        "title": "Tos copy updates (fix #16016) (#16018) \u00b7 mozilla/bedrock@d459add",
+        "favicon": "github.com.ico",
+        "title": "Tos copy updates (fix #16016) (#16018) · mozilla/bedrock@d459add",
         "description": "* ToS copy updates (fix #16016) * Apply suggestions from code review - copy change"
     },
     {
         "url": "https://worrydream.com/",
+        "favicon": "worrydream.com.ico",
         "title": "Bret Victor, human being",
         "description": "An offshore drilling platform in the sea of knowledge."
     },
     {
         "url": "https://devdocs.io/",
+        "favicon": "devdocs.io.ico",
         "title": "DevDocs API Documentation",
         "description": "Fast, offline, and free documentation browser for developers. Search 100+ docs in one web app: HTML, CSS, JavaScript, PHP, Ruby, Python, Go, C, C++"
     },
     {
         "url": "https://crashlaker.github.io/",
+        "favicon": "crashlaker.github.io.ico",
         "title": "Carlos Aguni",
         "description": "~~Tales of an eternal apprentice~~"
     },
     {
         "url": "https://tonsky.me/",
+        "favicon": "tonsky.me.png",
         "title": "Blog @ tonsky.me",
         "description": "Blog by Niki (tonsky) about programming and UI design."
     },
     {
         "url": "https://www.crudlabs.org/",
+        "favicon": "www.crudlabs.org.ico",
         "title": "Crudlabs",
         "description": "Crudlabs builds the Crudman cassette-walkman-based electronic instrument and shares specs, demos, and ordering info."
     },
     {
         "url": "https://ohshitgit.com/",
+        "favicon": "ohshitgit.com.ico",
         "title": "Oh Shit, Git!?!",
         "description": "Plain-English guide to fixing common Git mistakes."
     },
     {
         "url": "https://nathanleclaire.com/",
+        "favicon": "nathanleclaire.com.png",
         "title": "nathan leclaire | I care, I share, I'm Nathan LeClaire.",
         "description": "Essays on software engineering, business, and startups by Nathan LeClaire."
     },
     {
         "url": "https://fabiensanglard.net/",
+        "favicon": "fabiensanglard.net.ico",
         "title": "Fabien Sanglard's Website",
         "description": "Personal website with code and ideas by Fabien Sanglard, including articles on game engines and graphics."
     },
     {
         "url": "https://www.theverge.com/a/luka-artificial-intelligence-memorial-roman-mazurenko-bot",
+        "favicon": "www.theverge.com.ico",
         "title": "Speak, Memory",
         "description": "When her best friend died, she rebuilt him using artificial intelligence."
     },
@@ -91,17 +112,20 @@
     },
     {
         "url": "https://linusakesson.net/",
+        "favicon": "linusakesson.net.png",
         "title": "linusakesson.net",
         "description": "Linus Akesson's bilingual homepage, blog, and file archive."
     },
     {
         "url": "https://beej.us/",
+        "favicon": "beej.us.ico",
         "title": "Beej's Web Page",
         "description": "Brian 'Beej Jorgensen' Hall's home page"
     },
     {
-        "title": "Julia Evans",
         "url": "https://jvns.ca/",
+        "favicon": "jvns.ca.ico",
+        "title": "Julia Evans",
         "description": "Julia Evans's blog with programming posts and links to her zines."
     },
     {
@@ -111,27 +135,32 @@
     },
     {
         "url": "https://css-tricks.com/gooey-effect/",
+        "favicon": "css-tricks.com.ico",
         "title": "The Gooey Effect | CSS-Tricks",
         "description": "CSS-Tricks article by Lucas Bebber explaining SVG filters for a gooey effect."
     },
     {
         "url": "https://github.com/regl-project/regl",
-        "title": "regl-project/regl: \ud83d\udc51 Functional WebGL",
+        "favicon": "github.com.ico",
+        "title": "regl-project/regl: 👑 Functional WebGL",
         "description": "regl is a functional WebGL library focused on minimalism and performance."
     },
     {
         "url": "https://acko.net/",
-        "title": "Hackery, Math & Design \u2014 Acko.net",
+        "favicon": "acko.net.ico",
+        "title": "Hackery, Math & Design — Acko.net",
         "description": "A blog about random hacks, graphics and design, math and other ephemera."
     },
     {
         "url": "http://www.romancortes.com/blog/furbee-my-js1k-spring-13-entry/",
-        "title": "Rom\u00e1n Cort\u00e9s \u00bb Furbee - My Js1k Spring \u201813 entry",
+        "favicon": "www.romancortes.com.ico",
+        "title": "Román Cortés » Furbee - My Js1k Spring ‘13 entry",
         "description": "Blog post about the Furbee JS1k Spring 2013 entry and how it was made."
     },
     {
         "url": "https://github.com/phanan/htaccess",
-        "title": "phanan/htaccess: \u2702A collection of useful .htaccess snippets.",
+        "favicon": "github.com.ico",
+        "title": "phanan/htaccess: ✂A collection of useful .htaccess snippets.",
         "description": "Collection of useful .htaccess snippets in one place."
     },
     {
@@ -146,26 +175,31 @@
     },
     {
         "url": "https://www.exampointers.com/teletext/teletext.phtml",
+        "favicon": "www.exampointers.com.ico",
         "title": "ExamPointers.com - Teletext Transmission",
         "description": "Technical notes on teletext transmission format, line structure, and packets."
     },
     {
         "url": "https://www.bbcbasic.co.uk/tccgen/tccgen.html",
+        "favicon": "www.bbcbasic.co.uk.ico",
         "title": "Programmable Colour Test Card Generator",
         "description": "Product page for a programmable colour test card generator that outputs PAL video and teletext pages."
     },
     {
         "url": "https://www.bbcbasic.co.uk/",
+        "favicon": "www.bbcbasic.co.uk.ico",
         "title": "BBC BASIC",
         "description": "The website dedicated to the BBC BASIC programming language"
     },
     {
         "url": "https://zxnet.co.uk/",
+        "favicon": "zxnet.co.uk.ico",
         "title": "My rubbish website",
         "description": "Personal site with teletext, ZX Spectrum, narrow-bandwidth TV, and photo galleries."
     },
     {
         "url": "https://en.wikipedia.org/wiki/Duff%27s_device",
+        "favicon": "en.wikipedia.org.ico",
         "title": "Duff's device - Wikipedia",
         "description": "Wikipedia article on Duff's device, a C loop-unrolling technique using switch fall-through."
     },
@@ -181,6 +215,7 @@
     },
     {
         "url": "https://www.ioccc.org/",
+        "favicon": "www.ioccc.org.ico",
         "title": "The International Obfuscated C Code Contest",
         "description": "Official site of the International Obfuscated C Code Contest with rules and entries."
     }
