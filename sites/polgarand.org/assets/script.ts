@@ -15,10 +15,49 @@ document.getElementById('button-reload').addEventListener('click', function () {
 	window.location.reload();
 });
 
-const pageSpecificStyleTags = [];
 const pageCache = new Map();
 
-function handleStyleTags(data) {
+function getJsonPath(path) {
+	return (path === '/' || path === '') ? '/index.json' : path + '.json';
+}
+
+function resetUiState() {
+	document.body.classList.remove('collapsed');
+	document.body.classList.remove('closed');
+}
+
+function showLoadingState() {
+	const content = document.querySelector('.content');
+	if (content) {
+		content.innerHTML = 'Loading...';
+	}
+}
+
+function loadAndReplaceContent(json, fetchUrl?: string) {
+	// Check cache first
+	if (pageCache.has(json)) {
+		const data = pageCache.get(json);
+		replaceContent(data);
+		return;
+	}
+
+	fetch(fetchUrl || json)
+		.then(response => response.json())
+		.then(data => {
+			// Cache the response
+			pageCache.set(json, data);
+			replaceContent(data);
+		});
+}
+
+function navigateToJson(json, fetchUrl?: string) {
+	resetUiState();
+	showLoadingState();
+	loadAndReplaceContent(json, fetchUrl);
+}
+
+function handleStyleTags(data): Promise<void> {
+	const pageSpecificStyleTags = document.querySelectorAll('link.page-specific-css');
 	pageSpecificStyleTags.forEach(style => style.remove());
 
 	return new Promise((resolve) => {
@@ -29,8 +68,8 @@ function handleStyleTags(data) {
 			const style = document.createElement('link');
 			style.rel = 'stylesheet';
 			style.href = '/assets/' + data.css;
+			style.classList.add('page-specific-css');
 			head.appendChild(style);
-			pageSpecificStyleTags.push(style);
 
 			style.onload = () => {
 				resolve();
@@ -66,28 +105,8 @@ function handleLinkClick(event) {
 
 	window.history.pushState({}, '', link.href);
 
-	const content = document.querySelector('.content');
-
-	const json = (href === '/' || href === '') ? '/index.json' : href + '.json';
-	
-	document.body.classList.remove('collapsed');
-	document.body.classList.remove('closed');
-
-	// Check cache first
-	if (pageCache.has(json)) {
-		const data = pageCache.get(json);
-		replaceContent(data);
-		return;
-	}
-
-	content.innerHTML = 'Loading...';
-	fetch(json)
-		.then(response => response.json())
-		.then(data => {
-			// Cache the response
-			pageCache.set(json, data);
-			replaceContent(data);
-		});
+	const json = getJsonPath(href);
+	navigateToJson(json);
 }
 
 function registerLinkHandlers() {
@@ -103,27 +122,10 @@ function registerLinkHandlers() {
 		if (location.hash !== '') {
 			return;
 		}
-		
+
 		const pathname = location.pathname;
-		const json = (pathname === '/' || pathname === '') ? '/index.json' : pathname + '.json';
-		const content = document.querySelector('.content');
-		
-		// Check cache first
-		if (pageCache.has(json)) {
-			const data = pageCache.get(json);
-			replaceContent(data);
-			return;
-		}
-		
-		document.body.classList.remove('collapsed');
-		content.innerHTML = 'Loading...';
-		fetch(location.origin + json)
-			.then(response => response.json())
-			.then(data => {
-				// Cache the response
-				pageCache.set(json, data);
-				replaceContent(data);
-			});
+		const json = getJsonPath(pathname);
+		navigateToJson(json, location.origin + json);
 	});
 
 	registerLinkHandlers();
