@@ -83,6 +83,10 @@ coverage-ci:
 test:
 	cargo test -- --test-threads=1
 
+.PHONY: bookmarks-favicons
+bookmarks-favicons:
+	python3 sites/polgarand.org/scripts/download_favicons.py
+
 # Help target to show usage
 .PHONY: help
 help:
@@ -93,6 +97,7 @@ help:
 	@echo "  serve             - Start the development server"
 	@echo "  lepkefing-dev     - Start watch and serve in tmux split view"
 	@echo "  polgarhivatal-dev - Start watch and serve in tmux split view"
+	@echo "  bookmarks-favicons - Download favicons for bookmarks.json (polgarand.org)"
 	@echo "  format            - Format the code"
 	@echo "  lint              - Lint the code"
 	@echo "  lint-pedantic     - Lint the code with pedantic checks"

@@ -1,13 +1,13 @@
 [
     {
         "url": "https://webmachinelearning.github.io/webmcp/",
-        "favicon": "webmachinelearning.github.io.ico",
+        "favicon": "webmachinelearning.github.io.png",
         "title": "WebMCP Draft Community Group Report",
         "description": "The WebMCP API enables web applications to provide JavaScript-based tools to AI agents."
     },
     {
         "url": "https://lars.ingebrigtsen.no/2026/02/02/whats-up-with-all-those-equals-signs-anyway/",
-        "favicon": "lars.ingebrigtsen.no.ico",
+        "favicon": "lars.ingebrigtsen.no.png",
         "title": "What’s up with all those equals signs, anyway? | Lars Ingebrigtsen",
         "description": "Lars Ingebrigtsen's blog post explaining why many of the emails from the Epstein case have a large number of equals signs"
     },
@@ -24,18 +24,19 @@
     },
     {
         "url": "https://instrumentinventors.org/",
-        "favicon": "instrumentinventors.org.ico",
+        "favicon": "instrumentinventors.org.png",
         "title": "Instrument Inventors",
         "description": "iii is an artist run, community platform supporting new interdisciplinary practices linking performance, technology and the human senses."
     },
     {
         "url": "https://www.jmail.world/",
+        "favicon": "www.jmail.world.ico",
         "title": "Jmail, logged in as jeevacation@gmail.com",
         "description": "You are logged into jeevacation@gmail.com, Jeffrey Epstein's email. Sourced from the November 2025 House Oversight Committee data release."
     },
     {
         "url": "https://wattenberger.com/",
-        "favicon": "wattenberger.com.png",
+        "favicon": "wattenberger.com.svg",
         "title": "Amelia Wattenberger",
         "description": "Personal site of Amelia Wattenberger, creating web-based data visualizations and novel interfaces."
     },
@@ -58,9 +59,16 @@
         "description": "An offshore drilling platform in the sea of knowledge."
     },
     {
-        "Url": "https://infinitemac.org/",
+        "url": "https://infinitemac.org/",
+        "favicon": "infinitemac.org.png",
         "title": "Infinite Mac",
         "description": "A collection of classic Macintosh and NeXT system releases and software, all easily accessible from the comfort of a web browser."
+    },
+    {
+        "url": "https://departuremono.com/",
+        "favicon": "departuremono.com.ico",
+        "title": "Departure Mono",
+        "description": "Departure Mono is a monospaced pixel font by Helena Zhang, licensed under the SIL OFL."
     },
     {
         "url": "https://devdocs.io/",
@@ -88,7 +96,7 @@
     },
     {
         "url": "https://ohshitgit.com/",
-        "favicon": "ohshitgit.com.ico",
+        "favicon": "ohshitgit.com.png",
         "title": "Oh Shit, Git!?!",
         "description": "Plain-English guide to fixing common Git mistakes."
     },
@@ -151,7 +159,7 @@
     },
     {
         "url": "https://github.com/regl-project/regl",
-        "favicon": "github.com.ico",
+        "favicon": "github.com.png",
         "title": "regl-project/regl: 👑 Functional WebGL",
         "description": "regl is a functional WebGL library focused on minimalism and performance."
     },
@@ -169,7 +177,7 @@
     },
     {
         "url": "https://github.com/phanan/htaccess",
-        "favicon": "github.com.ico",
+        "favicon": "github.com.png",
         "title": "phanan/htaccess: ✂A collection of useful .htaccess snippets.",
         "description": "Collection of useful .htaccess snippets in one place."
     },
