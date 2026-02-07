@@ -98,6 +98,46 @@ fn read_nested_if_content(chars: &mut Peekable<Chars>) -> Result<String> {
     Ok(content)
 }
 
+/// Splits an IF block's inner content into true/false branches at top-level `{% else %}`.
+fn split_if_branches(content: &str) -> Result<(&str, Option<&str>)> {
+    let mut depth = 0i32;
+    let mut idx = 0usize;
+
+    while idx < content.len() {
+        let rest = &content[idx..];
+        if rest.starts_with("{%") {
+            let Some(close_rel) = rest.find("%}") else {
+                return Err(Error::Liquid("Unclosed liquid tag in if block".to_string()));
+            };
+            let tag_end = idx + close_rel + 2;
+            let tag_inner = &content[idx + 2..idx + close_rel];
+            let trimmed = tag_inner.trim();
+
+            if trimmed.starts_with("if ") {
+                depth += 1;
+            } else if trimmed == "endif" {
+                if depth > 0 {
+                    depth -= 1;
+                }
+            } else if trimmed == "else" && depth == 0 {
+                let true_branch = &content[..idx];
+                let false_branch = &content[tag_end..];
+                return Ok((true_branch, Some(false_branch)));
+            }
+
+            idx = tag_end;
+            continue;
+        }
+
+        let Some(ch) = rest.chars().next() else {
+            break;
+        };
+        idx += ch.len_utf8();
+    }
+
+    Ok((content, None))
+}
+
 /// Processes Liquid conditional tags in a template string with proper nested support.
 ///
 /// This function handles {% if condition %}content{% endif %} tags by:
@@ -133,14 +173,15 @@ pub fn process_liquid_conditional_tags(
             let t = v.trim();
             !t.is_empty() && t != "false"
         });
+        let (true_branch, false_branch) = split_if_branches(&if_block.inner_content)?;
 
-        // Recursively process the inner content if the condition is truthy
-        let replacement = if is_truthy {
-            // Process nested IF blocks within the content recursively
-            process_liquid_conditional_tags(&if_block.inner_content, variables)?
+        let selected_branch = if is_truthy {
+            true_branch
         } else {
-            String::new()
+            false_branch.unwrap_or("")
         };
+        // Process nested IF blocks within the selected branch recursively.
+        let replacement = process_liquid_conditional_tags(selected_branch, variables)?;
 
         replacements.push((if_block.start, if_block.end, replacement));
         current_pos = if_block.end;
@@ -244,6 +285,40 @@ mod tests {
         let expected_output = "";
         let output = process_liquid_conditional_tags(input, &variables).unwrap();
         assert_eq!(output, expected_output);
+    }
+
+    #[test]
+    fn test_if_else_truthy_condition() {
+        let input = "{% if has_icon %}ICON{% else %}NOICON{% endif %}";
+        let mut variables = HashMap::new();
+        variables.insert("has_icon".to_string(), "true".to_string());
+
+        let output = process_liquid_conditional_tags(input, &variables).unwrap();
+        assert_eq!(output, "ICON");
+    }
+
+    #[test]
+    fn test_if_else_falsy_condition() {
+        let input = "{% if has_icon %}ICON{% else %}NOICON{% endif %}";
+        let variables: HashMap<String, String> = HashMap::new();
+
+        let output = process_liquid_conditional_tags(input, &variables).unwrap();
+        assert_eq!(output, "NOICON");
+    }
+
+    #[test]
+    fn test_if_else_with_nested_if() {
+        let input = "{% if outer %}{% if inner %}A{% else %}B{% endif %}{% else %}C{% endif %}";
+
+        let mut variables = HashMap::new();
+        variables.insert("outer".to_string(), "true".to_string());
+        variables.insert("inner".to_string(), "false".to_string());
+        let output = process_liquid_conditional_tags(input, &variables).unwrap();
+        assert_eq!(output, "B");
+
+        let variables: HashMap<String, String> = HashMap::new();
+        let output = process_liquid_conditional_tags(input, &variables).unwrap();
+        assert_eq!(output, "C");
     }
 
     #[test]
