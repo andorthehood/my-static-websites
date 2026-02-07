@@ -53,6 +53,7 @@ def _guess_extension(url: str, content_type: Optional[str]) -> str:
 class FaviconCandidate:
     url: str
     priority: int
+    size_area: Optional[int] = None
 
 
 class _IconLinkParser(HTMLParser):
@@ -60,24 +61,48 @@ class _IconLinkParser(HTMLParser):
         super().__init__()
         self.candidates: list[FaviconCandidate] = []
 
+    @staticmethod
+    def _parse_size_area(value: str) -> Optional[int]:
+        sizes = (value or "").strip().lower()
+        if not sizes or sizes == "any":
+            return None
+
+        best: Optional[int] = None
+        for token in sizes.split():
+            if "x" not in token:
+                continue
+            left, right = token.split("x", 1)
+            try:
+                w = int(left)
+                h = int(right)
+            except ValueError:
+                continue
+            if w <= 0 or h <= 0:
+                continue
+            area = w * h
+            if best is None or area < best:
+                best = area
+        return best
+
     def handle_starttag(self, tag: str, attrs: list[tuple[str, Optional[str]]]) -> None:
         if tag.lower() != "link":
             return
         attr_map = {k.lower(): (v or "") for k, v in attrs}
         rel = attr_map.get("rel", "").lower()
         href = attr_map.get("href", "").strip()
+        size_area = self._parse_size_area(attr_map.get("sizes", ""))
         if not href:
             return
 
         if "icon" not in rel:
             return
 
-        priority = 10
+        priority = 100
         if "shortcut" in rel:
-            priority = 9
+            priority = 90
         if "apple-touch-icon" in rel:
-            priority = 8
-        self.candidates.append(FaviconCandidate(url=href, priority=priority))
+            priority = 80
+        self.candidates.append(FaviconCandidate(url=href, priority=priority, size_area=size_area))
 
 
 def _http_get(url: str, *, max_bytes: int) -> tuple[bytes, str]:
@@ -99,7 +124,13 @@ def _discover_icons_from_html(base_url: str, html: str) -> list[FaviconCandidate
 
     out: list[FaviconCandidate] = []
     for c in parser.candidates:
-        out.append(FaviconCandidate(url=urllib.parse.urljoin(base_url, c.url), priority=c.priority))
+        out.append(
+            FaviconCandidate(
+                url=urllib.parse.urljoin(base_url, c.url),
+                priority=c.priority,
+                size_area=c.size_area,
+            )
+        )
     return out
 
 
@@ -107,12 +138,12 @@ def _default_candidates(page_url: str) -> list[FaviconCandidate]:
     parsed = urllib.parse.urlparse(page_url)
     origin = f"{parsed.scheme}://{parsed.netloc}"
     return [
-        FaviconCandidate(url=urllib.parse.urljoin(origin, "/favicon.ico"), priority=100),
-        FaviconCandidate(url=urllib.parse.urljoin(origin, "/favicon.png"), priority=95),
-        FaviconCandidate(url=urllib.parse.urljoin(origin, "/apple-touch-icon.png"), priority=50),
-        FaviconCandidate(url=urllib.parse.urljoin(page_url, "favicon.ico"), priority=90),
-        FaviconCandidate(url=urllib.parse.urljoin(page_url, "favicon.png"), priority=85),
-        FaviconCandidate(url=urllib.parse.urljoin(page_url, "apple-touch-icon.png"), priority=40),
+        FaviconCandidate(url=urllib.parse.urljoin(origin, "/favicon.ico"), priority=10),
+        FaviconCandidate(url=urllib.parse.urljoin(origin, "/favicon.png"), priority=9),
+        FaviconCandidate(url=urllib.parse.urljoin(origin, "/apple-touch-icon.png"), priority=5),
+        FaviconCandidate(url=urllib.parse.urljoin(page_url, "favicon.ico"), priority=8),
+        FaviconCandidate(url=urllib.parse.urljoin(page_url, "favicon.png"), priority=7),
+        FaviconCandidate(url=urllib.parse.urljoin(page_url, "apple-touch-icon.png"), priority=4),
     ]
 
 
@@ -140,7 +171,11 @@ def download_favicon(page_url: str) -> Optional[str]:
         except Exception:
             pass
 
-    for candidate in sorted(candidates, key=lambda x: x.priority, reverse=True):
+    def candidate_sort_key(c: FaviconCandidate) -> tuple[int, int]:
+        size_area = c.size_area if c.size_area is not None else 2_147_483_647
+        return (-c.priority, size_area)
+
+    for candidate in sorted(candidates, key=candidate_sort_key):
         try:
             body, content_type = _http_get(candidate.url, max_bytes=MAX_BYTES)
             mime = (content_type.split(";", 1)[0] or "").strip().lower()
