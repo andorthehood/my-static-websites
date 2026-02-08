@@ -1,0 +1,4 @@
+interface:
+  display_name: "Update Polgarand Favicons"
+  short_description: "Run and verify Polgarand favicon refresh workflow"
+  default_prompt: "Use $update-polgarand-favicons to refresh favicon files and bookmark favicon mappings for polgarand.org."
