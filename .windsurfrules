@@ -1,5 +1,0 @@
-1. Never add external dependencies, only use the standard libraries.
-2. Always run the tests after code modifications.
-3. Don't ignore warnings in the build or test outputs.
-4. Don't touch the README unless it is explicitly asked.
-5. If the snapshot tests are failing only because of white space differences, feel free to update them.
