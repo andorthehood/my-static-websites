@@ -17,3 +17,14 @@ Follow the existing Conventional Commit style: `type(scope): short imperative su
 
 ## Environment & Tooling Tips
 Install hooks via `make install-hooks` to auto-format staged Rust files. Local development assumes the stable Rust toolchain (`rustup toolchain install stable`). The watch command supports a RAM-disk mode on Linux; ensure `/dev/shm` has space if you enable it. Keep the repo clean by removing generated artifacts from commits unless explicitly required.
+
+## Skills
+A skill is a set of local instructions in a `SKILL.md` file. Repository-specific skills live in `skills/`.
+
+### Available skills
+- `update-polgarand-favicons`: Run and verify the Polgarand favicon refresh workflow. Use when asked to update, refresh, re-download, or regenerate favicons/bookmark icons for `polgarand.org`. (file: `skills/update-polgarand-favicons/SKILL.md`)
+
+### How to use skills
+- Discovery: Check the list above for available skills and open the referenced `SKILL.md`.
+- Trigger rules: If a user explicitly names a skill, use it for that turn.
+- Scope: Keep skills project-specific and store each one under `skills/<skill-name>/`.
