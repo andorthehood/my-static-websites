@@ -1,5 +1,11 @@
 [
     {
+        "url": "https://github.com/kindohm/risc-chip",
+        "favicon": "github.com.png",
+        "title": "kindohm/risc-chip: Source code and samples for the RISC Chip album (music). Made with TidalCycles.",
+        "description": "RISC Chip is an electronic music project by Mike Hodnick under the &quot;Kindohm&quot; artist moniker. It was made with the TidalCycles live-coding pattern environment (based in Haskell)."
+    },
+    {
         "url": "https://webmachinelearning.github.io/webmcp/",
         "favicon": "webmachinelearning.github.io.png",
         "title": "WebMCP Draft Community Group Report",
