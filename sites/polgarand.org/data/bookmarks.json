@@ -83,6 +83,24 @@
         "description": "Fast, offline, and free documentation browser for developers. Search 100+ docs in one web app: HTML, CSS, JavaScript, PHP, Ruby, Python, Go, C, C++"
     },
     {
+        "url": "https://github.com/tholman/ascii-morph",
+        "favicon": "github.com.png",
+        "title": "tholman/ascii-morph: Library to animate between two ascii images",
+        "description": "Library to animate between two ascii images."
+    },
+    {
+        "url": "https://tholman.com/cursor-effects/",
+        "favicon": "tholman.com.svg",
+        "title": "90's Cursor Effects",
+        "description": "JavaScript mouse effects that follow your cursor or finger!"
+    },
+    {
+        "url": "https://theuselessweb.com/",
+        "favicon": "theuselessweb.com.ico",
+        "title": "The Useless Web",
+        "description": "The Useless Web Button... take me somewhere... useless. The perfect button for the bored, or those looking to find random sites online!"
+    },
+    {
         "url": "https://crashlaker.github.io/",
         "favicon": "crashlaker.github.io.ico",
         "title": "Carlos Aguni",
@@ -105,6 +123,11 @@
         "favicon": "ohshitgit.com.png",
         "title": "Oh Shit, Git!?!",
         "description": "Plain-English guide to fixing common Git mistakes."
+    },
+    {
+        "url": "https://junon.me/",
+        "title": "Josh Junon",
+        "description": "Josh Junon's portfolio, CV and other information."
     },
     {
         "url": "https://nathanleclaire.com/",
@@ -170,6 +193,12 @@
         "description": "regl is a functional WebGL library focused on minimalism and performance."
     },
     {
+        "url": "https://overreacted.io/",
+        "favicon": "overreacted.io.png",
+        "title": "overreacted — A blog by Dan Abramov",
+        "description": "A blog by Dan Abramov"
+    },
+    {
         "url": "https://acko.net/",
         "favicon": "acko.net.ico",
         "title": "Hackery, Math & Design — Acko.net",
@@ -196,6 +225,29 @@
         "url": "https://wingolog.org/",
         "title": "wingolog",
         "description": "wingolog: A mostly dorky weblog by Andy Wingo"
+    },
+    {
+        "url": "https://dev.to/richharris/why-i-don-t-use-web-components-2cia",
+        "favicon": "dev.to.png",
+        "title": "Why I don’t use Web Components",
+        "description": "For my first post on dev.to I thought I'd write about a nice, safe topic that's free of controversy:..."
+    },
+    {
+        "url": "https://illarterate.co.uk/",
+        "title": "illarterate | net art n teletext and stuff!",
+        "description": "multimedia artworks, personal website of Dan Farrimond"
+    },
+    {
+        "url": "https://teletextart.tumblr.com/",
+        "favicon": "teletextart.tumblr.com.jpg",
+        "title": "Teletext Art",
+        "description": "Classic teletext pages. Blog maintained by Dan Farrimond, teletext artist. email: HELLO [at] TELETEXTART (dot) CO {dot} UK"
+    },
+    {
+        "url": "https://text-mode.tumblr.com/",
+        "favicon": "text-mode.tumblr.com.jpg",
+        "title": "TEXT-MODE",
+        "description": "Text graphics and related works, going back thousands of years. ASCII, PETSCII, Unicode, textiles,..."
     },
     {
         "url": "https://www.exampointers.com/teletext/teletext.phtml",
