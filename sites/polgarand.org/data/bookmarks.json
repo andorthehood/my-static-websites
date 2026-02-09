@@ -24,6 +24,12 @@
         "description": "huzat is a collection of different products of culture. The purpose of this project is to repaint and rediscover the once vividly sensible cultural unity of Eastern-central europe."
     },
     {
+        "url": "https://robertheaton.com/",
+        "favicon": "robertheaton.com.png",
+        "title": "Robert Heaton",
+        "description": "Software engineer. One-track lover down a two-way lane"
+    },
+    {
         "url": "https://netherlands-coding-live.github.io/",
         "title": "NL_CL | Netherlands Coding Live/",
         "description": ">Netherlands Coding Live aka &quot;NL_CL&quot; ~ a series of live coding concerts, meetups, workshops and more, organized by live coders based in The Netherlands."
@@ -40,6 +46,7 @@
         "title": "Jmail, logged in as jeevacation@gmail.com",
         "description": "You are logged into jeevacation@gmail.com, Jeffrey Epstein's email. Sourced from the November 2025 House Oversight Committee data release."
     },
+    {},
     {
         "url": "https://wattenberger.com/",
         "favicon": "wattenberger.com.svg",
@@ -51,6 +58,12 @@
         "favicon": "dynamicland.org.ico",
         "title": "Dynamicland front shelf",
         "description": "Incubating a humane dynamic medium."
+    },
+    {
+        "url": "https://arxiv.org/abs/2510.05381",
+        "favicon": "arxiv.org.png",
+        "title": "Context Length Alone Hurts LLM Performance Despite Perfect Retrieval",
+        "description": "Large language models (LLMs) often fail to scale their performance on long-context tasks performance in line with the context lengths they support."
     },
     {
         "url": "https://github.com/mozilla/bedrock/commit/d459addab846d8144b61939b7f4310eb80c5470e",

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Add Polgarand Bookmark"
+  short_description: "Add a bookmark with auto-fetched title/description"
+  default_prompt: "Use $add-polgarand-bookmark to add this URL to polgarand.org bookmarks and fetch title/description automatically."

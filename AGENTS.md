@@ -23,6 +23,7 @@ A skill is a set of local instructions in a `SKILL.md` file. Repository-specific
 
 ### Available skills
 - `update-polgarand-favicons`: Run and verify the Polgarand favicon refresh workflow. Use when asked to update, refresh, re-download, or regenerate favicons/bookmark icons for `polgarand.org`. (file: `skills/update-polgarand-favicons/SKILL.md`)
+- `add-polgarand-bookmark`: Add or update a Polgarand bookmark from a URL by fetching title/description and writing to `sites/polgarand.org/data/bookmarks.json`. Use when asked to "add this as a bookmark" or similar. (file: `skills/add-polgarand-bookmark/SKILL.md`)
 
 ### How to use skills
 - Discovery: Check the list above for available skills and open the referenced `SKILL.md`.
