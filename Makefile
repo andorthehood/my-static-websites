@@ -58,6 +58,15 @@ tmux-recover:
 	echo "Multiple tmux sessions found. Re-run with SESSION=<name>:"; \
 	tmux ls -F '#S'
 
+.PHONY: tmux-kill-all
+tmux-kill-all:
+	@if tmux ls >/dev/null 2>&1; then \
+		tmux kill-server; \
+		echo "Killed all tmux sessions."; \
+	else \
+		echo "No tmux sessions found."; \
+	fi
+
 .PHONY: format
 format:
 	cargo fmt
@@ -104,6 +113,7 @@ help:
 	@echo "  coverage          - Generate HTML coverage report"
 	@echo "  coverage-ci       - Generate XML coverage report for CI"
 	@echo "  tmux-recover      - Attach to an existing tmux session"
+	@echo "  tmux-kill-all     - Kill all tmux sessions"
 	@echo "  help              - Show this help message"
 	@echo ""
 	@echo "Usage:"
@@ -116,3 +126,4 @@ help:
 	@echo "  make lint-pedantic              # Lint the code with pedantic checks"
 	@echo "  make coverage                   # Generate coverage report"
 	@echo "  make tmux-recover SESSION=polgarand-dev  # Attach to a tmux session"
+	@echo "  make tmux-kill-all              # Kill all tmux sessions"
