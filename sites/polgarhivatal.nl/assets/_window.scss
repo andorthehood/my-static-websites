@@ -11,6 +11,10 @@
         display: flex;
         gap: 6px;
         padding-bottom: 6px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
 
         .title {
             white-space: nowrap;

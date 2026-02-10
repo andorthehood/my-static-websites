@@ -2,12 +2,12 @@
 
 body,
 html {
-	color: var(--text-color);
+	color: #000000;
 	line-height: 1.2;
 	font-family: "Departure Mono", monospace;
 	margin: 0;
 	padding: 0;
-	background: #399;
+	background: #007973;
 }
 
 p {
@@ -15,34 +15,10 @@ p {
 	margin: 0;
 }
 
-a:hover,
-a:visited {
-	text-decoration: line-through;
-}
-
 :root {
 	font-synthesis: none;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
-
-	/* @media (prefers-color-scheme: light) { */
-	--background-color: #666699;
-	--text-color: #000000;
-	--link-color: #0066cc;
-}
-
-article img {
-	display: block;
-	width: 100%;
-	position: relative;
-	z-index: 10;
-	background: var(--text-color);
-	aspect-ratio: 3/2;
-}
-
-article img.loaded {
-	background: initial;
-	aspect-ratio: initial;
 }
 
 .container {
