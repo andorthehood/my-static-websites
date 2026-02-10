@@ -1,5 +1,11 @@
 [
     {
+        "url": "https://github.com/paulnasca/paulstretch_cpp",
+        "favicon": "github.com.png",
+        "title": "paulnasca/paulstretch_cpp: PaulStretch",
+        "description": "This is an experimental program for extreme stretching the audio."
+    },
+    {
         "url": "https://musical-artifacts.com/",
         "favicon": "musical-artifacts.com.ico",
         "title": "Musical Artifacts",
@@ -318,6 +324,12 @@
         "url": "https://riccardoscalco.it/textures/",
         "title": "Textures.js",
         "description": "A JavaScript Library for creating SVG patterns"
+    },
+    {
+        "url": "https://csound.com/",
+        "favicon": "csound.com.png",
+        "title": "Csound",
+        "description": "Community website for the Csound project."
     },
     {
         "url": "https://www.ioccc.org/",
