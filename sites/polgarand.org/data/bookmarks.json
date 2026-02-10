@@ -1,6 +1,13 @@
 [
     {
+        "url": "https://musical-artifacts.com/",
+        "favicon": "musical-artifacts.com.ico",
+        "title": "Musical Artifacts",
+        "description": "Helping to catalogue, preserve and free the artifacts you need to produce music."
+    },
+    {
         "url": "https://www.paulgraham.com/simply.html",
+        "favicon": "www.paulgraham.com.png",
         "title": "Write Simply",
         "description": "I try to write using ordinary words and simple sentences."
     },
@@ -77,6 +84,7 @@
     },
     {
         "url": "https://subjectguides.york.ac.uk/study-revision/feynman-technique",
+        "favicon": "subjectguides.york.ac.uk.png",
         "title": "The Feynman Technique",
         "description": "The Feynman Technique is a method of learning that involves explaining"
     },
