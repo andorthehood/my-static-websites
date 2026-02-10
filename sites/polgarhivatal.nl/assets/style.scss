@@ -10,6 +10,11 @@ html {
 	background: #399;
 }
 
+p {
+	padding: 0 0 10px 0;
+	margin: 0;
+}
+
 a:hover,
 a:visited {
 	text-decoration: line-through;
@@ -45,6 +50,7 @@ article img.loaded {
 	width: 50%;
 	padding: 30px 0;
 	font-size: 22px;
+	max-width: 900px;
 }
 
 @media(max-width:1500px) {
