@@ -71,6 +71,24 @@
         "description": "You are logged into jeevacation@gmail.com, Jeffrey Epstein's email. Sourced from the November 2025 House Oversight Committee data release."
     },
     {
+        "url": "https://blippo.plus/",
+        "favicon": "blippo.plus.png",
+        "title": "Blippo+",
+        "description": "Blippo+ is a live-action, new wave, off-cable TV simulator."
+    },
+    {
+        "url": "https://luckycatlfo.com/",
+        "favicon": "luckycatlfo.com.ico",
+        "title": "Lucky Cat LFO",
+        "description": "Never play music alone again with a Lucky Cat LFO"
+    },
+    {
+        "url": "https://www.astralcodexten.com/p/what-is-man-that-thou-art-mindful",
+        "favicon": "www.astralcodexten.com.png",
+        "title": "What Is Man, That Thou Art Mindful Of Him?",
+        "description": "You made him lower than the angels for a short time..."
+    },
+    {
         "url": "https://wattenberger.com/",
         "favicon": "wattenberger.com.svg",
         "title": "Amelia Wattenberger",
@@ -83,6 +101,12 @@
         "description": "Incubating a humane dynamic medium."
     },
     {
+        "url": "https://theoatmeal.com/comics/ai_art",
+        "favicon": "theoatmeal.com.png",
+        "title": "A cartoonist's review of AI art - The Oatmeal",
+        "description": "This is a comic about AI art."
+    },
+    {
         "url": "https://arxiv.org/abs/2510.05381",
         "favicon": "arxiv.org.png",
         "title": "Context Length Alone Hurts LLM Performance Despite Perfect Retrieval",
@@ -93,6 +117,12 @@
         "favicon": "github.com.ico",
         "title": "Tos copy updates (fix #16016) (#16018) · mozilla/bedrock@d459add",
         "description": "* ToS copy updates (fix #16016) * Apply suggestions from code review - copy change"
+    },
+    {
+        "url": "https://github.com/glfw/glfw",
+        "favicon": "github.com.png",
+        "title": "glfw/glfw",
+        "description": "GLFW is an Open Source, multi-platform library for OpenGL, OpenGL ES and Vulkan application development."
     },
     {
         "url": "https://subjectguides.york.ac.uk/study-revision/feynman-technique",
@@ -182,6 +212,12 @@
         "favicon": "fabiensanglard.net.ico",
         "title": "Fabien Sanglard's Website",
         "description": "Personal website with code and ideas by Fabien Sanglard, including articles on game engines and graphics."
+    },
+    {
+        "url": "https://github.com/JACoders/OpenJK",
+        "favicon": "github.com.png",
+        "title": "JACoders/OpenJK",
+        "description": "Community effort to maintain and improve Jedi Academy (SP & MP) + Jedi Outcast (SP only) released by Raven Software"
     },
     {
         "url": "https://www.theverge.com/a/luka-artificial-intelligence-memorial-roman-mazurenko-bot",
