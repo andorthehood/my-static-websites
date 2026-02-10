@@ -1,5 +1,11 @@
 [
     {
+        "url": "https://castpixel.itch.io/animevox",
+        "favicon": "castpixel.itch.io.png",
+        "title": "ANIMEVOX by castpixel",
+        "description": "This is a simple sound generator that makes retro-sounding anime sfx."
+    },
+    {
         "url": "https://github.com/paulnasca/paulstretch_cpp",
         "favicon": "github.com.png",
         "title": "paulnasca/paulstretch_cpp: PaulStretch",
