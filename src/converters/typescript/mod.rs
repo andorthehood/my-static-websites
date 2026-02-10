@@ -5,7 +5,7 @@ mod call_generics;
 mod interface_blocks;
 mod postfix_non_null;
 mod query_selector_generics;
-mod type_annotations;
+pub mod type_annotations;
 mod utils;
 
 use as_casts::remove_as_casts;
