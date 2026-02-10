@@ -4,7 +4,7 @@ body,
 html {
 	color: var(--text-color);
 	line-height: 1.2;
-	font-family: 'DepartureMono-Regular', 'Courier New', monospace;
+	font-family: "Departure Mono", monospace;
 	margin: 0;
 	padding: 0;
 	background: #399;
@@ -16,6 +16,10 @@ a:visited {
 }
 
 :root {
+	font-synthesis: none;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+
 	/* @media (prefers-color-scheme: light) { */
 	--background-color: #666699;
 	--text-color: #000000;
