@@ -4,13 +4,13 @@
     border-right: 2px solid #999999;
     border-bottom: 2px solid #999999;
     box-shadow: inset 2px 2px 0px #ffffff;
-    padding: 6px;
+    padding: 6px 6px 4px 6px;
     position: relative;
 
     .header {
         display: flex;
         gap: 6px;
-        padding-bottom: 6px;
+        padding-bottom: 4px;
 
         .title {
             white-space: nowrap;
