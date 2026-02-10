@@ -3,8 +3,8 @@ title: 'TODO: Split Type Annotation Stripper Into Focused Modules'
 priority: Medium
 effort: 1 day
 created: 2026-02-07
-status: Open
-completed: null
+status: Completed
+completed: 2026-02-10
 ---
 
 # TODO: Split Type Annotation Stripper Into Focused Modules
