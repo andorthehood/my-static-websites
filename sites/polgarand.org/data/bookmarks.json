@@ -1,5 +1,10 @@
 [
     {
+        "url": "https://www.paulgraham.com/simply.html",
+        "title": "Write Simply",
+        "description": "I try to write using ordinary words and simple sentences."
+    },
+    {
         "url": "https://github.com/kindohm/risc-chip",
         "favicon": "github.com.png",
         "title": "kindohm/risc-chip: Source code and samples for the RISC Chip album (music). Made with TidalCycles.",
@@ -70,6 +75,11 @@
         "favicon": "github.com.ico",
         "title": "Tos copy updates (fix #16016) (#16018) · mozilla/bedrock@d459add",
         "description": "* ToS copy updates (fix #16016) * Apply suggestions from code review - copy change"
+    },
+    {
+        "url": "https://subjectguides.york.ac.uk/study-revision/feynman-technique",
+        "title": "The Feynman Technique",
+        "description": "The Feynman Technique is a method of learning that involves explaining"
     },
     {
         "url": "https://worrydream.com/",

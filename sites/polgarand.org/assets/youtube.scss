@@ -1,4 +1,4 @@
-.tv {
+.youtube {
     font-family: "Departure Mono", sans-serif;
     font-size: 16.5px;
 
@@ -37,7 +37,7 @@
 }
 
 @media (max-width: 600px) {
-    .tv ul {
+    .youtube ul {
         grid-template-columns: repeat(2, 1fr);
     }
 }

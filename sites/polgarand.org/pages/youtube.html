@@ -1,15 +1,16 @@
 ---
 layout: page
-title: 'TV'
+title: 'YouTube'
 date: 2023-07-19 19:00:00 -0100
 location: 'Zandvoort, Netherlands'
-css: 'tv.scss'
+css: 'youtube.scss'
 ---
-<div class="tv">
+<div class="youtube">
+    <p>Broadcast Yourself</p>
     <p>Every time I find a video I like, I save it to this list.</p>
 
     <ul>
-        {% for video in data.tv %}
+        {% for video in data.youtube %}
         <li>
             <a href="https://www.youtube.com/watch?v={{video.id}}" target="_blank"><img
                     src="https://static.llllllllllll.com/andor/assets/thumbnails/{{video.id}}.jpg" loading="lazy"
