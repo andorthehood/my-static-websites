@@ -47,12 +47,6 @@ make setup
 ```
 This will install git hooks, build the project, and set up everything you need for development.
 
-**Alternative manual setup:**
-```bash
-./scripts/setup-hooks.sh  # Install git hooks
-cargo build              # Build the project
-```
-
 ### Generate a site
 ```bash
 cargo run generate <site_name>
@@ -80,7 +74,7 @@ The `--ramdisk` flag enables storing generated files in RAM instead of on disk, 
 
 ### Start development server
 ```bash
-cargo run serve
+cargo run serve <site_name>
 ```
 
 This starts a local development server to preview your generated site.
