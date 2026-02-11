@@ -1,6 +1,6 @@
 This is a zero-dep static site generator and an experiment. I'm testing whether I can sustainably maintain a vibe-coded project in a programming language I'm not fluent in.
 
-My original goal was to simulate what happens when someone with no software engineering background attempts to vibe-code an entire application. I quickly learned that with absolutely no constraints, the project would just drive itself into the ground.
+My original goal was to simulate what happens when someone with no software engineering background attempts to vibe-code an entire applicationm but I quickly learned that with absolutely no constraints, the project would just drive itself into the ground.
 
 To avoid that, I'm now aiming for the minimum amount of intervention that still keeps the project stable. I only review for:
 - functions grouped by clear responsibility
