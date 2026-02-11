@@ -170,17 +170,23 @@ fn handle_content_whitespace(
         if !result.is_empty() {
             let last_char = result.chars().last().unwrap_or('\0');
 
-            // Preserve space between:
-            // - content characters (words, emojis, unicode)
-            // - after punctuation (comma, period, etc.) and before content
-            // - around textual punctuation like parentheses and dashes
-            // - content and tags
-            let should_preserve_space = (is_content_char(last_char) && is_content_char(*next_char))
+            let should_preserve_space =
+                // Preserve space between adjacent content chunks: `foo bar`.
+                (is_content_char(last_char) && is_content_char(*next_char))
+                // Preserve space before a tag after text: `foo <em>bar</em>`.
                 || (is_content_char(last_char) && *next_char == '<')
+                // Preserve space after a closing tag before text: `</em> bar`.
                 || (last_char == '>' && is_content_char(*next_char))
+                // Preserve sentence spacing after punctuation.
                 || (matches!(last_char, ',' | '.' | ';' | ':' | '!' | '?')
                     && is_content_char(*next_char))
+                // Preserve space before an opening inline quote: `word "quote"`.
+                || (is_content_char(last_char) && matches!(*next_char, '"' | '\''))
+                // Preserve space after a closing inline quote: `"quote" word`.
+                || (matches!(last_char, '"' | '\'') && is_content_char(*next_char))
+                // Preserve space before parentheses or dash in prose: `word (x)` / `word - x`.
                 || (is_content_char(last_char) && matches!(*next_char, '(' | ')' | '-'))
+                // Preserve space after parentheses or dash in prose.
                 || (matches!(last_char, '(' | ')' | '-') && is_content_char(*next_char));
 
             if should_preserve_space {
@@ -506,6 +512,35 @@ body { margin: 0; }
 
         assert!(result.contains("Alpha - Beta"));
         assert!(!result.contains("Alpha-Beta"));
+    }
+
+    #[test]
+    fn test_preserve_spaces_around_double_quotes() {
+        let html = r#"<p>He said "hello" to me.</p>"#;
+        let result = minify_html(html);
+
+        assert!(result.contains(r#"He said "hello" to me."#));
+        assert!(!result.contains(r#"said"hello""#));
+        assert!(!result.contains(r#""hello"to"#));
+    }
+
+    #[test]
+    fn test_preserve_spaces_around_single_quotes() {
+        let html = "<p>It is called 'delta' mode.</p>";
+        let result = minify_html(html);
+
+        assert!(result.contains("It is called 'delta' mode."));
+        assert!(!result.contains("called'delta'"));
+        assert!(!result.contains("'delta'mode"));
+    }
+
+    #[test]
+    fn test_preserve_space_before_opening_quote_in_sentence() {
+        let html = r#"<p>He wrote "A quick note" yesterday.</p>"#;
+        let result = minify_html(html);
+
+        assert!(result.contains(r#"He wrote "A quick note" yesterday."#));
+        assert!(!result.contains(r#"wrote"A quick note""#));
     }
 
     #[test]
