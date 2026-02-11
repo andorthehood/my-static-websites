@@ -7,7 +7,7 @@ To avoid that, I'm now aiming for the minimum amount of intervention that still 
 - near-100% test coverage with meaningful tests
 - making sure the agents don't disable or weaken Clippy rules or tests
 
-I intentionally overlook performance optimizations (like time complexity or borrowing instead of moving) and whether the code follows best-practice idioms of the language. The system is allowed to degrade, but only in ways that are observable and fixable without rewriting it.
+I intentionally overlook performance optimizations (like time complexity or borrowing instead of moving) and whether the code follows best-practice idioms of the language. I want to allow the system to degrade, but only in ways that are observable and fixable without rewriting it.
 
 The zero-dependency constraint is also intentional. It prevents the project from being "done" too quickly and forces new features to be implemented incrementally instead of pulled in via libraries. Vibe-coded projects rarely fail at v1, they collapse later, when features are added and modifications accumulate.
 
