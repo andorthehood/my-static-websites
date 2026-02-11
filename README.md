@@ -1,9 +1,20 @@
-Zero-dep static site generator written in Rust. I originally built it to learn Rust, now it's my playground for testing AI coding tools. It regenerates everything on each build (no caching), but still stupid fast thanks to Rust. Includes built-in ramdisk support so I don't wear out my SSD.
+This is a zero-dep static site generator and an experiment. I'm testing whether I can sustainably maintain a vibe-coded project in a programming language I'm not fluent in.
+
+My original goal was to simulate what happens when someone with no software engineering background attempts to vibe-code an entire application. I quickly learned that with absolutely no constraints, the project would just drive itself into the ground.
+
+To avoid that, I'm now aiming for the minimum amount of intervention that still keeps the project stable. I only review for:
+- functions grouped by clear responsibility
+- near-100% test coverage with meaningful tests
+- making sure the agents don't disable or weaken Clippy rules or tests
+
+I intentionally overlook performance optimizations (like time complexity or borrowing instead of moving) and whether the code follows best-practice idioms of the language. The system is allowed to degrade, but only in ways that are observable and fixable without rewriting it.
+
+The zero-dependency constraint is also intentional. It prevents the project from being "done" too quickly and forces new features to be implemented incrementally instead of pulled in via libraries. Vibe-coded projects rarely fail at v1, they collapse later, when features are added and modifications accumulate.
 
 It powers my real websites:
 - [polgarand.org](https://polgarand.org): [![Netlify Status](https://api.netlify.com/api/v1/badges/a8bd44af-89f0-4afe-8765-f9cfc38191bf/deploy-status)](https://app.netlify.com/sites/andor/deploys)
 - [polgarhivatal.nl](https://polgarhivatal.nl): [![Netlify Status](https://api.netlify.com/api/v1/badges/ea7ae987-302e-4cb0-816f-0aec9b7b5c18/deploy-status)](https://app.netlify.com/projects/polgarhivatal/deploys)
-- [8f4e.com](https://8f4e.com): [![Netlify Status](https://api.netlify.com/api/v1/badges/ea7ae987-302e-4cb0-816f-0aec9b7b5c18/deploy-status)](https://app.netlify.com/projects/polgarhivatal/deploys)
+- [8f4e.com](https://8f4e.com): [![Netlify Status](https://api.netlify.com/api/v1/badges/ea7ae987-302e-4cb0-816f-0aec9b7b5c18/deploy-status)](https://app.netlify.com/projects/8f4e/deploys)
 
 ## Features
 
