@@ -1,5 +1,10 @@
 [
     {
+        "url": "https://campedersen.com/singularity",
+        "title": "The Singularity will Occur on a Tuesday",
+        "description": "I collected five real metrics of AI progress, fit a hyperbolic model to each one independently, and found the one with genuine curvature toward a pole."
+    },
+    {
         "url": "https://castpixel.itch.io/animevox",
         "favicon": "castpixel.itch.io.png",
         "title": "ANIMEVOX by castpixel",
@@ -16,6 +21,12 @@
         "favicon": "musical-artifacts.com.ico",
         "title": "Musical Artifacts",
         "description": "Helping to catalogue, preserve and free the artifacts you need to produce music."
+    },
+    {
+        "url": "https://marginlab.ai/trackers/claude-code-historical-performance/",
+        "favicon": "marginlab.ai.png",
+        "title": "Claude Code Historical Performance | Marginlab",
+        "description": "Historical Claude Code performance tracker across model generations on SWE-Bench-Pro."
     },
     {
         "url": "https://www.paulgraham.com/simply.html",
@@ -46,6 +57,12 @@
         "favicon": "huzat.eu.ico",
         "title": "huzat.eu | Rediscover the cultural heritage of Central Europe",
         "description": "huzat is a collection of different products of culture. The purpose of this project is to repaint and rediscover the once vividly sensible cultural unity of Eastern-central europe."
+    },
+    {
+        "url": "https://tailwindsql.xyz/",
+        "favicon": "tailwindsql.xyz.svg",
+        "title": "TailwindSQL",
+        "description": "Like TailwindCSS, but for SQL. className your way to database queries!"
     },
     {
         "url": "https://robertheaton.com/",
@@ -87,6 +104,17 @@
         "favicon": "www.astralcodexten.com.png",
         "title": "What Is Man, That Thou Art Mindful Of Him?",
         "description": "You made him lower than the angels for a short time..."
+    },
+    {
+        "url": "https://hackernoon.com/stop-failing-live-coding-interviews-lessons-from-100-real-sessions",
+        "favicon": "hackernoon.com.png",
+        "title": "Stop Failing Live Coding Interviews: Lessons from 100+ Real Sessions",
+        "description": "Master live coding interviews with insights from 100+ interviews. Learn why communication beats perfect code and what actually gets you hired."
+    },
+    {
+        "url": "https://danybittel.ch/macro.html",
+        "title": "Dany Bittel, Macro Splats",
+        "description": "A Gaussian splat is essentially a bunch of blurry ellipsoids."
     },
     {
         "url": "https://wattenberger.com/",
@@ -189,6 +217,23 @@
         "favicon": "www.crudlabs.org.ico",
         "title": "Crudlabs",
         "description": "Crudlabs builds the Crudman cassette-walkman-based electronic instrument and shares specs, demos, and ordering info."
+    },
+    {
+        "url": "https://web.badges.world/",
+        "title": "Web Badges World",
+        "description": "The ultimate archive of 80x15 pixel button art"
+    },
+    {
+        "url": "https://cyber.dabamos.de/88x31/",
+        "favicon": "cyber.dabamos.de.ico",
+        "title": "The 88x31 GIF Collection",
+        "description": "A collection of 4540 classic 88x31 buttons from the 1990s, 2000s, and today in GIF format."
+    },
+    {
+        "url": "https://gifcities.org/",
+        "favicon": "gifcities.org.ico",
+        "title": "GifCities",
+        "description": "The Geocities Animated Gif Search from Internet Archive"
     },
     {
         "url": "https://ohshitgit.com/",
