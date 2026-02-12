@@ -180,6 +180,9 @@ fn handle_content_whitespace(
                 // Preserve sentence spacing after punctuation.
                 || (matches!(last_char, ',' | '.' | ';' | ':' | '!' | '?')
                     && is_content_char(*next_char))
+                // Preserve space before a dash after punctuation: `word? - suffix`.
+                || (matches!(last_char, ',' | '.' | ';' | ':' | '!' | '?')
+                    && *next_char == '-')
                 // Preserve space before an opening inline quote: `word "quote"`.
                 || (is_content_char(last_char) && matches!(*next_char, '"' | '\''))
                 // Preserve space after a closing inline quote: `"quote" word`.
@@ -512,6 +515,16 @@ body { margin: 0; }
 
         assert!(result.contains("Alpha - Beta"));
         assert!(!result.contains("Alpha-Beta"));
+    }
+
+    #[test]
+    fn test_preserve_space_between_punctuation_and_dash() {
+        let html = r#"<title>Question? - Site</title>"#;
+        let result = minify_html(html);
+
+        assert!(result.contains("Question? - Site"));
+        assert!(!result.contains("Question?- Site"));
+        assert!(!result.contains("Question? -Site"));
     }
 
     #[test]
