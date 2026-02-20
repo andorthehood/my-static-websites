@@ -1,5 +1,22 @@
 [
     {
+        "url": "https://solar.lowtechmagazine.com/about/the-solar-website/",
+        "favicon": "solar.lowtechmagazine.com.svg",
+        "title": "About the Solar Powered Website",
+        "description": "This website is solar-powered and self-hosted. It has been designed to radically reduce the energy use associated with accessing our content."
+    },
+    {
+        "url": "https://www.roberthenke.com/",
+        "favicon": "www.roberthenke.com.png",
+        "title": "Robert Henke",
+        "description": "I am an artistic toolmaker. I am a toolmaking artist. Code and hardware are a source of inspiration and a necessity. I create music, audiovisual performances, installations, and computer graphics."
+    },
+    {
+        "url": "https://msp.ucsd.edu/Publications/sorbonne11-eng.pdf",
+        "title": "A case study in software for artists: Max/MS and Pd",
+        "description": "A reflection on designing music software as a stable, reactive, and general tool for artists, arguing that the architecture of creative tools quietly shapes what kinds of art can be made."
+    },
+    {
         "url": "https://campedersen.com/singularity",
         "title": "The Singularity will Occur on a Tuesday",
         "description": "I collected five real metrics of AI progress, fit a hyperbolic model to each one independently, and found the one with genuine curvature toward a pole."
@@ -45,6 +62,11 @@
         "favicon": "webmachinelearning.github.io.png",
         "title": "WebMCP Draft Community Group Report",
         "description": "The WebMCP API enables web applications to provide JavaScript-based tools to AI agents."
+    },
+    {
+        "url": "https://soul.md/",
+        "title": "SOUL.md",
+        "description": "A meditation on AI identity"
     },
     {
         "url": "https://lars.ingebrigtsen.no/2026/02/02/whats-up-with-all-those-equals-signs-anyway/",
