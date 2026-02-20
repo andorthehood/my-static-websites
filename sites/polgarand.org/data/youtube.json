@@ -18,6 +18,12 @@
         "date": "February 3, 2026"
     },
     {
+        "title": "I'm making a game engine based on dynamic signed distance fields (SDFs)",
+        "id": "il-TXbn5iMA",
+        "author": "Mike Turitzin",
+        "date": "January 6, 2026"
+    },
+    {
         "title": "High-level is the goal (but why?)",
         "id": "AmrBpxAtPrI",
         "author": "Ben Visness",
@@ -108,6 +114,12 @@
         "date": "August 25, 2025"
     },
     {
+        "title": "I Tried a Japanese Childhood Hobby (Dorodango)",
+        "id": "-xvHSq-cPA4",
+        "author": "Darius Jay",
+        "date": "August 23, 2025"
+    },
+    {
         "title": "Tape Bowing Ensemble",
         "id": "vaG5tVnpkwc",
         "author": "Open Reel Ensemble",
@@ -138,10 +150,22 @@
         "date": "July 5, 2025"
     },
     {
+        "title": "The Brain's Learning Algorithm Isn't Backpropagation",
+        "id": "l-OLgbdZ3kk",
+        "author": "Artem Kirsanov",
+        "date": "May 7, 2025"
+    },
+    {
         "title": "I took Magic Mushrooms and did Math",
         "id": "78EZD4JIJWA",
         "author": "Maggie Vail",
         "date": "May 6, 2025"
+    },
+    {
+        "title": "the six seconds that changed music forever",
+        "id": "9zmEDzsMkqE",
+        "author": "Synthet",
+        "date": "April 28, 2025"
     },
     {
         "title": "The Headless Way: A Simple Trick to Realize You're Not in the World",
@@ -276,6 +300,12 @@
         "date": "April 7, 2023"
     },
     {
+        "title": "Why You Shouldn't Nest Your Code",
+        "id": "CFRhGnuXG-4",
+        "author": "CodeAesthetic",
+        "date": "Dec 6, 2022"
+    },
+    {
         "title": "Cultural observations: The skinfade + north face jacket combo",
         "id": "A6pTyPYwqpY",
         "author": "Meditations for the anxious mind",
@@ -298,6 +328,12 @@
         "id": "oI_X2cMHNe0",
         "author": "Veritasium",
         "date": "April 29, 2022"
+    },
+    {
+        "title": "coding in c until my program is unsafe",
+        "id": "oTEiQx88B2U",
+        "author": "Low Level",
+        "date": "April 10, 2022"
     },
     {
         "title": "Old Green Day vs New Green Day",
