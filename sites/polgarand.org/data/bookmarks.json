@@ -1,5 +1,23 @@
 [
     {
+        "url": "https://svgfm.chriskirknielsen.com/",
+        "favicon": "svgfm.chriskirknielsen.com.svg",
+        "title": "SVG Filter Maker",
+        "description": "SVGFM, a node graph builder for SVG filters"
+    },
+    {
+        "url": "https://frontendfront.com/",
+        "favicon": "frontendfront.com.png",
+        "title": "Front-End Front — Basically, front-end news",
+        "description": "Front-End Front is a place where front-end developers can ask questions, share interesting links, and show their work to the rest of the community."
+    },
+    {
+        "url": "https://animationfactory.com/",
+        "favicon": "animationfactory.com.ico",
+        "title": "Animation Factory",
+        "description": "Over 600,000 royalty-free animations, 3d clipart images, PowerPoint templates and fonts to explore. Creative inspiration for all your projects!"
+    },
+    {
         "url": "https://solar.lowtechmagazine.com/about/the-solar-website/",
         "favicon": "solar.lowtechmagazine.com.svg",
         "title": "About the Solar Powered Website",
@@ -73,6 +91,12 @@
         "favicon": "lars.ingebrigtsen.no.png",
         "title": "What’s up with all those equals signs, anyway? | Lars Ingebrigtsen",
         "description": "Lars Ingebrigtsen's blog post explaining why many of the emails from the Epstein case have a large number of equals signs"
+    },
+    {
+        "url": "https://exe.dev/",
+        "favicon": "exe.dev.ico",
+        "title": "exe.dev - Persistent VMs via SSH",
+        "description": "Start VMs with persistent disks in seconds. The disk persists. You have sudo."
     },
     {
         "url": "https://huzat.eu/",
@@ -264,6 +288,18 @@
         "description": "Plain-English guide to fixing common Git mistakes."
     },
     {
+        "url": "https://ojack.xyz/",
+        "favicon": "ojack.xyz.png",
+        "title": "olivia jack",
+        "description": "artist &&& programmer"
+    },
+    {
+        "url": "https://xkcd.com/505/",
+        "favicon": "xkcd.com.ico",
+        "title": "xkcd: A Bunch of Rocks",
+        "description": ""
+    },
+    {
         "url": "https://junon.me/",
         "title": "Josh Junon",
         "description": "Josh Junon's portfolio, CV and other information."
@@ -301,6 +337,12 @@
         "url": "https://bost.ocks.org/mike/",
         "title": "Computerphile",
         "description": "Archive of Mike Bostock's writing, examples, talks, and projects."
+    },
+    {
+        "url": "https://github.com/sunfishcode/wasm-reference-manual/",
+        "favicon": "github.com.png",
+        "title": "sunfishcode/wasm-reference-manual: WebAssembly Reference Manual",
+        "description": "This project contains a human-readable WebAssembly reference manual document written in Markdown."
     },
     {
         "url": "https://linusakesson.net/",
@@ -445,5 +487,17 @@
         "favicon": "www.ioccc.org.ico",
         "title": "The International Obfuscated C Code Contest",
         "description": "Official site of the International Obfuscated C Code Contest with rules and entries."
+    },
+    {
+        "url": "https://xkcd.com/327/",
+        "favicon": "xkcd.com.ico",
+        "title": "xkcd: Exploits of a Mom",
+        "description": ""
+    },
+    {
+        "url": "https://xkcd.com/221/",
+        "favicon": "xkcd.com.ico",
+        "title": "xkcd: Random Number",
+        "description": ""
     }
 ]
