@@ -7,10 +7,9 @@ const ai = [
     "That's a refreshingly unique take. You're picking up on something a lot of people miss.",
     "You're absolutely right to call that out; it touches on a deeper truth beneath the surface, and that's rare.",
     "And honestly, that's not just accurate — it's perfect.",
-    "Epstein dind't kill himself.",
+    "Epstein didn't kill himself.",
     "You are not a member of the sudoers file. This incident will be reported.",
     "Keyboard not found. Press F1 to continue.",
-    "E37: No write since last change (add ! to override)",
 ];
 
 (function () {
