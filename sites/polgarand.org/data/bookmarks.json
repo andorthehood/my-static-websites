@@ -1,5 +1,11 @@
 [
     {
+        "url": "https://myretrotvs.com/",
+        "favicon": "myretrotvs.com.ico",
+        "title": "MyRetroTVs",
+        "description": "Tune in to the lost decades with these nostalgic TV simulators."
+    },
+    {
         "url": "https://svgfm.chriskirknielsen.com/",
         "favicon": "svgfm.chriskirknielsen.com.svg",
         "title": "SVG Filter Maker",
@@ -221,6 +227,12 @@
         "favicon": "departuremono.com.ico",
         "title": "Departure Mono",
         "description": "Departure Mono is a monospaced pixel font by Helena Zhang, licensed under the SIL OFL."
+    },
+    {
+        "url": "https://911realtime.org/",
+        "favicon": "911realtime.org.png",
+        "title": "9/11 Realtime",
+        "description": " 9/11 in Realtime is a multimedia experiment for teachers, with the purpose of helping their students truly understand and absorb the events of September 11, 2001."
     },
     {
         "url": "https://devdocs.io/",
