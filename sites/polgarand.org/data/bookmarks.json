@@ -1,5 +1,10 @@
 [
     {
+        "url": "https://cari.institute/aesthetics",
+        "title": "CARI | Aesthetics",
+        "description": "CARI, or Consumer Aesthetics Research Institute, is an online community dedicated to developing a visual lexicon of consumer ephemera from the 1970s until now."
+    },
+    {
         "url": "https://myretrotvs.com/",
         "favicon": "myretrotvs.com.ico",
         "title": "MyRetroTVs",
@@ -333,6 +338,15 @@
         "favicon": "github.com.png",
         "title": "JACoders/OpenJK",
         "description": "Community effort to maintain and improve Jedi Academy (SP & MP) + Jedi Outcast (SP only) released by Raven Software"
+    },
+    {
+        "url": "https://www.colodore.com/",
+        "title": "/// colodore",
+        "description": "This site attempts to create color palettes and images, that look as close as possible to what the popular chips by MOS Technology, Inc."
+    },
+    {
+        "url": "https://www.pepto.de/projects/colorvic/",
+        "title": "Calculating the color palette of the VIC II"
     },
     {
         "url": "https://www.theverge.com/a/luka-artificial-intelligence-memorial-roman-mazurenko-bot",
