@@ -1,5 +1,11 @@
 [
     {
+        "title": "What Did Ilya See?",
+        "id": "glWvwvhZkQ8",
+        "author": "Run The Numbers",
+        "date": "March 1, 2026"
+    },
+    {
         "title": "I wish I never did this project..",
         "id": "aV4j5pXLP-I",
         "author": "PewDiePie",
@@ -174,10 +180,22 @@
         "date": "July 26, 2025"
     },
     {
+        "title": "Escape World War 3 with Game Theory",
+        "id": "k1TPJq8XoIM",
+        "author": "THE GRIM",
+        "date": "July 6, 2025"
+    },
+    {
         "title": "I Found a Lost Music Generator From the 90s",
         "id": "EdL6b8ZZRLc",
         "author": "harke",
         "date": "July 5, 2025"
+    },
+    {
+        "title": "life is art",
+        "id": "_lgqofIJIws",
+        "author": "Make art not content.",
+        "date": " June 4, 2025"
     },
     {
         "title": "The Brain's Learning Algorithm Isn't Backpropagation",
@@ -306,6 +324,18 @@
         "date": "April 13, 2024"
     },
     {
+        "title":"be Lex Fridman",
+        "id": "9FoWfTc7WRzMq",
+        "author": "Wormwood",
+        "date": "December 12, 2023"
+    },
+    {
+        "title": "Training AI to Play Pokemon with Reinforcement Learning",
+        "id": "DcYLT37ImBY",
+        "author": "Peter Whidden",
+        "date": "October 9, 2023"
+    },
+    {
         "title": "Non-Eucledian Therapy for AI Trauma",
         "id": "FQ9l4v7zB3I",
         "author": "neoknowstic",
@@ -316,6 +346,12 @@
         "id": "B_D3dCSylCg",
         "author": "Underdog Electronic Music School",
         "date": "July 10, 2023"
+    },
+    {
+        "title": "What If Light Was Really Slow?",
+        "id": "ge_j31Yx_yk",
+        "author": "Worlds In Motion",
+        "date": "June 24, 2023"
     },
     {
         "title": "Make Your Renders Unnecessarily Complicated",
@@ -370,6 +406,12 @@
         "id": "v_uBaBuarEM",
         "author": "Looking Glass Universe",
         "date": "November 11, 2022"
+    },
+    {
+        "title": "Langton's Loops: The cellular automaton that copies itself",
+        "id": "xsLX390SJM4",
+        "author": "davbrdavbr",
+        "date": "July 25, 2022"
     },
     {
         "title": "What If We Live in a Superdeterministic Universe?",
@@ -432,6 +474,18 @@
         "date": "February 16, 2021"
     },
     {
+        "title": "Let’s BUILD a COMPUTER in CONWAY's GAME of LIFE ⠠⠵",
+        "id": "Kk2MH9O4pXY",
+        "author": "Alan Zucconi",
+        "date": "October 5, 2020"
+    },
+    {
+        "title": "Game Of Life - How a single mutation destroys the whole organism",
+        "id": "9sKqQyJ8n5o",
+        "author": "Victor Naumik",
+        "date": "April 30, 2020"
+    },
+    {
         "title": "The Art of Code",
         "id": "6avJHaC3C2U",
         "author": "NDC Conferences",
@@ -456,6 +510,12 @@
         "date": "October 20, 2019"
     },
     {
+        "title": "“Hello, world” from scratch on a 6502 — Part 1",
+        "id": "LnzuMJLZRdU",
+        "author": "Ben Eater",
+        "date": "September 14, 2019"
+    },
+    {
         "title": "Sleep is just death being shy",
         "id": "-mu780uB7mI",
         "author": "exurb1a",
@@ -472,6 +532,12 @@
         "id": "q1u7XZ9c8fI",
         "author": "Lazy Square",
         "date": "July 7, 2019"
+    },
+    {
+        "title": "The world's worst video card?",
+        "id": "l7rce6IQDWs",
+        "author": "Ben Eater",
+        "date": "July 5, 2019"
     },
     {
         "title": "What is Mr. Krabs' Net Worth?",
@@ -594,6 +660,12 @@
         "date": "October 20, 2016"
     },
     {
+        "title": "There's Someone Else In Your Head",
+        "id": "wfYbgdo8e-8",
+        "author": "CGP Grey",
+        "date": "May 31, 2016"
+    },
+    {
         "title": "The Last Question - Isaac Asimov - Read by Leonard Nimoy",
         "id": "8XOtx4sa9k4",
         "author": "Cool Psycho Facts",
@@ -660,6 +732,12 @@
         "date": "October 19, 2012"
     },
     {
+        "title": "Mr. Bean Live Performance at the London 2012 Olympic Games",
+        "id": "CwzjlmBLfrQ",
+        "author": "Olympics",
+        "date": "July 27, 2012"
+    },
+    {
         "title": "Love Letter to Plywood. By Tom Sachs",
         "id": "pVxldyIa0Bg",
         "author": "Tom Sachs",
@@ -724,6 +802,12 @@
         "id": "CgB5DU0uEdg",
         "author": "unbrandhead",
         "date": "May 28, 2010"
+    },
+    {
+        "title": "Alan,Alan, Alan, Alan, Alan, Ow, Ow, Steve, Steve, Steve...Hey, Hey, Hey...",
+        "id": "XgvR3y5JCXg",
+        "author": "sgg17",
+        "date": "September 16, 2009"
     },
     {
         "title": "Shouting in the Datacenter",
