@@ -222,6 +222,12 @@
         "date": "March 31, 2025"
     },
     {
+        "title": "I Shrunk Blinky to 0 Bytes",
+        "id": "9FTUa-2eIDU",
+        "author": "Artful Bytes",
+        "date": "March 16, 2025"
+    },
+    {
         "title": "ChatGPT is made from 100 million of these (The Perceptron)",
         "id": "l-9ALe3U-Fg",
         "author": "Welch Labs",
@@ -306,7 +312,7 @@
         "date": "April 13, 2024"
     },
     {
-        "title":"be Lex Fridman",
+        "title": "be Lex Fridman",
         "id": "FoWfTc7WRzM",
         "author": "Wormwood",
         "date": "December 12, 2023"
@@ -372,6 +378,12 @@
         "date": "April 7, 2023"
     },
     {
+        "title": "The Flaws of Inheritance",
+        "id": "hxGOiiR9ZKg",
+        "author": "CodeAesthetic",
+        "date": "December 22, 2022"
+    },
+    {
         "title": "Why You Shouldn't Nest Your Code",
         "id": "CFRhGnuXG-4",
         "author": "CodeAesthetic",
@@ -388,6 +400,12 @@
         "id": "v_uBaBuarEM",
         "author": "Looking Glass Universe",
         "date": "November 11, 2022"
+    },
+    {
+        "title": "This 1970s tank simulator drives through a tiny world",
+        "id": "AcQifPHcMLE",
+        "author": "Tom Scott",
+        "date": "October 17, 2022"
     },
     {
         "title": "Langton's Loops: The cellular automaton that copies itself",
@@ -442,6 +460,12 @@
         "id": "WfuhbI8HE7s",
         "author": "Nicolas Loizeau",
         "date": "October 12, 2021"
+    },
+    {
+        "title": "You Can Make a Netflix Style Doco About Literally Anything",
+        "id": "9BUrNe3Vhtk",
+        "author": "Paul E.T.",
+        "date": "August 24, 2021"
     },
     {
         "title": "15 Step - Radiohead (cover)",
@@ -742,6 +766,12 @@
         "id": "aK8mbA083hE",
         "author": "Ben Shapiro",
         "date": "March 19, 2012"
+    },
+    {
+        "title": "AI vs. AI. Two chatbots talking to each other",
+        "id": "WnzlbyTZsQY",
+        "author": "CornellCCSL",
+        "date": "August 27, 2012"
     },
     {
         "title": "VODER (1939) - Early Speech Synthesizer",
