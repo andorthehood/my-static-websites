@@ -1,6 +1,7 @@
 [
     {
         "url": "https://cari.institute/aesthetics",
+        "favicon": "cari.institute.png",
         "title": "CARI | Aesthetics",
         "description": "CARI, or Consumer Aesthetics Research Institute, is an online community dedicated to developing a visual lexicon of consumer ephemera from the 1970s until now."
     },
@@ -238,6 +239,24 @@
         "favicon": "911realtime.org.png",
         "title": "9/11 Realtime",
         "description": " 9/11 in Realtime is a multimedia experiment for teachers, with the purpose of helping their students truly understand and absorb the events of September 11, 2001."
+    },
+    {
+        "url": "https://www.muzique.com/lab/pickups.htm",
+        "favicon": "www.muzique.com.ico",
+        "title": "Guitar Pickup Simulation",
+        "description": ""
+    },
+    {
+        "url": "https://www.muzique.com/news/",
+        "favicon": "www.muzique.com.png",
+        "title": "AMZ-FX Guitar Effects Blog",
+        "description": "Stompboxes, Schematics, Guitars and Electronics"
+    },
+    {
+        "url": "https://www.muzique.com/",
+        "favicon": "www.muzique.com.ico",
+        "title": "Speak, Memory",
+        "description": "AMZ is a resource with information about diy guitar effects pedals, stompboxes, audio circuits and tips on how to build them."
     },
     {
         "url": "https://devdocs.io/",
@@ -507,6 +526,12 @@
         "favicon": "csound.com.png",
         "title": "Csound",
         "description": "Community website for the Csound project."
+    },
+    {
+        "url": "https://research.swtch.com/nih",
+        "favicon": "research.swtch.com.ico",
+        "title": "Running the “Reflections on Trusting Trust” Compiler",
+        "description": "How to modify a C compiler binary to insert a backdoor."
     },
     {
         "url": "https://www.ioccc.org/",
