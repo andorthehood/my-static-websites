@@ -390,6 +390,11 @@
         "description": "This project contains a human-readable WebAssembly reference manual document written in Markdown."
     },
     {
+        "url": "https://soundbender36.wordpress.com/2017/12/19/pink-drone-oscillator/",
+        "title": "PINK DRONE OSCILLATOR",
+        "description": "5 VCO en 1, à base de transistor montés en reverse avalanche"
+    },
+    {
         "url": "https://linusakesson.net/",
         "favicon": "linusakesson.net.png",
         "title": "linusakesson.net",
