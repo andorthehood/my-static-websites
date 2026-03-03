@@ -180,6 +180,12 @@
         "date": " June 4, 2025"
     },
     {
+        "title": "Cultural Nihilism and the Rise of The Grifter",
+        "id": "l-9ALe3U-Fg",
+        "author": "Jarett Moore",
+        "date": "May 16, 2025"
+    },
+    {
         "title": "The Brain's Learning Algorithm Isn't Backpropagation",
         "id": "l-OLgbdZ3kk",
         "author": "Artem Kirsanov",
@@ -423,7 +429,13 @@
         "title": "Toilet Paper Bears",
         "id": "IMKW-ifxikE",
         "author": "Joel Haver",
-        "date": "Jul 14, 2022"
+        "date": "July 14, 2022"
+    },
+    {
+        "title": "Relay computer compile, load and run",
+        "id": "93PHxVpPLxA",
+        "author": "lepermunna",
+        "date": "July 2, 2022"
     },
     {
         "title": "How Electricity Actually Works",
@@ -484,6 +496,12 @@
         "id": "Kk2MH9O4pXY",
         "author": "Alan Zucconi",
         "date": "October 5, 2020"
+    },
+    {
+        "title": "DIY VCO Part 1: The analog oscillator core anyone can build",
+        "id": "QBatvo8bCa4",
+        "author": "Moritz Klein",
+        "date": "June 20, 2020"
     },
     {
         "title": "Game Of Life - How a single mutation destroys the whole organism",
@@ -636,6 +654,12 @@
         "date": "February 22, 2018"
     },
     {
+        "title": "THE FURBY ORGAN, A MUSICAL INSTRUMENT MADE FROM FURBYS",
+        "id": "GYLBjScgb7o",
+        "author": "LOOK MUM NO COMPUTER",
+        "date": "February 11, 2018"
+    },
+    {
         "title": "How To Make A Blockbuster Movie Trailer",
         "id": "KAOdjqyG37A",
         "author": "Auralnauts",
@@ -654,10 +678,22 @@
         "date": "March 21, 2017"
     },
     {
+        "title": "SYNTH BIKE 2.0 SYNTHESIZER LOOK MUM NO COMPUTER",
+        "id": "LWqImNULtao",
+        "author": "LOOK MUM NO COMPUTER",
+        "date": "November 6, 2017"
+    },
+    {
         "title": "how is prangent formed",
         "id": "EShUeudtaFg",
         "author": "J.T. Sexkik",
         "date": "October 20, 2016"
+    },
+    {
+        "title": "The simplest DIY audio oscillator? not a 555 chip. reverse avalanche",
+        "id": "zCTLeNxge54",
+        "author": "LOOK MUM NO COMPUTER",
+        "date": "October 16, 2016"
     },
     {
         "title": "There's Someone Else In Your Head",
@@ -706,6 +742,12 @@
         "id": "sMb00lz-IfE",
         "author": "Veritasium",
         "date": "July 16, 2014"
+    },
+    {
+        "title": "Which is the Killer, Current or Voltage?",
+        "id": "XDf2nhfxVzg",
+        "author": "ElectroBOOM",
+        "date": "March 10, 2014"
     },
     {
         "title": "Inventing Game of Life (John Conway) - Numberphile",
