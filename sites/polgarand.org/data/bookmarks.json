@@ -1,5 +1,11 @@
 [
     {
+        "url": "https://lyra.horse/x86css/",
+        "favicon": "lyra.horse.ico",
+        "title": "x86CSS",
+        "description": "x86CSS is a working CSS-only x86 CPU/emulator/computer. No JavaScript required!"
+    },
+    {
         "url": "https://cari.institute/aesthetics",
         "favicon": "cari.institute.png",
         "title": "CARI | Aesthetics",
@@ -248,7 +254,7 @@
     },
     {
         "url": "https://www.muzique.com/news/",
-        "favicon": "www.muzique.com.ico",
+        "favicon": "www.muzique.com.png",
         "title": "AMZ-FX Guitar Effects Blog",
         "description": "Stompboxes, Schematics, Guitars and Electronics"
     },
@@ -391,6 +397,7 @@
     },
     {
         "url": "https://soundbender36.wordpress.com/2017/12/19/pink-drone-oscillator/",
+        "favicon": "soundbender36.wordpress.com.ico",
         "title": "PINK DRONE OSCILLATOR",
         "description": "5 VCO en 1, à base de transistor montés en reverse avalanche"
     },
