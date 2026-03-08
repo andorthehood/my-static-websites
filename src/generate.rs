@@ -142,10 +142,10 @@ fn setup_global_variables(
 /// (case-insensitive, e.g. `"True"` and `"TRUE"` are also excluded).
 fn is_post_visible_in_main_pagination(post: &Variables) -> bool {
     post.get("unlisted")
-        .is_none_or(|value| value.to_lowercase() != "true")
+        .is_none_or(|value| !value.eq_ignore_ascii_case("true"))
         && post
             .get("category_only")
-            .is_none_or(|value| value.to_lowercase() != "true")
+            .is_none_or(|value| !value.eq_ignore_ascii_case("true"))
 }
 
 /// Generates all site content (pagination, posts, pages)
