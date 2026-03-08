@@ -248,6 +248,12 @@ mod tests {
         post
     }
 
+    fn create_test_post_category_only(title: &str, date: &str, category: &str) -> ContentItem {
+        let mut post = create_test_post_with_category(title, date, Some(category));
+        post.insert("category_only".to_string(), "true".to_string());
+        post
+    }
+
     #[test]
     fn test_slugify_category() {
         assert_eq!(slugify_category("Travel"), "travel");
@@ -492,6 +498,65 @@ mod tests {
 
         // Clean up
         let _ = fs::remove_dir_all(&config.output_dir);
+    }
+
+    #[test]
+    fn test_category_only_posts_appear_in_category_pagination() {
+        // A post with category_only: true should still appear on its category page
+        let posts = vec![
+            create_test_post_category_only("Category Only Post", "2024-02-01", "Tech"),
+            create_test_post_with_category("Regular Post", "2024-02-02", Some("Tech")),
+        ];
+
+        let includes = load_liquid_includes("./sites/test/includes");
+        let main_layout = "<!DOCTYPE html><html><body>{{body}}</body></html>";
+        let mut global_variables = HashMap::new();
+        global_variables.insert("title".to_string(), "Test Site".to_string());
+        global_variables.insert("pagination_layout".to_string(), "pagination".to_string());
+        let config = SiteConfig::default();
+
+        let _ = fs::remove_dir_all(&config.output_dir);
+        fs::create_dir_all(&config.output_dir).expect("Failed to create output directory");
+
+        generate_category_pages(
+            "test",
+            10,
+            &posts,
+            &includes,
+            main_layout,
+            &global_variables,
+            &config,
+        )
+        .expect("Failed to generate category pages");
+
+        // Both the category_only post and the regular post should appear on the Tech category page
+        assert!(Path::new("out/test/category/tech/page1.html").exists());
+        let page_content = fs::read_to_string("out/test/category/tech/page1.html").unwrap();
+        assert!(
+            page_content.contains("Category Only Post"),
+            "category_only post should appear in its category page"
+        );
+        assert!(
+            page_content.contains("Regular Post"),
+            "regular post should also appear in its category page"
+        );
+
+        let _ = fs::remove_dir_all(&config.output_dir);
+    }
+
+    #[test]
+    fn test_group_posts_by_category_includes_category_only_posts() {
+        // category_only: true posts should be grouped just like any other categorized post
+        let posts = vec![
+            create_test_post_category_only("Category Only Post", "2024-02-01", "Travel"),
+            create_test_post_with_category("Regular Post", "2024-02-02", Some("Travel")),
+        ];
+
+        let groups = group_posts_by_category(&posts);
+
+        assert_eq!(groups.len(), 1);
+        let (_, travel_posts) = &groups["travel"];
+        assert_eq!(travel_posts.len(), 2, "category_only posts must be grouped");
     }
 }
 
