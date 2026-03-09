@@ -136,6 +136,18 @@ fn setup_global_variables(
     (global_variables, posts_per_page)
 }
 
+/// Returns true if a post should appear in the main paginated archive.
+///
+/// Excludes posts where `unlisted` or `category_only` is set to `"true"`
+/// (case-insensitive, e.g. `"True"` and `"TRUE"` are also excluded).
+fn is_post_visible_in_main_pagination(post: &Variables) -> bool {
+    post.get("unlisted")
+        .is_none_or(|value| !value.eq_ignore_ascii_case("true"))
+        && post
+            .get("category_only")
+            .is_none_or(|value| !value.eq_ignore_ascii_case("true"))
+}
+
 /// Generates all site content (pagination, posts, pages)
 fn generate_site_content(
     site_name: &str,
@@ -144,14 +156,11 @@ fn generate_site_content(
     posts_per_page: usize,
     config: &SiteConfig,
 ) -> Result<()> {
-    // Filter out unlisted posts for pagination
+    // Filter out unlisted and category_only posts for main pagination
     let filtered_posts: ContentCollection = content
         .posts
         .iter()
-        .filter(|post| {
-            post.get("unlisted")
-                .is_none_or(|value| value.to_lowercase() != "true")
-        })
+        .filter(|post| is_post_visible_in_main_pagination(post))
         .cloned()
         .collect();
 
@@ -399,6 +408,60 @@ mod tests {
 
     fn read_file_content(path: &str) -> String {
         fs::read_to_string(path).unwrap_or_else(|_| String::new())
+    }
+
+    fn make_post(pairs: &[(&str, &str)]) -> Variables {
+        pairs
+            .iter()
+            .map(|(k, v)| (k.to_string(), v.to_string()))
+            .collect()
+    }
+
+    #[test]
+    fn test_main_pagination_filter_normal_post_is_visible() {
+        let post = make_post(&[("title", "Normal Post"), ("slug", "normal-post")]);
+        assert!(is_post_visible_in_main_pagination(&post));
+    }
+
+    #[test]
+    fn test_main_pagination_filter_unlisted_post_is_hidden() {
+        let post = make_post(&[
+            ("title", "Unlisted Post"),
+            ("slug", "unlisted-post"),
+            ("unlisted", "true"),
+        ]);
+        assert!(!is_post_visible_in_main_pagination(&post));
+    }
+
+    #[test]
+    fn test_main_pagination_filter_category_only_post_is_hidden() {
+        let post = make_post(&[
+            ("title", "Category Only Post"),
+            ("slug", "category-only-post"),
+            ("category_only", "true"),
+        ]);
+        assert!(!is_post_visible_in_main_pagination(&post));
+    }
+
+    #[test]
+    fn test_main_pagination_filter_category_only_uppercase_is_hidden() {
+        let post = make_post(&[
+            ("title", "Category Only Post"),
+            ("slug", "category-only-post"),
+            ("category_only", "True"),
+        ]);
+        assert!(!is_post_visible_in_main_pagination(&post));
+    }
+
+    #[test]
+    fn test_main_pagination_filter_category_only_false_is_visible() {
+        let post = make_post(&[
+            ("title", "Categorized Post"),
+            ("slug", "categorized-post"),
+            ("category_only", "false"),
+            ("category", "Tech"),
+        ]);
+        assert!(is_post_visible_in_main_pagination(&post));
     }
 
     #[test]
