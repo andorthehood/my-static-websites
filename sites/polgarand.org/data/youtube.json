@@ -6,6 +6,12 @@
         "date": "March 4, 2026"
     },
     {
+        "title": "Mixed media film about my cat – 'The Real You'",
+        "id": "j4peeTNUEmU",
+        "author": "Ameya's Realm",
+        "date": "March 1, 2026"
+    },
+    {
         "title": "What Did Ilya See?",
         "id": "glWvwvhZkQ8",
         "author": "Run The Numbers",
@@ -202,12 +208,6 @@
         "id": "l-OLgbdZ3kk",
         "author": "Artem Kirsanov",
         "date": "May 7, 2025"
-    },
-    {
-        "title": "I took Magic Mushrooms and did Math",
-        "id": "78EZD4JIJWA",
-        "author": "Maggie Vail",
-        "date": "May 6, 2025"
     },
     {
         "title": "How to build a single-pixel camera",
@@ -474,6 +474,12 @@
         "date": "March 20, 2022"
     },
     {
+        "title": "MOONLIGHT SONATA ON ANALOG SYNTHESIZERS - Switched On Beethoven.",
+        "id": "c8zrGlnFpIY",
+        "author": "LOOK MUM NO COMPUTER",
+        "date": "March 19, 2026"
+    },
+    {
         "title": "Interview with a Senior JS Developer",
         "id": "Uo3cL4nrGOk",
         "author": "Kai Lentit",
@@ -528,6 +534,12 @@
         "date": "August 20, 2020"
     },
     {
+        "title": "I've never seen ANYTHING like this before... Temple OS",
+        "id": "LtlyeDAJR7A",
+        "author": "Linus Tech Tips",
+        "date": "July 13, 2020"
+    },
+    {
         "title": "DIY VCO Part 1: The analog oscillator core anyone can build",
         "id": "QBatvo8bCa4",
         "author": "Moritz Klein",
@@ -544,6 +556,12 @@
         "id": "6avJHaC3C2U",
         "author": "NDC Conferences",
         "date": "February 26, 2020"
+    },
+    {
+        "title": "Amiga Samplers : Budget dance music in 1990",
+        "id": "i9MXYZh1jcs",
+        "author": "debuglive",
+        "date": "January 31, 2020"
     },
     {
         "title": "Megalovania on church organ",
@@ -645,12 +663,6 @@
         "title": "a cover of Song 2 by Blur except the tempo changes with every woohoo!",
         "id": "B3Y65kkKm8U",
         "author": "Kmac2021",
-        "date": "August 7, 2018"
-    },
-    {
-        "title": "JavaScript for-loops are... complicated",
-        "id": "Nzokr6Boeaw",
-        "author": "Chrome for Developers",
         "date": "August 7, 2018"
     },
     {
