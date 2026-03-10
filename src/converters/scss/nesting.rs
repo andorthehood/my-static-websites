@@ -119,21 +119,70 @@ impl<'a> Parser<'a> {
                     // orphaned block; copy raw
                     items.push(Content::Raw(self.next_char()));
                 }
-                '.' | '#' | '[' | '*' | ':' | '@' => {
-                    let save = self.pos;
-                    if let Some(rule) = self.parse_rule() {
-                        items.push(Content::Rule(rule));
+                _ => {
+                    if self.next_item_is_rule() {
+                        let save = self.pos;
+                        if let Some(rule) = self.parse_rule() {
+                            items.push(Content::Rule(rule));
+                        } else {
+                            self.pos = save;
+                            items.push(Content::Decl(self.parse_declaration_like()));
+                        }
                     } else {
-                        self.pos = save;
                         items.push(Content::Decl(self.parse_declaration_like()));
                     }
-                }
-                _ => {
-                    items.push(Content::Decl(self.parse_declaration_like()));
                 }
             }
         }
         items
+    }
+
+    fn next_item_is_rule(&self) -> bool {
+        let mut pos = self.pos;
+        let mut in_string: Option<char> = None;
+        let mut paren_depth = 0usize;
+        let mut bracket_depth = 0usize;
+
+        while pos < self.len {
+            let c = self.bytes[pos] as char;
+
+            if let Some(q) = in_string {
+                if c == q && (pos == 0 || self.bytes[pos - 1] as char != '\\') {
+                    in_string = None;
+                }
+                pos += 1;
+                continue;
+            }
+
+            if c == '/' && pos + 1 < self.len && self.bytes[pos + 1] as char == '*' {
+                pos += 2;
+                while pos + 1 < self.len {
+                    let a = self.bytes[pos] as char;
+                    let b = self.bytes[pos + 1] as char;
+                    pos += 1;
+                    if a == '*' && b == '/' {
+                        pos += 1;
+                        break;
+                    }
+                }
+                continue;
+            }
+
+            match c {
+                '\'' | '"' => in_string = Some(c),
+                '(' => paren_depth += 1,
+                ')' => paren_depth = paren_depth.saturating_sub(1),
+                '[' => bracket_depth += 1,
+                ']' => bracket_depth = bracket_depth.saturating_sub(1),
+                '{' if paren_depth == 0 && bracket_depth == 0 => return true,
+                ';' | '}' if paren_depth == 0 && bracket_depth == 0 => return false,
+                _ => {}
+            }
+
+            pos += 1;
+        }
+
+        false
     }
 
     fn parse_declaration_like(&mut self) -> String {
@@ -306,6 +355,16 @@ mod tests {
         assert_eq!(
             flattened,
             ".btn{color: red;}h1{font-weight: 700;}body{margin: 0;}"
+        );
+    }
+
+    #[test]
+    fn test_sibling_rule_after_nested_element_selector() {
+        let input = ".userbox { .userbox-image { img { display: block; } } .userbox-content { padding: 4px; } }";
+        let flattened = flatten_basic_nesting(input);
+        assert_eq!(
+            flattened,
+            ".userbox .userbox-image img{display: block;}.userbox .userbox-content{padding: 4px;}"
         );
     }
 }

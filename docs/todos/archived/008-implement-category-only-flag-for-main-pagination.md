@@ -3,8 +3,8 @@ title: 'TODO: Implement Category-Only Flag For Main Pagination'
 priority: Medium
 effort: 2 hours
 created: 2026-03-08
-status: Open
-completed: null
+status: Completed
+completed: 2026-03-08
 ---
 
 # TODO: Implement Category-Only Flag For Main Pagination
