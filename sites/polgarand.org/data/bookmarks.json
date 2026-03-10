@@ -1,11 +1,13 @@
 [
     {
         "url": "https://soundcloud.com/user-202286394-991268468/mihaly-vig-060326",
+        "favicon": "soundcloud.com.ico",
         "title": "Mihály Víg 060326 | NTS Radio",
         "description": "The Hungarian musician, soundtrack composer and actor Mihály Vig, most famous for his film scores for Béla Tarr, and member of the bands Balaton and Trabant, stops by the NTS studio to play some favourites."
     },
     {
         "url": "https://dimden.dev/",
+        "favicon": "dimden.dev.png",
         "title": "dimden's hotel",
         "description": "My website and blog."
     },
@@ -385,6 +387,7 @@
     },
     {
         "url": "https://soundcloud.com/yonderboi/yonderboi-egyenes-labirintus",
+        "favicon": "soundcloud.com.ico",
         "title": "Yonderboi: EGYENES LABIRINTUS (2013 remaster)",
         "description": "A Hungarian poetry mix that I made originally in 2003."
     },
@@ -471,7 +474,7 @@
     },
     {
         "url": "https://github.com/phanan/htaccess",
-        "favicon": "github.com.png",
+        "favicon": "github.com.ico",
         "title": "phanan/htaccess: ✂A collection of useful .htaccess snippets.",
         "description": "Collection of useful .htaccess snippets in one place."
     },
