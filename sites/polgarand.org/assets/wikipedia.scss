@@ -17,11 +17,13 @@
     border: 2px solid;
     display: flex;
     align-items: center;
+    width: 100%;
 
     .userbox-image {
         img {
             display: block;
             height: 64px;
+            image-rendering: pixelated;
         }
     }
 
@@ -39,5 +41,10 @@
 
     .userbox-content {
         padding: 4px;
+        text-align: center;
+
+        a {
+            color: #0000ff;
+        }
     }
 }
