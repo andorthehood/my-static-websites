@@ -1,0 +1,75 @@
+[
+    {
+        "image": "tree.jpg",
+        "content": "This user believes that <a style=\"color: darkgreen\" target=\"_blank\" href=\"https://en.wikipedia.org/wiki/If_a_tree_falls_in_a_forest_and_no_one_is_around_to_hear_it,_does_it_make_a_sound%3F\">If a tree falls in a forest and no one is around to hear it</a>, it doesn't make a sound.",
+        "backgroundColor": "lightgreen",
+        "borderColor": "green"
+    },
+    {
+        "image": "mandelbrot.gif",
+        "content": "This user loves watching the <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Mandelbrot_set\">Mandelbrot set</a>.",
+        "backgroundColor": "yellow",
+        "borderColor": "black"
+    },
+    {
+        "image": "agnostic.svg",
+        "isSvg": true,
+        "content": "This user is <a style=\"color: white\" target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Agnosticism\">agnostic</a>.",
+        "imageBackgroundColor": "#9E677D",
+        "backgroundColor": "#677CBD",
+        "borderColor": "#9E677D",
+        "textColor": "white"
+    },
+    {
+        "image": "godel.png",
+        "content": "This user has lost sleep because of the <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/G%C3%B6del_incompleteness_theorems\">Gödel incompleteness theorems</a>.",
+        "backgroundColor": "#24F25D",
+        "borderColor": "#24F25D"
+    },
+    {
+        "image": "pi.svg",
+        "isSvg": true,
+        "content": "This user believes that <a style=\"color: white\" target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Pi\">π</a> repeats.",
+        "imageBackgroundColor": "#ffffff",
+        "backgroundColor": "#000000",
+        "borderColor": "#000000",
+        "textColor": "white"
+    },
+    {
+        "image": "monkey.jpg",
+        "content": "This user is <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Infinite_monkey_theorem\">a monkey who contributes using a typewriter</a>.",
+        "backgroundColor": "#f8f4e8",
+        "borderColor": "#a2a9b1",
+        "textColor": "#442200"
+    },
+    {
+        "image": "mitochondrial_dna.png",
+        "content": "This user belongs to <a style=\"color: white\" href=\"https://en.wikipedia.org/wiki/Haplogroup_T_(mtDNA)\" target=\"_blank\">mitochondrial DNA haplogroup T2b</a>.",
+        "backgroundColor": "deeppink",
+        "imageBackgroundColor": "oldlace",
+        "borderColor": "#000000",
+        "textColor": "yellow"
+    },
+    {
+        "image": "oldcomputer.gif",
+        "content": "This user really likes old computers.",
+        "backgroundColor": "#000000",
+        "borderColor": "#000000",
+        "textColor": "#00ff00"
+    },
+    {
+        "image": "y_chromosome_dna.png",
+        "content": "This user belongs to <a style=\"color: white\" href=\"https://en.wikipedia.org/wiki/Haplogroup_R_(Y-DNA)\" target=\"_blank\">Y chromosome DNA haplogroup R-L1029</a>.",
+        "backgroundColor": "blue",
+        "imageBackgroundColor": "oldlace",
+        "borderColor": "#000000",
+        "textColor": "yellow"
+    },
+    {
+        "image": "trees.jpg",
+        "content": "This user's favourite colour is <a style=\"color: darkgreen\" target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Green\">green</a>.",
+        "backgroundColor": "yellowgreen",
+        "borderColor": "green",
+        "textColor": "black"
+    }
+]

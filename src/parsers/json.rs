@@ -55,12 +55,8 @@ impl JsonParser {
 
         while self.pos < self.chars.len() && self.current_char() != '"' {
             if self.current_char() == '\\' {
-                value.push(self.current_char()); // Keep the backslash
                 self.advance();
-                if self.pos < self.chars.len() {
-                    value.push(self.current_char()); // Keep the escaped character
-                    self.advance();
-                }
+                value.push(self.parse_escape_sequence()?);
             } else {
                 value.push(self.current_char());
                 self.advance();
@@ -74,6 +70,41 @@ impl JsonParser {
         self.advance(); // Skip closing quote
 
         Ok(JsonValue::String(value))
+    }
+
+    fn parse_escape_sequence(&mut self) -> Result<char, String> {
+        if self.pos >= self.chars.len() {
+            return Err("Unterminated escape sequence".to_string());
+        }
+
+        let escaped = self.current_char();
+        self.advance();
+
+        match escaped {
+            '"' => Ok('"'),
+            '\\' => Ok('\\'),
+            '/' => Ok('/'),
+            'b' => Ok('\u{0008}'),
+            'f' => Ok('\u{000C}'),
+            'n' => Ok('\n'),
+            'r' => Ok('\r'),
+            't' => Ok('\t'),
+            'u' => self.parse_unicode_escape(),
+            _ => Err(format!("Invalid escape sequence: \\{escaped}")),
+        }
+    }
+
+    fn parse_unicode_escape(&mut self) -> Result<char, String> {
+        if self.pos + 4 > self.chars.len() {
+            return Err("Incomplete unicode escape".to_string());
+        }
+
+        let hex: String = self.chars[self.pos..self.pos + 4].iter().collect();
+        self.pos += 4;
+
+        let codepoint = u32::from_str_radix(&hex, 16)
+            .map_err(|_| format!("Invalid unicode escape: \\u{hex}"))?;
+        char::from_u32(codepoint).ok_or_else(|| format!("Invalid unicode codepoint: \\u{hex}"))
     }
 
     fn parse_number(&mut self) -> Result<JsonValue, String> {
@@ -239,7 +270,16 @@ mod tests {
         assert_eq!(result, JsonValue::String("  hello   world  ".to_string()));
 
         let result = parse_json("\"\\t\\n\\r\"").unwrap();
-        assert_eq!(result, JsonValue::String("\\t\\n\\r".to_string()));
+        assert_eq!(result, JsonValue::String("\t\n\r".to_string()));
+    }
+
+    #[test]
+    fn test_parse_string_with_escaped_quotes() {
+        let result = parse_json("\"<a href=\\\"https://example.com\\\">link</a>\"").unwrap();
+        assert_eq!(
+            result,
+            JsonValue::String("<a href=\"https://example.com\">link</a>".to_string())
+        );
     }
 
     #[test]
