@@ -12,6 +12,10 @@
         "borderColor": "black"
     },
     {
+        "image": "library.jpg",
+        "content": "This user has written several books in the <a href=\"https://en.wikipedia.org/wiki/The_Library_of_Babel\" target=\"_blank\">Library of Babel</a>."
+    },
+    {
         "image": "agnostic.svg",
         "isSvg": true,
         "content": "This user is <a style=\"color: white\" target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Agnosticism\">agnostic</a>.",
@@ -36,6 +40,13 @@
         "textColor": "white"
     },
     {
+        "image": "pillars.jpg",
+        "content": "This userbox was added <a target=\"_blank\" style=\"color: white\" href=\"https://en.wikipedia.org/wiki/Omphalos_hypothesis#Last_Thursdayism\">last Thursday</a>.",
+        "backgroundColor": "#9a6666",
+        "borderColor": "#000000",
+        "textColor": "#ffffff"
+    },
+    {
         "image": "monkey.jpg",
         "content": "This user is <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Infinite_monkey_theorem\">a monkey who contributes using a typewriter</a>.",
         "backgroundColor": "#f8f4e8",
@@ -58,6 +69,13 @@
         "textColor": "#00ff00"
     },
     {
+        "image": "antenna.jpg",
+        "content": "This user wonders where everybody is.",
+        "backgroundColor": "#000000",
+        "borderColor": "#000000",
+        "textColor": "#ffffff"
+    },
+    {
         "image": "y_chromosome_dna.png",
         "content": "This user belongs to <a style=\"color: white\" href=\"https://en.wikipedia.org/wiki/Haplogroup_R_(Y-DNA)\" target=\"_blank\">Y chromosome DNA haplogroup R-L1029</a>.",
         "backgroundColor": "blue",
@@ -71,5 +89,88 @@
         "backgroundColor": "yellowgreen",
         "borderColor": "green",
         "textColor": "black"
+    },
+    {
+        "image": "mac.jpg",
+        "content": "This user is a witness to the early days of the <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Internet\">Internet</a>",
+        "backgroundColor": "#e6ded8",
+        "borderColor": "black",
+        "textColor": "black"
+    },
+    {
+        "image": "delta.svg",
+        "isSvg": true,
+        "content": "This user is a <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Determinism\">determinist</a>.",
+        "backgroundColor": "linen",
+        "borderColor": "grey",
+        "textColor": "#000000",
+        "imageBackgroundColor": "lightsteelblue"
+    },
+    {
+        "image": "theseus.jpg",
+        "content": "This user is unsure whether he is still the <a href=\"https://en.wikipedia.org/wiki/Ship_of_Theseus\" target=\"_blank\">original user</a>."
+    },
+    {
+        "image": "graph.svg",
+        "isSvg": true,
+        "content": "This user is a <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Singularitarianism\">Singularitarian</a>.",
+        "backgroundColor": "gold",
+        "borderColor": "black",
+        "textColor": "navy",
+        "imageBackgroundColor": "darkseagreen"
+    },
+    {
+        "image": "transhumanist.png",
+        "content": "This user thinks a lot about <a style=\"color: white\" href=\"https://en.wikipedia.org/wiki/Transhumanism\" target=\"_blank\">transhumanism</a>.",
+        "backgroundColor": "#88e",
+        "borderColor": "black",
+        "textColor": "white"
+    },
+    {
+        "image": "nokia.png",
+        "content": "This user owns a Nokia E72.",
+        "backgroundColor": "#cccccc",
+        "imageBackgroundColor": "blue",
+        "borderColor": "#000000",
+        "textColor": "blue"
+    },
+    {
+        "image": "brain.png",
+        "content": "This user worries he might be a Boltzmann brain."
+    },
+    {
+        "image": "glider.gif",
+        "content": "This user is a fan of <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life\">Conway's Game of Life</a>.",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#cccccc",
+        "textColor": "#000000"
+    },
+    {
+        "image": "modular.png",
+        "content": "This user is a <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Modular_synthesizer\">modular synthesizer</a> player, user, tweaker, and builder.",
+        "backgroundColor": "#cccccc",
+        "borderColor": "#999999",
+        "textColor": "#000000"
+    },
+    {
+        "image": "ld.png",
+        "content": "This user is interested in <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Lucid_dreaming\">Lucid Dreaming</a>.",
+        "backgroundColor": "#3B97DB",
+        "borderColor": "#000000",
+        "textColor": "#ffffff"
+    },
+    {
+        "image": "kodak.jpg",
+        "content": "This user prefers <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Analog_photography\">film cameras</a> to digital ones.",
+        "backgroundColor": "#FFD414",
+        "borderColor": "#000000",
+        "textColor": "#000000"
+    },
+    {
+        "image": "ngc7293.jpg",
+        "content": "This user cannot prove to others that he has subjective experience.",
+        "backgroundColor": "#f5f5f5",
+        "borderColor": "#888888",
+        "textColor": "#000000"
     }
 ]
