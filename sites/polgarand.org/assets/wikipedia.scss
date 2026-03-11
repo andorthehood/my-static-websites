@@ -1,0 +1,43 @@
+.userboxes {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.userboxes li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userbox {
+    font-size: 16.5px;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+
+    .userbox-image {
+        img {
+            display: block;
+            height: 64px;
+        }
+    }
+
+    .userbox-image.svg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        width: 44px;
+
+        img {
+            height: 44px;
+        }
+    }
+
+    .userbox-content {
+        padding: 4px;
+    }
+}

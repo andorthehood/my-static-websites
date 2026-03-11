@@ -110,5 +110,10 @@
 		"href": "/bookmarks",
 		"icon": "⭐",
 		"label": "Bookmarks"
+	},
+	{
+		"href": "/wikipedia",
+		"icon": "📖",
+		"label": "Wikipedia"
 	}
 ]
