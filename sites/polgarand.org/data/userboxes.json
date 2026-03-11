@@ -172,5 +172,12 @@
         "backgroundColor": "#f5f5f5",
         "borderColor": "#888888",
         "textColor": "#000000"
+    },
+    {
+        "image": "hotel.jpg",
+        "content": "This user was told the <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Hilbert%27s_paradox_of_the_Grand_Hotel\">Hilbert Hotel</a> is full.",
+        "backgroundColor": "#e8f0ff",
+        "borderColor": "#4466aa",
+        "textColor": "#000000"
     }
 ]
