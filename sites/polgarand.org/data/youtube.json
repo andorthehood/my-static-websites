@@ -456,6 +456,12 @@
         "date": "July 2, 2022"
     },
     {
+        "title": "How I Created the Perfect NES Sound Chip",
+        "id": "8RrQrATnXXY",
+        "author": "KYLXBN (Kyle)",
+        "date": "May 6, 2022"
+    },
+    {
         "title": "How Electricity Actually Works",
         "id": "oI_X2cMHNe0",
         "author": "Veritasium",
@@ -477,7 +483,13 @@
         "title": "MOONLIGHT SONATA ON ANALOG SYNTHESIZERS - Switched On Beethoven.",
         "id": "c8zrGlnFpIY",
         "author": "LOOK MUM NO COMPUTER",
-        "date": "March 19, 2026"
+        "date": "March 19, 2022"
+    },
+    {
+        "title": "Paul composes \"It's Okay to Leave a Dog in a Hot Car\" from nothing",
+        "id": "_lDhZrgWOmo",
+        "author": "Stephen Deeter",
+        "date": "February 16, 2022"  
     },
     {
         "title": "Interview with a Senior JS Developer",
@@ -490,6 +502,12 @@
         "id": "6OUDk4gMFLA",
         "author": "Don Stever",
         "date": "December 28, 2021"
+    },
+    {
+        "title": "I Broke Into The International Security Convention",
+        "id": "qM3imMiERdU",
+        "author": "Max Fosh",
+        "date": "November 2, 2021"        
     },
     {
         "title": "Game of life: computer with display",
@@ -520,6 +538,12 @@
         "id": "TPSr9eTmeKI",
         "author": "Joel Haver",
         "date": "February 16, 2021"
+    },
+    {
+        "title": "YouTubers have to declare ads. Why doesn't anyone else?",
+        "id": "L-x8DYTOv7w",
+        "author": "Tom Scott",
+        "date": "February 15, 2021"
     },
     {
         "title": "Let’s BUILD a COMPUTER in CONWAY's GAME of LIFE ⠠⠵",
@@ -642,6 +666,12 @@
         "date": "December 25, 2018"
     },
     {
+        "title": "VHS copied to VHS copied to VHS copied to VHS copied to VHS... (VHS Generation Loss Demonstration)",
+        "id": "nqy_hYDI0As",
+        "author": "Japhy Riddle",
+        "date": "November 17, 2018"
+    },
+    {
         "title": "If Educational Videos Were Filmed Like Music Videos",
         "id": "G025oxyWv0E",
         "author": "Tom Scott",
@@ -736,6 +766,12 @@
         "id": "zCTLeNxge54",
         "author": "LOOK MUM NO COMPUTER",
         "date": "October 16, 2016"
+    },
+    {
+        "title": "1023.exe",
+        "id": "CdaPhpGG6As",
+        "author": "Alfred Kedhammar",
+        "date": "July 1, 2016"
     },
     {
         "title": "There's Someone Else In Your Head",
