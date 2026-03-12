@@ -60,6 +60,12 @@
         "description": "I am an artistic toolmaker. I am a toolmaking artist. Code and hardware are a source of inspiration and a necessity. I create music, audiovisual performances, installations, and computer graphics."
     },
     {
+        "url": "https://musical.toys/",
+        "favicon": "musical.toys.ico",
+        "title": "Musical Toys",
+        "description": "A collection of interactive musical experiences"
+    },
+    {
         "url": "https://msp.ucsd.edu/Publications/sorbonne11-eng.pdf",
         "title": "A case study in software for artists: Max/MS and Pd",
         "description": "A reflection on designing music software as a stable, reactive, and general tool for artists, arguing that the architecture of creative tools quietly shapes what kinds of art can be made."
@@ -74,6 +80,11 @@
         "favicon": "castpixel.itch.io.png",
         "title": "ANIMEVOX by castpixel",
         "description": "This is a simple sound generator that makes retro-sounding anime sfx."
+    },
+    {
+        "url": "https://generativeartistry.com/",
+        "title": "Generative Artistry",
+        "description": "Generative art tutorials, news and love."
     },
     {
         "url": "https://github.com/paulnasca/paulstretch_cpp",
@@ -141,6 +152,12 @@
         "description": "Like TailwindCSS, but for SQL. className your way to database queries!"
     },
     {
+        "url": "https://optical.toys/",
+        "favicon": "optical.toys.ico",
+        "title": "Optical Toys | Optical Illusions and Toys",
+        "description": "A collection of optical illusions and optical toys by Toms Toys"
+    },
+    {
         "url": "https://robertheaton.com/",
         "favicon": "robertheaton.com.png",
         "title": "Robert Heaton",
@@ -174,6 +191,12 @@
         "favicon": "luckycatlfo.com.ico",
         "title": "Lucky Cat LFO",
         "description": "Never play music alone again with a Lucky Cat LFO"
+    },
+    {
+        "url": "https://strobe.cool/",
+        "favicon": "strobe.cool.png",
+        "title": "Strobe Illusion - Hallucinate with this amazing optical illusion!",
+        "description": "You will hallucinate! This mind-melting optical illusion will warp and distort your vision. Hallucinations without drugs!"
     },
     {
         "url": "https://www.astralcodexten.com/p/what-is-man-that-thou-art-mindful",
@@ -253,6 +276,12 @@
         "description": "Departure Mono is a monospaced pixel font by Helena Zhang, licensed under the SIL OFL."
     },
     {
+        "url": "https://rotatingsandwiches.com/",
+        "favicon": "rotatingsandwiches.com.ico",
+        "title": "Rotating Sandwiches - that's it",
+        "description": "that's it"
+    },
+    {
         "url": "https://911realtime.org/",
         "favicon": "911realtime.org.png",
         "title": "9/11 Realtime",
@@ -262,7 +291,7 @@
         "url": "https://www.muzique.com/lab/pickups.htm",
         "favicon": "www.muzique.com.ico",
         "title": "Guitar Pickup Simulation",
-        "description": ""
+        "description": "Schematics & circuits for guitar effects with vacuum tubes and solid state electronics. FREE downloads of schematics such as TS-9, Fuzz Face and other classic rock devices."
     },
     {
         "url": "https://www.muzique.com/news/",
@@ -330,6 +359,12 @@
         "description": "A collection of 4540 classic 88x31 buttons from the 1990s, 2000s, and today in GIF format."
     },
     {
+        "url": "https://pointerpointer.com/",
+        "favicon": "pointerpointer.com.jpg",
+        "title": "Pointer Pointer",
+        "description": "Please hold still while we locate your pointer..."
+    },
+    {
         "url": "https://gifcities.org/",
         "favicon": "gifcities.org.ico",
         "title": "GifCities",
@@ -382,8 +417,15 @@
         "description": "This site attempts to create color palettes and images, that look as close as possible to what the popular chips by MOS Technology, Inc."
     },
     {
+        "url": "https://1-1i.com/",
+        "favicon": "1-1i.com.ico",
+        "title": "1-1i",
+        "description": "Graphical rendering of mathematical models in python"
+    },
+    {
         "url": "https://www.pepto.de/projects/colorvic/",
-        "title": "Calculating the color palette of the VIC II"
+        "title": "Calculating the color palette of the VIC II",
+        "description": "The aim of this project is to build a single calculation model based on the underlying system of how the palette gets generated in general."
     },
     {
         "url": "https://soundcloud.com/yonderboi/yonderboi-egyenes-labirintus",
@@ -436,6 +478,11 @@
         "favicon": "jvns.ca.ico",
         "title": "Julia Evans",
         "description": "Julia Evans's blog with programming posts and links to her zines."
+    },
+    {
+        "url": "https://maninthedark.com/",
+        "title": "maninthedark.com",
+        "description": "by Miltos Manetas and Aaron Russ Clinger, 2004."
     },
     {
         "title": "Hannah Kristina Metz",
@@ -512,6 +559,12 @@
         "description": "Text graphics and related works, going back thousands of years. ASCII, PETSCII, Unicode, textiles,..."
     },
     {
+        "url": "http://reversemd5.com/",
+        "favicon": "reversemd5.com.ico",
+        "title": "Reverse md5 Calculator",
+        "description": "md5 and reverse md5 calculator"
+    },
+    {
         "url": "https://www.exampointers.com/teletext/teletext.phtml",
         "favicon": "www.exampointers.com.ico",
         "title": "ExamPointers.com - Teletext Transmission",
@@ -540,6 +593,12 @@
         "favicon": "en.wikipedia.org.ico",
         "title": "Duff's device - Wikipedia",
         "description": "Wikipedia article on Duff's device, a C loop-unrolling technique using switch fall-through."
+    },
+    {
+        "url": "http://chihuahuaspin.com/",
+        "favicon": "chihuahuaspin.com.ico",
+        "title": "chihuahuaspin.com",
+        "description": "A spinning chihuahua page with a counter showing how many spins you've watched."
     },
     {
         "url": "https://riccardoscalco.it/",
