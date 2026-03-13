@@ -1,5 +1,11 @@
 [
     {
+        "url": "https://github.com/Banana71/DX7Sheet",
+        "favicon": "github.com.png",
+        "title": "Banana71/DX7Sheet",
+        "description": "Batch-converts Yamaha DX7 32-voice SysEx files (.syx) into readable parameter sheets."
+    },
+    {
         "url": "https://soundcloud.com/user-202286394-991268468/mihaly-vig-060326",
         "favicon": "soundcloud.com.ico",
         "title": "Mihály Víg 060326 | NTS Radio",
@@ -542,6 +548,11 @@
         "description": "For my first post on dev.to I thought I'd write about a nice, safe topic that's free of controversy:..."
     },
     {
+        "url": "https://theprogrammersreturn.com/",
+        "title": "The Programmer's Return",
+        "description": "Welcome to kennit's personal web page. Here you will find my little programming projects."
+    },
+    {
         "url": "https://illarterate.co.uk/",
         "title": "illarterate | net art n teletext and stuff!",
         "description": "multimedia artworks, personal website of Dan Farrimond"
@@ -581,6 +592,11 @@
         "favicon": "www.bbcbasic.co.uk.ico",
         "title": "BBC BASIC",
         "description": "The website dedicated to the BBC BASIC programming language"
+    },
+    {
+        "url": "https://yamahablackboxes.com/collection/yamaha-dx7-synthesizer/patches",
+        "title": "Yamaha DX7 patches | Yamaha black boxes online archive",
+        "description": "This page contains downloadable Yamaha DX7 voice data as .sysex files, including factory sound banks and VRC cartridges."
     },
     {
         "url": "https://zxnet.co.uk/",
