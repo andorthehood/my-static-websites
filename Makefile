@@ -40,6 +40,14 @@ polgarhivatal-dev:
 	send-keys -t 1 'cargo run -- serve polgarhivatal.nl' Enter \; \
 	attach-session -t polgarhivatal-dev
 
+.PHONY: 8f4e-dev
+8f4e-dev:
+	tmux new-session -d -s 8f4e-dev \; \
+	split-window -h \; \
+	send-keys -t 0 'cargo run -- watch 8f4e.com --ramdisk' Enter \; \
+	send-keys -t 1 'cargo run -- serve 8f4e.com' Enter \; \
+	attach-session -t 8f4e-dev
+
 .PHONY: tmux-recover
 tmux-recover:
 	@session_count=$$(tmux ls -F '#S' 2>/dev/null | wc -l | tr -d ' '); \

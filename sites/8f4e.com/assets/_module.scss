@@ -1,17 +1,33 @@
-.module {
-    background: #000000;
-    color: #00ff00;
-    white-space: pre;
-    width: 240px;
-    font-size: 11px;
-    line-height: 1.1;
-    display: block;
+.code-block {
+    background: var(--color-block-background);
+    padding: 18px;
+    box-shadow: 9px 9px 0 var(--color-block-shadow);
 
-    .number {
-        color: #006600;
-    }
+    pre {
+        color: var(--color-code);
+        white-space: pre;
+        width: 100%;
+        line-height: 18px;
+        display: block;
+        font-family: "Departure Mono", monospace;
+        font-size: 16.5px;
+        padding: 0;
+        margin: 0;
 
-    .instruction {
-        color: #99ff99;
+        .number {
+            color: var(--color-code-number);
+        }
+
+        .comment {
+            color: var(--color-code-comment);
+        }
+
+        .instruction {
+            color: var(--color-code-instruction);
+        }
+
+        .ln {
+            color: var(--color-code-ln);
+        }
     }
 }
