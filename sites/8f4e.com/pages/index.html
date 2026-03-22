@@ -1,9 +1,7 @@
 <div class="introduction grid-2">
-
     <div class="title span-2">
         <h1>8f4e</h1>
     </div>
-
 
     <div class="dots">
         <p>8f4e is a stack oriented programming language with a visual code editor that I created to perform generative
@@ -15,7 +13,6 @@
     <div>
         <a href="https://editor.8f4e.com">Launch the Editor</a>
     </div>
-
 
     <div class="title span-2">
         <h2>Stack Oriented Execution Model</h2>
@@ -36,12 +33,11 @@
             and
             faster compiler.</p>
     </div>
-
     <div class="code-block">
         <pre>
 <span class="comment">...</span>
-<span class="ln">067</span> <span class="instruction">push</span> 2
-<span class="ln">068</span> <span class="instruction">push</span> 3
+<span class="ln">067</span> <span class="instruction">push</span> <span class="number">2</span>
+<span class="ln">068</span> <span class="instruction">push</span> <span class="number">3</span>
 <span class="ln">069</span> <span class="comment">; Pushing values 2 and 3</span>
 <span class="ln">069</span> <span class="comment">; onto the stack.</span>
 <span class="ln">070</span> <span class="instruction">add</span>
@@ -49,11 +45,11 @@
 <span class="ln">071</span> <span class="comment">; add instruction,</span>
 <span class="ln">072</span> <span class="comment">; the stack will contain</span>
 <span class="ln">072</span> <span class="comment">; the value 5</span>
-<span class="ln">073</span> <span class="instruction">push</span> 10
+<span class="ln">073</span> <span class="instruction">push</span> <span class="number">10</span>
 <span class="ln">074</span> <span class="instruction">mul</span>
 <span class="ln">075</span> <span class="comment">; Now the stack will</span>
 <span class="ln">075</span> <span class="comment">; contain the value 50</span>
-<span class="ln">076</span> <span class="instruction">push</span> 10
+<span class="ln">076</span> <span class="instruction">push</span> <span class="number">10</span>
 <span class="ln">077</span> <span class="instruction">div</span>
 <span class="ln">078</span> <span class="comment">; Now 5 again</span>
 <span class="comment">...</span>
@@ -64,7 +60,6 @@
         <h2>Memory Access and Pointers</h2>
     </div>
 
-
     <div class="dots">
         <p>In 8f4e memory addresses are determined by the compiler, therefore dynamic memory
             allocation is not possible.</p>
@@ -73,7 +68,6 @@
             and
             less runtime overhead.</p>
     </div>
-
     <div class="code-block">
         <pre>
 <span class="comment">...</span>
@@ -83,7 +77,7 @@
 <span class="ln">070</span> <span class="comment">; The variable name</span>
 <span class="ln">071</span> <span class="comment">; prefixed with &</span>
 <span class="ln">072</span> <span class="comment">; gives its memory address.</span>
-<span class="ln">073</span> <span class="instruction">push</span> 42
+<span class="ln">073</span> <span class="instruction">push</span> <span class="number">42</span>
 <span class="ln">074</span> <span class="instruction">store</span>
 <span class="ln">075</span> <span class="comment">; The store instruction</span>
 <span class="ln">076</span> <span class="comment">; takes two values:</span>
@@ -99,17 +93,16 @@
         <p>They're allocated on a 32-bit grid, which means that every memory item starts at an address that is a
             multiple of 4 bytes.</p>
     </div>
-
     <div class="code-block">
         <pre>
 <span class="comment">...</span>
-<span class="ln">003</span> <span class="instruction">int</span>   a 42
+<span class="ln">003</span> <span class="instruction">int</span>   a <span class="number">42</span>
 <span class="ln">004</span> 
-<span class="ln">005</span> <span class="instruction">float</span> b 3.14
+<span class="ln">005</span> <span class="instruction">float</span> b <span class="number">3.14</span>
 <span class="ln">006</span> <span class="comment">; Memory address of b</span>
 <span class="ln">007</span> <span class="comment">; is address of a + 4</span>
 <span class="ln">008</span>
-<span class="ln">009</span> <span class="instruction">int</span>   c -5
+<span class="ln">009</span> <span class="instruction">int</span>   c <span class="number">-5</span>
 <span class="ln">010</span> <span class="comment">; Memory address of c</span>
 <span class="ln">011</span> <span class="comment">; is address of b + 4</span>
 <span class="comment">...</span>
@@ -120,21 +113,17 @@
         <h2>Endless Execution Loop</h2>
     </div>
 
-
     <div class="dots">
         <p>Programs in 8f4e run inside an endless loop. This reflects how real time audio systems operate, where
             processing consists of continuously reading from and writing to audio buffers.</p>
         <p>8f4e removes this control flow boilerplate and allows programs to focus purely on signal generation and
             transformation.</p>
     </div>
-
     <div></div>
-
 
     <div class="title span-2">
         <h2>Modules and Execution Order</h2>
     </div>
-
 
     <div class="dots">
         <p>The code is organized into modules, each containing variable declarations and a sequence of commands.</p>
@@ -147,8 +136,8 @@
 <span class="comment">...</span>
 <span class="ln">001</span> <span class="instruction">module</span> foo
 <span class="ln">002</span>
-<span class="ln">003</span> <span class="instruction">int</span>  a 10
-<span class="ln">004</span> <span class="instruction">int</span>  b 20
+<span class="ln">003</span> <span class="instruction">int</span>  a <span class="number">10</span>
+<span class="ln">004</span> <span class="instruction">int</span>  b <span class="number">20</span>
 <span class="ln">005</span> <span class="instruction">int</span>  result
 <span class="ln">006</span>
 <span class="ln">007</span> <span class="instruction">push</span> &result
@@ -180,11 +169,11 @@
     <div class="code-block">
         <pre>
 <span class="comment">...</span>
-<span class="ln">003</span> <span class="instruction">int</span> foo 10
+<span class="ln">003</span> <span class="instruction">int</span> foo <span class="number">10</span>
 <span class="ln">004</span> <span class="comment">; You can change these</span>
 <span class="ln">005</span> <span class="comment">; values in the editor</span>
 <span class="ln">006</span> <span class="comment">; while the program is running.</span>
-<span class="ln">007</span> <span class="instruction">float</span> bar 3.14
+<span class="ln">007</span> <span class="instruction">float</span> bar <span class="number">3.14</span>
 <span class="ln">008</span> <span class="comment">; The editor will trace</span>
 <span class="ln">009</span> <span class="comment">; them back in the memory</span>
 <span class="ln">010</span> <span class="comment">; and update their values</span>
@@ -212,7 +201,7 @@
 <span class="ln">004</span>
 <span class="ln">005</span> <span class="instruction">push</span> &pointer
 <span class="ln">006</span> <span class="instruction">push</span> pointer
-<span class="ln">007</span> <span class="instruction">push</span> 4
+<span class="ln">007</span> <span class="instruction">push</span> <span class="number">4</span>
 <span class="ln">008</span> <span class="instruction">push</span> add
 <span class="ln">009</span> <span class="instruction">store</span>
 <span class="ln">010</span> <span class="comment">; pointer will iterate through all</span>
@@ -226,23 +215,26 @@
 </div><!-- .introduction -->
 
 <div class="examples grid-3">
-<a name="examples"></a>
+    <a name="examples"></a>
     <div class="title span-3">
         <h2>Example Gallery</h2>
     </div>
 
-    <a target="_blank" href="https://editor.8f4e.com/?projectUrl=https://static.llllllllllll.com/8f4e/example-projects/machine-learning/digitClassifier.8f4e">
+    <a target="_blank"
+        href="https://editor.8f4e.com/?projectUrl=https://static.llllllllllll.com/8f4e/example-projects/machine-learning/digitClassifier.8f4e">
         <img src="https://static.llllllllllll.com/8f4e/screenshots/1.png" />
         <div class="description">A simple digit classifier neural network in inference mode ↗</div>
     </a>
-    <a target="_blank" href="https://editor.8f4e.com/?projectUrl=https://static.llllllllllll.com/8f4e/example-projects/audio/keyboardController6OperatorFMSynth.8f4e">
+    <a target="_blank"
+        href="https://editor.8f4e.com/?projectUrl=https://static.llllllllllll.com/8f4e/example-projects/audio/keyboardController6OperatorFMSynth.8f4e">
         <img src="https://static.llllllllllll.com/8f4e/screenshots/1.png" />
         <div class="description">Six operator FM synthesizer modelled from the Yamaha DX7
-        synthesizer's electric piano preset ↗</div>
+            synthesizer's electric piano preset ↗</div>
     </a>
-    <a target="_blank" href="http://editor.8f4e.com/?projectUrl=https://static.llllllllllll.com/8f4e/example-projects/audio/risen.8f4e">
+    <a target="_blank"
+        href="http://editor.8f4e.com/?projectUrl=https://static.llllllllllll.com/8f4e/example-projects/audio/risen.8f4e">
         <img src="https://static.llllllllllll.com/8f4e/screenshots/1.png" />
         <div class="description">TempleOS's "Risen" melody replicated from the
-        original HolyC code ↗</div>
+            original HolyC code ↗</div>
     </a>
 </div>
