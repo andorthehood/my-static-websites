@@ -98,6 +98,17 @@ fn does_not_strip_type_like_sequences_inside_strings_and_templates() {
 }
 
 #[test]
+fn preserves_ternary_with_numeric_branches() {
+    let ts =
+        "const interval = matchMedia('(prefers-reduced-motion: reduce)').matches ? 1000 : 100;";
+    let js = strip_typescript_types(ts);
+    assert!(
+        js.contains("?1000:100") || js.contains("? 1000 : 100"),
+        "got: {js}"
+    );
+}
+
+#[test]
 fn strips_optional_parameter_annotations() {
     let ts = r#"
 function loadAndReplaceContent(json, fetchUrl?: string) {

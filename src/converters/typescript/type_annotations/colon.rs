@@ -20,7 +20,8 @@ pub fn handle_colon(input: &str, b: &[u8], len: usize, i: &mut usize, out: &mut 
     }
     let prev_char = if j > 0 { b[j - 1] as char } else { '\0' };
 
-    let mut looks_like_type_context = is_identifier_char(prev_char) || prev_char == ')';
+    let mut looks_like_type_context =
+        (is_identifier_char(prev_char) && !prev_char.is_ascii_digit()) || prev_char == ')';
 
     // Support optional parameters/properties like `name?: string`.
     if !looks_like_type_context && prev_char == '?' {
@@ -108,19 +109,16 @@ mod tests {
     }
 
     #[test]
-    fn handles_colon_after_identifier_space() {
-        // Note: This also matches ternary operator colons after identifiers
-        // In practice this is rare and acceptable since ternaries usually have
-        // more complex expressions that don't end with simple identifiers
-        let input = "x ? y : z";
+    fn preserves_ternary_colon_after_number() {
+        let input = "x ? 1000 : 100";
         let b = input.as_bytes();
         let len = b.len();
-        let mut i = 6; // Position of ':'
-        let mut out = String::from("x ? y ");
+        let mut i = 9; // Position of ':'
+        let mut out = String::from("x ? 1000 ");
 
         let handled = handle_colon(input, b, len, &mut i, &mut out);
 
-        assert!(handled); // Will handle this as it looks like type context
+        assert!(!handled); // Should NOT treat as type annotation
     }
 
     #[test]
