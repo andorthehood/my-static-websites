@@ -327,6 +327,31 @@ fn copy_assets(site_name: &str, config: &SiteConfig) -> Result<HashMap<String, S
     Ok(versioned_assets)
 }
 
+fn copy_static(site_name: &str, config: &SiteConfig) -> Result<()> {
+    let static_dir = format!(
+        "{}/{site_name}/{}",
+        config.sites_base_dir, config.static_subdir
+    );
+    let output_dir = format!("./{}/{site_name}", config.output_dir);
+
+    if let Ok(entries) = fs::read_dir(&static_dir) {
+        fs::create_dir_all(&output_dir)?;
+        for entry in entries.flatten() {
+            if entry.file_type().map(|ft| ft.is_file()).unwrap_or(false) {
+                let path = entry.path();
+                if let Some(file_name) = path.file_name().and_then(|n| n.to_str()) {
+                    fs::copy(
+                        format!("{static_dir}/{file_name}"),
+                        format!("{output_dir}/{file_name}"),
+                    )?;
+                }
+            }
+        }
+    }
+
+    Ok(())
+}
+
 fn copy_data(site_name: &str, config: &SiteConfig) -> Result<()> {
     let data_dir = format!(
         "{}/{site_name}/{}",
@@ -364,8 +389,9 @@ pub fn generate(site_name: &str, config: &SiteConfig) -> Result<()> {
     let duration_since_epoch = now.duration_since(UNIX_EPOCH).expect("Time went backwards");
     let generated_date = duration_since_epoch.as_secs().to_string();
 
-    // Copy assets and data
+    // Copy assets, static files, and data
     let versioned_assets = copy_assets(site_name, config)?;
+    copy_static(site_name, config)?;
     copy_data(site_name, config)?;
 
     // Load all site content
