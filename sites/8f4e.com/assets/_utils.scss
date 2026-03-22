@@ -7,13 +7,13 @@
 .grid-2 {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 18px;
+	gap: calc(var(--unit) * 2);
 }
 
 .grid-3 {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	gap: 18px;
+	gap: calc(var(--unit) * 2);
 }
 
 .span-2 {
@@ -33,12 +33,12 @@
 @media(max-width:900px) {
 	.resize {
 		width: 100%;
-		padding: 0 9px;
+		padding: 0 var(--unit);
 	}
 
 	.grid-2,
 	.grid-3 {
-		gap: 9px;
+		gap: var(--unit);
 	}
 }
 

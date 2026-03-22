@@ -12,7 +12,7 @@ html {
 }
 
 body {
-	padding: 0 0 36px 0;
+	padding: 0 0 calc(var(--unit) * 4) 0;
 }
 
 .background {
@@ -23,15 +23,15 @@ body {
 
 .container {
 	font-size: 16.5px;
-	line-height: 18px;
-	padding: 18px 0;
+	line-height: calc(var(--unit) * 2);
+	padding: calc(var(--unit) * 2) 0;
 	position: relative;
 }
 
 .introduction {
 
 	.title {
-		padding: 18px 0 0 0;
+		padding: calc(var(--unit) * 2) 0 0 0;
 	}
 
 	.dots {
@@ -40,27 +40,28 @@ body {
 		padding: 0 !important;
 
 		p {
-			padding: 9px 0;
+			padding: var(--unit) 0;
 		}
 
 		p:first-child {
-			padding-top: 18px;
+			padding-top: calc(var(--unit) * 2);
 		}
 
 		p:last-child {
-			padding-bottom: 18px;
+			padding-bottom: calc(var(--unit) * 2);
 		}
 	}
 }
 
 :root {
+	--unit: 9px;
 	font-synthesis: none;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 }
 
 p {
-	padding: 0 0 9px 0;
+	padding: 0 0 var(--unit) 0;
 	margin: 0;
 }
 
@@ -68,7 +69,7 @@ h1 {
 	margin: 0;
 	padding: 0;
 	font-size: 88px;
-	line-height: 90px;
+	line-height: calc(var(--unit) * 8);
 	color: var(--color-h1);
 }
 
@@ -76,12 +77,12 @@ h2 {
 	margin: 0;
 	padding: 0;
 	font-size: 22px;
-	line-height: 27px;
+	line-height: calc(var(--unit) * 3);
 	color: var(--color-h2);
 }
 
 .examples {
-	padding-top: 72px;
+	padding-top: calc(var(--unit) * 8);
 
 	img {
 		width: 100%;
@@ -95,7 +96,7 @@ h2 {
 	}
 
 	.description {
-		padding: 18px;
+		padding: calc(var(--unit) * 2);
 	}
 }
 
@@ -116,7 +117,7 @@ h2 {
 		flex-direction: row;
 
 		a {
-			padding: 18px;
+			padding: calc(var(--unit) * 2);
 			display: block;
 			text-decoration: none;
 			color: var(--color-accent);
