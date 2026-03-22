@@ -31,7 +31,6 @@ body {
 .introduction {
 
 	.title {
-		color: var(--color-h2);
 		padding: 18px 0 0 0;
 	}
 
@@ -39,7 +38,7 @@ body {
 		display: flex;
 		flex-direction: column;
 		padding: 0 !important;
-	
+
 		p {
 			padding: 9px 0;
 		}
@@ -69,7 +68,7 @@ h1 {
 	margin: 0;
 	padding: 0;
 	font-size: 88px;
-	line-height: 88px;
+	line-height: 90px;
 	color: var(--color-h1);
 }
 
@@ -77,6 +76,8 @@ h2 {
 	margin: 0;
 	padding: 0;
 	font-size: 22px;
+	line-height: 27px;
+	color: var(--color-h2);
 }
 
 .examples {
