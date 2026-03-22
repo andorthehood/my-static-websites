@@ -6,6 +6,7 @@
     <meta charSet="utf-8" />
     <link rel="alternate" type="application/rss+xml" href="{{rss_feed_url}}" title="RSS 2.0" />
     <meta name="description" content="{{description}}" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src https://static.llllllllllll.com; img-src 'self' https://static.llllllllllll.com; connect-src 'none'; frame-src 'none';" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1, user-scalable=yes" />
     <style>
@@ -44,14 +45,7 @@
                 target="_blank" href="https://github.com/andorthehood/8f4e" aria-label="Open GitHub repository in new tab">★ GitHub</a> <a href="#examples">♪
                 Examples</a></nav>
     </footer>
-<script>
-    var interval = matchMedia('(prefers-reduced-motion: reduce)').matches ? 1000 : 100;
-    setInterval(function () {
-        document.querySelectorAll('.screenshot').forEach(function (el) {
-            el.style.backgroundPosition = Math.random() * 100 + '% ' + Math.random() * 100 + '%';
-        });
-    }, interval);
-</script>
+    <script src="/assets/{{script.ts}}"></script>
 </body>
 
 </html>
