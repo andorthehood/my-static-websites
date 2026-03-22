@@ -43,13 +43,27 @@
 }
 
 @media(max-width:700px) {
-	.grid-2,
-	.grid-3 {
+	.grid-2 {
 		grid-template-columns: 1fr;
+	}
+
+	.grid-3 {
+		grid-template-columns: 1fr 1fr;
 	}
 
 	.span-2 {
 		grid-column: span 1;
+	}
+
+	.span-3 {
+		grid-column: span 2;
+	}
+}
+
+
+@media(max-width:360px) {
+	.grid-3 {
+		grid-template-columns: 1fr;
 	}
 
 	.span-3 {

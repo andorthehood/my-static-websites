@@ -24,11 +24,14 @@ body {
 .container {
 	font-size: 16.5px;
 	line-height: calc(var(--unit) * 2);
-	padding: calc(var(--unit) * 2) 0;
+	padding: calc(var(--unit) * 4) 0;
 	position: relative;
 }
 
 .introduction {
+	a {
+		color: var(--color-text);
+	}
 
 	.title {
 		padding: calc(var(--unit) * 2) 0 0 0;
@@ -67,7 +70,7 @@ p {
 
 h1 {
 	margin: 0;
-	padding: 0;
+	padding: calc(var(--unit) * 2) 0 calc(var(--unit) * 4) 0;
 	font-size: 88px;
 	line-height: calc(var(--unit) * 8);
 	color: var(--color-h1);
@@ -127,5 +130,23 @@ h2 {
 			background: var(--color-accent);
 			color: var(--color-accent-text);
 		}
+	}
+}
+
+.screenshot {
+	will-change: background-position;
+	background: url(https://static.llllllllllll.com/8f4e/screenshots/1.png);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: calc(var(--unit) * 4) 0;
+	box-shadow: var(--unit) var(--unit) 0 var(--color-block-shadow);
+
+	a {
+		padding: calc(var(--unit) * 3) calc(var(--unit) * 4);
+		color: var(--color-accent-text);
+		background: var(--color-screenshot-button);
+		backdrop-filter: blur(10px);
+		text-decoration: none;
 	}
 }

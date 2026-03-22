@@ -44,6 +44,13 @@
                 target="_blank" href="https://github.com/andorthehood/8f4e">★ GitHub</a> <a href="#examples">♪
                 Examples</a></nav>
     </footer>
+<script>
+    setInterval(function () {
+        document.querySelectorAll('.screenshot').forEach(function (el) {
+            el.style.backgroundPosition = Math.random() * 100 + '% ' + Math.random() * 100 + '%';
+        });
+    }, 100);
+</script>
 </body>
 
 </html>
