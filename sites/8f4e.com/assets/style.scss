@@ -1,19 +1,20 @@
 @use "module";
 @use "utils";
+@use "colors";
 
 body,
 html {
 	font-family: "Departure Mono", monospace;
 	margin: 0;
 	padding: 0;
-	background: #ffffff;
+	background: var(--color-header-background);
 	color: var(--color-text);
 }
 
 .background {
 	width: 100%;
 	height: 100%;
-	background: linen;
+	background: var(--color-background);
 }
 
 .container {
@@ -26,7 +27,7 @@ html {
 .introduction {
 
 	.title {
-		color: var(--color-title);
+		color: var(--color-h2);
 		padding: 18px 0 0 0;
 	}
 
@@ -53,32 +54,6 @@ html {
 	font-synthesis: none;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
-
-	--color-background: linen;
-	--color-text: #333333;
-	--color-title: darkorange;
-	--color-block-background: #ffffff;
-	--color-block-shadow: rgba(0, 0, 0, 0.1);
-	--color-code: darkgreen;
-	--color-code-number: #006600;
-	--color-code-comment: #999999;
-	--color-code-instruction: rebeccapurple;
-	--color-code-ln: #cccccc;
-
-	@media (prefers-color-scheme: dark) {
-		:root {
-			--color-background: #1e1c18;
-			--color-text: #d4cbb8;
-			--color-title: orange;
-			--color-block-background: #2a2720;
-			--color-block-shadow: rgba(255, 255, 255, 0.1);
-			--color-code: #4e9a51;
-			--color-code-number: #6abf6e;
-			--color-code-comment: #5a5a5a;
-			--color-code-instruction: #a57fcf;
-			--color-code-ln: #3a3a3a;
-		}
-	}
 }
 
 p {
@@ -91,6 +66,7 @@ h1 {
 	padding: 0;
 	font-size: 88px;
 	line-height: 88px;
+	color: var(--color-h1);
 }
 
 h2 {
@@ -108,7 +84,7 @@ h2 {
 	}
 
 	a {
-		background: #ffffff;
+		background: var(--color-accent);
 		text-decoration: none;
 		color: var(--color-text);
 	}
@@ -128,7 +104,7 @@ h2 {
 
 header {
 	width: 100%;
-	background: var(--color-block-background);
+	background: var(--color-header-background);
 
 	nav {
 		display: flex;
@@ -138,7 +114,12 @@ header {
 			padding: 18px;
 			display: block;
 			text-decoration: none;
+			color: var(--color-accent);
+		}
+
+		a.editor {
+			background: var(--color-accent);
+			color: var(--color-accent-text);
 		}
 	}
-
 }
