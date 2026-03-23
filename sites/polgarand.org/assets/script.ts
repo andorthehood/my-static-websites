@@ -84,6 +84,7 @@ function replaceContent(data) {
 		.then(() => {
 			content.innerHTML = data.content;
 			registerLinkHandlers();
+			markLoadedImages(content);
 		});
 }
 
@@ -117,6 +118,18 @@ function registerLinkHandlers() {
 	});
 }
 
+function markLoadedImages(root: Document | Element = document) {
+	root.querySelectorAll('img').forEach(function (img: HTMLImageElement) {
+		if (img.complete) {
+			img.classList.add('loaded');
+		} else {
+			img.addEventListener('load', function () {
+				img.classList.add('loaded');
+			});
+		}
+	});
+}
+
 (function () {
 	window.addEventListener('popstate', function () {
 		if (location.hash !== '') {
@@ -129,4 +142,5 @@ function registerLinkHandlers() {
 	});
 
 	registerLinkHandlers();
+	markLoadedImages();
 })();
