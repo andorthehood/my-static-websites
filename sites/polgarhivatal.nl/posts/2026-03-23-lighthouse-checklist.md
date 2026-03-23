@@ -36,7 +36,8 @@ unlisted: true
 <ul>
 <li>Serve CSP as an HTTP header rather than a <code>&lt;meta&gt;</code> tag — HTTP headers are enforced before any HTML is parsed; <code>&lt;meta&gt;</code> CSP is applied later and supports fewer directives</li>
 <li>Add <code>default-src</code>, <code>script-src</code>, <code>style-src</code>, <code>font-src</code>, <code>img-src</code>, <code>connect-src</code>, <code>frame-src</code> directives to CSP — restricts which origins each resource type can be loaded from, limiting the blast radius of an XSS attack</li>
-<li>Add <code>require-trusted-types-for 'script'</code> to CSP — forces all DOM sink assignments to go through a policy, preventing XSS at the injection point</li>
+<li>Add <code>require-trusted-types-for 'script'</code> to CSP — forces all DOM sink assignments to go through a policy, preventing XSS at the injection point. Only applicable if the site does not use <code>innerHTML</code> or similar DOM sinks directly; enabling it on a site that does will break client-side navigation and dynamic content injection</li>
+<li>Set <code>connect-src</code> to the appropriate origin — use <code>'none'</code> only if the page makes no <code>fetch()</code> or <code>XHR</code> requests; use <code>'self'</code> if it fetches from the same origin (e.g. for client-side navigation that loads JSON)</li>
 <li>Add <code>Strict-Transport-Security</code> with <code>includeSubDomains</code> and <code>preload</code> — forces HTTPS for all connections including subdomains, and allows the domain to be hardcoded into browsers</li>
 <li>Add <code>Cross-Origin-Opener-Policy: same-origin</code> — prevents other sites from getting a reference to your page via <code>window.opener</code>, blocking cross-origin attacks</li>
 <li>Add <code>X-Frame-Options: DENY</code> — prevents the page from being embedded in an iframe, blocking clickjacking attacks</li>
