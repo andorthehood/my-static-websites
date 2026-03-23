@@ -1,7 +1,7 @@
 .code-block {
     background: var(--color-block-background);
     padding: 18px;
-    box-shadow: 9px 9px 0 var(--color-block-shadow);
+    box-shadow: var(--shadow);
 
     pre {
         color: var(--color-code);
