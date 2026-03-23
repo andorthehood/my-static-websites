@@ -22,7 +22,6 @@ pub struct SiteConfig {
     /// Data subdirectory name
     pub data_subdir: String,
     /// Static subdirectory name (files copied as-is to site output root)
-    pub static_subdir: String,
     /// Main layout file name
     pub main_layout: String,
     /// Configuration file name
@@ -46,7 +45,6 @@ impl Default for SiteConfig {
             layouts_subdir: "layouts".to_string(),
             assets_subdir: "assets".to_string(),
             data_subdir: "data".to_string(),
-            static_subdir: "static".to_string(),
             main_layout: "main.html".to_string(),
             config_file: "config.md".to_string(),
             default_posts_per_page: 5,
@@ -90,9 +88,6 @@ impl SiteConfig {
         }
         if let Ok(value) = env::var("LEPKEFING_DATA_SUBDIR") {
             config.data_subdir = value;
-        }
-        if let Ok(value) = env::var("LEPKEFING_STATIC_SUBDIR") {
-            config.static_subdir = value;
         }
         if let Ok(value) = env::var("LEPKEFING_MAIN_LAYOUT") {
             config.main_layout = value;
@@ -143,9 +138,6 @@ impl SiteConfig {
         if self.data_subdir.is_empty() {
             return Err("Data subdirectory cannot be empty".to_string());
         }
-        if self.static_subdir.is_empty() {
-            return Err("Static subdirectory cannot be empty".to_string());
-        }
         if self.main_layout.is_empty() {
             return Err("Main layout cannot be empty".to_string());
         }
@@ -181,7 +173,6 @@ mod tests {
         assert_eq!(config.layouts_subdir, "layouts");
         assert_eq!(config.assets_subdir, "assets");
         assert_eq!(config.data_subdir, "data");
-        assert_eq!(config.static_subdir, "static");
         assert_eq!(config.main_layout, "main.html");
         assert_eq!(config.config_file, "config.md");
         assert_eq!(config.default_posts_per_page, 5);
