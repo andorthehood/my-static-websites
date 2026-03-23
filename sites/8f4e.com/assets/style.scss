@@ -94,9 +94,10 @@ h2 {
 	}
 
 	a {
-		background: var(--color-accent);
+		background: var(--color-example-link-background);
 		text-decoration: none;
-		color: var(--color-text);
+		color: var(--color-example-link-text);
+		box-shadow: var(--shadow);
 	}
 
 	.description {
@@ -141,7 +142,7 @@ h2 {
 	align-items: center;
 	justify-content: center;
 	padding: calc(var(--unit) * 4) 0;
-	box-shadow: var(--unit) var(--unit) 0 var(--color-block-shadow);
+	box-shadow: var(--shadow);
 
 	a {
 		padding: calc(var(--unit) * 3) calc(var(--unit) * 4);
