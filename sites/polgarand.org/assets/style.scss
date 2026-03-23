@@ -60,15 +60,6 @@ a:visited {
 article img {
 	display: block;
 	width: 100%;
-	position: relative;
-	z-index: 10;
-	background: var(--text-color);
-	aspect-ratio: 3/2;
-}
-
-article img.loaded {
-	background: initial;
-	aspect-ratio: initial;
 }
 
 p {
