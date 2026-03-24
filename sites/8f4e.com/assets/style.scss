@@ -29,8 +29,25 @@ body {
 }
 
 .introduction {
+	display: flex;
+	flex-direction: column;
+	gap: calc(var(--unit) * 2);
+
 	a {
 		color: var(--color-text);
+	}
+
+	.row {
+		display: flex;
+		gap: calc(var(--unit) * 4);
+
+		> * {
+			flex: 1;
+		}
+
+		.dots {
+			flex: 1.5;
+		}
 	}
 
 	.title {
@@ -40,7 +57,6 @@ body {
 	.dots {
 		display: flex;
 		flex-direction: column;
-		padding: 0 !important;
 
 		p {
 			padding: var(--unit) 0;
@@ -52,6 +68,16 @@ body {
 
 		p:last-child {
 			padding-bottom: calc(var(--unit) * 2);
+		}
+	}
+
+	.row--reverse {
+		flex-direction: row-reverse;
+	}
+
+	@media (max-width: 700px) {
+		.row, .row--reverse {
+			flex-direction: column!important;
 		}
 	}
 }
