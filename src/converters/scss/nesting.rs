@@ -239,13 +239,7 @@ impl<'a> Parser<'a> {
 
 fn emit_rule(out: &mut String, rule: &Rule, parent: &str) {
     let selector = rule.selector.trim();
-    if selector.is_empty() || selector.contains('&') {
-        // unsupported, emit as-is roughly
-        out.push_str(selector);
-        out.push('{');
-        for c in &rule.content {
-            emit_content(out, c, parent);
-        }
+    if selector.is_empty() {
         return;
     }
 
@@ -271,7 +265,9 @@ fn emit_rule(out: &mut String, rule: &Rule, parent: &str) {
         return;
     }
 
-    let combined_selector = if parent.is_empty() {
+    let combined_selector = if selector.contains('&') {
+        selector.replace('&', parent)
+    } else if parent.is_empty() {
         selector.to_string()
     } else {
         format!("{parent} {selector}")
@@ -355,6 +351,16 @@ mod tests {
         assert_eq!(
             flattened,
             ".btn{color: red;}h1{font-weight: 700;}body{margin: 0;}"
+        );
+    }
+
+    #[test]
+    fn test_ampersand_parent_reference() {
+        let input = ".row { &:nth-child(even) { flex-direction: row-reverse; } }";
+        let flattened = flatten_basic_nesting(input);
+        assert_eq!(
+            flattened,
+            ".row:nth-child(even){flex-direction: row-reverse;}"
         );
     }
 
