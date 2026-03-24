@@ -1,38 +1,41 @@
-<div class="introduction grid-2">
+<div class="introduction">
 
-    <div class="dots">
-        <h1>8f4e</h1>
+    <div class="row">
+        <div class="dots">
+            <h1>8f4e</h1>
 
-        <p>8f4e is a <a target="_blank" href="https://en.wikipedia.org/wiki/Stack-oriented_programming">stack oriented</a> programming language with a visual code editor that I created to perform generative
-            music at <a target="_blank" href="https://en.wikipedia.org/wiki/Algorave">algorave</a> events.</p>
-        <p>Its primary target is the <a target="_blank" href="https://en.wikipedia.org/wiki/WebAssembly">WebAssembly</a> virtual machine, as I wanted an efficient yet portable tool for real
-            time
-            audio signal generation and processing.</p>
+            <p>8f4e is a <a target="_blank" href="https://en.wikipedia.org/wiki/Stack-oriented_programming">stack oriented</a> programming language with a visual code editor that I created to perform generative
+                music at <a target="_blank" href="https://en.wikipedia.org/wiki/Algorave">algorave</a> events.</p>
+            <p>Its primary target is the <a target="_blank" href="https://en.wikipedia.org/wiki/WebAssembly">WebAssembly</a> virtual machine, as I wanted an efficient yet portable tool for real
+                time
+                audio signal generation and processing.</p>
+        </div>
+        <div class="screenshot">
+            <a href="https://editor.8f4e.com" target="_blank">Open Editor ↗</a>
+        </div>
     </div>
-    <div class="screenshot">
-        <a href="https://editor.8f4e.com" target="_blank">Open Editor ↗</a>
-    </div>
 
-    <div class="title span-2">
+    <div class="title">
         <h2>Stack Oriented Execution Model</h2>
     </div>
 
-    <div class="dots">
-        <p>
-            Stack-oriented programming means that instead of using registers, instructions take their operands from a
-            stack
-            and push their results back onto that same stack for the next instruction to consume.
+    <div class="row row--reverse">
+        <div class="dots">
+            <p>
+                Stack-oriented programming means that instead of using registers, instructions take their operands from a
+                stack
+                and push their results back onto that same stack for the next instruction to consume.
 
-        </p>
+            </p>
 
-        <p>I chose this programming paradigm because the WebAssembly virtual machine is
-            itself a stack machine.</p>
+            <p>I chose this programming paradigm because the WebAssembly virtual machine is
+                itself a stack machine.</p>
 
-        <p>Staying native to this execution model avoids costly abstractions and makes it possible to build a simpler
-            and
-            faster compiler.</p>
-    </div>
-    <div class="code-block">
+            <p>Staying native to this execution model avoids costly abstractions and makes it possible to build a simpler
+                and
+                faster compiler.</p>
+        </div>
+        <div class="code-block">
         <pre aria-label="Code example: stack arithmetic">
 <span class="comment">...</span>
 <span class="ln">067</span> <span class="instruction">push</span> <span class="number">2</span>
@@ -53,21 +56,23 @@
 <span class="ln">078</span> <span class="comment">; Now 5 again</span>
 <span class="comment">...</span>
 </pre>
+        </div>
     </div>
 
-    <div class="title span-2">
+    <div class="title">
         <h2>Memory Access and Pointers</h2>
     </div>
 
-    <div class="dots">
-        <p>In 8f4e memory addresses are determined by the compiler, therefore dynamic memory
-            allocation is not possible.</p>
-        <p>One advantage of this design is that memory addresses can be inlined compile time, which allows for faster
-            access
-            and
-            less runtime overhead.</p>
-    </div>
-    <div class="code-block">
+    <div class="row">
+        <div class="dots">
+            <p>In 8f4e memory addresses are determined by the compiler, therefore dynamic memory
+                allocation is not possible.</p>
+            <p>One advantage of this design is that memory addresses can be inlined compile time, which allows for faster
+                access
+                and
+                less runtime overhead.</p>
+        </div>
+        <div class="code-block">
         <pre aria-label="Code example: memory access with pointers">
 <span class="comment">...</span>
 <span class="ln">003</span> <span class="instruction">int</span> result
@@ -84,15 +89,17 @@
 <span class="ln">078</span> <span class="comment">; and the value to store.</span>
 <span class="comment">...</span>
 </pre>
+        </div>
     </div>
 
-    <div class="dots">
-        <p>All memory items are laid out sequentially within the memory, so variables declared one after another occupy
-            adjacent memory locations.</p>
-        <p>They're allocated on a 32-bit grid, which means that every memory item starts at an address that is a
-            multiple of 4 bytes.</p>
-    </div>
-    <div class="code-block">
+    <div class="row row--reverse">
+        <div class="dots">
+            <p>All memory items are laid out sequentially within the memory, so variables declared one after another occupy
+                adjacent memory locations.</p>
+            <p>They're allocated on a 32-bit grid, which means that every memory item starts at an address that is a
+                multiple of 4 bytes.</p>
+        </div>
+        <div class="code-block">
         <pre aria-label="Code example: sequential memory layout">
 <span class="comment">...</span>
 <span class="ln">003</span> <span class="instruction">int</span>   a <span class="number">42</span>
@@ -106,31 +113,35 @@
 <span class="ln">011</span> <span class="comment">; is address of b + 4</span>
 <span class="comment">...</span>
 </pre>
+        </div>
     </div>
 
-    <div class="title span-2">
+    <div class="title">
         <h2>Endless Execution Loop</h2>
     </div>
 
-    <div class="dots">
-        <p>Programs in 8f4e run inside an endless loop. This reflects how real time audio systems operate, where
-            processing consists of continuously reading from and writing to audio buffers.</p>
-        <p>8f4e removes this control flow boilerplate and allows programs to focus purely on signal generation and
-            transformation.</p>
+    <div class="row">
+        <div class="dots">
+            <p>Programs in 8f4e run inside an endless loop. This reflects how real time audio systems operate, where
+                processing consists of continuously reading from and writing to audio buffers.</p>
+            <p>8f4e removes this control flow boilerplate and allows programs to focus purely on signal generation and
+                transformation.</p>
+        </div>
+        <div></div>
     </div>
-    <div></div>
 
-    <div class="title span-2">
+    <div class="title">
         <h2>Modules and Execution Order</h2>
     </div>
 
-    <div class="dots">
-        <p>The code is organized into modules, each containing variable declarations and a sequence of commands.</p>
-        <p>The execution order of the code modules is determined by their dependencies. If a module's output is needed
-            as
-            input for others, it is executed first.</p>
-    </div>
-    <div class="code-block">
+    <div class="row row--reverse">
+        <div class="dots">
+            <p>The code is organized into modules, each containing variable declarations and a sequence of commands.</p>
+            <p>The execution order of the code modules is determined by their dependencies. If a module's output is needed
+                as
+                input for others, it is executed first.</p>
+        </div>
+        <div class="code-block">
         <pre aria-label="Code example: module definition">
 <span class="comment">...</span>
 <span class="ln">001</span> <span class="instruction">module</span> foo
@@ -148,24 +159,26 @@
 <span class="ln">013</span> <span class="instruction">moduleEnd</span>
 <span class="comment">...</span>
 </pre>
+        </div>
     </div>
 
-    <div class="title span-2">
+    <div class="title">
         <h2>Live Variable Editing</h2>
     </div>
 
-    <div class="dots">
-        <p>It supports real-time manual modification of variable values while the program is running, without needing
-            recompilation.</p>
+    <div class="row">
+        <div class="dots">
+            <p>It supports real-time manual modification of variable values while the program is running, without needing
+                recompilation.</p>
 
-        <p>This is made possible by the deterministic allocation strategy: because memory addresses are fixed at compile
-            time,
-            the compiler can provide the exact address of every memory item, allowing the editor to locate and update
-            any
-            variable directly in memory.</p>
+            <p>This is made possible by the deterministic allocation strategy: because memory addresses are fixed at compile
+                time,
+                the compiler can provide the exact address of every memory item, allowing the editor to locate and update
+                any
+                variable directly in memory.</p>
 
-    </div>
-    <div class="code-block">
+        </div>
+        <div class="code-block">
         <pre aria-label="Code example: live variable editing">
 <span class="comment">...</span>
 <span class="ln">003</span> <span class="instruction">int</span> foo <span class="number">10</span>
@@ -180,18 +193,19 @@
 <span class="ln">012</span> <span class="comment">; or recompiling the program.</span>
 <span class="comment">...</span>
 </pre>
+        </div>
     </div>
 
-    <div class="dots">
-        <p>All variables in 8f4e are inherently public, with no option to modify visibility.</p>
+    <div class="row row--reverse">
+        <div class="dots">
+            <p>All variables in 8f4e are inherently public, with no option to modify visibility.</p>
 
-        <p> Also, it's not memory safe,
-            pointers can point to anything within the memory space of the program, but the wires help developers to find
-            where
-            their pointers are pointing.</p>
-    </div>
-
-    <div class="code-block">
+            <p> Also, it's not memory safe,
+                pointers can point to anything within the memory space of the program, but the wires help developers to find
+                where
+                their pointers are pointing.</p>
+        </div>
+        <div class="code-block">
         <pre aria-label="Code example: pointer iteration">
 <span class="comment">...</span>
 <span class="ln">003</span> <span class="instruction">int*</span> pointer
@@ -205,9 +219,8 @@
 <span class="ln">011</span> <span class="comment">; possible memory addresses.</span>
 <span class="comment">...</span>
 </pre>
+        </div>
     </div>
-
-
 
 </div><!-- .introduction -->
 
