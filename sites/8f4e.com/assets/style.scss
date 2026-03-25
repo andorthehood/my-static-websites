@@ -76,6 +76,16 @@ body {
 		flex-direction: row-reverse;
 	}
 
+	.row--center {
+		justify-content: center;
+
+		div {
+			width: 70%;
+			flex: unset!important;
+		}
+	}
+
+
 	@media (max-width: 700px) {
 		.row, .row--reverse {
 			flex-direction: column!important;
