@@ -52,6 +52,7 @@ body {
 
 	.title {
 		padding: calc(var(--unit) * 2) 0 0 0;
+		text-align: center;
 	}
 
 	.dots {
@@ -83,7 +84,7 @@ body {
 }
 
 :root {
-	--unit: 9px;
+	--unit: 11px;
 	font-synthesis: none;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;

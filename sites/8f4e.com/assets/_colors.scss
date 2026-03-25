@@ -1,11 +1,11 @@
 :root {
-	--color-background: #0aa;
+	--color-background: #055;
 	--color-header-background: #fff;
 	--color-text: #fff;
 	--color-h2: #ff5;
 	--color-h1: #fff;
 	--color-block-background: #00a;
-	--shadow: 9px 9px 0 rgba(0, 0, 0, 0.2);
+	--shadow: var(--unit) var(--unit) 0 #0aa;
 	--color-accent: #a0a;
 	--color-accent-text: #fff;
 	--color-screenshot-button: rgba(255, 255, 255, 0.1);
