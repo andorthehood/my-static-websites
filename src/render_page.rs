@@ -24,17 +24,18 @@ pub fn render_page(
 ) -> Result<()> {
     // Determine output extension from source file name:
     // - If original source file is like name.<ext>.liquid -> use <ext> for output
+    // - If original source file is like name..liquid (double dot) -> no extension
     // - Otherwise, default to .html
-    let output_extension = variables
-        .get("source_file_name")
-        .and_then(|name| {
-            name.strip_suffix(".liquid")
-                .or_else(|| name.strip_suffix(".html"))
-        })
-        .and_then(|name_without_liquid| name_without_liquid.rsplit_once('.'))
-        .map_or("html", |(_, ext)| ext);
+    let name_without_template_suffix = variables.get("source_file_name").and_then(|name| {
+        name.strip_suffix(".liquid")
+            .or_else(|| name.strip_suffix(".html"))
+    });
 
-    let file_name = format!("{directory}{slug}.{output_extension}");
+    let file_name = match name_without_template_suffix.and_then(|n| n.rsplit_once('.')) {
+        Some((_, "")) => format!("{directory}{slug}"), // double-dot: no extension
+        Some((_, ext)) => format!("{directory}{slug}.{ext}"), // explicit extension
+        None => format!("{directory}{slug}.html"),     // default to html
+    };
 
     // Check if the content is markdown or HTML or liquid template
     let is_markdown = variables.get("file_type").is_none_or(|ft| ft == "md");
