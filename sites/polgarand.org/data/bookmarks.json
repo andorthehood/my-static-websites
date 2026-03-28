@@ -274,6 +274,12 @@
         "description": "The Feynman Technique is a method of learning that involves explaining"
     },
     {
+        "url": "https://screenspan.net/fallback",
+        "favicon": "screenspan.net.ico",
+        "title": "ScreenSpan Fallback",
+        "description": "ScreenSpan Fallback is a web-based screen recording tool that works in any modern browser, without requiring any plugins or extensions."
+    },
+    {
         "url": "https://worrydream.com/",
         "favicon": "worrydream.com.ico",
         "title": "Bret Victor, human being",

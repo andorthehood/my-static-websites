@@ -1,5 +1,17 @@
 [
     {
+        "title": "How (and why) to take a logarithm of an image",
+        "id": "ldxFjLJ3rVY",
+        "author": "3Blue1Brown",
+        "date": "March 22, 2026"
+    },
+    {
+        "title": "why no one thinks anymore: how to become a person",
+        "id": "EMtWko6ejYc",
+        "author": "Meditations for the anxious mind",
+        "date": "March 22, 2026"
+    },
+    {
         "title": "Shipping a button in 2026…",
         "id": "xE9W9Ghe4Jk",
         "author": "Kai Lentit",
@@ -138,12 +150,6 @@
         "date": "August 30, 2025"
     },
     {
-        "title": "If Harry Potter was like The Office",
-        "id": "axp9yjm6omI",
-        "author": "dns",
-        "date": "August 25, 2025"
-    },
-    {
         "title": "I Tried a Japanese Childhood Hobby (Dorodango)",
         "id": "-xvHSq-cPA4",
         "author": "Darius Jay",
@@ -202,6 +208,12 @@
         "id": "l-OLgbdZ3kk",
         "author": "Artem Kirsanov",
         "date": "May 7, 2025"
+    },
+    {
+        "title": "The Most Abused Theorem in Math (Gödel's Incompleteness)",
+        "id": "OH-ybecvuEo",
+        "author": "Curt Jaimungai",
+        "date": "May 5, 2025"
     },
     {
         "title": "How to build a single-pixel camera",
@@ -477,7 +489,7 @@
         "title": "Paul composes \"It's Okay to Leave a Dog in a Hot Car\" from nothing",
         "id": "_lDhZrgWOmo",
         "author": "Stephen Deeter",
-        "date": "February 16, 2022"  
+        "date": "February 16, 2022"
     },
     {
         "title": "Interview with a Senior JS Developer",
@@ -495,7 +507,7 @@
         "title": "I Broke Into The International Security Convention",
         "id": "qM3imMiERdU",
         "author": "Max Fosh",
-        "date": "November 2, 2021"        
+        "date": "November 2, 2021"
     },
     {
         "title": "Game of life: computer with display",
@@ -564,6 +576,12 @@
         "date": "April 30, 2020"
     },
     {
+        "title": "Why dark video is a terrible mess",
+        "id": "h9j89L8eQQk",
+        "author": "Tom Scott",
+        "date": "March 30, 2020"
+    },
+    {
         "title": "The Art of Code",
         "id": "6avJHaC3C2U",
         "author": "NDC Conferences",
@@ -592,6 +610,12 @@
         "id": "0-gPcpDgeI4",
         "author": "Walf Archives",
         "date": "October 20, 2019"
+    },
+    {
+        "title": "This Is What Happens When You Re-Upload a YouTube Video 1000 Times!",
+        "id": "JR4KHfqw-oE",
+        "author": "Marques Brownlee",
+        "date": "October 12, 2019"
     },
     {
         "title": "“Hello, world” from scratch on a 6502 — Part 1",
