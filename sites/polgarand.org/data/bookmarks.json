@@ -1,12 +1,19 @@
 [
     {
+        "url": "https://nielsleenheer.com/articles/2026/css-is-doomed-rendering-doom-in-3d-with-css",
+        "favicon": "nielsleenheer.com.png",
+        "title": "CSS is DOOMed",
+        "description": "Every wall, floor, barrel, and imp is a div — DOOM rendered in 3D entirely in CSS. Using 3D transforms, CSS math functions, @property, clip-path, anchor positioning, and SVG filters to build a fully playable 3D first-person shooter in the browser without Canvas or WebGL."
+    },
+    {
         "url": "https://mpe-project.info/the-mpe-project/",
+        "favicon": "mpe-project.info.jpg",
         "title": "The Minimal Phenomenal Experience Project",
         "description": "The main goal of this research project is to develop a minimal-model explanation of consciousness, by focusing on the experience of awareness “as such”."
     },
     {
         "url": "https://asb2m10.github.io/dexed/",
-        "title" : "dexed - FM Plugin Synth",
+        "title": "dexed - FM Plugin Synth",
         "description": "Dexed is a multi platform, multi format plugin synth that is closely modeled on the Yamaha DX7."
     },
     {
@@ -38,6 +45,12 @@
         "favicon": "cari.institute.png",
         "title": "CARI | Aesthetics",
         "description": "CARI, or Consumer Aesthetics Research Institute, is an online community dedicated to developing a visual lexicon of consumer ephemera from the 1970s until now."
+    },
+    {
+        "url": "https://www.a1k0n.net/2025/12/19/tiny-tapeout-demo.html",
+        "favicon": "www.a1k0n.net.ico",
+        "title": "Pure Silicon Demo Coding: No CPU, No Memory, Just 4k Gates",
+        "description": ""
     },
     {
         "url": "https://myretrotvs.com/",
@@ -275,7 +288,7 @@
     },
     {
         "url": "https://screenspan.net/fallback",
-        "favicon": "screenspan.net.ico",
+        "favicon": "screenspan.net.svg",
         "title": "ScreenSpan Fallback",
         "description": "ScreenSpan Fallback is a web-based screen recording tool that works in any modern browser, without requiring any plugins or extensions."
     },
@@ -371,6 +384,7 @@
     },
     {
         "url": "https://web.badges.world/",
+        "favicon": "web.badges.world.svg",
         "title": "Web Badges World",
         "description": "The ultimate archive of 80x15 pixel button art"
     },
@@ -434,6 +448,7 @@
     },
     {
         "url": "https://modarchive.org/",
+        "favicon": "modarchive.org.ico",
         "title": "The Mod Archive v4.0b - A distinctive collection of modules",
         "description": "The Mod Archive is a website dedicated to the indexing and archival of playable music module files."
     },
@@ -621,6 +636,7 @@
     },
     {
         "url": "https://yamahablackboxes.com/collection/yamaha-dx7-synthesizer/patches",
+        "favicon": "yamahablackboxes.com.png",
         "title": "Yamaha DX7 patches | Yamaha black boxes online archive",
         "description": "This page contains downloadable Yamaha DX7 voice data as .sysex files, including factory sound banks and VRC cartridges."
     },
@@ -651,6 +667,12 @@
         "url": "https://riccardoscalco.it/textures/",
         "title": "Textures.js",
         "description": "A JavaScript Library for creating SVG patterns"
+    },
+    {
+        "url": "https://www.a1k0n.net/2011/07/20/donut-math.html",
+        "favicon": "www.a1k0n.net.ico",
+        "title": "Donut math: how donut.c works",
+        "description": "A C program that renders a rotating 3D donut using ASCII characters."
     },
     {
         "url": "https://csound.com/",
