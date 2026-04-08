@@ -425,6 +425,41 @@
         "description": ""
     },
     {
+        "url": "http://viznut.fi/en/",
+        "favicon": "viznut.fi.ico",
+        "title": "vizmut",
+        "description": "Viznut a.k.a. Ville-Matias Heikkilä"
+    },
+    {
+        "url": "http://viznut.fi/unscii/",
+        "favicon": "viznut.fi.ico",
+        "title": "Unscii - a bitmapped Unicode font for blocky graphics",
+        "description": ""
+    },
+    {
+        "url": "https://github.com/the-moonwitch/Cozette",
+        "favicon": "github.com.png",
+        "title": "Cozette",
+        "description": "A bitmap programming font optimized for coziness 💜"
+    },
+    {
+        "url": "https://int10h.org/oldschool-pc-fonts/",
+        "favicon": "int10h.org.png",
+        "title": "The Ultimate Oldschool PC Font Pack: Home",
+        "description": "Home of the world's biggest collection of classic text mode fonts, system fonts and BIOS fonts from DOS-era IBM PCs and compatibles"
+    },
+    {
+        "url": "https://www.cambus.net/spleen-monospaced-bitmap-fonts/",
+        "favicon": "www.cambus.net.png",
+        "title": "Spleen - Monospaced Bitmap Fonts",
+        "description": "Spleen is a monospaced bitmap font available in 6 sizes"
+    },
+    {
+        "url": "https://terminus-font.sourceforge.net/",
+        "title": "Terminus Font Home Page",
+        "description": "Terminus Font is a clean, fixed width bitmap font, designed for long (8 and more hours per day) work with computers."
+    },
+    {
         "url": "https://junon.me/",
         "title": "Josh Junon",
         "description": "Josh Junon's portfolio, CV and other information."
