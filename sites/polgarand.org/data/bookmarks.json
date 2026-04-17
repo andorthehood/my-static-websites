@@ -1,5 +1,15 @@
 [
     {
+        "url": "https://tkdodo.eu/blog/the-vertical-codebase",
+        "title": "The Vertical Codebase",
+        "description": "Let's take a look at why the common, horizontal code structure is not ideal, where it breaks down, and what we can do about it."  
+    },
+    {
+        "url": "https://bryankeller.github.io/2026/04/08/porting-mac-os-x-nintendo-wii.htm",
+        "title": "Porting Mac OS X to the Nintendo Wii",
+        "description": "Mac OS X 10.0 (Cheetah) running natively on the Nintendo Wii"
+    },
+    {
         "url": "https://nielsleenheer.com/articles/2026/css-is-doomed-rendering-doom-in-3d-with-css",
         "favicon": "nielsleenheer.com.png",
         "title": "CSS is DOOMed",
@@ -311,6 +321,11 @@
         "description": "Departure Mono is a monospaced pixel font by Helena Zhang, licensed under the SIL OFL."
     },
     {
+        "url": "https://www.bernadinism.com/",
+        "title": "Home – Bernadinism - Bernadinism",
+        "description": "I AM A ONE MAN SUBCULTURE"
+    },
+    {
         "url": "https://rotatingsandwiches.com/",
         "favicon": "rotatingsandwiches.com.ico",
         "title": "Rotating Sandwiches - that's it",
@@ -460,6 +475,16 @@
         "description": "Terminus Font is a clean, fixed width bitmap font, designed for long (8 and more hours per day) work with computers."
     },
     {
+        "url": "https://int10h.org/blog/2021/01/simulating-crt-monitors-ffmpeg-pt-1-color/",
+        "title": "Simulating CRT Monitors with FFmpeg (Pt. 1: Color CRTs)",
+        "description": "VileR's blog: old school PCs, games, graphics, programming, fonts, demos, and so on."
+    },
+    {
+        "url": "https://int10h.org/blog/2021/03/simulating-non-crt-monitors-ffmpeg-flat-panels/",
+        "title": "Simulating NON-CRT Monitors with FFmpeg: Flat Panel Displays",
+        "description": "VileR's blog: old school PCs, games, graphics, programming, fonts, demos, and so on."
+    },
+    {
         "url": "https://junon.me/",
         "title": "Josh Junon",
         "description": "Josh Junon's portfolio, CV and other information."
@@ -497,6 +522,11 @@
         "url": "https://www.colodore.com/",
         "title": "/// colodore",
         "description": "This site attempts to create color palettes and images, that look as close as possible to what the popular chips by MOS Technology, Inc."
+    },
+    {
+        "url": "https://int10h.org/blog/2015/04/cga-in-1024-colors-new-mode-illustrated/",
+        "title": "CGA in 1024 Colors - a New Mode: the Illustrated Guide",
+        "description": "VileR's blog: old school PCs, games, graphics, programming, fonts, demos, and so on."
     },
     {
         "url": "https://1-1i.com/",

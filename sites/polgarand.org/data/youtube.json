@@ -1,5 +1,11 @@
 [
     {
+        "title": "Robot golf vs holes that keep getting harder",
+        "id": "2OfjZ3ORJfc",
+        "author": "Stuff Made Here",
+        "date": "April 15, 2026"
+    },
+    {
         "title": "How (and why) to take a logarithm of an image",
         "id": "ldxFjLJ3rVY",
         "author": "3Blue1Brown",
@@ -34,6 +40,12 @@
         "id": "aV4j5pXLP-I",
         "author": "PewDiePie",
         "date": "February 27, 2026"
+    },
+    {
+        "title": "Why High FOV Sucks — Fixing It with Panini Projection",
+        "id": "LE9kxUQ-l14",
+        "author": "MMqd",
+        "date": "February 17, 2026"
     },
     {
         "title": "The Art of Recreational Programming",
@@ -94,6 +106,12 @@
         "id": "p7XH6h3TnjE",
         "author": "Levi McClain",
         "date": "November 25, 2025"
+    },
+    {
+        "title": "How Does Bent Time Make Gravity?",
+        "id": "U_sI9agWmEw",
+        "author": "The Action Lab",
+        "date": "November 15, 2025"
     },
     {
         "title": "SESENERSEN synthesizers serie first sounds",
@@ -184,6 +202,12 @@
         "id": "EdL6b8ZZRLc",
         "author": "harke",
         "date": "July 5, 2025"
+    },
+    {
+        "title": "The Magnetic Shadow Effect",
+        "id": "MuvuxHXLzls",
+        "author": "minutephysics",
+        "date": "June 26, 2025"
     },
     {
         "title": "Imaging objects out of sight using a single photodetector",
@@ -342,6 +366,12 @@
         "date": "December 12, 2023"
     },
     {
+        "title": "How do cells come up with their programming language?",
+        "id": "h5EtHLXSbHI",
+        "author": "NanoRooms",
+        "date": "November 30, 2023"
+    },
+    {
         "title": "Training AI to Play Pokemon with Reinforcement Learning",
         "id": "DcYLT37ImBY",
         "author": "Peter Whidden",
@@ -400,6 +430,12 @@
         "id": "IMfBS4mBfBQ",
         "author": "Good Work",
         "date": "April 7, 2023"
+    },
+    {
+        "title": "VFD Displays",
+        "id": "PkPSDOjhxwM",
+        "author": "Posy",
+        "date": "February 24, 2023"
     },
     {
         "title": "The Flaws of Inheritance",
@@ -826,6 +862,12 @@
         "id": "ubTJI_UphPk",
         "author": "Doctor Who",
         "date": "January 15, 2015"
+    },
+    {
+        "title": "Do The Numbers On Toaster Dials Mean Minutes?",
+        "id": "gN_PK5pXmIY",
+        "author": "Tom Scott",
+        "date": "December 9, 2014"
     },
     {
         "title": "What is NOT Random?",
