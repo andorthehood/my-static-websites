@@ -1,5 +1,15 @@
 [
     {
+        "url": "https://github.com/kreativekorp/bitsnpicas",
+        "title": "Bits'N'Picas",
+        "description": "Bits'N'Picas is a set of tools for creating and converting bitmap and emoji fonts."
+    },
+    {
+        "url": "https://www.musicdsp.org/en/latest/Synthesis/211-matlab-octave-code-for-minblep-table-generation.html",
+        "title": "Matlab/octave code for minblep table generation",
+        "description": "Octave/Matlab code to generate a minblep table for bandlimited synthesis."
+    },
+    {
         "url": "https://tkdodo.eu/blog/the-vertical-codebase",
         "title": "The Vertical Codebase",
         "description": "Let's take a look at why the common, horizontal code structure is not ideal, where it breaks down, and what we can do about it."  
@@ -319,6 +329,11 @@
         "favicon": "departuremono.com.ico",
         "title": "Departure Mono",
         "description": "Departure Mono is a monospaced pixel font by Helena Zhang, licensed under the SIL OFL."
+    },
+    {
+        "url": "https://www.ioanavrememoser.com/",
+        "title": "Compendium | Ioana Vreme Moser | Berlin",
+        "description": "Ioana Vreme Moser is a transmedia narrator and a sound artist engaged with hardware electronics, and DIY experimentation."
     },
     {
         "url": "https://www.bernadinism.com/",
