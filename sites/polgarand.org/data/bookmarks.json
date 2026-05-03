@@ -1,21 +1,31 @@
 [
     {
+        "url": "https://github.com/openai/codex/pull/19323/changes#diff-537a79bc56f24a25ec0326f0b2edd3b4c5ac4080a4476d22bad292cda43988b8R55",
+        "favicon": "github.com.ico",
+        "title": "Update models.json and related fixtures #19323",
+        "description": "Never talk about goblins, gremlins, raccoons, trolls, ogres, pigeons, or other animals or creatures unless it is absolutely and unambiguously relevant to the user's query."
+    },
+    {
         "url": "https://github.com/kreativekorp/bitsnpicas",
+        "favicon": "github.com.png",
         "title": "Bits'N'Picas",
         "description": "Bits'N'Picas is a set of tools for creating and converting bitmap and emoji fonts."
     },
     {
         "url": "https://www.musicdsp.org/en/latest/Synthesis/211-matlab-octave-code-for-minblep-table-generation.html",
+        "favicon": "www.musicdsp.org.ico",
         "title": "Matlab/octave code for minblep table generation",
         "description": "Octave/Matlab code to generate a minblep table for bandlimited synthesis."
     },
     {
         "url": "https://tkdodo.eu/blog/the-vertical-codebase",
+        "favicon": "tkdodo.eu.png",
         "title": "The Vertical Codebase",
-        "description": "Let's take a look at why the common, horizontal code structure is not ideal, where it breaks down, and what we can do about it."  
+        "description": "Let's take a look at why the common, horizontal code structure is not ideal, where it breaks down, and what we can do about it."
     },
     {
         "url": "https://bryankeller.github.io/2026/04/08/porting-mac-os-x-nintendo-wii.htm",
+        "favicon": "bryankeller.github.io.png",
         "title": "Porting Mac OS X to the Nintendo Wii",
         "description": "Mac OS X 10.0 (Cheetah) running natively on the Nintendo Wii"
     },
@@ -44,7 +54,7 @@
     },
     {
         "url": "https://soundcloud.com/user-202286394-991268468/mihaly-vig-060326",
-        "favicon": "soundcloud.com.ico",
+        "favicon": "soundcloud.com.png",
         "title": "Mihály Víg 060326 | NTS Radio",
         "description": "The Hungarian musician, soundtrack composer and actor Mihály Vig, most famous for his film scores for Béla Tarr, and member of the bands Balaton and Trabant, stops by the NTS studio to play some favourites."
     },
@@ -254,6 +264,11 @@
         "description": "You made him lower than the angels for a short time..."
     },
     {
+        "url": "https://www.nerdfonts.com/",
+        "title": "Nerd Fonts - Iconic font aggregator, glyphs/icons collection, & fonts patcher",
+        "description": "Iconic font aggregator, collection, & patcher: 9,000+ glyph/icons, 60+ patched fonts: Hack, Source Code Pro, more. Popular glyph collections: Font Awesome, Octicons, Material Design Icons, and more"
+    },
+    {
         "url": "https://hackernoon.com/stop-failing-live-coding-interviews-lessons-from-100-real-sessions",
         "favicon": "hackernoon.com.png",
         "title": "Stop Failing Live Coding Interviews: Lessons from 100+ Real Sessions",
@@ -332,11 +347,13 @@
     },
     {
         "url": "https://www.ioanavrememoser.com/",
+        "favicon": "www.ioanavrememoser.com.ico",
         "title": "Compendium | Ioana Vreme Moser | Berlin",
         "description": "Ioana Vreme Moser is a transmedia narrator and a sound artist engaged with hardware electronics, and DIY experimentation."
     },
     {
         "url": "https://www.bernadinism.com/",
+        "favicon": "www.bernadinism.com.gif",
         "title": "Home – Bernadinism - Bernadinism",
         "description": "I AM A ONE MAN SUBCULTURE"
     },
@@ -345,6 +362,12 @@
         "favicon": "rotatingsandwiches.com.ico",
         "title": "Rotating Sandwiches - that's it",
         "description": "that's it"
+    },
+    {
+        "url": "https://photosounder.com/michel_rouzic/",
+        "favicon": "photosounder.com.ico",
+        "title": "Photosounder.com - Michel Rouzic",
+        "description": "I'm Michel Rouzic, the sole person behind Photosounder, SplineEQ and Spiral."
     },
     {
         "url": "https://911realtime.org/",
@@ -491,11 +514,13 @@
     },
     {
         "url": "https://int10h.org/blog/2021/01/simulating-crt-monitors-ffmpeg-pt-1-color/",
+        "favicon": "int10h.org.png",
         "title": "Simulating CRT Monitors with FFmpeg (Pt. 1: Color CRTs)",
         "description": "VileR's blog: old school PCs, games, graphics, programming, fonts, demos, and so on."
     },
     {
         "url": "https://int10h.org/blog/2021/03/simulating-non-crt-monitors-ffmpeg-flat-panels/",
+        "favicon": "int10h.org.png",
         "title": "Simulating NON-CRT Monitors with FFmpeg: Flat Panel Displays",
         "description": "VileR's blog: old school PCs, games, graphics, programming, fonts, demos, and so on."
     },
@@ -540,6 +565,7 @@
     },
     {
         "url": "https://int10h.org/blog/2015/04/cga-in-1024-colors-new-mode-illustrated/",
+        "favicon": "int10h.org.png",
         "title": "CGA in 1024 Colors - a New Mode: the Illustrated Guide",
         "description": "VileR's blog: old school PCs, games, graphics, programming, fonts, demos, and so on."
     },
@@ -556,7 +582,7 @@
     },
     {
         "url": "https://soundcloud.com/yonderboi/yonderboi-egyenes-labirintus",
-        "favicon": "soundcloud.com.ico",
+        "favicon": "soundcloud.com.png",
         "title": "Yonderboi: EGYENES LABIRINTUS (2013 remaster)",
         "description": "A Hungarian poetry mix that I made originally in 2003."
     },
@@ -703,6 +729,16 @@
         "description": "Technical notes on teletext transmission format, line structure, and packets."
     },
     {
+        "url": "http://www.bbsdocumentary.com/",
+        "title": "BBS: The Documentary",
+        "description": "Long before the Internet escaped from the lab, connected the planet and redefined what it meant to use a computer."
+    },
+    {
+        "url": "http://textfiles.com/",
+        "title": "T E X T F I L E S D O T C O M",
+        "description": "TEXTFILES.COM is a site dedicated to the Textfiles of the BBS World from the 1980's."
+    },
+    {
         "url": "https://www.bbcbasic.co.uk/tccgen/tccgen.html",
         "favicon": "www.bbcbasic.co.uk.ico",
         "title": "Programmable Colour Test Card Generator",
@@ -776,6 +812,12 @@
         "url": "https://xkcd.com/327/",
         "favicon": "xkcd.com.ico",
         "title": "xkcd: Exploits of a Mom",
+        "description": ""
+    },
+    {
+        "url": "https://xkcd.com/323/",
+        "favicon": "xkcd.com.ico",
+        "title": "xkcd: Ballmer Peak",
         "description": ""
     },
     {
