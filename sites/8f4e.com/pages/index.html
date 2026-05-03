@@ -3,7 +3,6 @@
     <div class="row">
         <div class="dots">
             <h1>8f4e</h1>
-
             <p>8f4e is a <a target="_blank"
                     href="https://en.wikipedia.org/wiki/Stack-oriented_programming">stack-oriented</a> programming
                 language designed for real-time audio synthesis, with a visual code editor
@@ -19,234 +18,27 @@
             <a href="https://editor.8f4e.com" target="_blank">Open Editor ↗</a>
         </div>
     </div>
-
-    <div class="title">
-        <h2>Stack-Oriented Execution Model</h2>
-    </div>
-
-    <div class="row row--reverse">
+    {% for fact in data.facts %}
+    {% assign row_mod = forloop.index0 | modulo: 2 %}
+    {% if fact.title %}<div class="title">
+        <h2>{{ fact.title }}</h2>
+    </div>{% endif %}
+    <div class="row {% if row_mod == 0 %}row--reverse{% endif %}">
         <div class="dots">
-            <p>
-                Stack-oriented programming means that instead of using registers, instructions take their operands from
-                a
-                stack
-                and push their results back onto the same stack for the next instruction to consume.
-
-            </p>
-
-            <p>I chose this programming paradigm because the WebAssembly virtual machine is
-                itself a stack machine.</p>
-
-            <p>Staying native to this execution model avoids costly abstractions and makes it possible to write faster
-                programs compared to typical WebAssembly-targeting languages.</p>
+            {% for line in fact.text %}
+            <p>{{ line }}</p>
+            {% endfor %}
         </div>
         <div class="code-block">
-            <pre aria-label="Code example: stack arithmetic">
+            <pre aria-label="Code example: {{ fact.title }}">
 <span class="comment">...</span>
-<span class="ln">067</span> <span class="instruction">push</span> <span class="number">2</span>
-<span class="ln">068</span> <span class="instruction">push</span> <span class="number">3</span>
-<span class="ln">069</span> <span class="comment">; Pushing values 2 and 3</span>
-<span class="ln">070</span> <span class="comment">; onto the stack.</span>
-<span class="ln">071</span> <span class="instruction">add</span>
-<span class="ln">072</span> <span class="comment">; After executing the</span>
-<span class="ln">073</span> <span class="comment">; add instruction,</span>
-<span class="ln">074</span> <span class="comment">; the stack will contain</span>
-<span class="ln">075</span> <span class="comment">; the value 5</span>
-<span class="ln">076</span> <span class="instruction">push</span> <span class="number">10</span>
-<span class="ln">077</span> <span class="instruction">mul</span>
-<span class="ln">078</span> <span class="comment">; Now the stack will</span>
-<span class="ln">079</span> <span class="comment">; contain the value 50</span>
-<span class="ln">080</span> <span class="instruction">push</span> <span class="number">10</span>
-<span class="ln">081</span> <span class="instruction">div</span>
-<span class="ln">082</span> <span class="comment">; Now 5 again</span>
-<span class="comment">...</span>
-</pre>
+{% for line in fact.code -%}
+<span class="ln">0{{ forloop.index | plus: 20 }}</span> {{ line }}
+{% endfor -%}
+<span class="comment">...</span></pre>
         </div>
     </div>
-
-    <div class="title">
-        <h2>Memory Access and Pointers</h2>
-    </div>
-
-    <div class="row">
-        <div class="dots">
-            <p>Unlike in most programming languages, memory addresses in 8f4e are determined by the compiler and inlined
-                at compile time.</p>
-            <p>This allows direct memory access with pointers, without requiring an additional indirection layer such as
-                a heap or garbage collector.</p>
-        </div>
-        <div class="code-block">
-            <pre aria-label="Code example: memory access with pointers">
-<span class="comment">...</span>
-<span class="ln">003</span> <span class="instruction">int</span> result
-<span class="comment">...</span>
-<span class="ln">069</span> <span class="instruction">push</span> &result
-<span class="ln">070</span> <span class="comment">; The variable name</span>
-<span class="ln">071</span> <span class="comment">; prefixed with &</span>
-<span class="ln">072</span> <span class="comment">; gives its memory address.</span>
-<span class="ln">073</span> <span class="instruction">push</span> <span class="number">42</span>
-<span class="ln">074</span> <span class="instruction">store</span>
-<span class="ln">075</span> <span class="comment">; The store instruction</span>
-<span class="ln">076</span> <span class="comment">; takes two values:</span>
-<span class="ln">077</span> <span class="comment">; a memory address</span>
-<span class="ln">078</span> <span class="comment">; and the value to store.</span>
-<span class="comment">...</span>
-</pre>
-        </div>
-    </div>
-
-    <div class="row row--reverse">
-        <div class="dots">
-            <p>All memory items are laid out sequentially in memory, so variables declared one after another
-                occupy
-                adjacent memory locations.</p>
-            <p>They are aligned on a 32-bit grid, which means every memory item starts at an address that is a multiple
-                of 4 bytes.</p>
-        </div>
-        <div class="code-block">
-            <pre aria-label="Code example: sequential memory layout">
-<span class="comment">...</span>
-<span class="ln">003</span> <span class="instruction">int</span>   a <span class="number">42</span>
-<span class="ln">004</span> 
-<span class="ln">005</span> <span class="instruction">float</span> b <span class="number">3.14</span>
-<span class="ln">006</span> <span class="comment">; Memory address of b</span>
-<span class="ln">007</span> <span class="comment">; is address of a + 4</span>
-<span class="ln">008</span>
-<span class="ln">009</span> <span class="instruction">int</span>   c <span class="number">-5</span>
-<span class="ln">010</span> <span class="comment">; Memory address of c</span>
-<span class="ln">011</span> <span class="comment">; is address of b + 4</span>
-<span class="comment">...</span>
-</pre>
-        </div>
-    </div>
-
-    <div class="row row--center">
-        <div class="dots">
-            <p>Dynamic memory allocation is not supported in 8f4e, but it has no place in the hot path of audio
-                processing anyway.</p>
-        </div>
-    </div>
-
-    <div class="title">
-        <h2>Live Variable Editing</h2>
-    </div>
-
-    <div class="row">
-        <div class="dots">
-            <p>8f4e supports real-time editing of variable values while a program is running, without recompilation.</p>
-
-            <p>This is made possible by the deterministic allocation strategy: because memory addresses are fixed at
-                compile
-                time,
-                the compiler can provide the exact address of every memory item, allowing the editor to locate and
-                update
-                any
-                variable directly.</p>
-
-        </div>
-        <div class="code-block">
-            <pre aria-label="Code example: live variable editing">
-<span class="comment">...</span>
-<span class="ln">003</span> <span class="instruction">int</span> foo <span class="number">10</span>
-<span class="ln">004</span> <span class="comment">; You can change these</span>
-<span class="ln">005</span> <span class="comment">; values in the editor</span>
-<span class="ln">006</span> <span class="comment">; while the program is running.</span>
-<span class="ln">007</span> <span class="instruction">float</span> bar <span class="number">3.14</span>
-<span class="ln">008</span> <span class="comment">; The editor will trace</span>
-<span class="ln">009</span> <span class="comment">; them back in the memory</span>
-<span class="ln">010</span> <span class="comment">; and update their values</span>
-<span class="ln">011</span> <span class="comment">; without restarting</span>
-<span class="ln">012</span> <span class="comment">; or recompiling the program.</span>
-<span class="comment">...</span>
-</pre>
-        </div>
-    </div>
-
-    <div class="title">
-        <h2>Endless Execution Loop</h2>
-    </div>
-
-    <div class="row row--center">
-        <div class="dots">
-            <p>Programs in 8f4e run in an endless loop. This reflects how real-time audio systems operate, where
-                processing consists of continuously reading from and writing to audio buffers.</p>
-            <p>8f4e removes this control flow boilerplate and allows programs to focus purely on signal generation and
-                transformation.</p>
-        </div>
-    </div>
-
-    <div class="title">
-        <h2>Modules and Execution Order</h2>
-    </div>
-
-    <div class="row row--reverse">
-        <div class="dots">
-            <p>The code is organized into modules, each containing variable declarations and a sequence of commands.</p>
-            <p>The execution order of the code modules is determined by their dependencies. If a module's output is
-                needed
-                as
-                input for others, it is executed first.</p>
-        </div>
-        <div class="code-block">
-            <pre aria-label="Code example: module definition">
-<span class="comment">...</span>
-<span class="ln">001</span> <span class="instruction">module</span> foo
-<span class="ln">002</span>
-<span class="ln">003</span> <span class="instruction">int</span>  a <span class="number">10</span>
-<span class="ln">004</span> <span class="instruction">int</span>  b <span class="number">20</span>
-<span class="ln">005</span> <span class="instruction">int</span>  result
-<span class="ln">006</span>
-<span class="ln">007</span> <span class="instruction">push</span> &result
-<span class="ln">008</span> <span class="instruction">push</span> a
-<span class="ln">009</span> <span class="instruction">push</span> b
-<span class="ln">010</span> <span class="instruction">add</span>
-<span class="ln">011</span> <span class="instruction">store</span>
-<span class="ln">012</span>
-<span class="ln">013</span> <span class="instruction">moduleEnd</span>
-<span class="comment">...</span>
-</pre>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="dots">
-            <p>All variables in 8f4e are inherently public, with no option to modify visibility.</p>
-
-            <p> 8f4e is not memory-safe,
-                pointers can point to anything within the memory space of the program, but the visual wires help
-                developers to
-                find
-                where
-                their pointers are pointing.</p>
-        </div>
-        <div class="code-block">
-            <pre aria-label="Code example: pointer iteration">
-<span class="comment">...</span>
-<span class="ln">003</span> <span class="instruction">int*</span> pointer
-<span class="ln">004</span>
-<span class="ln">005</span> <span class="instruction">push</span> &pointer
-<span class="ln">006</span> <span class="instruction">push</span> pointer
-<span class="ln">007</span> <span class="instruction">push</span> <span class="number">4</span>
-<span class="ln">008</span> <span class="instruction">push</span> add
-<span class="ln">009</span> <span class="instruction">store</span>
-<span class="ln">010</span> <span class="comment">; pointer will iterate through</span>
-<span class="ln">011</span> <span class="comment">; memory in 4-byte steps.</span>
-<span class="comment">...</span>
-</pre>
-        </div>
-    </div>
-
-    <div class="title">
-        <h2>What 8f4e is NOT</h2>
-    </div>
-
-    <div class="row row--center">
-        <div class="dots">
-            <p>8f4e is not a general-purpose programming language. It is not designed for building applications, services, or user interfaces.</p>
-            <p>It doesn't mean that it would be impossible to build such things, but it would be impractical and inefficient to do so.</p>
-            <p>Nevertheless, I would love to see someone build a web server or a game engine in 8f4e, just to push the limits of the language.</p>
-        </div>
-    </div>
+    {% endfor %}
 
 </div><!-- .introduction -->
 
@@ -256,24 +48,24 @@
         <h2>Example Gallery</h2>
     </div>
 
-    <a target="_blank" aria-label="Open digit classifier example in editor in new tab"
-        href="https://editor.8f4e.com/?projectUrl=https://static.llllllllllll.com/8f4e/example-projects/machine-learning/digitClassifier.8f4e">
-        <img src="https://static.llllllllllll.com/8f4e/screenshots/1.png" width="1800" height="1800"
-            alt="Screenshot of a digit classifier neural network in the 8f4e editor" />
-        <div class="description">A simple digit classifier neural network in inference mode ↗</div>
+    {% for example in data.examples %}
+    <a target="_blank" aria-label="{{ example.ariaLabel }}" href="{{ example.href }}">
+        <img src="{{ example.image }}" width="1800" height="1800" alt="{{ example.alt }}" />
+        <div class="description">{{ example.description }}</div>
     </a>
-    <a target="_blank" aria-label="Open FM synthesizer example in editor in new tab"
-        href="https://editor.8f4e.com/?projectUrl=https://static.llllllllllll.com/8f4e/example-projects/audio/keyboardController6OperatorFMSynth.8f4e">
-        <img src="https://static.llllllllllll.com/8f4e/screenshots/1.png" width="1800" height="1800"
-            alt="Screenshot of a six operator FM synthesizer in the 8f4e editor" />
-        <div class="description">Six operator FM synthesizer modelled from the Yamaha DX7
-            synthesizer's electric piano preset ↗</div>
+    {% endfor %}
+</div><!-- .examples -->
+
+<div class="videos grid-3">
+    <a name="videos"></a>
+    <div class="title span-3">
+        <h2>Videos</h2>
+    </div>
+
+    {% for video in data.videos %}
+    <a target="_blank" aria-label="{{ video.ariaLabel }}" href="{{ video.href }}">
+        <img src="{{ video.image }}" width="1800" height="1800" alt="{{ video.alt }}" />
+        <div class="title">{{ video.title }} ↗</div>
     </a>
-    <a target="_blank" aria-label="Open Risen melody example in editor in new tab"
-        href="http://editor.8f4e.com/?projectUrl=https://static.llllllllllll.com/8f4e/example-projects/audio/risen.8f4e">
-        <img src="https://static.llllllllllll.com/8f4e/screenshots/1.png" width="1800" height="1800"
-            alt="Screenshot of TempleOS's Risen melody replicated in the 8f4e editor" />
-        <div class="description">TempleOS's "Risen" melody replicated from the
-            original HolyC code ↗</div>
-    </a>
-</div>
+    {% endfor %}
+</div><!-- .videos -->
