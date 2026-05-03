@@ -1,8 +1,8 @@
 use crate::error::Result;
 use crate::template_processors::liquid::{
     process_liquid_assign_tags, process_liquid_conditional_tags, process_liquid_for_loops,
-    process_liquid_tags_with_assigns, process_liquid_unless_tags, remove_liquid_variables,
-    replace_template_variables,
+    process_liquid_tags_with_assigns, process_liquid_unless_tags, process_liquid_whitespace_trim,
+    remove_liquid_variables, replace_template_variables,
 };
 use crate::template_processors::markdown::markdown_to_html;
 use crate::types::{ContentItem, TemplateIncludes};
@@ -30,6 +30,8 @@ pub fn process_template_tags(
     includes: Option<&TemplateIncludes>,
     content_item: Option<&ContentItem>,
 ) -> Result<String> {
+    let input = process_liquid_whitespace_trim(input);
+
     // Create combined variables if content_item is provided
     let mut combined_variables = if let Some(item) = content_item {
         let mut combined = variables.clone();
@@ -44,10 +46,10 @@ pub fn process_template_tags(
     // Step 1: Process liquid tags (conditionals, assign tags, for loops, and renders if provided)
     let mut result = if let Some(includes) = includes {
         // Process all liquid tags including assigns
-        process_liquid_tags_with_assigns(input, &keys, includes, &mut combined_variables)?
+        process_liquid_tags_with_assigns(&input, &keys, includes, &mut combined_variables)?
     } else {
         // New order: assigns -> for loops -> unless -> if
-        let processed_assigns = process_liquid_assign_tags(input, &mut combined_variables)?;
+        let processed_assigns = process_liquid_assign_tags(&input, &mut combined_variables)?;
         let processed_for_loops =
             process_liquid_for_loops(&processed_assigns, &combined_variables)?;
         let processed_unless =
@@ -142,5 +144,31 @@ mod tests {
             .expect("Processing forloop plus filter failed");
 
         assert_eq!(result, "21 alpha\n22 beta\n");
+    }
+
+    #[test]
+    fn test_process_template_tags_trims_loop_opening_newline() {
+        let mut variables = HashMap::new();
+        variables.insert("lines.0".to_string(), "alpha".to_string());
+        variables.insert("lines.1".to_string(), "beta".to_string());
+
+        let input =
+            "{% for line in lines -%}\n{{ forloop.index | plus: 20 }} {{ line }}\n{% endfor %}";
+        let result = process_template_tags(input, &variables, None, None)
+            .expect("Processing trimmed loop failed");
+
+        assert_eq!(result, "21 alpha\n22 beta\n");
+    }
+
+    #[test]
+    fn test_process_template_tags_trims_variable_whitespace() {
+        let mut variables = HashMap::new();
+        variables.insert("name".to_string(), "World".to_string());
+
+        let input = "Hello {{- name -}}\n!";
+        let result = process_template_tags(input, &variables, None, None)
+            .expect("Processing trimmed variable failed");
+
+        assert_eq!(result, "HelloWorld!");
     }
 }

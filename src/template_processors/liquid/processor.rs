@@ -3,6 +3,7 @@ use super::assign::process_liquid_assign_tags;
 use super::for_loop::process_liquid_for_loops;
 use super::process_renders::process_liquid_renders;
 use super::unless::process_liquid_unless_tags;
+use super::whitespace::process_liquid_whitespace_trim;
 use crate::error::Result;
 use std::collections::HashMap;
 
@@ -25,8 +26,10 @@ pub fn process_liquid_tags_with_assigns(
     templates: &HashMap<String, String>,
     variables: &mut HashMap<String, String>,
 ) -> Result<String> {
+    let template = process_liquid_whitespace_trim(template);
+
     // Process assigns first so variables are available to subsequent steps
-    let processed_assigns = process_liquid_assign_tags(template, variables)?;
+    let processed_assigns = process_liquid_assign_tags(&template, variables)?;
 
     // Expand for loops next so that any item-scoped references are transformed
     let processed_for_loops = process_liquid_for_loops(&processed_assigns, variables)?;

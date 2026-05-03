@@ -14,6 +14,7 @@ mod replace_variables;
 mod unless;
 mod utils;
 mod validation;
+mod whitespace;
 
 pub use _if::process_liquid_conditional_tags;
 pub use assign::process_liquid_assign_tags;
@@ -22,3 +23,4 @@ pub use processor::process_liquid_tags_with_assigns;
 pub use remove::remove_liquid_variables;
 pub use replace_variables::replace_template_variables;
 pub use unless::process_liquid_unless_tags;
+pub use whitespace::process_liquid_whitespace_trim;

@@ -1,5 +1,6 @@
 use super::nested_access::resolve_nested_path;
 use super::validation::is_valid_variable_name;
+use super::whitespace::process_liquid_whitespace_trim;
 use crate::error::{Error, Result};
 use std::collections::HashMap;
 use std::fmt::Write;
@@ -17,6 +18,7 @@ pub fn replace_template_variables(
     template: &str,
     variables: &HashMap<String, String>,
 ) -> Result<String> {
+    let template = process_liquid_whitespace_trim(template);
     let mut result = String::with_capacity(template.len());
     let mut chars = template.chars().peekable();
 
