@@ -171,4 +171,21 @@ mod tests {
 
         assert_eq!(result, "HelloWorld!");
     }
+
+    #[test]
+    fn test_process_template_tags_assign_modulo_in_loop() {
+        let mut variables = HashMap::new();
+        variables.insert("items.0.name".to_string(), "A".to_string());
+        variables.insert("items.1.name".to_string(), "B".to_string());
+        variables.insert("items.2.name".to_string(), "C".to_string());
+
+        let input = "{% for item in items %}{% assign row_mod = forloop.index | modulo: 2 %}<div class=\"row {% if row_mod == 0 %}row--reverse{% endif %}\">{{ item.name }}</div>{% endfor %}";
+        let result = process_template_tags(input, &variables, None, None)
+            .expect("Processing assign modulo in loop failed");
+
+        assert_eq!(
+            result,
+            "<div class=\"row \">A</div><div class=\"row row--reverse\">B</div><div class=\"row \">C</div>"
+        );
+    }
 }

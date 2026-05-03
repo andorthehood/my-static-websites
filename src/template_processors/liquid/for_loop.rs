@@ -1,5 +1,6 @@
 use super::utils::{
-    find_collection_size, read_until_closing_tag, read_until_endunless, skip_to_endunless,
+    find_collection_size, parse_assignment, parse_filter_invocation, read_until_closing_tag,
+    read_until_endunless, resolve_variable_value, skip_to_endunless,
 };
 use crate::error::{Error, Result};
 use std::collections::HashMap;
@@ -147,6 +148,14 @@ fn expand_for_loop(
             i,     // 0-based index
             loop_len,
         );
+        expanded_body = replace_forloop_references_in_current_level_tags(
+            &expanded_body,
+            is_last,
+            is_first,
+            i + 1,
+            i,
+            loop_len,
+        );
 
         // Handle different spacing patterns for item variable references
         let patterns = super::utils::variable_placeholders(item_var);
@@ -174,7 +183,76 @@ fn expand_for_loop(
             &format!("{{% if {collection_var}.{i}."),
         );
 
+        expanded_body = inline_loop_assigns(&expanded_body, variables);
+
         result.push_str(&expanded_body);
+    }
+
+    result
+}
+
+fn replace_forloop_references_in_text(
+    template: &str,
+    is_last: bool,
+    is_first: bool,
+    index: usize,
+    index0: usize,
+    length: usize,
+) -> String {
+    template
+        .replace("forloop.index0", &index0.to_string())
+        .replace("forloop.index", &index.to_string())
+        .replace("forloop.length", &length.to_string())
+        .replace("forloop.last", if is_last { "true" } else { "false" })
+        .replace("forloop.first", if is_first { "true" } else { "false" })
+}
+
+fn replace_forloop_references_in_current_level_tags(
+    template: &str,
+    is_last: bool,
+    is_first: bool,
+    index: usize,
+    index0: usize,
+    length: usize,
+) -> String {
+    let mut result = String::new();
+    let mut chars = template.chars().peekable();
+    let mut nesting_level = 0;
+
+    while let Some(current) = chars.next() {
+        if current == '{' && chars.peek() == Some(&'%') {
+            chars.next();
+            let mut tag_content = String::new();
+
+            while let Some(c) = chars.next() {
+                if c == '%' && chars.peek() == Some(&'}') {
+                    chars.next();
+                    break;
+                }
+                tag_content.push(c);
+            }
+
+            let trimmed = tag_content.trim();
+            let rendered_tag = if nesting_level == 0 {
+                replace_forloop_references_in_text(
+                    trimmed, is_last, is_first, index, index0, length,
+                )
+            } else {
+                trimmed.to_string()
+            };
+
+            result.push_str("{% ");
+            result.push_str(&rendered_tag);
+            result.push_str(" %}");
+
+            if trimmed.starts_with("for ") {
+                nesting_level += 1;
+            } else if trimmed == "endfor" {
+                nesting_level -= 1;
+            }
+        } else {
+            result.push(current);
+        }
     }
 
     result
@@ -313,6 +391,145 @@ fn replace_forloop_expression(
     }
 
     None
+}
+
+fn inline_loop_assigns(template: &str, variables: &HashMap<String, String>) -> String {
+    let mut result = String::new();
+    let mut chars = template.chars().peekable();
+    let mut assigned_values = HashMap::new();
+
+    while let Some(current) = chars.next() {
+        if current == '{' && chars.peek() == Some(&'%') {
+            chars.next();
+            let Ok(tag_content) = read_until_closing_tag(&mut chars) else {
+                result.push_str("{%");
+                result.push_str(&chars.collect::<String>());
+                break;
+            };
+            let trimmed = tag_content.trim();
+
+            if let Some(assign_content) = super::utils::extract_tag_parameter(trimmed, "assign") {
+                if let Some((name, expression)) = parse_assignment(&assign_content) {
+                    if let Ok(value) =
+                        evaluate_loop_assign_expression(&expression, variables, &assigned_values)
+                    {
+                        assigned_values.insert(name, value);
+                    }
+                }
+            } else {
+                result.push_str("{% ");
+                result.push_str(&replace_local_assigns_in_tag(trimmed, &assigned_values));
+                result.push_str(" %}");
+            }
+        } else if current == '{' && chars.peek() == Some(&'{') {
+            chars.next();
+            let Ok(expression) = super::utils::read_liquid_variable_content(&mut chars) else {
+                result.push_str("{{");
+                result.push_str(&chars.collect::<String>());
+                break;
+            };
+            let trimmed = expression.trim();
+
+            if let Some(value) = assigned_values.get(trimmed) {
+                result.push_str(value);
+            } else {
+                result.push_str("{{ ");
+                result.push_str(trimmed);
+                result.push_str(" }}");
+            }
+        } else {
+            result.push(current);
+        }
+    }
+
+    result
+}
+
+fn replace_local_assigns_in_tag(tag: &str, assigned_values: &HashMap<String, String>) -> String {
+    tag.split_whitespace()
+        .map(|token| {
+            assigned_values
+                .get(token)
+                .map_or_else(|| token.to_string(), Clone::clone)
+        })
+        .collect::<Vec<_>>()
+        .join(" ")
+}
+
+fn evaluate_loop_assign_expression(
+    expression: &str,
+    variables: &HashMap<String, String>,
+    assigned_values: &HashMap<String, String>,
+) -> Result<String> {
+    let mut parts = expression.split('|');
+    let source = parts.next().unwrap_or("").trim();
+    let mut value = resolve_loop_assign_value(source, variables, assigned_values)?;
+
+    for filter in parts {
+        value = apply_loop_assign_filter(&value, filter.trim(), variables, assigned_values)?;
+    }
+
+    Ok(value)
+}
+
+fn resolve_loop_assign_value(
+    expression: &str,
+    variables: &HashMap<String, String>,
+    assigned_values: &HashMap<String, String>,
+) -> Result<String> {
+    let expression = expression.trim();
+
+    if let Some(value) = assigned_values.get(expression) {
+        return Ok(value.clone());
+    }
+
+    if let Some(value) = resolve_variable_value(expression, variables) {
+        return Ok(value);
+    }
+
+    if expression.parse::<i64>().is_ok() {
+        return Ok(expression.to_string());
+    }
+
+    Err(Error::Liquid(format!(
+        "Unable to resolve loop assign expression: {expression}"
+    )))
+}
+
+fn apply_loop_assign_filter(
+    value: &str,
+    filter_expression: &str,
+    variables: &HashMap<String, String>,
+    assigned_values: &HashMap<String, String>,
+) -> Result<String> {
+    let (filter_name, filter_args) = parse_filter_invocation(filter_expression)
+        .ok_or_else(|| Error::Liquid("Invalid filter syntax".to_string()))?;
+    let left = value
+        .trim()
+        .parse::<i64>()
+        .map_err(|_| Error::Liquid(format!("numeric filter requires a number, got: {value}")))?;
+    let right = resolve_loop_assign_value(&filter_args, variables, assigned_values)?
+        .trim()
+        .parse::<i64>()
+        .map_err(|_| {
+            Error::Liquid(format!(
+                "numeric filter requires a number, got: {}",
+                filter_args.trim()
+            ))
+        })?;
+
+    match filter_name.as_str() {
+        "plus" => Ok((left + right).to_string()),
+        "modulo" => {
+            if right == 0 {
+                return Err(Error::Liquid(
+                    "modulo filter argument cannot be zero".to_string(),
+                ));
+            }
+            Ok((left % right).to_string())
+        }
+        _ => Err(Error::Liquid(format!("Unknown filter: {filter_name}"))),
+    }
 }
 
 #[cfg(test)]
@@ -467,6 +684,20 @@ mod tests {
 
         let expected =
             "{{ 1 | plus: 20 }}: {{ items.0.name }}\n{{ 2 | plus: 20 }}: {{ items.1.name }}\n";
+        assert_eq!(result, expected);
+    }
+
+    #[test]
+    fn test_for_loop_inlines_assigns_using_forloop_index() {
+        let mut variables = HashMap::new();
+        variables.insert("items.0.name".to_string(), "A".to_string());
+        variables.insert("items.1.name".to_string(), "B".to_string());
+
+        let template = "{% for item in items %}{% assign row_mod = forloop.index | modulo: 2 %}{% if row_mod == 0 %}reverse{% endif %} {{ item.name }}\n{% endfor %}";
+        let result = process_liquid_for_loops(template, &variables).unwrap();
+
+        let expected =
+            "{% if 1 == 0 %}reverse{% endif %} {{ items.0.name }}\n{% if 0 == 0 %}reverse{% endif %} {{ items.1.name }}\n";
         assert_eq!(result, expected);
     }
 }
