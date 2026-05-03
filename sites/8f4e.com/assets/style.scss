@@ -4,7 +4,7 @@
 
 body,
 html {
-	font-family: "Departure Mono", "Adjusted Courier New Fallback", monospace;
+	font-family: "Web437 IBM VGA 9x16", "Adjusted Courier New Fallback", monospace;
 	margin: 0;
 	padding: 0;
 	background: var(--color-header-background);
@@ -22,7 +22,7 @@ body {
 }
 
 .container {
-	font-size: 16.5px;
+	font-size: calc(var(--unit) * 2);
 	line-height: calc(var(--unit) * 2);
 	padding: calc(var(--unit) * 4) 0;
 	position: relative;
@@ -96,7 +96,7 @@ body {
 }
 
 :root {
-	--unit: 11px;
+	--unit: 10px;
 	font-synthesis: none;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
@@ -110,7 +110,7 @@ p {
 h1 {
 	margin: 0;
 	padding: calc(var(--unit) * 2) 0 calc(var(--unit) * 4) 0;
-	font-size: 88px;
+	font-size: calc(var(--unit) * 8);
 	line-height: calc(var(--unit) * 8);
 	color: var(--color-h1);
 }
@@ -118,7 +118,7 @@ h1 {
 h2 {
 	margin: 0;
 	padding: 0;
-	font-size: 22px;
+	font-size: calc(var(--unit) * 2);
 	line-height: calc(var(--unit) * 3);
 	color: var(--color-h2);
 }
