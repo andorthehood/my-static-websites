@@ -258,16 +258,10 @@ fn replace_forloop_context_at_current_level(
 
             // Replace forloop variables only at current nesting level
             if nesting_level == 0 {
-                if expr == "{{ forloop.last }}" {
-                    result.push_str(if is_last { "true" } else { "false" });
-                } else if expr == "{{ forloop.first }}" {
-                    result.push_str(if is_first { "true" } else { "false" });
-                } else if expr == "{{ forloop.index }}" {
-                    result.push_str(&index.to_string());
-                } else if expr == "{{ forloop.index0 }}" {
-                    result.push_str(&index0.to_string());
-                } else if expr == "{{ forloop.length }}" {
-                    result.push_str(&length.to_string());
+                if let Some(replacement) =
+                    replace_forloop_expression(&expr, is_last, is_first, index, index0, length)
+                {
+                    result.push_str(&replacement);
                 } else {
                     result.push_str(&expr);
                 }
@@ -280,6 +274,45 @@ fn replace_forloop_context_at_current_level(
     }
 
     result
+}
+
+fn replace_forloop_expression(
+    expression: &str,
+    is_last: bool,
+    is_first: bool,
+    index: usize,
+    index0: usize,
+    length: usize,
+) -> Option<String> {
+    let inner = expression.strip_prefix("{{")?.strip_suffix("}}")?.trim();
+
+    let replacements = [
+        ("forloop.index0", index0.to_string()),
+        ("forloop.index", index.to_string()),
+        ("forloop.length", length.to_string()),
+        (
+            "forloop.last",
+            if is_last { "true" } else { "false" }.to_string(),
+        ),
+        (
+            "forloop.first",
+            if is_first { "true" } else { "false" }.to_string(),
+        ),
+    ];
+
+    for (name, value) in replacements {
+        if inner == name {
+            return Some(value);
+        }
+
+        if let Some(remainder) = inner.strip_prefix(name) {
+            if remainder.trim_start().starts_with('|') {
+                return Some(format!("{{{{ {value}{remainder} }}}}"));
+            }
+        }
+    }
+
+    None
 }
 
 #[cfg(test)]
@@ -419,6 +452,21 @@ mod tests {
 
         // The inner forloop.index should be replaced by the inner loop indices (1,2 for first outer; 1 for second)
         let expected = "(1)(2)(1)";
+        assert_eq!(result, expected);
+    }
+
+    #[test]
+    fn test_for_loop_preserves_filters_on_forloop_index() {
+        let mut variables = HashMap::new();
+        variables.insert("items.0.name".to_string(), "A".to_string());
+        variables.insert("items.1.name".to_string(), "B".to_string());
+
+        let template =
+            "{% for item in items %}{{ forloop.index | plus: 20 }}: {{ item.name }}\n{% endfor %}";
+        let result = process_liquid_for_loops(template, &variables).unwrap();
+
+        let expected =
+            "{{ 1 | plus: 20 }}: {{ items.0.name }}\n{{ 2 | plus: 20 }}: {{ items.1.name }}\n";
         assert_eq!(result, expected);
     }
 }

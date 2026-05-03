@@ -27,18 +27,13 @@ pub fn replace_template_variables(
 
             // Read entire variable content up to '}}'
             let content = super::utils::read_liquid_variable_content(&mut chars)?;
-            let var_name = content.trim().to_string();
+            let expression = content.trim().to_string();
 
-            if !is_valid_variable_name(&var_name) {
-                return Err(Error::Liquid(format!("Invalid variable name: {var_name}")));
-            }
-
-            // Try to resolve the variable using nested access
-            if let Some(value) = resolve_nested_path(&var_name, variables) {
+            if let Some(value) = evaluate_variable_expression(&expression, variables)? {
                 result.push_str(&value);
             } else {
                 // Variable not found, keep the original placeholder
-                write!(result, "{{{{ {var_name} }}}}").unwrap();
+                write!(result, "{{{{ {expression} }}}}").unwrap();
             }
         } else {
             result.push(current);
@@ -46,6 +41,68 @@ pub fn replace_template_variables(
     }
 
     Ok(result)
+}
+
+fn evaluate_variable_expression(
+    expression: &str,
+    variables: &HashMap<String, String>,
+) -> Result<Option<String>> {
+    let mut parts = expression.split('|');
+    let source = parts.next().unwrap_or("").trim();
+    let mut value = match resolve_expression_value(source, variables)? {
+        Some(value) => value,
+        None => return Ok(None),
+    };
+
+    for filter in parts {
+        value = apply_output_filter(&value, filter.trim())?;
+    }
+
+    Ok(Some(value))
+}
+
+fn resolve_expression_value(
+    expression: &str,
+    variables: &HashMap<String, String>,
+) -> Result<Option<String>> {
+    if expression.parse::<i64>().is_ok() {
+        return Ok(Some(expression.to_string()));
+    }
+
+    if !is_valid_variable_name(expression) {
+        return Err(Error::Liquid(format!(
+            "Invalid variable name: {expression}"
+        )));
+    }
+
+    Ok(resolve_nested_path(expression, variables))
+}
+
+fn apply_output_filter(value: &str, filter_expression: &str) -> Result<String> {
+    let (filter_name, filter_args) = super::utils::parse_filter_invocation(filter_expression)
+        .ok_or_else(|| Error::Liquid("Invalid filter syntax".to_string()))?;
+
+    match filter_name.as_str() {
+        "plus" => apply_plus_filter(value, &filter_args),
+        _ => Err(Error::Liquid(format!("Unknown filter: {filter_name}"))),
+    }
+}
+
+fn apply_plus_filter(value: &str, argument: &str) -> Result<String> {
+    let left = value.trim().parse::<i64>().map_err(|_| {
+        Error::Liquid(format!(
+            "plus filter requires a numeric value, got: {}",
+            value.trim()
+        ))
+    })?;
+    let right = argument.trim().parse::<i64>().map_err(|_| {
+        Error::Liquid(format!(
+            "plus filter requires a numeric argument, got: {}",
+            argument.trim()
+        ))
+    })?;
+
+    Ok((left + right).to_string())
 }
 
 #[cfg(test)]
@@ -147,5 +204,33 @@ mod tests {
         let template = "Hello {{invalid-name}}!";
         let result = replace_template_variables(template, &variables);
         assert!(result.is_err());
+    }
+
+    #[test]
+    fn test_replace_variables_plus_filter_with_variable() {
+        let mut variables = HashMap::new();
+        variables.insert("count".to_string(), "7".to_string());
+
+        let template = "Line {{ count | plus: 20 }}";
+        let result = replace_template_variables(template, &variables).unwrap();
+        assert_eq!(result, "Line 27");
+    }
+
+    #[test]
+    fn test_replace_variables_plus_filter_with_numeric_literal() {
+        let variables = HashMap::new();
+
+        let template = "Line {{ 1 | plus: 20 }}";
+        let result = replace_template_variables(template, &variables).unwrap();
+        assert_eq!(result, "Line 21");
+    }
+
+    #[test]
+    fn test_replace_variables_chained_plus_filters() {
+        let variables = HashMap::new();
+
+        let template = "Line {{ 1 | plus: 20 | plus: 3 }}";
+        let result = replace_template_variables(template, &variables).unwrap();
+        assert_eq!(result, "Line 24");
     }
 }

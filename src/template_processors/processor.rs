@@ -129,4 +129,18 @@ mod tests {
             .expect("Processing template tags failed");
         assert_eq!(result, "Hello World!");
     }
+
+    #[test]
+    fn test_process_template_tags_forloop_index_plus_filter() {
+        let mut variables = HashMap::new();
+        variables.insert("lines.0".to_string(), "alpha".to_string());
+        variables.insert("lines.1".to_string(), "beta".to_string());
+
+        let input =
+            "{% for line in lines %}{{ forloop.index | plus: 20 }} {{ line }}\n{% endfor %}";
+        let result = process_template_tags(input, &variables, None, None)
+            .expect("Processing forloop plus filter failed");
+
+        assert_eq!(result, "21 alpha\n22 beta\n");
+    }
 }
