@@ -169,10 +169,7 @@ pub fn process_liquid_conditional_tags(
     // Find and process all conditional tags with proper nesting
     while let Some(if_block) = find_nested_if_block(&result, current_pos)? {
         let condition = if_block.condition.trim();
-        let is_truthy = variables.get(condition).is_some_and(|v| {
-            let t = v.trim();
-            !t.is_empty() && t != "false"
-        });
+        let is_truthy = evaluate_condition(condition, variables);
         let (true_branch, false_branch) = split_if_branches(&if_block.inner_content)?;
 
         let selected_branch = if is_truthy {
@@ -196,6 +193,56 @@ pub fn process_liquid_conditional_tags(
     }
 
     Ok(result)
+}
+
+fn evaluate_condition(condition: &str, variables: &HashMap<String, String>) -> bool {
+    if let Some((left, right)) = split_condition_comparison(condition, "==") {
+        return resolve_condition_operand(left, variables)
+            == resolve_condition_operand(right, variables);
+    }
+
+    if let Some((left, right)) = split_condition_comparison(condition, "!=") {
+        return resolve_condition_operand(left, variables)
+            != resolve_condition_operand(right, variables);
+    }
+
+    match condition.trim() {
+        "true" => true,
+        "false" | "nil" | "" => false,
+        variable_name => variables
+            .get(variable_name)
+            .is_some_and(|value| is_truthy_value(value)),
+    }
+}
+
+fn split_condition_comparison<'a>(
+    condition: &'a str,
+    operator: &str,
+) -> Option<(&'a str, &'a str)> {
+    let index = condition.find(operator)?;
+    Some((
+        condition[..index].trim(),
+        condition[index + operator.len()..].trim(),
+    ))
+}
+
+fn resolve_condition_operand(operand: &str, variables: &HashMap<String, String>) -> String {
+    let trimmed = operand.trim();
+    if (trimmed.starts_with('"') && trimmed.ends_with('"'))
+        || (trimmed.starts_with('\'') && trimmed.ends_with('\''))
+    {
+        return trimmed[1..trimmed.len() - 1].to_string();
+    }
+
+    variables
+        .get(trimmed)
+        .cloned()
+        .unwrap_or_else(|| trimmed.to_string())
+}
+
+fn is_truthy_value(value: &str) -> bool {
+    let trimmed = value.trim();
+    !trimmed.is_empty() && trimmed != "false" && trimmed != "nil"
 }
 
 #[cfg(test)]
@@ -319,6 +366,29 @@ mod tests {
         let variables: HashMap<String, String> = HashMap::new();
         let output = process_liquid_conditional_tags(input, &variables).unwrap();
         assert_eq!(output, "C");
+    }
+
+    #[test]
+    fn test_if_equality_comparison() {
+        let input = "{% if row_mod == 0 %}reverse{% else %}normal{% endif %}";
+        let mut variables = HashMap::new();
+        variables.insert("row_mod".to_string(), "0".to_string());
+
+        let output = process_liquid_conditional_tags(input, &variables).unwrap();
+        assert_eq!(output, "reverse");
+
+        variables.insert("row_mod".to_string(), "1".to_string());
+        let output = process_liquid_conditional_tags(input, &variables).unwrap();
+        assert_eq!(output, "normal");
+    }
+
+    #[test]
+    fn test_if_literal_equality_comparison() {
+        let input = "{% if 1 == 0 %}reverse{% else %}normal{% endif %}";
+        let variables = HashMap::new();
+
+        let output = process_liquid_conditional_tags(input, &variables).unwrap();
+        assert_eq!(output, "normal");
     }
 
     #[test]

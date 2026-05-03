@@ -31,8 +31,12 @@ pub fn process_liquid_assign_tags(
 
             if let Some(assign_content) = extract_tag_parameter(trimmed_content, "assign") {
                 // Parse the assign statement
-                process_assign_statement(&assign_content, variables)?;
-                // Assign tags are removed from output (they don't render anything)
+                if !process_assign_statement(&assign_content, variables)? {
+                    result.push_str("{% ");
+                    result.push_str(trimmed_content);
+                    result.push_str(" %}");
+                }
+                // Processed assign tags are removed from output (they don't render anything)
             } else {
                 // Not an assign tag, keep the original tag
                 result.push_str("{% ");
@@ -50,10 +54,14 @@ pub fn process_liquid_assign_tags(
 fn process_assign_statement(
     statement: &str,
     variables: &mut HashMap<String, String>,
-) -> Result<()> {
+) -> Result<bool> {
     // Parse: variable_name = source | filter: args using utility function
     let (variable_name, expression) = parse_assignment(statement)
         .ok_or_else(|| Error::Liquid("Invalid assign syntax".to_string()))?;
+
+    if expression.contains("forloop.") {
+        return Ok(false);
+    }
 
     // Check if there's a filter
     if let Some(pipe_pos) = expression.find('|') {
@@ -61,16 +69,22 @@ fn process_assign_statement(
         let filter_part = expression[pipe_pos + 1..].trim();
 
         // Process the filter
-        let filtered_result = apply_filter(source, filter_part, variables)?;
+        match apply_filter(source, filter_part, variables)? {
+            FilterResult::Array(filtered_result) => {
+                // Clear any existing variables with the same prefix before storing new results
+                clear_variables_with_prefix(variables, &variable_name);
 
-        // Clear any existing variables with the same prefix before storing new results
-        clear_variables_with_prefix(variables, &variable_name);
-
-        // Store filtered results as indexed variables
-        for (index, item) in filtered_result.iter().enumerate() {
-            for (key, value) in item {
-                let full_key = format!("{variable_name}.{index}.{key}");
-                variables.insert(full_key, value.clone());
+                // Store filtered results as indexed variables
+                for (index, item) in filtered_result.iter().enumerate() {
+                    for (key, value) in item {
+                        let full_key = format!("{variable_name}.{index}.{key}");
+                        variables.insert(full_key, value.clone());
+                    }
+                }
+            }
+            FilterResult::Scalar(value) => {
+                clear_variables_with_prefix(variables, &variable_name);
+                variables.insert(variable_name.clone(), value);
             }
         }
     } else {
@@ -80,22 +94,65 @@ fn process_assign_statement(
         }
     }
 
-    Ok(())
+    Ok(true)
+}
+
+enum FilterResult {
+    Array(Vec<HashMap<String, String>>),
+    Scalar(String),
 }
 
 fn apply_filter(
     source: &str,
     filter_expression: &str,
     variables: &HashMap<String, String>,
-) -> Result<Vec<HashMap<String, String>>> {
+) -> Result<FilterResult> {
     // Parse filter: "name: args"
     let (filter_name, filter_args) = super::utils::parse_filter_invocation(filter_expression)
         .ok_or_else(|| Error::Liquid("Invalid filter syntax".to_string()))?;
 
     match filter_name.as_str() {
-        "where" => apply_where_filter(source, &filter_args, variables),
+        "where" => apply_where_filter(source, &filter_args, variables).map(FilterResult::Array),
+        "plus" => apply_numeric_filter(source, &filter_args, variables, true, |left, right| {
+            left + right
+        })
+        .map(FilterResult::Scalar),
+        "modulo" => apply_numeric_filter(source, &filter_args, variables, false, |left, right| {
+            left % right
+        })
+        .map(FilterResult::Scalar),
         _ => Err(Error::Liquid(format!("Unknown filter: {filter_name}"))),
     }
+}
+
+fn apply_numeric_filter(
+    source: &str,
+    argument: &str,
+    variables: &HashMap<String, String>,
+    allow_zero_argument: bool,
+    operation: impl FnOnce(i64, i64) -> i64,
+) -> Result<String> {
+    let source_value = resolve_numeric_value(source, variables)?;
+    let argument_value = resolve_numeric_value(argument, variables)?;
+
+    if !allow_zero_argument && argument_value == 0 {
+        return Err(Error::Liquid(
+            "numeric filter argument cannot be zero".to_string(),
+        ));
+    }
+
+    Ok(operation(source_value, argument_value).to_string())
+}
+
+fn resolve_numeric_value(expression: &str, variables: &HashMap<String, String>) -> Result<i64> {
+    let expression = expression.trim();
+    let value =
+        resolve_variable_value(expression, variables).unwrap_or_else(|| expression.to_string());
+
+    value
+        .trim()
+        .parse::<i64>()
+        .map_err(|_| Error::Liquid(format!("numeric filter requires a number, got: {value}")))
 }
 
 fn apply_where_filter(
@@ -442,6 +499,32 @@ mod tests {
         let result = process_liquid_assign_tags(template, &mut variables).unwrap();
         assert_eq!(result, "X");
         assert_eq!(variables.get("greeting"), Some(&"Hello".to_string()));
+    }
+
+    #[test]
+    fn test_assign_modulo_filter() {
+        let mut variables = HashMap::new();
+        variables.insert("count".to_string(), "5".to_string());
+
+        let template = "{% assign remainder = count | modulo: 2 %}{{ remainder }}";
+        let result = process_liquid_assign_tags(template, &mut variables).unwrap();
+
+        assert_eq!(result, "{{ remainder }}");
+        assert_eq!(variables.get("remainder"), Some(&"1".to_string()));
+    }
+
+    #[test]
+    fn test_assign_with_forloop_expression_is_preserved_for_loop_expansion() {
+        let mut variables = HashMap::new();
+
+        let template = "{% assign remainder = forloop.index | modulo: 2 %}{{ remainder }}";
+        let result = process_liquid_assign_tags(template, &mut variables).unwrap();
+
+        assert_eq!(
+            result,
+            "{% assign remainder = forloop.index | modulo: 2 %}{{ remainder }}"
+        );
+        assert_eq!(variables.get("remainder"), None);
     }
 
     #[test]
