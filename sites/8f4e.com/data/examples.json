@@ -1,0 +1,23 @@
+[
+    {
+        "href": "https://editor.8f4e.com/?projectUrl=https://static.llllllllllll.com/8f4e/example-projects/machine-learning/digitClassifier.8f4e",
+        "ariaLabel": "Open digit classifier example in editor in new tab",
+        "image": "https://static.llllllllllll.com/8f4e/screenshots/1.png",
+        "alt": "Screenshot of a digit classifier neural network in the 8f4e editor",
+        "description": "A simple digit classifier neural network in inference mode \u2197"
+    },
+    {
+        "href": "https://editor.8f4e.com/?projectUrl=https://static.llllllllllll.com/8f4e/example-projects/audio/keyboardController6OperatorFMSynth.8f4e",
+        "ariaLabel": "Open FM synthesizer example in editor in new tab",
+        "image": "https://static.llllllllllll.com/8f4e/screenshots/1.png",
+        "alt": "Screenshot of a six operator FM synthesizer in the 8f4e editor",
+        "description": "Six operator FM synthesizer modelled from the Yamaha DX7 synthesizer's electric piano preset \u2197"
+    },
+    {
+        "href": "http://editor.8f4e.com/?projectUrl=https://static.llllllllllll.com/8f4e/example-projects/audio/risen.8f4e",
+        "ariaLabel": "Open Risen melody example in editor in new tab",
+        "image": "https://static.llllllllllll.com/8f4e/screenshots/1.png",
+        "alt": "Screenshot of TempleOS's Risen melody replicated in the 8f4e editor",
+        "description": "TempleOS's \"Risen\" melody replicated from the original HolyC code \u2197"
+    }
+]

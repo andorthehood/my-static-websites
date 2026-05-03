@@ -41,7 +41,7 @@ body {
 		display: flex;
 		gap: calc(var(--unit) * 4);
 
-		> * {
+		>* {
 			flex: 1;
 		}
 
@@ -81,14 +81,16 @@ body {
 
 		div {
 			width: 70%;
-			flex: unset!important;
+			flex: unset !important;
 		}
 	}
 
 
 	@media (max-width: 700px) {
-		.row, .row--reverse {
-			flex-direction: column!important;
+
+		.row,
+		.row--reverse {
+			flex-direction: column !important;
 		}
 	}
 }
@@ -139,6 +141,27 @@ h2 {
 
 	.description {
 		padding: calc(var(--unit) * 2);
+	}
+}
+
+.videos {
+	padding-top: calc(var(--unit) * 8);
+
+	img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	a {
+		background: var(--color-example-link-background);
+		text-decoration: none;
+		color: var(--color-example-link-text);
+		box-shadow: var(--shadow);
+
+		.title {
+			padding: calc(var(--unit) * 2);
+		}
 	}
 }
 
