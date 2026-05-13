@@ -1,6 +1,6 @@
 .resize {
 	width: 80%;
-	max-width: 800px;
+	max-width: calc(var(--unit) * 100);
 	margin: 0 auto;
 }
 
