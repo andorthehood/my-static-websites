@@ -1,8 +1,9 @@
 #amiga-boing-ball {
     position: fixed;
     left: 0;
-    bottom: 0;
+    top: 0;
     width: 226px;
     height: 196px;
     image-rendering: pixelated;
+    will-change: transform;
 }
