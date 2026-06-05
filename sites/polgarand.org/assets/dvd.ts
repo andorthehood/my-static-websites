@@ -1,5 +1,7 @@
 (function () {
     const dvdLogo = document.getElementById('dvd-logo');
+    let logoWidth = dvdLogo.offsetWidth;
+    let logoHeight = dvdLogo.offsetHeight;
     let x = 50;
     let y = 50;
     let dx = 2;
@@ -8,9 +10,8 @@
     const TARGET_FRAMES = 3600 * 1.5; // 1.5 minutes at 60fps
 
     function traceBackFromBottomLeftCorner(targetFrames) {
-        const rect = dvdLogo.getBoundingClientRect();
-        const maxX = window.innerWidth - rect.width;
-        const maxY = window.innerHeight - rect.height;
+        const maxX = window.innerWidth - logoWidth;
+        const maxY = window.innerHeight - logoHeight;
 
         // Bottom-left corner coordinates
         const corner = { x: 0, y: maxY };
@@ -73,10 +74,13 @@
         return null;
     }
 
+    function updateLogoPosition() {
+        dvdLogo.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    }
+
     function animate() {
-        const rect = dvdLogo.getBoundingClientRect();
-        const maxX = window.innerWidth - rect.width;
-        const maxY = window.innerHeight - rect.height;
+        const maxX = window.innerWidth - logoWidth;
+        const maxY = window.innerHeight - logoHeight;
 
         x += dx;
         y += dy;
@@ -99,8 +103,7 @@
             y = Math.max(0, Math.min(y, maxY));
         }
 
-        dvdLogo.style.left = x + 'px';
-        dvdLogo.style.top = y + 'px';
+        updateLogoPosition();
 
         requestAnimationFrame(animate);
     }
@@ -115,18 +118,19 @@
         frameCount = 0; // Reset frame counter
 
         // Update logo position immediately
-        dvdLogo.style.left = x + 'px';
-        dvdLogo.style.top = y + 'px';
+        updateLogoPosition();
     }
 
 
     animate();
 
     window.addEventListener('resize', function () {
-        const rect = dvdLogo.getBoundingClientRect();
-        const maxX = window.innerWidth - rect.width;
-        const maxY = window.innerHeight - rect.height;
+        logoWidth = dvdLogo.offsetWidth;
+        logoHeight = dvdLogo.offsetHeight;
+        const maxX = window.innerWidth - logoWidth;
+        const maxY = window.innerHeight - logoHeight;
         x = Math.min(x, maxX);
         y = Math.min(y, maxY);
+        updateLogoPosition();
     });
 })();

@@ -9,11 +9,15 @@ let verticalVelocity = 0;
 const gravity = 0.1;
 const targetY = window.innerHeight - ballHeight;
 const maxFall = targetY - y;
+let viewportWidth = window.innerWidth;
+let viewportHeight = window.innerHeight;
+
+function updateBallPosition() {
+  ball.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+}
 
 function animate() {
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-  const floor = height - ballHeight;
+  const floor = viewportHeight - ballHeight;
 
   x += horizontalVelocity;
   verticalVelocity += gravity;
@@ -26,14 +30,21 @@ function animate() {
   }
 
   // left/right wall bounce
-  if (x <= 0 || x + ballWidth >= width) {
+  if (x <= 0 || x + ballWidth >= viewportWidth) {
     horizontalVelocity *= -1;
   }
 
-  ball.style.left = x + "px";
-  ball.style.top = y + "px";
+  updateBallPosition();
 
   requestAnimationFrame(animate);
 }
+
+window.addEventListener("resize", function () {
+  viewportWidth = window.innerWidth;
+  viewportHeight = window.innerHeight;
+  x = Math.min(x, viewportWidth - ballWidth);
+  y = Math.min(y, viewportHeight - ballHeight);
+  updateBallPosition();
+});
 
 animate();

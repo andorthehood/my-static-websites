@@ -1,5 +1,7 @@
 #dvd-logo {
 	position: fixed;
+	top: 0;
+	left: 0;
 	color: #9999cc;
 	font-weight: bold;
 	pointer-events: none;
@@ -9,6 +11,7 @@
 	display: block;
 	opacity: 0.25;
 	image-rendering: pixelated;
+	will-change: transform;
 }
 
 @media(max-width:700px) {
