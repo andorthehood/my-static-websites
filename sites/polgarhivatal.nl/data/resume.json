@@ -17,15 +17,14 @@
         "url": "https://github.com/andorthehood"
       }
     ],
-    "label": "Principal Software Engineer | AI Integration Specialist",
-    "summary": "I'm a Principal Software Engineer with 15+ years of experience in web development and AI integration. I've led architectural and transformation efforts across multiple teams and companies within a holding structure. I'm comfortable working in undefined problem spaces and delivering solutions that align with business goals. I've often been the person teams turn to when things are on fire. I bring a calm, solution-oriented mindset to complex technical and organizational problems, and I enjoy turning chaos into clarity, and to make sure that dumpsterfires are not just put out, but prevented from happening in the future."
+    "summary": "I'm a Software Engineer with 15+ years of experience in web development. I've led architectural and transformation efforts across multiple teams and companies within a holding structure. I'm comfortable working in undefined problem spaces. I've often been the person teams turn to when things are on fire. I bring a calm, solution-oriented mindset to complex technical and organizational problems, and I enjoy turning chaos into clarity."
   },
   "work": [
     {
       "company": "Byborg Enterprises",
-      "position": "Principal Software Engineer (AI Integration)",
-      "startDate": "Nov 2021",
-      "endDate": "Present",
+      "position": "Principal Software Engineer",
+      "startDate": "November 2021",
+      "endDate": "September 2025",
       "location": "Remote",
       "contract": "Freelance",
       "summary": "Byborg is the holding company behind adult industry brands such as Playboy, Sex.com, Kinkly, LiveJasmin, The Million Roses, Gamma Entertainment, Cuties.ai, and Kiroo (AI-powered sex toys), and hundreds of other brands.",
@@ -34,11 +33,12 @@
         "Created internal guidelines for designers and frontend developers on building fluid, responsive layouts - helping transition a company that historically developed separate UIs for mobile and desktop.",
         "Introduced visual regression testing, which enabled a team to replace their project's styling framework three times with full confidence and zero problems.",
         "Led AI integration initiatives across companies and teams within the holding, embedding LLMs and MCP servers into developer tooling.",
-        "Created internal evaluation frameworks for assessing and comparing AI tools.",
-        "Produced internal training materials, including documentation and video tutorials, to support AI adoption.",
+        "Created internal evaluation frameworks that helped teams assess and compare AI tools.",
+        "Produced internal training materials, including documentation and video tutorials, that supported AI adoption.",
         "Held workshops across companies within the holding to introduce and onboard teams to AI-enhanced development workflows.",
-        "Built a custom Lighthouse metrics collector to track performance changes on deployment, enabling early detection of regressions.",
-        "Developed a tool to monitor client bundle size growth, helping prevent dependency bloat.",
+        "Built a custom Lighthouse metrics collector with which teams were able to track performance changes on deployment, enabling them to detect regressions.",
+        "Developed a tool to monitor client bundle size growth, which helped prevent dependency bloat in a large microfrontend ecosystem.",
+        "Had meetings with sales engineers from AI and SaaS companies to provide feedback on their products and advocate for features.",
         "Interviewed staff and principal engineers, contributed to the hiring process.",
         "Pioneered letting candidates use AI tools during live interviews to solve complex problems."
       ]
@@ -46,7 +46,7 @@
     {
       "company": "ikontent",
       "position": "Software Consultant",
-      "startDate": "Aug 2022",
+      "startDate": "August 2022",
       "endDate": "May 2023 · 10 mos",
       "location": "Remote",
       "contract": "Freelance",
@@ -61,7 +61,7 @@
       "company": "Byborg Enterprises",
       "position": "Staff Engineer",
       "startDate": "May 2018",
-      "endDate": "Nov 2021 · 3 yr 7 mos",
+      "endDate": "November 2021 · 3 yr 7 mos",
       "location": "Remote",
       "contract": "Full-time",
       "summary": "After Docler's Amsterdam office was shut down, I was offered a remote position to help establish a new mobile-first frontend team in the group's Budapest office. The company was later renamed to Byborg Enterprises.",
@@ -162,8 +162,8 @@
       "summary": "Built custom Drupal and WordPress websites for clients referred by major Hungarian software consultancies, who frequently outsourced projects that were too small for their scale.",
       "highlights": [
         "Provided clients with hosting and domain management through my own cPanel-based setup, handling deployments, domain configuration, and MySQL database management on shared hosting platforms.",
-        "Turned vague client inputs (sometimes just PowerPoint mockups) into working websites by staying closely aligned with clients and clarifying requirements throughout the process.",
-        "Proposed and built a Chrome extension that enabled Facebook page owners to schedule posts automatically. Since posts published through the official API had lower visibility compared to those created manually, the extension interacted directly with the Facebook web interface to mimic human behavior. I built this well before tools like Puppeteer, when browser automation was still largely unheard of.",
+        "Turned vague client inputs into working websites by staying closely aligned with clients and clarifying requirements throughout the process.",
+        "Proposed and built an automation tool that enabled Facebook page owners to schedule posts automatically by mimicing a human interacting with the platform. Posts published through the official API had lower visibility compared to those created manually. I built this well before tools like Puppeteer, when browser automation was unheard of.",
         "Built a 3D perspective projection engine using the 2D HTML5 Canvas, before WebGL was invented.",
         "Developed a real-time parser for Hungarian election data to power live visualizations on a news site. Parsed schemaless and inconsistently formed XML feeds from the Hungarian National Election Office, and continuously adapted the parser during the live vote count to ensure uninterrupted data delivery."
       ]
