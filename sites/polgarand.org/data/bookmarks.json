@@ -1,5 +1,53 @@
 [
     {
+        "url": "https://www.liquidglassresources.com/",
+        "favicon": "www.liquidglassresources.com.png",
+        "title": "Liquid Glass Resources",
+        "description": "A curated directory of frameworks, code samples, and design assets for implementing Liquid Glass effects across platforms beyond iOS and macOS."
+    },
+    {
+        "url": "https://underreacted.leaflet.pub/3mncmabgnmc2x",
+        "favicon": "underreacted.leaflet.pub.png",
+        "title": "physics as a game loop. part 1: objects and waves",
+        "description": "suppose you're developing a theory of how the world works. if you're a software developer, you might be familiar with a concept of a game loop."
+    },
+    {
+        "url": "https://www.jwz.org/",
+        "favicon": "www.jwz.org.ico",
+        "title": "jwz.org",
+        "description": "Jamie Zawinski was one of the founders of Netscape and Mozilla.org, was the primary developer of Lucid Emacs, and wrote most of your screen savers."
+    },
+    {
+        "url": "https://pdp1.music/",
+        "favicon": "pdp1.music.png",
+        "title": "PDP-1.music",
+        "description": "Boards of Canada Olson on a 1959 PDP-1 Computer"
+    },
+    {
+        "url": "https://www.dreamsongs.com/RiseOfWorseIsBetter.html",
+        "favicon": "www.dreamsongs.com.ico",
+        "title": "The Rise of Worse is Better",
+        "description": "an excerpt from \"Lisp: Good News, Bad News, How to Win Big.\" by Richard P. Gabriel"
+    },
+    {
+        "url": "https://ccrma.stanford.edu/~dattorro/EffectDesignPart1.pdf",
+        "favicon": "ccrma.stanford.edu.png",
+        "title": "Effect Design* Part 1: Reverberator and Other Filters JON DATTORRO",
+        "description": "The paper is a tutorial intended to serve as a reference in the field of digital audio effects in the electronic music industry for those who are new to this specialization of digital signal processing."
+    },
+    {
+        "url": "https://socks-studio.com/2016/04/25/perspective-corrections-by-jan-dibbets-1967-1969/",
+        "favicon": "socks-studio.com.ico",
+        "title": "Perspective Corrections, by Jan Dibbets (1967-1969)",
+        "description": "Between 1967 and 1969, Dutch conceptual artist Jan Dibbets created a series of works, consisting of photographs of walls, floors and lawns, titled “Perspective Correction”."
+    },
+    {
+        "url": "https://www.stedelijk.nl/en/collection/6009-jan-dibbets-tv-as-a-fireplace",
+        "favicon": "www.stedelijk.nl.ico",
+        "title": "TV as a Fireplace - Jan Dibbets",
+        "description": "Jan Dibbets was commissioned to make ’TV as a Fireplace’ by Gerry Schum who founded the Television Gallery in Berlin."
+    },
+    {
         "url": "https://github.com/openai/codex/pull/19323/changes#diff-537a79bc56f24a25ec0326f0b2edd3b4c5ac4080a4476d22bad292cda43988b8R55",
         "favicon": "github.com.ico",
         "title": "Update models.json and related fixtures #19323",
@@ -48,7 +96,7 @@
     },
     {
         "url": "https://github.com/Banana71/DX7Sheet",
-        "favicon": "github.com.png",
+        "favicon": "github.com.ico",
         "title": "Banana71/DX7Sheet",
         "description": "Batch-converts Yamaha DX7 32-voice SysEx files (.syx) into readable parameter sheets."
     },
@@ -265,6 +313,7 @@
     },
     {
         "url": "https://www.nerdfonts.com/",
+        "favicon": "www.nerdfonts.com.ico",
         "title": "Nerd Fonts - Iconic font aggregator, glyphs/icons collection, & fonts patcher",
         "description": "Iconic font aggregator, collection, & patcher: 9,000+ glyph/icons, 60+ patched fonts: Hack, Source Code Pro, more. Popular glyph collections: Font Awesome, Octicons, Material Design Icons, and more"
     },
@@ -326,6 +375,30 @@
         "favicon": "screenspan.net.svg",
         "title": "ScreenSpan Fallback",
         "description": "ScreenSpan Fallback is a web-based screen recording tool that works in any modern browser, without requiring any plugins or extensions."
+    },
+    {
+        "url": "https://github.com/MaggieAppleton/digital-gardeners",
+        "favicon": "github.com.png",
+        "title": "MaggieAppleton/digital-gardeners: A directory of digital gardeners and their gardens",
+        "description": "This collection of apps, tools and articles is here to help you learn more about digital gardening. Ideally, it's here to help you start your own garden."
+    },
+    {
+        "url": "https://vscodium.com/",
+        "favicon": "vscodium.com.ico",
+        "title": "VSCodium",
+        "description": "VSCodium is a community-driven, freely-licensed binary distribution of Microsoft’s editor VS Code."
+    },
+    {
+        "url": "https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005",
+        "favicon": "github.com.png",
+        "title": "Menu license links to non Open Source license #60",
+        "description": "The repository is licensed under the MIT License, but the product is not. The product includes telemetry and other features that are not open source."
+    },
+    {
+        "url": "https://sive.rs/nowff",
+        "favicon": "sive.rs.svg",
+        "title": "The /now page movement",
+        "description": "People often ask me what I’m doing now. Each time I would type out a reply, describing where I’m at, what I’m focused on, and what I’m not."
     },
     {
         "url": "https://worrydream.com/",
@@ -730,11 +803,13 @@
     },
     {
         "url": "http://www.bbsdocumentary.com/",
+        "favicon": "www.bbsdocumentary.com.ico",
         "title": "BBS: The Documentary",
         "description": "Long before the Internet escaped from the lab, connected the planet and redefined what it meant to use a computer."
     },
     {
         "url": "http://textfiles.com/",
+        "favicon": "textfiles.com.ico",
         "title": "T E X T F I L E S D O T C O M",
         "description": "TEXTFILES.COM is a site dedicated to the Textfiles of the BBS World from the 1980's."
     },
@@ -755,6 +830,12 @@
         "favicon": "yamahablackboxes.com.png",
         "title": "Yamaha DX7 patches | Yamaha black boxes online archive",
         "description": "This page contains downloadable Yamaha DX7 voice data as .sysex files, including factory sound banks and VRC cartridges."
+    },
+    {
+        "url": "https://www.lesswrong.com/posts/5wMcKNAwB6X4mp9og/that-alien-message",
+        "favicon": "www.lesswrong.com.ico",
+        "title": "That Alien Message by Eliezer Yudkowsky",
+        "description": "Imagine a world much like this one, in which, thanks to gene-selection technologies, the average IQ is 140 (on our scale)."
     },
     {
         "url": "https://zxnet.co.uk/",
