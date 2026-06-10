@@ -30,6 +30,12 @@
         "date": "March 22, 2026"
     },
     {
+        "title": "I tried to buy a scientific paper",
+        "id": "SEwiOykoXXc",
+        "author": "Christophe",
+        "date": "March 18, 2026"
+    },
+    {
         "title": "Shipping a button in 2026…",
         "id": "xE9W9Ghe4Jk",
         "author": "Kai Lentit",
@@ -159,6 +165,12 @@
         "title": "Wolfram Was Right About Everything",
         "id": "A5_yh6Jnrbk",
         "author": "Curt Jaimungai",
+        "date": "October 5, 2025"
+    },
+    {
+        "title": "Boards of Canada \"Olson\" on a 1959 PDP-1 Computer",
+        "id": "wubkrBd3-gg",
+        "author": "Joe Lynch",
         "date": "October 5, 2025"
     },
     {
@@ -318,6 +330,12 @@
         "date": "November 23, 2025"
     },
     {
+        "title": "I made a horror game that's IMPOSSIBLE to SCREENSHOT!",
+        "id": "RNhiT-SmR1Q",
+        "author": "Branta Games",
+        "date": "December 8, 2024"
+    },
+    {
         "title": "A felnőtt Mézga Aladár felhívja MZ/X-et 2024-ből",
         "id": "LOEljKoyOY0",
         "author": "Különös történések a Szondi utcában",
@@ -328,12 +346,6 @@
         "id": "pQweWdXeqVM",
         "author": "Zenith Initiative",
         "date": "October 27, 2024"
-    },
-    {
-        "title": "Jreg: Post-Ironic Hyper-Political Extremism",
-        "id": "jhsUchBe3I0",
-        "author": "Joshua Citarella",
-        "date": "September 17, 2024"
     },
     {
         "title": "How 9/11 happened in Cars",
@@ -360,6 +372,12 @@
         "date": "July 1, 2024"
     },
     {
+        "title": "The Batsh*t Software Aphex Twin Used",
+        "id": "5wIOBBodoic",
+        "author": "Been Jordan",
+        "date": "May 26, 2024"
+    },
+    {
         "title": "3000 years in the future, The History Channel finds your room",
         "id": "7-KpbD_RnPs",
         "author": "Wizards with guns",
@@ -370,12 +388,6 @@
         "id": "rAbe9QJD7LA",
         "author": "Hoog",
         "date": "April 13, 2024"
-    },
-    {
-        "title": "be Lex Fridman",
-        "id": "FoWfTc7WRzM",
-        "author": "Wormwood",
-        "date": "December 12, 2023"
     },
     {
         "title": "How do cells come up with their programming language?",
@@ -546,6 +558,12 @@
         "date": "January 31, 2022"
     },
     {
+        "title": "ASMR Solving math exam questions with an overhead projector",
+        "id": "qgZAajQV3nM",
+        "author": "Tibees",
+        "date": "January 7, 2022"
+    },
+    {
         "title": "The Nut Room is Crazy",
         "id": "6OUDk4gMFLA",
         "author": "Don Stever",
@@ -594,6 +612,12 @@
         "date": "February 15, 2021"
     },
     {
+        "title": "Listening to Weather Satellites with Random Junk",
+        "id": "yzLUsi8MsRQ",
+        "author": "saveitforparts",
+        "date": "January 28, 2021"
+    },
+    {
         "title": "Let’s BUILD a COMPUTER in CONWAY's GAME of LIFE ⠠⠵",
         "id": "Kk2MH9O4pXY",
         "author": "Alan Zucconi",
@@ -610,6 +634,12 @@
         "id": "LtlyeDAJR7A",
         "author": "Linus Tech Tips",
         "date": "July 13, 2020"
+    },
+    {
+        "title": "Best fan placement to move air through the house",
+        "id": "1L2ef1CP-yw",
+        "author": "Matthias random stuff",
+        "date": "June 30, 2020"
     },
     {
         "title": "DIY VCO Part 1: The analog oscillator core anyone can build",
