@@ -1,5 +1,47 @@
 [
     {
+        "url": "https://www.guidogonzato.it/whistle/",
+        "favicon": "www.guidogonzato.it.jpg",
+        "title": "The \"Low-Tech\" Whistle: How to Make a PVC Whistle",
+        "description": "A simple whistle made from a piece of PVC pipe."
+    },
+    {
+        "url": "https://madronalabs.com/products/sumu",
+        "favicon": "madronalabs.com.ico",
+        "title": "Sumu - Madrona Labs",
+        "description": "Sumu breaks completely new ground in software synthesis, combining additive resynthesis with FM and vector field spatialization."
+    },
+    {
+        "url": "https://anukari.com/blog/devlog",
+        "favicon": "anukari.com.ico",
+        "title": "Devlog — Development Updates | Anukari",
+        "description": "Behind-the-scenes development updates, technical deep dives, and new feature previews from the creator of Anukari, the 3D physical modeling synthesizer and effects plugin."
+    },
+    {
+        "url": "https://www.bitemap.food/",
+        "favicon": "www.bitemap.food.ico",
+        "title": "Bitemap",
+        "description": "Tap where you'd bite this sandwich. See where everyone else bites too."
+    },
+    {
+        "url": "https://legowelt.org/samples/",
+        "favicon": "legowelt.org.png",
+        "title": "LEGOWELT SAMPLE KITS",
+        "description": "Here are some ZIP files with sample packs from Legowelts synthesizer collection."
+    },
+    {
+        "url": "https://publicdomainreview.org/",
+        "favicon": "publicdomainreview.org.png",
+        "title": "The Public Domain Review",
+        "description": "The Public Domain Review is dedicated to the exploration of curious and compelling works from the history of art, literature, and ideas – focusing on works now fallen into the public domain, the vast commons of out-of-copyright material that everyone is free to enjoy, share, and build upon without restrictions."
+    },
+    {
+        "url": "https://github.com/RsyncProject/rsync/issues/929",
+        "favicon": "github.com.png",
+        "title": "Please Do Not Vibe Fuck Up This Software #929",
+        "description": "rsync: rsync/rsync#929"
+    },
+    {
         "url": "https://www.liquidglassresources.com/",
         "favicon": "www.liquidglassresources.com.png",
         "title": "Liquid Glass Resources",
@@ -7,7 +49,7 @@
     },
     {
         "url": "https://underreacted.leaflet.pub/3mncmabgnmc2x",
-        "favicon": "underreacted.leaflet.pub.png",
+        "favicon": "underreacted.leaflet.pub.ico",
         "title": "physics as a game loop. part 1: objects and waves",
         "description": "suppose you're developing a theory of how the world works. if you're a software developer, you might be familiar with a concept of a game loop."
     },
@@ -167,6 +209,12 @@
         "description": "I am an artistic toolmaker. I am a toolmaking artist. Code and hardware are a source of inspiration and a necessity. I create music, audiovisual performances, installations, and computer graphics."
     },
     {
+        "url": "https://github.com/jbranchaud/til/",
+        "favicon": "github.com.ico",
+        "title": "jbranchaud/til: Today I Learned",
+        "description": "A collection of concise write-ups on small things I learn day to day across a variety of languages and technologies."
+    },
+    {
         "url": "https://musical.toys/",
         "favicon": "musical.toys.ico",
         "title": "Musical Toys",
@@ -318,6 +366,12 @@
         "description": "Iconic font aggregator, collection, & patcher: 9,000+ glyph/icons, 60+ patched fonts: Hack, Source Code Pro, more. Popular glyph collections: Font Awesome, Octicons, Material Design Icons, and more"
     },
     {
+        "url": "https://xkcd.com/927/",
+        "favicon": "xkcd.com.ico",
+        "title": "xkcd: Standards",
+        "description": "How standards proliferate"
+    },
+    {
         "url": "https://hackernoon.com/stop-failing-live-coding-interviews-lessons-from-100-real-sessions",
         "favicon": "hackernoon.com.png",
         "title": "Stop Failing Live Coding Interviews: Lessons from 100+ Real Sessions",
@@ -393,6 +447,12 @@
         "favicon": "github.com.png",
         "title": "Menu license links to non Open Source license #60",
         "description": "The repository is licensed under the MIT License, but the product is not. The product includes telemetry and other features that are not open source."
+    },
+    {
+        "url": "https://nownownow.com/",
+        "favicon": "nownownow.com.ico",
+        "title": "personal websites with a /now page",
+        "description": "nownownow.com: personal websites with a /now page"
     },
     {
         "url": "https://sive.rs/nowff",
@@ -509,6 +569,18 @@
         "description": "Crudlabs builds the Crudman cassette-walkman-based electronic instrument and shares specs, demos, and ordering info."
     },
     {
+        "url": "https://hugi.scene.org/online/hugi38/hugi%2038%20-%20demoscene%20reports%20approximate%20making%20of%20gaia%20machina.htm",
+        "favicon": "hugi.scene.org.ico",
+        "title": "Approximate: Making of Gaia Machina",
+        "description": "Written by cryptic & velo"
+    },
+    {
+        "url": "https://hugi.scene.org/",
+        "favicon": "hugi.scene.org.ico",
+        "title": "Hugi",
+        "description": "Hugi is an electronic magazine (diskmag) for Windows that mainly deals with the demoscene."
+    },
+    {
         "url": "https://web.badges.world/",
         "favicon": "web.badges.world.svg",
         "title": "Web Badges World",
@@ -525,6 +597,12 @@
         "favicon": "pointerpointer.com.jpg",
         "title": "Pointer Pointer",
         "description": "Please hold still while we locate your pointer..."
+    },
+    {
+        "url": "https://en.wikipedia.org/wiki/Tai%27s_model",
+        "favicon": "en.wikipedia.org.ico",
+        "title": "Tai's model - Wikipedia",
+        "description": "Tai proposes \"Tai's model\" as a method of estimating the area under a curve by dividing the area into simple polygons and summing their totals."
     },
     {
         "url": "https://gifcities.org/",
@@ -567,6 +645,18 @@
         "favicon": "github.com.png",
         "title": "Cozette",
         "description": "A bitmap programming font optimized for coziness 💜"
+    },
+    {
+        "url": "https://en.wikipedia.org/wiki/Reversible_computing",
+        "favicon": "en.wikipedia.org.ico",
+        "title": "Reversible computing - Wikipedia",
+        "description": "Reversible computing is a model of computing where the computational process, to some extent, is time-reversible. In a reversible computation, the output of the computation can be used to reconstruct the inputs."
+    },
+    {
+        "url": "https://en.wikipedia.org/wiki/Fredkin_gate",
+        "favicon": "en.wikipedia.org.ico",
+        "title": "Fredkin gate - Wikipedia",
+        "description": "The Fredkin gate is a universal reversible logic gate, named after Edward Fredkin. It is also known as a controlled swap gate, since it performs a swap of two bits depending on the value of a third bit, which serves as a control bit."
     },
     {
         "url": "https://int10h.org/oldschool-pc-fonts/",
