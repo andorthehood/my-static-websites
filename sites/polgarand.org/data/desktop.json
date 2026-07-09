@@ -55,11 +55,6 @@
 		"label": "Blog"
 	},
 	{
-		"href": "/poetry",
-		"icon": "📜",
-		"label": "Poetry"
-	},
-	{
 		"href": "https://polgarhivatal.nl/",
 		"icon": "💼",
 		"label": "Professional Website",
@@ -69,11 +64,6 @@
 		"href": "/tabs",
 		"icon": "🎸",
 		"label": "Tabs"
-	},
-	{
-		"href": "/category/shibari/page1",
-		"icon": "🪢",
-		"label": "Shibari"
 	},
 	{
 		"href": "/category/east-asia/page1",
