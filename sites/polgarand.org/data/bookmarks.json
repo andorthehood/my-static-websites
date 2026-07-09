@@ -1,5 +1,27 @@
 [
     {
+        "url": "https://loc.closertotruth.com/consciousness-theories",
+        "favicon": "loc.closertotruth.com.ico",
+        "title": "Landscape Grid: Consciousness Categories & Theories",
+        "description": "A global hub for theories of consciousness—authenticated by leading theorists, designed for professional consciousness communities, and open to all"
+    },
+    {
+        "url": "https://dmitry.gr/?r=05.Projects&proj=31.%20Memory%20Stick",
+        "title": "Sony Memory Stick - Dmitry.GR",
+        "description": "Dmitry.GR: The first complete documentation of Sony Memory Stick from HW to DATA"
+    },
+    {
+        "url": "https://dmitry.gr/",
+        "title": "Dmitry.GR: Projects",
+        "description": "Dmitry.GR: Dmitry.GR: Projects"
+    },
+    {
+        "url": "https://europe2031.ai/",
+        "favicon": "europe2031.ai.png",
+        "title": "Europe 2031",
+        "description": "A five-year scenario about AI and Europe's impending slide into irrelevance, with a 2034 epilogue that describes how the collapse of the European model could have been prevented."
+    },
+    {
         "url": "https://www.guidogonzato.it/whistle/",
         "favicon": "www.guidogonzato.it.jpg",
         "title": "The \"Low-Tech\" Whistle: How to Make a PVC Whistle",
@@ -227,6 +249,7 @@
     },
     {
         "url": "https://campedersen.com/singularity",
+        "favicon": "campedersen.com.svg",
         "title": "The Singularity will Occur on a Tuesday",
         "description": "I collected five real metrics of AI progress, fit a hyperbolic model to each one independently, and found the one with genuine curvature toward a pole."
     },
@@ -299,6 +322,12 @@
         "favicon": "huzat.eu.ico",
         "title": "huzat.eu | Rediscover the cultural heritage of Central Europe",
         "description": "huzat is a collection of different products of culture. The purpose of this project is to repaint and rediscover the once vividly sensible cultural unity of Eastern-central europe."
+    },
+    {
+        "url": "https://yhhydesign.com/",
+        "favicon": "yhhydesign.com.ico",
+        "title": "YHHY design",
+        "description": "Cargo"
     },
     {
         "url": "https://tailwindsql.xyz/",
@@ -537,6 +566,12 @@
         "favicon": "github.com.png",
         "title": "tholman/ascii-morph: Library to animate between two ascii images",
         "description": "Library to animate between two ascii images."
+    },
+    {
+        "url": "https://oscilloscopemusic.com/",
+        "favicon": "oscilloscopemusic.com.ico",
+        "title": "Oscilloscope Music",
+        "description": "Oscilloscope Music is music that creates it's own visuals. The same signal that goes to the speakers is also fed into an analog oscilloscope to draw green glowing lines."
     },
     {
         "url": "https://tholman.com/cursor-effects/",
