@@ -1,5 +1,33 @@
 [
     {
+        "url": "https://www.shadertoy.com/view/XcVyWD",
+        "title": "Cave Diving",
+        "description": "Build shaders, share them, and learn from the best community."
+    },
+    {
+        "url": "https://www.urban75.org/watchcam/index.html",
+        "favicon": "www.urban75.org.ico",
+        "title": "Casio Wrist Camera photos!",
+        "description": "These are the sneaky spy snaps taken with my new birthday-pressie - a snazzy Casio watch camera."
+    },
+    {
+        "url": "https://kenvexity.org/",
+        "title": "kenvexity.org - home",
+        "description": ""
+    },
+    {
+        "url": "https://onio.club/",
+        "favicon": "onio.club.ico",
+        "title": "onio.club ~ web chat",
+        "description": ""
+    },
+    {
+        "url": "https://temporal.io/blog/what-is-durable-execution",
+        "favicon": "temporal.io.ico",
+        "title": "The definitive guide to Durable Execution",
+        "description": "Learn what Durable Execution is and how it enables developers to quickly create reliable applications that can withstand crashes."
+    },
+    {
         "url": "https://loc.closertotruth.com/consciousness-theories",
         "favicon": "loc.closertotruth.com.ico",
         "title": "Landscape Grid: Consciousness Categories & Theories",
@@ -506,6 +534,12 @@
         "favicon": "departuremono.com.ico",
         "title": "Departure Mono",
         "description": "Departure Mono is a monospaced pixel font by Helena Zhang, licensed under the SIL OFL."
+    },
+    {
+        "url": "https://csswizardry.com/2022/09/critical-css-not-so-fast/",
+        "favicon": "csswizardry.com.png",
+        "title": "Critical CSS? Not So Fast!",
+        "description": "Critical CSS promises faster loading, but is it worth the complexity? Learn when Critical CSS actually boosts performance or when it might slow you down."
     },
     {
         "url": "https://www.ioanavrememoser.com/",
