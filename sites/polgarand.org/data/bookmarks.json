@@ -1,5 +1,77 @@
 [
     {
+        "url": "https://elpis.ws/",
+        "favicon": "elpis.ws.ico",
+        "title": ". . : : E L P i S : : . .",
+        "description": "This is a full-fledged monthly magazine about web 1.0, small web, and indie web"
+    },
+    {
+        "url": "https://marginalia-search.com/",
+        "favicon": "marginalia-search.com.ico",
+        "title": "Marginalia Search",
+        "description": "Marginalia Search is a small independent do-it-yourself search engine for surprising but content-rich websites that never ask you to accept cookies or subscribe to newsletters. The goal is to bring you the sort of grass fed, free range HTML your grandma used to write. "
+    },
+    {
+        "url": "https://www.floodgap.com/",
+        "favicon": "www.floodgap.com.ico",
+        "title": "Welcome to Floodgap Systems' WWW server",
+        "description": ""
+    },
+    {
+        "url": "https://tilde.club/",
+        "favicon": "tilde.club.png",
+        "title": "welcome to Tilde.club",
+        "description": "Tilde.club gives you access to a shared Unix computer where you can make web pages, learn, and share knowledge. It's a place where working together happens naturally, all within a friendly and supportive setting."
+    },
+    {
+        "url": "https://godbolt.org/",
+        "favicon": "godbolt.org.ico",
+        "title": "Compiler Explorer",
+        "description": "Compiler Explorer is an interactive online compiler which shows the assembly output of compiled C++, Rust, Go (and many more) code."
+    },
+    {
+        "url": "https://dogbolt.org/",
+        "favicon": "dogbolt.org.png",
+        "title": "Decompiler Explorer",
+        "description": "Decompiler Explorer is an interactive online decompiler which shows equivalent C-like output of decompiled programs from many popular decompilers."
+    },
+    {
+        "url": "https://explainshell.com/",
+        "favicon": "explainshell.com.ico",
+        "title": "explainshell.com ",
+        "description": "for user in $(cut -f1 -d: /etc/passwd); do crontab -u $user -l 2>/dev/null; done"
+    },
+    {
+        "url": "https://publicwww.com/",
+        "favicon": "publicwww.com.png",
+        "title": "Search Engine for Source Code - PublicWWW.com",
+        "description": "Search engine for source code - ultimate solution for digital marketing and affiliate marketing research."
+    },
+    {
+        "url": "https://www.shodan.io/",
+        "favicon": "www.shodan.io.png",
+        "title": "Shodan Search Engine",
+        "description": "Search Engine for the Internet of Things"
+    },
+    {
+        "url": "https://www.nerdydata.com/",
+        "favicon": "www.nerdydata.com.ico",
+        "title": "NerdyData.com - Search The Web's Source Code for Technologies",
+        "description": "Search Engine For Source Code. Find websites using technology, HTML, Javascript, CSS Tags."
+    },
+    {
+        "url": "https://urlscan.io/",
+        "favicon": "urlscan.io.png",
+        "title": "URL and website scanner - urlscan.io",
+        "description": "urlscan.io - Website scanner for suspicious and malicious URLs"
+    },
+    {
+        "url": "https://wigle.net/",
+        "favicon": "wigle.net.png",
+        "title": "WiGLE: Wireless Network Mapping",
+        "description": "Maps and database of 802.11 wireless networks, with statistics, submitted by wardrivers, netstumblers, and net huggers."
+    },
+    {
         "url": "https://www.shadertoy.com/view/XcVyWD",
         "title": "Cave Diving",
         "description": "Build shaders, share them, and learn from the best community."
