@@ -16,9 +16,19 @@ const ai = [
     const clippy = document.getElementById('clippy');
     const clippyGif = document.getElementById('clippy-gif');
 
-    setInterval(function () {
-        clippyGif.src = 'https://static.llllllllllll.com/andor/assets/clippy/swaying.gif?c=' + Date.now();
-    }, 8000);
+    fetch('https://static.llllllllllll.com/andor/assets/clippy/swaying.gif')
+        .then(function (response) {
+            return response.blob();
+        })
+        .then(function (blob) {
+            const swayingGifUrl = URL.createObjectURL(blob);
+
+            setInterval(function () {
+                clippyGif.removeAttribute('src');
+                void clippyGif.offsetWidth;
+                clippyGif.src = swayingGifUrl;
+            }, 8000);
+        });
 
     let i = 0;
     setInterval(function() {

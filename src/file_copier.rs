@@ -323,10 +323,9 @@ const b = (a as HTMLElement)!;
 
         let ts_content = r#"
 (function(){
-	setInterval(function(){
-		const el=document.getElementById('clippy-gif');
-		el.src='https://static.llllllllllll.com/andor/assets/clippy/swaying.gif?c=' + Date.now();
-	},8000);
+	fetch('https://static.llllllllllll.com/andor/assets/clippy/swaying.gif')
+		.then(function(response){ return response.blob(); })
+		.then(function(blob){ URL.createObjectURL(blob); });
 })();
 		"#;
         let source_file = source_dir.join("url.ts");
@@ -339,8 +338,6 @@ const b = (a as HTMLElement)!;
         assert!(new_filename.ends_with(".js"));
 
         let copied = fs::read_to_string(dest_dir.join(&new_filename)).unwrap();
-        assert!(
-            copied.contains("https://static.llllllllllll.com/andor/assets/clippy/swaying.gif?c=")
-        );
+        assert!(copied.contains("https://static.llllllllllll.com/andor/assets/clippy/swaying.gif"));
     }
 }
