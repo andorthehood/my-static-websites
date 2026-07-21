@@ -7,12 +7,13 @@ css: 'bookmarks.scss'
 ---
 <div class="bookmarks">
     <p>A list of websites I like, and want to remember. I update this list whenever I find something new and
-        interesting on the web. Last updated on March 3, 2026</p>
+        interesting on the web. Last updated on July 21, 2026</p>
     <ul>
         {% for bookmark in data.bookmarks %}
         <li>
             <span class="title">{% if bookmark.favicon %}<img
                     src="https://static.llllllllllll.com/andor/assets/favicons/{{bookmark.favicon}}" class="favicon"
+                    loading="lazy"
                     alt="{{bookmark.title}} favicon">{% else %}⭐{% endif %}
                 <a href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
             </span>
