@@ -1,5 +1,27 @@
 [
     {
+        "url": "https://hitmen.c02.at/",
+        "favicon": "hitmen.c02.at.ico",
+        "description": "Homepage of the Demo Scene Group Hitmen",
+        "title": "Home of the Hitmen"
+    },
+    {
+        "url": "https://c64graphicsexplorer.com/",
+        "favicon": "c64graphicsexplorer.com.png",
+        "title": "C64 Graphics Explorer — View C64 graphics the authentic way",
+        "description": "A macOS app for exploring Commodore 64 graphics with authentic CRT display simulation, intelligent color palette mapping, and pixel-level inspection tools."
+    },
+    {
+        "url": "https://studioaaa.com/product/scriptslayer/",
+        "title": "Script Slayer - Medieval ASCII Artwork Desktop App",
+        "description": "Script Slayer is a Medieval ASCII Software built into Dither Boy! Built to stand out from the 1000 boring ASCII art generators you've already seen, Script Slayer offers more than just the Medieval theme as a standout feature."
+    },
+    {
+        "url": "https://www.colodore.com/",
+        "title": "/// colodore",
+        "description": ""
+    },
+    {
         "url": "https://elpis.ws/",
         "favicon": "elpis.ws.ico",
         "title": ". . : : E L P i S : : . .",
@@ -572,6 +594,12 @@
         "description": "VSCodium is a community-driven, freely-licensed binary distribution of Microsoft’s editor VS Code."
     },
     {
+        "url": "https://www.patterns.dev/",
+        "favicon": "www.patterns.dev.ico",
+        "title": "Patterns.dev",
+        "description": "Learn JavaScript design and performance patterns for building more powerful web applications."
+    },
+    {
         "url": "https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005",
         "favicon": "github.com.png",
         "title": "Menu license links to non Open Source license #60",
@@ -734,6 +762,12 @@
         "description": "A collection of 4540 classic 88x31 buttons from the 1990s, 2000s, and today in GIF format."
     },
     {
+        "url": "https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing",
+        "favicon": "en.wikipedia.org.ico",
+        "title": "Fallacies of distributed computing",
+        "description": "The fallacies of distributed computing are a set of assertions made by L. Peter Deutsch and others at Sun Microsystems describing false assumptions that programmers new to distributed applications invariably make."
+    },
+    {
         "url": "https://pointerpointer.com/",
         "favicon": "pointerpointer.com.jpg",
         "title": "Pointer Pointer",
@@ -762,6 +796,23 @@
         "favicon": "ojack.xyz.png",
         "title": "olivia jack",
         "description": "artist &&& programmer"
+    },
+    {
+        "url": "https://v8.dev/blog/trash-talk",
+        "favicon": "v8.dev.png",
+        "title": "Trash talk: the Orinoco garbage collector",
+        "description": "Orinoco, V8’s garbage collector, evolved from a sequential stop-the-world implementation into a mostly parallel and concurrent collector with incremental fallback."
+    },
+    {
+        "url": "https://www.jsv9000.app/",
+        "favicon": "www.jsv9000.app.ico",
+        "title": "JS Visualizer 9000",
+        "description": ""
+    },
+    {
+        "url": "http://latentflip.com/loupe/",
+        "title": "latentflip.com/loupe",
+        "description": "Loupe is a little visualisation to help you understand how JavaScript's call stack/event loop/callback queue interact with each other."
     },
     {
         "url": "https://xkcd.com/505/",
