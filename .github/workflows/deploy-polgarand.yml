@@ -1,0 +1,51 @@
+name: Deploy polgarand.org
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/**"
+      - "sites/polgarand.org/**"
+      - "Cargo.toml"
+      - "Cargo.lock"
+      - ".github/workflows/deploy-polgarand.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-polgarand-production
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  deploy:
+    name: Build and deploy
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install Rust toolchain
+        run: rustup toolchain install 1.87.0 --profile minimal --no-self-update
+
+      - name: Generate polgarand.org
+        run: cargo +1.87.0 run --locked -- generate polgarand.org
+
+      - name: Verify generated site
+        run: test -f out/polgarand.org/index.html
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.114.0"
+          command: pages deploy out/polgarand.org --project-name=polgarand --branch=main
