@@ -323,7 +323,7 @@ const b = (a as HTMLElement)!;
 
         let ts_content = r#"
 (function(){
-	fetch('https://static.llllllllllll.com/andor/assets/clippy/swaying.gif')
+	fetch('https://cdn.polgarand.org/clippy/swaying.gif')
 		.then(function(response){ return response.blob(); })
 		.then(function(blob){ URL.createObjectURL(blob); });
 })();
@@ -338,6 +338,6 @@ const b = (a as HTMLElement)!;
         assert!(new_filename.ends_with(".js"));
 
         let copied = fs::read_to_string(dest_dir.join(&new_filename)).unwrap();
-        assert!(copied.contains("https://static.llllllllllll.com/andor/assets/clippy/swaying.gif"));
+        assert!(copied.contains("https://cdn.polgarand.org/clippy/swaying.gif"));
     }
 }

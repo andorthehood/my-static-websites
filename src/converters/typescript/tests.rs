@@ -71,13 +71,13 @@ fn preserves_non_ascii_emoji_in_template() {
 fn preserves_url_in_string_literal() {
     let ts = r#"
 (function(){
-	fetch('https://static.llllllllllll.com/andor/assets/clippy/swaying.gif')
+	fetch('https://cdn.polgarand.org/clippy/swaying.gif')
 		.then(function(response){ return response.blob(); })
 		.then(function(blob){ URL.createObjectURL(blob); });
 })();
 		"#;
     let js = strip_typescript_types(ts);
-    assert!(js.contains("https://static.llllllllllll.com/andor/assets/clippy/swaying.gif"));
+    assert!(js.contains("https://cdn.polgarand.org/clippy/swaying.gif"));
 }
 
 #[test]

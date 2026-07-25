@@ -12,7 +12,7 @@ const ai = [
     const clippy = document.getElementById('clippy');
     const clippyGif = document.getElementById('clippy-gif');
 
-    fetch('https://static.llllllllllll.com/andor/assets/clippy/swaying.gif')
+    fetch('https://cdn.polgarand.org/clippy/swaying.gif')
         .then(function (response) {
             return response.blob();
         })
