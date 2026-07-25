@@ -12,9 +12,9 @@
     <style>
         @font-face {
             font-family: "Departure Mono";
-            src: url('https://static.llllllllllll.com/andor/fonts/DepartureMono-Regular.woff2') format('woff2'),
-                url('https://static.llllllllllll.com/andor/fonts/DepartureMono-Regular.woff') format('woff'),
-                url('https://static.llllllllllll.com/andor/fonts/DepartureMono-Regular.otf') format('opentype');
+            src: url('https://cdn.polgarand.org/fonts/DepartureMono-Regular.woff2') format('woff2'),
+                url('https://cdn.polgarand.org/fonts/DepartureMono-Regular.woff') format('woff'),
+                url('https://cdn.polgarand.org/fonts/DepartureMono-Regular.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
             font-display: block;
@@ -29,8 +29,8 @@
 </head>
 
 <body>
-    <img src="https://static.llllllllllll.com/andor/assets/dvd_logo.gif" alt="DVD logo" id="dvd-logo" />
-    <img src="https://static.llllllllllll.com/andor/assets/amiga_boing_ball.gif" id="amiga-boing-ball" />
+    <img src="https://cdn.polgarand.org/dvd_logo.gif" alt="DVD logo" id="dvd-logo" />
+    <img src="https://cdn.polgarand.org/amiga_boing_ball.gif" id="amiga-boing-ball" />
     <nav class="desktop">
         {% for item in data.desktop %}
         <a href="{{item.href}}" class="icon" {% if item.target %}target="{{item.target}}" {% endif %}>
@@ -44,8 +44,8 @@
         {% render dialogheader.liquid title:"Clippy" %}
         <div class="hole content-hole">
             <img width="248" height="184" id="clippy-gif"
-                src="https://static.llllllllllll.com/andor/assets/clippy/startup.gif"
-                style="background-image: url('https://static.llllllllllll.com/andor/assets/clippy/clippy_bg.gif')"
+                src="https://cdn.polgarand.org/clippy/startup.gif"
+                style="background-image: url('https://cdn.polgarand.org/clippy/clippy_bg.gif')"
                 alt="Clippy" />
         </div>
     </div>
