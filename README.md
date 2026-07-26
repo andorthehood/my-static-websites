@@ -13,8 +13,8 @@ The zero-dependency constraint is also intentional. It prevents the project from
 
 It powers my real websites:
 - [polgarand.org](https://polgarand.org)
-- [polgarhivatal.nl](https://polgarhivatal.nl): [![Netlify Status](https://api.netlify.com/api/v1/badges/ea7ae987-302e-4cb0-816f-0aec9b7b5c18/deploy-status)](https://app.netlify.com/projects/polgarhivatal/deploys)
-- [8f4e.com](https://8f4e.com): [![Netlify Status](https://api.netlify.com/api/v1/badges/4b3f50f9-c0c8-4e57-bf82-12402ab117ca/deploy-status)](https://app.netlify.com/projects/8f4e-website/deploys)
+- [polgarhivatal.nl](https://polgarhivatal.nl)
+- [8f4e.com](https://8f4e.com)
 
 ## Features
 
