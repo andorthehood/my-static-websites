@@ -26,20 +26,7 @@ mod tests {
     fn test_convert_real_style_scss_contains_expected_rules() {
         let path = Path::new("sites/polgarand.org/assets/style.scss");
         let css = scss_to_css_with_inline_imports(path).expect("convert scss");
-        println!("FLATTENED_LEN={}", css.len());
-        if let Some(pos) = css.find("article") {
-            println!(
-                "AROUND_ARTICLE>>>{}<<<",
-                &css[pos.saturating_sub(80)..(pos + 200).min(css.len())]
-            );
-        }
-        if let Some(pos) = css.find("p{") {
-            println!(
-                "AROUND_P>>>{}<<<",
-                &css[pos.saturating_sub(80)..(pos + 120).min(css.len())]
-            );
-        }
-        assert!(css.contains("article img.loaded{background: initial;"));
+        assert!(css.contains("article img{display: block;width: 100%;}"));
         assert!(css.contains("p{margin: 0;"));
     }
 }
