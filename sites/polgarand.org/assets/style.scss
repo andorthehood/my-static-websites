@@ -37,9 +37,13 @@ strong {
 
 ul {
 	list-style-position: inside;
-	list-style-type: "- ";
+	list-style-type: none;
 	margin: 0;
 	padding: 0 0 20px 0;
+}
+
+li {
+	padding: 0 0 10px 0;
 }
 
 a:hover,
@@ -157,9 +161,10 @@ h2 {
 	bottom: 0;
 	display: flex;
 	flex-wrap: wrap;
-	gap: 11px;
+	gap: 22px;
 	flex-direction: row;
 	align-content: flex-start;
+	padding: 11px 0;
 }
 
 .desktop .icon {
@@ -183,8 +188,8 @@ h2 {
 	display: inline;
 }
 
-.desktop .icon .icon-picture {
-	font-size: 50px;
+.desktop .icon .icon-picture img {
+	image-rendering: pixelated;
 }
 
 .desktop .icon:nth-child(1) {
