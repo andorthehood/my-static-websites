@@ -1,109 +1,109 @@
 [
 	{
 		"href": "/aflordepiel",
-		"icon": "🌸",
+		"icon": "media_player.gif",
 		"label": "A Flor de Piel"
 	},
 	{
 		"href": "/",
-		"icon": "🌍",
+		"icon": "world.gif",
 		"label": "Andornet Explorer"
 	},
 	{
 		"href": "/posts/2024-10-20-berlin-video",
-		"icon": "📹",
+		"icon": "video_.gif",
 		"label": "Berlin 2024.mov"
 	},
 	{
 		"href": "/category/spain/page1",
-		"icon": "🥘",
+		"icon": "directory_closed.gif",
 		"label": "Spain"
 	},
 	{
 		"href": "/posts/2019-04-20-north-korea",
-		"icon": "🇰🇵",
+		"icon": "directory_closed.gif",
 		"label": "North Korea"
 	},
 	{
 		"href": "/links",
-		"icon": "🔗",
+		"icon": "channels.gif",
 		"label": "Links"
 	},
 	{
 		"href": "/postmortem",
-		"icon": "👻",
+		"icon": "ac_plug.gif",
 		"label": "Post-mortem"
 	},
 	{
 		"href": "/about",
-		"icon": "👨‍🔧",
+		"icon": "user_card.gif",
 		"label": "About Me"
 	},
 	{
 		"href": "/privacy-policy",
-		"icon": "🍪",
+		"icon": "certificate.gif",
 		"label": "Privacy Policy"
 	},
 	{
 		"href": "/bookshelf",
-		"icon": "📚",
+		"icon": "help_book_big.gif",
 		"label": "Bookshelf"
 	},
 	{
 		"href": "/page1",
-		"icon": "🅱️",
+		"icon": "write_wordpad.gif",
 		"label": "Blog"
 	},
 	{
 		"href": "https://polgarhivatal.nl/",
-		"icon": "💼",
+		"icon": "briefcase.gif",
 		"label": "Professional Website",
 		"target": "_blank"
 	},
 	{
 		"href": "/tabs",
-		"icon": "🎸",
+		"icon": "keyboard_musical_midi.gif",
 		"label": "Tabs"
 	},
 	{
 		"href": "/category/east-asia/page1",
-		"icon": "🏮",
+		"icon": "directory_closed.gif",
 		"label": "East Asia"
 	},
 	{
 		"href": "/category/eastern-bloc/page1",
-		"icon": "🌾",
+		"icon": "directory_closed.gif",
 		"label": "Eastern Bloc"
 	},
 	{
 		"href": "/category/usa/page1",
-		"icon": "🦅",
+		"icon": "directory_closed.gif",
 		"label": "USA"
 	},
 	{
 		"href": "/category/music/page1",
-		"icon": "🎹",
+		"icon": "cd_audio_cd_a.gif",
 		"label": "Music"
 	},
 	{
 		"href": "https://github.com/andorthehood/my-static-websites",
-		"icon": "🐙",
+		"icon": "script_file_yellow.gif",
 		"label": "GitHub",
 		"target": "_blank"
 	},
 	{
 		"href": "/youtube",
-		"icon": "📺",
+		"icon": "network_television.gif",
 		"label": "TV"
 	},
 	{
 		"href": "/bookmarks",
-		"icon": "⭐",
+		"icon": "directory_favorites.gif",
 		"label": "Bookmarks"
 	},
 	{
 		"href": "/wikipedia",
-		"icon": "📖",
+		"icon": "globe_map.gif",
 		"label": "Wikipedia"
 	}
 ]
