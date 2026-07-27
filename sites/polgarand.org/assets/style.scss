@@ -188,8 +188,17 @@ h2 {
 	display: inline;
 }
 
+.desktop .icon .icon-picture {
+	position: relative;
+}
+
 .desktop .icon .icon-picture img {
 	image-rendering: pixelated;
+}
+
+.desktop .icon .icon-picture .shortcut {
+	position: absolute;
+	left: 30%;
 }
 
 .desktop .icon:nth-child(1) {
