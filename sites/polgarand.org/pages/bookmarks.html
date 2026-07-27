@@ -11,10 +11,9 @@ css: 'bookmarks.scss'
     <ul>
         {% for bookmark in data.bookmarks %}
         <li>
-            <span class="title">{% if bookmark.favicon %}<img
-                    src="https://cdn.polgarand.org/favicons/{{bookmark.favicon}}" class="favicon"
-                    loading="lazy"
-                    alt="{{bookmark.title}} favicon">{% else %}⭐{% endif %}
+            <span class="title"><img
+                    src="{% if bookmark.favicon %}https://cdn.polgarand.org/favicons/{{bookmark.favicon}}{% else %}https://cdn.polgarand.org/windows/16x16/html.gif{% endif %}"
+                    class="favicon" loading="lazy" alt="{{bookmark.title}} favicon" />
                 <a href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
             </span>
             <span class="descrition">{{bookmark.description}}</span>
