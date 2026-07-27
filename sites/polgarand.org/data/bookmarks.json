@@ -1,7 +1,7 @@
 [
     {
         "url": "https://hitmen.c02.at/",
-        "favicon": "hitmen.c02.at.ico",
+        "favicon": "hitmen.c02.at.png",
         "description": "Homepage of the Demo Scene Group Hitmen",
         "title": "Home of the Hitmen"
     },
@@ -23,19 +23,19 @@
     },
     {
         "url": "https://elpis.ws/",
-        "favicon": "elpis.ws.ico",
+        "favicon": "elpis.ws.png",
         "title": ". . : : E L P i S : : . .",
         "description": "This is a full-fledged monthly magazine about web 1.0, small web, and indie web"
     },
     {
         "url": "https://marginalia-search.com/",
-        "favicon": "marginalia-search.com.ico",
+        "favicon": "marginalia-search.com.png",
         "title": "Marginalia Search",
         "description": "Marginalia Search is a small independent do-it-yourself search engine for surprising but content-rich websites that never ask you to accept cookies or subscribe to newsletters. The goal is to bring you the sort of grass fed, free range HTML your grandma used to write. "
     },
     {
         "url": "https://www.floodgap.com/",
-        "favicon": "www.floodgap.com.ico",
+        "favicon": "www.floodgap.com.png",
         "title": "Welcome to Floodgap Systems' WWW server",
         "description": ""
     },
@@ -47,7 +47,7 @@
     },
     {
         "url": "https://godbolt.org/",
-        "favicon": "godbolt.org.ico",
+        "favicon": "godbolt.org.png",
         "title": "Compiler Explorer",
         "description": "Compiler Explorer is an interactive online compiler which shows the assembly output of compiled C++, Rust, Go (and many more) code."
     },
@@ -59,7 +59,7 @@
     },
     {
         "url": "https://explainshell.com/",
-        "favicon": "explainshell.com.ico",
+        "favicon": "explainshell.com.png",
         "title": "explainshell.com ",
         "description": "for user in $(cut -f1 -d: /etc/passwd); do crontab -u $user -l 2>/dev/null; done"
     },
@@ -77,7 +77,7 @@
     },
     {
         "url": "https://www.nerdydata.com/",
-        "favicon": "www.nerdydata.com.ico",
+        "favicon": "www.nerdydata.com.png",
         "title": "NerdyData.com - Search The Web's Source Code for Technologies",
         "description": "Search Engine For Source Code. Find websites using technology, HTML, Javascript, CSS Tags."
     },
@@ -100,7 +100,7 @@
     },
     {
         "url": "https://www.urban75.org/watchcam/index.html",
-        "favicon": "www.urban75.org.ico",
+        "favicon": "www.urban75.org.png",
         "title": "Casio Wrist Camera photos!",
         "description": "These are the sneaky spy snaps taken with my new birthday-pressie - a snazzy Casio watch camera."
     },
@@ -111,19 +111,19 @@
     },
     {
         "url": "https://onio.club/",
-        "favicon": "onio.club.ico",
+        "favicon": "onio.club.png",
         "title": "onio.club ~ web chat",
         "description": ""
     },
     {
         "url": "https://temporal.io/blog/what-is-durable-execution",
-        "favicon": "temporal.io.ico",
+        "favicon": "temporal.io.png",
         "title": "The definitive guide to Durable Execution",
         "description": "Learn what Durable Execution is and how it enables developers to quickly create reliable applications that can withstand crashes."
     },
     {
         "url": "https://loc.closertotruth.com/consciousness-theories",
-        "favicon": "loc.closertotruth.com.ico",
+        "favicon": "loc.closertotruth.com.png",
         "title": "Landscape Grid: Consciousness Categories & Theories",
         "description": "A global hub for theories of consciousness—authenticated by leading theorists, designed for professional consciousness communities, and open to all"
     },
@@ -145,25 +145,25 @@
     },
     {
         "url": "https://www.guidogonzato.it/whistle/",
-        "favicon": "www.guidogonzato.it.jpg",
+        "favicon": "www.guidogonzato.it.png",
         "title": "The \"Low-Tech\" Whistle: How to Make a PVC Whistle",
         "description": "A simple whistle made from a piece of PVC pipe."
     },
     {
         "url": "https://madronalabs.com/products/sumu",
-        "favicon": "madronalabs.com.ico",
+        "favicon": "madronalabs.com.png",
         "title": "Sumu - Madrona Labs",
         "description": "Sumu breaks completely new ground in software synthesis, combining additive resynthesis with FM and vector field spatialization."
     },
     {
         "url": "https://anukari.com/blog/devlog",
-        "favicon": "anukari.com.ico",
+        "favicon": "anukari.com.png",
         "title": "Devlog — Development Updates | Anukari",
         "description": "Behind-the-scenes development updates, technical deep dives, and new feature previews from the creator of Anukari, the 3D physical modeling synthesizer and effects plugin."
     },
     {
         "url": "https://www.bitemap.food/",
-        "favicon": "www.bitemap.food.ico",
+        "favicon": "www.bitemap.food.png",
         "title": "Bitemap",
         "description": "Tap where you'd bite this sandwich. See where everyone else bites too."
     },
@@ -193,13 +193,13 @@
     },
     {
         "url": "https://underreacted.leaflet.pub/3mncmabgnmc2x",
-        "favicon": "underreacted.leaflet.pub.ico",
+        "favicon": "underreacted.leaflet.pub.png",
         "title": "physics as a game loop. part 1: objects and waves",
         "description": "suppose you're developing a theory of how the world works. if you're a software developer, you might be familiar with a concept of a game loop."
     },
     {
         "url": "https://www.jwz.org/",
-        "favicon": "www.jwz.org.ico",
+        "favicon": "www.jwz.org.png",
         "title": "jwz.org",
         "description": "Jamie Zawinski was one of the founders of Netscape and Mozilla.org, was the primary developer of Lucid Emacs, and wrote most of your screen savers."
     },
@@ -211,7 +211,7 @@
     },
     {
         "url": "https://www.dreamsongs.com/RiseOfWorseIsBetter.html",
-        "favicon": "www.dreamsongs.com.ico",
+        "favicon": "www.dreamsongs.com.png",
         "title": "The Rise of Worse is Better",
         "description": "an excerpt from \"Lisp: Good News, Bad News, How to Win Big.\" by Richard P. Gabriel"
     },
@@ -223,19 +223,19 @@
     },
     {
         "url": "https://socks-studio.com/2016/04/25/perspective-corrections-by-jan-dibbets-1967-1969/",
-        "favicon": "socks-studio.com.ico",
+        "favicon": "socks-studio.com.png",
         "title": "Perspective Corrections, by Jan Dibbets (1967-1969)",
         "description": "Between 1967 and 1969, Dutch conceptual artist Jan Dibbets created a series of works, consisting of photographs of walls, floors and lawns, titled “Perspective Correction”."
     },
     {
         "url": "https://www.stedelijk.nl/en/collection/6009-jan-dibbets-tv-as-a-fireplace",
-        "favicon": "www.stedelijk.nl.ico",
+        "favicon": "www.stedelijk.nl.png",
         "title": "TV as a Fireplace - Jan Dibbets",
         "description": "Jan Dibbets was commissioned to make ’TV as a Fireplace’ by Gerry Schum who founded the Television Gallery in Berlin."
     },
     {
         "url": "https://github.com/openai/codex/pull/19323/changes#diff-537a79bc56f24a25ec0326f0b2edd3b4c5ac4080a4476d22bad292cda43988b8R55",
-        "favicon": "github.com.ico",
+        "favicon": "github.com.png",
         "title": "Update models.json and related fixtures #19323",
         "description": "Never talk about goblins, gremlins, raccoons, trolls, ogres, pigeons, or other animals or creatures unless it is absolutely and unambiguously relevant to the user's query."
     },
@@ -247,7 +247,7 @@
     },
     {
         "url": "https://www.musicdsp.org/en/latest/Synthesis/211-matlab-octave-code-for-minblep-table-generation.html",
-        "favicon": "www.musicdsp.org.ico",
+        "favicon": "www.musicdsp.org.png",
         "title": "Matlab/octave code for minblep table generation",
         "description": "Octave/Matlab code to generate a minblep table for bandlimited synthesis."
     },
@@ -271,7 +271,7 @@
     },
     {
         "url": "https://mpe-project.info/the-mpe-project/",
-        "favicon": "mpe-project.info.jpg",
+        "favicon": "mpe-project.info.png",
         "title": "The Minimal Phenomenal Experience Project",
         "description": "The main goal of this research project is to develop a minimal-model explanation of consciousness, by focusing on the experience of awareness “as such”."
     },
@@ -282,7 +282,7 @@
     },
     {
         "url": "https://github.com/Banana71/DX7Sheet",
-        "favicon": "github.com.ico",
+        "favicon": "github.com.png",
         "title": "Banana71/DX7Sheet",
         "description": "Batch-converts Yamaha DX7 32-voice SysEx files (.syx) into readable parameter sheets."
     },
@@ -300,7 +300,7 @@
     },
     {
         "url": "https://lyra.horse/x86css/",
-        "favicon": "lyra.horse.ico",
+        "favicon": "lyra.horse.png",
         "title": "x86CSS",
         "description": "x86CSS is a working CSS-only x86 CPU/emulator/computer. No JavaScript required!"
     },
@@ -312,19 +312,19 @@
     },
     {
         "url": "https://www.a1k0n.net/2025/12/19/tiny-tapeout-demo.html",
-        "favicon": "www.a1k0n.net.ico",
+        "favicon": "www.a1k0n.net.png",
         "title": "Pure Silicon Demo Coding: No CPU, No Memory, Just 4k Gates",
         "description": ""
     },
     {
         "url": "https://myretrotvs.com/",
-        "favicon": "myretrotvs.com.ico",
+        "favicon": "myretrotvs.com.png",
         "title": "MyRetroTVs",
         "description": "Tune in to the lost decades with these nostalgic TV simulators."
     },
     {
         "url": "https://svgfm.chriskirknielsen.com/",
-        "favicon": "svgfm.chriskirknielsen.com.svg",
+        "favicon": "svgfm.chriskirknielsen.com.png",
         "title": "SVG Filter Maker",
         "description": "SVGFM, a node graph builder for SVG filters"
     },
@@ -336,13 +336,13 @@
     },
     {
         "url": "https://animationfactory.com/",
-        "favicon": "animationfactory.com.ico",
+        "favicon": "animationfactory.com.png",
         "title": "Animation Factory",
         "description": "Over 600,000 royalty-free animations, 3d clipart images, PowerPoint templates and fonts to explore. Creative inspiration for all your projects!"
     },
     {
         "url": "https://solar.lowtechmagazine.com/about/the-solar-website/",
-        "favicon": "solar.lowtechmagazine.com.svg",
+        "favicon": "solar.lowtechmagazine.com.png",
         "title": "About the Solar Powered Website",
         "description": "This website is solar-powered and self-hosted. It has been designed to radically reduce the energy use associated with accessing our content."
     },
@@ -354,13 +354,13 @@
     },
     {
         "url": "https://github.com/jbranchaud/til/",
-        "favicon": "github.com.ico",
+        "favicon": "github.com.png",
         "title": "jbranchaud/til: Today I Learned",
         "description": "A collection of concise write-ups on small things I learn day to day across a variety of languages and technologies."
     },
     {
         "url": "https://musical.toys/",
-        "favicon": "musical.toys.ico",
+        "favicon": "musical.toys.png",
         "title": "Musical Toys",
         "description": "A collection of interactive musical experiences"
     },
@@ -371,7 +371,7 @@
     },
     {
         "url": "https://campedersen.com/singularity",
-        "favicon": "campedersen.com.svg",
+        "favicon": "campedersen.com.png",
         "title": "The Singularity will Occur on a Tuesday",
         "description": "I collected five real metrics of AI progress, fit a hyperbolic model to each one independently, and found the one with genuine curvature toward a pole."
     },
@@ -394,7 +394,7 @@
     },
     {
         "url": "https://musical-artifacts.com/",
-        "favicon": "musical-artifacts.com.ico",
+        "favicon": "musical-artifacts.com.png",
         "title": "Musical Artifacts",
         "description": "Helping to catalogue, preserve and free the artifacts you need to produce music."
     },
@@ -435,31 +435,31 @@
     },
     {
         "url": "https://exe.dev/",
-        "favicon": "exe.dev.ico",
+        "favicon": "exe.dev.png",
         "title": "exe.dev - Persistent VMs via SSH",
         "description": "Start VMs with persistent disks in seconds. The disk persists. You have sudo."
     },
     {
         "url": "https://huzat.eu/",
-        "favicon": "huzat.eu.ico",
+        "favicon": "huzat.eu.png",
         "title": "huzat.eu | Rediscover the cultural heritage of Central Europe",
         "description": "huzat is a collection of different products of culture. The purpose of this project is to repaint and rediscover the once vividly sensible cultural unity of Eastern-central europe."
     },
     {
         "url": "https://yhhydesign.com/",
-        "favicon": "yhhydesign.com.ico",
+        "favicon": "yhhydesign.com.png",
         "title": "YHHY design",
         "description": "Cargo"
     },
     {
         "url": "https://tailwindsql.xyz/",
-        "favicon": "tailwindsql.xyz.svg",
+        "favicon": "tailwindsql.xyz.png",
         "title": "TailwindSQL",
         "description": "Like TailwindCSS, but for SQL. className your way to database queries!"
     },
     {
         "url": "https://optical.toys/",
-        "favicon": "optical.toys.ico",
+        "favicon": "optical.toys.png",
         "title": "Optical Toys | Optical Illusions and Toys",
         "description": "A collection of optical illusions and optical toys by Toms Toys"
     },
@@ -482,7 +482,7 @@
     },
     {
         "url": "https://www.jmail.world/",
-        "favicon": "www.jmail.world.ico",
+        "favicon": "www.jmail.world.png",
         "title": "Jmail, logged in as jeevacation@gmail.com",
         "description": "You are logged into jeevacation@gmail.com, Jeffrey Epstein's email. Sourced from the November 2025 House Oversight Committee data release."
     },
@@ -494,7 +494,7 @@
     },
     {
         "url": "https://luckycatlfo.com/",
-        "favicon": "luckycatlfo.com.ico",
+        "favicon": "luckycatlfo.com.png",
         "title": "Lucky Cat LFO",
         "description": "Never play music alone again with a Lucky Cat LFO"
     },
@@ -512,13 +512,13 @@
     },
     {
         "url": "https://www.nerdfonts.com/",
-        "favicon": "www.nerdfonts.com.ico",
+        "favicon": "www.nerdfonts.com.png",
         "title": "Nerd Fonts - Iconic font aggregator, glyphs/icons collection, & fonts patcher",
         "description": "Iconic font aggregator, collection, & patcher: 9,000+ glyph/icons, 60+ patched fonts: Hack, Source Code Pro, more. Popular glyph collections: Font Awesome, Octicons, Material Design Icons, and more"
     },
     {
         "url": "https://xkcd.com/927/",
-        "favicon": "xkcd.com.ico",
+        "favicon": "xkcd.com.png",
         "title": "xkcd: Standards",
         "description": "How standards proliferate"
     },
@@ -535,13 +535,13 @@
     },
     {
         "url": "https://wattenberger.com/",
-        "favicon": "wattenberger.com.svg",
+        "favicon": "wattenberger.com.png",
         "title": "Amelia Wattenberger",
         "description": "Personal site of Amelia Wattenberger, creating web-based data visualizations and novel interfaces."
     },
     {
         "url": "https://dynamicland.org/",
-        "favicon": "dynamicland.org.ico",
+        "favicon": "dynamicland.org.png",
         "title": "Dynamicland front shelf",
         "description": "Incubating a humane dynamic medium."
     },
@@ -559,7 +559,7 @@
     },
     {
         "url": "https://github.com/mozilla/bedrock/commit/d459addab846d8144b61939b7f4310eb80c5470e",
-        "favicon": "github.com.ico",
+        "favicon": "github.com.png",
         "title": "Tos copy updates (fix #16016) (#16018) · mozilla/bedrock@d459add",
         "description": "* ToS copy updates (fix #16016) * Apply suggestions from code review - copy change"
     },
@@ -577,7 +577,7 @@
     },
     {
         "url": "https://screenspan.net/fallback",
-        "favicon": "screenspan.net.svg",
+        "favicon": "screenspan.net.png",
         "title": "ScreenSpan Fallback",
         "description": "ScreenSpan Fallback is a web-based screen recording tool that works in any modern browser, without requiring any plugins or extensions."
     },
@@ -589,13 +589,13 @@
     },
     {
         "url": "https://vscodium.com/",
-        "favicon": "vscodium.com.ico",
+        "favicon": "vscodium.com.png",
         "title": "VSCodium",
         "description": "VSCodium is a community-driven, freely-licensed binary distribution of Microsoft’s editor VS Code."
     },
     {
         "url": "https://www.patterns.dev/",
-        "favicon": "www.patterns.dev.ico",
+        "favicon": "www.patterns.dev.png",
         "title": "Patterns.dev",
         "description": "Learn JavaScript design and performance patterns for building more powerful web applications."
     },
@@ -607,19 +607,19 @@
     },
     {
         "url": "https://nownownow.com/",
-        "favicon": "nownownow.com.ico",
+        "favicon": "nownownow.com.png",
         "title": "personal websites with a /now page",
         "description": "nownownow.com: personal websites with a /now page"
     },
     {
         "url": "https://sive.rs/nowff",
-        "favicon": "sive.rs.svg",
+        "favicon": "sive.rs.png",
         "title": "The /now page movement",
         "description": "People often ask me what I’m doing now. Each time I would type out a reply, describing where I’m at, what I’m focused on, and what I’m not."
     },
     {
         "url": "https://worrydream.com/",
-        "favicon": "worrydream.com.ico",
+        "favicon": "worrydream.com.png",
         "title": "Bret Victor, human being",
         "description": "An offshore drilling platform in the sea of knowledge."
     },
@@ -631,7 +631,7 @@
     },
     {
         "url": "https://departuremono.com/",
-        "favicon": "departuremono.com.ico",
+        "favicon": "departuremono.com.png",
         "title": "Departure Mono",
         "description": "Departure Mono is a monospaced pixel font by Helena Zhang, licensed under the SIL OFL."
     },
@@ -643,25 +643,25 @@
     },
     {
         "url": "https://www.ioanavrememoser.com/",
-        "favicon": "www.ioanavrememoser.com.ico",
+        "favicon": "www.ioanavrememoser.com.png",
         "title": "Compendium | Ioana Vreme Moser | Berlin",
         "description": "Ioana Vreme Moser is a transmedia narrator and a sound artist engaged with hardware electronics, and DIY experimentation."
     },
     {
         "url": "https://www.bernadinism.com/",
-        "favicon": "www.bernadinism.com.gif",
+        "favicon": "www.bernadinism.com.png",
         "title": "Home – Bernadinism - Bernadinism",
         "description": "I AM A ONE MAN SUBCULTURE"
     },
     {
         "url": "https://rotatingsandwiches.com/",
-        "favicon": "rotatingsandwiches.com.ico",
+        "favicon": "rotatingsandwiches.com.png",
         "title": "Rotating Sandwiches - that's it",
         "description": "that's it"
     },
     {
         "url": "https://photosounder.com/michel_rouzic/",
-        "favicon": "photosounder.com.ico",
+        "favicon": "photosounder.com.png",
         "title": "Photosounder.com - Michel Rouzic",
         "description": "I'm Michel Rouzic, the sole person behind Photosounder, SplineEQ and Spiral."
     },
@@ -673,7 +673,7 @@
     },
     {
         "url": "https://www.muzique.com/lab/pickups.htm",
-        "favicon": "www.muzique.com.ico",
+        "favicon": "www.muzique.com.png",
         "title": "Guitar Pickup Simulation",
         "description": "Schematics & circuits for guitar effects with vacuum tubes and solid state electronics. FREE downloads of schematics such as TS-9, Fuzz Face and other classic rock devices."
     },
@@ -685,13 +685,13 @@
     },
     {
         "url": "https://www.muzique.com/",
-        "favicon": "www.muzique.com.ico",
+        "favicon": "www.muzique.com.png",
         "title": "Speak, Memory",
         "description": "AMZ is a resource with information about diy guitar effects pedals, stompboxes, audio circuits and tips on how to build them."
     },
     {
         "url": "https://devdocs.io/",
-        "favicon": "devdocs.io.ico",
+        "favicon": "devdocs.io.png",
         "title": "DevDocs API Documentation",
         "description": "Fast, offline, and free documentation browser for developers. Search 100+ docs in one web app: HTML, CSS, JavaScript, PHP, Ruby, Python, Go, C, C++"
     },
@@ -703,25 +703,25 @@
     },
     {
         "url": "https://oscilloscopemusic.com/",
-        "favicon": "oscilloscopemusic.com.ico",
+        "favicon": "oscilloscopemusic.com.png",
         "title": "Oscilloscope Music",
         "description": "Oscilloscope Music is music that creates it's own visuals. The same signal that goes to the speakers is also fed into an analog oscilloscope to draw green glowing lines."
     },
     {
         "url": "https://tholman.com/cursor-effects/",
-        "favicon": "tholman.com.svg",
+        "favicon": "tholman.com.png",
         "title": "90's Cursor Effects",
         "description": "JavaScript mouse effects that follow your cursor or finger!"
     },
     {
         "url": "https://theuselessweb.com/",
-        "favicon": "theuselessweb.com.ico",
+        "favicon": "theuselessweb.com.png",
         "title": "The Useless Web",
         "description": "The Useless Web Button... take me somewhere... useless. The perfect button for the bored, or those looking to find random sites online!"
     },
     {
         "url": "https://crashlaker.github.io/",
-        "favicon": "crashlaker.github.io.ico",
+        "favicon": "crashlaker.github.io.png",
         "title": "Carlos Aguni",
         "description": "~~Tales of an eternal apprentice~~"
     },
@@ -733,7 +733,7 @@
     },
     {
         "url": "https://www.crudlabs.org/",
-        "favicon": "www.crudlabs.org.ico",
+        "favicon": "www.crudlabs.org.png",
         "title": "Crudlabs",
         "description": "Crudlabs builds the Crudman cassette-walkman-based electronic instrument and shares specs, demos, and ordering info."
     },
@@ -751,37 +751,37 @@
     },
     {
         "url": "https://web.badges.world/",
-        "favicon": "web.badges.world.svg",
+        "favicon": "web.badges.world.png",
         "title": "Web Badges World",
         "description": "The ultimate archive of 80x15 pixel button art"
     },
     {
         "url": "https://cyber.dabamos.de/88x31/",
-        "favicon": "cyber.dabamos.de.ico",
+        "favicon": "cyber.dabamos.de.png",
         "title": "The 88x31 GIF Collection",
         "description": "A collection of 4540 classic 88x31 buttons from the 1990s, 2000s, and today in GIF format."
     },
     {
         "url": "https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing",
-        "favicon": "en.wikipedia.org.ico",
+        "favicon": "en.wikipedia.org.png",
         "title": "Fallacies of distributed computing",
         "description": "The fallacies of distributed computing are a set of assertions made by L. Peter Deutsch and others at Sun Microsystems describing false assumptions that programmers new to distributed applications invariably make."
     },
     {
         "url": "https://pointerpointer.com/",
-        "favicon": "pointerpointer.com.jpg",
+        "favicon": "pointerpointer.com.png",
         "title": "Pointer Pointer",
         "description": "Please hold still while we locate your pointer..."
     },
     {
         "url": "https://en.wikipedia.org/wiki/Tai%27s_model",
-        "favicon": "en.wikipedia.org.ico",
+        "favicon": "en.wikipedia.org.png",
         "title": "Tai's model - Wikipedia",
         "description": "Tai proposes \"Tai's model\" as a method of estimating the area under a curve by dividing the area into simple polygons and summing their totals."
     },
     {
         "url": "https://gifcities.org/",
-        "favicon": "gifcities.org.ico",
+        "favicon": "gifcities.org.png",
         "title": "GifCities",
         "description": "The Geocities Animated Gif Search from Internet Archive"
     },
@@ -805,7 +805,7 @@
     },
     {
         "url": "https://www.jsv9000.app/",
-        "favicon": "www.jsv9000.app.ico",
+        "favicon": "www.jsv9000.app.png",
         "title": "JS Visualizer 9000",
         "description": ""
     },
@@ -816,19 +816,19 @@
     },
     {
         "url": "https://xkcd.com/505/",
-        "favicon": "xkcd.com.ico",
+        "favicon": "xkcd.com.png",
         "title": "xkcd: A Bunch of Rocks",
         "description": ""
     },
     {
         "url": "http://viznut.fi/en/",
-        "favicon": "viznut.fi.ico",
+        "favicon": "viznut.fi.png",
         "title": "vizmut",
         "description": "Viznut a.k.a. Ville-Matias Heikkilä"
     },
     {
         "url": "http://viznut.fi/unscii/",
-        "favicon": "viznut.fi.ico",
+        "favicon": "viznut.fi.png",
         "title": "Unscii - a bitmapped Unicode font for blocky graphics",
         "description": ""
     },
@@ -840,13 +840,13 @@
     },
     {
         "url": "https://en.wikipedia.org/wiki/Reversible_computing",
-        "favicon": "en.wikipedia.org.ico",
+        "favicon": "en.wikipedia.org.png",
         "title": "Reversible computing - Wikipedia",
         "description": "Reversible computing is a model of computing where the computational process, to some extent, is time-reversible. In a reversible computation, the output of the computation can be used to reconstruct the inputs."
     },
     {
         "url": "https://en.wikipedia.org/wiki/Fredkin_gate",
-        "favicon": "en.wikipedia.org.ico",
+        "favicon": "en.wikipedia.org.png",
         "title": "Fredkin gate - Wikipedia",
         "description": "The Fredkin gate is a universal reversible logic gate, named after Edward Fredkin. It is also known as a controlled swap gate, since it performs a swap of two bits depending on the value of a third bit, which serves as a control bit."
     },
@@ -892,7 +892,7 @@
     },
     {
         "url": "https://fabiensanglard.net/",
-        "favicon": "fabiensanglard.net.ico",
+        "favicon": "fabiensanglard.net.png",
         "title": "Fabien Sanglard's Website",
         "description": "Personal website with code and ideas by Fabien Sanglard, including articles on game engines and graphics."
     },
@@ -903,7 +903,7 @@
     },
     {
         "url": "https://modarchive.org/",
-        "favicon": "modarchive.org.ico",
+        "favicon": "modarchive.org.png",
         "title": "The Mod Archive v4.0b - A distinctive collection of modules",
         "description": "The Mod Archive is a website dedicated to the indexing and archival of playable music module files."
     },
@@ -926,7 +926,7 @@
     },
     {
         "url": "https://1-1i.com/",
-        "favicon": "1-1i.com.ico",
+        "favicon": "1-1i.com.png",
         "title": "1-1i",
         "description": "Graphical rendering of mathematical models in python"
     },
@@ -943,7 +943,7 @@
     },
     {
         "url": "https://www.theverge.com/a/luka-artificial-intelligence-memorial-roman-mazurenko-bot",
-        "favicon": "www.theverge.com.ico",
+        "favicon": "www.theverge.com.png",
         "title": "Speak, Memory",
         "description": "When her best friend died, she rebuilt him using artificial intelligence."
     },
@@ -965,7 +965,7 @@
     },
     {
         "url": "https://soundbender36.wordpress.com/2017/12/19/pink-drone-oscillator/",
-        "favicon": "soundbender36.wordpress.com.ico",
+        "favicon": "soundbender36.wordpress.com.png",
         "title": "PINK DRONE OSCILLATOR",
         "description": "5 VCO en 1, à base de transistor montés en reverse avalanche"
     },
@@ -977,13 +977,13 @@
     },
     {
         "url": "https://beej.us/",
-        "favicon": "beej.us.ico",
+        "favicon": "beej.us.png",
         "title": "Beej's Web Page",
         "description": "Brian 'Beej Jorgensen' Hall's home page"
     },
     {
         "url": "https://jvns.ca/",
-        "favicon": "jvns.ca.ico",
+        "favicon": "jvns.ca.png",
         "title": "Julia Evans",
         "description": "Julia Evans's blog with programming posts and links to her zines."
     },
@@ -999,7 +999,7 @@
     },
     {
         "url": "https://css-tricks.com/gooey-effect/",
-        "favicon": "css-tricks.com.ico",
+        "favicon": "css-tricks.com.png",
         "title": "The Gooey Effect | CSS-Tricks",
         "description": "CSS-Tricks article by Lucas Bebber explaining SVG filters for a gooey effect."
     },
@@ -1017,19 +1017,19 @@
     },
     {
         "url": "https://acko.net/",
-        "favicon": "acko.net.ico",
+        "favicon": "acko.net.png",
         "title": "Hackery, Math & Design — Acko.net",
         "description": "A blog about random hacks, graphics and design, math and other ephemera."
     },
     {
         "url": "http://www.romancortes.com/blog/furbee-my-js1k-spring-13-entry/",
-        "favicon": "www.romancortes.com.ico",
+        "favicon": "www.romancortes.com.png",
         "title": "Román Cortés » Furbee - My Js1k Spring ‘13 entry",
         "description": "Blog post about the Furbee JS1k Spring 2013 entry and how it was made."
     },
     {
         "url": "https://github.com/phanan/htaccess",
-        "favicon": "github.com.ico",
+        "favicon": "github.com.png",
         "title": "phanan/htaccess: ✂A collection of useful .htaccess snippets.",
         "description": "Collection of useful .htaccess snippets in one place."
     },
@@ -1061,49 +1061,49 @@
     },
     {
         "url": "https://teletextart.tumblr.com/",
-        "favicon": "teletextart.tumblr.com.jpg",
+        "favicon": "teletextart.tumblr.com.png",
         "title": "Teletext Art",
         "description": "Classic teletext pages. Blog maintained by Dan Farrimond, teletext artist. email: HELLO [at] TELETEXTART (dot) CO {dot} UK"
     },
     {
         "url": "https://text-mode.tumblr.com/",
-        "favicon": "text-mode.tumblr.com.jpg",
+        "favicon": "text-mode.tumblr.com.png",
         "title": "TEXT-MODE",
         "description": "Text graphics and related works, going back thousands of years. ASCII, PETSCII, Unicode, textiles,..."
     },
     {
         "url": "http://reversemd5.com/",
-        "favicon": "reversemd5.com.ico",
+        "favicon": "reversemd5.com.png",
         "title": "Reverse md5 Calculator",
         "description": "md5 and reverse md5 calculator"
     },
     {
         "url": "https://www.exampointers.com/teletext/teletext.phtml",
-        "favicon": "www.exampointers.com.ico",
+        "favicon": "www.exampointers.com.png",
         "title": "ExamPointers.com - Teletext Transmission",
         "description": "Technical notes on teletext transmission format, line structure, and packets."
     },
     {
         "url": "http://www.bbsdocumentary.com/",
-        "favicon": "www.bbsdocumentary.com.ico",
+        "favicon": "www.bbsdocumentary.com.png",
         "title": "BBS: The Documentary",
         "description": "Long before the Internet escaped from the lab, connected the planet and redefined what it meant to use a computer."
     },
     {
         "url": "http://textfiles.com/",
-        "favicon": "textfiles.com.ico",
+        "favicon": "textfiles.com.png",
         "title": "T E X T F I L E S D O T C O M",
         "description": "TEXTFILES.COM is a site dedicated to the Textfiles of the BBS World from the 1980's."
     },
     {
         "url": "https://www.bbcbasic.co.uk/tccgen/tccgen.html",
-        "favicon": "www.bbcbasic.co.uk.ico",
+        "favicon": "www.bbcbasic.co.uk.png",
         "title": "Programmable Colour Test Card Generator",
         "description": "Product page for a programmable colour test card generator that outputs PAL video and teletext pages."
     },
     {
         "url": "https://www.bbcbasic.co.uk/",
-        "favicon": "www.bbcbasic.co.uk.ico",
+        "favicon": "www.bbcbasic.co.uk.png",
         "title": "BBC BASIC",
         "description": "The website dedicated to the BBC BASIC programming language"
     },
@@ -1115,25 +1115,25 @@
     },
     {
         "url": "https://www.lesswrong.com/posts/5wMcKNAwB6X4mp9og/that-alien-message",
-        "favicon": "www.lesswrong.com.ico",
+        "favicon": "www.lesswrong.com.png",
         "title": "That Alien Message by Eliezer Yudkowsky",
         "description": "Imagine a world much like this one, in which, thanks to gene-selection technologies, the average IQ is 140 (on our scale)."
     },
     {
         "url": "https://zxnet.co.uk/",
-        "favicon": "zxnet.co.uk.ico",
+        "favicon": "zxnet.co.uk.png",
         "title": "My rubbish website",
         "description": "Personal site with teletext, ZX Spectrum, narrow-bandwidth TV, and photo galleries."
     },
     {
         "url": "https://en.wikipedia.org/wiki/Duff%27s_device",
-        "favicon": "en.wikipedia.org.ico",
+        "favicon": "en.wikipedia.org.png",
         "title": "Duff's device - Wikipedia",
         "description": "Wikipedia article on Duff's device, a C loop-unrolling technique using switch fall-through."
     },
     {
         "url": "http://chihuahuaspin.com/",
-        "favicon": "chihuahuaspin.com.ico",
+        "favicon": "chihuahuaspin.com.png",
         "title": "chihuahuaspin.com",
         "description": "A spinning chihuahua page with a counter showing how many spins you've watched."
     },
@@ -1149,7 +1149,7 @@
     },
     {
         "url": "https://www.a1k0n.net/2011/07/20/donut-math.html",
-        "favicon": "www.a1k0n.net.ico",
+        "favicon": "www.a1k0n.net.png",
         "title": "Donut math: how donut.c works",
         "description": "A C program that renders a rotating 3D donut using ASCII characters."
     },
@@ -1161,31 +1161,31 @@
     },
     {
         "url": "https://research.swtch.com/nih",
-        "favicon": "research.swtch.com.ico",
+        "favicon": "research.swtch.com.png",
         "title": "Running the “Reflections on Trusting Trust” Compiler",
         "description": "How to modify a C compiler binary to insert a backdoor."
     },
     {
         "url": "https://www.ioccc.org/",
-        "favicon": "www.ioccc.org.ico",
+        "favicon": "www.ioccc.org.png",
         "title": "The International Obfuscated C Code Contest",
         "description": "Official site of the International Obfuscated C Code Contest with rules and entries."
     },
     {
         "url": "https://xkcd.com/327/",
-        "favicon": "xkcd.com.ico",
+        "favicon": "xkcd.com.png",
         "title": "xkcd: Exploits of a Mom",
         "description": ""
     },
     {
         "url": "https://xkcd.com/323/",
-        "favicon": "xkcd.com.ico",
+        "favicon": "xkcd.com.png",
         "title": "xkcd: Ballmer Peak",
         "description": ""
     },
     {
         "url": "https://xkcd.com/221/",
-        "favicon": "xkcd.com.ico",
+        "favicon": "xkcd.com.png",
         "title": "xkcd: Random Number",
         "description": ""
     }

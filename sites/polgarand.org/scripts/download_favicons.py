@@ -6,9 +6,11 @@ from __future__ import annotations
 # and write the resulting favicon filename back onto each bookmark entry as the `favicon` field.
 
 import json
-import mimetypes
+import os
 import re
+import socket
 import sys
+from io import BytesIO
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -17,12 +19,36 @@ from html.parser import HTMLParser
 from pathlib import Path
 from typing import Optional
 
+import boto3
+import cairosvg
+from botocore.exceptions import BotoCoreError, ClientError
+from dotenv import load_dotenv
+from PIL import Image, UnidentifiedImageError
+
 BOOKMARKS_PATH = Path("sites/polgarand.org/data/bookmarks.json")
 OUT_DIR = Path("sites/polgarand.org/.favicons")
+DOTENV_PATH = Path("sites/polgarand.org/.env")
 
 TIMEOUT_S = 10.0
 MAX_BYTES = 1_000_000
 USER_AGENT = "polgarand.org favicon-fetcher/1.0"
+FAVICON_SIZE = (16, 16)
+R2_FAVICON_DIR = "favicons"
+CACHE_PURGE_PREFIX = "cdn.polgarand.org/favicons"
+
+
+@dataclass(frozen=True)
+class R2Config:
+    account_id: str
+    access_key_id: str
+    secret_access_key: str
+    bucket_name: str
+
+
+@dataclass(frozen=True)
+class CloudflareConfig:
+    zone_id: str
+    api_token: str
 
 
 def _safe_domain_filename(netloc: str) -> str:
@@ -32,28 +58,94 @@ def _safe_domain_filename(netloc: str) -> str:
     return re.sub(r"[^a-z0-9.-]+", "_", domain).strip("._") or "unknown"
 
 
-def _guess_extension(url: str, content_type: Optional[str]) -> str:
-    path = urllib.parse.urlparse(url).path
-    ext = Path(path).suffix.lower()
-    if ext in {".ico", ".png", ".svg", ".jpg", ".jpeg", ".webp", ".gif"}:
-        return ".jpg" if ext == ".jpeg" else ext
-
-    if content_type:
-        mime = content_type.split(";", 1)[0].strip().lower()
-        if mime == "image/x-icon":
-            return ".ico"
-        guessed = mimetypes.guess_extension(mime) or ""
-        if guessed:
-            return guessed
-
-    return ".ico"
-
-
 @dataclass(frozen=True)
 class FaviconCandidate:
     url: str
     priority: int
     size_area: Optional[int] = None
+
+
+def _load_r2_config() -> Optional[R2Config]:
+    load_dotenv(DOTENV_PATH)
+    names = (
+        "R2_ACCOUNT_ID",
+        "R2_ACCESS_KEY_ID",
+        "R2_SECRET_ACCESS_KEY",
+        "R2_BUCKET_NAME",
+    )
+    values = {name: os.environ.get(name, "").strip() for name in names}
+    if not any(values.values()):
+        return None
+
+    missing = [name for name, value in values.items() if not value]
+    if missing:
+        raise ValueError(f"missing R2 configuration: {', '.join(missing)}")
+
+    return R2Config(
+        account_id=values["R2_ACCOUNT_ID"],
+        access_key_id=values["R2_ACCESS_KEY_ID"],
+        secret_access_key=values["R2_SECRET_ACCESS_KEY"],
+        bucket_name=values["R2_BUCKET_NAME"],
+    )
+
+
+def _load_cloudflare_config() -> Optional[CloudflareConfig]:
+    load_dotenv(DOTENV_PATH)
+    names = ("CACHE_PURGE_ZONE_ID", "CACHE_PURGE_API_TOKEN")
+    values = {name: os.environ.get(name, "").strip() for name in names}
+    if not any(values.values()):
+        return None
+
+    missing = [name for name, value in values.items() if not value]
+    if missing:
+        raise ValueError(f"missing Cloudflare configuration: {', '.join(missing)}")
+
+    return CloudflareConfig(
+        zone_id=values["CACHE_PURGE_ZONE_ID"],
+        api_token=values["CACHE_PURGE_API_TOKEN"],
+    )
+
+
+def _upload_favicons(config: R2Config) -> int:
+    paths = sorted(OUT_DIR.glob("*.png"))
+    client = boto3.client(
+        "s3",
+        endpoint_url=f"https://{config.account_id}.r2.cloudflarestorage.com",
+        aws_access_key_id=config.access_key_id,
+        aws_secret_access_key=config.secret_access_key,
+        region_name="auto",
+    )
+
+    total = len(paths)
+    for idx, path in enumerate(paths, start=1):
+        object_key = f"{R2_FAVICON_DIR}/{path.name}"
+        print(f"[{idx}/{total}] uploading favicon: {object_key}", flush=True)
+        client.put_object(
+            Bucket=config.bucket_name,
+            Key=object_key,
+            Body=path.read_bytes(),
+            ContentType="image/png",
+        )
+    return total
+
+
+def _purge_favicon_cache(config: CloudflareConfig) -> None:
+    url = f"https://api.cloudflare.com/client/v4/zones/{config.zone_id}/purge_cache"
+    request = urllib.request.Request(
+        url,
+        data=json.dumps({"prefixes": [CACHE_PURGE_PREFIX]}).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {config.api_token}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(request, timeout=TIMEOUT_S) as response:
+        result = json.loads(response.read().decode("utf-8"))
+    if not result.get("success"):
+        errors = result.get("errors") or []
+        message = "; ".join(str(error.get("message", error)) for error in errors)
+        raise ValueError(message or "Cloudflare rejected the cache purge")
 
 
 class _IconLinkParser(HTMLParser):
@@ -113,6 +205,30 @@ def _http_get(url: str, *, max_bytes: int) -> tuple[bytes, str]:
         if len(body) > max_bytes:
             raise ValueError(f"response too large (> {max_bytes} bytes): {url}")
         return body, content_type
+
+
+def _resize_raster_favicon(body: bytes) -> bytes:
+    with Image.open(BytesIO(body)) as image:
+        image.seek(0)
+        resized = image.convert("RGBA").resize(FAVICON_SIZE, Image.Resampling.LANCZOS)
+        output = BytesIO()
+        resized.save(output, format="PNG")
+        return output.getvalue()
+
+
+def _resize_favicon(body: bytes) -> bytes:
+    try:
+        return _resize_raster_favicon(body)
+    except (UnidentifiedImageError, OSError):
+        try:
+            svg_png = cairosvg.svg2png(
+                bytestring=body,
+                output_width=FAVICON_SIZE[0],
+                output_height=FAVICON_SIZE[1],
+            )
+            return _resize_raster_favicon(svg_png)
+        except Exception as error:
+            raise ValueError("unsupported or invalid favicon image") from error
 
 
 def _discover_icons_from_html(base_url: str, html: str) -> list[FaviconCandidate]:
@@ -182,8 +298,8 @@ def download_favicon(page_url: str) -> Optional[str]:
             if mime and not mime.startswith("image/") and mime != "application/octet-stream":
                 continue
 
-            ext = _guess_extension(candidate.url, content_type)
-            out_path = OUT_DIR / f"{domain_key}{ext}"
+            resized_body = _resize_favicon(body)
+            out_path = OUT_DIR / f"{domain_key}.png"
 
             for old in OUT_DIR.glob(f"{domain_key}.*"):
                 try:
@@ -191,9 +307,9 @@ def download_favicon(page_url: str) -> Optional[str]:
                 except OSError:
                     pass
 
-            out_path.write_bytes(body)
+            out_path.write_bytes(resized_body)
             return out_path.name
-        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, ValueError):
+        except (urllib.error.URLError, urllib.error.HTTPError, socket.timeout, TimeoutError, ValueError):
             continue
 
     return None
@@ -211,6 +327,13 @@ def _reorder_bookmark_item_keys(item: dict) -> None:
 
 
 def main() -> int:
+    try:
+        r2_config = _load_r2_config()
+        cloudflare_config = _load_cloudflare_config()
+    except ValueError as error:
+        print(f"error: {error}", file=sys.stderr)
+        return 2
+
     try:
         data = json.loads(BOOKMARKS_PATH.read_text(encoding="utf-8"))
     except FileNotFoundError:
@@ -264,6 +387,37 @@ def main() -> int:
     print(f"bookmarks: updated {updated} items (favicon field)")
     if interrupted:
         return 130
+
+    if r2_config is None:
+        print(f"uploads: skipped (configure {DOTENV_PATH} to enable R2 uploads)")
+    else:
+        try:
+            uploaded = _upload_favicons(r2_config)
+        except (BotoCoreError, ClientError, OSError) as error:
+            print(f"error: R2 upload failed: {error}", file=sys.stderr)
+            return 2
+        print(
+            f"uploads: uploaded {uploaded} files to "
+            f"r2://{r2_config.bucket_name}/{R2_FAVICON_DIR}/"
+        )
+        if cloudflare_config is None:
+            print(
+                f"cache: skipped (configure {DOTENV_PATH} to enable cache purging)"
+            )
+        else:
+            try:
+                _purge_favicon_cache(cloudflare_config)
+            except (
+                urllib.error.URLError,
+                urllib.error.HTTPError,
+                socket.timeout,
+                TimeoutError,
+                ValueError,
+            ) as error:
+                print(f"error: cache purge failed: {error}", file=sys.stderr)
+                return 2
+            print(f"cache: purged prefix {CACHE_PURGE_PREFIX}")
+
     return 0 if failed == 0 else 1
 
 
