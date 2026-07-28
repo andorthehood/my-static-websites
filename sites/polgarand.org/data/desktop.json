@@ -16,12 +16,12 @@
 	},
 	{
 		"href": "/category/spain/page1",
-		"icon": "directory_closed.gif",
+		"icon": "image_old_jpeg.gif",
 		"label": "Spain"
 	},
 	{
 		"href": "/posts/2019-04-20-north-korea",
-		"icon": "directory_closed.gif",
+		"icon": "image_old_jpeg.gif",
 		"label": "North Korea"
 	},
 	{
@@ -36,7 +36,7 @@
 	},
 	{
 		"href": "/about",
-		"icon": "user_card.gif",
+		"icon": "user_network.gif",
 		"label": "About Me"
 	},
 	{
@@ -105,5 +105,10 @@
 		"href": "/wikipedia",
 		"icon": "globe_map.gif",
 		"label": "Wikipedia"
+	},
+	{
+		"href": "/8f4e",
+		"icon": "executable_sound.gif",
+		"label": "8f4e"
 	}
 ]
