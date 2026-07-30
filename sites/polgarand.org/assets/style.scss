@@ -54,8 +54,8 @@ a:visited {
 
 :root {
 	font-synthesis: none;
-	-webkit-font-smoothing: antialiased;
-	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: none;
+	text-rendering: optimizeSpeed;
 
 	--background-color: #6867af;
 	--text-color: #000000;
@@ -185,6 +185,7 @@ h2 {
 	color: #000000;
 	background: #ccccff;
 	display: inline;
+	padding: 0 2px;
 }
 
 .desktop .icon .icon-picture {
