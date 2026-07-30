@@ -24,14 +24,18 @@
     .favicon {
         width: 32px;
         height: 32px;
-        margin: 5px 5px 0 0;
+        margin: 0 5px 0 0;
         vertical-align: middle;
         float: left;
         image-rendering: pixelated;
     }
+    
+    .title {
+        padding-bottom: 10px;
+    }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     .bookmarks ul {
         grid-template-columns: repeat(1, 1fr);
     }
