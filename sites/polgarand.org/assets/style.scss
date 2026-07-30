@@ -12,7 +12,8 @@ html,
 pre {
 	color: var(--text-color);
 	line-height: 1.25;
-	font-family: "Ark Pixel 12px", monospace;
+	font-family: "Ark Pixel 12px Mono", monospace;
+	font-size: 24px;
 	margin: 0;
 	padding: 0;
 	user-select: none;
@@ -74,9 +75,9 @@ p {
 h1,
 h2 {
 	color: var(--text-color);
-	font-size: 22px;
 	margin: 0;
 	padding: 0 0 20px 0;
+	font-size: 24px;
 }
 
 .container {
@@ -84,7 +85,6 @@ h2 {
 	width: 50%;
 	background: var(--background-color);
 	padding: 40px 0 300px 0;
-	font-size: 22px;
 	max-width: 900px;
 }
 
@@ -184,7 +184,6 @@ h2 {
 .desktop .icon .icon-label {
 	color: #000000;
 	background: #ccccff;
-	font-size: 22px;
 	display: inline;
 }
 
