@@ -588,6 +588,11 @@
         "description": "This collection of apps, tools and articles is here to help you learn more about digital gardening. Ideally, it's here to help you start your own garden."
     },
     {
+        "url": "https://sre.google/books/",
+        "title": "Google SRE book- Comprehensive guide to site reliability",
+        "description": "Explore the world of site reliability engineering with top-rated sre books. Find resources on SRE principles, best practices and the role of a reliability engineer"
+    },
+    {
         "url": "https://vscodium.com/",
         "favicon": "vscodium.com.png",
         "title": "VSCodium",

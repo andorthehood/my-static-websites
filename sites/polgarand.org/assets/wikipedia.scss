@@ -1,4 +1,8 @@
 .userboxes {
+    font-size: 16.5px;
+}
+
+.userboxes ul {
     list-style: none;
     padding: 0 0 20px 0;
     display: grid;
@@ -8,12 +12,11 @@
 
 .userboxes li {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
 }
 
 .userbox {
-    font-size: 16.5px;
     border: 2px solid;
     display: flex;
     align-items: center;
@@ -40,7 +43,7 @@
     }
 
     .userbox-content {
-        padding: 4px;
+        padding: 10px;
         text-align: center;
 
         a {

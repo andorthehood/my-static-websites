@@ -6,24 +6,30 @@ location: 'Zandvoort, Netherlands'
 css: 'wikipedia.scss'
 ---
 
-<p>I'm collecting my favorite Wikipedia <a href="https://en.wikipedia.org/wiki/Wikipedia:Userboxes">userboxes</a> here, some of which I made myself.</p>
-<ul class="userboxes">
-    {% for userbox in data.userboxes %}
+<div class="userboxes">
+    <p>I'm collecting my favorite Wikipedia <a href="https://en.wikipedia.org/wiki/Wikipedia:Userboxes">userboxes</a>
+        here, some of which I made myself.</p>
+    <ul class="userboxes">
+        {% for userbox in data.userboxes %}
 
-    <li>
-        <div class="userbox" style="background: {{userbox.backgroundColor}}; border-color: {{userbox.borderColor}};">
-    <div class="userbox-image {% if userbox.isSvg %}svg{% endif %}" {% if userbox.imageBackgroundColor %}style="background: {{userbox.imageBackgroundColor}}"{% endif %}>
-        <img src="https://cdn.polgarand.org/wikipedia/{{userbox.image}}" loading="lazy"
-            alt="Userbox image">
+        <li>
+            <div class="userbox"
+                style="background: {{userbox.backgroundColor}}; border-color: {{userbox.borderColor}};">
+                <div class="userbox-image {% if userbox.isSvg %}svg{% endif %}" {% if userbox.imageBackgroundColor
+                    %}style="background: {{userbox.imageBackgroundColor}}" {% endif %}>
+                    <img src="https://cdn.polgarand.org/wikipedia/{{userbox.image}}" loading="lazy" alt="Userbox image">
+                </div>
+                <div class="userbox-content" {% if userbox.textColor %}style="color: {{userbox.textColor}}" {% endif %}>
+                    {{userbox.content}}
+                </div>
             </div>
-    <div class="userbox-content" {% if userbox.textColor %}style="color: {{userbox.textColor}}"{% endif %}>
-                {{userbox.content}}
-            </div>
-        </div>
-    </li>
+        </li>
 
-    {% endfor %}
-</ul>
+        {% endfor %}
+    </ul>
 
-<p>Images used on this page are sourced from Wikimedia Commons and are used in accordance with their respective Creative
-    Commons or public domain licenses.</p>
+    <p>Images used on this page are sourced from Wikimedia Commons and are used in accordance with their respective
+        Creative
+        Commons or public domain licenses.</p>
+
+</div>

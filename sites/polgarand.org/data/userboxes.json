@@ -1,11 +1,5 @@
 [
     {
-        "image": "tree.jpg",
-        "content": "This user believes that <a style=\"color: darkgreen\" target=\"_blank\" href=\"https://en.wikipedia.org/wiki/If_a_tree_falls_in_a_forest_and_no_one_is_around_to_hear_it,_does_it_make_a_sound%3F\">If a tree falls in a forest and no one is around to hear it</a>, it doesn't make a sound.",
-        "backgroundColor": "lightgreen",
-        "borderColor": "green"
-    },
-    {
         "image": "mandelbrot.gif",
         "content": "This user loves watching the <a target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Mandelbrot_set\">Mandelbrot set</a>.",
         "backgroundColor": "yellow",
@@ -105,6 +99,12 @@
         "borderColor": "grey",
         "textColor": "#000000",
         "imageBackgroundColor": "lightsteelblue"
+    },
+    {
+        "image": "tree.jpg",
+        "content": "This user believes that <a style=\"color: darkgreen\" target=\"_blank\" href=\"https://en.wikipedia.org/wiki/If_a_tree_falls_in_a_forest_and_no_one_is_around_to_hear_it,_does_it_make_a_sound%3F\">If a tree falls in a forest and no one is around to hear it</a>, it doesn't make a sound.",
+        "backgroundColor": "lightgreen",
+        "borderColor": "green"
     },
     {
         "image": "theseus.jpg",
