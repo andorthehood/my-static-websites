@@ -110,5 +110,10 @@
 		"href": "/8f4e",
 		"icon": "executable_sound.gif",
 		"label": "8f4e"
+	},
+	{
+		"href": "/flight-diary",
+		"icon": "excel_002.gif",
+		"label": "Flights"
 	}
 ]
