@@ -31,7 +31,7 @@
     {
         "url": "https://www.colodore.com/",
         "title": "/// colodore",
-        "description": ""
+        "description": "This site attempts to create color palettes and images, that look as close as possible to what the popular chips by MOS Technology, Inc."
     },
     {
         "url": "https://elpis.ws/",
@@ -49,7 +49,7 @@
         "url": "https://www.floodgap.com/",
         "favicon": "www.floodgap.com.png",
         "title": "Welcome to Floodgap Systems' WWW server",
-        "description": ""
+        "description": "Floodgap is a personal repository for information technology research, historical computing research, and open source software (especially for retrocomputing and information retrieval technologies); as a testbed for multiple hardware and networking projects."
     },
     {
         "url": "https://tilde.club/",
@@ -119,13 +119,13 @@
     {
         "url": "https://kenvexity.org/",
         "title": "kenvexity.org - home",
-        "description": ""
+        "description": "Welcome to my wonderful website, I was obviously inspired by the aesthetic of the old web to create this (also cause its easy to make). A little getaway from the slop and spyware infested social media, hope you enjoy your stay!"
     },
     {
         "url": "https://onio.club/",
         "favicon": "onio.club.png",
         "title": "onio.club ~ web chat",
-        "description": ""
+        "description": "This website is a 'personal website,' meaning that it is created, owned, and maintained by an individual person."
     },
     {
         "url": "https://temporal.io/blog/what-is-durable-execution",
@@ -326,7 +326,7 @@
         "url": "https://www.a1k0n.net/2025/12/19/tiny-tapeout-demo.html",
         "favicon": "www.a1k0n.net.png",
         "title": "Pure Silicon Demo Coding: No CPU, No Memory, Just 4k Gates",
-        "description": ""
+        "description": "In addition to the VGA donut, I submitted two other entries in the Tiny Tapeout 8 demo competition, where you submit a \"tiny\" ASIC design (room for about 4000 logic gates) that outputs 2-bit RGB to a VGA port and 1-bit audio to a speaker."
     },
     {
         "url": "https://myretrotvs.com/",
@@ -829,7 +829,7 @@
         "url": "https://www.jsv9000.app/",
         "favicon": "www.jsv9000.app.png",
         "title": "JS Visualizer 9000",
-        "description": ""
+        "description": "A React app to interactively visualize JavaScript's Event Loop"
     },
     {
         "url": "http://latentflip.com/loupe/",
