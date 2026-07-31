@@ -46,7 +46,7 @@
 	},
 	{
 		"href": "/bookshelf",
-		"icon": "help_book_big.gif",
+		"icon": "msgren32_128.gif",
 		"label": "Bookshelf"
 	},
 	{
@@ -56,13 +56,13 @@
 	},
 	{
 		"href": "https://polgarhivatal.nl/",
-		"icon": "briefcase.gif",
+		"icon": "NEWPROF_102.gif",
 		"label": "Professional Website",
 		"target": "_blank"
 	},
 	{
 		"href": "/tabs",
-		"icon": "keyboard_musical_midi.gif",
+		"icon": "Nerodeu_248.gif",
 		"label": "Tabs"
 	},
 	{
@@ -113,7 +113,7 @@
 	},
 	{
 		"href": "/flight-diary",
-		"icon": "excel_002.gif",
+		"icon": "FLIGHT.gif",
 		"label": "Flights"
 	}
 ]
