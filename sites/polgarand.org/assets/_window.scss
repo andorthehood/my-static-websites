@@ -97,14 +97,14 @@
 
     .head {
         background: #cccccc;
-        height: 100px;
+        height: 120px;
         display: flex;
     }
 
     .head {
         .button {
             width: 120px;
-            height: 96px;
+            height: 116px;
             position: relative;
             cursor: pointer;
             text-align: center;
@@ -172,31 +172,12 @@
     }
 
     .netscape-logo {
-        font-size: 80px;
-        font-weight: normal;
-        font-family: serif;
-        width: 100px;
-        height: 100px;
-        color: #ffffff;
-        text-align: center;
-        line-height: 90px;
-        text-shadow: 0 0 2px #66ccff;
+        width: 120px;
+        height: 120px;
         position: absolute;
-        top: 0;
-        right: 0;
-        background: radial-gradient(circle at center 188%, #000000 65%, #66ccff 65%, #009966 67%, #330066 80%, #000000 95%);
-    }
-
-    .netscape-logo::after {
-        content: "";
-        position: absolute;
-        bottom: 25%;
-        right: 22%;
-        left: 56%;
-        top: 63%;
-        transform: rotate(8deg);
-        overflow: hidden;
-        background: black;
+        top: 2px;
+        right: 2px;
+        display: block;
     }
 
     .content {
