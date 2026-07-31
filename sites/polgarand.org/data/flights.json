@@ -1,0 +1,7394 @@
+[
+  {
+    "date": "2026-08-08",
+    "flightNumber": "HV6918",
+    "from": {
+      "name": "Olbia / Costa Smeralda",
+      "iata": "OLB",
+      "icao": "LIEO"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "22:00:00",
+    "arrTime": "00:25:00",
+    "duration": "02:25:00",
+    "airline": {
+      "name": "Transavia Holland",
+      "iata": "HV",
+      "icao": "TRA"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2026-08-01",
+    "flightNumber": "HV6915",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Olbia / Costa Smeralda",
+      "iata": "OLB",
+      "icao": "LIEO"
+    },
+    "depTime": "13:00:00",
+    "arrTime": "15:20:00",
+    "duration": "02:20:00",
+    "airline": {
+      "name": "Transavia Holland",
+      "iata": "HV",
+      "icao": "TRA"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-12-10",
+    "flightNumber": "KL1777",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Berlin / Brandenburg",
+      "iata": "BER",
+      "icao": "EDDB"
+    },
+    "depTime": "12:15:00",
+    "arrTime": "13:30:00",
+    "duration": "01:20:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Airbus A321neo",
+      "icao": "A21N",
+      "registration": "PH-AXH"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-12-13",
+    "flightNumber": "KL1780",
+    "from": {
+      "name": "Berlin / Brandenburg",
+      "iata": "BER",
+      "icao": "EDDB"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "16:30:00",
+    "arrTime": "17:55:00",
+    "duration": "01:20:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-HSE"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-10-27",
+    "flightNumber": "FR5814",
+    "from": {
+      "name": "Rome / Leonardo da Vinci-Fiumicino",
+      "iata": "FCO",
+      "icao": "LIRF"
+    },
+    "to": {
+      "name": "Eindhoven / Eindhoven",
+      "iata": "EIN",
+      "icao": "EHEH"
+    },
+    "depTime": "09:25:00",
+    "arrTime": "11:40:00",
+    "duration": "02:15:00",
+    "airline": {
+      "name": "Ryanair",
+      "iata": "FR",
+      "icao": "RYR"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "EI-DCN"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-10-24",
+    "flightNumber": "FR5815",
+    "from": {
+      "name": "Eindhoven / Eindhoven",
+      "iata": "EIN",
+      "icao": "EHEH"
+    },
+    "to": {
+      "name": "Rome / Leonardo da Vinci-Fiumicino",
+      "iata": "FCO",
+      "icao": "LIRF"
+    },
+    "depTime": "16:55:00",
+    "arrTime": "19:00:00",
+    "duration": "02:05:00",
+    "airline": {
+      "name": "Ryanair",
+      "iata": "FR",
+      "icao": "RYR"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-09-19",
+    "flightNumber": "US809",
+    "from": {
+      "name": "Bukhara / Bukhara",
+      "iata": "BHK",
+      "icao": "UTSB"
+    },
+    "to": {
+      "name": "Tashkent / Yuzhnyy",
+      "iata": "TAS",
+      "icao": "UTTT"
+    },
+    "depTime": "12:05:00",
+    "arrTime": "13:25:00",
+    "duration": "01:20:00",
+    "airline": {
+      "name": "Silk Avia",
+      "iata": "US",
+      "icao": "USA"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-09-20",
+    "flightNumber": "HY777",
+    "from": {
+      "name": "Tashkent / Yuzhnyy",
+      "iata": "TAS",
+      "icao": "UTTT"
+    },
+    "to": {
+      "name": "Bishkek / Manas",
+      "iata": "BSZ",
+      "icao": "UCFM"
+    },
+    "depTime": "15:35:00",
+    "arrTime": "17:45:00",
+    "duration": "01:10:00",
+    "airline": {
+      "name": "Uzbekistan Havo Yullary",
+      "iata": "HY",
+      "icao": "UZB"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": ""
+    },
+    "seatNumber": "23F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-08-24",
+    "flightNumber": "OS377",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "20:20:00",
+    "arrTime": "22:15:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "OE-LZE"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-08-15",
+    "flightNumber": "OS374",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "17:40:00",
+    "arrTime": "19:30:00",
+    "duration": "01:50:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "OE-LZE"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-05-18",
+    "flightNumber": "KL1364",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "11:35:00",
+    "arrTime": "13:40:00",
+    "duration": "02:05:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-05-09",
+    "flightNumber": "OS374",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "17:40:00",
+    "arrTime": "19:30:00",
+    "duration": "01:50:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-09-21",
+    "flightNumber": "PC1253",
+    "from": {
+      "name": "Istanbul / Sabiha Gokcen",
+      "iata": "SAW",
+      "icao": "LTFJ"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "12:40:00",
+    "arrTime": "15:20:00",
+    "duration": "03:40:00",
+    "airline": {
+      "name": "Pegasus Airlines",
+      "iata": "PC",
+      "icao": "PGT"
+    },
+    "aircraft": {
+      "name": "Airbus A320neo",
+      "icao": "A20N",
+      "registration": "TC-NCN"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-09-21",
+    "flightNumber": "PC705",
+    "from": {
+      "name": "Bishkek / Manas",
+      "iata": "BSZ",
+      "icao": "UCFM"
+    },
+    "to": {
+      "name": "Istanbul / Sabiha Gokcen",
+      "iata": "SAW",
+      "icao": "LTFJ"
+    },
+    "depTime": "05:35:00",
+    "arrTime": "08:20:00",
+    "duration": "05:45:00",
+    "airline": {
+      "name": "Pegasus Airlines",
+      "iata": "PC",
+      "icao": "PGT"
+    },
+    "aircraft": {
+      "name": "Airbus A321-200",
+      "icao": "A321",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-09-05",
+    "flightNumber": "PC704",
+    "from": {
+      "name": "Istanbul / Sabiha Gokcen",
+      "iata": "SAW",
+      "icao": "LTFJ"
+    },
+    "to": {
+      "name": "Bishkek / Manas",
+      "iata": "BSZ",
+      "icao": "UCFM"
+    },
+    "depTime": "20:15:00",
+    "arrTime": "04:15:00",
+    "duration": "05:00:00",
+    "airline": {
+      "name": "Pegasus Airlines",
+      "iata": "PC",
+      "icao": "PGT"
+    },
+    "aircraft": {
+      "name": "Airbus A321-200",
+      "icao": "A321",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-09-05",
+    "flightNumber": "PC1252",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Istanbul / Sabiha Gokcen",
+      "iata": "SAW",
+      "icao": "LTFJ"
+    },
+    "depTime": "12:40:00",
+    "arrTime": "17:10:00",
+    "duration": "03:30:00",
+    "airline": {
+      "name": "Pegasus Airlines",
+      "iata": "PC",
+      "icao": "PGT"
+    },
+    "aircraft": {
+      "name": "Airbus A321neo",
+      "icao": "A21N",
+      "registration": "TC-RBR"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-07-20",
+    "flightNumber": "HV5792",
+    "from": {
+      "name": "Preveza / Aktion AB",
+      "iata": "PVK",
+      "icao": "LGPZ"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "21:05:00",
+    "arrTime": "23:20:00",
+    "duration": "03:15:00",
+    "airline": {
+      "name": "Transavia Holland",
+      "iata": "HV",
+      "icao": "TRA"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "24E",
+    "seatType": "2",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-07-05",
+    "flightNumber": "HV5791",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Preveza / Aktion AB",
+      "iata": "PVK",
+      "icao": "LGPZ"
+    },
+    "depTime": "05:10:00",
+    "arrTime": "09:05:00",
+    "duration": "02:55:00",
+    "airline": {
+      "name": "Transavia Holland",
+      "iata": "HV",
+      "icao": "TRA"
+    },
+    "aircraft": {
+      "name": "Airbus A321neo",
+      "icao": "A21N",
+      "registration": "PH-YHX"
+    },
+    "seatNumber": "24F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2017-12-19",
+    "flightNumber": "KL1979",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "21:05:00",
+    "arrTime": "23:05:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "5A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-03-02",
+    "flightNumber": "KL994",
+    "from": {
+      "name": "London / London City",
+      "iata": "LCY",
+      "icao": "EGLC"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "18:55:00",
+    "arrTime": "21:10:00",
+    "duration": "01:15:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Embraer ERJ-190",
+      "icao": "E190",
+      "registration": "PH-EZG"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-02-01",
+    "flightNumber": "IB1795",
+    "from": {
+      "name": "Madrid / Barajas",
+      "iata": "MAD",
+      "icao": "LEMD"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "19:45:00",
+    "arrTime": "22:25:00",
+    "duration": "02:40:00",
+    "airline": {
+      "name": "Iberia",
+      "iata": "IB",
+      "icao": "IBE"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "EC-MUF"
+    },
+    "seatNumber": "20E",
+    "seatType": "2",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-02-01",
+    "flightNumber": "IB1570",
+    "from": {
+      "name": "Tenerife-North / Los Rodeos",
+      "iata": "TFN",
+      "icao": "GCXO"
+    },
+    "to": {
+      "name": "Madrid / Barajas",
+      "iata": "MAD",
+      "icao": "LEMD"
+    },
+    "depTime": "14:10:00",
+    "arrTime": "17:55:00",
+    "duration": "02:45:00",
+    "airline": {
+      "name": "Iberia",
+      "iata": "IB",
+      "icao": "IBE"
+    },
+    "aircraft": {
+      "name": "Airbus A321neo",
+      "icao": "A21N",
+      "registration": "EC-OCH"
+    },
+    "seatNumber": "9A",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-01-25",
+    "flightNumber": "IB1569",
+    "from": {
+      "name": "Madrid / Barajas",
+      "iata": "MAD",
+      "icao": "LEMD"
+    },
+    "to": {
+      "name": "Tenerife-North / Los Rodeos",
+      "iata": "TFN",
+      "icao": "GCXO"
+    },
+    "depTime": "11:30:00",
+    "arrTime": "13:25:00",
+    "duration": "02:55:00",
+    "airline": {
+      "name": "Iberia",
+      "iata": "IB",
+      "icao": "IBE"
+    },
+    "aircraft": {
+      "name": "Airbus A321neo",
+      "icao": "A21N",
+      "registration": "EC-NST"
+    },
+    "seatNumber": "7E",
+    "seatType": "2",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-01-25",
+    "flightNumber": "IB1796",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Madrid / Barajas",
+      "iata": "MAD",
+      "icao": "LEMD"
+    },
+    "depTime": "07:10:00",
+    "arrTime": "09:55:00",
+    "duration": "02:45:00",
+    "airline": {
+      "name": "Iberia",
+      "iata": "IB",
+      "icao": "IBE"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "EC-LVQ"
+    },
+    "seatNumber": "4A",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-01-12",
+    "flightNumber": "KL1364",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "12:50:00",
+    "arrTime": "15:05:00",
+    "duration": "02:15:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BCL"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-01-09",
+    "flightNumber": "KL1371",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "21:10:00",
+    "arrTime": "23:05:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXL"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2025-02-27",
+    "flightNumber": "KL995",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "London / London City",
+      "iata": "LCY",
+      "icao": "EGLC"
+    },
+    "depTime": "19:30:00",
+    "arrTime": "19:35:00",
+    "duration": "01:05:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Embraer ERJ-190",
+      "icao": "E190",
+      "registration": "PH-EZV"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-11-03",
+    "flightNumber": "U28685",
+    "from": {
+      "name": "London / Gatwick",
+      "iata": "LGW",
+      "icao": "EGKK"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "18:25:00",
+    "arrTime": "20:40:00",
+    "duration": "01:15:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "Airbus A319",
+      "icao": "A319",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-11-03",
+    "flightNumber": "U28004",
+    "from": {
+      "name": "Almeria / Almeria",
+      "iata": "LEI",
+      "icao": "LEAM"
+    },
+    "to": {
+      "name": "London / Gatwick",
+      "iata": "LGW",
+      "icao": "EGKK"
+    },
+    "depTime": "18:55:00",
+    "arrTime": "20:30:00",
+    "duration": "02:35:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "Airbus A320-200",
+      "icao": "A320",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-10-27",
+    "flightNumber": "VY8366",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Malaga / Costa Del Sol",
+      "iata": "AGP",
+      "icao": "LEMG"
+    },
+    "depTime": "15:00:00",
+    "arrTime": "18:05:00",
+    "duration": "03:05:00",
+    "airline": {
+      "name": "Vueling Airlines",
+      "iata": "VY",
+      "icao": "VLG"
+    },
+    "aircraft": {
+      "name": "Airbus A320-200",
+      "icao": "A320",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-09-24",
+    "flightNumber": "KL1370",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "15:00:00",
+    "arrTime": "17:10:00",
+    "duration": "02:10:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Embraer Embraer E195-E2",
+      "icao": "E295",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-09-17",
+    "flightNumber": "KL1371",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "21:10:00",
+    "arrTime": "23:05:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "3F",
+    "seatType": "1",
+    "flightClass": "2",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-06-12",
+    "flightNumber": "7G23",
+    "from": {
+      "name": "Tokyo / Haneda",
+      "iata": "HND",
+      "icao": "RJTT"
+    },
+    "to": {
+      "name": "Osaka / Kansai",
+      "iata": "KIX",
+      "icao": "RJBB"
+    },
+    "depTime": "12:00:00",
+    "arrTime": "13:30:00",
+    "duration": "01:30:00",
+    "airline": {
+      "name": "StarFlyer",
+      "iata": "7G",
+      "icao": "SFJ"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "JA21MC"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-05-26",
+    "flightNumber": "LH998",
+    "from": {
+      "name": "Frankfurt am Main / Frankfurt",
+      "iata": "FRA",
+      "icao": "EDDF"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "17:20:00",
+    "arrTime": "18:30:00",
+    "duration": "01:10:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "Airbus A319",
+      "icao": "A319",
+      "registration": "D-AILE"
+    },
+    "seatNumber": "19E",
+    "seatType": "2",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-05-26",
+    "flightNumber": "LH1279",
+    "from": {
+      "name": "Athens / Eleftherios Venizelos",
+      "iata": "ATH",
+      "icao": "LGAV"
+    },
+    "to": {
+      "name": "Frankfurt am Main / Frankfurt",
+      "iata": "FRA",
+      "icao": "EDDF"
+    },
+    "depTime": "14:00:00",
+    "arrTime": "16:05:00",
+    "duration": "03:05:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "Airbus A321",
+      "icao": "A321",
+      "registration": "D-AIDI"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-05-22",
+    "flightNumber": "LX1830",
+    "from": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "to": {
+      "name": "Athens / Eleftherios Venizelos",
+      "iata": "ATH",
+      "icao": "LGAV"
+    },
+    "depTime": "09:45:00",
+    "arrTime": "13:30:00",
+    "duration": "02:45:00",
+    "airline": {
+      "name": "Swiss International Airlines",
+      "iata": "LX",
+      "icao": "SWR"
+    },
+    "aircraft": {
+      "name": "Airbus A321",
+      "icao": "A321",
+      "registration": "HB-IOD"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-05-22",
+    "flightNumber": "LX737",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "depTime": "07:00:00",
+    "arrTime": "08:25:00",
+    "duration": "01:25:00",
+    "airline": {
+      "name": "Swiss International Airlines",
+      "iata": "LX",
+      "icao": "SWR"
+    },
+    "aircraft": {
+      "name": "Bombardier CS300",
+      "icao": "BCS3",
+      "registration": "HB-JCQ"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-08-11",
+    "flightNumber": "AZ112",
+    "from": {
+      "name": "Milan / Linate",
+      "iata": "LIN",
+      "icao": "LIML"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "17:20:00",
+    "arrTime": "19:15:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "Alitalia",
+      "iata": "AZ",
+      "icao": "AZA"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "EI-EIB"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-08-11",
+    "flightNumber": "AZ1764",
+    "from": {
+      "name": "Palermo / Punta Raisi",
+      "iata": "PMO",
+      "icao": "LICJ"
+    },
+    "to": {
+      "name": "Milan / Linate",
+      "iata": "LIN",
+      "icao": "LIML"
+    },
+    "depTime": "12:25:00",
+    "arrTime": "14:00:00",
+    "duration": "01:35:00",
+    "airline": {
+      "name": "Alitalia",
+      "iata": "AZ",
+      "icao": "AZA"
+    },
+    "aircraft": {
+      "name": "Airbus A320neo",
+      "icao": "A20N",
+      "registration": "EI-HOH"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-08-05",
+    "flightNumber": "U27803",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Palermo / Punta Raisi",
+      "iata": "PMO",
+      "icao": "LICJ"
+    },
+    "depTime": "11:55:00",
+    "arrTime": "14:45:00",
+    "duration": "02:50:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "Airbus A320-200",
+      "icao": "A320",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-06-15",
+    "flightNumber": "CX271",
+    "from": {
+      "name": "Hong Kong / Hong Kong International",
+      "iata": "HKG",
+      "icao": "VHHH"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "23:10:00",
+    "arrTime": "06:55:00",
+    "duration": "13:45:00",
+    "airline": {
+      "name": "Cathay Pacific",
+      "iata": "CX",
+      "icao": "CPA"
+    },
+    "aircraft": {
+      "name": "Airbus A350-1000",
+      "icao": "A35K",
+      "registration": "B-LXL"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-06-15",
+    "flightNumber": "CX595",
+    "from": {
+      "name": "Osaka / Kansai",
+      "iata": "KIX",
+      "icao": "RJBB"
+    },
+    "to": {
+      "name": "Hong Kong / Hong Kong International",
+      "iata": "HKG",
+      "icao": "VHHH"
+    },
+    "depTime": "18:40:00",
+    "arrTime": "21:40:00",
+    "duration": "04:00:00",
+    "airline": {
+      "name": "Cathay Pacific",
+      "iata": "CX",
+      "icao": "CPA"
+    },
+    "aircraft": {
+      "name": "Airbus A350-1000",
+      "icao": "A35K",
+      "registration": "B-LXR"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-06-03",
+    "flightNumber": "CX566",
+    "from": {
+      "name": "Hong Kong / Hong Kong International",
+      "iata": "HKG",
+      "icao": "VHHH"
+    },
+    "to": {
+      "name": "Osaka / Kansai",
+      "iata": "KIX",
+      "icao": "RJBB"
+    },
+    "depTime": "01:50:00",
+    "arrTime": "06:35:00",
+    "duration": "03:45:00",
+    "airline": {
+      "name": "Cathay Pacific",
+      "iata": "CX",
+      "icao": "CPA"
+    },
+    "aircraft": {
+      "name": "Airbus A350-900",
+      "icao": "A359",
+      "registration": "B-LRI"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-06-01",
+    "flightNumber": "CX270",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Hong Kong / Hong Kong International",
+      "iata": "HKG",
+      "icao": "VHHH"
+    },
+    "depTime": "12:15:00",
+    "arrTime": "06:10:00",
+    "duration": "11:55:00",
+    "airline": {
+      "name": "Cathay Pacific",
+      "iata": "CX",
+      "icao": "CPA"
+    },
+    "aircraft": {
+      "name": "Airbus A350-1000",
+      "icao": "A35K",
+      "registration": "B-LXL"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-03-26",
+    "flightNumber": "KL1899",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Belgrade / Nikola Tesla Beograd",
+      "iata": "BEG",
+      "icao": "LYBE"
+    },
+    "depTime": "21:20:00",
+    "arrTime": "23:40:00",
+    "duration": "02:20:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Embraer 175",
+      "icao": "E75S",
+      "registration": "PH-EXS"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-04-04",
+    "flightNumber": "KL1984",
+    "from": {
+      "name": "Belgrade / Nikola Tesla Beograd",
+      "iata": "BEG",
+      "icao": "LYBE"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "16:15:00",
+    "arrTime": "18:50:00",
+    "duration": "02:35:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Embraer ERJ-190",
+      "icao": "E190",
+      "registration": "PH-EZP"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-03-24",
+    "flightNumber": "DY1258",
+    "from": {
+      "name": "Oslo / Gardermoen",
+      "iata": "OSL",
+      "icao": "ENGM"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "15:40:00",
+    "arrTime": "17:35:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "Norwegian Air Shuttle",
+      "iata": "DY",
+      "icao": "NAX"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "SE-RPD"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-03-21",
+    "flightNumber": "DY1259",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Oslo / Gardermoen",
+      "iata": "OSL",
+      "icao": "ENGM"
+    },
+    "depTime": "19:55:00",
+    "arrTime": "21:40:00",
+    "duration": "01:45:00",
+    "airline": {
+      "name": "Norwegian Air Shuttle",
+      "iata": "DY",
+      "icao": "NAX"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "SE-RPJ"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-01-12",
+    "flightNumber": "OS376",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "20:05:00",
+    "arrTime": "21:55:00",
+    "duration": "01:50:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Airbus A320-200",
+      "icao": "A320",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-01-21",
+    "flightNumber": "OS375",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "17:20:00",
+    "arrTime": "19:15:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Airbus A320-200",
+      "icao": "A320",
+      "registration": ""
+    },
+    "seatNumber": "2C",
+    "seatType": "3",
+    "flightClass": "2",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2023-08-20",
+    "flightNumber": "U28682",
+    "from": {
+      "name": "London / Gatwick",
+      "iata": "LGW",
+      "icao": "EGKK"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "17:30:00",
+    "arrTime": "19:50:00",
+    "duration": "01:20:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "Airbus A319",
+      "icao": "A319",
+      "registration": "G-EZGO"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2023-08-18",
+    "flightNumber": "U28683",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "London / Gatwick",
+      "iata": "LGW",
+      "icao": "EGKK"
+    },
+    "depTime": "19:05:00",
+    "arrTime": "19:25:00",
+    "duration": "01:20:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "Airbus A320neo",
+      "icao": "A20N",
+      "registration": "OE-LSA"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2023-06-04",
+    "flightNumber": "VY3266",
+    "from": {
+      "name": "Bilbao / Bilbao",
+      "iata": "BIO",
+      "icao": "LEBB"
+    },
+    "to": {
+      "name": "Almeria / Almeria",
+      "iata": "LEI",
+      "icao": "LEAM"
+    },
+    "depTime": "11:10:00",
+    "arrTime": "12:45:00",
+    "duration": "01:35:00",
+    "airline": {
+      "name": "Vueling Airlines",
+      "iata": "VY",
+      "icao": "VLG"
+    },
+    "aircraft": {
+      "name": "Airbus A320-200",
+      "icao": "A320",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2023-06-04",
+    "flightNumber": "VY8355",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Bilbao / Bilbao",
+      "iata": "BIO",
+      "icao": "LEBB"
+    },
+    "depTime": "10:00:00",
+    "arrTime": "12:15:00",
+    "duration": "02:15:00",
+    "airline": {
+      "name": "Vueling Airlines",
+      "iata": "VY",
+      "icao": "VLG"
+    },
+    "aircraft": {
+      "name": "Airbus A320-200",
+      "icao": "A320",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-01-05",
+    "flightNumber": "KL1030",
+    "from": {
+      "name": "London / Heathrow",
+      "iata": "LHR",
+      "icao": "EGLL"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "17:50:00",
+    "arrTime": "20:10:00",
+    "duration": "01:10:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Embraer Embraer E195-E2",
+      "icao": "E295",
+      "registration": "PH-NXI"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2024-01-04",
+    "flightNumber": "KL2515",
+    "from": {
+      "name": "Los Angeles / Los Angeles International",
+      "iata": "LAX",
+      "icao": "KLAX"
+    },
+    "to": {
+      "name": "London / Heathrow",
+      "iata": "LHR",
+      "icao": "EGLL"
+    },
+    "depTime": "21:50:00",
+    "arrTime": "16:05:00",
+    "duration": "10:15:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Airbus A350-1000",
+      "icao": "A35K",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2023-12-21",
+    "flightNumber": "KL2514",
+    "from": {
+      "name": "London / Heathrow",
+      "iata": "LHR",
+      "icao": "EGLL"
+    },
+    "to": {
+      "name": "Los Angeles / Los Angeles International",
+      "iata": "LAX",
+      "icao": "KLAX"
+    },
+    "depTime": "11:25:00",
+    "arrTime": "14:40:00",
+    "duration": "11:15:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Airbus A350-1000",
+      "icao": "A35K",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2023-12-21",
+    "flightNumber": "KL1007",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "London / Heathrow",
+      "iata": "LHR",
+      "icao": "EGLL"
+    },
+    "depTime": "08:35:00",
+    "arrTime": "09:00:00",
+    "duration": "01:30:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXB"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2023-09-07",
+    "flightNumber": "OS374",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "17:40:00",
+    "arrTime": "19:30:00",
+    "duration": "01:50:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "OE-LZE"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2023-07-30",
+    "flightNumber": "HV5422",
+    "from": {
+      "name": "Pisa / Galileo Galilei",
+      "iata": "PSA",
+      "icao": "LIRP"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "22:10:00",
+    "arrTime": "00:15:00",
+    "duration": "02:05:00",
+    "airline": {
+      "name": "Transavia Holland",
+      "iata": "HV",
+      "icao": "TRA"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2023-07-23",
+    "flightNumber": "HV5421",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Pisa / Galileo Galilei",
+      "iata": "PSA",
+      "icao": "LIRP"
+    },
+    "depTime": "19:30:00",
+    "arrTime": "21:25:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "",
+      "iata": "",
+      "icao": ""
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2023-06-03",
+    "flightNumber": "KL1576",
+    "from": {
+      "name": "Athens / Eleftherios Venizelos",
+      "iata": "ATH",
+      "icao": "LGAV"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "17:20:00",
+    "arrTime": "19:55:00",
+    "duration": "03:35:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BCL"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2023-06-01",
+    "flightNumber": "AF1532",
+    "from": {
+      "name": "Paris / Charles de Gaulle",
+      "iata": "CDG",
+      "icao": "LFPG"
+    },
+    "to": {
+      "name": "Athens / Eleftherios Venizelos",
+      "iata": "ATH",
+      "icao": "LGAV"
+    },
+    "depTime": "09:45:00",
+    "arrTime": "14:00:00",
+    "duration": "03:15:00",
+    "airline": {
+      "name": "Air France",
+      "iata": "AF",
+      "icao": "AFR"
+    },
+    "aircraft": {
+      "name": "Airbus A321",
+      "icao": "A321",
+      "registration": "OY-RUU"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2023-06-01",
+    "flightNumber": "AF8223",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Paris / Charles de Gaulle",
+      "iata": "CDG",
+      "icao": "LFPG"
+    },
+    "depTime": "06:35:00",
+    "arrTime": "07:55:00",
+    "duration": "01:20:00",
+    "airline": {
+      "name": "Air France",
+      "iata": "AF",
+      "icao": "AFR"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2023-03-29",
+    "flightNumber": "KL1980",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "18:55:00",
+    "arrTime": "21:00:00",
+    "duration": "02:05:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "7F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2023-03-22",
+    "flightNumber": "KL1981",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "21:40:00",
+    "arrTime": "23:40:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-900",
+      "icao": "B739",
+      "registration": "PH-BXP"
+    },
+    "seatNumber": "3A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2023-03-05",
+    "flightNumber": "",
+    "from": {
+      "name": "Hilversum / Hilversum airport",
+      "iata": "NA0",
+      "icao": "EHHV"
+    },
+    "to": {
+      "name": "Hilversum / Hilversum airport",
+      "iata": "NA0",
+      "icao": "EHHV"
+    },
+    "depTime": "14:40:00",
+    "arrTime": "16:40:00",
+    "duration": "00:15:00",
+    "airline": {
+      "name": "",
+      "iata": "",
+      "icao": ""
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": "PH-GYS"
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "5",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2023-06-18",
+    "flightNumber": "VY8304",
+    "from": {
+      "name": "Barcelona / El Prat",
+      "iata": "BCN",
+      "icao": "LEBL"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "18:15:00",
+    "arrTime": "20:45:00",
+    "duration": "02:30:00",
+    "airline": {
+      "name": "Vueling Airlines",
+      "iata": "VY",
+      "icao": "VLG"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "EC-MAI"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2023-06-18",
+    "flightNumber": "VY1252",
+    "from": {
+      "name": "Almeria / Almeria",
+      "iata": "LEI",
+      "icao": "LEAM"
+    },
+    "to": {
+      "name": "Barcelona / El Prat",
+      "iata": "BCN",
+      "icao": "LEBL"
+    },
+    "depTime": "14:10:00",
+    "arrTime": "15:35:00",
+    "duration": "01:25:00",
+    "airline": {
+      "name": "Vueling Airlines",
+      "iata": "VY",
+      "icao": "VLG"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "EC-LVS"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2023-04-17",
+    "flightNumber": "KL1840",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "09:20:00",
+    "arrTime": "11:15:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "3A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2023-04-11",
+    "flightNumber": "KL1849",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "20:35:00",
+    "arrTime": "22:20:00",
+    "duration": "01:45:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXH"
+    },
+    "seatNumber": "20F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2022-11-30",
+    "flightNumber": "KL1981",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "21:40:00",
+    "arrTime": "23:40:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "02A",
+    "seatType": "1",
+    "flightClass": "2",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2022-11-19",
+    "flightNumber": "HV5804",
+    "from": {
+      "name": "Tel Aviv / Ben Gurion",
+      "iata": "TLV",
+      "icao": "LLBG"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "19:35:00",
+    "arrTime": "23:45:00",
+    "duration": "05:10:00",
+    "airline": {
+      "name": "Transavia Holland",
+      "iata": "HV",
+      "icao": "TRA"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2022-11-05",
+    "flightNumber": "HV5803",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Tel Aviv / Ben Gurion",
+      "iata": "TLV",
+      "icao": "LLBG"
+    },
+    "depTime": "13:00:00",
+    "arrTime": "18:35:00",
+    "duration": "04:35:00",
+    "airline": {
+      "name": "Transavia Holland",
+      "iata": "HV",
+      "icao": "TRA"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "20A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2023-02-25",
+    "flightNumber": "KL1374",
+    "from": {
+      "name": "Bucharest / Henri Coanda",
+      "iata": "OTP",
+      "icao": "LROP"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "13:55:00",
+    "arrTime": "15:55:00",
+    "duration": "03:00:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BCB"
+    },
+    "seatNumber": "18A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2023-02-18",
+    "flightNumber": "KL1373",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Bucharest / Henri Coanda",
+      "iata": "OTP",
+      "icao": "LROP"
+    },
+    "depTime": "09:25:00",
+    "arrTime": "13:10:00",
+    "duration": "02:45:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BCK"
+    },
+    "seatNumber": "7F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2022-07-22",
+    "flightNumber": "OS376",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "20:00:00",
+    "arrTime": "21:50:00",
+    "duration": "01:50:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "OE-LXB"
+    },
+    "seatNumber": "22C",
+    "seatType": "3",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2022-07-31",
+    "flightNumber": "W64906",
+    "from": {
+      "name": "Sarmelleek / Balaton",
+      "iata": "SOB",
+      "icao": "LHSM"
+    },
+    "to": {
+      "name": "Dortmund / Wickede",
+      "iata": "DTM",
+      "icao": "EDLW"
+    },
+    "depTime": "11:10:00",
+    "arrTime": "13:00:00",
+    "duration": "01:50:00",
+    "airline": {
+      "name": "Wizz Air",
+      "iata": "W6",
+      "icao": "WZZ"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "HA-LYF"
+    },
+    "seatNumber": "",
+    "seatType": "3",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2022-05-18",
+    "flightNumber": "AF1495",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Paris / Charles de Gaulle",
+      "iata": "CDG",
+      "icao": "LFPG"
+    },
+    "depTime": "19:50:00",
+    "arrTime": "22:15:00",
+    "duration": "02:25:00",
+    "airline": {
+      "name": "Air France",
+      "iata": "AF",
+      "icao": "AFR"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "F-GKXV"
+    },
+    "seatNumber": "24A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2022-05-28",
+    "flightNumber": "U27957",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Malaga / Costa Del Sol",
+      "iata": "AGP",
+      "icao": "LEMG"
+    },
+    "depTime": "07:40:00",
+    "arrTime": "10:50:00",
+    "duration": "03:10:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "OE-IVR"
+    },
+    "seatNumber": "3F",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2022-06-11",
+    "flightNumber": "U27958",
+    "from": {
+      "name": "Malaga / Costa Del Sol",
+      "iata": "AGP",
+      "icao": "LEMG"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "11:25:00",
+    "arrTime": "14:30:00",
+    "duration": "03:05:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "OE-ICD"
+    },
+    "seatNumber": "4F",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2022-05-16",
+    "flightNumber": "W62316",
+    "from": {
+      "name": "Berlin / Brandenburg",
+      "iata": "BER",
+      "icao": "EDDB"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "08:20:00",
+    "arrTime": "09:45:00",
+    "duration": "01:25:00",
+    "airline": {
+      "name": "Wizz Air",
+      "iata": "W6",
+      "icao": "WZZ"
+    },
+    "aircraft": {
+      "name": "Airbus A321neo",
+      "icao": "A21N",
+      "registration": "HA-LVE"
+    },
+    "seatNumber": "3A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2022-02-18",
+    "flightNumber": "LO264",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Warsaw / Chopin (Okecie)",
+      "iata": "WAW",
+      "icao": "EPWA"
+    },
+    "depTime": "07:00:00",
+    "arrTime": "09:00:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "LOT",
+      "iata": "LO",
+      "icao": "LOT"
+    },
+    "aircraft": {
+      "name": "Embraer ERJ-190",
+      "icao": "E190",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2022-02-27",
+    "flightNumber": "LO263",
+    "from": {
+      "name": "Warsaw / Chopin (Okecie)",
+      "iata": "WAW",
+      "icao": "EPWA"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "20:15:00",
+    "arrTime": "22:25:00",
+    "duration": "02:10:00",
+    "airline": {
+      "name": "LOT",
+      "iata": "LO",
+      "icao": "LOT"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "17B",
+    "seatType": "2",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2022-04-19",
+    "flightNumber": "KL1290",
+    "from": {
+      "name": "Edinburgh / Edinburgh",
+      "iata": "EDI",
+      "icao": "EGPH"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "17:25:00",
+    "arrTime": "19:55:00",
+    "duration": "01:30:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXU"
+    },
+    "seatNumber": "10F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2022-04-13",
+    "flightNumber": "KL1293",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Edinburgh / Edinburgh",
+      "iata": "EDI",
+      "icao": "EGPH"
+    },
+    "depTime": "21:10:00",
+    "arrTime": "21:35:00",
+    "duration": "01:25:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "4B",
+    "seatType": "2",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2021-12-28",
+    "flightNumber": "U27946",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "20:45:00",
+    "arrTime": "22:45:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "Airbus A320-200",
+      "icao": "A320",
+      "registration": ""
+    },
+    "seatNumber": "4A",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2021-11-28",
+    "flightNumber": "HV5244",
+    "from": {
+      "name": "Lisbon / Portela",
+      "iata": "LIS",
+      "icao": "LPPT"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "18:35:00",
+    "arrTime": "22:40:00",
+    "duration": "03:05:00",
+    "airline": {
+      "name": "Transavia Holland",
+      "iata": "HV",
+      "icao": "TRA"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-HXI"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2021-11-24",
+    "flightNumber": "HV5951",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Lisbon / Portela",
+      "iata": "LIS",
+      "icao": "LPPT"
+    },
+    "depTime": "16:50:00",
+    "arrTime": "18:50:00",
+    "duration": "03:00:00",
+    "airline": {
+      "name": "Transavia Holland",
+      "iata": "HV",
+      "icao": "TRA"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-HXJ"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2021-12-24",
+    "flightNumber": "U27937",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "07:00:00",
+    "arrTime": "08:55:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "Airbus A319neo",
+      "icao": "A19N",
+      "registration": ""
+    },
+    "seatNumber": "5A",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2021-10-27",
+    "flightNumber": "KL1981",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "20:55:00",
+    "arrTime": "22:55:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXW"
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2021-11-01",
+    "flightNumber": "KL1978",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "17:05:00",
+    "arrTime": "19:15:00",
+    "duration": "02:10:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXM"
+    },
+    "seatNumber": "9F",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2021-09-15",
+    "flightNumber": "KL1974",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "11:35:00",
+    "arrTime": "13:40:00",
+    "duration": "02:05:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXV"
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "0",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2021-09-08",
+    "flightNumber": "KL1977",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "14:25:00",
+    "arrTime": "16:20:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXM"
+    },
+    "seatNumber": "1F",
+    "seatType": "1",
+    "flightClass": "2",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2020-08-02",
+    "flightNumber": "OS373",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "15:05:00",
+    "arrTime": "17:00:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Embraer ERJ-195",
+      "icao": "E195",
+      "registration": "OE-LWO"
+    },
+    "seatNumber": "20F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2020-07-31",
+    "flightNumber": "OS374",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "17:45:00",
+    "arrTime": "19:35:00",
+    "duration": "01:50:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Embraer ERJ-195",
+      "icao": "E195",
+      "registration": "OE-LWH"
+    },
+    "seatNumber": "24A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2020-06-26",
+    "flightNumber": "OS376",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "20:00:00",
+    "arrTime": "21:50:00",
+    "duration": "01:50:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Embraer ERJ-195",
+      "icao": "E195",
+      "registration": "OE-LWJ"
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2020-06-30",
+    "flightNumber": "OS375",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "17:20:00",
+    "arrTime": "19:15:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Airbus A319",
+      "icao": "A319",
+      "registration": "OE-LDA"
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2020-06-26",
+    "flightNumber": "LX734",
+    "from": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "17:20:00",
+    "arrTime": "19:00:00",
+    "duration": "01:40:00",
+    "airline": {
+      "name": "Swiss International Airlines",
+      "iata": "LX",
+      "icao": "SWR"
+    },
+    "aircraft": {
+      "name": "Bombardier CS300",
+      "icao": "BCS3",
+      "registration": "HB-JCO"
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2020-06-26",
+    "flightNumber": "LX1737",
+    "from": {
+      "name": "Rome / Leonardo da Vinci-Fiumicino",
+      "iata": "FCO",
+      "icao": "LIRF"
+    },
+    "to": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "depTime": "00:00:00",
+    "arrTime": "00:00:00",
+    "duration": "01:11:00",
+    "airline": {
+      "name": "Swiss European Airlines",
+      "iata": "LX",
+      "icao": "SWU"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2020-06-22",
+    "flightNumber": "LX1736",
+    "from": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "to": {
+      "name": "Rome / Leonardo da Vinci-Fiumicino",
+      "iata": "FCO",
+      "icao": "LIRF"
+    },
+    "depTime": "00:00:00",
+    "arrTime": "00:00:00",
+    "duration": "01:11:00",
+    "airline": {
+      "name": "Swiss European Airlines",
+      "iata": "LX",
+      "icao": "SWU"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2020-06-22",
+    "flightNumber": "LX725",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "depTime": "10:40:00",
+    "arrTime": "12:05:00",
+    "duration": "01:25:00",
+    "airline": {
+      "name": "Swiss International Airlines",
+      "iata": "LX",
+      "icao": "SWR"
+    },
+    "aircraft": {
+      "name": "Bombardier CS100",
+      "icao": "BCS1",
+      "registration": "HB-JBF"
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2020-02-27",
+    "flightNumber": "NZ103",
+    "from": {
+      "name": "Auckland / Mangere",
+      "iata": "AKL",
+      "icao": "NZAA"
+    },
+    "to": {
+      "name": "Sydney / Kingsford Smith",
+      "iata": "SYD",
+      "icao": "YSSY"
+    },
+    "depTime": "09:00:00",
+    "arrTime": "10:35:00",
+    "duration": "03:35:00",
+    "airline": {
+      "name": "Air New Zealand",
+      "iata": "NZ",
+      "icao": "ANZ"
+    },
+    "aircraft": {
+      "name": "Boeing 787-9",
+      "icao": "B789",
+      "registration": "ZK-NZL"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2020-02-20",
+    "flightNumber": "NZ706",
+    "from": {
+      "name": "Sydney / Kingsford Smith",
+      "iata": "SYD",
+      "icao": "YSSY"
+    },
+    "to": {
+      "name": "Auckland / Mangere",
+      "iata": "AKL",
+      "icao": "NZAA"
+    },
+    "depTime": "17:50:00",
+    "arrTime": "23:05:00",
+    "duration": "03:15:00",
+    "airline": {
+      "name": "Air New Zealand",
+      "iata": "NZ",
+      "icao": "ANZ"
+    },
+    "aircraft": {
+      "name": "Airbus A320neo",
+      "icao": "A20N",
+      "registration": "ZK-NHA"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2020-03-02",
+    "flightNumber": "EY77",
+    "from": {
+      "name": "Abu Dhabi / Abu Dhabi",
+      "iata": "AUH",
+      "icao": "OMAA"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "09:00:00",
+    "arrTime": "13:25:00",
+    "duration": "07:25:00",
+    "airline": {
+      "name": "Etihad Airways",
+      "iata": "EY",
+      "icao": "ETD"
+    },
+    "aircraft": {
+      "name": "Boeing 787-9",
+      "icao": "B789",
+      "registration": "A6-BLP"
+    },
+    "seatNumber": "36K",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2020-03-01",
+    "flightNumber": "EY455",
+    "from": {
+      "name": "Sydney / Kingsford Smith",
+      "iata": "SYD",
+      "icao": "YSSY"
+    },
+    "to": {
+      "name": "Abu Dhabi / Abu Dhabi",
+      "iata": "AUH",
+      "icao": "OMAA"
+    },
+    "depTime": "21:50:00",
+    "arrTime": "05:40:00",
+    "duration": "14:50:00",
+    "airline": {
+      "name": "Etihad Airways",
+      "iata": "EY",
+      "icao": "ETD"
+    },
+    "aircraft": {
+      "name": "Airbus A380-800",
+      "icao": "A388",
+      "registration": "A6-APG"
+    },
+    "seatNumber": "56K",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2020-02-17",
+    "flightNumber": "EY450",
+    "from": {
+      "name": "Abu Dhabi / Abu Dhabi",
+      "iata": "AUH",
+      "icao": "OMAA"
+    },
+    "to": {
+      "name": "Sydney / Kingsford Smith",
+      "iata": "SYD",
+      "icao": "YSSY"
+    },
+    "depTime": "09:50:00",
+    "arrTime": "06:30:00",
+    "duration": "13:40:00",
+    "airline": {
+      "name": "Etihad Airways",
+      "iata": "EY",
+      "icao": "ETD"
+    },
+    "aircraft": {
+      "name": "Boeing 777-300ER",
+      "icao": "B77W",
+      "registration": ""
+    },
+    "seatNumber": "42K",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2020-02-16",
+    "flightNumber": "EY78",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Abu Dhabi / Abu Dhabi",
+      "iata": "AUH",
+      "icao": "OMAA"
+    },
+    "depTime": "20:25:00",
+    "arrTime": "05:55:00",
+    "duration": "06:30:00",
+    "airline": {
+      "name": "Etihad Airways",
+      "iata": "EY",
+      "icao": "ETD"
+    },
+    "aircraft": {
+      "name": "Boeing 787-9",
+      "icao": "B789",
+      "registration": "A6-BLY"
+    },
+    "seatNumber": "37K",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-12-29",
+    "flightNumber": "OS377",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "20:15:00",
+    "arrTime": "22:15:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Embraer ERJ-195",
+      "icao": "E195",
+      "registration": "OE-LWH"
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-12-21",
+    "flightNumber": "VK6825",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "15:45:00",
+    "arrTime": "17:45:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "Virgin Express Ireland",
+      "iata": "VK",
+      "icao": "VEI"
+    },
+    "aircraft": {
+      "name": "Airbus A321",
+      "icao": "A321",
+      "registration": "OE-LCP"
+    },
+    "seatNumber": "3A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-12-20",
+    "flightNumber": "KL1742",
+    "from": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "14:45:00",
+    "arrTime": "16:00:00",
+    "duration": "01:15:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Embraer 175",
+      "icao": "E75S",
+      "registration": "PH-EXZ"
+    },
+    "seatNumber": "2F",
+    "seatType": "1",
+    "flightClass": "2",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2019-12-19",
+    "flightNumber": "KL1739",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "depTime": "09:25:00",
+    "arrTime": "10:20:00",
+    "duration": "00:55:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Embraer 175",
+      "icao": "E75S",
+      "registration": "PH-EXU"
+    },
+    "seatNumber": "7F",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2019-12-10",
+    "flightNumber": "KL1976",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "12:50:00",
+    "arrTime": "15:05:00",
+    "duration": "02:15:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-HSE"
+    },
+    "seatNumber": "6F",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2019-12-08",
+    "flightNumber": "KL1977",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "14:15:00",
+    "arrTime": "16:15:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXU"
+    },
+    "seatNumber": "3A",
+    "seatType": "1",
+    "flightClass": "2",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2019-11-27",
+    "flightNumber": "KL1742",
+    "from": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "14:45:00",
+    "arrTime": "16:00:00",
+    "duration": "01:15:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Embraer 175",
+      "icao": "E75S",
+      "registration": "PH-EXO"
+    },
+    "seatNumber": "1F",
+    "seatType": "1",
+    "flightClass": "2",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2019-11-24",
+    "flightNumber": "KL1741",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "depTime": "13:15:00",
+    "arrTime": "14:15:00",
+    "duration": "01:00:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Embraer 175",
+      "icao": "E75S",
+      "registration": "PH-EXP"
+    },
+    "seatNumber": "1F",
+    "seatType": "1",
+    "flightClass": "2",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2019-11-03",
+    "flightNumber": "U27946",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "20:55:00",
+    "arrTime": "22:55:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "OE-ICV"
+    },
+    "seatNumber": "3A",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2019-10-21",
+    "flightNumber": "KL1973",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "08:50:00",
+    "arrTime": "10:45:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXY"
+    },
+    "seatNumber": "1A",
+    "seatType": "1",
+    "flightClass": "2",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2019-09-30",
+    "flightNumber": "KL1972",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "06:30:00",
+    "arrTime": "08:40:00",
+    "duration": "02:10:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BGC"
+    },
+    "seatNumber": "26A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-09-27",
+    "flightNumber": "KL1977",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "14:25:00",
+    "arrTime": "16:20:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXW"
+    },
+    "seatNumber": "6A",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-09-16",
+    "flightNumber": "KL1972",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "06:30:00",
+    "arrTime": "08:40:00",
+    "duration": "02:10:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-HSD"
+    },
+    "seatNumber": "24F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2019-09-13",
+    "flightNumber": "KL1975",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "11:20:00",
+    "arrTime": "13:15:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-900",
+      "icao": "B739",
+      "registration": "PH-BXR"
+    },
+    "seatNumber": "9F",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2019-06-10",
+    "flightNumber": "OS379",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "10:40:00",
+    "arrTime": "12:40:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Embraer ERJ-195",
+      "icao": "E195",
+      "registration": "OE-LWA"
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-06-07",
+    "flightNumber": "OS374",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "17:45:00",
+    "arrTime": "19:40:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "OE-LXB"
+    },
+    "seatNumber": "30A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-05-12",
+    "flightNumber": "U24561",
+    "from": {
+      "name": "Berlin / Schonefeld",
+      "iata": "SXF",
+      "icao": "EDDB"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "06:30:00",
+    "arrTime": "08:00:00",
+    "duration": "01:30:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "OE-IVL"
+    },
+    "seatNumber": "1A",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-05-10",
+    "flightNumber": "U24566",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Berlin / Schonefeld",
+      "iata": "SXF",
+      "icao": "EDDB"
+    },
+    "depTime": "18:00:00",
+    "arrTime": "19:30:00",
+    "duration": "01:30:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "Airbus A319",
+      "icao": "A319",
+      "registration": "OE-LKP"
+    },
+    "seatNumber": "2F",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-04-22",
+    "flightNumber": "KL1742",
+    "from": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "14:25:00",
+    "arrTime": "15:30:00",
+    "duration": "01:05:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Embraer 175",
+      "icao": "E75L",
+      "registration": "PH-EXZ"
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-04-19",
+    "flightNumber": "KL1741",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "depTime": "13:00:00",
+    "arrTime": "14:00:00",
+    "duration": "01:00:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Embraer 175",
+      "icao": "E75L",
+      "registration": "PH-EXJ"
+    },
+    "seatNumber": "17F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-04-05",
+    "flightNumber": "KL1978",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "17:05:00",
+    "arrTime": "19:15:00",
+    "duration": "02:10:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXL"
+    },
+    "seatNumber": "27A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2019-03-31",
+    "flightNumber": "KL1973",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "08:50:00",
+    "arrTime": "10:45:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-900",
+      "icao": "B739",
+      "registration": "PH-BXR"
+    },
+    "seatNumber": "9A",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2019-04-17",
+    "flightNumber": "LX728",
+    "from": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "12:30:00",
+    "arrTime": "14:10:00",
+    "duration": "01:40:00",
+    "airline": {
+      "name": "Swiss International Airlines",
+      "iata": "LX",
+      "icao": "SWR"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "HB-JLP"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-04-17",
+    "flightNumber": "LX197",
+    "from": {
+      "name": "Beijing / Peking-Capital",
+      "iata": "PEK",
+      "icao": "ZBAA"
+    },
+    "to": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "depTime": "06:45:00",
+    "arrTime": "11:20:00",
+    "duration": "10:55:00",
+    "airline": {
+      "name": "Swiss International Airlines",
+      "iata": "LX",
+      "icao": "SWR"
+    },
+    "aircraft": {
+      "name": "Airbus A330-300",
+      "icao": "A333",
+      "registration": "HB-JHH"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-04-16",
+    "flightNumber": "JS151",
+    "from": {
+      "name": "Pyongyang / Sunan",
+      "iata": "FNJ",
+      "icao": "ZKPY"
+    },
+    "to": {
+      "name": "Beijing / Peking-Capital",
+      "iata": "PEK",
+      "icao": "ZBAA"
+    },
+    "depTime": "08:55:00",
+    "arrTime": "09:55:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "Air Koryo",
+      "iata": "JS",
+      "icao": "KOR"
+    },
+    "aircraft": {
+      "name": "Tupolev TU-204",
+      "icao": "T204",
+      "registration": "P-633"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-04-13",
+    "flightNumber": "JS152",
+    "from": {
+      "name": "Beijing / Peking-Capital",
+      "iata": "PEK",
+      "icao": "ZBAA"
+    },
+    "to": {
+      "name": "Pyongyang / Sunan",
+      "iata": "FNJ",
+      "icao": "ZKPY"
+    },
+    "depTime": "13:05:00",
+    "arrTime": "15:55:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "Air Koryo",
+      "iata": "JS",
+      "icao": "KOR"
+    },
+    "aircraft": {
+      "name": "Tupolev TU-204",
+      "icao": "T204",
+      "registration": "P-633"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-04-10",
+    "flightNumber": "LX196",
+    "from": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "to": {
+      "name": "Beijing / Peking-Capital",
+      "iata": "PEK",
+      "icao": "ZBAA"
+    },
+    "depTime": "12:30:00",
+    "arrTime": "05:15:00",
+    "duration": "09:45:00",
+    "airline": {
+      "name": "Swiss International Airlines",
+      "iata": "LX",
+      "icao": "SWR"
+    },
+    "aircraft": {
+      "name": "Airbus A330-300",
+      "icao": "A333",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-04-10",
+    "flightNumber": "LX725",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "depTime": "09:45:00",
+    "arrTime": "11:10:00",
+    "duration": "01:30:00",
+    "airline": {
+      "name": "Swiss International Airlines",
+      "iata": "LX",
+      "icao": "SWR"
+    },
+    "aircraft": {
+      "name": "Airbus A321",
+      "icao": "A321",
+      "registration": "HB-IOO"
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-02-08",
+    "flightNumber": "U27945",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "18:00:00",
+    "arrTime": "19:55:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "Airbus A319",
+      "icao": "A319",
+      "registration": "G-EZAT"
+    },
+    "seatNumber": "2A",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2019-03-01",
+    "flightNumber": "VY8319",
+    "from": {
+      "name": "Barcelona / El Prat",
+      "iata": "BCN",
+      "icao": "LEBL"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "10:05:00",
+    "arrTime": "12:35:00",
+    "duration": "02:30:00",
+    "airline": {
+      "name": "Vueling Airlines",
+      "iata": "VY",
+      "icao": "VLG"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": "EC-LRM"
+    },
+    "seatNumber": "23F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-02-25",
+    "flightNumber": "HV5131",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Barcelona / El Prat",
+      "iata": "BCN",
+      "icao": "LEBL"
+    },
+    "depTime": "07:00:00",
+    "arrTime": "09:15:00",
+    "duration": "02:15:00",
+    "airline": {
+      "name": "Transavia Holland",
+      "iata": "HV",
+      "icao": "TRA"
+    },
+    "aircraft": {
+      "name": "Boeing 737-700",
+      "icao": "B737",
+      "registration": "PH-XRY"
+    },
+    "seatNumber": "9F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-02-13",
+    "flightNumber": "KL1972",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "06:30:00",
+    "arrTime": "08:50:00",
+    "duration": "02:20:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXI"
+    },
+    "seatNumber": "2F",
+    "seatType": "1",
+    "flightClass": "2",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2018-07-13",
+    "flightNumber": "LH2305",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Munich / Franz Josef Strauss",
+      "iata": "MUC",
+      "icao": "EDDM"
+    },
+    "depTime": "14:35:00",
+    "arrTime": "15:55:00",
+    "duration": "01:20:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": "D-ACNG"
+    },
+    "seatNumber": "23F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-10-09",
+    "flightNumber": "KL1776",
+    "from": {
+      "name": "Hamburg / Fuhlsbuttel",
+      "iata": "HAM",
+      "icao": "EDDH"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "06:15:00",
+    "arrTime": "07:20:00",
+    "duration": "01:05:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BCD"
+    },
+    "seatNumber": "26A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2017-05-27",
+    "flightNumber": "KL1846",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "12:15:00",
+    "arrTime": "14:10:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2019-01-20",
+    "flightNumber": "U27946",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "16:05:00",
+    "arrTime": "18:05:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "Airbus A320-200",
+      "icao": "A320",
+      "registration": "G-EZTT"
+    },
+    "seatNumber": "2F",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2019-01-14",
+    "flightNumber": "U27915",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "08:15:00",
+    "arrTime": "10:25:00",
+    "duration": "02:10:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": "OE-LKK"
+    },
+    "seatNumber": "2A",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2016-11-20",
+    "flightNumber": "LH456",
+    "from": {
+      "name": "Frankfurt am Main / Frankfurt",
+      "iata": "FRA",
+      "icao": "EDDF"
+    },
+    "to": {
+      "name": "Los Angeles / Los Angeles International",
+      "iata": "LAX",
+      "icao": "KLAX"
+    },
+    "depTime": "10:25:00",
+    "arrTime": "13:20:00",
+    "duration": "11:55:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2016-10-28",
+    "flightNumber": "BA418",
+    "from": {
+      "name": "London / Heathrow",
+      "iata": "LHR",
+      "icao": "EGLL"
+    },
+    "to": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "depTime": "15:30:00",
+    "arrTime": "17:55:00",
+    "duration": "01:25:00",
+    "airline": {
+      "name": "British Airways",
+      "iata": "BA",
+      "icao": "BAW"
+    },
+    "aircraft": {
+      "name": "Airbus A320-200",
+      "icao": "A320",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2016-10-27",
+    "flightNumber": "NZ002",
+    "from": {
+      "name": "Los Angeles / Los Angeles International",
+      "iata": "LAX",
+      "icao": "KLAX"
+    },
+    "to": {
+      "name": "London / Heathrow",
+      "iata": "LHR",
+      "icao": "EGLL"
+    },
+    "depTime": "17:00:00",
+    "arrTime": "11:30:00",
+    "duration": "10:30:00",
+    "airline": {
+      "name": "Air New Zealand",
+      "iata": "NZ",
+      "icao": "ANZ"
+    },
+    "aircraft": {
+      "name": "Boeing 777-300",
+      "icao": "B773",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2016-08-01",
+    "flightNumber": "NZ001",
+    "from": {
+      "name": "London / Heathrow",
+      "iata": "LHR",
+      "icao": "EGLL"
+    },
+    "to": {
+      "name": "Los Angeles / Los Angeles International",
+      "iata": "LAX",
+      "icao": "KLAX"
+    },
+    "depTime": "16:15:00",
+    "arrTime": "19:25:00",
+    "duration": "11:10:00",
+    "airline": {
+      "name": "Air New Zealand",
+      "iata": "NZ",
+      "icao": "ANZ"
+    },
+    "aircraft": {
+      "name": "Boeing 777-300",
+      "icao": "B773",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2016-08-01",
+    "flightNumber": "BA417",
+    "from": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "to": {
+      "name": "London / Heathrow",
+      "iata": "LHR",
+      "icao": "EGLL"
+    },
+    "depTime": "11:15:00",
+    "arrTime": "11:45:00",
+    "duration": "01:30:00",
+    "airline": {
+      "name": "British Airways",
+      "iata": "BA",
+      "icao": "BAW"
+    },
+    "aircraft": {
+      "name": "Airbus A320-200",
+      "icao": "A320",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2016-07-10",
+    "flightNumber": "LG8852",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "depTime": "09:40:00",
+    "arrTime": "11:25:00",
+    "duration": "01:45:00",
+    "airline": {
+      "name": "Luxair",
+      "iata": "LG",
+      "icao": "LGL"
+    },
+    "aircraft": {
+      "name": "Bombardier Dash 8-400",
+      "icao": "DH8D",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2017-10-27",
+    "flightNumber": "OS373",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "15:05:00",
+    "arrTime": "17:00:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2017-10-24",
+    "flightNumber": "OS374",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "17:45:00",
+    "arrTime": "19:35:00",
+    "duration": "01:50:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2017-09-27",
+    "flightNumber": "BA0434",
+    "from": {
+      "name": "London / Heathrow",
+      "iata": "LHR",
+      "icao": "EGLL"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "11:45:00",
+    "arrTime": "14:05:00",
+    "duration": "01:20:00",
+    "airline": {
+      "name": "British Airways",
+      "iata": "BA",
+      "icao": "BAW"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2017-09-26",
+    "flightNumber": "BA1529",
+    "from": {
+      "name": "Miami / Miami International",
+      "iata": "MIA",
+      "icao": "KMIA"
+    },
+    "to": {
+      "name": "London / Heathrow",
+      "iata": "LHR",
+      "icao": "EGLL"
+    },
+    "depTime": "19:30:00",
+    "arrTime": "09:15:00",
+    "duration": "08:45:00",
+    "airline": {
+      "name": "British Airways",
+      "iata": "BA",
+      "icao": "BAW"
+    },
+    "aircraft": {
+      "name": "Boeing 777-300ER",
+      "icao": "B77W",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2017-09-22",
+    "flightNumber": "VX1334",
+    "from": {
+      "name": "Los Angeles / Los Angeles International",
+      "iata": "LAX",
+      "icao": "KLAX"
+    },
+    "to": {
+      "name": "Fort Lauderdale / Hollywood",
+      "iata": "FLL",
+      "icao": "KFLL"
+    },
+    "depTime": "09:45:00",
+    "arrTime": "17:56:00",
+    "duration": "05:11:00",
+    "airline": {
+      "name": "Virgin America",
+      "iata": "VX",
+      "icao": "VRD"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "18B",
+    "seatType": "2",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2017-09-21",
+    "flightNumber": "VX1321",
+    "from": {
+      "name": "Fort Lauderdale / Hollywood",
+      "iata": "FLL",
+      "icao": "KFLL"
+    },
+    "to": {
+      "name": "Los Angeles / Los Angeles International",
+      "iata": "LAX",
+      "icao": "KLAX"
+    },
+    "depTime": "07:05:00",
+    "arrTime": "09:31:00",
+    "duration": "05:26:00",
+    "airline": {
+      "name": "Virgin America",
+      "iata": "VX",
+      "icao": "VRD"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "21C",
+    "seatType": "3",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2017-09-19",
+    "flightNumber": "IB6123",
+    "from": {
+      "name": "Madrid / Barajas",
+      "iata": "MAD",
+      "icao": "LEMD"
+    },
+    "to": {
+      "name": "Miami / Miami International",
+      "iata": "MIA",
+      "icao": "KMIA"
+    },
+    "depTime": "12:00:00",
+    "arrTime": "15:55:00",
+    "duration": "09:55:00",
+    "airline": {
+      "name": "Iberia",
+      "iata": "IB",
+      "icao": "IBE"
+    },
+    "aircraft": {
+      "name": "Airbus A330",
+      "icao": "A330",
+      "registration": ""
+    },
+    "seatNumber": "21C",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2017-09-19",
+    "flightNumber": "IB3721",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Madrid / Barajas",
+      "iata": "MAD",
+      "icao": "LEMD"
+    },
+    "depTime": "08:00:00",
+    "arrTime": "10:40:00",
+    "duration": "02:40:00",
+    "airline": {
+      "name": "Iberia",
+      "iata": "IB",
+      "icao": "IBE"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2017-09-05",
+    "flightNumber": "W62525",
+    "from": {
+      "name": "Riga / Riga",
+      "iata": "RIX",
+      "icao": "EVRA"
+    },
+    "to": {
+      "name": "Eindhoven / Eindhoven",
+      "iata": "EIN",
+      "icao": "EHEH"
+    },
+    "depTime": "07:10:00",
+    "arrTime": "08:40:00",
+    "duration": "02:30:00",
+    "airline": {
+      "name": "Wizz Air",
+      "iata": "W6",
+      "icao": "WZZ"
+    },
+    "aircraft": {
+      "name": "Airbus A320-200",
+      "icao": "A320",
+      "registration": ""
+    },
+    "seatNumber": "26F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2017-08-31",
+    "flightNumber": "W62526",
+    "from": {
+      "name": "Eindhoven / Eindhoven",
+      "iata": "EIN",
+      "icao": "EHEH"
+    },
+    "to": {
+      "name": "Riga / Riga",
+      "iata": "RIX",
+      "icao": "EVRA"
+    },
+    "depTime": "09:25:00",
+    "arrTime": "12:35:00",
+    "duration": "02:10:00",
+    "airline": {
+      "name": "Wizz Air",
+      "iata": "W6",
+      "icao": "WZZ"
+    },
+    "aircraft": {
+      "name": "Airbus A320-200",
+      "icao": "A320",
+      "registration": ""
+    },
+    "seatNumber": "25A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2017-05-20",
+    "flightNumber": "KL1839",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "05:20:00",
+    "arrTime": "08:40:00",
+    "duration": "03:20:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2017-04-23",
+    "flightNumber": "EZY4561",
+    "from": {
+      "name": "Berlin / Schonefeld",
+      "iata": "SXF",
+      "icao": "EDDB"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "06:30:00",
+    "arrTime": "08:00:00",
+    "duration": "01:30:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "22A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2017-04-21",
+    "flightNumber": "EZY4566",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Berlin / Schonefeld",
+      "iata": "SXF",
+      "icao": "EDDB"
+    },
+    "depTime": "18:00:00",
+    "arrTime": "19:30:00",
+    "duration": "01:30:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "20A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2017-02-15",
+    "flightNumber": "LH475",
+    "from": {
+      "name": "Los Angeles / Los Angeles International",
+      "iata": "LAX",
+      "icao": "KLAX"
+    },
+    "to": {
+      "name": "Munich / Franz Josef Strauss",
+      "iata": "MUC",
+      "icao": "EDDM"
+    },
+    "depTime": "15:15:00",
+    "arrTime": "11:10:00",
+    "duration": "10:55:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "Airbus A330-300",
+      "icao": "A333",
+      "registration": ""
+    },
+    "seatNumber": "66K",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2018-12-28",
+    "flightNumber": "KL936",
+    "from": {
+      "name": "Dublin / Dublin",
+      "iata": "DUB",
+      "icao": "EIDW"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "13:25:00",
+    "arrTime": "16:05:00",
+    "duration": "01:40:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXY"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-12-21",
+    "flightNumber": "LG4883",
+    "from": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "to": {
+      "name": "Dublin / Dublin",
+      "iata": "DUB",
+      "icao": "EIDW"
+    },
+    "depTime": "17:50:00",
+    "arrTime": "18:50:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "Luxair",
+      "iata": "LG",
+      "icao": "LGL"
+    },
+    "aircraft": {
+      "name": "Boeing 737-700",
+      "icao": "B737",
+      "registration": "LX-LGS"
+    },
+    "seatNumber": "4F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-12-20",
+    "flightNumber": "KL1741",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "depTime": "13:15:00",
+    "arrTime": "14:15:00",
+    "duration": "01:00:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Embraer ERJ-175",
+      "icao": "E175",
+      "registration": "PH-EXM"
+    },
+    "seatNumber": "16F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2018-11-25",
+    "flightNumber": "LH992",
+    "from": {
+      "name": "Frankfurt am Main / Frankfurt",
+      "iata": "FRA",
+      "icao": "EDDF"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "12:20:00",
+    "arrTime": "13:30:00",
+    "duration": "01:10:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "Airbus A321-100",
+      "icao": "A321",
+      "registration": "D-AIRY"
+    },
+    "seatNumber": "28A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": "Die Maus Sticker"
+  },
+  {
+    "date": "2018-11-25",
+    "flightNumber": "LH161",
+    "from": {
+      "name": "Leipzig Halle / Schkeuditz",
+      "iata": "LEJ",
+      "icao": "EDDP"
+    },
+    "to": {
+      "name": "Frankfurt am Main / Frankfurt",
+      "iata": "FRA",
+      "icao": "EDDF"
+    },
+    "depTime": "10:30:00",
+    "arrTime": "11:30:00",
+    "duration": "01:00:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "Embraer ERJ-190",
+      "icao": "E190",
+      "registration": "D-AECB"
+    },
+    "seatNumber": "26F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-11-23",
+    "flightNumber": "LH2168",
+    "from": {
+      "name": "Munich / Franz Josef Strauss",
+      "iata": "MUC",
+      "icao": "EDDM"
+    },
+    "to": {
+      "name": "Leipzig Halle / Schkeuditz",
+      "iata": "LEJ",
+      "icao": "EDDP"
+    },
+    "depTime": "14:20:00",
+    "arrTime": "15:15:00",
+    "duration": "00:55:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "Bombardier CRJ-900",
+      "icao": "CRJ9",
+      "registration": "D-ACNH"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-11-23",
+    "flightNumber": "LH2301",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Munich / Franz Josef Strauss",
+      "iata": "MUC",
+      "icao": "EDDM"
+    },
+    "depTime": "08:55:00",
+    "arrTime": "10:15:00",
+    "duration": "01:20:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "Airbus A319-100",
+      "icao": "A319",
+      "registration": "S5-AAP"
+    },
+    "seatNumber": "18A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-10-08",
+    "flightNumber": "OFD075",
+    "from": {
+      "name": "Helgoland / Helgoland",
+      "iata": "HGL",
+      "icao": "EDXH"
+    },
+    "to": {
+      "name": "Cuxhaven / Nordholz Sea Airport",
+      "iata": "FCN",
+      "icao": "ETMN"
+    },
+    "depTime": "15:30:00",
+    "arrTime": "15:50:00",
+    "duration": "00:20:00",
+    "airline": {
+      "name": "",
+      "iata": "",
+      "icao": ""
+    },
+    "aircraft": {
+      "name": "Britten-Norman BN-2 Islander",
+      "icao": "BN2P",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-10-05",
+    "flightNumber": "OFD076",
+    "from": {
+      "name": "Cuxhaven / Nordholz Sea Airport",
+      "iata": "FCN",
+      "icao": "ETMN"
+    },
+    "to": {
+      "name": "Helgoland / Helgoland",
+      "iata": "HGL",
+      "icao": "EDXH"
+    },
+    "depTime": "16:20:00",
+    "arrTime": "16:40:00",
+    "duration": "00:20:00",
+    "airline": {
+      "name": "",
+      "iata": "",
+      "icao": ""
+    },
+    "aircraft": {
+      "name": "Britten-Norman BN-2 Islander",
+      "icao": "BN2P",
+      "registration": "D-IOLK"
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-10-05",
+    "flightNumber": "KL1777",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Hamburg / Fuhlsbuttel",
+      "iata": "HAM",
+      "icao": "EDDH"
+    },
+    "depTime": "08:25:00",
+    "arrTime": "09:30:00",
+    "duration": "01:05:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-700",
+      "icao": "B737",
+      "registration": "YR-FKA"
+    },
+    "seatNumber": "17F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-10-04",
+    "flightNumber": "KL1978",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "17:05:00",
+    "arrTime": "19:15:00",
+    "duration": "02:10:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXH"
+    },
+    "seatNumber": "6A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2018-09-30",
+    "flightNumber": "KL1981",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "21:05:00",
+    "arrTime": "23:05:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BCA"
+    },
+    "seatNumber": "24F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2018-09-16",
+    "flightNumber": "U27946",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "16:05:00",
+    "arrTime": "18:05:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "Airbus A320-200",
+      "icao": "A320",
+      "registration": "G-EZUO"
+    },
+    "seatNumber": "3A",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-09-14",
+    "flightNumber": "U27945",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "18:00:00",
+    "arrTime": "19:55:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": "G-EZUO"
+    },
+    "seatNumber": "2F",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-09-13",
+    "flightNumber": "HV5194",
+    "from": {
+      "name": "Paris / Orly",
+      "iata": "ORY",
+      "icao": "LFPO"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "20:50:00",
+    "arrTime": "22:05:00",
+    "duration": "01:15:00",
+    "airline": {
+      "name": "Transavia Holland",
+      "iata": "HV",
+      "icao": "TRA"
+    },
+    "aircraft": {
+      "name": "Boeing 737-700",
+      "icao": "B737",
+      "registration": "PH-HXM"
+    },
+    "seatNumber": "",
+    "seatType": "0",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-09-12",
+    "flightNumber": "TO4011",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Paris / Orly",
+      "iata": "ORY",
+      "icao": "LFPO"
+    },
+    "depTime": "08:55:00",
+    "arrTime": "10:15:00",
+    "duration": "01:20:00",
+    "airline": {
+      "name": "Transavia.com France",
+      "iata": "TO",
+      "icao": "TVF"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "TVF47SQ"
+    },
+    "seatNumber": "3F",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-07-28",
+    "flightNumber": "KL1626",
+    "from": {
+      "name": "Florence / Peretola",
+      "iata": "FLR",
+      "icao": "LIRQ"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "22:00:00",
+    "arrTime": "00:00:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Embraer ERJ-190",
+      "icao": "E190",
+      "registration": "PH-EZK"
+    },
+    "seatNumber": "2A",
+    "seatType": "1",
+    "flightClass": "4",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-07-21",
+    "flightNumber": "KL1647",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Florence / Peretola",
+      "iata": "FLR",
+      "icao": "LIRQ"
+    },
+    "depTime": "21:00:00",
+    "arrTime": "23:00:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Embraer ERJ-190",
+      "icao": "E190",
+      "registration": "PH-EZE"
+    },
+    "seatNumber": "3F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-07-15",
+    "flightNumber": "OS373",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "15:05:00",
+    "arrTime": "17:00:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Airbus A320-200",
+      "icao": "A320",
+      "registration": "OE-LXE"
+    },
+    "seatNumber": "26F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-07-15",
+    "flightNumber": "OS714",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "11:15:00",
+    "arrTime": "12:05:00",
+    "duration": "00:50:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Bombardier Dash 8-400",
+      "icao": "DH8D",
+      "registration": "S6-AAL"
+    },
+    "seatNumber": "6D",
+    "seatType": "2",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-07-13",
+    "flightNumber": "LH1680",
+    "from": {
+      "name": "Munich / Franz Josef Strauss",
+      "iata": "MUC",
+      "icao": "EDDM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "18:55:00",
+    "arrTime": "20:10:00",
+    "duration": "01:15:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "Bombardier CRJ-900",
+      "icao": "CRJ9",
+      "registration": "D-AIZB"
+    },
+    "seatNumber": "18F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-06-24",
+    "flightNumber": "KL1978",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "17:05:00",
+    "arrTime": "19:15:00",
+    "duration": "02:10:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXC"
+    },
+    "seatNumber": "4A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2018-06-18",
+    "flightNumber": "KL1973",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "08:55:00",
+    "arrTime": "10:45:00",
+    "duration": "01:50:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXC"
+    },
+    "seatNumber": "6F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2018-03-06",
+    "flightNumber": "KL868",
+    "from": {
+      "name": "Osaka / Kansai",
+      "iata": "KIX",
+      "icao": "RJBB"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "11:00:00",
+    "arrTime": "15:00:00",
+    "duration": "12:00:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 787-9",
+      "icao": "B789",
+      "registration": "PH-BHI"
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-05-06",
+    "flightNumber": "NH93",
+    "from": {
+      "name": "Tokyo / Haneda",
+      "iata": "HND",
+      "icao": "RJTT"
+    },
+    "to": {
+      "name": "Osaka / Kansai",
+      "iata": "KIX",
+      "icao": "RJBB"
+    },
+    "depTime": "07:15:00",
+    "arrTime": "08:40:00",
+    "duration": "01:25:00",
+    "airline": {
+      "name": "All Nippon Airways",
+      "iata": "NH",
+      "icao": "ANA"
+    },
+    "aircraft": {
+      "name": "Boeing 737",
+      "icao": "B73X",
+      "registration": "JA213A"
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-04-26",
+    "flightNumber": "KL861",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Tokyo / Narita",
+      "iata": "NRT",
+      "icao": "RJAA"
+    },
+    "depTime": "14:35:00",
+    "arrTime": "09:45:00",
+    "duration": "11:10:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 777-200",
+      "icao": "B772",
+      "registration": "PH-BVO"
+    },
+    "seatNumber": "38A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-04-15",
+    "flightNumber": "U27946",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "16:05:00",
+    "arrTime": "18:05:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "Airbus A320-200",
+      "icao": "A320",
+      "registration": "G-EZOZ"
+    },
+    "seatNumber": "24A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-04-13",
+    "flightNumber": "U27945",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "18:00:00",
+    "arrTime": "19:55:00",
+    "duration": "01:55:00",
+    "airline": {
+      "name": "Easyjet",
+      "iata": "U2",
+      "icao": "EZY"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "23A",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-03-25",
+    "flightNumber": "KL1976",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "12:50:00",
+    "arrTime": "15:05:00",
+    "duration": "02:15:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "24F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2018-03-19",
+    "flightNumber": "KL1975",
+    "from": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "10:05:00",
+    "arrTime": "12:05:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BXD"
+    },
+    "seatNumber": "17F",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2018-01-08",
+    "flightNumber": "KL1972",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Amsterdam / Schiphol",
+      "iata": "AMS",
+      "icao": "EHAM"
+    },
+    "depTime": "06:30:00",
+    "arrTime": "08:50:00",
+    "duration": "02:20:00",
+    "airline": {
+      "name": "KLM Royal Dutch Airlines",
+      "iata": "KL",
+      "icao": "KLM"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": "PH-BGU"
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2013-11-10",
+    "flightNumber": "LH2320",
+    "from": {
+      "name": "Munich / Franz Josef Strauss",
+      "iata": "MUC",
+      "icao": "EDDM"
+    },
+    "to": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "depTime": "10:55:00",
+    "arrTime": "12:05:00",
+    "duration": "01:10:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "Bombardier CRJ-900",
+      "icao": "CRJ9",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "2",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2013-11-10",
+    "flightNumber": "LH1685",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Munich / Franz Josef Strauss",
+      "iata": "MUC",
+      "icao": "EDDM"
+    },
+    "depTime": "06:25:00",
+    "arrTime": "07:45:00",
+    "duration": "01:20:00",
+    "airline": {
+      "name": "Lufthansa CityLine",
+      "iata": "CL",
+      "icao": "CLH"
+    },
+    "aircraft": {
+      "name": "Airbus A320",
+      "icao": "A320",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "2",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2016-05-09",
+    "flightNumber": "LH1680",
+    "from": {
+      "name": "Munich / Franz Josef Strauss",
+      "iata": "MUC",
+      "icao": "EDDM"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "18:30:00",
+    "arrTime": "19:40:00",
+    "duration": "01:10:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "2",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2016-05-09",
+    "flightNumber": "LH2321",
+    "from": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "to": {
+      "name": "Munich / Franz Josef Strauss",
+      "iata": "MUC",
+      "icao": "EDDM"
+    },
+    "depTime": "16:45:00",
+    "arrTime": "17:50:00",
+    "duration": "01:05:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "Bombardier CRJ-900",
+      "icao": "CRJ9",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2016-05-14",
+    "flightNumber": "LH394",
+    "from": {
+      "name": "Frankfurt am Main / Frankfurt",
+      "iata": "FRA",
+      "icao": "EDDF"
+    },
+    "to": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "depTime": "12:55:00",
+    "arrTime": "13:45:00",
+    "duration": "00:50:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "Bombardier CRJ-900",
+      "icao": "CRJ9",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2016-05-14",
+    "flightNumber": "LH1335",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Frankfurt am Main / Frankfurt",
+      "iata": "FRA",
+      "icao": "EDDF"
+    },
+    "depTime": "09:25:00",
+    "arrTime": "11:10:00",
+    "duration": "01:45:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "2",
+    "note": ""
+  },
+  {
+    "date": "2016-07-02",
+    "flightNumber": "LG8857",
+    "from": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "17:40:00",
+    "arrTime": "19:30:00",
+    "duration": "01:50:00",
+    "airline": {
+      "name": "Luxair",
+      "iata": "LG",
+      "icao": "LGL"
+    },
+    "aircraft": {
+      "name": "Bombardier Dash 8-400",
+      "icao": "DH8D",
+      "registration": "LXLQD"
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2016-03-13",
+    "flightNumber": "LH2322",
+    "from": {
+      "name": "Munich / Franz Josef Strauss",
+      "iata": "MUC",
+      "icao": "EDDM"
+    },
+    "to": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "depTime": "18:30:00",
+    "arrTime": "19:35:00",
+    "duration": "01:05:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "Bombardier CRJ-900",
+      "icao": "CRJ9",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2016-03-13",
+    "flightNumber": "LH715",
+    "from": {
+      "name": "Tokyo / Haneda",
+      "iata": "HND",
+      "icao": "RJTT"
+    },
+    "to": {
+      "name": "Munich / Franz Josef Strauss",
+      "iata": "MUC",
+      "icao": "EDDM"
+    },
+    "depTime": "12:35:00",
+    "arrTime": "17:40:00",
+    "duration": "12:05:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "Airbus A340-600",
+      "icao": "A346",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2016-03-04",
+    "flightNumber": "LH716",
+    "from": {
+      "name": "Frankfurt am Main / Frankfurt",
+      "iata": "FRA",
+      "icao": "EDDF"
+    },
+    "to": {
+      "name": "Tokyo / Haneda",
+      "iata": "HND",
+      "icao": "RJTT"
+    },
+    "depTime": "18:05:00",
+    "arrTime": "12:15:00",
+    "duration": "11:10:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2016-03-04",
+    "flightNumber": "LH395",
+    "from": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "to": {
+      "name": "Frankfurt am Main / Frankfurt",
+      "iata": "FRA",
+      "icao": "EDDF"
+    },
+    "depTime": "14:20:00",
+    "arrTime": "15:10:00",
+    "duration": "00:50:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "Bombardier CRJ-900",
+      "icao": "CRJ9",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2016-02-01",
+    "flightNumber": "FR758",
+    "from": {
+      "name": "London / Stansted",
+      "iata": "STN",
+      "icao": "EGSS"
+    },
+    "to": {
+      "name": "Hahn / Hahn",
+      "iata": "HHN",
+      "icao": "EDFH"
+    },
+    "depTime": "19:35:00",
+    "arrTime": "22:00:00",
+    "duration": "01:25:00",
+    "airline": {
+      "name": "Ryanair",
+      "iata": "FR",
+      "icao": "RYR"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2016-01-29",
+    "flightNumber": "FR753",
+    "from": {
+      "name": "Hahn / Hahn",
+      "iata": "HHN",
+      "icao": "EDFH"
+    },
+    "to": {
+      "name": "London / Stansted",
+      "iata": "STN",
+      "icao": "EGSS"
+    },
+    "depTime": "06:30:00",
+    "arrTime": "06:50:00",
+    "duration": "01:20:00",
+    "airline": {
+      "name": "Ryanair",
+      "iata": "FR",
+      "icao": "RYR"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2015-12-28",
+    "flightNumber": "OS7085",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "depTime": "20:50:00",
+    "arrTime": "22:35:00",
+    "duration": "01:45:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Bombardier Dash 8-400",
+      "icao": "DH8D",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2015-12-22",
+    "flightNumber": "OS7082",
+    "from": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "06:55:00",
+    "arrTime": "08:45:00",
+    "duration": "01:50:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Bombardier Dash 8-400",
+      "icao": "DH8D",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2015-11-10",
+    "flightNumber": "LH2320",
+    "from": {
+      "name": "Munich / Franz Josef Strauss",
+      "iata": "MUC",
+      "icao": "EDDM"
+    },
+    "to": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "depTime": "15:05:00",
+    "arrTime": "16:10:00",
+    "duration": "01:05:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "Bombardier CRJ-900",
+      "icao": "CRJ9",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2015-11-09",
+    "flightNumber": "LH453",
+    "from": {
+      "name": "Los Angeles / Los Angeles International",
+      "iata": "LAX",
+      "icao": "KLAX"
+    },
+    "to": {
+      "name": "Munich / Franz Josef Strauss",
+      "iata": "MUC",
+      "icao": "EDDM"
+    },
+    "depTime": "17:05:00",
+    "arrTime": "13:30:00",
+    "duration": "11:25:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "Airbus A340-600",
+      "icao": "A346",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2015-11-02",
+    "flightNumber": "LH456",
+    "from": {
+      "name": "Frankfurt am Main / Frankfurt",
+      "iata": "FRA",
+      "icao": "EDDF"
+    },
+    "to": {
+      "name": "Los Angeles / Los Angeles International",
+      "iata": "LAX",
+      "icao": "KLAX"
+    },
+    "depTime": "10:15:00",
+    "arrTime": "12:55:00",
+    "duration": "11:40:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "2",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2015-11-02",
+    "flightNumber": "LH399",
+    "from": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "to": {
+      "name": "Frankfurt am Main / Frankfurt",
+      "iata": "FRA",
+      "icao": "EDDF"
+    },
+    "depTime": "06:55:00",
+    "arrTime": "07:45:00",
+    "duration": "00:50:00",
+    "airline": {
+      "name": "Lufthansa",
+      "iata": "LH",
+      "icao": "DLH"
+    },
+    "aircraft": {
+      "name": "Bombardier CRJ-900",
+      "icao": "CRJ9",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2015-09-28",
+    "flightNumber": "OS7083",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "depTime": "13:15:00",
+    "arrTime": "15:00:00",
+    "duration": "01:45:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Bombardier Dash 8-400",
+      "icao": "DH8D",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2015-09-25",
+    "flightNumber": "OS7084",
+    "from": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "10:30:00",
+    "arrTime": "12:20:00",
+    "duration": "01:50:00",
+    "airline": {
+      "name": "Austrian Airlines",
+      "iata": "OS",
+      "icao": "AUA"
+    },
+    "aircraft": {
+      "name": "Bombardier Dash 8-400",
+      "icao": "DH8D",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2015-08-07",
+    "flightNumber": "FR1242",
+    "from": {
+      "name": "Athens / Eleftherios Venizelos",
+      "iata": "ATH",
+      "icao": "LGAV"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "18:25:00",
+    "arrTime": "19:25:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "Ryanair",
+      "iata": "FR",
+      "icao": "RYR"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2015-08-03",
+    "flightNumber": "FR1243",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Athens / Eleftherios Venizelos",
+      "iata": "ATH",
+      "icao": "LGAV"
+    },
+    "depTime": "19:50:00",
+    "arrTime": "22:50:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "Ryanair",
+      "iata": "FR",
+      "icao": "RYR"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2015-04-04",
+    "flightNumber": "FR8415",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Charleroi / Brussels South Charleroi",
+      "iata": "CRL",
+      "icao": "EBCI"
+    },
+    "depTime": "18:45:00",
+    "arrTime": "20:50:00",
+    "duration": "02:05:00",
+    "airline": {
+      "name": "Ryanair",
+      "iata": "FR",
+      "icao": "RYR"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2015-03-28",
+    "flightNumber": "FR8416",
+    "from": {
+      "name": "Charleroi / Brussels South Charleroi",
+      "iata": "CRL",
+      "icao": "EBCI"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "14:00:00",
+    "arrTime": "16:00:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "Ryanair",
+      "iata": "FR",
+      "icao": "RYR"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2014-10-01",
+    "flightNumber": "FR8415",
+    "from": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "to": {
+      "name": "Charleroi / Brussels South Charleroi",
+      "iata": "CRL",
+      "icao": "EBCI"
+    },
+    "depTime": "20:20:00",
+    "arrTime": "22:25:00",
+    "duration": "02:05:00",
+    "airline": {
+      "name": "Ryanair",
+      "iata": "FR",
+      "icao": "RYR"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2014-09-24",
+    "flightNumber": "FR8416",
+    "from": {
+      "name": "Charleroi / Brussels South Charleroi",
+      "iata": "CRL",
+      "icao": "EBCI"
+    },
+    "to": {
+      "name": "Budapest / Franz Liszt International",
+      "iata": "BUD",
+      "icao": "LHBP"
+    },
+    "depTime": "17:55:00",
+    "arrTime": "19:55:00",
+    "duration": "02:00:00",
+    "airline": {
+      "name": "Ryanair",
+      "iata": "FR",
+      "icao": "RYR"
+    },
+    "aircraft": {
+      "name": "Boeing 737-800",
+      "icao": "B738",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2014-08-30",
+    "flightNumber": "LX750",
+    "from": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "to": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "depTime": "09:05:00",
+    "arrTime": "10:05:00",
+    "duration": "01:00:00",
+    "airline": {
+      "name": "Swiss International Airlines",
+      "iata": "LX",
+      "icao": "SWR"
+    },
+    "aircraft": {
+      "name": "Airbus A320-200",
+      "icao": "A320",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2014-08-30",
+    "flightNumber": "LX1951",
+    "from": {
+      "name": "Barcelona / El Prat",
+      "iata": "BCN",
+      "icao": "LEBL"
+    },
+    "to": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "depTime": "06:25:00",
+    "arrTime": "08:10:00",
+    "duration": "01:45:00",
+    "airline": {
+      "name": "Swiss International Airlines",
+      "iata": "LX",
+      "icao": "SWR"
+    },
+    "aircraft": {
+      "name": "Airbus A321",
+      "icao": "A321",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2014-08-23",
+    "flightNumber": "LX1950",
+    "from": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "to": {
+      "name": "Barcelona / El Prat",
+      "iata": "BCN",
+      "icao": "LEBL"
+    },
+    "depTime": "20:50:00",
+    "arrTime": "22:35:00",
+    "duration": "01:45:00",
+    "airline": {
+      "name": "Swiss International Airlines",
+      "iata": "LX",
+      "icao": "SWR"
+    },
+    "aircraft": {
+      "name": "Airbus A321-200",
+      "icao": "A321",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2014-08-23",
+    "flightNumber": "LX759",
+    "from": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "to": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "depTime": "19:00:00",
+    "arrTime": "19:55:00",
+    "duration": "00:55:00",
+    "airline": {
+      "name": "Swiss International Airlines",
+      "iata": "LX",
+      "icao": "SWR"
+    },
+    "aircraft": {
+      "name": "BAE Systems Avro RJ100",
+      "icao": "RJ1H",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2014-06-04",
+    "flightNumber": "LX758",
+    "from": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "to": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "depTime": "17:25:00",
+    "arrTime": "18:25:00",
+    "duration": "01:00:00",
+    "airline": {
+      "name": "Swiss International Airlines",
+      "iata": "LX",
+      "icao": "SWR"
+    },
+    "aircraft": {
+      "name": "BAE Systems Avro RJ100",
+      "icao": "RJ1H",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2014-06-04",
+    "flightNumber": "LX1579",
+    "from": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "to": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "depTime": "14:45:00",
+    "arrTime": "16:10:00",
+    "duration": "01:25:00",
+    "airline": {
+      "name": "Swiss International Airlines",
+      "iata": "LX",
+      "icao": "SWR"
+    },
+    "aircraft": {
+      "name": "",
+      "icao": "",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2014-05-30",
+    "flightNumber": "LX1584",
+    "from": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "to": {
+      "name": "Vienna / Schwechat",
+      "iata": "VIE",
+      "icao": "LOWW"
+    },
+    "depTime": "21:20:00",
+    "arrTime": "22:40:00",
+    "duration": "01:20:00",
+    "airline": {
+      "name": "Swiss International Airlines",
+      "iata": "LX",
+      "icao": "SWR"
+    },
+    "aircraft": {
+      "name": "Embraer ERJ-190",
+      "icao": "E190",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  },
+  {
+    "date": "2014-05-30",
+    "flightNumber": "LX759",
+    "from": {
+      "name": "Luxembourg / Luxembourg",
+      "iata": "LUX",
+      "icao": "ELLX"
+    },
+    "to": {
+      "name": "Zurich / Kloten",
+      "iata": "ZRH",
+      "icao": "LSZH"
+    },
+    "depTime": "19:00:00",
+    "arrTime": "19:55:00",
+    "duration": "00:55:00",
+    "airline": {
+      "name": "Swiss International Airlines",
+      "iata": "LX",
+      "icao": "SWR"
+    },
+    "aircraft": {
+      "name": "BAE Systems Avro RJ100",
+      "icao": "RJ1H",
+      "registration": ""
+    },
+    "seatNumber": "",
+    "seatType": "1",
+    "flightClass": "1",
+    "flightReason": "1",
+    "note": ""
+  }
+]

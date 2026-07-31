@@ -1,0 +1,21 @@
+.flight-diary {
+    .scrollable {
+        overflow-x: scroll;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        border: 2px solid #ccc;
+        white-space: nowrap;
+        padding: 4px 8px;
+    }
+
+    th {
+        background: #eeeeee;
+        text-align: center;
+    }
+}

@@ -1,0 +1,32 @@
+---
+layout: page
+title: 'TV'
+date: 2023-07-19 19:00:00 -0100
+location: 'Zandvoort, Netherlands'
+css: 'flight-diary.scss'
+---
+<div class="flight-diary">
+    <p>I've been logging my flights since 2014. There isn't much point in doing it, other than that I like looking at the statistics I can derive from the data.</p>
+    <div class="scrollable">
+        <table>
+            <tr>
+                <th></th>
+                <th>Date</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Aircraft</th>
+                <th>Registration</th>
+            </tr>
+            {% for flight in data.flights %}
+            <tr>
+                <th>{{ forloop.index }}</th>
+                <td>{{flight.date}}</td>
+                <td>{{flight.from.name}}</td>
+                <td>{{flight.to.name}}</td>
+                <td>{{flight.aircraft.name}}</td>
+                <td>{{flight.aircraft.registration}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
