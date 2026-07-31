@@ -50,3 +50,9 @@
         }
     }
 }
+
+@media (max-width: 800px) {
+    .userboxes ul {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

@@ -1,5 +1,17 @@
 [
     {
+        "url": "https://dsparchive.neocities.org/directory",
+        "favicon": "dsparchive.neocities.org.png",
+        "title": ".DSP/archive: audio software repository",
+        "description": "This site was founded to file and preserve DSP (Digital Signal Processing) audio software and resources. Programs listed in the directory provide tools for composition, editing, synthesis and complex processing of audio, principally outside of the typical realm."
+    },
+    {
+        "url": "https://macintoshgarden.org/",
+        "favicon": "macintoshgarden.org.png",
+        "title": "Macintosh Garden - Celebrating Macintosh Abandonware!",
+        "description": "The original Mac abandonware site since 2001. Dedicated to preserving discontinued Macintosh applications, games and documentation to ensure they'll remain accessible for future generations."
+    },
+    {
         "url": "https://hitmen.c02.at/",
         "favicon": "hitmen.c02.at.png",
         "description": "Homepage of the Demo Scene Group Hitmen",
@@ -589,6 +601,7 @@
     },
     {
         "url": "https://sre.google/books/",
+        "favicon": "sre.google.png",
         "title": "Google SRE book- Comprehensive guide to site reliability",
         "description": "Explore the world of site reliability engineering with top-rated sre books. Find resources on SRE principles, best practices and the role of a reliability engineer"
     },
@@ -639,6 +652,12 @@
         "favicon": "departuremono.com.png",
         "title": "Departure Mono",
         "description": "Departure Mono is a monospaced pixel font by Helena Zhang, licensed under the SIL OFL."
+    },
+    {
+        "url": "https://protoweb.org/",
+        "favicon": "protoweb.org.png",
+        "title": "Home - Protoweb",
+        "description": "With ProtoWeb, you can browse the web like it's 1995!"
     },
     {
         "url": "https://csswizardry.com/2022/09/critical-css-not-so-fast/",

@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-# Purpose: download favicons for each bookmark in `sites/polgarand.org/data/bookmarks.json`,
-# save them into `sites/polgarand.org/.favicons/` (gitignored) using the domain as the filename,
-# and write the resulting favicon filename back onto each bookmark entry as the `favicon` field.
+# Purpose: download favicons for bookmarks without a `favicon` field in
+# `sites/polgarand.org/data/bookmarks.json`, save them into
+# `sites/polgarand.org/.favicons/` (gitignored) using the domain as the filename,
+# and write the resulting filename back onto each bookmark entry.
 
 import json
 import os
@@ -348,14 +349,19 @@ def main() -> int:
         return 2
 
     entries: list[dict] = []
+    skipped = 0
     for entry in data:
         if not isinstance(entry, dict):
             continue
         url = entry.get("url")
         if isinstance(url, str) and url:
-            entries.append(entry)
+            if "favicon" in entry:
+                skipped += 1
+            else:
+                entries.append(entry)
 
     total = len(entries)
+    print(f"bookmarks: {total} missing favicon, {skipped} skipped", flush=True)
     ok = 0
     failed = 0
     updated = 0
