@@ -4,6 +4,12 @@
 
 lepkefing is a zero-dependency static site generator written in Rust. It regenerates everything on each build (no caching) but remains fast due to Rust's performance. It powers real websites like polgarand.org, polgarhivatal.nl, and 8f4e.com deployed on Netlify.
 
+## Quick Start
+1. Install hooks: `make install-hooks`
+2. Build project: `cargo build`
+3. Run tests: `cargo test -- --test-threads=1`
+4. Generate site: `cargo run -- generate <site_name>`
+
 ## Working Effectively
 
 ### Initial Setup and Build
