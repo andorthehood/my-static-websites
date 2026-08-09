@@ -1,18 +1,15 @@
-.userboxes {
-}
-
 .userboxes ul {
     list-style: none;
     padding: 0 0 20px 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    columns: 2;
+    column-gap: 10px;
 }
 
 .userboxes li {
     display: flex;
     align-items: start;
     justify-content: center;
+    break-inside: avoid;
 }
 
 .userbox {
@@ -53,6 +50,6 @@
 
 @media (max-width: 800px) {
     .userboxes ul {
-        grid-template-columns: repeat(1, 1fr);
+         columns: 1;   
     }
 }
