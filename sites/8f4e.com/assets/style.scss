@@ -196,13 +196,9 @@ h2 {
 }
 
 .screenshot {
-	will-change: background-position;
-	background: url(https://static.llllllllllll.com/8f4e/screenshots/1.png);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: calc(var(--unit) * 4) 0;
-	box-shadow: var(--shadow);
 
 	a {
 		padding: calc(var(--unit) * 3) calc(var(--unit) * 4);
