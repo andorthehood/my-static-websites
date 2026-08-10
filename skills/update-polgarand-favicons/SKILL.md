@@ -10,9 +10,13 @@ description: Update favicon files and bookmark favicon mappings for polgarand.or
 1. Run from repo root (`/home/andormade/andor.cool`).
 2. Execute:
 ```bash
-python3 sites/polgarand.org/scripts/download_favicons.py
+make -C sites/polgarand.org favicons
 ```
-3. Keep streaming output until completion because the script can take time on slow hosts.
+   The Make target creates `sites/polgarand.org/.venv/` when needed and installs
+   `sites/polgarand.org/scripts/requirements.txt` only when the requirements file
+   changes.
+3. Keep streaming output until completion because initial environment setup and
+   the favicon workflow can take time on slow hosts.
 4. Capture and report:
 - Final summary line: `done: <ok> ok, <failed> failed, out_dir=...`
 - Bookmark update line: `bookmarks: updated <n> items (favicon field)`
@@ -31,6 +35,7 @@ Treat exit code `1` as a completed run with partial failures. Report failures cl
 
 - Reads and rewrites: `sites/polgarand.org/data/bookmarks.json`
 - Writes downloaded icons: `sites/polgarand.org/.favicons/`
+- Creates and reuses the site-local environment: `sites/polgarand.org/.venv/`
 
 ## Reporting Back
 
