@@ -1,5 +1,23 @@
 [
     {
+        "url": "https://c64graphicsexplorer.com/remember.html",
+        "favicon": "c64graphicsexplorer.com.png",
+        "description": "A personal memory of a Commodore 64 hot-air-balloon sprite, with images and references.",
+        "title": "Up, Up and Away"
+    },
+    {
+        "url": "https://en.wikipedia.org/wiki/Revelations_of_Divine_Love",
+        "favicon": "en.wikipedia.org.png",
+        "description": "Revelations of Divine Love is a medieval book of Christian mystical devotions. Containing 87 chapters, the work was written between the 14th and 15th centuries by Julian of Norwich, about whom almost nothing is known.",
+        "title": "Revelations of Divine Love - Wikipedia"
+    },
+    {
+        "url": "https://erynwells.me/blog/2023/08/netscape-meteors/",
+        "favicon": "erynwells.me.png",
+        "description": "I went on a hunt to find the &quot;Meteors&quot; loading animation from Netscape back in the 90s, and wrote up my adventure.",
+        "title": "Netscape Meteors | ~eryn"
+    },
+    {
         "url": "https://dsparchive.neocities.org/directory",
         "favicon": "dsparchive.neocities.org.png",
         "title": ".DSP/archive: audio software repository",
@@ -339,6 +357,12 @@
         "favicon": "svgfm.chriskirknielsen.com.png",
         "title": "SVG Filter Maker",
         "description": "SVGFM, a node graph builder for SVG filters"
+    },
+    {
+        "url": "https://dannorth.net/blog/cupid-for-joyful-coding/",
+        "favicon": "dannorth.net.png",
+        "title": "CUPID: for joyful coding",
+        "description": "What started as lighthearted iconoclasm, poking at the bear of SOLID, has developed into something more concrete and tangible. If I do not think the SOLID principles are useful these days, then what would I replace them with?"
     },
     {
         "url": "https://frontendfront.com/",
@@ -710,7 +734,7 @@
     {
         "url": "https://www.muzique.com/",
         "favicon": "www.muzique.com.png",
-        "title": "Speak, Memory",
+        "title": "DIY Guitar Effects Pedals, Schematics, Stompboxes & Electronics",
         "description": "AMZ is a resource with information about diy guitar effects pedals, stompboxes, audio circuits and tips on how to build them."
     },
     {
