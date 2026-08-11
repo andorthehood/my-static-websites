@@ -1,5 +1,28 @@
 [
     {
+        "url": "https://solarprotocol.net/",
+        "title": "Solar Protocol",
+        "description": "A naturally intelligent network programmed by the sun."
+    },
+    {
+        "url": "https://esolangs.org/",
+        "favicon": "esolangs.org.png",
+        "title": "Esolang, the esoteric programming languages wiki",
+        "description": "This wiki is dedicated to the fostering and documentation of programming languages designed to be unique, difficult to program in, or just plain weird."
+    },
+    {
+        "url": "https://inconvergent.net/",
+        "favicon": "inconvergent.net.png",
+        "title": "Generative art by Anders Hoff · inconvergent",
+        "description": "inconvergent is a generative art project by anders hoff. the project explores complex behaviour arising from simple rules."
+    },
+    {
+        "url": "https://permacomputing.net/",
+        "favicon": "permacomputing.net.png",
+        "title": "permacomputing",
+        "description": "Permacomputing is both a concept and a community of practice oriented around issues of resilience and regenerativity in computer and network technology inspired by permaculture."
+    },
+    {
         "url": "https://c64graphicsexplorer.com/remember.html",
         "favicon": "c64graphicsexplorer.com.png",
         "description": "A personal memory of a Commodore 64 hot-air-balloon sprite, with images and references.",
@@ -270,6 +293,11 @@
         "description": "Never talk about goblins, gremlins, raccoons, trolls, ogres, pigeons, or other animals or creatures unless it is absolutely and unambiguously relevant to the user's query."
     },
     {
+        "url": "https://collapseos.org/",
+        "title": "Collapse OS",
+        "description": "I expect our global supply chain to collapse before we reach 2030. With this collapse, we won't be able to produce most of our electronics because their production depends on a very complex supply chain that we won't be able to achieve again for decades (ever?)."
+    },
+    {
         "url": "https://github.com/kreativekorp/bitsnpicas",
         "favicon": "github.com.png",
         "title": "Bits'N'Picas",
@@ -418,6 +446,12 @@
         "description": "This is a simple sound generator that makes retro-sounding anime sfx."
     },
     {
+        "url": "https://ciechanow.ski/moon",
+        "favicon": "ciechanow.ski.png",
+        "title": "Moon – Bartosz Ciechanowski",
+        "description": "In this article, we’ll learn about the Moon and its path around our planet, but to experience that journey first-hand, we have to enter the cosmos itself."
+    },
+    {
         "url": "https://generativeartistry.com/",
         "title": "Generative Artistry",
         "description": "Generative art tutorials, news and love."
@@ -494,6 +528,12 @@
         "description": "Like TailwindCSS, but for SQL. className your way to database queries!"
     },
     {
+        "url": "https://nandgame.com/",
+        "favicon": "nandgame.com.png",
+        "title": "NandGame - Build a computer from scratch.",
+        "description": "An educational puzzle game. Solve a series of tasks where you build increasingly powerful components. Starts with the simplest logical components and ends up with a programmable computer."
+    },
+    {
         "url": "https://optical.toys/",
         "favicon": "optical.toys.png",
         "title": "Optical Toys | Optical Illusions and Toys",
@@ -509,6 +549,12 @@
         "url": "https://netherlands-coding-live.github.io/",
         "title": "NL_CL | Netherlands Coding Live/",
         "description": ">Netherlands Coding Live aka &quot;NL_CL&quot; ~ a series of live coding concerts, meetups, workshops and more, organized by live coders based in The Netherlands."
+    },
+    {
+        "url": "https://www.dwitter.net/",
+        "favicon": "www.dwitter.net.png",
+        "title": "Dwitter  - javascript demos in 140 characters",
+        "description": "Dwitter is a social network for building and sharing visual javascript demos limited to 140 characters. See the impressive creations crammed into so few characters, and play around with your own code!"
     },
     {
         "url": "https://instrumentinventors.org/",
@@ -624,6 +670,11 @@
         "description": "This collection of apps, tools and articles is here to help you learn more about digital gardening. Ideally, it's here to help you start your own garden."
     },
     {
+        "url": "https://nanogems.demozoo.org/",
+        "title": "NANO GEMS",
+        "description": "A curated selection of the best Tiny Intros from the Demoscene"
+    },
+    {
         "url": "https://sre.google/books/",
         "favicon": "sre.google.png",
         "title": "Google SRE book- Comprehensive guide to site reliability",
@@ -726,6 +777,12 @@
         "description": "Schematics & circuits for guitar effects with vacuum tubes and solid state electronics. FREE downloads of schematics such as TS-9, Fuzz Face and other classic rock devices."
     },
     {
+        "url": "https://100r.co/",
+        "favicon": "100r.co.png",
+        "title": "Hundred Rabbits",
+        "description": "An artist collective living/working from an off-grid sailboat who responded to unreliable power and connectivity by building deliberately resilient, small creative software."
+    },
+    {
         "url": "https://www.muzique.com/news/",
         "favicon": "www.muzique.com.png",
         "title": "AMZ-FX Guitar Effects Blog",
@@ -794,6 +851,12 @@
         "url": "https://hugi.scene.org/",
         "title": "Hugi",
         "description": "Hugi is an electronic magazine (diskmag) for Windows that mainly deals with the demoscene."
+    },
+    {
+        "url": "http://visual6502.org/",
+        "favicon": "visual6502.org.png",
+        "title": "Visual Transistor-level Simulation of the 6502 CPU",
+        "description": "Welcome to Visual6502.org! Here we'll slowly but surely present our small team's effort to preserve, study, and document historic computers."
     },
     {
         "url": "https://web.badges.world/",
@@ -897,6 +960,12 @@
         "description": "The Fredkin gate is a universal reversible logic gate, named after Edward Fredkin. It is also known as a controlled swap gate, since it performs a swap of two bits depending on the value of a third bit, which serves as a control bit."
     },
     {
+        "url": "https://www.righto.com/",
+        "favicon": "www.righto.com.png",
+        "title": "Ken Shirriff's blog",
+        "description": "Computer history, restoring vintage computers, IC reverse engineering, and whatever"
+    },
+    {
         "url": "https://int10h.org/oldschool-pc-fonts/",
         "favicon": "int10h.org.png",
         "title": "The Ultimate Oldschool PC Font Pack: Home",
@@ -969,6 +1038,11 @@
         "favicon": "int10h.org.png",
         "title": "CGA in 1024 Colors - a New Mode: the Illustrated Guide",
         "description": "VileR's blog: old school PCs, games, graphics, programming, fonts, demos, and so on."
+    },
+    {
+        "url": "http://www.sizecoding.org/",
+        "title": "SizeCoding.org",
+        "description": "SizeCoding.org is a wiki dedicated to teaching programmers the various techniques used to create tiny demoscene intros."
     },
     {
         "url": "https://1-1i.com/",
