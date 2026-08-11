@@ -304,6 +304,12 @@
         "description": "Bits'N'Picas is a set of tools for creating and converting bitmap and emoji fonts."
     },
     {
+        "url": "https://wiki.xxiivv.com/site/latin_sin_flexion.html",
+        "favicon": "wiki.xxiivv.com.png",
+        "title": "XXIIVV — latin sin flexion",
+        "description": "Latin sin Flexion, originally created by Giuseppe Peano, was an attempt to strip Classical Latin down to its simplest possible grammar while keeping its vocabulary recognizable, making a language learnable in hours rather than years."
+    },
+    {
         "url": "https://www.musicdsp.org/en/latest/Synthesis/211-matlab-octave-code-for-minblep-table-generation.html",
         "favicon": "www.musicdsp.org.png",
         "title": "Matlab/octave code for minblep table generation",
@@ -397,6 +403,12 @@
         "favicon": "frontendfront.com.png",
         "title": "Front-End Front — Basically, front-end news",
         "description": "Front-End Front is a place where front-end developers can ask questions, share interesting links, and show their work to the rest of the community."
+    },
+    {
+        "url": "https://code.textmode.art/",
+        "favicon": "code.textmode.art.png",
+        "title": "Home | textmode.js",
+        "description": "textmode.js is a lightweight creative coding library for creating real-time ASCII art on the web."
     },
     {
         "url": "https://animationfactory.com/",
@@ -848,6 +860,11 @@
         "description": "Written by cryptic & velo"
     },
     {
+        "url": "https://l2w.hatnote.com/",
+        "title": "Hatnote Listen to Wikipedia",
+        "description": "Listen to recent changes on Wikipedia"
+    },
+    {
         "url": "https://hugi.scene.org/",
         "title": "Hugi",
         "description": "Hugi is an electronic magazine (diskmag) for Windows that mainly deals with the demoscene."
@@ -901,6 +918,11 @@
         "description": "Plain-English guide to fixing common Git mistakes."
     },
     {
+        "url": "https://dev.to/richharris/why-i-don-t-use-web-components-2cia",
+        "title": "Why I don't use web components",
+        "description": "For my first post on dev.to I thought I'd write about a nice, safe topic that's free of controversy:... Tagged with html, webcomponents."
+    },
+    {
         "url": "https://ojack.xyz/",
         "favicon": "ojack.xyz.png",
         "title": "olivia jack",
@@ -946,6 +968,12 @@
         "favicon": "github.com.png",
         "title": "Cozette",
         "description": "A bitmap programming font optimized for coziness 💜"
+    },
+    {
+        "url": "https://brandur.org/small-sharp-tools",
+        "favicon": "brandur.org.png",
+        "title": "Small, Sharp Tools",
+        "description": "A few words on the Unix philosophy of building small programs that do one thing well, and compose for comprehensive functionality."
     },
     {
         "url": "https://en.wikipedia.org/wiki/Reversible_computing",
