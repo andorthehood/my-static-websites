@@ -35,10 +35,10 @@
 </head>
 
 <body>
-    <img src="https://cdn.polgarand.org/dvd_logo.gif" alt="DVD logo" id="dvd-logo" />
-    <img src="https://cdn.polgarand.org/amiga_boing_ball.gif" id="amiga-boing-ball" />
+    <img src="https://cdn.polgarand.org/dvd_logo.gif" alt="DVD logo" id="dvd-logo" draggable="false" />
     <img src="https://cdn.polgarand.org/templeos-elephant.gif" alt="TempleOS elephant" id="templeos-elephant"
         draggable="false" />
+    <img src="https://cdn.polgarand.org/amiga_boing_ball.gif" id="amiga-boing-ball" draggable="false" />
     <nav class="desktop">
         {% for item in data.desktop %}
         <a href="{{item.href}}" class="icon" draggable="false" {% if item.target %}target="{{item.target}}" {% endif %}>
@@ -86,7 +86,7 @@
                         <div class="label">Home</div>
                     </a>
                     <img class="netscape-logo" src="https://cdn.polgarand.org/netscape/netscape-meteors-60.gif"
-                        width="120px" height="120px" />
+                        width="120px" height="120px" draggable="false" />
                 </div>
                 <div class="content">
                     {{body}}
