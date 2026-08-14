@@ -37,6 +37,8 @@
 <body>
     <img src="https://cdn.polgarand.org/dvd_logo.gif" alt="DVD logo" id="dvd-logo" />
     <img src="https://cdn.polgarand.org/amiga_boing_ball.gif" id="amiga-boing-ball" />
+    <img src="https://cdn.polgarand.org/templeos-elephant.gif" alt="TempleOS elephant" id="templeos-elephant"
+        draggable="false" />
     <nav class="desktop">
         {% for item in data.desktop %}
         <a href="{{item.href}}" class="icon" draggable="false" {% if item.target %}target="{{item.target}}" {% endif %}>
@@ -107,6 +109,7 @@
     <script src="/assets/{{script.ts}}" defer></script>
     <script src="/assets/{{dvd.ts}}" defer></script>
     <script src="/assets/{{amigaboingball.ts}}" defer></script>
+    <script src="/assets/{{templeoselephant.ts}}" defer></script>
     <script src="/assets/{{clippy.ts}}" defer></script>
 </body>
 
