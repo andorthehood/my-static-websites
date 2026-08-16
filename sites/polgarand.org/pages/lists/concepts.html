@@ -1,0 +1,19 @@
+---
+layout: page
+title: 'Concepts'
+date: 2026-06-18 19:00:00 -0100
+location: 'Zandvoort, Netherlands'
+---
+
+<p>I like to collect concepts with funny names.</p>
+
+<ul class="concepts">
+    {% for concept in data.concepts %}
+    <li>
+        <a class="title" target="_blank" href="{{ concept.url }}">
+            {{ concept.name }}
+        </a><br />
+        {{ concept.description }}
+    </li>
+    {% endfor %}
+</ul>
