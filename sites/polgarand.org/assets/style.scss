@@ -207,10 +207,6 @@ h2 {
 	position: relative;
 }
 
-.desktop .icon .icon-picture img {
-	image-rendering: pixelated;
-}
-
 .desktop .icon .icon-picture .shortcut {
 	position: absolute;
 	left: 25%;
@@ -230,4 +226,20 @@ h2 {
 
 ::selection {
 	background-color: #cc9;
+}
+
+.pixelated {
+	image-rendering: pixelated;
+}
+
+.list-with-icon {
+	img {
+		float: left;
+		padding-right: 20px;
+		display: block;
+	}
+
+	li {
+		padding-bottom: 20px;
+	}
 }

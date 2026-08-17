@@ -17,7 +17,8 @@ css: 'wikipedia.scss'
                 style="background: {{userbox.backgroundColor}}; border-color: {{userbox.borderColor}};">
                 <div class="userbox-image {% if userbox.isSvg %}svg{% endif %}" {% if userbox.imageBackgroundColor
                     %}style="background: {{userbox.imageBackgroundColor}}" {% endif %}>
-                    <img src="https://cdn.polgarand.org/wikipedia/{{userbox.image}}" loading="lazy" alt="Userbox image">
+                    <img src="https://cdn.polgarand.org/wikipedia/{{userbox.image}}" class="pixelated" loading="lazy"
+                        alt="Userbox image">
                 </div>
                 <div class="userbox-content" {% if userbox.textColor %}style="color: {{userbox.textColor}}" {% endif %}>
                     {{userbox.content}}

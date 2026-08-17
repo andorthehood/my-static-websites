@@ -2,16 +2,19 @@
     {
         "name": "Brazil Nut Effect (Cereal Box Effect)",
         "url": "https://en.wikipedia.org/wiki/Granular_convection",
+        "image": "PEANUT.gif",
         "description": "The tendency of larger particles to rise to the top of a shaken mixture while smaller particles settle into the spaces below."
     },
     {
         "name": "Busy Beaver Function",
         "url": "https://en.wikipedia.org/wiki/Busy_beaver",
+        "image": "BEAVER.gif",
         "description": "A function measuring the maximum work done by a halting Turing machine of a given size, growing faster than any computable function."
     },
     {
         "name": "Multi-Armed Bandit Problem",
         "url": "https://en.wikipedia.org/wiki/Multi-armed_bandit",
+        "image": "VEGAS.gif",
         "description": "A sequential decision problem about balancing exploration of uncertain options with exploitation of the best option found so far."
     },
     {
@@ -27,41 +30,49 @@
     {
         "name": "Fridge Light Fallacy",
         "url": "https://plato.stanford.edu/entries/introspection/notes.html",
+        "image": "LIGHT.gif",
         "description": "The mistake of assuming a state is always present because checking for it creates or reveals it, like a refrigerator light turning on when the door opens."
     },
     {
         "name": "Buttered cat paradox",
         "url": "https://en.wikipedia.org/wiki/Buttered_cat_paradox",
+        "image": "CAT1.gif",
         "description": "A humorous thought experiment combining the claims that cats land on their feet and buttered toast lands butter-side down."
     },
     {
         "name": "Sad clown paradox",
         "url": "https://en.wikipedia.org/wiki/Sad_clown_paradox",
+        "image": "CLOWN1.gif",
         "description": "The apparent contradiction between making others laugh and privately experiencing depression, anxiety, or emotional distress."
     },
     {
         "name": "When a white horse is not a horse",
         "url": "https://en.wikipedia.org/wiki/White_Horse_Dialogue",
+        "image": "HORSEHD.gif",
         "description": "A classical Chinese argument that explores how a qualified category such as white horses differs from the broader category of horses."
     },
     {
         "name": "Potato paradox",
         "url": "https://en.wikipedia.org/wiki/Potato_paradox",
+        "image": "potatohead_fldr_32x32_2.gif",
         "description": "A counterintuitive percentage puzzle in which potatoes going from 99% to 98% water lose half their total weight."
     },
     {
         "name": "Hedgehog's Dilemma",
         "url": "https://en.wikipedia.org/wiki/Hedgehog%27s_dilemma",
+        "image": "Sonic_CD.gif",
         "description": "Schopenhauer's metaphor for the tension between seeking human intimacy and avoiding the pain that closeness can cause."
     },
     {
         "name": "Eating your own dog food",
         "url": "https://en.wikipedia.org/wiki/Eating_your_own_dog_food",
+        "image": "DOG12.gif",
         "description": "The practice of an organization using its own products in everyday work to expose flaws and validate the user experience."
     },
     {
         "name": "Girl Late for School with Toast in Her Mouth",
         "url": "https://en.wikipedia.org/wiki/Girl_Late_for_School_with_Toast_in_Her_Mouth",
+        "image": "GIRL.gif",
         "description": "A supposedly classic shojo manga trope in which a schoolgirl rushes to class eating toast, often colliding with a future love interest."
     },
     {
@@ -72,6 +83,7 @@
     {
         "name": "Ketchup Effect",
         "url": "https://en.wikipedia.org/wiki/Shear_thinning",
+        "image": "TOMATO.gif",
         "description": "A metaphor for a long delay followed by sudden abundance, named for ketchup that resists flowing until agitation makes it pour out rapidly."
     },
     {
@@ -82,21 +94,25 @@
     {
         "name": "Interesting Number Paradox",
         "url": "https://en.wikipedia.org/wiki/Interesting_number_paradox",
+        "image": "MATH4.gif",
         "description": "A humorous self-reference paradox in which the smallest uninteresting natural number becomes interesting simply by being the smallest such number."
     },
     {
         "name": "The Pizza Meter",
         "url": "https://en.wikipedia.org/wiki/Pentagon_pizza_theory",
+        "image": "PIZZA.gif",
         "description": "An informal intelligence indicator that treats spikes in late-night pizza orders near US government buildings as signs of an impending crisis or military operation."
     },
     {
         "name": "Banana Equivalent Dose",
         "url": "https://en.wikipedia.org/wiki/Banana_equivalent_dose",
+        "image": "BANANA.gif",
         "description": "An informal educational unit that compares ionizing radiation exposure with the roughly 0.1 microsieverts associated with eating one average banana."
     },
     {
         "name": "Erdős–Bacon number",
         "url": "https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Bacon_number",
+        "image": "TREE2.gif",
         "description": "A person's Erdős–Bacon number is the sum of their Erdős number—which measures the \"collaborative distance\" in authoring academic papers between that person and Hungarian mathematician Paul Erdős—and their Bacon number—which represents the number of links, through roles in films, by which the person is separated from American actor Kevin Bacon."
     }
 ]

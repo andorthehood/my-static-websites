@@ -7,9 +7,11 @@ location: 'Zandvoort, Netherlands'
 
 <p>I like to collect concepts with funny names.</p>
 
-<ul class="concepts">
+<ul class="list-with-icon">
     {% for concept in data.concepts %}
     <li>
+        <img src="https://cdn.polgarand.org/windows/32x32/{{ concept.image }}" alt="{{ concept.name }}" width="64px"
+            height="64px" class="pixelated" />
         <a class="title" target="_blank" href="{{ concept.url }}">
             {{ concept.name }}
         </a><br />

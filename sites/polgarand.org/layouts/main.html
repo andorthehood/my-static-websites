@@ -35,19 +35,21 @@
 </head>
 
 <body>
-    <img src="https://cdn.polgarand.org/dvd_logo.gif" alt="DVD logo" id="dvd-logo" draggable="false" />
-    <img src="https://cdn.polgarand.org/templeos-elephant.gif" alt="TempleOS elephant" id="templeos-elephant"
+    <img src="https://cdn.polgarand.org/dvd_logo.gif" class="pixelated" alt="DVD logo" id="dvd-logo"
         draggable="false" />
-    <img src="https://cdn.polgarand.org/amiga_boing_ball.gif" id="amiga-boing-ball" draggable="false" />
+    <img src="https://cdn.polgarand.org/templeos-elephant.gif" class="pixelated" alt="TempleOS elephant"
+        id="templeos-elephant" draggable="false" />
+    <img src="https://cdn.polgarand.org/amiga_boing_ball.gif" class="pixelated" id="amiga-boing-ball"
+        draggable="false" />
     <nav class="desktop">
         {% for item in data.desktop %}
         <a href="{{item.href}}" class="icon" draggable="false" {% if item.target %}target="{{item.target}}" {% endif %}>
             <div class="icon-picture">
-                <img src="https://cdn.polgarand.org/windows/32x32/{{item.icon}}" width="64px" height="64px"
-                    draggable="false" />
+                <img src="https://cdn.polgarand.org/windows/32x32/{{item.icon}}" class="pixelated" width="64px"
+                    height="64px" draggable="false" />
                 {% if item.target %}<img class="shortcut"
-                    src="https://cdn.polgarand.org/windows/32x32/overlay_shortcut.gif" width="64px" height="64px"
-                    draggable="false" />{%
+                    src="https://cdn.polgarand.org/windows/32x32/overlay_shortcut.gif" class="pixelated" width="64px"
+                    height="64px" draggable="false" />{%
                 endif %}
             </div>
             <div class="icon-label">{{item.label}}</div>
@@ -58,7 +60,8 @@
     <div id="clippy" class="window">
         {% render dialogheader.liquid title:"Clippy" %}
         <div class="hole content-hole">
-            <img width="248" height="184" id="clippy-gif" src="https://cdn.polgarand.org/clippy/startup.gif"
+            <img width="248" height="184" id="clippy-gif" class="pixelated"
+                src="https://cdn.polgarand.org/clippy/startup.gif"
                 style="background-image: url('https://cdn.polgarand.org/clippy/clippy_bg.gif')" alt="Clippy"
                 draggable="false" />
         </div>
@@ -85,8 +88,9 @@
                         <div class="icon">🏠</div>
                         <div class="label">Home</div>
                     </a>
-                    <img class="netscape-logo" src="https://cdn.polgarand.org/netscape/netscape-meteors-60.gif"
-                        width="120px" height="120px" draggable="false" />
+                    <img class="netscape-logo pixelated"
+                        src="https://cdn.polgarand.org/netscape/netscape-meteors-60.gif" width="120px" height="120px"
+                        draggable="false" />
                 </div>
                 <div class="content">
                     {{body}}
