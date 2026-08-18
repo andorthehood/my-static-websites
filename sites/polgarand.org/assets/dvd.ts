@@ -76,6 +76,7 @@
 
     function updateLogoPosition() {
         dvdLogo.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        dvdLogo.style.visibility = 'visible';
     }
 
     function animate() {

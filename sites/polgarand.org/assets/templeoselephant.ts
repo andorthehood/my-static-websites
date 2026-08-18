@@ -18,6 +18,7 @@
     function updateElephantPosition() {
         const facing = direction === -1 ? 1 : -1;
         elephant.style.transform = `translate3d(${x}px, ${y}px, 0) scaleX(${facing})`;
+        elephant.style.visibility = "visible";
     }
 
     function animate() {

@@ -14,6 +14,7 @@ let viewportHeight = window.innerHeight;
 
 function updateBallPosition() {
   ball.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+  ball.style.visibility = "visible";
 }
 
 function animate() {
