@@ -13,7 +13,7 @@ html,
 pre {
 	color: var(--text-color);
 	line-height: 1.25;
-	font-family: "Ark Pixel 12px Mono", monospace;
+	font-family: "Ark Pixel 12px Mono", "Ark Pixel Mono Fallback", monospace;
 	font-size: 24px;
 	margin: 0;
 	padding: 0;
@@ -24,12 +24,12 @@ pre {
 }
 
 .big {
-	font-family: "Ark Pixel 16px Mono", monospace;
+	font-family: "Ark Pixel 16px Mono", "Ark Pixel Mono Fallback", monospace;
 	font-size: 32px;
 }
 
 .big-2 {
-	font-family: "Ark Pixel 16px Mono", monospace;
+	font-family: "Ark Pixel 16px Mono", "Ark Pixel Mono Fallback", monospace;
 	font-size: 64px;
 }
 
@@ -241,5 +241,10 @@ h2 {
 
 	li {
 		padding-bottom: 20px;
+	}
+
+	li .li-head {
+		padding-top: 10px;
+		display: inline-block;
 	}
 }
