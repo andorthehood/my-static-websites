@@ -1,6 +1,30 @@
 [
     {
+        "url": "https://pizzaconsole.com/blog/posts/programming/cf-overage",
+        "title": "Building a Cloudflare Workers Usage Monitor with an Automated Kill Switch",
+        "description": "I wanted something that would catch overages early and stop traffic before costs spiral."
+    },
+    {
+        "url": "https://www.imaginary.org/program/pink-trombone",
+        "favicon": "www.imaginary.org.png",
+        "title": "Pink Trombone | IMAGINARY",
+        "description": "Pink trombone is a model of the human vocal tract that synthesizes human voice from scratch, controllable with your fingers."
+    },
+    {
+        "url": "https://www.imaginary.org/program/tonnetz",
+        "favicon": "www.imaginary.org.png",
+        "title": "Tonnetz | IMAGINARY",
+        "description": "The Tonnetz is a pictorial representation of the notes in the plane that reveal affinities and structures between notes and on concrete music pieces."
+    },
+    {
+        "url": "https://ssz.fr/cyano/",
+        "favicon": "ssz.fr.png",
+        "title": "Enlarging onto cyanotype",
+        "description": "I will relate here my experiments regarding enlarging 35mm negatives onto cyanotype."
+    },
+    {
         "url": "https://solarprotocol.net/",
+        "favicon": "solarprotocol.net.png",
         "title": "Solar Protocol",
         "description": "A naturally intelligent network programmed by the sun."
     },
@@ -184,6 +208,11 @@
         "url": "https://dmitry.gr/?r=05.Projects&proj=31.%20Memory%20Stick",
         "title": "Sony Memory Stick - Dmitry.GR",
         "description": "Dmitry.GR: The first complete documentation of Sony Memory Stick from HW to DATA"
+    },
+    {
+        "url": "https://dmitry.gr/",
+        "title": "Dmitry.GR: Projects",
+        "description": "Dmitry.GR: Dmitry.GR: Projects"
     },
     {
         "url": "https://dmitry.gr/",
@@ -717,6 +746,12 @@
         "description": "nownownow.com: personal websites with a /now page"
     },
     {
+        "url": "https://amiga.lychesis.net/",
+        "favicon": "amiga.lychesis.net.png",
+        "title": "Amiga Graphics Archive",
+        "description": "Launched in 1985 the Commodore Amiga boasted graphics capabilities that were unsurpassed for it's time. This site is dedicated to graphics made with or for the Commodore Amiga home computer."
+    },
+    {
         "url": "https://sive.rs/nowff",
         "favicon": "sive.rs.png",
         "title": "The /now page movement",
@@ -763,6 +798,12 @@
         "favicon": "www.bernadinism.com.png",
         "title": "Home – Bernadinism - Bernadinism",
         "description": "I AM A ONE MAN SUBCULTURE"
+    },
+    {
+        "url": "https://cheatsheetseries.owasp.org/",
+        "favicon": "cheatsheetseries.owasp.org.png",
+        "title": "Introduction - OWASP Cheat Sheet Series",
+        "description": "Website with the collection of all the cheat sheets of the project."
     },
     {
         "url": "https://rotatingsandwiches.com/",
@@ -919,6 +960,7 @@
     },
     {
         "url": "https://dev.to/richharris/why-i-don-t-use-web-components-2cia",
+        "favicon": "dev.to.png",
         "title": "Why I don't use web components",
         "description": "For my first post on dev.to I thought I'd write about a nice, safe topic that's free of controversy:... Tagged with html, webcomponents."
     },
