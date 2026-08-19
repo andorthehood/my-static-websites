@@ -6,6 +6,32 @@ use crate::template_processors::markdown::markdown_to_html;
 use crate::template_processors::process_template_tags;
 use crate::types::{TemplateIncludes, Variables};
 use crate::write::{write_html_to_file, write_json_to_file};
+use std::path::Path;
+
+fn pathname_from_output(file_name: &str, site_name: &str, config: &SiteConfig) -> String {
+    let site_output_directory = Path::new(&config.output_dir).join(site_name);
+    let file_path = Path::new(file_name);
+    let relative_path = file_path
+        .strip_prefix(&site_output_directory)
+        .unwrap_or(file_path);
+    let mut pathname = relative_path
+        .components()
+        .map(|component| component.as_os_str().to_string_lossy())
+        .collect::<Vec<_>>()
+        .join("/");
+
+    if let Some(without_extension) = pathname.strip_suffix(".html") {
+        pathname = without_extension.to_string();
+    }
+
+    if pathname == "index" {
+        String::new()
+    } else if let Some(without_index) = pathname.strip_suffix("/index") {
+        without_index.to_string()
+    } else {
+        pathname
+    }
+}
 
 /// Processes a page through the template pipeline:
 /// 1. Converts markdown to HTML (if content is markdown)
@@ -36,6 +62,13 @@ pub fn render_page(
         Some((_, ext)) => format!("{directory}{slug}.{ext}"), // explicit extension
         None => format!("{directory}{slug}.html"),     // default to html
     };
+
+    let mut page_variables = variables.clone();
+    if let Some(site_name) = page_variables.get("site_name") {
+        let pathname = pathname_from_output(&file_name, site_name, config);
+        page_variables.insert("pathname".to_string(), pathname);
+    }
+    let variables = &page_variables;
 
     // Check if the content is markdown or HTML or liquid template
     let is_markdown = variables.get("file_type").is_none_or(|ft| ft == "md");
@@ -223,5 +256,35 @@ mod tests {
         );
 
         assert!(result.is_err());
+    }
+
+    #[test]
+    fn test_pathname_from_output_uses_extensionless_site_relative_paths() {
+        let config = SiteConfig::default();
+
+        assert_eq!(
+            pathname_from_output("out/example.com/index.html", "example.com", &config),
+            ""
+        );
+        assert_eq!(
+            pathname_from_output("out/example.com/about.html", "example.com", &config),
+            "about"
+        );
+        assert_eq!(
+            pathname_from_output(
+                "out/example.com/posts/example-post.html",
+                "example.com",
+                &config,
+            ),
+            "posts/example-post"
+        );
+        assert_eq!(
+            pathname_from_output(
+                "out/example.com/category/music/page1.html",
+                "example.com",
+                &config,
+            ),
+            "category/music/page1"
+        );
     }
 }
