@@ -57,12 +57,12 @@
 </head>
 
 <body>
-    <img src="https://cdn.polgarand.org/dvd_logo.gif" class="pixelated" alt="DVD logo" id="dvd-logo"
+    <img src="https://cdn.polgarand.org/dvd_logo.gif" class="pixelated" alt="" aria-hidden="true" id="dvd-logo"
         draggable="false" />
-    <img src="https://cdn.polgarand.org/templeos-elephant.gif" class="pixelated" alt="TempleOS elephant"
+    <img src="https://cdn.polgarand.org/templeos-elephant.gif" class="pixelated" alt="" aria-hidden="true"
         id="templeos-elephant" draggable="false" />
-    <img src="https://cdn.polgarand.org/amiga_boing_ball.gif" class="pixelated" id="amiga-boing-ball"
-        draggable="false" />
+    <img src="https://cdn.polgarand.org/amiga_boing_ball.gif" class="pixelated" alt="" aria-hidden="true"
+        id="amiga-boing-ball" draggable="false" />
     <nav class="desktop">
         {% for item in data.desktop %}
         <a href="{{item.href}}" class="icon" draggable="false" {% if item.target %}target="{{item.target}}" {% endif %}>
@@ -79,12 +79,12 @@
         {% endfor %}
     </nav><!-- .desktop -->
 
-    <div id="clippy" class="window">
+    <div id="clippy" class="window" aria-hidden="true">
         {% render dialogheader.liquid title:"Clippy" %}
         <div class="hole content-hole">
-            <img width="248" height="184" id="clippy-gif" class="pixelated"
+            <img width="248" height="184" id="clippy-gif" class="pixelated" aria-hidden="true"
                 src="https://cdn.polgarand.org/clippy/startup.gif"
-                style="background-image: url('https://cdn.polgarand.org/clippy/clippy_bg.gif')" alt="Clippy"
+                style="background-image: url('https://cdn.polgarand.org/clippy/clippy_bg.gif')" alt=""
                 draggable="false" />
         </div>
     </div>
@@ -110,7 +110,7 @@
                         <div class="icon">🏠</div>
                         <div class="label">Home</div>
                     </a>
-                    <img class="netscape-logo pixelated"
+                    <img class="netscape-logo pixelated" aria-hidden="true" alt=""
                         src="https://cdn.polgarand.org/netscape/netscape-meteors-60.gif" width="120px" height="120px"
                         draggable="false" />
                 </div>
