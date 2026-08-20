@@ -9,3 +9,9 @@
     user-select: none;
     will-change: transform;
 }
+
+@media(max-width:700px) {
+	#templeos-elephant {
+		display: none;
+	}
+}
