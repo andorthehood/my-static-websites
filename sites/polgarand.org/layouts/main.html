@@ -68,10 +68,10 @@
         <a href="{{item.href}}" class="icon" draggable="false" {% if item.target %}target="{{item.target}}" {% endif %}>
             <div class="icon-picture">
                 <img src="https://cdn.polgarand.org/windows/32x32/{{item.icon}}" class="pixelated" width="64px"
-                    height="64px" draggable="false" />
+                    height="64px" draggable="false" alt="" aria-hidden="true" />
                 {% if item.target %}<img class="shortcut pixelated"
                     src="https://cdn.polgarand.org/windows/32x32/overlay_shortcut.gif" width="64px" height="64px"
-                    draggable="false" />{%
+                    draggable="false" alt="" aria-hidden="true" />{%
                 endif %}
             </div>
             <div class="icon-label">{{item.label}}</div>
