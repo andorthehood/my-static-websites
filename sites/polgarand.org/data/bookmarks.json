@@ -1,5 +1,28 @@
 [
     {
+        "url": "https://pikuma.com/blog/programming-intel-pentium-mmx-simd",
+        "favicon": "pikuma.com.png",
+        "title": "Pikuma: SIMD in the 90s: Programming Intel's Pentium MMX",
+        "description": "If you used PCs in the 90s, you probably remember the 'Intel Inside MMX' stickers. This article explores Intel's major attempt at bringing SIMD instructions to mainstream desktop CPUs."
+    },
+    {
+        "url": "https://godbolt.org/z/x8dMM9eWK",
+        "favicon": "godbolt.org.png",
+        "title": "Compiler Explorer",
+        "description": "Compiler Explorer is an interactive online compiler which shows the assembly output of compiled C++, Rust, Go (and many more) code."
+    },
+    {
+        "url": "https://meltdownattack.com/",
+        "title": "Meltdown and Spectre",
+        "description": "Vulnerabilities in modern computers leak passwords and sensitive data."
+    },
+    {
+        "url": "https://layoffs.fyi/",
+        "favicon": "layoffs.fyi.png",
+        "title": "Layoffs.fyi - Tech and Startup Layoff Tracker",
+        "description": "[LIVE] Tracking all tech and startup layoffs since 2020. This page is constantly being updated."
+    },
+    {
         "url": "https://pizzaconsole.com/blog/posts/programming/cf-overage",
         "title": "Building a Cloudflare Workers Usage Monitor with an Automated Kill Switch",
         "description": "I wanted something that would catch overages early and stop traffic before costs spiral."
