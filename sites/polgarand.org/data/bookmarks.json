@@ -1,5 +1,28 @@
 [
     {
+        "url": "https://github.com/robhagemans/monobit/blob/master/YAFF.md",
+        "favicon": "github.com.png",
+        "title": "YAFF",
+        "description": "The yaff font file format, version 1.0.4"
+    },
+    {
+        "url": "https://unicode-draw.joel.drapper.me/",
+        "title": "Unicode Draw",
+        "description": "Draw pixels, export unicode"
+    },
+    {
+        "url": "https://david-peter.de/cube-composer/",
+        "favicon": "david-peter.de.png",
+        "title": "cube composer",
+        "description": "A puzzle game inspired by functional programming."
+    },
+    {
+        "url": "https://boydkane.com/essays/llms-could-control-their-host-machines-by-exploiting-inference-engines",
+        "favicon": "boydkane.com.png",
+        "title": "LLMs could control their host machines by exploiting inference engines",
+        "description": "Large language models often take actions running on one computer (via an agentic harness such as Claude Code or Codex), however the LLMs’ responses to prompts are computed on a different computer with GPU access."
+    },
+    {
         "url": "https://pikuma.com/blog/programming-intel-pentium-mmx-simd",
         "favicon": "pikuma.com.png",
         "title": "Pikuma: SIMD in the 90s: Programming Intel's Pentium MMX",
@@ -875,6 +898,12 @@
         "favicon": "devdocs.io.png",
         "title": "DevDocs API Documentation",
         "description": "Fast, offline, and free documentation browser for developers. Search 100+ docs in one web app: HTML, CSS, JavaScript, PHP, Ruby, Python, Go, C, C++"
+    },
+    {
+        "url": "https://girls.c64.org/",
+        "favicon": "girls.c64.org.png",
+        "title": "Girls.c64.org",
+        "description": "Preserving the sexy side of the Commodore 64"
     },
     {
         "url": "https://github.com/tholman/ascii-morph",
