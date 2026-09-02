@@ -1,5 +1,11 @@
 [
     {
+        "url": "https://restroomarchive.com/",
+        "favicon": "restroomarchive.com.png",
+        "title": "The Restroom Archive",
+        "description": "The Restroom Archive is an ongoing repository of publicly accessible restrooms."
+    },
+    {
         "url": "https://github.com/robhagemans/monobit/blob/master/YAFF.md",
         "favicon": "github.com.png",
         "title": "YAFF",
@@ -243,6 +249,12 @@
         "favicon": "temporal.io.png",
         "title": "The definitive guide to Durable Execution",
         "description": "Learn what Durable Execution is and how it enables developers to quickly create reliable applications that can withstand crashes."
+    },
+    {
+        "url": "https://thesvg.org/",
+        "favicon": "thesvg.org.png",
+        "title": "theSVG",
+        "description": "6,523+ Free Brand SVG Icons for Developers and Designers"
     },
     {
         "url": "https://loc.closertotruth.com/consciousness-theories",
