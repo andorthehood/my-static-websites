@@ -17,6 +17,17 @@
     <meta name="twitter:description" content="{{description}}" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1, user-scalable=yes" />
+    <link rel="preload" href="https://cdn.polgarand.org/fonts/fraunces-regular.woff2" as="font" type="font/woff2"
+        crossorigin />
+    <style>
+        @font-face {
+            font-family: "Fraunces";
+            src: url("https://cdn.polgarand.org/fonts/fraunces-regular.woff2") format("woff2");
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+        }
+    </style>
     <link rel="preload" href="/assets/{{style.scss}}" as="style" />
     <link rel="stylesheet" href="/assets/{{style.scss}}" />
     <link rel="canonical" href="https://polgarhivatal.nl/{{pathname}}" />

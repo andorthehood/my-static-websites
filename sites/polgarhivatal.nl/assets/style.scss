@@ -1,20 +1,26 @@
 body,
 html {
 	color: #000000;
-	line-height: 1.5;
 	font-family: "avenir next", avenir;
-	font-size: 16px;
+	font-size: 18px;
 	margin: 0;
 	padding: 0;
-	background: #ffffff;
+	background: #eeeeee;
+	line-height: 1.5;
 }
 
-pre {
-	font-family: "Departure Mono", monospace;
-	padding: 1em;
-	margin: 0 0 1em 0;
-	background: #eeeeee;
-	overflow-x: scroll;
+a {
+	color: #336699;
+	text-decoration-color: #999999;
+	text-decoration-thickness: 2px;
+}
+
+::selection {
+	background-color: #999999;
+}
+
+.nowrap {
+	white-space: nowrap;
 }
 
 p {
@@ -27,40 +33,32 @@ p:last-child {
 }
 
 ul {
-	list-style-type: square;
 	list-style-position: inside;
 	padding: 0 0 1em 0;
 	margin: 0;
 }
 
 h1 {
-	display: inline-block;
-	padding-left: 1rem;
-	font-weight: 400;
-	font-size: 32px;
+	font-size: 3rem;
+	line-height: 1;
+	font-family: "Fraunces", "Times New Roman", Times, serif;
+	padding-bottom: 1rem;
+	font-weight: 240;
 }
 
 h2 {
-	font-weight: 300;
-	font-size: 24px;
+	font-size: 1.5rem;
 	color: #666666;
-}
-
-h3 {
-	font-weight: 500;
-	font-size: 18px;
-}
-
-strong {
-	font-weight: 500;
+	font-family: "Fraunces", "Times New Roman", Times, serif;
+	font-weight: 240;
+	padding-bottom: 1rem;
+	line-height: 1;
 }
 
 h1,
 h2,
 h3 {
 	margin: 0;
-	line-height: 1;
-
 
 	a {
 		color: inherit;
@@ -68,32 +66,29 @@ h3 {
 	}
 }
 
-h3 {
-	font-size: 1em;
-}
-
-mark {
-	background: #eeeeee;
-}
-
 .container {
 	margin: 0 auto;
-	width: 50%;
 	font-size: 1rem;
-	padding: 2rem 0;
-	max-width: 900px;
+	padding: 6rem 0 0 0;
+	max-width: 1280px;
 }
 
-.logo {
-	width: 92px;
-	height: auto;
-	image-rendering: pixelated;
+header {
+	height: 24rem;
 }
 
-@media(max-width:1500px) {
-	.container {
-		width: 65%;
-	}
+main {
+	padding-bottom: 4rem;
+}
+
+.cols {
+	display: flex;
+	gap: 2rem;
+	flex-direction: row;
+}
+
+.col {
+	flex: 1;
 }
 
 @media(max-width:1024px) {
