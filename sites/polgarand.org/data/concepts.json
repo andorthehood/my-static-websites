@@ -114,5 +114,11 @@
         "url": "https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Bacon_number",
         "image": "TREE2.gif",
         "description": "A person's Erdős–Bacon number is the sum of their Erdős number—which measures the \"collaborative distance\" in authoring academic papers between that person and Hungarian mathematician Paul Erdős—and their Bacon number—which represents the number of links, through roles in films, by which the person is separated from American actor Kevin Bacon."
+    },
+    {
+        "name": "nth taxicab number",
+        "url": "https://en.wikipedia.org/wiki/Taxicab_number",
+        "image": "",
+        "description": "The nth taxicab number, is defined as the smallest integer that can be expressed as a sum of two positive integer cubes in n distinct ways."
     }
 ]
