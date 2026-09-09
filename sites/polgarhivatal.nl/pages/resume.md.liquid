@@ -24,25 +24,20 @@ Location: {{ work.location }}
 
 {% for skill in data.resume.skills %}
 
-  - {{ skill.name }}
-  {% for keyword in skill.keywords %}
-   {{ keyword }}{% unless forloop.last %}, {% endunless %}
-  {% endfor %}
+### {{ skill.name }}
+{% for keyword in skill.keywords %}
+- {{ keyword }}{% unless forloop.last %}, {% endunless %}
+{% endfor %}
 
 {% endfor %}
 
 ## Education
-
-- {% for education in data.resume.education %}
-  {{ education.institution }}:
-  {{ education.area }} {{ education.studyType }}
+{% for education in data.resume.education %}
+- {{ education.institution }}: {{ education.area }} {{ education.studyType }}
 
 {% endfor %}
 
-## References<
-
-    {% for reference in data.resume.references %}
-
-    - {{ reference.name }}
-
-  {% endfor %}
+## References
+{% for reference in data.resume.references %}
+- {{ reference.name }} {{ reference.description }}
+{% endfor %}
