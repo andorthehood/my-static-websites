@@ -4,8 +4,7 @@
     "email": "",
     "phone": "+31617697002",
     "location": {
-      "city": "Amsterdam",
-      "country": "Netherlands"
+      "city": "Amsterdam"
     },
     "profiles": [
       {
@@ -15,32 +14,35 @@
       {
         "network": "GitHub",
         "url": "https://github.com/andorthehood"
+      },
+      {
+        "network": "Website",
+        "url": "https://polgarhivatal.nl"
       }
     ],
-    "summary": "I'm a Software Engineer with 15+ years of experience in web development. I've led architectural and transformation efforts across multiple teams and companies within a holding structure. I'm comfortable working in undefined problem spaces. I've often been the person teams turn to when things are on fire. I bring a calm, solution-oriented mindset to complex technical and organizational problems, and I enjoy turning chaos into clarity."
+    "summary": "I'm a Staff/Principal-level software engineer with 15+ years of experience building high-traffic web products used by millions of people. My background is primarily TypeScript/JavaScript, Node.js, and React, with recent work focused on architecture, platform engineering, performance, reliability, and technical direction across teams. I work well in undefined problem spaces and have often been the person teams turn to when situations are ambiguous or high-pressure. I bring a calm, solution-oriented mindset to technical and organizational challenges, and I enjoy turning chaos into clarity."
   },
   "work": [
     {
       "company": "Byborg Enterprises",
       "position": "Principal Software Engineer",
       "startDate": "November 2021",
-      "endDate": "September 2025",
+      "endDate": "",
       "location": "Remote",
       "contract": "Freelance",
-      "summary": "Byborg is the holding company behind adult industry brands such as Playboy, Sex.com, Kinkly, LiveJasmin, The Million Roses, Gamma Entertainment, Cuties.ai, and Kiroo (AI-powered sex toys), and hundreds of other brands.",
+      "summary": "Byborg is a digital entertainment and technology group behind a large portfolio of adult streaming, VOD, creator-economy and AI companion platforms, including Playboy, Adult Time, LiveJasmin, The Million Roses, Kiiroo and hundreds of other brands.",
       "highlights": [
         "Optimized Node.js services for high-traffic, on-premise systems with high availability, zero-downtime deployments, and tight performance constraints.",
-        "Created internal guidelines for designers and frontend developers on building fluid, responsive layouts - helping transition a company that historically developed separate UIs for mobile and desktop.",
-        "Introduced visual regression testing, which enabled a team to replace their project's styling framework three times with full confidence and zero problems.",
-        "Led AI integration initiatives across companies and teams within the holding, embedding LLMs and MCP servers into developer tooling.",
-        "Created internal evaluation frameworks that helped teams assess and compare AI tools.",
-        "Produced internal training materials, including documentation and video tutorials, that supported AI adoption.",
-        "Held workshops across companies within the holding to introduce and onboard teams to AI-enhanced development workflows.",
-        "Built a custom Lighthouse metrics collector with which teams were able to track performance changes on deployment, enabling them to detect regressions.",
-        "Developed a tool to monitor client bundle size growth, which helped prevent dependency bloat in a large microfrontend ecosystem.",
-        "Had meetings with sales engineers from AI and SaaS companies to provide feedback on their products and advocate for features.",
-        "Interviewed staff and principal engineers, contributed to the hiring process.",
-        "Pioneered letting candidates use AI tools during live interviews to solve complex problems."
+        "Worked on a PHP + React to Next.js migration, mentoring and training frontend-focused engineers to work with Node.js",
+        "Facilitated technical decision-making around technology choices and architecture.",
+        "Integrated visual regression tests, performance metrics and guardrails into deployment workflows of multiple teams.",
+        "Created guidance for designers on engineering constraints and reusable UI patterns to reduce inconsistent, one-off design decisions.",
+        "Created guidance for frontend engineers on reviewing designs, including when to challenge proposals to reduce unnecessary technical or UX trade-offs.",
+        "Was the founding member of the team that oversaw the AI transformation across companies and teams within the group. We created training materials and held workshops across companies to onboard teams to AI-enhanced workflows.",
+        "Evaluated SaaS and AI vendors with their sales engineers, assessing products and services across testing, metrics, A/B testing, and AI tooling from a technical perspective.",
+        "Was involved in the preparation for the European Accessibility Act, helping define the engineering changes required for compliance.",
+        "Interviewed staff and principal engineer candidates and contributed to shaping the hiring process.",
+        "Served on-call for the group's primary revenue-generating platform, responding to and resolving production incidents."
       ]
     },
     {
@@ -50,12 +52,8 @@
       "endDate": "May 2023 · 10 mos",
       "location": "Remote",
       "contract": "Freelance",
-      "summary": "ikontent is a Budapest-based software consultancy with various clients across industries. I was brought in to support the adoption of modern web development practices within a team resistant to change. The tooling was already in place, but the team was hesitant to move away from their outdated tech stack and workflow.",
-      "highlights": [
-        "Demonstrated the benefits of TypeScript, linting, automated testing, CI/CD pipelines, and git-based workflows through real-world examples and internal training.",
-        "Helped developers gain confidence using tools like Storybook, visual regression testing, and monorepo architecture.",
-        "Led hands-on sessions to shift the team's mindset toward modern development practices and long-term maintainability."
-      ]
+      "summary": "I was brought in to support the adoption of modern web development practices within a team hesitant to move away from their legacy tech stack and workflow. I facilitated a shift from a build-and-handover delivery model toward projects requiring long-term maintainability. Introduced unit and end-to-end testing, gitflow, linting, type checking, established processes for reviewing and testing UI components.",
+      "highlights": []
     },
     {
       "company": "Byborg Enterprises",
@@ -64,16 +62,18 @@
       "endDate": "November 2021 · 3 yr 7 mos",
       "location": "Remote",
       "contract": "Full-time",
-      "summary": "After Docler's Amsterdam office was shut down, I was offered a remote position to help establish a new mobile-first frontend team in the group's Budapest office. The company was later renamed to Byborg Enterprises.",
+      "summary": "Following a group-wide restructuring, I was offered a remote position to help establish new mobile-first front-end teams in the group's Budapest office.",
       "highlights": [
-        "Was working on re-building the mobile front-end team from scratch, hiring and training new developers to work on the company's live streaming platforms.",
-        "Developed a fully browser-based video call frontend with real-time, bidirectional audio and video using early WebRTC technology, when cross-browser support and stability were still major challenges.",
-        "Created a browser-based, native-feel video player inspired by Instagram Stories, with custom preloading workarounds that made switching between videos seamless.",
-        "Led frontend modularization using microfrontends and module federation to eliminate duplication and enable shared, reusable components across projects.",
-        "Collaborated with members of the technical board to develop a frontend knowledge matrix aimed at improving career path clarity and skills management within the engineering teams.",
-        "Took part in organizing an online hackathon, came up with the core concept that defined the event's main challenge.",
-        "Mentored junior developers and helped onboard new hires into modern frontend practices.",
-        "Provided on-call support for the company's primary revenue-generating platform."
+        "Hired and trained new developers to work on the company's live streaming platform that served millions of daily visitors.",
+        "Developed a fully mobile browser-based video call front-end with real-time, bidirectional audio and video using early WebRTC technology, when cross-browser support and stability were still major challenges.",
+        "Created a browser-based, native-feel video player inspired by Instagram Stories, with custom preloading solutions that made switching between videos seamless.",
+        "Led front-end modularization efforts across teams using microfrontends and module federation.",
+        "Collaborated with the Head of Design on a new design system and component library, introducing design tokens and consistent grid/sizing conventions.",
+        "Developed a shared UI component library that enforced SSR-compatible component patterns.",
+        "Designed tooling and workflows for designers to review individual UI components before production.",
+        "Was tasked to create a group-wide front-end engineering skill matrix for career management, covering levels up to Staff Engineer.",
+        "Took part in organizing a hackathon, came up with the core concept that defined the main challenge.",
+        "Served on-call for the group's primary revenue-generating platform, responding to and resolving production incidents."
       ]
     },
     {
@@ -81,30 +81,23 @@
       "position": "Back-end Developer",
       "startDate": "Mar 2018",
       "endDate": "Jan 2019 · 11 mos",
-      "location": "Amsterdam, Netherlands",
+      "location": "Amsterdam",
       "contract": "Freelance",
-      "summary": "Developed SaaS for music festival organizers and a Messenger chatbot for festival goers. The platform was tested live at major Hungarian music festivals, but development was paused due to the COVID-19 pandemic. By the time festivals resumed, Messenger chatbots had fallen out of favor.",
-      "highlights": [
-        "Designed APIs to support schedule lookup, artist search, and location-based updates.",
-        "Developed admin-side tooling for festival organizers to manage events and push updates.",
-        "Coordinated outsourced development efforts by managing freelance contributors remotely."
-      ]
+      "summary": "Developed SaaS for music festival organizers and a Messenger chatbot for festival goers. The platform was tested live at major Hungarian music festivals, but deployment was paused due to the COVID-19 pandemic.",
+      "highlights": []
     },
     {
       "company": "Docler Holding Amsterdam",
       "position": "Senior Front-end Developer",
       "startDate": "Mar 2017",
       "endDate": "May 2018 · 1 yrs 2 mos",
-      "location": "Amsterdam, Netherlands",
+      "location": "Amsterdam",
       "contract": "Full-time",
-      "summary": "Relocated to Amsterdam after Docler suspended its Los Angeles operations. The Amsterdam office was established with the hope that it would be easier to attract and hire top engineering talent. However, the plan didn't succeed - at the time, the city was actively pushing back against the adult industry in an effort to improve its reputation.",
+      "summary": "Transferred to Amsterdam after Docler suspended its Los Angeles operations. Helped establishing the Amsterdam office with the goal to attract and hire top engineering talent.",
       "highlights": [
-        "Was working on re-building the mobile front-end team from scratch, hiring and training new developers to work on the company's live streaming platforms.",
-        "Convinced management to migrate the frontend stack from Backbone.js to React by demonstrating that it would improve hiring prospects and developer satisfaction.",
-        "Mentored junior developers and helped onboard new hires into modern frontend practices.",
-        "Led the consolidation of linter rules across multiple projects and teams through an RFC process.",
-        "Improved onboarding processes for new developers, helping them get up to speed with legacy systems.",
-        "Provided on-call support for the company's primary revenue-generating platform."
+        "Defined and gained approval for a strangler-fig migration from Backbone.js to React, then coordinated its incremental rollout across multiple teams.",
+        "Negotiated deadlines and scope, and split work into parallelizable and indiviually deployable tasks.",
+        "Served on-call for the company's primary revenue-generating platform, responding to and resolving production incidents."
       ]
     },
     {
@@ -112,13 +105,11 @@
       "position": "Senior Front-end Developer",
       "startDate": "Jul 2016",
       "endDate": "Mar 2017 · 9 mos",
-      "location": "Los Angeles, California, United States",
+      "location": "Los Angeles",
       "contract": "Full-time",
-      "summary": "Relocated from Luxembourg to Los Angeles to support Docler's US operations. The company's vision was to build mainstream live streaming products based on lessons learned from monetizing erotic content - at a time when most mainstream platforms hadn't yet figured out monetization. Despite being ahead of its time technically, most of these ventures did not achieve commercial success.",
+      "summary": "Transferred from Luxembourg to Los Angeles to support Docler's US operations, and the company's vision to build mainstream live streaming products based on lessons learned from monetizing adult content.",
       "highlights": [
-        "Worked on several innovative products: Docler Music (a live platform for musicians), Streamago (similar to what TikTok Live would later become), Oranum (streaming platform for fortune tellers), and Stitch (a mobile app that anticipated Instagram Stories).",
-        "Advocated for a portrait-first video UX in Stitch, anticipating mobile video trends, though the management prioritized landscape format to repurpose uploads for their TV channels.",
-        "Provided night-shift maintenance support for LiveJasmin and Oranum platforms while the main teams in Luxembourg were offline."
+        "Worked on several innovative products: Docler Music (a live platform for musicians), Streamago (similar to what TikTok Live would later become), Oranum (streaming platform for fortune tellers), and Stitch (a mobile app that anticipated Instagram Stories)."
       ]
     },
     {
@@ -126,13 +117,15 @@
       "position": "OTT & Mobile Front-end Specialist",
       "startDate": "Nov 2013",
       "endDate": "Jul 2016 · 2 yrs 9 mos",
-      "location": "Luxembourg, Luxembourg",
+      "location": "Luxembourg",
       "contract": "Full-time",
-      "summary": "Following a company restructuring, I was relocated from Budapest to Luxembourg to continue my work on OTT and mobile platforms.",
+      "summary": "Following a company restructuring, I was transferred from Budapest to Luxembourg to continue my work on OTT and mobile platforms.",
       "highlights": [
-        "I carried on the same responsibilities I had in the Budapest office: developing low-latency video players, supporting a wide range of devices (often with very limited resources), and building remote-controllable streaming UIs.",
-        "As HTML5 video became more widely supported, a new challenge emerged: autoplay restrictions on mobile browsers, introduced to conserve data and battery. I experimented with various hacks and platform-specific workarounds to ensure video and livestream playback could still start automatically across different environments.",
-        "I often had to work with ambiguous or shifting business requirements, which I handled confidently by proactively clarifying goals and proposing practical solutions."
+        "Developed low-latency live stream players for mobile browsers and smart TV platforms such as Samsung Tizen and LG webOS.",
+        "Implemented fallback streaming techniques like continuous JPEG feeds, WebSocket and long polling-based image delivery.",
+        "Optimized performance for embedded platforms with low-end CPUs and limited memory, working within tight rendering and execution budgets.",
+        "Experimented with delivering live streams in early consumer VR headsets.",
+        "Provided on-call support for the company's primary revenue-generating platform."
       ]
     },
     {
@@ -140,39 +133,34 @@
       "position": "OTT & Mobile Front-end Developer",
       "startDate": "Mar 2013",
       "endDate": "Nov 2013 · 9 mos",
-      "location": "Budapest, Hungary",
+      "location": "Budapest",
       "contract": "Full-time",
-      "summary": "Joined Docler's mobile team in Budapest, working on early-stage development of browser-based video solutions for mobile and smart TV platforms. Docler Holding was a pioneer in online live streaming and owned one of the most visited adult live streaming platforms at the time, including brands like LiveJasmin. The company held extensive intellectual property in low-latency media streaming, shaping much of the early technical landscape of the industry.",
+      "summary": "Joined Docler's alternative platform team in Budapest, working on early-stage development of browser-based video solutions for mobile and smart TV platforms. Docler Holding was a pioneer in online live streaming and owned one of the first and most visited adult live streaming platforms.",
       "highlights": [
-        "Worked with video and backend teams to align frontend efforts with media delivery formats.",
-        "Developed low-latency live stream players for smart TV platforms such as Samsung Tizen and LG webOS, as well as mobile browsers with support for Android, iOS, Windows Phone, and BlackBerry devices.",
-        "Implemented workarounds to enable live video playback on mobile and OTT devices that lacked native support for the HTML5 video tag.",
-        "Helped develop an innovative web-based streaming UI for OTT devices, enabling seamless interaction using standard TV remote controls.",
-        "Optimized performance for embedded platforms with low-end CPUs and limited memory, working within tight rendering and execution budgets.",
-        "We used TypeScript as the primary language for our OTT streaming platform, well before it became an industry standard."
+        "Worked closely with video and backend teams to develop creative workarounds to enable live video playback on mobile and OTT devices that lacked support for Flash or the HTML5 video tag.",
+        "Helped develop an innovative web-based UI for OTT devices, enabling seamless interaction using TV remote controls."
       ]
     },
     {
-      "company": "Polgar Hivatal",
+      "company": "Freelancer",
       "position": "Full Stack Developer",
       "startDate": "2010",
       "endDate": "2013 · 3 yrs",
-      "location": "Budapest, Hungary",
+      "location": "Budapest",
       "contract": "Freelance",
-      "summary": "Built custom Drupal and WordPress websites for clients referred by major Hungarian software consultancies, who frequently outsourced projects that were too small for their scale.",
+      "summary": "Built custom Drupal and WordPress websites for clients referred by Hungarian software consultancies, who frequently outsourced projects that were too small for their scale.",
       "highlights": [
-        "Provided clients with hosting and domain management through my own cPanel-based setup, handling deployments, domain configuration, and MySQL database management on shared hosting platforms.",
-        "Turned vague client inputs into working websites by staying closely aligned with clients and clarifying requirements throughout the process.",
-        "Proposed and built an automation tool that enabled Facebook page owners to schedule posts automatically by mimicing a human interacting with the platform. Posts published through the official API had lower visibility compared to those created manually. I built this well before tools like Puppeteer, when browser automation was unheard of.",
-        "Built a 3D perspective projection engine using the 2D HTML5 Canvas, before WebGL was invented.",
-        "Developed a real-time parser for Hungarian election data to power live visualizations on a news site. Parsed schemaless and inconsistently formed XML feeds from the Hungarian National Election Office, and continuously adapted the parser during the live vote count to ensure uninterrupted data delivery."
+        "Provided clients with hosting and domain management through my own cPanel-based setup, handling deployments, domain configuration, and MySQL database management.",
+        "Proposed and developed a custom browser automation tool for scheduling Facebook page posts, using direct browser interaction before tools such as Puppeteer existed.",
+        "Built a 3D perspective projection engine using the 2D HTML5 Canvas API, before WebGL was available in browsers.",
+        "Developed a real-time parser for Hungarian election data to power live visualizations on a news site. Parsed schemaless and inconsistently formed XML feeds from the Hungarian National Election Office."
       ]
     },
     {
       "company": "Pre-professional Endeavors",
       "position": "Full Stack Developer",
       "startDate": "2006",
-      "endDate": "2010 · 4 yrs",
+      "endDate": "2010",
       "location": "Sopron, Hungary",
       "contract": "",
       "summary": "Before entering the professional world, I worked independently on web and multimedia projects for personal contacts, school, and online communities.",
@@ -190,89 +178,91 @@
       "studyType": "Bachelor",
       "startDate": "2010-09-01",
       "endDate": "2013-01-01",
-      "courses": [
-        "DB1101 - Basic SQL"
-      ]
+      "courses": []
     }
   ],
   "references": [
     {
-      "name": "Kolos Kaszaly (Senior Vice President of Engineering @ Byborg Enterprises)",
+      "name": "Kolos Kaszaly",
+      "description": "Senior Vice President of Technology @ Byborg Enterprises",
       "reference": ""
     },
     {
-      "name": "Artem Antonenko (Head of AI Transformation @ Byborg Enterprises)",
+      "name": "Artem Antonenko",
+      "description": "former head of AI transformation @ Byborg Enterprises",
       "reference": ""
     }
   ],
   "skills": [
     {
       "name": "Web Development",
-      "level": "Master",
+      "level": "",
       "keywords": [
         "Node.js",
         "Next.js",
+        "React",
         "Remix",
-        "WebAssembly",
-        "Microfrontend Architecture",
+        "Microfrontends",
         "Module Federation",
+        "WebAssembly",
         "Redux",
         "Zustand",
         "WebGL",
         "WebRTC",
         "WebSockets",
-        "Web Workers",
-        "React",
+        "Video.js",
+        "Service Worker",
         "TailwindCSS",
         "AudioWorklet",
         "HTML",
+        "SCSS",
         "CSS"
       ]
     },
     {
       "name": "Programming",
-      "level": "Master",
+      "level": "",
       "keywords": [
         "TypeScript",
         "JavaScript",
-        "Rust",
-        "C++"
-      ]
-    },
-    {
-      "name": "AI & LLM Integration",
-      "level": "Advanced",
-      "keywords": [
-        "Context Engineering",
-        "LangChain",
-        "Agentic AI",
-        "Claude Code",
-        "Windsurf",
-        "Cursor",
-        "Model Context Protocol (MCP)",
-        "Retrieval-Augmented Generation (RAG)"
+        "Rust"
       ]
     },
     {
       "name": "Tooling & Workflow",
-      "level": "Advanced",
+      "level": "",
       "keywords": [
         "Storybook",
         "Lighthouse",
         "Nx",
+        "Vite",
         "Swagger",
         "On-prem",
         "Visual Regression Testing",
+        "TDD",
+        "RFC",
+        "ADR",
+        "Scrum",
+        "Kanban",
+        "Gitflow",
         "Playwright",
+        "Git",
+        "Bitbucket",
+        "CI/CD",
+        "Google SRE",
         "GitHub Actions",
         "Jenkins",
+        "Sonatype Nexus",
+        "Observability",
+        "PagerDuty",
         "Sentry",
+        "Vitest",
         "Jest"
       ]
     },
     {
       "name": "Platforms & Infrastructure",
-      "level": "Proficient",
+      "level": "",
       "keywords": [
         "AWS S3",
         "AWS CloudFront",
@@ -283,28 +273,33 @@
         "AWS Lightsail",
         "Vercel",
         "DigitalOcean",
+        "Cloudflare",
         "Netlify",
         "Heroku",
         "Supabase",
         "Firebase",
         "Docker",
+        "Redis",
         "On-prem (Linux)",
         "NGINX",
-        "Grafana"
+        "Wowza",
+        "Grafana",
+        "Squid"
       ]
     },
     {
       "name": "Team Building & Hiring",
-      "level": "Advanced",
+      "level": "",
       "keywords": [
         "Technical Interviewing",
         "Onboarding",
-        "Mentoring"
+        "Mentoring",
+        "SBI Feedback"
       ]
     },
     {
       "name": "Legacy Technologies",
-      "level": "Proficient",
+      "level": "",
       "keywords": [
         "Backbone.js",
         "jQuery",
@@ -319,7 +314,30 @@
         "StyledComponents",
         "Grunt",
         "WAP",
-        "Teletext"
+        "cPanel",
+        "Apache",
+        "MySQL",
+        "Sass / Less",
+        "Gulp",
+        "Browserify",
+        "MooTools",
+        "Visual Basic"
+      ]
+    },
+    {
+      "name": "Other",
+      "level": "",
+      "keywords": [
+        "AVR assembly",
+        "Teletext",
+        "C++",
+        "Unity",
+        "Swift",
+        "React Native",
+        "C#",
+        "Objective-C",
+        "Java",
+        "Kinect SDK"
       ]
     }
   ],
@@ -327,22 +345,19 @@
     {
       "name": "Photography & Visual Projects",
       "keywords": [
-        "Analog photography",
-        "Conceptual photography"
+        "Analog photography"
       ]
     },
     {
       "name": "Creative Technology",
       "keywords": [
-        "Experimental sound synthesis",
-        "Custom instruments"
+        "Experimental sound synthesis, generative music"
       ]
     },
     {
-      "name": "Animal Training",
+      "name": "Computer Science",
       "keywords": [
-        "Reinforcement learning",
-        "Reward hacking"
+        "Tinkering with programming languages and compilers"
       ]
     }
   ],
