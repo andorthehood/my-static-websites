@@ -361,6 +361,22 @@
       ]
     }
   ],
+  "publications": [
+    {
+      "name": "We installed Next.js and you won't believe what happened next",
+      "publisher": "",
+      "releaseDate": "November 29, 2021",
+      "url": "https://rendezveny.hwsw.hu/free/65/webfejlesztes-meetup",
+      "summary": "Did a talk about bulding a multi-tenant Next.js app at the HWSW online meetup."
+    },
+    {
+      "name": "Composing music with JavaScript",
+      "publisher": "",
+      "releaseDate": "May 10, 2016",
+      "url": "https://2016.jsconfbp.com/workshops/composing-music.html",
+      "summary": "Held a workshop at JSConf in 2026 about using WebMIDI to control any type of hardware through USB from the browser."
+    }
+  ],
   "languages": [
     {
       "language": "Hungarian",
