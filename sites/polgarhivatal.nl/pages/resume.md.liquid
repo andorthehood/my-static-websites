@@ -23,7 +23,6 @@ Location: {{ work.location }}
 ## Skills
 
 {% for skill in data.resume.skills %}
-
 ### {{ skill.name }}
 {% for keyword in skill.keywords %}
 - {{ keyword }}{% unless forloop.last %}, {% endunless %}
@@ -34,7 +33,6 @@ Location: {{ work.location }}
 ## Education
 {% for education in data.resume.education %}
 - {{ education.institution }}: {{ education.area }} {{ education.studyType }}
-
 {% endfor %}
 
 ## References
