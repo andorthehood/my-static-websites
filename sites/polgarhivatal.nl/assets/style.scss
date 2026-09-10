@@ -5,18 +5,28 @@ html {
 	font-size: 18px;
 	margin: 0;
 	padding: 0;
-	background: #eeeeee;
+	background: rgb(250, 249, 245);
 	line-height: 1.5;
 }
 
 a {
 	color: #336699;
 	text-decoration-color: #999999;
-	text-decoration-thickness: 2px;
+}
+
+main.article {
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 4rem 1rem;
+
+	h1 {
+		font-size: 1rem;
+		padding: 0 0 2rem 0;
+	}
 }
 
 ::selection {
-	background-color: #999999;
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 .nowrap {
@@ -48,7 +58,6 @@ h1 {
 
 h2 {
 	font-size: 1.5rem;
-	color: #666666;
 	font-family: "Fraunces", "Times New Roman", Times, serif;
 	font-weight: 240;
 	padding-bottom: 1rem;
@@ -59,26 +68,24 @@ h1,
 h2,
 h3 {
 	margin: 0;
+}
+
+article h2 {
+	font-size: 3rem;
 
 	a {
-		color: inherit;
 		text-decoration: none;
 	}
 }
 
-.container {
+main.index {
 	margin: 0 auto;
-	font-size: 1rem;
-	padding: 6rem 0 0 0;
+	padding: 6rem 0 4rem 0;
 	max-width: 1280px;
-}
 
-header {
-	height: 24rem;
-}
-
-main {
-	padding-bottom: 4rem;
+	header {
+		height: 24rem;
+	}
 }
 
 .cols {
