@@ -1,0 +1,60 @@
+---
+layout: post
+title: 'If operands and instructions are both numbers, how does a computer tell them apart?'
+description: "A practical explanation of how CPUs distinguish opcodes from operands during instruction decoding."
+date: 2019-04-07T23:53+0100
+unlisted: true
+location: 'Haarlem, Netherlands'
+---
+
+<p>As the instruction pointer of the machine starts scanning through the memory byte by byte, it stumbles upon the number 67.</p> 
+
+<pre>[67] 0 0 32 65 65 229 142 38</pre>
+
+<p>What is 67?</p>
+
+<p>The machine is not wandering randomly, it is at the beginning of a program. It expects the first number to represent an instruction, so it consults the specification, where 67 is defined as the operation that pushes a 32-bit floating-point number onto the stack.</p>
+
+<p>At this moment, 67 represents an opcode.</p>
+
+<p>And this specific opcode carries a rule: “after this byte, read exactly 4 bytes and interpret them as a floating-point number”. That number will be the one pushed onto the stack.</p>
+
+<p>So the instruction pointer advances and reads the next four bytes:</p>
+
+<pre>67 [0 0 32 65] 65 229 142 38</pre>
+
+<p>Interpreted according to <a href="https://en.wikipedia.org/wiki/IEEE_754">IEEE-754</a>, this pattern represents the number 10.0.</p>
+
+<p>So what just happened?</p>
+
+<p>In this small sequence, the exact same kind of byte played two completely different roles: 67 was interpreted as an instruction, the next four bytes were interpreted as a value.</p>
+
+<p>Nothing in the byte 67 physically distinguishes it from the bytes 0, 32, or 65. They are all just 8 bits stored in memory.</p>
+
+<p>The distinction emerges from the decoding process. At the moment the first byte is read, the machine expects an opcode. After decoding that opcode, it expects an immediate operand and consumes the next four bytes accordingly.</p>
+
+<p>If the pointer had jumped into the middle of those four float bytes, the machine would have attempted to interpret them as instructions instead.</p>
+
+<p>After reading the last byte of the floating-point number and pushing the value onto the stack, the machine returns to its default state: it expects the next byte to represent another instruction.</p>
+
+<pre>67 0 0 32 65 [65] 229 142 38</pre>
+
+<p>This time the byte is 65. The machine consults the specification, turns out it corresponds to pushing a 32-bit integer onto the stack.</p>
+
+<p>So far, nothing surprising. Another instruction that pushes a number onto the stack.</p>
+
+<p>But this opcode carries a slightly different rule: “after this byte, read a signed integer encoded in variable-length format”. It does not say “read exactly four bytes”. It says: read an integer whose length is not known in advance.</p>
+
+<p>Imagine if all integers were encoded using 4 bytes. The number 2 would take as much space as the number 2,147,483,647. Most programs use small integers, storing them in this form would be a huge waste of memory space.</p>
+
+<p>Thankfully, computer scientists solved this problem by inventing the <a href="https://en.wikipedia.org/wiki/LEB128">LEB128</a> encoding format. Instead of allocating a fixed number of bytes, the integer is split into 7-bit chunks. Each byte reserves its most significant bit as a special flag that tells the machine whether it is the last byte in the sequence. 1 means that there are more bytes to come, 0 means that this byte was the last one.</p>
+
+<pre>
+… 65 229          142          38           …
+      ,- flag bit
+     [1][0111011] [1][1000000] [0][1111000]
+         ^- 7-bit chunk         ^- 0 means last</pre>
+
+<p>The machine reads one byte at a time. After each byte, it checks that leading bit. Only when it encounters a 0 does it know the integer is complete.</p>
+
+<p>At that moment, the decoding ends, and the machine once again returns to expecting an opcode.</p>
