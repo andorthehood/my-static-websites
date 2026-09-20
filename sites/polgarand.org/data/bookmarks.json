@@ -1,5 +1,29 @@
 [
     {
+        "url": "https://overreacted.io/how-i-vibed-a-proof-of-conways-conjecture",
+        "favicon": "overreacted.io.png",
+        "title": "How I Vibed a Proof of Conway’s Conjecture",
+        "description": "You can just prove things, apparently."
+    },
+    {
+        "url": "https://www.theargumentmag.com/p/computer-do-a-breakthrough-no-mistakes",
+        "favicon": "www.theargumentmag.com.png",
+        "title": "Computer, do a breakthrough. No mistakes.",
+        "description": "Welcome to The Weekly Scroll"
+    },
+    {
+        "url": "https://www.recurse.com/",
+        "favicon": "www.recurse.com.png",
+        "title": "The Recurse Center",
+        "description": "The Recurse Center is a retreat for curious programmers."
+    },
+    {
+        "url": "https://cm.xyz/blog/understanding-why-youd-use-effect-ts",
+        "favicon": "cm.xyz.png",
+        "title": "Understanding Why You'd Use Effect TS",
+        "description": "One objective reason to use Effect, one big subjective one, and the functional-programming discipline that connects them."
+    },
+    {
         "url": "https://restroomarchive.com/",
         "favicon": "restroomarchive.com.png",
         "title": "The Restroom Archive",
@@ -10,6 +34,12 @@
         "favicon": "github.com.png",
         "title": "YAFF",
         "description": "The yaff font file format, version 1.0.4"
+    },
+    {
+        "url": "https://artefkt.dev/",
+        "favicon": "artefkt.dev.png",
+        "title": "Artefkt | Modular Glitch Image Editor",
+        "description": "A desktop image editor for glitch, dither, pixel, palette, color and display effects with real-time preview and full-resolution exports."
     },
     {
         "url": "https://unicode-draw.joel.drapper.me/",
@@ -1055,6 +1085,12 @@
         "url": "https://xkcd.com/505/",
         "favicon": "xkcd.com.png",
         "title": "xkcd: A Bunch of Rocks",
+        "description": ""
+    },
+    {
+        "url": "https://what-if.xkcd.com/140/",
+        "favicon": "what-if.xkcd.com.png",
+        "title": "Proton Earth, Electron Moon",
         "description": ""
     },
     {

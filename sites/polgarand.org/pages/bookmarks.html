@@ -7,7 +7,7 @@ css: 'bookmarks.scss'
 ---
 <div class="bookmarks">
     <p>A list of websites I like, and want to remember. I update this list whenever I find something new and
-        interesting on the web. Last updated on September 2, 2026</p>
+        interesting on the web. Last updated on September 20, 2026</p>
     <ul>
         {% for bookmark in data.bookmarks %}
         <li>
@@ -17,7 +17,6 @@ css: 'bookmarks.scss'
                 <a href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
             </span>
             <span class="descrition">{{bookmark.description}}</span>
-
         </li>
         {% endfor %}
     </ul>
