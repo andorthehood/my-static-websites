@@ -1,5 +1,16 @@
 [
     {
+        "url": "https://gruhn.me/blog/2026-08-29/",
+        "title": "Niklas Gruhn - Lean explained with TypeScript",
+        "description": ""
+    },
+    {
+        "url": "https://tombedor.dev/human-attention-and-human-effort/",
+        "favicon": "tombedor.dev.png",
+        "title": "If You are Asking for Human Attention, Demonstrate Human Effort",
+        "description": "An ever-increasing volume of debug investigations, document writing, and code is written by robots. This has created a new etiquette question when working with a team - when is it OK to forward the output of an AI to another human to read?"
+    },
+    {
         "url": "https://overreacted.io/how-i-vibed-a-proof-of-conways-conjecture",
         "favicon": "overreacted.io.png",
         "title": "How I Vibed a Proof of Conway’s Conjecture",
@@ -437,6 +448,18 @@
         "favicon": "tkdodo.eu.png",
         "title": "The Vertical Codebase",
         "description": "Let's take a look at why the common, horizontal code structure is not ideal, where it breaks down, and what we can do about it."
+    },
+    {
+        "url": "https://www.imperva.com/blog/another-critical-rce-discovered-in-a-popular-mcp-server/",
+        "favicon": "www.imperva.com.png",
+        "title": "Another Critical RCE Discovered in a Popular MCP Server",
+        "description": "Imperva Threat Research recently uncovered and disclosed a critical Remote Code Execution (RCE) vulnerability (CVE-2025-53967) in the Framelink Figma MCP Server."
+    },
+    {
+        "url": "https://tombedor.dev/mcp-is-a-fad/",
+        "favicon": "tombedor.dev.png",
+        "title": "MCP is a Fad",
+        "description": "Model Context Protocol has taken off as the standardized platform for AI integrations, but this popularity will be short-lived."
     },
     {
         "url": "https://bryankeller.github.io/2026/04/08/porting-mac-os-x-nintendo-wii.htm",
