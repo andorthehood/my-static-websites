@@ -120,5 +120,11 @@
         "url": "https://en.wikipedia.org/wiki/Taxicab_number",
         "image": "",
         "description": "The nth taxicab number, is defined as the smallest integer that can be expressed as a sum of two positive integer cubes in n distinct ways."
+    },
+    {
+        "name": "Doorman Fallacy",
+        "url": "https://en.wikipedia.org/wiki/Doorman_fallacy",
+        "image": "",
+        "description": "The doorman fallacy is a category error in which a complex human role is reduced to a function, leading to the assumption that it can be replaced with a cost-effective automated substitute without loss of value."
     }
 ]
