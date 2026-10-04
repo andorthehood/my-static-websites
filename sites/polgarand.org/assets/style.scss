@@ -234,17 +234,14 @@ h2 {
 
 .list-with-icon {
 	img {
-		float: left;
-		padding-right: 20px;
+		position: absolute;
 		display: block;
+		left: 0;
+		top: 0;
 	}
 
 	li {
-		padding-bottom: 20px;
-	}
-
-	li .li-head {
-		padding-top: 10px;
-		display: inline-block;
+		position: relative;
+		padding: 0 0 20px 84px;
 	}
 }
