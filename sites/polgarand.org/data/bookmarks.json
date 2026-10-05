@@ -1,5 +1,23 @@
 [
     {
+        "url": "https://soggi.org/video-cards/tech-demos.htm",
+        "favicon": "soggi.org.png",
+        "title": "Video Card Tech Demos - Download",
+        "description": "Download Tech Demos for your Retro Video Card by 3dfx, AMD, ATI, Matrox, NVIDIA, PowerVR, S3 or SiS"
+    },
+    {
+        "url": "https://dos.zone/",
+        "favicon": "dos.zone.png",
+        "title": "DOS Zone | DOS games in browser",
+        "description": "Ultimate collection of free dos games to play online in browser. No registration needed, no advertisment, just play!"
+    },
+    {
+        "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+        "favicon": "www.anthropic.com.png",
+        "title": "An alignment assessment of recent cybersecurity incidents",
+        "description": "We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems."
+    },
+    {
         "url": "https://gruhn.me/blog/2026-08-29/",
         "title": "Niklas Gruhn - Lean explained with TypeScript",
         "description": ""
