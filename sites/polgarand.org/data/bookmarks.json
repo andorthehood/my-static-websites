@@ -1,5 +1,100 @@
 [
     {
+        "url": "https://feelingof.com/",
+        "favicon": "feelingof.com.png",
+        "title": "Feeling of Computing",
+        "description": "Feeling of Computing is an online community with a welcoming, cooperative, and revolutionary spirit."
+    },
+    {
+        "url": "https://wy-lang.org/",
+        "favicon": "wy-lang.org.png",
+        "title": "wenyan‑lang",
+        "description": "wenyan, is an esoteric programming language that closely follows the grammar and tone of classical Chinese literature."
+    },
+    {
+        "url": "https://github.com/LingDong-/fishdraw",
+        "favicon": "github.com.png",
+        "description": "procedurally generated fish drawings",
+        "title": "fishdraw"
+    },
+    {
+        "url": "https://alexharri.com/blog/ascii-rendering",
+        "favicon": "alexharri.com.png",
+        "description": "Recently, I’ve been spending my time building an image-to-ASCII renderer. Below is the result — try dragging it around, the demo is interactive!",
+        "title": "ASCII characters are not pixels: a deep dive into ASCII rendering"
+    },
+    {
+        "url": "https://jsomers.net/i-should-have-loved-biology",
+        "favicon": "jsomers.net.png",
+        "description": "I should have loved biology but I found it to be a lifeless recitation of names: the Golgi apparatus and the Krebs cycle; mitosis, meiosis; DNA, RNA, mRNA, tRNA.",
+        "title": "I should have loved biology"
+    },
+    {
+        "url": "https://www.derekthompson.org/p/why-everything-became-television",
+        "favicon": "www.derekthompson.org.png",
+        "title": "Everything Is Television",
+        "description": "A spooky convergence is happening in media. Everything that is not already television is turning into television."
+    },
+    {
+        "url": "https://medievalbooks.nl/2018/09/07/the-architecture-of-the-medieval-page",
+        "favicon": "medievalbooks.nl.png",
+        "description": "It may seem a stretch to compare page design with architecture, but the comparison really works, I think. Looking at the medieval page, it is not difficult to regard it as an engineered construction.",
+        "title": "The Architecture of the Medieval Page"
+    },
+    {
+        "url": "https://www.coderelay.io/fontemon.html",
+        "favicon": "www.coderelay.io.png",
+        "description": "You read that right! It's a video game in a font! A font as in \"Time New Roman\". The entire game is enclosed in fontemon.otf, no javascript, no html, all font.",
+        "title": "World's first video game in a font!"
+    },
+    {
+        "url": "https://arxiv.org/html/2206.05831v1",
+        "favicon": "arxiv.org.png",
+        "description": "The power of learning frameworks in solving hard inverse-problems provides an appealing case for the development of ‘physical learning’ in which physical systems adopt desirable properties on their own without computational design.",
+        "title": "Learning without neurons in physical systems"
+    },
+    {
+        "url": "https://s.ai/nlws/",
+        "favicon": "s.ai.png",
+        "description": "Grammatical sketch. Under active revision; some parts may be deprecated. by Alex Fink & Sai, 2010–present",
+        "title": "UNLWS (Unker Non-Linear Writing System)"
+    },
+    {
+        "url": "https://wiki.xxiivv.com/site/interaction_nets.html",
+        "favicon": "wiki.xxiivv.com.png",
+        "description": "Interaction nets are a graph rewriting system.",
+        "title": "XXIIVV — interaction nets"
+    },
+    {
+        "url": "https://michael.homer.nz/Publications/PAINT2022",
+        "title": "Interleaved 2D Notation for Concatenative Programming",
+        "description": "Concatenative languages use implicit argument passing to provide a concise expression of programs comprising many composed transformation functions."
+    },
+    {
+        "url": "https://tomasp.net/academic/papers/denicek",
+        "favicon": "tomasp.net.png",
+        "description": "Building programming systems that support programming by demonstration, collaborative editing, incremental recomputation and structure editing is hard! Denicek is a computational substrate based on documents and history of edit actions that simplifies the task.",
+        "title": "Denicek Computational Substrate for Document-Oriented End-User Programming"
+    },
+    {
+        "url": "https://retrocomputing.stackexchange.com/questions/11533/why-did-moving-the-mouse-cursor-cause-windows-95-to-run-more-quickly",
+        "favicon": "retrocomputing.stackexchange.com.png",
+        "title": "Why did moving the mouse cursor cause Windows 95 to run more quickly?",
+        "description": "When I was young, if I remember correctly, Windows 95 (if not 98) had this weird behavior that when installing programs, wiggling the mouse cursor make the progress faster. What caused this?"
+    },
+    {
+        "url": "https://freebrey.art/#blog/heartgold-decomp",
+        "favicon": "freebrey.art.png",
+        "title": "I decompiled Pokémon HeartGold in one month",
+        "description": "Art Freebrey is a 21-year-old software engineer and CTO at Revnu, based in the UK. Building agents, reverse engineering antibots, and shipping products."
+    },
+    {
+        "url": "https://www.mikelacher.com/",
+        "favicon": "www.mikelacher.com.png",
+        "title": "Mike Lacher",
+        "description": "Mike Lacher is a writer and creative director."
+    },
+    {
         "url": "https://soggi.org/video-cards/tech-demos.htm",
         "favicon": "soggi.org.png",
         "title": "Video Card Tech Demos - Download",
